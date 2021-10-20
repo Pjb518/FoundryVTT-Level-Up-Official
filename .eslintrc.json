@@ -1,0 +1,35 @@
+{
+  "env": {
+    "shared-node-browser": true,
+    "es2021": true
+  },
+  "extends": ["airbnb"],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["import"],
+  "ignorePatterns": ["dist/**/*"],
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "enforceInMethodNames": false,
+        "allowAfterSuper": true
+      }
+    ],
+    "no-param-reassign": [ "error", { "props": false }]
+  },
+  "globals": {
+    "CONFIG": "readonly",
+    "Hooks": "readonly",
+    "game": "readonly",
+    "loadTemplates": "readonly"
+  },
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  }
+}
