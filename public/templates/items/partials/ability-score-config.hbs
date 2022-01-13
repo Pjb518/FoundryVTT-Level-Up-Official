@@ -1,0 +1,22 @@
+<div
+    class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+    <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{ localize "A5E.AbilityScore" }}
+    </h3>
+
+    <div class="a5e-input-container a5e-input-container--inline">
+        <select
+            class="a5e-select"
+            name="data.ability"
+            data-dtype="String"
+        >
+            <option value=""></option>
+
+            {{#select data.ability}}
+                {{#each config.abilities as |name ability|}}
+                    <option value="{{ability}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+</div>

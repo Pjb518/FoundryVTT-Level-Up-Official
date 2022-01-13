@@ -1,0 +1,185 @@
+<section
+    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--maneuvers {{#unless (eq currentTab 'maneuvers')}}a5e-sheet__tab-content--hidden{{/unless}}"
+    data-group="main"
+    data-tab="maneuvers"
+>
+    <div class="a5e-filter-container a5e-box">
+        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+            {{ localize "A5E.Filters" }}
+        </h2>
+
+        <div class="a5e-form-group">
+            <h3 class="a5e-form__input-label">{{localize "A5E.ManeuverDegree"}}</h3>
+
+            <ul class="a5e-tag-group a5-etag-group--small">
+                {{#each config.maneuverDegrees as | degree key |}}
+                    <li
+                        class="
+                            a5e-tag
+                            a5e-tag--small
+                            a5e-tag--clickable
+                            {{#if (contains ../filters.maneuverDegree.inclusive key)}}''
+                            {{else if (contains ../filters.maneuverDegree.exclusive key)}}a5e-tag--red
+                            {{else}}a5e-tag--inactive
+                            {{/if}}
+                            a5e-js-toggle-filter
+                        "
+                        data-item-type="maneuver"
+                        data-category="degree"
+                        data-value="{{key}}"
+                    >
+                        {{localize degree}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="a5e-form-group">
+            <h3 class="a5e-form__input-label">{{localize "A5E.ManeuverTradition"}}</h3>
+
+            <ul class="a5e-tag-group a5-etag-group--small">
+                {{#each config.maneuverTraditions as | tradition key |}}
+                    <li
+                        class="
+                            a5e-tag
+                            a5e-tag--small
+                            a5e-tag--clickable
+                            {{#if (contains ../filters.maneuverTradition.inclusive key)}}''
+                            {{else if (contains ../filters.maneuverTradition.exclusive key)}}a5e-tag--red
+                            {{else}}a5e-tag--inactive
+                            {{/if}}
+                            a5e-js-toggle-filter
+                        "
+                        data-item-type="maneuver"
+                        data-category="tradition"
+                        data-value="{{key}}"
+                    >
+                        {{localize tradition}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <a
+            class="a5e-button a5e-button--filter-reset a5e-js-reset-filters"
+            data-item-type="maneuver"
+        >
+            {{localize "A5E.FiltersReset"}}
+        </a>
+    </div>
+
+    <div class="a5e-items-container a5e-scroll-container a5e-js-maneuver-scroll-area">
+        <section class="a5e-item-group">
+            <header class="a5e-header">
+                <h3 class="a5e-heading a5e-heading--item-group">
+                    {{ localize "A5E.TabManeuvers" }}
+                </h3>
+
+                <a class="a5e-button a5e-button--add-item a5e-js-create-maneuver-item">
+                    + {{localize "A5E.ManeuverAdd"}}
+                </a>
+            </header>
+
+            <ul class="a5e-item-list">
+                {{#each items}}
+                    <li
+                        class="a5e-item-list__item a5e-box a5e-js-item"
+                        data-id="{{this._id}}"
+                        data-item-id="{{this._id}}"
+                        draggable="true"
+                    >
+                        <img
+                            src="{{this.img}}"
+                            title="{{this.name}}"
+                            class="a5e-image a5e-image--item-inline a5e-js-activate-item"
+                        />
+
+                        <span>
+                            {{this.name}}
+                            {{#if this.showExertionLabel}}({{this.exertionLabel}}){{/if}}
+                        </span>
+
+                        {{#if this.data.inlineLabels.length}}
+                            <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                                {{#each this.data.inlineLabels}}
+                                    <div class="a5e-tag a5e-tag--small">
+                                        {{this}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/if}}
+
+                        <div class="a5e-item-list__item-details">
+                            <hr class="a5e-rule">
+
+                            {{#if this.data.description}}
+                                {{{this.data.description}}}
+                            {{else}}
+                                {{localize "A5E.NoDescription"}}
+                            {{/if}}
+                        </div>
+
+                        <div class="a5e-context-menu">
+                            <a class="a5e-context-menu__option a5e-js-edit-item">
+                                <i class="fas fa-pen"></i>
+                                {{ localize "A5E.ItemEdit" }}
+                            </a>
+
+                            <hr class="a5e-rule">
+
+                            <a
+                                class="a5e-context-menu__option a5e-context-menu__option--delete a5e-js-delete-item">
+                                <i class="fas fa-trash"></i>
+                                {{ localize "A5E.ItemDelete" }}
+                            </a>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+    </div>
+
+    <div class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--maneuvers">
+        <div class="a5e-footer-group">
+            <h3 class="a5e-u-mb-none">
+                {{localize "A5E.ManeuverDC"}}
+            </h3>
+
+            <span class="a5e-footer-group__value">{{ maneuverDC }}</span>
+        </div>
+
+        <div class="a5e-footer-group">
+            <h3 class="a5e-u-mb-none">
+                {{localize "A5E.ExertionPool"}}
+            </h3>
+
+            <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="data.attributes.exertion.current"
+                value="{{exertion.current}}"
+                placeholder="0"
+                min="0"
+                data-dtype="Number"
+            >
+            /
+            <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="data.attributes.exertion.max"
+                value="{{exertion.max}}"
+                placeholder="0"
+                min="0"
+                data-dtype="Number"
+            >
+        </div>
+
+        <div class="a5e-footer-group">
+            <h3 class="a5e-u-mb-none">{{ localize "A5E.ConfigureManeuvers"}}</h3>
+
+            <i
+                class="a5e-config-button a5e-config-button--large a5e-js-configure-maneuvers fas fa-cog">
+            </i>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,138 @@
+<section
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--object-properties
+        {{#unless (eq currentTab 'objectProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
+        a5e-scroll-container
+        a5e-js-object-properties-scroll-area
+    "
+    data-group="item-{{item._id}}"
+    data-tab="objectProperties"
+>
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{ localize "A5E.ItemRarity" }}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline">
+                <select
+                    class="a5e-select a5e-select--inline"
+                    name="data.rarity"
+                >
+                    {{#select item.data.rarity}}
+                        <option value=""></option>
+
+                        {{#each config.itemRarity as |name key|}}
+                            <option value="{{key}}">{{localize name}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <label
+                class="a5e-form__input-label a5e-form__input-label--inline"
+                for="{{item._id}}-attunementRequired"
+            >
+                {{localize "A5E.AttunementRequiredPrompt"}}
+            </label>
+
+            <div class="a5e-input-container a5e-input-container--inline-wide">
+                <input
+                    type="checkbox"
+                    data-dtype="Boolean"
+                    name="data.requiresAttunement"
+                    value="{{item.data.requiresAttunement}}"
+                    id="{{item._id}}-attunementRequired"
+                    {{#if
+                    item.data.requiresAttunement}}checked{{/if}}
+                >
+            </div>
+        </div>
+
+        {{#if item.data.requiresAttunement}}
+            <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+                <label
+                    class="a5e-form__input-label a5e-form__input-label--inline"
+                    for="{{item._id}}-attuned"
+                >
+                    {{localize "A5E.AttunementPrompt"}}
+                </label>
+
+                <div class="a5e-input-container a5e-input-container--inline-wide">
+                    <input
+                        type="checkbox"
+                        data-dtype="Boolean"
+                        name="data.attuned"
+                        value="{{item.data.attuned}}"
+                        id="{{item._id}}-attuned"
+                        {{#if
+                        item.data.attuned}}checked{{/if}}
+                    >
+                </div>
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{localize 'A5E.ItemQuantity'}}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline">
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="number"
+                    data-dtype="Number"
+                    name="data.quantity"
+                    min="0"
+                    value="{{item.data.quantity}}"
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{localize 'A5E.ItemWeight'}}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline">
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="number"
+                    data-dtype="Number"
+                    name="data.weight"
+                    min="0"
+                    value="{{item.data.weight}}"
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{localize 'A5E.ItemPrice'}}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline">
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="number"
+                    data-dtype="Number"
+                    name="data.price"
+                    min="0"
+                    value="{{item.data.price}}"
+                >
+            </div>
+        </div>
+    </div>
+</section>

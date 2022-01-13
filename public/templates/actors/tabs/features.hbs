@@ -1,0 +1,76 @@
+<section
+    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--features {{#unless (eq currentTab 'features')}}a5e-sheet__tab-content--hidden{{/unless}}"
+    data-group="main"
+    data-tab="features"
+>
+
+    <div class="a5e-filter-container a5e-box">
+        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+            {{ localize "A5E.Filters" }}
+        </h2>
+
+        <div class="a5e-filter-container__not-implemented">
+            Coming soon!
+        </div>
+    </div>
+
+    <div class="a5e-items-container a5e-scroll-container a5e-js-features-scroll-area">
+        <section class="a5e-item-group">
+            <header class="a5e-header">
+                <h3 class="a5e-heading a5e-heading--item-group">{{ localize "A5E.TabFeatures" }}
+                </h3>
+
+                <a class="a5e-button a5e-button--add-item a5e-js-create-feature-item">
+                    + {{localize "A5E.FeatureAdd"}}
+                </a>
+            </header>
+
+            <ul class="a5e-item-list">
+                {{#each items}}
+                    <li
+                        class="a5e-item-list__item a5e-box a5e-js-item"
+                        data-id="{{this._id}}"
+                        data-item-id="{{this._id}}"
+                        draggable="true"
+                    >
+                        <img
+                            src="{{this.img}}"
+                            title="{{this.name}}"
+                            class="a5e-image a5e-image--item-inline a5e-js-activate-item"
+                        />
+
+                        <span>{{this.name}}</span>
+
+                        <div class="a5e-item-list__item-details">
+                            <hr class="a5e-rule">
+
+                            {{#if this.data.description}}
+                                {{{this.data.description}}}
+                            {{else}}
+                                {{localize "A5E.NoDescription"}}
+                            {{/if}}
+                        </div>
+
+                        <div class="a5e-context-menu">
+                            <a class="a5e-context-menu__option a5e-js-edit-item">
+                                <i class="fas fa-pen"></i>
+                                {{ localize "A5E.ItemEdit" }}
+
+                            </a>
+
+                            <hr class="a5e-rule">
+
+                            <a
+                                class="a5e-context-menu__option a5e-context-menu__option--delete a5e-js-delete-item">
+                                <i class="fas fa-trash"></i>
+                                {{ localize "A5E.ItemDelete" }}
+                            </a>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+    </div>
+
+    <div class="a5e-sheet__bottom-bar"></div>
+</section>

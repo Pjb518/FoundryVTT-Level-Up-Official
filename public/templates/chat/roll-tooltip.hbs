@@ -1,0 +1,26 @@
+<div class="a5e-dice-tooltip">
+    {{#each parts}}
+        <section class="a5e-dice-tooltip__part">
+            <header class="a5e-dice-tooltip__header">
+                <span class="a5e-dice-tooltip__formula">{{this.formula}}</span>
+
+                <span class="a5e-dice-tooltip__total">{{this.total}}</span>
+            </header>
+
+            <ol class="a5e-dice-tooltip__rolls">
+                {{#each this.rolls}}
+                    <li class="
+                        a5e-die
+                        a5e-die--{{../this.faces}}
+                        {{#if (containsSubstring this.classes 'discarded')}}a5e-die--discarded{{/if}}
+                        {{#if (containsSubstring this.classes 'rerolled')}}a5e-die--discarded{{/if}}
+                        {{#if (containsSubstring this.classes 'min')}}a5e-die--min{{/if}}
+                        {{#if (containsSubstring this.classes 'max')}}a5e-die--max{{/if}}
+                    ">
+                        {{this.result}}
+                    </li>
+                {{/each}}
+            </ol>
+        </section>
+    {{/each}}
+</div>

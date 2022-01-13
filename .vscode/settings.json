@@ -1,8 +1,12 @@
 {
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "[javascript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[vue]": { "editor.defaultFormatter": "octref.vetur" },
   "[scss]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
   "[css]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -35,14 +39,15 @@
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
   "html.format.maxPreserveNewLines": 1,
-  "html.format.wrapAttributes": "preserve-aligned",
+  "html.format.wrapAttributes": "force-expand-multiline",
   "html.format.wrapLineLength": 100,
   "stylelint.enable": true,
-  "css.validate": true,
-  "scss.validate": true,
+  "stylelint.validate": ["css", "scss"],
+  "css.validate": false,
+  "scss.validate": false,
   "json.format.enable": true,
   "emmet.triggerExpansionOnTab": true,
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }

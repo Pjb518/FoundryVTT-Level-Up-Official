@@ -1,0 +1,39 @@
+.a5e-config-button {
+  color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: $font-size-sm;
+  transition: $standard-transition;
+
+  &--details,
+  &--skill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.4rem;
+  }
+
+  &--large {
+    font-size: $font-size-md;
+  }
+
+  &--health {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background: $color-sheet-background;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ccc inset;
+    font-size: $font-size-lg;
+    transform: translate(50%, -50%);
+  }
+
+  &:hover {
+    color: lighten(#191813, 35%);
+  }
+}

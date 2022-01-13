@@ -1,0 +1,51 @@
+<div class="a5e-box a5e-box--padded">
+    <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
+        <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            {{ localize "A5E.ItemSavingThrowType" }}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--inline">
+            <select
+                class="a5e-select"
+                name="data.save.targetAbility"
+                data-dtype="String"
+            >
+                {{#select data.save.targetAbility}}
+                    {{#each config.abilities as |name ability|}}
+                        <option value="{{ability}}">{{localize name}}</option>
+                    {{/each}}
+                {{/select}}
+            </select>
+        </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
+        <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            {{ localize "A5E.ItemSavingThrowDC" }}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--inline">
+            <input
+                class="a5e-input a5e-input--slim"
+                type="number"
+                name="data.save.dc"
+                value="{{data.save.dc}}"
+                data-dtype="Number"
+            />
+        </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--no-margin">
+        <h3 class="a5e-form__input-label">
+            {{ localize "A5E.ItemEffectOnSave" }}
+        </h3>
+
+        <input
+            class="a5e-input a5e-input--slim"
+            type="text"
+            name="data.save.onSave"
+            value="{{data.save.onSave}}"
+            data-dtype="String"
+        />
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<section
+  class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--biography {{#unless (eq currentTab 'biography')}}a5e-sheet__tab-content--hidden{{/unless}} a5e-scroll-container a5e-js-biography-scroll-area"
+  data-group="main"
+  data-tab="biography"
+>
+  <section class="a5e-box a5e-box--padded a5e-form__section--bio-wrapper">
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsAge'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.age"
+          value="{{details.age}}"
+        >
+      </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsEyeColor'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.eyeColor"
+          value="{{details.eyeColor}}"
+        >
+      </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsHairColor'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.hairColor"
+          value="{{details.hairColor}}"
+        >
+      </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsSkinColor'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.skinColor"
+          value="{{details.skinColor}}"
+        >
+      </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsHeight'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.height"
+          value="{{details.height}}"
+        >
+      </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsWeight'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.weight"
+          value="{{details.weight}}"
+        >
+      </div>
+    </div>
+
+    <div class="a5e-form__section a5e-form__section--bio">
+      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{localize 'A5E.DetailsGender'}}
+      </h3>
+
+      <div class="a5e-input-container a5e-input-container--bio">
+        <input
+          class="a5e-input a5e-input--slim"
+          type="text"
+          name="data.details.gender"
+          value="{{details.gender}}"
+        >
+      </div>
+    </div>
+  </section>
+
+  <div class="a5e-u-flex a5e-u-flex--column">
+    <h3 class="a5e-heading">{{localize "A5E.DetailsBackstory"}}</h3>
+
+    {{ editor content=data.details.bio target="data.details.bio" button=true owner=true editable=true }}
+  </div>
+
+  <div class="a5e-u-flex a5e-u-flex--column">
+    <h3 class="a5e-heading">{{localize "A5E.DetailsAppearance"}}</h3>
+
+    {{ editor content=data.details.appearance target="data.details.appearance" button=true owner=true editable=true }}
+  </div>
+</section>

@@ -1,0 +1,53 @@
+.a5e-header-shield {
+  position: relative;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ccc inset;
+  font-family: $font-primary;
+  font-size: $font-size-lg;
+  font-weight: bold;
+
+  &--inspiration {
+    color: #7e7960;
+    cursor: pointer;
+    transition: $standard-transition;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &--active {
+    border: 0.5px solid darken($color-primary, 5%);
+    background: $color-primary;
+    box-shadow: 0 0 10px lighten($color-primary, 10%) inset;
+    color: lighten($color-primary, 80%);
+
+    i {
+      animation: pulse 2s infinite linear;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+
+    &:hover {
+      color: lighten($color-primary, 80%);
+    }
+  }
+
+  &__label {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    color: #191813;
+    font-size: $font-size-sm;
+    line-height: $font-size-sm;
+    transform: translateX(-50%);
+  }
+}

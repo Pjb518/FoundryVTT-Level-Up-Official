@@ -1,0 +1,55 @@
+<div class="a5e-health-container">
+    <meter
+        class="a5e-health-bar"
+        min=0
+        max="{{hp.max}}"
+        value="{{hp.current}}"
+    >
+        {{hp.current}} / {{hp.max}}
+    </meter>
+
+    <div class="a5e-health-bar__text">
+        <input
+            class="a5e-health-bar__current-hp"
+            type="number"
+            name="data.attributes.hp.current"
+            value="{{hp.current}}"
+            placeholder="0"
+            min="0"
+            data-dtype="Number"
+        >
+        /
+        <input
+            class="a5e-health-bar__max-hp"
+            type="number"
+            name="data.attributes.hp.max"
+            value="{{hp.max}}"
+            placeholder="0"
+            data-dtype="Number"
+            min="0"
+            disabled
+        >
+    </div>
+
+    <div class="a5e-health-bar__text a5e-health-bar__text--secondary">
+        <input
+            class="a5e-health-bar__temp-hp"
+            type="number"
+            name="data.attributes.hp.temp"
+            value="{{hp.temp}}"
+            placeholder="{{ localize 'A5E.HitPointsTemporaryLabel' }}"
+            data-dtype="Number"
+        >
+        <input
+            class="a5e-health-bar__bonus-hp"
+            type="number"
+            name="data.attributes.hp.bonus"
+            value="{{hp.bonus}}"
+            placeholder="{{ localize 'A5E.HitPointsMaxModifierLabel' }}"
+            data-dtype="Number"
+        >
+    </div>
+
+    <i class="a5e-health-bar__rest-button a5e-js-trigger-rest fas fa-campground"></i>
+    <i class="a5e-config-button a5e-config-button--health a5e-js-configure-health fas fa-cog"></i>
+</div>

@@ -1,0 +1,76 @@
+<form
+    class="a5e-sheet__form"
+    autocomplete="off"
+>
+    <header class="a5e-sheet-header a5e-sheet-header--item">
+        <img
+            class="a5e-image a5e-image--item-header"
+            src="{{item.img}}"
+            title="{{item.name}}"
+            data-edit="img"
+        />
+
+        <div class="a5e-sheet-header__name-container">
+            <input
+                class="a5e-input a5e-input--character-name"
+                name="name"
+                type="text"
+                value="{{item.name}}"
+                placeholder="{{ localize 'A5E.ItemNew' }}"
+            />
+        </div>
+    </header>
+
+    <nav
+        class="a5e-sheet-tabs"
+        data-group="item-{{item._id}}"
+    >
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                a5e-js-sheet-tab
+                {{#if (eq currentTab 'description')}}a5e-sheet-tabs__tab--active{{/if}}
+            "
+            data-tab="description"
+        >
+            {{ localize "A5E.Description" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                a5e-js-sheet-tab
+                {{#if (eq currentTab 'objectProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+            "
+            data-tab="objectProperties"
+        >
+            {{ localize "A5E.TabObjectProperties" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                a5e-js-sheet-tab
+                {{#if (eq currentTab 'details')}}a5e-sheet-tabs__tab--active{{/if}}
+            "
+            data-tab="details"
+        >
+            {{ localize "A5E.TabDetails" }}
+        </a>
+
+        <div class="a5e-sheet-tabs__filler"></div>
+    </nav>
+
+    <section class="a5e-u-y-overflow-hidden a5e-u-height-full a5e-js-sheet-body">
+        <section
+            class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--item-details {{#unless (eq currentTab 'description')}}a5e-sheet__tab-content--hidden{{/unless}}"
+            data-group="item-{{item._id}}"
+            data-tab="description"
+        >
+            {{ editor content=data.description target="data.description" button=true owner=true editable=true }}
+        </section>
+
+        {{> "systems/a5e/templates/items/tabs/object-properties.hbs" config=config currentTab=currentTab item=item}}
+        {{> "systems/a5e/templates/items/tabs/details.hbs" config=config currentTab=currentTab item=item}}
+    </section>
+</form>

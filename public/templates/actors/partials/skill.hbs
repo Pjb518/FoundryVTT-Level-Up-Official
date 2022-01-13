@@ -1,0 +1,28 @@
+<li
+    class="a5e-skill a5e-box a5e-js-roll-skill-check"
+    data-skill="{{ key }}"
+>
+    <span class="a5e-skill__value">{{ skill.deterministicBonus }}</span>
+    <i class="a5e-config-button a5e-config-button--skill a5e-js-configure-skill fas fa-cog"></i>
+
+    <div class="a5e-skill__body">
+        <span class="a5e-skill__name">
+            {{ skill.label }}
+            {{#if skill.expertiseDieSize }}
+                <span class="a5e-skill__die">({{ skill.expertiseDieSize }})</span>
+            {{/if}}
+        </span>
+
+        <ul class="a5e-tag-group a5e-tag-group--small">
+            {{#if skill.specialties.length}}
+                {{#each skill.specialties }}
+                    <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                {{/each }}
+            {{else}}
+                <li class="a5e-skill__no-specialties">
+                    {{ localize "A5E.SkillNoSpecialties"}}
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+</li>

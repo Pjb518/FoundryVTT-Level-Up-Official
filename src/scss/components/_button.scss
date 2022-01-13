@@ -1,0 +1,51 @@
+.a5e-button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--add-item,
+  &--chat,
+  &--filter-reset {
+    display: block;
+    width: fit-content;
+    flex-shrink: 0;
+    padding: 0.125rem 0.5rem;
+    background: $color-primary;
+    border-radius: $border-radius-standard;
+    color: lighten($color-primary, 80%);
+
+    &:hover {
+      text-shadow: none;
+    }
+  }
+
+  &--add-item {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  &--chat,
+  &--filter-reset {
+    width: 100%;
+    padding: 0.375rem;
+    font-size: $font-size-sm;
+    text-align: center;
+  }
+
+  &--filter-reset {
+    margin-top: auto;
+  }
+
+  &--red {
+    background: #8b2525;
+    color: lighten(#8b2525, 95%);
+    font-family: $font-secondary;
+  }
+
+  &--right {
+    margin-left: auto;
+  }
+}

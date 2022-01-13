@@ -1,0 +1,19 @@
+<div class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--no-margin">
+    <h3 class="a5e-form__input-label">{{ localize "A5E.SpellSchoolSecondaryPlural" }}</h3>
+
+    <ul class="a5e-tag-group">
+        {{#each config.spellSchools.secondary as | school key |}}
+            <li
+                class="
+                    a5e-tag
+                    a5e-tag--clickable
+                    {{#unless (contains ../item.data.schools.secondary key)}}a5e-tag--inactive{{/unless}}
+                    a5e-js-toggle-secondary-spell-school
+                "
+                data-school="{{key}}"
+            >
+                {{ localize school }}
+            </li>
+        {{/each}}
+    </ul>
+</div>

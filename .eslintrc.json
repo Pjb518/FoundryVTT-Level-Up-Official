@@ -11,21 +11,60 @@
   "plugins": ["import"],
   "ignorePatterns": ["dist/**/*"],
   "rules": {
+    "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
     "no-underscore-dangle": [
       "error",
       {
+        "allowAfterThis": true,
         "enforceInMethodNames": false,
         "allowAfterSuper": true
       }
     ],
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
     "no-param-reassign": [ "error", { "props": false }]
   },
   "globals": {
+    "$": "readonly",
     "CONFIG": "readonly",
+    "CONST": "readonly",
+    "Actor": "readonly",
+    "Actors": "readonly",
+    "ActorSheet": "readonly",
+    "Application": "readonly",
+    "ChatMessage": "readonly",
+    "Combat": "readonly",
+    "Combatant": "readonly",
+    "Dialog": "readonly",
+    "DiceTerm": "readonly",
+    "Die": "readonly",
+    "DragDrop": "readonly",
+    "FormDataExtended": "readonly",
+    "Item": "readonly",
+    "Items": "readonly",
+    "ItemSheet": "readonly",
+    "Handlebars": "readonly",
     "Hooks": "readonly",
+    "MathTerm": "readonly",
+    "NumericTerm": "readonly",
+    "OperatorTerm": "readonly",
+    "ParentheticalTerm": "readonly",
+    "PoolTerm": "readonly",
+    "Roll": "readonly",
+    "RollTerm": "readonly",
+    "StringTerm": "readonly",
+    "canvas": "readonly",
+    "document": "readonly",
+    "expandObject": "readonly",
+    "flattenObject": "readonly",
+    "foundry": "readonly",
     "game": "readonly",
-    "loadTemplates": "readonly"
+    "getDocumentClass": "readonly",
+    "invertObject": "readonly",
+    "loadTemplates": "readonly",
+    "mergeObject": "readonly",
+    "renderTemplate": "readonly",
+    "ui": "readonly"
   },
   "settings": {
     "react": {

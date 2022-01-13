@@ -1,0 +1,32 @@
+<div
+    class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+    <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{ localize "A5E.ItemActivationCost" }}
+    </h3>
+
+    <div class="a5e-input-container a5e-input-container--field-set">
+        {{#if data.activation.type}}
+            <input
+                class="a5e-input a5e-input--inline a5e-input--slim a5e-input--small"
+                type="number"
+                name="data.activation.cost"
+                value="{{data.activation.cost}}"
+                data-dtype="Number"
+                placeholder=""
+            />
+        {{/if}}
+
+        <select
+            class="a5e-select a5e-select--inline"
+            name="data.activation.type"
+        >
+            {{#select data.activation.type}}
+                <option value=""></option>
+
+                {{#each config.abilityActivationTypes as |name key|}}
+                    <option value="{{key}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+</div>

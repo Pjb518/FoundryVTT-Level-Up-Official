@@ -1,0 +1,27 @@
+<div class="
+    a5e-box
+    a5e-box--padded
+    a5e-form__section
+    a5e-form__section--no-margin
+    a5e-form__section--inline
+">
+    <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        {{ localize "A5E.ActionOptions" }}
+    </h3>
+
+    <ul class="a5e-tag-group a5e-tag-group--inline">
+        {{#each config.actionOptions as |name key|}}
+            <li
+                class="
+                    a5e-tag
+                    a5e-tag--clickable
+                    {{#unless (contains ../item.data.actionOptions key)}}a5e-tag--inactive{{/unless}}
+                    a5e-js-toggle-action-option
+                "
+                data-option="{{key}}"
+            >
+                {{ localize name }}
+            </li>
+        {{/each}}
+    </ul>
+</div>

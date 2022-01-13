@@ -1,0 +1,115 @@
+.a5e-sheet {
+  .window-content {
+    padding: 0;
+    overflow-y: hidden;
+  }
+
+  &__bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    background: $color-sheet-background;
+    font-family: $font-primary;
+
+    &--inventory,
+    &--maneuvers,
+    &--spells {
+      height: 2.5rem;
+      justify-content: space-between;
+      padding: 0 1rem;
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__form {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background: rgba(246, 242, 235, 0.6);
+  }
+
+  &__body-container {
+    height: 100%;
+    overflow-y: hidden;
+
+    &--limited {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__tab-content {
+    display: flex;
+    min-height: 100%;
+    justify-content: stretch;
+    padding: 1rem;
+    gap: 0.5rem;
+
+    &--attributes {
+      display: grid;
+      height: 100%;
+      grid-template-columns: 1fr 2fr;
+      overflow-y: auto;
+    }
+
+    &--biography {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-areas:
+        'details details'
+        'background appearance';
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: min-content 1fr;
+    }
+
+    &--features,
+    &--inventory,
+    &--maneuvers,
+    &--spells {
+      height: 100%;
+      padding: 1rem 0 2rem 1rem;
+    }
+
+    &--item-details {
+      display: grid;
+    }
+
+    &--features {
+      padding-bottom: 0;
+    }
+
+    &--inventory,
+    &--maneuvers,
+    &--spells {
+      padding: 1rem 0 2.5rem 1rem;
+    }
+
+    &--journal {
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &--maneuver-properties,
+    &--object-properties,
+    &--spell-properties,
+    &--details {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__secondary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

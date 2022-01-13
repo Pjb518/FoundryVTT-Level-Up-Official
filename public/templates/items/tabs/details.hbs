@@ -1,0 +1,41 @@
+<section
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--details
+        {{#unless (eq currentTab 'details')}}a5e-sheet__tab-content--hidden{{/unless}}
+        a5e-scroll-container
+        a5e-js-details-scroll-area
+    "
+    data-group="item-{{item._id}}"
+    data-tab="details"
+>
+    {{> "systems/a5e/templates/items/partials/activation-settings.hbs" config=config item=item}}
+    {{> "systems/a5e/templates/items/partials/range.hbs" config=config item=item}}
+    {{> "systems/a5e/templates/items/partials/target.hbs" config=config item=item}}
+    {{> "systems/a5e/templates/items/partials/duration.hbs" config=config item=item}}
+
+    <hr class="a5e-rule">
+
+    {{> "systems/a5e/templates/items/partials/action-options.hbs" config=config item=item}}
+
+    {{#if showAbilityScoreConfig }}
+        {{> "systems/a5e/templates/items/partials/ability-score-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "attack")}}
+        {{> "systems/a5e/templates/items/partials/attack-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "damage")}}
+        {{> "systems/a5e/templates/items/partials/damage-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "abilityCheck")}}
+        {{> "systems/a5e/templates/items/partials/ability-check-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "savingThrow")}}
+        {{> "systems/a5e/templates/items/partials/saving-throw-config.hbs" config=config item=item}}
+    {{/if}}
+</section>

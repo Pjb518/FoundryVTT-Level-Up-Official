@@ -1,0 +1,39 @@
+.a5e-item-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0;
+  padding-right: 1rem;
+  margin: 0;
+  gap: 0.25rem;
+  grid-area: items;
+  list-style: none;
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    gap: 0.5rem;
+
+    &--equipped,
+    &--prepared {
+      background: #c8e6c9;
+    }
+  }
+
+  &__item-details {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin-bottom: 0.25rem;
+    gap: 0.5rem;
+
+    &--visible {
+      display: flex;
+    }
+  }
+}

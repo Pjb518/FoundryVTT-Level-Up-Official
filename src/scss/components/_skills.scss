@@ -1,0 +1,60 @@
+.a5e-skill-container {
+  display: grid;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  gap: 0.25rem;
+  grid-template-columns: repeat(2, 50%);
+  list-style: none;
+}
+
+.a5e-skill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  cursor: pointer;
+  gap: 0.5rem;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.125rem;
+  }
+
+  &__die {
+    font-size: $font-size-xs;
+    font-weight: 400;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    gap: 0.25rem;
+  }
+
+  &__no-specialties {
+    padding: 0.1rem 0;
+    border: 0.5px solid transparent;
+    color: lighten(#191813, 35%);
+    font-style: italic;
+  }
+
+  &__value {
+    display: flex;
+    width: 1.8rem;
+    height: 1.8rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background: $color-sheet-background;
+    border-radius: 100px;
+    box-shadow: 0 0 9px #ccc inset;
+    font-family: $font-primary;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}

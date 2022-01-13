@@ -1,0 +1,33 @@
+$die-sizes: 4, 6, 8, 10, 12, 20;
+
+.a5e-die {
+  width: 1.5rem;
+  background-image: url('/icons/svg/d6-grey.svg');
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1.5rem;
+  color: #000;
+  font-size: $font-size-md;
+  font-weight: bold;
+  line-height: 1.5rem;
+  text-align: center;
+
+  &--discarded {
+    filter: sepia(0.5) contrast(0.75) opacity(0.4);
+  }
+
+  &--min {
+    color: #aa0200;
+    filter: sepia(0.5) hue-rotate(-60deg);
+  }
+
+  &--max {
+    color: #18520b;
+    filter: sepia(0.5) hue-rotate(60deg);
+  }
+
+  @each $size in $die-sizes {
+    &--#{$size} {
+      background-image: url('/icons/svg/d#{$size}-grey.svg');
+    }
+  }
+}

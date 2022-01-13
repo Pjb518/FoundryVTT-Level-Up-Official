@@ -1,0 +1,26 @@
+<div class="a5e-chat-card">
+    <header class="a5e-chat-card__header">
+        <img
+            class="a5e-image a5e-image--card"
+            src="{{img}}"
+        >
+
+        <h3 class="a5e-heading a5e-heading--card">
+            {{title}} {{#if ability}} ({{ability}}){{/if}}
+        </h3>
+    </header>
+
+    <hr class="a5e-rule a5e-rule--card">
+
+    <div>
+        <div class="a5e-chat-card__roll a5e-js-toggle-roll-tooltip-visibility">
+            {{formula}}
+        </div>
+
+        {{{tooltip}}}
+
+        <div class="a5e-chat-card__roll a5e-chat-card__roll--total">
+            {{total}}
+        </div>
+    </div>
+</div>

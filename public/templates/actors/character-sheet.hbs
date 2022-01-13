@@ -1,0 +1,420 @@
+<form
+    class="a5e-sheet__form"
+    autocomplete="off"
+>
+    <header class="a5e-sheet-header">
+        <div class="a5e-sheet-header__left">
+            <img
+                src="{{actor.img}}"
+                title="{{actor.name}}"
+                data-edit="img"
+                class="a5e-image a5e-image--actor-header"
+            />
+
+            <div
+                class="a5e-track a5e-track--fatigue a5e-js-track"
+                data-track="fatigue"
+            >
+                <i class="
+                    a5e-track__icon
+                    {{#if data.attributes.fatigue}}a5e-track__icon--level-{{data.attributes.fatigue}}{{/if}}
+                    fas
+                    fa-running
+                "></i>
+
+                <ul class="a5e-track__list">
+                    {{#range 8 }}
+                        <li
+                            class="
+                                a5e-track__list-item
+                                {{#if (eq ../data.attributes.fatigue this)}}a5e-track__list-item--selected{{/if}}
+                                a5e-js-track-item
+                            "
+                            data-degree="{{this}}"
+                        >
+                            {{this}}
+                        </li>
+                    {{/range}}
+                </ul>
+            </div>
+
+            <div
+                class="a5e-track a5e-track--strife a5e-js-track"
+                data-track="strife"
+            >
+                <i class="
+                    a5e-track__icon
+                    {{#if data.attributes.strife}}a5e-track__icon--level-{{data.attributes.strife}}{{/if}}
+                    fas
+                    fa-brain
+                "></i>
+
+                <ul class="a5e-track__list">
+                    {{#range 8 }}
+                        <li
+                            class="
+                                a5e-track__list-item
+                                {{#if (eq ../data.attributes.strife this)}}a5e-track__list-item--selected{{/if}}
+                                a5e-js-track-item
+                            "
+                            data-degree="{{this}}"
+                        >
+                            {{this}}
+                        </li>
+                    {{/range}}
+                </ul>
+            </div>
+
+            {{#if (eq data.attributes.hp.current 0)}}
+                <div class="a5e-death-saves">
+                    <i class="fas fa-check"></i>
+
+                    <input
+                        class="a5e-death-saves__input"
+                        type="number"
+                        name="data.attributes.death.success"
+                        data-dtype="Number"
+                        placeholder="0"
+                        value="{{data.attributes.death.success}}"
+                        min="0"
+                        max="3"
+                    >
+
+                    <i class="a5e-death-saves__icon fas fa-skull a5e-js-roll-death-save"></i>
+
+                    <input
+                        class="a5e-death-saves__input"
+                        type="number"
+                        name="data.attributes.death.failure"
+                        data-dtype="Number"
+                        placeholder="0"
+                        value="{{data.attributes.death.failure}}"
+                        min="0"
+                        max="3"
+                    >
+
+                    <i class="fas fa-times"></i>
+                </div>
+            {{/if}}
+
+            {{> "systems/a5e/templates/actors/partials/health.hbs" hp=data.attributes.hp }}
+        </div>
+
+        <div class="a5e-flex-container a5e-u-flex-wrap">
+            <div class="a5e-flex-container a5e-flex-container--align-center">
+                <h2 class="a5e-heading a5e-heading--small">
+                    {{ localize "A5E.Size" }}.
+                </h2>
+
+                <span>
+                    {{#if sizeCategory}}
+                        {{ sizeCategory }}
+                    {{else}}
+                        {{ localize "A5E.None" }}
+                    {{/if}}
+                </span>
+
+                <i class="a5e-config-button a5e-js-configure-size-category fas fa-cog"></i>
+            </div>
+
+            <div class="a5e-flex-container a5e-flex-container--align-center">
+                <h2 class="a5e-heading a5e-heading--small">
+                    {{ localize "A5E.Heritage" }}.
+                </h2>
+
+                <span>
+                    {{#if data.details.heritage}}
+                        {{ data.details.heritage }}
+                    {{else}}
+                        {{ localize "A5E.None" }}
+                    {{/if}}
+                </span>
+
+                <i class="a5e-config-button a5e-js-configure-heritage fas fa-cog"></i>
+            </div>
+
+            <div class="a5e-flex-container a5e-flex-container--align-center">
+                <h2 class="a5e-heading a5e-heading--small">
+                    {{ localize "A5E.Culture" }}.
+                </h2>
+
+                <span>
+                    {{#if data.details.culture}}
+                        {{ data.details.culture }}
+                    {{else}}
+                        {{ localize "A5E.None" }}
+                    {{/if}}
+                </span>
+
+                <i class="a5e-config-button a5e-js-configure-culture fas fa-cog"></i>
+            </div>
+
+            <div class="a5e-flex-container a5e-flex-container--align-center">
+                <h2 class="a5e-heading a5e-heading--small">
+                    {{ localize "A5E.Background" }}.
+                </h2>
+
+                <span>
+                    {{#if data.details.background}}
+                        {{ data.details.background }}
+                    {{else}}
+                        {{ localize "A5E.None" }}
+                    {{/if}}
+                </span>
+
+                <i class="a5e-config-button a5e-js-configure-background fas fa-cog"></i>
+            </div>
+        </div>
+
+        <div class="a5e-flex-container a5e-flex-container--align-center">
+            <h2 class="a5e-heading a5e-heading--small">
+                {{ localize "A5E.MovementSpeed" }}.
+            </h2>
+
+            {{#if movement}}
+                <ul class="a5e-tag-group a5e-tag-group--tight">
+                    {{#each movement}}
+                        <li class="a5e-tag a5e-tag--light">{{ this.name }} - {{ this.speed }}
+                            {{ localize "A5E.MeasurementFeetAbbr" }}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+
+            <i class="a5e-config-button a5e-js-configure-movement fas fa-cog"></i>
+        </div>
+
+        <div class="a5e-sheet-header__primary-details">
+            <div class="a5e-sheet-header__name-container">
+                <input
+                    type="text"
+                    name="name"
+                    data-dtype="String"
+                    value="{{actor.name}}"
+                    class="a5e-input a5e-input--character-name"
+                    placeholder="Name"
+                />
+
+                <div class="a5e-sheet-header__subtitle">
+                    <input
+                        class="a5e-input a5e-input--classes"
+                        type="text"
+                        data-dtype="String"
+                        name="data.details.classes"
+                        value="{{ data.details.classes }}"
+                        placeholder="Class"
+                    />
+                </div>
+            </div>
+
+            <div class="a5e-sheet-header__shields">
+                <div
+                    class="a5e-header-shield a5e-header-shield--inspiration a5e-js-toggle-inspiration {{#if data.attributes.inspiration}}a5e-header-shield--active{{/if}}">
+                    <i class="fas fa-dice-d20"></i>
+                    <span class="a5e-header-shield__label">
+                        {{localize "A5E.Inspiration"}}
+                    </span>
+                </div>
+
+                <div class="a5e-header-shield">
+                    <input
+                        class="a5e-input a5e-input--level"
+                        name="data.details.level"
+                        type="number"
+                        min=1
+                        value="{{ data.details.level }}"
+                    />
+
+                    <span class="a5e-header-shield__label">
+                        {{localize "A5E.Level"}}
+                    </span>
+                </div>
+
+                <div class="a5e-header-shield">
+                    +{{data.attributes.prof}}
+                    <span class="a5e-header-shield__label">
+                        {{ localize "A5E.ProficiencyBonusAbbr" }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <ul class="a5e-primary-attributes">
+            <li class="a5e-ability-score a5e-box">
+                <h4 class="a5e-ability-score__label">{{ localize "A5E.ArmorClassAbbr" }}</h4>
+
+                <input
+                    class="a5e-ability-score__value a5e-ability-score__value--ac"
+                    name="data.attributes.ac"
+                    type="number"
+                    value="{{data.attributes.ac}}"
+                    placeholder="10"
+                    data-dtype="Number"
+                />
+            </li>
+
+            <li class="a5e-ability-score a5e-box">
+                <h4 class="a5e-ability-score__label">{{ localize "A5E.Initiative" }}</h4>
+
+                <i class="a5e-initiative-button a5e-js-roll-initiative fas fa-dice-d20"></i>
+
+                <div class="a5e-ability-score__buttons a5e-ability-score__buttons--centre">
+                    <i
+                        class="a5e-config-button a5e-js-configure-initiative fas fa-cog"
+                        data-ability="{{ key }}"
+                        title="{{ localize 'A5E.ConfigureBonuses' }}"
+                    ></i>
+                </div>
+            </li>
+
+            {{#each data.abilities as |ability key|}}
+                {{> "systems/a5e/templates/actors/partials/ability-score.hbs" actor=actor ability=ability key=key }}
+            {{/each}}
+        </ul>
+    </header>
+
+    <nav
+        class="a5e-sheet-tabs"
+        data-group="main"
+    >
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'attributes')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="attributes"
+        >
+            {{ localize "A5E.TabAttributes" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'inventory')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="inventory"
+        >
+            {{ localize "A5E.TabInventory" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'features')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="features"
+        >
+            {{ localize "A5E.TabFeatures" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'maneuvers')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="maneuvers"
+        >
+            {{ localize "A5E.TabManeuvers" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'spells')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="spells"
+        >
+            {{ localize "A5E.TabSpells" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'biography')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="biography"
+        >
+            {{ localize "A5E.TabBiography" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'journal')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="journal"
+        >
+            {{ localize "A5E.TabJournal" }}
+        </a>
+
+        <div class="a5e-sheet-tabs__filler"></div>
+    </nav>
+
+    <section class="a5e-sheet__body-container">
+        {{>
+            "systems/a5e/templates/actors/tabs/attributes.hbs"
+            movement=movement
+            senses=senses
+            data=data
+            currentTab=currentTab
+        }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/inventory.hbs"
+            attunement=data.attributes.attunement
+            currency=data.currency
+            filters=filters
+            items=items.inventory
+            currentTab=currentTab
+        }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/features.hbs"
+            items=items.features
+            currentTab=currentTab
+        }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/maneuvers.hbs"
+            exertion=data.attributes.exertion
+            filters=filters
+            items=items.maneuvers
+            maneuverDC=data.attributes.maneuverDC
+            currentTab=currentTab
+        }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/spells.hbs"
+            availableSpellLevels=availableSpellLevels
+            currentTab=currentTab
+            filters=filters
+            items=items.spells
+            showSpellSlots=showSpellSlots
+            showSpellPoints=showSpellPoints
+            spellResources=data.spellResources
+        }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/bio.hbs"
+            details=data.details
+            currentTab=currentTab
+        }}
+
+        <section
+            class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--journal {{#unless (eq currentTab 'journal')}}a5e-sheet__tab-content--hidden{{/unless}} a5e-scroll-container a5e-js-journal-scroll-area"
+            data-group="main"
+            data-tab="journal"
+        >
+            <h3 class="a5e-heading">{{localize "A5E.DetailsNotes"}}</h3>
+
+            {{ editor content=data.details.notes target="data.details.notes" button=true owner=true editable=true }}
+        </section>
+    </section>
+</form>

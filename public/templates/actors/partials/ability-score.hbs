@@ -1,0 +1,35 @@
+<li class="a5e-ability-score a5e-box">
+    <h4 class="a5e-ability-score__label">{{ ability.label }}</h4>
+
+    <input
+        class="a5e-ability-score__value"
+        name="data.abilities.{{key}}.value"
+        type="number"
+        value="{{ability.value}}"
+        placeholder="10"
+    />
+
+    <div class="a5e-ability-score__buttons">
+        <span
+            class="a5e-ability-score__roll-button a5e-js-roll-ability-check"
+            data-ability="{{ key }}"
+            title="{{ localize 'A5E.RollAbilityCheck' }}"
+        >
+            {{ ability.check.deterministicBonus }}
+        </span>
+
+        <i
+            class="a5e-config-button a5e-js-configure-ability-score fas fa-cog"
+            data-ability="{{ key }}"
+            title="{{ localize 'A5E.ConfigureBonuses' }}"
+        ></i>
+
+        <span
+            class="a5e-ability-score__roll-button a5e-js-roll-saving-throw"
+            data-ability="{{ key }}"
+            title="{{ localize 'A5E.RollSavingThrow' }}"
+        >
+            {{ ability.save.deterministicBonus }}
+        </span>
+    </div>
+</li>

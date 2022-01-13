@@ -1,0 +1,88 @@
+{{#each data.damage}}
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{ localize "A5E.DamageLabel" }}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline">
+                <input
+                    class="a5e-input a5e-input--inline a5e-input--slim"
+                    type="text"
+                    name="data.damage.{{@index}}.name"
+                    value="{{lookup this 'name'}}"
+                    data-dtype="String"
+                />
+            </div>
+        </div>
+
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{ localize "A5E.DamageType" }}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline">
+                <select
+                    class="a5e-select a5e-select--inline"
+                    name="data.damage.{{@index}}.damageType"
+                >
+                    {{#select (lookup this 'damageType')}}
+                        <option value=""></option>
+
+                        {{#each ../config.damageTypes as |damageType key|}}
+                            <option value="{{key}}">{{localize damageType}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
+            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                {{ localize "A5E.DamageFormula" }}
+            </h3>
+
+            <div class="a5e-input-container a5e-input-container--inline-wide">
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="text"
+                    name="data.damage.{{@index}}.formula"
+                    value="{{lookup this 'formula'}}"
+                    data-dtype="String"
+                />
+            </div>
+        </div>
+
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+                <label class="a5e-form__input-label a5e-form__input-label--inline">
+                    {{ localize "A5E.DamageDoubleOnCrit"}}
+                </label>
+
+                <div class="a5e-input-container a5e-input-container--inline-wide">
+                    <input
+                        type="checkbox"
+                        name="data.damage.{{@index}}.canCrit"
+                        data-dtype="Boolean"
+                        {{checked
+                        (lookup
+                        this 'canCrit'
+                        )}}
+                    />
+                </div>
+            </div>
+
+            <a
+                class="a5e-button a5e-button--add-item a5e-button--right a5e-button--red a5e-js-delete-damage-source"
+                data-index="{{@index}}"
+            >
+                {{localize "A5E.DamageDeleteSource"}}
+            </a>
+        </div>
+
+    </div>
+{{/each}}
+
+<a class="a5e-button a5e-button--add-item a5e-button--right a5e-js-add-damage-source">
+    + {{localize "A5E.DamageAddSource"}}
+</a>

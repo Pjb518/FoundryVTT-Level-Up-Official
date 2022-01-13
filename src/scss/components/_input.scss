@@ -1,0 +1,111 @@
+.a5e-input-container {
+  position: relative;
+
+  &--bio {
+    max-width: 60%;
+  }
+
+  &--field-set {
+    display: flex;
+    width: 100%;
+    max-width: 50%;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &--inline {
+    max-width: 50%;
+  }
+
+  &--inline-wide {
+    margin-left: 1rem;
+  }
+
+  &--bio,
+  &--inline,
+  &--inline-wide,
+  &--numeric {
+    flex-grow: 1;
+  }
+
+  &--numeric {
+    max-width: 35%;
+  }
+}
+
+.a5e-input {
+  &[type=text],
+  &[type=number] { // Required to overcome the specificity of Foundry's UI styles
+    width: 100%;
+    height: 2rem;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+    font-size: $font-size-lg;
+    font-weight: 300;
+    text-overflow: ellipsis;
+  }
+
+  &--character-name[type=text] {
+    padding-right: 3px;
+    padding-left: 0;
+    border: 0;
+    background: transparent;
+    font-family: $font-primary;
+    font-size: $font-size-xxl;
+
+    &:active,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &--classes[type=text] {
+    height: 1.4rem;
+    font-size: $font-size-md;
+
+    &::placeholder {
+      color: #bbb;
+    }
+  }
+
+  &--slim[type=number],
+  &--slim[type=text], {
+    height: 27px;
+    font-family: $font-secondary;
+    font-size: $font-size-sm;
+  }
+
+  &--classes[type=text],
+  &--level[type=number] {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+  }
+
+  &--level[type=number] {
+    width: 2rem;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  &--small[type=number] {
+    width: 4rem;
+    padding: 0 0.5rem;
+    font-family: $font-secondary;
+    font-size: $font-size-sm;
+    text-align: center;
+  }
+
+  &__error-icon {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+
+    &::before {
+      color: #8b2525;
+      font-size: $font-size-lg;
+    }
+  }
+}

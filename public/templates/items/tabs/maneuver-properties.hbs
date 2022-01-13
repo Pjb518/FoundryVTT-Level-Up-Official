@@ -1,0 +1,59 @@
+<section
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--maneuver-properties
+        {{#unless (eq currentTab 'maneuverProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
+        a5e-scroll-container
+        a5e-js-maneuver-properties-scroll-area
+    "
+    data-group="item-{{item._id}}"
+    data-tab="maneuverProperties"
+>
+    <div class="
+        a5e-box a5e-box--padded
+        a5e-form__section
+        a5e-form__section--inline a5e-form__section--no-margin
+        ">
+        <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            {{ localize "A5E.ManeuverDegreePrompt" }}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--inline">
+            <select
+                class="a5e-select"
+                name="data.degree"
+                data-dtype="Number"
+            >
+                {{#select item.data.degree}}
+                    {{#each config.maneuverDegrees as |name degree|}}
+                        <option value="{{degree}}">{{localize name}}</option>
+                    {{/each}}
+                {{/select}}
+            </select>
+        </div>
+    </div>
+
+    {{#if item.data.degree}}
+        {{> "systems/a5e/templates/items/partials/maneuver-tradition.hbs" config=config item=item}}
+
+        <div class="a5e-box a5e-box--padded">
+            <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+                <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                    {{localize 'A5E.ItemExertionCost'}}
+                </h3>
+
+                <div class="a5e-input-container a5e-input-container--inline">
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        type="number"
+                        data-dtype="Number"
+                        name="data.exertionCost"
+                        min="0"
+                        value="{{item.data.exertionCost}}"
+                    >
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</section>

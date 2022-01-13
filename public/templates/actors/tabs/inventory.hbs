@@ -1,0 +1,255 @@
+<section
+    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--inventory {{#unless (eq currentTab 'inventory')}}a5e-sheet__tab-content--hidden{{/unless}}"
+    data-group="main"
+    data-tab="inventory"
+>
+    <div class="a5e-filter-container a5e-box">
+        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+            {{ localize "A5E.Filters" }}
+        </h2>
+
+        <div class="a5e-form-group">
+            <h3 class="a5e-form__input-label">{{localize "A5E.FilterLabelRarity"}}</h3>
+
+            <ul class="a5e-tag-group a5-etag-group--small">
+                {{#each config.itemRarity as | rarity key |}}
+                    <li
+                        class="
+                            a5e-tag
+                            a5e-tag--small
+                            a5e-tag--clickable
+                            {{#if (contains ../filters.itemRarity.inclusive key)}}''
+                            {{else if (contains ../filters.itemRarity.exclusive key)}}a5e-tag--red
+                            {{else}}a5e-tag--inactive
+                            {{/if}}
+                            a5e-js-toggle-filter
+                        "
+                        data-item-type="object"
+                        data-category="rarity"
+                        data-value="{{key}}"
+                    >
+                        {{localize rarity}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="a5e-form-group">
+            <h3 class="a5e-form__input-label">{{localize "A5E.FilterLabelMiscellaneous"}}</h3>
+
+            <ul class="a5e-tag-group a5-etag-group--small">
+                <li
+                    class="
+                        a5e-tag
+                        a5e-tag--small
+                        a5e-tag--clickable
+                        {{#if (contains filters.itemMiscellaneous.inclusive 'attuned')}}''
+                        {{else if (contains filters.itemMiscellaneous.exclusive 'attuned')}}a5e-tag--red
+                        {{else}}a5e-tag--inactive
+                        {{/if}}
+                        a5e-js-toggle-filter
+                    "
+                    data-item-type="object"
+                    data-category="miscellaneous"
+                    data-value="attuned"
+                >
+                    {{localize "A5E.Attuned"}}
+                </li>
+
+                <li
+                    class="
+                        a5e-tag
+                        a5e-tag--small
+                        a5e-tag--clickable
+                        {{#if (contains filters.itemMiscellaneous.inclusive 'equipped')}}''
+                        {{else if (contains filters.itemMiscellaneous.exclusive 'equipped')}}a5e-tag--red
+                        {{else}}a5e-tag--inactive
+                        {{/if}}
+                        a5e-js-toggle-filter
+                    "
+                    data-item-type="object"
+                    data-category="miscellaneous"
+                    data-value="equipped"
+                >
+                    {{localize "A5E.ItemEquipped"}}
+                </li>
+
+                <li
+                    class="
+                        a5e-tag
+                        a5e-tag--small
+                        a5e-tag--clickable
+                        {{#if (contains filters.itemMiscellaneous.inclusive 'requiresAttunement')}}''
+                        {{else if (contains filters.itemMiscellaneous.exclusive 'requiresAttunement')}}a5e-tag--red
+                        {{else}}a5e-tag--inactive
+                        {{/if}}
+                        a5e-js-toggle-filter
+                    "
+                    data-item-type="object"
+                    data-category="miscellaneous"
+                    data-value="requiresAttunement"
+                >
+                    {{localize "A5E.AttunementRequired"}}
+                </li>
+            </ul>
+        </div>
+
+        <a
+            class="a5e-button a5e-button--filter-reset a5e-js-reset-filters"
+            data-item-type="object"
+        >
+            {{localize "A5E.FiltersReset"}}
+        </a>
+    </div>
+
+    <div class="a5e-items-container a5e-scroll-container a5e-js-inventory-scroll-area">
+        <section class="a5e-item-group">
+
+            <header class="a5e-header">
+                <h3 class="a5e-heading a5e-heading--item-group">{{ localize "A5E.TabInventory" }}
+                </h3>
+
+                <a class="a5e-button a5e-button--add-item a5e-js-create-inventory-item">
+                    + {{localize "A5E.ItemAdd"}}
+                </a>
+            </header>
+
+            <ul class="a5e-item-list">
+                {{#each items}}
+                    <li
+                        class="
+                    a5e-box
+                    a5e-item-list__item
+                    {{#if this.data.equipped}}a5e-item-list__item--equipped{{/if}}
+                    a5e-js-item
+                "
+                        data-id="{{this._id}}"
+                        data-item-id="{{this._id}}"
+                        draggable="true"
+                    >
+                        <img
+                            src="{{this.img}}"
+                            title="{{this.name}}"
+                            class="a5e-image a5e-image--item-inline a5e-js-activate-item"
+                        />
+
+                        <span>
+                            {{this.name}}
+                            {{#if this.showQuantity}}({{this.data.quantity}}){{/if}}
+                        </span>
+
+                        {{#if this.data.inlineLabels.length}}
+                            <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                                {{#each this.data.inlineLabels}}
+                                    <div class="a5e-tag a5e-tag--small">
+                                        {{this}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/if}}
+
+                        <div class="a5e-item-list__item-details">
+                            <hr class="a5e-rule">
+
+                            {{#if this.data.description}}
+                                {{{this.data.description}}}
+                            {{else}}
+                                {{localize "A5E.NoDescription"}}
+                            {{/if}}
+                        </div>
+
+                        <div class="a5e-context-menu">
+                            <a class="a5e-context-menu__option a5e-js-equip-item">
+                                <i class="fas fa-shopping-bag"></i>
+                                {{#if this.data.equipped}}
+                                    {{localize "A5E.ItemUnequip"}}
+                                {{else}}
+                                    {{ localize "A5E.ItemEquip" }}
+                                {{/if}}
+                            </a>
+
+                            <a class="a5e-context-menu__option a5e-js-edit-item">
+                                <i class="fas fa-pen"></i>
+                                {{ localize "A5E.ItemEdit" }}
+                            </a>
+
+                            <hr class="a5e-rule">
+
+                            <a
+                                class="a5e-context-menu__option a5e-context-menu__option--delete a5e-js-delete-item">
+                                <i class="fas fa-trash"></i>
+                                {{ localize "A5E.ItemDelete" }}
+                            </a>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+    </div>
+
+    <div class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--inventory">
+        <div class="a5e-footer-group">
+            <h3 class="a5e-footer-group__label">
+                {{localize "A5E.Attunement"}}
+            </h3>
+
+            <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
+                {{attunement.current}}
+            </span>
+            /
+            <input
+                class="a5e-footer-group__input a5e-footer-group__input--attunement"
+                type="number"
+                name="data.attributes.attunement.max"
+                value="{{attunement.max}}"
+                placeholder="0"
+                min="0"
+                max="9"
+                data-dtype="Number"
+            >
+        </div>
+
+        <div class="a5e-footer-group">
+            <div class="a5e-footer-group">
+                <h3 class="a5e-footer-group__label">
+                    {{localize "A5E.Supply"}}
+                </h3>
+
+                <input
+                    class="a5e-footer-group__input"
+                    type="number"
+                    name="data.supply"
+                    value="{{data.supply}}"
+                    placeholder="0"
+                    min="0"
+                    data-dtype="Number"
+                >
+            </div>
+        </div>
+
+        <div class="a5e-footer-group">
+            <h3 class="a5e-footer-group__label">
+                {{localize "A5E.Currency"}}
+                <i class="fas fa-coins"></i>
+            </h3>
+
+            <ol class="a5e-currency-list">
+                {{#each currency as |value key|}}
+                    <li class="a5e-currency-list__item">
+                        <label class="a5e-footer-group__label a5e-footer-group__label--currency">
+                            {{ key }}
+                        </label>
+
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency"
+                            type="number"
+                            name="data.currency.{{key}}"
+                            value="{{value}}"
+                            data-dtype="Number"
+                        />
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+.a5e-sheet-tabs {
+  display: flex;
+
+  &__tab {
+    flex-shrink: 0;
+    padding: 0.25rem 1.25rem;
+    border-bottom: 1px solid #ccc;
+
+    &--active {
+      border: 1px solid #ccc;
+      border-bottom: 0;
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+
+  &__filler {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+}
