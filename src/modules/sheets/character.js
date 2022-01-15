@@ -171,6 +171,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
 
     // Roll handlers
     html.find('.a5e-js-roll-ability-check').click(this._onRollAbilityCheck.bind(this));
+    html.find('.a5e-js-roll-death-saving-throw').click(this._onRollDeathSavingThrow.bind(this));
     html.find('.a5e-js-roll-initiative').click(this._onRollInitiative.bind(this));
     html.find('.a5e-js-roll-saving-throw').click(this._onRollSavingThrow.bind(this));
     html.find('.a5e-js-roll-skill-check').click(this._onRollSkillCheck.bind(this));
@@ -832,6 +833,11 @@ export default class ActorSheet5eCharacter extends ActorSheet {
     event.preventDefault();
     const { ability } = event.currentTarget.dataset;
     this.actor.rollAbilityCheck(ability, { event });
+  }
+
+  _onRollDeathSavingThrow(event) {
+    event.preventDefault();
+    this.actor.rollDeathSavingThrow();
   }
 
   /**

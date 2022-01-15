@@ -10,6 +10,7 @@ import BackgroundConfigDialog from '../../vue/BackgroundConfigDialog.vue';
 import ConditionImmunitiesConfigDialog from '../../vue/ConditionImmunitiesConfigDialog.vue';
 import CultureConfigDialog from '../../vue/CultureConfigDialog.vue';
 import DamageIRVConfigDialog from '../../vue/DamageIRVConfigDialog.vue';
+import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
 import HeritageConfigDialog from '../../vue/HeritageConfigDialog.vue';
 import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
 import InitiativeConfigDialog from '../../vue/InitiativeConfigDialog.vue';
@@ -98,6 +99,20 @@ export default class Actor5e extends Actor {
 
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     actorData.attributes.prof = Math.max(2, Math.floor((actorData.details.level + 7) / 4));
+  }
+
+  /** @inheritdoc */
+  async _preUpdate(changed, options, user) {
+    await super._preUpdate(changed, options, user);
+
+    // Reset death save counters
+    const isUnconscious = this.data.data.attributes.hp.current <= 0;
+    const willRegainConsciousness = foundry.utils.getProperty(changed, 'data.attributes.hp.current') > 0;
+
+    if (isUnconscious && willRegainConsciousness) {
+      foundry.utils.setProperty(changed, 'data.attributes.death.success', 0);
+      foundry.utils.setProperty(changed, 'data.attributes.death.failure', 0);
+    }
   }
 
   /**
@@ -695,6 +710,42 @@ export default class Actor5e extends Actor {
     ChatMessage.create(chatData);
   }
 
+  async rollDeathSavingThrow() {
+    const dialogTitle = game.i18n.format(
+      'A5E.DeathSavingThrowPromptTitle',
+      { name: this.name }
+    );
+
+    const saveData = await getDialogData(DeathSavingThrowDialog, {
+      title: dialogTitle, props: { actor: this }
+    });
+
+    if (saveData === null) return;
+
+    const roll = await new CONFIG.Dice.D20Roll(saveData.formula).roll({ async: true });
+
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      roll,
+      content: await renderTemplate(
+        'systems/a5e/templates/chat/ability-check.hbs',
+        {
+          title: game.i18n.localize('A5E.DeathSavingThrow'),
+          img: this.img,
+          formula: roll.formula,
+          tooltip: await roll.getTooltip(),
+          total: roll.total
+        }
+      )
+    };
+
+    ChatMessage.create(chatData);
+    this.updateDeathSavingThrowFigures(roll);
+  }
+
   // TODO: Refactor this to use its own card constructor
   async rollHitDice(dieSize, quantity = 1) {
     const actorData = this.data.data;
@@ -839,6 +890,22 @@ export default class Actor5e extends Actor {
 
     await this.restoreExertion();
     await this.restoreSpellResources(restType);
+  }
+
+  async updateDeathSavingThrowFigures(roll) {
+    const { success, failure } = this.data.data.attributes.death;
+    const d20Result = roll.dice[0].total;
+
+    const updates = {
+      'data.attributes.death': { success, failure }
+    };
+
+    if (d20Result === 1) updates['data.attributes.death'].failure += 2;
+    else if (d20Result === 20) updates['data.attributes.hp.current'] = 1;
+    else if (d20Result < 10) updates['data.attributes.death'].failure += 1;
+    else updates['data.attributes.death'].success += 1;
+
+    await this.update(updates);
   }
 
   async updateManeuverFilters(filterCategory, filterValue) {
