@@ -58,6 +58,24 @@
 
                 <li
                     class="
+                    a5e-tag
+                    a5e-tag--small
+                    a5e-tag--clickable
+                    {{#if (contains filters.itemMiscellaneous.inclusive 'bulky')}}''
+                    {{else if (contains filters.itemMiscellaneous.exclusive 'bulky')}}a5e-tag--red
+                    {{else}}a5e-tag--inactive
+                    {{/if}}
+                    a5e-js-toggle-filter
+                "
+                    data-item-type="object"
+                    data-category="miscellaneous"
+                    data-value="bulky"
+                >
+                    {{localize "A5E.ItemBulky"}}
+                </li>
+
+                <li
+                    class="
                         a5e-tag
                         a5e-tag--small
                         a5e-tag--clickable

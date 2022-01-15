@@ -971,6 +971,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
         inlineLabels.push(game.i18n.localize('A5E.Attuned'));
       }
 
+      if (item.data.bulky) inlineLabels.push(game.i18n.localize('A5E.ItemBulky'));
       if (item.data.equipped) inlineLabels.push(game.i18n.localize('A5E.ItemEquipped'));
 
       item.showQuantity = item.data.quantity && item.data.quantity > 1;
