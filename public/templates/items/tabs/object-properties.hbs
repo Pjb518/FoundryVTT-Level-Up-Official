@@ -35,48 +35,51 @@
 
     <div class="a5e-box a5e-box--padded">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-            <label
-                class="a5e-form__input-label a5e-form__input-label--inline"
-                for="{{item._id}}-attunementRequired"
-            >
-                {{localize "A5E.AttunementRequiredPrompt"}}
-            </label>
-
-            <div class="a5e-input-container a5e-input-container--inline-wide">
-                <input
-                    type="checkbox"
-                    data-dtype="Boolean"
-                    name="data.requiresAttunement"
-                    value="{{item.data.requiresAttunement}}"
-                    id="{{item._id}}-attunementRequired"
-                    {{#if
-                    item.data.requiresAttunement}}checked{{/if}}
-                >
-            </div>
-        </div>
-
-        {{#if item.data.requiresAttunement}}
             <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
                 <label
                     class="a5e-form__input-label a5e-form__input-label--inline"
-                    for="{{item._id}}-attuned"
+                    for="{{item._id}}-attunementRequired"
                 >
-                    {{localize "A5E.AttunementPrompt"}}
+                    {{localize "A5E.AttunementRequiredPrompt"}}
                 </label>
 
                 <div class="a5e-input-container a5e-input-container--inline-wide">
                     <input
                         type="checkbox"
                         data-dtype="Boolean"
-                        name="data.attuned"
-                        value="{{item.data.attuned}}"
-                        id="{{item._id}}-attuned"
+                        name="data.requiresAttunement"
+                        value="{{item.data.requiresAttunement}}"
+                        id="{{item._id}}-attunementRequired"
                         {{#if
-                        item.data.attuned}}checked{{/if}}
+                        item.data.requiresAttunement}}checked{{/if}}
                     >
                 </div>
             </div>
-        {{/if}}
+
+            {{#if item.data.requiresAttunement}}
+                <div
+                    class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+                    <label
+                        class="a5e-form__input-label a5e-form__input-label--inline"
+                        for="{{item._id}}-attuned"
+                    >
+                        {{localize "A5E.AttunementPrompt"}}
+                    </label>
+
+                    <div class="a5e-input-container a5e-input-container--inline-wide">
+                        <input
+                            type="checkbox"
+                            data-dtype="Boolean"
+                            name="data.attuned"
+                            value="{{item.data.attuned}}"
+                            id="{{item._id}}-attuned"
+                            {{#if
+                            item.data.attuned}}checked{{/if}}
+                        >
+                    </div>
+                </div>
+            {{/if}}
+        </div>
     </div>
 
     <div class="a5e-box a5e-box--padded">
@@ -99,7 +102,11 @@
     </div>
 
     <div class="a5e-box a5e-box--padded">
-        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+        <div class="
+                a5e-form__section
+                a5e-form__section--inline
+                a5e-form__section--no-margin
+            ">
             <h3 class="a5e-form__input-label a5e-form__input-label--inline">
                 {{localize 'A5E.ItemWeight'}}
             </h3>
@@ -112,6 +119,27 @@
                     name="data.weight"
                     min="0"
                     value="{{item.data.weight}}"
+                >
+            </div>
+        </div>
+
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <label
+                class="a5e-form__input-label a5e-form__input-label--inline"
+                for="{{item._id}}-bulky"
+            >
+                {{localize 'A5E.ItemBulkyPrompt'}}
+            </label>
+
+            <div class="a5e-input-container a5e-input-container--inline-wide">
+                <input
+                    type="checkbox"
+                    data-dtype="Boolean"
+                    name="data.bulky"
+                    value="{{item.data.bulky}}"
+                    id="{{item._id}}-bulky"
+                    {{#if
+                    item.data.bulky}}checked{{/if}}
                 >
             </div>
         </div>
