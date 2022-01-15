@@ -14,6 +14,7 @@ export default class ItemSheet5e extends ItemSheet {
       scrollY: [
         '.a5e-js-sheet-body',
         '.a5e-js-details-scroll-area',
+        '.a5e-js-item-description-scroll-area',
         '.a5e-js-object-properties-scroll-area',
         '.a5e-js-spell-properties-scroll-area'
       ],

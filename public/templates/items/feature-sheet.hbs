@@ -44,7 +44,14 @@
 
     <section class="a5e-u-y-overflow-hidden a5e-u-height-full a5e-js-sheet-body">
         <section
-            class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--item-details {{#unless (eq currentTab 'description')}}a5e-sheet__tab-content--hidden{{/unless}}"
+            class="
+                a5e-js-sheet-page
+                a5e-sheet__tab-content
+                a5e-sheet__tab-content--item-details
+                a5e-scroll-container
+                a5e-js-item-description-scroll-area
+                {{#unless (eq currentTab 'description')}}a5e-sheet__tab-content--hidden{{/unless}}
+            "
             data-group="item-{{item._id}}"
             data-tab="description"
         >
