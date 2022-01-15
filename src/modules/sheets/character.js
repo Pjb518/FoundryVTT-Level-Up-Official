@@ -1031,15 +1031,9 @@ export default class ActorSheet5eCharacter extends ActorSheet {
       spell.data.descriptionLabels.components.push(componentParts.join(' '));
     }
 
-    if (spell.data.ritual) {
-      spell.data.descriptionLabels.components.push(game.i18n.localize('A5E.SpellRitualAbbr'));
-    }
-
-    if (spell.data.concentration) {
-      spell.data.descriptionLabels.components.push(game.i18n.localize('A5E.SpellConcentrationAbbr'));
-    }
-
+    if (spell.data.concentration) inlineLabels.push(game.i18n.localize('A5E.SpellConcentration'));
     if (spell.data.prepared) inlineLabels.push(game.i18n.localize('A5E.ItemPrepared'));
+    if (spell.data.ritual) inlineLabels.push(game.i18n.localize('A5E.SpellRitual'));
 
     spell.data.inlineLabels = inlineLabels;
   }
