@@ -330,33 +330,32 @@ export default class ActorSheet5eCharacter extends ActorSheet {
     let filteredItems = items;
     const componentFilters = this.actor.getFlag('a5e', 'spellComponentFilters');
     const schoolFilters = this.actor.getFlag('a5e', 'spellSchoolFilters');
+    const miscellaneousFilters = this.actor.getFlag('a5e', 'miscellaneousSpellFilters');
+
+    // Clean up any outdated filters.
+    if (componentFilters?.inclusive?.length) {
+      const { inclusive } = componentFilters;
+
+      if (inclusive.includes('concentration')) inclusive.splice(inclusive.indexOf('concentration'), 1);
+      if (inclusive.includes('ritual')) inclusive.splice(inclusive.indexOf('ritual'), 1);
+    }
+
+    // Clean up any outdated filters.
+    if (componentFilters?.exclusive?.length) {
+      const { exclusive } = componentFilters;
+
+      if (exclusive.includes('concentration')) exclusive.splice(exclusive.indexOf('concentration'), 1);
+      if (exclusive.includes('ritual')) exclusive.splice(exclusive.indexOf('ritual'), 1);
+    }
 
     if (componentFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter((item) => {
-        const { components } = item.data;
-
-        if (componentFilters.inclusive.includes('vocalized')) return components.vocalized;
-        if (componentFilters.inclusive.includes('seen')) return components.seen;
-        if (componentFilters.inclusive.includes('material')) return components.material;
-        if (componentFilters.inclusive.includes('concentration')) return item.data.concentration;
-        if (componentFilters.inclusive.includes('ritual')) return item.data.ritual;
-
-        return false;
-      });
+      filteredItems = filteredItems.filter((item) => (
+        componentFilters.inclusive.some((value) => item.data.components[value])));
     }
 
     if (componentFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter((item) => {
-        const { components } = item.data;
-
-        if (componentFilters.exclusive.includes('vocalized')) return !components.vocalized;
-        if (componentFilters.exclusive.includes('seen')) return !components.seen;
-        if (componentFilters.exclusive.includes('material')) return !components.material;
-        if (componentFilters.exclusive.includes('concentration')) return !item.data.concentration;
-        if (componentFilters.exclusive.includes('ritual')) return !item.data.ritual;
-
-        return true;
-      });
+      filteredItems = filteredItems.filter((item) => (
+        !componentFilters.exclusive.some((value) => item.data.components[value])));
     }
 
     if (schoolFilters?.inclusive?.length) {
@@ -369,6 +368,26 @@ export default class ActorSheet5eCharacter extends ActorSheet {
       filteredItems = filteredItems.filter(
         (item) => !schoolFilters.exclusive.includes(item.data.schools.primary)
       );
+    }
+
+    if (miscellaneousFilters?.inclusive.length) {
+      filteredItems = filteredItems.filter((item) => {
+        if (miscellaneousFilters.inclusive.includes('concentration')) return item.data.concentration;
+        if (miscellaneousFilters.inclusive.includes('prepared')) return item.data.prepared;
+        if (miscellaneousFilters.inclusive.includes('ritual')) return item.data.ritual;
+
+        return false;
+      });
+    }
+
+    if (miscellaneousFilters?.exclusive.length) {
+      filteredItems = filteredItems.filter((item) => {
+        if (miscellaneousFilters.exclusive.includes('concentration')) return !item.data.concentration;
+        if (miscellaneousFilters.exclusive.includes('prepared')) return !item.data.prepared;
+        if (miscellaneousFilters.exclusive.includes('ritual')) return !item.data.ritual;
+
+        return true;
+      });
     }
 
     return filteredItems;
@@ -905,7 +924,8 @@ export default class ActorSheet5eCharacter extends ActorSheet {
       maneuverDegree: this.actor.getFlag('a5e', 'maneuverDegreeFilters') ?? { inclusive: [], exclusive: [] },
       maneuverTradition: this.actor.getFlag('a5e', 'maneuverTraditionFilters') ?? { inclusive: [], exclusive: [] },
       spellComponents: this.actor.getFlag('a5e', 'spellComponentFilters') ?? { inclusive: [], exclusive: [] },
-      spellSchools: this.actor.getFlag('a5e', 'spellSchoolFilters') ?? { inclusive: [], exclusive: [] }
+      spellSchools: this.actor.getFlag('a5e', 'spellSchoolFilters') ?? { inclusive: [], exclusive: [] },
+      spellMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousSpellFilters') ?? { inclusive: [], exclusive: [] }
     };
   }
 

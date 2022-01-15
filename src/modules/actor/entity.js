@@ -567,7 +567,8 @@ export default class Actor5e extends Actor {
   async resetSpellFilters() {
     await Promise.all([
       this.setFlag('a5e', 'spellComponentFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'spellSchoolFilters', { inclusive: [], exclusive: [] })
+      this.setFlag('a5e', 'spellSchoolFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'miscellaneousSpellFilters', { inclusive: [], exclusive: [] })
     ]);
   }
 
@@ -959,6 +960,7 @@ export default class Actor5e extends Actor {
   async updateSpellFilters(filterCategory, filterValue) {
     const componentFilters = this.getFlag('a5e', 'spellComponentFilters') ?? {};
     const schoolFilters = this.getFlag('a5e', 'spellSchoolFilters') ?? {};
+    const miscellaneousFilters = this.getFlag('a5e', 'miscellaneousSpellFilters') ?? {};
 
     if (filterCategory === 'components') {
       const [inclusiveFilters, exclusiveFilters] = toggleFilter(componentFilters, filterValue);
@@ -974,6 +976,14 @@ export default class Actor5e extends Actor {
       await this.setFlag(
         'a5e',
         'spellSchoolFilters',
+        { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
+      );
+    } else if (filterCategory === 'miscellaneous') {
+      const [inclusiveFilters, exclusiveFilters] = toggleFilter(miscellaneousFilters, filterValue);
+
+      await this.setFlag(
+        'a5e',
+        'miscellaneousSpellFilters',
         { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
       );
     }
