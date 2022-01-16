@@ -75,9 +75,10 @@ export default class ItemSheet5e extends ItemSheet {
     if (updateData) data = mergeObject(data, updateData);
     else data = expandObject(data);
 
-    // Handle Damage array
     const damage = data.data?.damage;
+    const healing = data.data?.healing;
 
+    // Handle Damage array
     if (damage) {
       data.data.damage = Object.values(damage || {}).map(({
         canCrit, damageType, formula, name
@@ -85,6 +86,17 @@ export default class ItemSheet5e extends ItemSheet {
         canCrit: canCrit ?? false,
         damageType: damageType || '',
         formula: formula || '',
+        name: name || ''
+      }));
+    }
+
+    // Handle Healing Array
+    if (healing) {
+      data.data.healing = Object.values(healing || {}).map(({
+        formula, healingType, name
+      }) => ({
+        formula: formula || '',
+        healingType: healingType || '',
         name: name || ''
       }));
     }

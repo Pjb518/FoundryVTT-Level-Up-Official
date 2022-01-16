@@ -29,11 +29,20 @@
 
     <tag-group
       v-if="hasDamage"
-      heading="A5E.DamageOptions"
+      heading="A5E.DamageOptionsPrompt"
       :initialSelections="Object.keys(damageTags)"
       :sort="false"
       :tags="damageTags"
       @updateSelectionList="updateSelectedDamageGroups"
+    />
+
+    <tag-group
+      v-if="hasHealing"
+      heading="A5E.HealingOptionsPrompt"
+      :initialSelections="Object.keys(healingTags)"
+      :sort="false"
+      :tags="healingTags"
+      @updateSelectionList="updateSelectedHealingGroups"
     />
 
     <button class="a5e-button" type="submit" :disabled="!rollFormulaIsValid">
@@ -71,16 +80,24 @@ export default {
     const rollData = actor.getRollData();
     rollData.mod = actorData.abilities[itemData.ability]?.check.mod || 0;
 
-    const { actionOptions, ability, attack, damage } = itemData;
+    const { actionOptions, ability, attack, damage, healing } = itemData;
     const abilityMod = actorData.abilities[ability]?.check.mod;
     const addProficiencyBonus = itemData.proficient;
     const hasAttackRoll = actionOptions.includes("attack");
     const hasDamage = actionOptions.includes("damage");
+    const hasHealing = actionOptions.includes("healing");
 
     const damageTags = Object.fromEntries(
       damage.map(({ name }, i) => [
         i,
         name.trim() || `${game.i18n.localize("A5E.Damage")} #${i + 1}`,
+      ])
+    );
+
+    const healingTags = Object.fromEntries(
+      healing.map(({ name }, i) => [
+        i,
+        name.trim() || `${game.i18n.localize("A5E.Healing")} #${i + 1}`,
       ])
     );
 
@@ -97,6 +114,7 @@ export default {
     const rollFormulaIsValid = ref(true);
     const rollMode = ref(CONFIG.A5E.ROLL_MODE.NORMAL);
     const selectedDamageGroups = ref(Object.keys(damageTags));
+    const selectedHealingGroups = ref(Object.keys(healingTags));
     const situationalMods = ref("");
 
     function updateExpertiseDie(diceQuantity) {
@@ -109,6 +127,10 @@ export default {
 
     function updateSelectedDamageGroups(value) {
       selectedDamageGroups.value = value;
+    }
+
+    function updateSelectedHealingGroups(value) {
+      selectedHealingGroups.value = value;
     }
 
     function updateSituationalMods(mods) {
@@ -161,6 +183,8 @@ export default {
       damageTags,
       hasAttackRoll,
       hasDamage,
+      hasHealing,
+      healingTags,
       initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
       onSubmit,
       rollFormula,
@@ -170,6 +194,7 @@ export default {
       updateExpertiseDie,
       updateRollMode,
       updateSelectedDamageGroups,
+      updateSelectedHealingGroups,
       updateSituationalMods,
     };
   },
