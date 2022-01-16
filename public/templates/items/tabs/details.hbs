@@ -31,6 +31,10 @@
         {{> "systems/a5e/templates/items/partials/damage-config.hbs" config=config item=item}}
     {{/if}}
 
+    {{#if (contains item.data.actionOptions "healing")}}
+        {{> "systems/a5e/templates/items/partials/healing-config.hbs" config=config item=item}}
+    {{/if}}
+
     {{#if (contains item.data.actionOptions "abilityCheck")}}
         {{> "systems/a5e/templates/items/partials/ability-check-config.hbs" config=config item=item}}
     {{/if}}

@@ -60,6 +60,8 @@ export default class ItemSheet5e extends ItemSheet {
     // Item configuration listeners
     html.find('.a5e-js-add-damage-source').click(this._onAddDamageSource.bind(this));
     html.find('.a5e-js-delete-damage-source').click(this._onDeleteDamageSource.bind(this));
+    html.find('.a5e-js-add-healing-source').click(this._onAddHealingSource.bind(this));
+    html.find('.a5e-js-delete-healing-source').click(this._onDeleteHealingSource.bind(this));
 
     super.activateListeners(html);
   }
@@ -119,7 +121,7 @@ export default class ItemSheet5e extends ItemSheet {
     event.preventDefault();
 
     const itemData = this.item.data.data;
-    const { damage } = itemData;
+    const { damage } = itemData ?? [];
 
     damage.push({
       name: '',
@@ -129,6 +131,21 @@ export default class ItemSheet5e extends ItemSheet {
     });
 
     this.item.update({ 'data.damage': damage });
+  }
+
+  _onAddHealingSource(event) {
+    event.preventDefault();
+
+    const itemData = this.item.data.data;
+    const { healing } = itemData ?? [];
+
+    healing.push({
+      name: '',
+      formula: '',
+      healingType: ''
+    });
+
+    this.item.update({ 'data.healing': healing });
   }
 
   /**
@@ -154,6 +171,17 @@ export default class ItemSheet5e extends ItemSheet {
     damage.splice(index, 1);
 
     this.item.update({ 'data.damage': damage });
+  }
+
+  _onDeleteHealingSource(event) {
+    event.preventDefault();
+
+    const { index } = event.currentTarget.dataset;
+    const { healing } = this.item.data.data;
+
+    healing.splice(index, 1);
+
+    this.item.update({ 'data.healing': healing });
   }
 
   /**

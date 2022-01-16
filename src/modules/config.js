@@ -50,6 +50,7 @@ A5E.actionOptions = {
   abilityCheck: 'A5E.ActionOptionAbilityCheck',
   attack: 'A5E.ActionOptionAttack',
   damage: 'A5E.ActionOptionDamage',
+  healing: 'A5E.ActionOptionHealing',
   savingThrow: 'A5E.ActionOptionSavingThrow'
 };
 
@@ -178,6 +179,15 @@ A5E.damageTypes = {
   radiant: 'A5E.DamageRadiant',
   slashing: 'A5E.DamageSlashing',
   thunder: 'A5E.DamageThunder'
+};
+
+/**
+ * The set of core healing types in the system.
+ * @enum {string}
+ */
+A5E.healingTypes = {
+  healing: 'A5E.Healing',
+  temporaryHealing: 'A5E.HealingTemporary'
 };
 
 /**
