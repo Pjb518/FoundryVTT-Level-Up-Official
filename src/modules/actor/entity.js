@@ -175,6 +175,7 @@ export default class Actor5e extends Actor {
     const itemData = item.data.data;
     let attack;
     let damage;
+    let healing;
 
     const dialogTitle = game.i18n.format(
       'A5E.ItemActivationPrompt',
@@ -195,6 +196,7 @@ export default class Actor5e extends Actor {
       isFumble: null,
       attack: null,
       damage: null,
+      healing: null,
       abilityCheck: {
         ...itemData.check,
         label: game.i18n.format(
@@ -218,6 +220,7 @@ export default class Actor5e extends Actor {
         const configuration = await dialog.promise;
         attack = configuration.attack;
         damage = configuration.damage;
+        healing = configuration.healing;
       } catch {
         return;
       }
@@ -254,6 +257,26 @@ export default class Actor5e extends Actor {
 
         data.damage.push({
           damageType, roll, tooltip
+        });
+      }
+    }
+
+    if (itemData.actionOptions.includes('healing')) {
+      data.healing = [];
+
+      // TODO: Refactor this to stop eslint complaining
+      for (const { healingType, formula } of healing) {
+        const roll = new CONFIG.Dice.DamageRoll(
+          formula || '0',
+          this.getRollData(),
+          { canCrit: false }
+        );
+
+        await roll.evaluate({ async: true });
+        const tooltip = await roll.getTooltip();
+
+        data.healing.push({
+          healingType, roll, tooltip
         });
       }
     }
@@ -516,15 +539,18 @@ export default class Actor5e extends Actor {
       content: await renderTemplate(
         'systems/a5e/templates/chat/item-card.hbs',
         {
+          config: CONFIG.A5E,
           title: data.title,
           img: data.img,
           attack: data.attack,
           description: data.description,
           damage: data.damage,
+          healing: data.healing,
           abilityCheck: data.abilityCheck,
           savingThrow: data.savingThrow,
           hasAttack: data.actionOptions?.includes('attack'),
           hasDamage: data.actionOptions?.includes('damage'),
+          hasHealing: data.actionOptions?.includes('healing'),
           hasDescription: data.description?.toString().trim(),
           hasAbilityCheck: data.actionOptions?.includes('abilityCheck'),
           hasSavingThrow: data.actionOptions?.includes('savingThrow'),

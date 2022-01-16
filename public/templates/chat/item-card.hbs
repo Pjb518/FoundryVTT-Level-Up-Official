@@ -46,8 +46,37 @@
             <div>
                 <h3 class="a5e-chat-card__roll-label">
                     {{localize "A5E.RollLabelDamage"}}
-                    {{#if this.damageType}}({{this.damageType}})
-                    {{else}}({{localize "A5E.DamageUnknown"}}){{/if}}
+                    {{#if this.damageType}}
+                        ({{localize (lookup ../config.damageTypes this.damageType)}})
+                    {{else}}
+                        ({{localize "A5E.DamageUnknown"}})
+                    {{/if}}
+                </h3>
+
+                <div class="a5e-chat-card__roll a5e-js-toggle-roll-tooltip-visibility">
+                    {{this.roll.formula}}
+                </div>
+
+                {{{this.tooltip}}}
+
+                <div class="a5e-chat-card__roll a5e-chat-card__roll--total">
+                    {{this.roll.total}}
+                </div>
+            </div>
+        {{/each}}
+    {{/if}}
+
+    {{#if hasHealing}}
+        <hr class="a5e-rule a5e-rule--card">
+
+        {{#each healing}}
+            <div>
+                <h3 class="a5e-chat-card__roll-label">
+                    {{#if this.healingType}}
+                        {{localize (lookup ../config.healingTypes this.healingType)}}
+                    {{else}}
+                        {{localize "A5E.Healing"}}
+                    {{/if}}
                 </h3>
 
                 <div class="a5e-chat-card__roll a5e-js-toggle-roll-tooltip-visibility">

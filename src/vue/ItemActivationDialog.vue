@@ -145,6 +145,7 @@ export default {
           type: attack.type,
         },
         damage: selectedDamageGroups.value.map((index) => damage[index]),
+        healing: selectedHealingGroups.value.map((index) => healing[index]),
       });
     }
 
