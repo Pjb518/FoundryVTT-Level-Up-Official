@@ -213,7 +213,7 @@ export default class Actor5e extends Actor {
       }
     };
 
-    if (['attack', 'damage'].some((option) => itemData.actionOptions.includes(option))) {
+    if (['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))) {
       await dialog.render(true);
 
       try {
