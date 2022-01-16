@@ -10,13 +10,17 @@
     />
 
     <div class="a5e-ability-score__buttons">
-        <span
+        <div
             class="a5e-ability-score__roll-button a5e-js-roll-ability-check"
             data-ability="{{ key }}"
             title="{{ localize 'A5E.RollAbilityCheck' }}"
         >
             {{ ability.check.deterministicBonus }}
-        </span>
+
+            <div class="a5e-tooltip a5e-tooltip--ability-score">
+                {{ localize 'A5E.RollAbilityCheck' }}
+            </div>
+        </div>
 
         <i
             class="a5e-config-button a5e-js-configure-ability-score fas fa-cog"
@@ -24,12 +28,20 @@
             title="{{ localize 'A5E.ConfigureBonuses' }}"
         ></i>
 
-        <span
+        <div
             class="a5e-ability-score__roll-button a5e-js-roll-saving-throw"
             data-ability="{{ key }}"
             title="{{ localize 'A5E.RollSavingThrow' }}"
         >
             {{ ability.save.deterministicBonus }}
-        </span>
+
+            <div class="
+                a5e-tooltip
+                a5e-tooltip--ability-score
+                {{#if (eq key 'cha')}}a5e-tooltip--obstacle-right{{/if}}
+            ">
+                {{ localize 'A5E.RollSavingThrow' }}
+            </div>
+        </div>
     </div>
 </li>

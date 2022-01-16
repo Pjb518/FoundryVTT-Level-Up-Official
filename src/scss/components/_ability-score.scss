@@ -50,6 +50,7 @@
   }
 
   &__roll-button {
+    position: relative;
     display: flex;
     width: 1.5rem;
     height: 1.5rem;
@@ -60,5 +61,10 @@
     border-radius: 100px;
     box-shadow: 0 0 7.5px #ccc inset;
     cursor: pointer;
+
+    &:hover > .a5e-tooltip {
+      display: block;
+      opacity: 1;
+    }
   }
 }
