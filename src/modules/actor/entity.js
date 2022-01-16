@@ -105,8 +105,13 @@ export default class Actor5e extends Actor {
   async _preUpdate(changed, options, user) {
     await super._preUpdate(changed, options, user);
 
+    // If hp drops below 0, set the value to 0.
+    if (foundry.utils.getProperty(changed, 'data.attributes.hp.current') < 0) {
+      foundry.utils.setProperty(changed, 'data.attributes.hp.current', 0);
+    }
+
     // Reset death save counters
-    const isUnconscious = this.data.data.attributes.hp.current <= 0;
+    const isUnconscious = this.data.data.attributes.hp.current === 0;
     const willRegainConsciousness = foundry.utils.getProperty(changed, 'data.attributes.hp.current') > 0;
 
     if (isUnconscious && willRegainConsciousness) {
