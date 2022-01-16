@@ -10,7 +10,7 @@ export default class ItemSheet5e extends ItemSheet {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['a5e-sheet'],
+      classes: ['a5e-sheet', 'a5e-sheet--item'],
       scrollY: [
         '.a5e-js-sheet-body',
         '.a5e-js-details-scroll-area',
@@ -20,7 +20,7 @@ export default class ItemSheet5e extends ItemSheet {
       ],
       height: 500,
       width: 620,
-      resizable: false,
+      resizable: true,
       currentTab: 'description'
     });
   }

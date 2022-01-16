@@ -9,7 +9,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['a5e-sheet'],
+      classes: ['a5e-sheet', 'a5e-sheet--actor'],
       scrollY: [
         '.a5e-js-attributes-scroll-area',
         '.a5e-js-biography-scroll-area',
@@ -18,7 +18,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
         '.a5e-js-journal-scroll-area',
         '.a5e-js-spell-scroll-area'
       ],
-      resizable: false,
+      resizable: true,
       width: 880,
       height: 700,
       currentTab: 'attributes'
