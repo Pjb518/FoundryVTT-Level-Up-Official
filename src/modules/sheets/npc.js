@@ -160,6 +160,7 @@ export default class ActorSheet5eNPC extends ActorSheet {
     data.showSpellSlots = this.actor.getFlag('a5e', 'showSpellSlots');
     data.showSpellPoints = this.actor.getFlag('a5e', 'showSpellPoints');
     data.filters = this._prepareFilters();
+    data.combatModeActive = this.actor.getFlag('a5e', 'combatModeActive');
 
     return data;
   }
@@ -224,6 +225,9 @@ export default class ActorSheet5eNPC extends ActorSheet {
 
     // Inspiration toggle
     html.find('.a5e-js-toggle-inspiration').click(this._onToggleInspiration.bind(this));
+
+    // Combat mode toggle
+    html.find('.a5e-js-toggle-combat-mode').click(this._onToggleCombatMode.bind(this));
 
     // Drag and drop handlers
     html.find('.a5e-js-item').on('dragstart', (event) => this._onDragStart.call(this, event.originalEvent));
@@ -767,6 +771,16 @@ export default class ActorSheet5eNPC extends ActorSheet {
     this.actor.items.get(id).sheet.render(true);
 
     $(document).find('.a5e-context-menu').removeClass('a5e-context-menu--visible');
+  }
+
+  /**
+  * Handle clicking the combat mode toggle.
+  *
+  * @param {Event} event  The originating click event.
+  */
+  async _onToggleCombatMode(event) {
+    event.preventDefault();
+    await this.actor.setFlag('a5e', 'combatModeActive', !this.actor.getFlag('a5e', 'combatModeActive'));
   }
 
   /**

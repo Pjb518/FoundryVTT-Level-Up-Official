@@ -128,6 +128,19 @@
             {{/if}}
 
             <i class="a5e-config-button a5e-js-configure-movement fas fa-cog"></i>
+
+            <a class="
+                a5e-button
+                a5e-button--combat-mode
+                {{#if combatModeActive}}a5e-button--red{{/if}}
+                a5e-js-toggle-combat-mode
+            ">
+                {{#if combatModeActive}}
+                    {{localize "A5E.CombatModeDeactivate"}}
+                {{else}}
+                    {{localize "A5E.CombatModeActivate"}}
+                {{/if}}
+            </a>
         </div>
 
         <div class="a5e-sheet-header__primary-details">
