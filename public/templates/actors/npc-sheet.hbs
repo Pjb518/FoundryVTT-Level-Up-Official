@@ -212,4 +212,15 @@
             {{/each}}
         </ul>
     </header>
+
+    <nav
+        class="a5e-sheet-tabs"
+        data-group="main"
+    >
+        {{#if combatModeActive}}
+            {{> "systems/a5e/templates/actors/partials/combat-mode-navigation.hbs" currentTab=currentTab }}
+        {{else}}
+            {{> "systems/a5e/templates/actors/partials/standard-navigation.hbs" currentTab=currentTab }}
+        {{/if}}
+    </nav>
 </form>

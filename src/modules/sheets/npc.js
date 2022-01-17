@@ -780,7 +780,11 @@ export default class ActorSheet5eNPC extends ActorSheet {
   */
   async _onToggleCombatMode(event) {
     event.preventDefault();
-    await this.actor.setFlag('a5e', 'combatModeActive', !this.actor.getFlag('a5e', 'combatModeActive'));
+
+    const combatModeWasActive = this.actor.getFlag('a5e', 'combatModeActive');
+
+    await this.actor.setFlag('a5e', 'combatModeActive', !combatModeWasActive);
+    this.changePage('main', combatModeWasActive ? 'attributes' : 'core');
   }
 
   /**
