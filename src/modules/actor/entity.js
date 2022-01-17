@@ -40,10 +40,10 @@ export default class Actor5e extends Actor {
     const actorType = this.data.type;
 
     if (actorType === 'character') {
-      return this.prepareCharacterData(this.data);
+      return this.prepareCharacterData();
     }
 
-    return null;
+    return this.prepareNPCData();
   }
 
   /**
@@ -86,10 +86,12 @@ export default class Actor5e extends Actor {
       actorData.abilities.dex.check.mod
     );
 
-    actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
-      const { requiresAttunement, attuned } = curr.data.data;
-      return (requiresAttunement && attuned) ? acc + 1 : acc;
-    }, 0);
+    if (this.type === 'character') {
+      actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
+        const { requiresAttunement, attuned } = curr.data.data;
+        return (requiresAttunement && attuned) ? acc + 1 : acc;
+      }, 0);
+    }
 
     this.prepareSkills();
   }
@@ -99,6 +101,13 @@ export default class Actor5e extends Actor {
 
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     actorData.attributes.prof = Math.max(2, Math.floor((actorData.details.level + 7) / 4));
+  }
+
+  prepareNPCData() {
+    const actorData = this.data.data;
+
+    // Calculate the proficiency bonus for the character with a minimum value of 2.
+    actorData.attributes.prof = Math.max(2, Math.floor((actorData.details.cr + 7) / 4));
   }
 
   /** @inheritdoc */

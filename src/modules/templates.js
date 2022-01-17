@@ -6,6 +6,7 @@
 export default async () => loadTemplates([
   // Actor sheets
   'systems/a5e/templates/actors/character-sheet.hbs',
+  'systems/a5e/templates/actors/npc-sheet.hbs',
   'systems/a5e/templates/actors/limited-actor-sheet.hbs',
 
   // Actor sheet tabs
