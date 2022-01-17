@@ -1,5 +1,14 @@
 <section
-    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--inventory {{#unless (eq currentTab 'inventory')}}a5e-sheet__tab-content--hidden{{/unless}}"
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        {{#if (eq actorType 'npc')}}
+            a5e-sheet__tab-content--npc-inventory
+        {{else}}
+            a5e-sheet__tab-content--inventory
+        {{/if}}
+        {{#unless (eq currentTab 'inventory')}}a5e-sheet__tab-content--hidden{{/unless}}
+    "
     data-group="main"
     data-tab="inventory"
 >
@@ -205,69 +214,72 @@
         </section>
     </div>
 
-    <div class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--inventory">
-        <div class="a5e-footer-group">
-            <h3 class="a5e-footer-group__label">
-                {{localize "A5E.Attunement"}}
-            </h3>
-
-            <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
-                {{attunement.current}}
-            </span>
-            /
-            <input
-                class="a5e-footer-group__input a5e-footer-group__input--attunement"
-                type="number"
-                name="data.attributes.attunement.max"
-                value="{{attunement.max}}"
-                placeholder="0"
-                min="0"
-                max="9"
-                data-dtype="Number"
-            >
-        </div>
-
-        <div class="a5e-footer-group">
+    {{#unless (eq actorType "npc")}}
+        <div class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--inventory">
             <div class="a5e-footer-group">
                 <h3 class="a5e-footer-group__label">
-                    {{localize "A5E.Supply"}}
+                    {{localize "A5E.Attunement"}}
                 </h3>
 
+                <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
+                    {{attunement.current}}
+                </span>
+                /
                 <input
-                    class="a5e-footer-group__input"
+                    class="a5e-footer-group__input a5e-footer-group__input--attunement"
                     type="number"
-                    name="data.supply"
-                    value="{{data.supply}}"
+                    name="data.attributes.attunement.max"
+                    value="{{attunement.max}}"
                     placeholder="0"
                     min="0"
+                    max="9"
                     data-dtype="Number"
                 >
             </div>
+
+            <div class="a5e-footer-group">
+                <div class="a5e-footer-group">
+                    <h3 class="a5e-footer-group__label">
+                        {{localize "A5E.Supply"}}
+                    </h3>
+
+                    <input
+                        class="a5e-footer-group__input"
+                        type="number"
+                        name="data.supply"
+                        value="{{data.supply}}"
+                        placeholder="0"
+                        min="0"
+                        data-dtype="Number"
+                    >
+                </div>
+            </div>
+
+            <div class="a5e-footer-group">
+                <h3 class="a5e-footer-group__label">
+                    {{localize "A5E.Currency"}}
+                    <i class="fas fa-coins"></i>
+                </h3>
+
+                <ol class="a5e-currency-list">
+                    {{#each currency as |value key|}}
+                        <li class="a5e-currency-list__item">
+                            <label
+                                class="a5e-footer-group__label a5e-footer-group__label--currency">
+                                {{ key }}
+                            </label>
+
+                            <input
+                                class="a5e-footer-group__input a5e-footer-group__input--currency"
+                                type="number"
+                                name="data.currency.{{key}}"
+                                value="{{value}}"
+                                data-dtype="Number"
+                            />
+                        </li>
+                    {{/each}}
+                </ol>
+            </div>
         </div>
-
-        <div class="a5e-footer-group">
-            <h3 class="a5e-footer-group__label">
-                {{localize "A5E.Currency"}}
-                <i class="fas fa-coins"></i>
-            </h3>
-
-            <ol class="a5e-currency-list">
-                {{#each currency as |value key|}}
-                    <li class="a5e-currency-list__item">
-                        <label class="a5e-footer-group__label a5e-footer-group__label--currency">
-                            {{ key }}
-                        </label>
-
-                        <input
-                            class="a5e-footer-group__input a5e-footer-group__input--currency"
-                            type="number"
-                            name="data.currency.{{key}}"
-                            value="{{value}}"
-                            data-dtype="Number"
-                        />
-                    </li>
-                {{/each}}
-            </ol>
-        </div>
-    </div>
+    {{/unless}}
 </section>

@@ -162,6 +162,8 @@ export default class ActorSheet5eNPC extends ActorSheet {
     data.filters = this._prepareFilters();
     data.combatModeActive = this.actor.getFlag('a5e', 'combatModeActive');
 
+    if (data.combatModeActive) data.currentTab = 'core';
+
     return data;
   }
 

@@ -77,6 +77,7 @@
 
     &--features,
     &--inventory,
+    &--npc-inventory,
     &--maneuvers,
     &--spells {
       height: 100%;
@@ -87,7 +88,8 @@
       display: grid;
     }
 
-    &--features {
+    &--features,
+    &--npc-inventory {
       padding-bottom: 0;
     }
 
@@ -97,11 +99,15 @@
       padding: 1rem 0 2.5rem 1rem;
     }
 
+    &--skills,
     &--journal {
       width: 100%;
       height: 100%;
-      flex-direction: column;
       gap: 0;
+    }
+
+    &--journal {
+      flex-direction: column;
     }
 
     &--maneuver-properties,
@@ -110,6 +116,10 @@
     &--details {
       flex-direction: column;
       gap: 0.5rem;
+    }
+
+    &--skills {
+      display: block;
     }
 
     &--hidden {

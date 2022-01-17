@@ -225,6 +225,21 @@
     </nav>
 
     <section class="a5e-sheet__body-container">
+        <section
+            class="
+                a5e-sheet__tab-content
+                a5e-sheet__tab-content--core
+                a5e-scroll-container
+                {{#unless (eq currentTab 'core')}}a5e-sheet__tab-content--hidden{{/unless}}
+                a5e-js-sheet-page
+                a5e-js-core-features-scroll-area
+            "
+            data-group="main"
+            data-tab="core"
+        >
+            CORE!!!
+        </section>
+
         {{>
             "systems/a5e/templates/actors/tabs/attributes.hbs"
             actorType=actor.type
@@ -233,5 +248,65 @@
             data=data
             currentTab=currentTab
         }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/features.hbs"
+            items=items.features
+            currentTab=currentTab
+        }}
+
+        {{>
+            "systems/a5e/templates/actors/tabs/inventory.hbs"
+            actorType=actor.type
+            attunement=data.attributes.attunement
+            currency=data.currency
+            filters=filters
+            items=items.inventory
+            currentTab=currentTab
+        }}
+
+        <section
+            class="
+                a5e-sheet__tab-content
+                a5e-sheet__tab-content--skills
+                a5e-scroll-container
+                {{#unless (eq currentTab 'skills')}}a5e-sheet__tab-content--hidden{{/unless}}
+                a5e-js-sheet-page
+                a5e-js-skills-scroll-area
+            "
+            data-group="main"
+            data-tab="skills"
+        >
+            <ul class="a5e-skill-container">
+                {{#each data.skills as |skill key|}}
+                    {{> "systems/a5e/templates/actors/partials/skill.hbs" skill=skill key=key }}
+                {{/each}}
+            </ul>
+        </section>
+
+        {{>
+            "systems/a5e/templates/actors/tabs/spells.hbs"
+            availableSpellLevels=availableSpellLevels
+            currentTab=currentTab
+            filters=filters
+            items=items.spells
+            showSpellSlots=showSpellSlots
+            showSpellPoints=showSpellPoints
+            spellResources=data.spellResources
+        }}
+
+        <section
+            class="
+                a5e-sheet__tab-content
+                a5e-sheet__tab-content--notes
+                a5e-scroll-container
+                {{#unless (eq currentTab 'notes')}}a5e-sheet__tab-content--hidden{{/unless}}
+                a5e-js-sheet-page
+                a5e-js-notes-scroll-area
+            "
+            data-group="main"
+            data-tab="notes"
+        >
+        </section>
     </section>
 </form>
