@@ -223,4 +223,15 @@
             {{> "systems/a5e/templates/actors/partials/standard-navigation.hbs" currentTab=currentTab }}
         {{/if}}
     </nav>
+
+    <section class="a5e-sheet__body-container">
+        {{>
+            "systems/a5e/templates/actors/tabs/attributes.hbs"
+            actorType=actor.type
+            movement=movement
+            senses=senses
+            data=data
+            currentTab=currentTab
+        }}
+    </section>
 </form>
