@@ -225,20 +225,13 @@
     </nav>
 
     <section class="a5e-sheet__body-container">
-        <section
-            class="
-                a5e-sheet__tab-content
-                a5e-sheet__tab-content--core
-                a5e-scroll-container
-                {{#unless (eq currentTab 'core')}}a5e-sheet__tab-content--hidden{{/unless}}
-                a5e-js-sheet-page
-                a5e-js-core-features-scroll-area
-            "
-            data-group="main"
-            data-tab="core"
-        >
-            CORE!!!
-        </section>
+        {{>
+            "systems/a5e/templates/actors/tabs/core.hbs"
+            items=items.features
+            senses=senses
+            data=data
+            currentTab=currentTab
+        }}
 
         {{>
             "systems/a5e/templates/actors/tabs/attributes.hbs"
@@ -279,7 +272,12 @@
         >
             <ul class="a5e-skill-container">
                 {{#each data.skills as |skill key|}}
-                    {{> "systems/a5e/templates/actors/partials/skill.hbs" skill=skill key=key }}
+                    {{>
+                        "systems/a5e/templates/actors/partials/skill.hbs"
+                        skill=skill
+                        key=key
+                        combatModeActive=combatModeActive
+                    }}
                 {{/each}}
             </ul>
         </section>

@@ -9,7 +9,9 @@
         {{ skill.deterministicBonus }}
     </span>
 
-    <i class="a5e-config-button a5e-config-button--skill a5e-js-configure-skill fas fa-cog"></i>
+    {{#unless combatModeActive}}
+        <i class="a5e-config-button a5e-config-button--skill a5e-js-configure-skill fas fa-cog"></i>
+    {{/unless}}
 
     <div class="a5e-skill__body">
         <span class="a5e-skill__name">

@@ -1,0 +1,197 @@
+<section
+    class="
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--core
+        a5e-scroll-container
+        {{#unless (eq currentTab 'core')}}a5e-sheet__tab-content--hidden{{/unless}}
+        a5e-js-sheet-page
+        a5e-js-core-features-scroll-area
+    "
+    data-group="main"
+    data-tab="core"
+>
+    <section class="a5e-npc-core-details">
+        <div class="a5e-details-container a5e-box">
+            <h2 class="a5e-heading a5e-heading--details">
+                {{ localize "A5E.DamageResistances" }}
+            </h2>
+
+            <i class="
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-damage-resistances
+                fas
+                fa-cog
+            ">
+            </i>
+
+            <ul class="a5e-tag-group a5e-tag-group--small">
+                {{#if damageResistances }}
+                    {{#each damageResistances}}
+                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                    {{/each}}
+                {{else}}
+                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                {{/if}}
+            </ul>
+        </div>
+
+        <div class="a5e-details-container a5e-box">
+            <h2 class="a5e-heading a5e-heading--details">
+                {{ localize "A5E.DamageImmunities" }}
+            </h2>
+
+            <i class="
+                    a5e-config-button
+                    a5e-config-button--details
+                    a5e-js-configure-damage-immunities
+                    fas
+                    fa-cog
+                ">
+            </i>
+
+            <ul class="a5e-tag-group a5e-tag-group--small">
+                {{#if damageImmunities }}
+                    {{#each damageImmunities}}
+                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                    {{/each}}
+                {{else}}
+                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                {{/if}}
+            </ul>
+        </div>
+
+        <div class="a5e-details-container a5e-box">
+            <h2 class="a5e-heading a5e-heading--details">
+                {{ localize "A5E.DamageVulnerabilities" }}
+            </h2>
+
+            <i class="
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-damage-vulnerabilities
+                fas
+                fa-cog
+            ">
+            </i>
+
+            <ul class="a5e-tag-group a5e-tag-group--small">
+                {{#if damageVulnerabilities }}
+                    {{#each damageVulnerabilities}}
+                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                    {{/each}}
+                {{else}}
+                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                {{/if}}
+            </ul>
+        </div>
+
+        <div class="a5e-details-container a5e-box">
+            <h2 class="a5e-heading a5e-heading--details">
+                {{ localize "A5E.SensesSpecial" }}
+            </h2>
+
+            <i class="
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-senses
+                fas
+                fa-cog
+            ">
+            </i>
+
+            <ul class="a5e-tag-group a5e-tag-group--small">
+                {{#if senses.length}}
+                    {{#each senses}}
+                        <li class="a5e-tag a5e-tag--small">{{ this.name }} - {{ this.range }}
+                            {{ localize "A5E.MeasurementFeetAbbr" }}
+                        </li>
+                    {{/each}}
+                {{else}}
+                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                {{/if}}
+            </ul>
+        </div>
+
+        <div class="a5e-details-container a5e-box">
+            <h2 class="a5e-heading a5e-heading--details">
+                {{ localize "A5E.ConditionImmunities" }}
+            </h2>
+
+            <i class="
+                    a5e-config-button
+                    a5e-config-button--details
+                    a5e-js-configure-condition-immunities
+                    fas
+                    fa-cog
+                ">
+            </i>
+
+            <ul class="a5e-tag-group a5e-tag-group--small">
+                {{#if conditionImmunities }}
+                    {{#each conditionImmunities}}
+                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                    {{/each}}
+                {{else}}
+                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                {{/if}}
+            </ul>
+        </div>
+    </section>
+
+    <section class="a5e-item-group a5e-item-group--no-margin">
+        <header class="a5e-header a5e-header--core-features">
+            <h3 class="a5e-heading a5e-heading--item-group">{{ localize "A5E.TabFeatures" }}
+            </h3>
+
+            <a class="a5e-button a5e-button--add-item a5e-js-create-feature-item">
+                + {{localize "A5E.FeatureAdd"}}
+            </a>
+        </header>
+
+        <ul class="a5e-item-list a5e-item-list--core-features">
+            {{#each items}}
+                <li
+                    class="a5e-item-list__item a5e-box a5e-js-item"
+                    data-id="{{this._id}}"
+                    data-item-id="{{this._id}}"
+                    draggable="true"
+                >
+                    <img
+                        src="{{this.img}}"
+                        title="{{this.name}}"
+                        class="a5e-image a5e-image--item-inline a5e-js-activate-item"
+                    />
+
+                    <span>{{this.name}}</span>
+
+                    <div class="a5e-item-list__item-details">
+                        <hr class="a5e-rule">
+
+                        {{#if this.data.description}}
+                            {{{this.data.description}}}
+                        {{else}}
+                            {{localize "A5E.NoDescription"}}
+                        {{/if}}
+                    </div>
+
+                    <div class="a5e-context-menu">
+                        <a class="a5e-context-menu__option a5e-js-edit-item">
+                            <i class="fas fa-pen"></i>
+                            {{ localize "A5E.ItemEdit" }}
+
+                        </a>
+
+                        <hr class="a5e-rule">
+
+                        <a
+                            class="a5e-context-menu__option a5e-context-menu__option--delete a5e-js-delete-item">
+                            <i class="fas fa-trash"></i>
+                            {{ localize "A5E.ItemDelete" }}
+                        </a>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+</section>

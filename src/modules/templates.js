@@ -12,6 +12,7 @@ export default async () => loadTemplates([
   // Actor sheet tabs
   'systems/a5e/templates/actors/tabs/attributes.hbs',
   'systems/a5e/templates/actors/tabs/bio.hbs',
+  'systems/a5e/templates/actors/tabs/core.hbs',
   'systems/a5e/templates/actors/tabs/features.hbs',
   'systems/a5e/templates/actors/tabs/inventory.hbs',
   'systems/a5e/templates/actors/tabs/maneuvers.hbs',

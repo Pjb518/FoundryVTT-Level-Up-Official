@@ -9,9 +9,16 @@
   grid-area: items;
   list-style: none;
 
+  &--core-features {
+    display: grid;
+    padding-right: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   &__item {
     position: relative;
     display: flex;
+    height: fit-content;
     flex-wrap: wrap;
     align-items: center;
     padding: 0.25rem 0.5rem;
