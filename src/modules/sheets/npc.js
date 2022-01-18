@@ -11,17 +11,15 @@ export default class ActorSheet5eNPC extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-sheet--actor'],
       scrollY: [
-        '.a5e-js-attributes-scroll-area',
-        '.a5e-js-biography-scroll-area',
-        '.a5e-js-features-scroll-area',
+        '.a5e-js-core-scroll-area',
+        '.a5e-js-notes-scroll-area',
         '.a5e-js-inventory-scroll-area',
-        '.a5e-js-journal-scroll-area',
         '.a5e-js-spell-scroll-area'
       ],
       resizable: true,
       width: 880,
       height: 700,
-      currentTab: 'attributes'
+      currentTab: 'core'
     });
   }
 
@@ -160,9 +158,6 @@ export default class ActorSheet5eNPC extends ActorSheet {
     data.showSpellSlots = this.actor.getFlag('a5e', 'showSpellSlots');
     data.showSpellPoints = this.actor.getFlag('a5e', 'showSpellPoints');
     data.filters = this._prepareFilters();
-    data.combatModeActive = this.actor.getFlag('a5e', 'combatModeActive');
-
-    if (data.combatModeActive) data.currentTab = 'core';
 
     return data;
   }
@@ -227,9 +222,6 @@ export default class ActorSheet5eNPC extends ActorSheet {
 
     // Inspiration toggle
     html.find('.a5e-js-toggle-inspiration').click(this._onToggleInspiration.bind(this));
-
-    // Combat mode toggle
-    html.find('.a5e-js-toggle-combat-mode').click(this._onToggleCombatMode.bind(this));
 
     // Drag and drop handlers
     html.find('.a5e-js-item').on('dragstart', (event) => this._onDragStart.call(this, event.originalEvent));
@@ -773,20 +765,6 @@ export default class ActorSheet5eNPC extends ActorSheet {
     this.actor.items.get(id).sheet.render(true);
 
     $(document).find('.a5e-context-menu').removeClass('a5e-context-menu--visible');
-  }
-
-  /**
-  * Handle clicking the combat mode toggle.
-  *
-  * @param {Event} event  The originating click event.
-  */
-  async _onToggleCombatMode(event) {
-    event.preventDefault();
-
-    const combatModeWasActive = this.actor.getFlag('a5e', 'combatModeActive');
-
-    await this.actor.setFlag('a5e', 'combatModeActive', !combatModeWasActive);
-    this.changePage('main', combatModeWasActive ? 'attributes' : 'core');
   }
 
   /**

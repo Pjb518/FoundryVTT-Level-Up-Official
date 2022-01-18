@@ -128,19 +128,6 @@
             {{/if}}
 
             <i class="a5e-config-button a5e-js-configure-movement fas fa-cog"></i>
-
-            <a class="
-                a5e-button
-                a5e-button--combat-mode
-                {{#if combatModeActive}}a5e-button--red{{/if}}
-                a5e-js-toggle-combat-mode
-            ">
-                {{#if combatModeActive}}
-                    {{localize "A5E.CombatModeDeactivate"}}
-                {{else}}
-                    {{localize "A5E.CombatModeActivate"}}
-                {{/if}}
-            </a>
         </div>
 
         <div class="a5e-sheet-header__primary-details">
@@ -217,11 +204,63 @@
         class="a5e-sheet-tabs"
         data-group="main"
     >
-        {{#if combatModeActive}}
-            {{> "systems/a5e/templates/actors/partials/combat-mode-navigation.hbs" currentTab=currentTab }}
-        {{else}}
-            {{> "systems/a5e/templates/actors/partials/standard-navigation.hbs" currentTab=currentTab }}
-        {{/if}}
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'core')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="core"
+        >
+            {{ localize "A5E.TabCoreFeatures" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'attributes')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="skills"
+        >
+            {{ localize "A5E.TabSkills" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'inventory')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="inventory"
+        >
+            {{ localize "A5E.TabInventory" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'spells')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="spells"
+        >
+            {{ localize "A5E.TabSpells" }}
+        </a>
+
+        <a
+            class="
+                a5e-sheet-tabs__tab
+                {{#if (eq currentTab 'notes')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-js-sheet-tab
+            "
+            data-tab="notes"
+        >
+            {{ localize "A5E.TabNotes" }}
+        </a>
+
+        <div class="a5e-sheet-tabs__filler"></div>
+
     </nav>
 
     <section class="a5e-sheet__body-container">
@@ -276,7 +315,6 @@
                         "systems/a5e/templates/actors/partials/skill.hbs"
                         skill=skill
                         key=key
-                        combatModeActive=combatModeActive
                     }}
                 {{/each}}
             </ul>
@@ -296,7 +334,7 @@
         <section
             class="
                 a5e-sheet__tab-content
-                a5e-sheet__tab-content--notes
+                a5e-sheet__tab-content--npc-notes
                 a5e-scroll-container
                 {{#unless (eq currentTab 'notes')}}a5e-sheet__tab-content--hidden{{/unless}}
                 a5e-js-sheet-page
@@ -305,6 +343,27 @@
             data-group="main"
             data-tab="notes"
         >
+            <div class="a5e-u-flex a5e-u-flex--column">
+                <h3 class="a5e-heading">{{localize "A5E.DetailsNotes"}}</h3>
+
+                {{
+                    editor
+                    content=data.details.bio
+                    target="data.details.bio"
+                    button=true owner=true editable=true
+                }}
+            </div>
+
+            <div class="a5e-u-flex a5e-u-flex--column">
+                <h3 class="a5e-heading">{{localize "A5E.DetailsNotesPrivate"}}</h3>
+
+                {{
+                    editor
+                    content=data.details.privateNotes
+                    target="data.details.privateNotes"
+                    button=true owner=true editable=true
+                }}
+            </div>
         </section>
     </section>
 </form>
