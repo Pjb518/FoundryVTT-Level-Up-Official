@@ -101,6 +101,17 @@ A5E.armor = {
 };
 
 /**
+ * The set of core armor properties in the system.
+ * @enum {string}
+ */
+A5E.armorProperties = {
+  camouflaged: 'A5E.ArmorPropertyCamouflaged',
+  spiked: 'A5E.ArmorPropertySpiked',
+  stealthy: 'A5E.ObjectPropertyStealthy',
+  storage: 'A5E.ObjectPropertyStorage'
+};
+
+/**
  * The set of core armor types in the system in plural form.
  * @enum {string}
  */
@@ -785,15 +796,20 @@ A5E.weaponProperties = {
   defensive: 'A5E.WeaponPropertyDefensive',
   dualWielding: 'A5E.WeaponPropertyDualWielding',
   finesse: 'A5E.WeaponPropertyFinesse',
+  flamboyant: 'A5E.WeaponPropertyFlamboyant',
   handMounted: 'A5E.WeaponPropertyHandMounted',
   heavy: 'A5E.WeaponPropertyHeavy',
   loading: 'A5E.WeaponPropertyLoading',
   mounted: 'A5E.WeaponPropertyMounted',
   parrying: 'A5E.WeaponPropertyParrying',
   parryingImmunity: 'A5E.WeaponPropertyParryingImmunity',
+  quickdraw: 'A5E.WeaponPropertyQuickdraw',
   range: 'A5E.WeaponPropertyRange',
+  rebounding: 'A5E.ObjectPropertyRebounding',
   reach: 'A5E.WeaponPropertyReach',
   simple: 'A5E.WeaponPropertySimple',
+  stealthy: 'A5E.ObjectPropertyStealthy',
+  storage: 'A5E.ObjectPropertyStorage',
   thrown: 'A5E.WeaponPropertyThrown',
   trip: 'A5E.WeaponPropertyTrip',
   twoHanded: 'A5E.WeaponPropertyTwoHanded',

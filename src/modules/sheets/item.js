@@ -51,13 +51,14 @@ export default class ItemSheet5e extends ItemSheet {
     html.find('.a5e-js-sheet-tab').click(this._onClickTab.bind(this));
 
     // Tag listeners
-    html.find('.a5e-js-toggle-concentration-requirement').click(this._onToggleConcentrationRequirement.bind(this));
+    html.find('.a5e-js-select-armor-category').click(this._onSelectArmorCategory.bind(this));
     html.find('.a5e-js-select-maneuver-tradition').click(this._onSelectManeuverTradition.bind(this));
     html.find('.a5e-js-select-object-type').click(this._onSelectObjectType.bind(this));
     html.find('.a5e-js-select-primary-spell-school').click(this._onSelectPrimarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-action-option').click(this._onToggleActionOptions.bind(this));
     html.find('.a5e-js-toggle-ammunition-property').click(this._onToggleAmmunitionProperty.bind(this));
-    html.find('.a5e-js-toggle-armor-category').click(this._onToggleArmorCategory.bind(this));
+    html.find('.a5e-js-toggle-armor-properties').click(this._onToggleArmorProperties.bind(this));
+    html.find('.a5e-js-toggle-concentration-requirement').click(this._onToggleConcentrationRequirement.bind(this));
     html.find('.a5e-js-toggle-ritual-tag').click(this._onToggleRitualTag.bind(this));
     html.find('.a5e-js-toggle-secondary-spell-school').click(this._onToggleSecondarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-spell-component').click(this._onToggleSpellComponent.bind(this));
@@ -202,22 +203,11 @@ export default class ItemSheet5e extends ItemSheet {
     this.item.update({ 'data.healing': healing });
   }
 
-  /**
-   * Handle clicking one of the action option tags to toggle the appropriate config section.
-   *
-   * @param {Event} event The originating click event.
-   */
-  _onToggleActionOptions(event) {
+  _onSelectArmorCategory(event) {
     event.preventDefault();
 
-    const selectedOptions = this.item.data.data.actionOptions;
-    const { option } = event.currentTarget.dataset;
-    const index = selectedOptions.indexOf(option);
-
-    if (index !== -1) selectedOptions.splice(index, 1);
-    else selectedOptions.push(option);
-
-    this.item.update({ 'data.actionOptions': selectedOptions });
+    const { armorCategory } = event.currentTarget.dataset;
+    this.item.update({ 'data.armorCategory': armorCategory });
   }
 
   /**
@@ -252,6 +242,24 @@ export default class ItemSheet5e extends ItemSheet {
   }
 
   /**
+   * Handle clicking one of the action option tags to toggle the appropriate config section.
+   *
+   * @param {Event} event The originating click event.
+   */
+  _onToggleActionOptions(event) {
+    event.preventDefault();
+
+    const selectedOptions = this.item.data.data.actionOptions;
+    const { option } = event.currentTarget.dataset;
+    const index = selectedOptions.indexOf(option);
+
+    if (index !== -1) selectedOptions.splice(index, 1);
+    else selectedOptions.push(option);
+
+    this.item.update({ 'data.actionOptions': selectedOptions });
+  }
+
+  /**
    * Handle clicking on the tags for ammunition properties.
    *
    * @param {Event} event The originating click event.
@@ -269,11 +277,17 @@ export default class ItemSheet5e extends ItemSheet {
     this.item.update({ 'data.ammunitionProperties': selectedAmmunitionProperties });
   }
 
-  _onToggleArmorCategory(event) {
+  _onToggleArmorProperties(event) {
     event.preventDefault();
 
-    const { armorCategory } = event.currentTarget.dataset;
-    this.item.update({ 'data.armorCategory': armorCategory });
+    const selectedArmorProperties = this.item.data.data.armorProperties;
+    const { armorProperty } = event.currentTarget.dataset;
+    const index = selectedArmorProperties.indexOf(armorProperty);
+
+    if (index !== -1) selectedArmorProperties.splice(index, 1);
+    else selectedArmorProperties.push(armorProperty);
+
+    this.item.update({ 'data.armorProperties': selectedArmorProperties });
   }
 
   /**

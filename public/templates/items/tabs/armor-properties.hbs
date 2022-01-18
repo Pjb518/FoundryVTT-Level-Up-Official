@@ -21,13 +21,33 @@
                             a5e-tag
                             a5e-tag--clickable
                             {{#unless (eq ../item.data.armorCategory key)}}a5e-tag--inactive{{/unless}}
-                            a5e-js-toggle-armor-category
+                            a5e-js-select-armor-category
                         "
                         data-armor-category="{{key}}"
                     >
                         {{ localize category }}
                     </li>
                 {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--no-margin">
+        <h3 class="a5e-form__input-label">{{ localize "A5E.ArmorProperties" }}</h3>
+
+        <ul class="a5e-tag-group">
+            {{#each config.armorProperties as | property key |}}
+                <li
+                    class="
+                        a5e-tag
+                        a5e-tag--clickable
+                        {{#unless (contains ../item.data.armorProperties key)}}a5e-tag--inactive{{/unless}}
+                        a5e-js-toggle-armor-properties
+                    "
+                    data-armor-property="{{key}}"
+                >
+                    {{ localize property }}
+                </li>
             {{/each}}
         </ul>
     </div>
