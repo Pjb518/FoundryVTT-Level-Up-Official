@@ -51,6 +51,7 @@ export default class ItemSheet5e extends ItemSheet {
     // Tag listeners
     html.find('.a5e-js-toggle-concentration-requirement').click(this._onToggleConcentrationRequirement.bind(this));
     html.find('.a5e-js-select-maneuver-tradition').click(this._onSelectManeuverTradition.bind(this));
+    html.find('.a5e-js-select-object-type').click(this._onSelectObjectType.bind(this));
     html.find('.a5e-js-select-primary-spell-school').click(this._onSelectPrimarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-ritual-tag').click(this._onToggleRitualTag.bind(this));
     html.find('.a5e-js-toggle-secondary-spell-school').click(this._onToggleSecondarySpellSchool.bind(this));
@@ -224,6 +225,13 @@ export default class ItemSheet5e extends ItemSheet {
 
     const { tradition } = event.currentTarget.dataset;
     this.item.update({ 'data.tradition': tradition });
+  }
+
+  _onSelectObjectType(event) {
+    event.preventDefault();
+
+    const { objectType } = event.currentTarget.dataset;
+    this.item.update({ 'data.objectType': objectType });
   }
 
   /**

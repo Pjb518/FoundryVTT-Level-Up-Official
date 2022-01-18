@@ -45,6 +45,7 @@ export default async () => loadTemplates([
   'systems/a5e/templates/items/partials/duration.hbs',
   'systems/a5e/templates/items/partials/healing-config.hbs',
   'systems/a5e/templates/items/partials/maneuver-tradition.hbs',
+  'systems/a5e/templates/items/partials/object-type.hbs',
   'systems/a5e/templates/items/partials/primary-spell-school.hbs',
   'systems/a5e/templates/items/partials/secondary-spell-schools.hbs',
   'systems/a5e/templates/items/partials/saving-throw-config.hbs',
