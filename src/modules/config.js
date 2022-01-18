@@ -769,6 +769,32 @@ A5E.weaponsPlural = {
   }
 };
 
+/**
+ * The set of core weapon propeties used in the system.
+ * @enum {string}
+ */
+A5E.weaponProperties = {
+  breaker: 'A5E.WeaponPropertyBreaker',
+  compounding: 'A5E.WeaponPropertyCompounding',
+  defensive: 'A5E.WeaponPropertyDefensive',
+  dualWielding: 'A5E.WeaponPropertyDualWielding',
+  finesse: 'A5E.WeaponPropertyFinesse',
+  handMounted: 'A5E.WeaponPropertyHandMounted',
+  heavy: 'A5E.WeaponPropertyHeavy',
+  loading: 'A5E.WeaponPropertyLoading',
+  mounted: 'A5E.WeaponPropertyMounted',
+  parrying: 'A5E.WeaponPropertyParrying',
+  parryingImmunity: 'A5E.WeaponPropertyParryingImmunity',
+  range: 'A5E.WeaponPropertyRange',
+  reach: 'A5E.WeaponPropertyReach',
+  simple: 'A5E.WeaponPropertySimple',
+  thrown: 'A5E.WeaponPropertyThrown',
+  trip: 'A5E.WeaponPropertyTrip',
+  twoHanded: 'A5E.WeaponPropertyTwoHanded',
+  versatile: 'A5E.WeaponPropertyVersatile',
+  vicious: 'A5E.WeaponPropertyVicious'
+};
+
 A5E.targetTypes = {
   self: 'A5E.TargetSelf',
   area: 'A5E.TargetArea',
