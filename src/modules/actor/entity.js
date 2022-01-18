@@ -8,6 +8,7 @@ import ArmorClassConfigDialog from '../../vue/ArmorClassConfigDialog.vue';
 import ArmorProficienciesConfigDialog from '../../vue/ArmorProficienciesConfigDialog.vue';
 import BackgroundConfigDialog from '../../vue/BackgroundConfigDialog.vue';
 import ConditionImmunitiesConfigDialog from '../../vue/ConditionImmunitiesConfigDialog.vue';
+import CreatureTypesConfigDialog from '../../vue/CreatureTypesConfigDialog.vue';
 import CultureConfigDialog from '../../vue/CultureConfigDialog.vue';
 import DamageIRVConfigDialog from '../../vue/DamageIRVConfigDialog.vue';
 import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
@@ -374,6 +375,16 @@ export default class Actor5e extends Actor {
     const dialogTitle = game.i18n.format('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
 
     const dialog = new ReactiveDialog(ConditionImmunitiesConfigDialog, {
+      title: dialogTitle, props: { actor: this }
+    });
+
+    dialog.render(true);
+  }
+
+  configureCreatureTypes() {
+    const dialogTitle = game.i18n.format('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+
+    const dialog = new ReactiveDialog(CreatureTypesConfigDialog, {
       title: dialogTitle, props: { actor: this }
     });
 

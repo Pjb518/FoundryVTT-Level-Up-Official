@@ -64,7 +64,7 @@ export default {
           ...selectedCoreConditions.value,
           ...selectedCustomConditions.value
             .split(";")
-            .map((weapon) => weapon.trim())
+            .map((condition) => condition.trim())
             .filter(Boolean),
         ],
       });

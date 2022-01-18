@@ -68,7 +68,7 @@ export default {
         ...selectedCoreDamageTypes.value,
         ...selectedCustomDamageTypes.value
           .split(";")
-          .map((weapon) => weapon.trim())
+          .map((damageType) => damageType.trim())
           .filter(Boolean),
       ];
 

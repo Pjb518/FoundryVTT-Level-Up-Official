@@ -159,6 +159,14 @@ export default class ActorSheet5eNPC extends ActorSheet {
     data.showSpellPoints = this.actor.getFlag('a5e', 'showSpellPoints');
     data.filters = this._prepareFilters();
 
+    data.creatureTypes = actorData.data.details.creatureTypes.map((creatureType) => {
+      if (CONFIG.A5E.creatureTypes[creatureType]) {
+        return game.i18n.localize(CONFIG.A5E.creatureTypes[creatureType]);
+      }
+
+      return creatureType;
+    });
+
     return data;
   }
 
@@ -180,6 +188,7 @@ export default class ActorSheet5eNPC extends ActorSheet {
     html.find('.a5e-js-configure-ability-score').click(this._onConfigureAbilityScore.bind(this));
     html.find('.a5e-js-configure-armor-proficiencies').click(this._onConfigureArmorProficiencies.bind(this));
     html.find('.a5e-js-configure-condition-immunities').click(this._onConfigureConditionImmunities.bind(this));
+    html.find('.a5e-js-configure-creature-types').click(this._onConfigureCreatureTypes.bind(this));
     html.find('.a5e-js-configure-damage-immunities').click(this._onConfigureDamageImmunities.bind(this));
     html.find('.a5e-js-configure-damage-resistances').click(this._onConfigureDamageResistances.bind(this));
     html.find('.a5e-js-configure-damage-vulnerabilities').click(this._onConfigureDamageVulnerabilities.bind(this));
@@ -506,6 +515,17 @@ export default class ActorSheet5eNPC extends ActorSheet {
   _onConfigureArmorProficiencies(event) {
     event.preventDefault();
     this.actor.configureArmorProficiencies();
+  }
+
+  /**
+   * Handle clicking the configuration button for selecting creature types.
+   *
+   * @param {Event} event  The originating click event.
+   * @private
+   */
+  _onConfigureCreatureTypes(event) {
+    event.preventDefault();
+    this.actor.configureCreatureTypes();
   }
 
   /**
