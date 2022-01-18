@@ -57,6 +57,7 @@ export default class ItemSheet5e extends ItemSheet {
     html.find('.a5e-js-select-primary-spell-school').click(this._onSelectPrimarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-action-option').click(this._onToggleActionOptions.bind(this));
     html.find('.a5e-js-toggle-ammunition-property').click(this._onToggleAmmunitionProperty.bind(this));
+    html.find('.a5e-js-toggle-armor-category').click(this._onToggleArmorCategory.bind(this));
     html.find('.a5e-js-toggle-ritual-tag').click(this._onToggleRitualTag.bind(this));
     html.find('.a5e-js-toggle-secondary-spell-school').click(this._onToggleSecondarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-spell-component').click(this._onToggleSpellComponent.bind(this));
@@ -266,6 +267,13 @@ export default class ItemSheet5e extends ItemSheet {
     else selectedAmmunitionProperties.push(ammunitionProperty);
 
     this.item.update({ 'data.ammunitionProperties': selectedAmmunitionProperties });
+  }
+
+  _onToggleArmorCategory(event) {
+    event.preventDefault();
+
+    const { armorCategory } = event.currentTarget.dataset;
+    this.item.update({ 'data.armorCategory': armorCategory });
   }
 
   /**

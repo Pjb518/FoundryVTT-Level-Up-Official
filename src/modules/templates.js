@@ -31,6 +31,7 @@ export default async () => loadTemplates([
 
   // Item sheet tabs
   'systems/a5e/templates/items/tabs/ammunition-properties.hbs',
+  'systems/a5e/templates/items/tabs/armor-properties.hbs',
   'systems/a5e/templates/items/tabs/details.hbs',
   'systems/a5e/templates/items/tabs/maneuver-properties.hbs',
   'systems/a5e/templates/items/tabs/object-properties.hbs',

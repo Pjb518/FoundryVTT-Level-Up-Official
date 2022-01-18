@@ -60,6 +60,19 @@
             </a>
         {{/if}}
 
+        {{#if (eq data.objectType 'armor')}}
+            <a
+                class="
+                    a5e-sheet-tabs__tab
+                    a5e-js-sheet-tab
+                    {{#if (eq currentTab 'armorProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+                "
+                data-tab="armorProperties"
+            >
+                {{ localize "A5E.TabArmorProperties" }}
+            </a>
+        {{/if}}
+
         {{#if (eq data.objectType 'weapon')}}
             <a
                 class="
@@ -105,6 +118,7 @@
 
         {{> "systems/a5e/templates/items/tabs/object-properties.hbs" config=config currentTab=currentTab item=item}}
         {{> "systems/a5e/templates/items/tabs/ammunition-properties.hbs" config=config currentTab=currentTab item=item}}
+        {{> "systems/a5e/templates/items/tabs/armor-properties.hbs" config=config currentTab=currentTab item=item}}
         {{> "systems/a5e/templates/items/tabs/weapon-properties.hbs" config=config currentTab=currentTab item=item}}
         {{> "systems/a5e/templates/items/tabs/details.hbs" config=config currentTab=currentTab item=item}}
     </section>
