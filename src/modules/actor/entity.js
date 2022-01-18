@@ -111,6 +111,16 @@ export default class Actor5e extends Actor {
   }
 
   /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    // Player character configuration
+    if (this.type === 'character') {
+      this.data.token.update({ vision: true, actorLink: true, disposition: 1 });
+    }
+  }
+
+  /** @inheritdoc */
   async _preUpdate(changed, options, user) {
     await super._preUpdate(changed, options, user);
 
