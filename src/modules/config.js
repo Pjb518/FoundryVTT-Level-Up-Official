@@ -280,6 +280,23 @@ A5E.movementAbbreviations = {
 };
 
 /**
+ * The set of object subtypes available within the system.
+ * @enum {string}
+ */
+A5E.objectTypes = {
+  armor: 'A5E.ObjectTypeArmor',
+  ammunition: 'A5E.ObjectTypeAmmunition',
+  clothing: 'A5E.ObjectTypeClothing',
+  consumable: 'A5E.ObjectTypeConsumable',
+  container: 'A5E.ObjectTypeContainer',
+  jewelry: 'A5E.ObjectTypeJewelry',
+  miscellaneous: 'A5E.ObjectTypeMiscellaneous',
+  shield: 'A5E.ObjectTypeShield',
+  tool: 'A5E.ObjectTypeTool',
+  weapon: 'A5E.ObjectTypeWeapon'
+};
+
+/**
  * The set of core range types in the system.
  * @enum {string}
  */
