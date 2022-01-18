@@ -47,6 +47,19 @@
             {{ localize "A5E.TabObjectProperties" }}
         </a>
 
+        {{#if (eq data.objectType 'weapon')}}
+            <a
+                class="
+                    a5e-sheet-tabs__tab
+                    a5e-js-sheet-tab
+                    {{#if (eq currentTab 'weaponProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+                "
+                data-tab="weaponProperties"
+            >
+                {{ localize "A5E.TabWeaponProperties" }}
+            </a>
+        {{/if}}
+
         <a
             class="
                 a5e-sheet-tabs__tab
@@ -78,6 +91,7 @@
         </section>
 
         {{> "systems/a5e/templates/items/tabs/object-properties.hbs" config=config currentTab=currentTab item=item}}
+        {{> "systems/a5e/templates/items/tabs/weapon-properties.hbs" config=config currentTab=currentTab item=item}}
         {{> "systems/a5e/templates/items/tabs/details.hbs" config=config currentTab=currentTab item=item}}
     </section>
 </form>

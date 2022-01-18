@@ -16,7 +16,8 @@ export default class ItemSheet5e extends ItemSheet {
         '.a5e-js-details-scroll-area',
         '.a5e-js-item-description-scroll-area',
         '.a5e-js-object-properties-scroll-area',
-        '.a5e-js-spell-properties-scroll-area'
+        '.a5e-js-spell-properties-scroll-area',
+        '.a5e-js-weapon-properties-scroll-area'
       ],
       height: 500,
       width: 620,
@@ -57,6 +58,7 @@ export default class ItemSheet5e extends ItemSheet {
     html.find('.a5e-js-toggle-secondary-spell-school').click(this._onToggleSecondarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-spell-component').click(this._onToggleSpellComponent.bind(this));
     html.find('.a5e-js-toggle-action-option').click(this._onToggleActionOptions.bind(this));
+    html.find('.a5e-js-toggle-weapon-property').click(this._onToggleWeaponProperty.bind(this));
 
     // Item configuration listeners
     html.find('.a5e-js-add-damage-source').click(this._onAddDamageSource.bind(this));
@@ -296,5 +298,23 @@ export default class ItemSheet5e extends ItemSheet {
     const { component } = event.currentTarget.dataset;
 
     this.item.update({ [`data.components.${component}`]: !this.item.data.data.components[component] });
+  }
+
+  /**
+   * Handle clicking on the tags for weapon properties.
+   *
+   * @param {Event} event The originating click event.
+   */
+  _onToggleWeaponProperty(event) {
+    event.preventDefault();
+
+    const selectedWeaponProperties = this.item.data.data.weaponProperties;
+    const { weaponProperty } = event.currentTarget.dataset;
+    const index = selectedWeaponProperties.indexOf(weaponProperty);
+
+    if (index !== -1) selectedWeaponProperties.splice(index, 1);
+    else selectedWeaponProperties.push(weaponProperty);
+
+    this.item.update({ 'data.weaponProperties': selectedWeaponProperties });
   }
 }

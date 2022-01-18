@@ -1,0 +1,14 @@
+<section
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--object-properties
+        {{#unless (eq currentTab 'weaponProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
+        a5e-scroll-container
+        a5e-js-weapon-properties-scroll-area
+    "
+    data-group="item-{{item._id}}"
+    data-tab="weaponProperties"
+>
+    {{> "systems/a5e/templates/items/partials/weapon-properties.hbs" config=config item=item}}
+</section>

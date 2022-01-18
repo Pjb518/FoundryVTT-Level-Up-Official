@@ -1,0 +1,19 @@
+<div class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--no-margin">
+    <h3 class="a5e-form__input-label">{{ localize "A5E.WeaponProperties" }}</h3>
+
+    <ul class="a5e-tag-group">
+        {{#each config.weaponProperties as | property key |}}
+            <li
+                class="
+                    a5e-tag
+                    a5e-tag--clickable
+                    {{#unless (contains ../item.data.weaponProperties key)}}a5e-tag--inactive{{/unless}}
+                    a5e-js-toggle-weapon-property
+                "
+                data-weapon-property="{{key}}"
+            >
+                {{ localize property }}
+            </li>
+        {{/each}}
+    </ul>
+</div>
