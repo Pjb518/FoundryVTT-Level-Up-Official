@@ -106,6 +106,24 @@
                         a5e-tag
                         a5e-tag--small
                         a5e-tag--clickable
+                        {{#if (contains filters.itemMiscellaneous.inclusive 'plotItem')}}''
+                        {{else if (contains filters.itemMiscellaneous.exclusive 'plotItem')}}a5e-tag--red
+                        {{else}}a5e-tag--inactive
+                        {{/if}}
+                        a5e-js-toggle-filter
+                    "
+                    data-item-type="object"
+                    data-category="miscellaneous"
+                    data-value="plotItem"
+                >
+                    {{localize "A5E.PlotItem"}}
+                </li>
+
+                <li
+                    class="
+                        a5e-tag
+                        a5e-tag--small
+                        a5e-tag--clickable
                         {{#if (contains filters.itemMiscellaneous.inclusive 'requiresAttunement')}}''
                         {{else if (contains filters.itemMiscellaneous.exclusive 'requiresAttunement')}}a5e-tag--red
                         {{else}}a5e-tag--inactive
