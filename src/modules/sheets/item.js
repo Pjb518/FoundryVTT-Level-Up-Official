@@ -13,6 +13,7 @@ export default class ItemSheet5e extends ItemSheet {
       classes: ['a5e-sheet', 'a5e-sheet--item'],
       scrollY: [
         '.a5e-js-sheet-body',
+        '.a5e-js-ammunition-properties-scroll-area',
         '.a5e-js-details-scroll-area',
         '.a5e-js-item-description-scroll-area',
         '.a5e-js-object-properties-scroll-area',
@@ -54,10 +55,11 @@ export default class ItemSheet5e extends ItemSheet {
     html.find('.a5e-js-select-maneuver-tradition').click(this._onSelectManeuverTradition.bind(this));
     html.find('.a5e-js-select-object-type').click(this._onSelectObjectType.bind(this));
     html.find('.a5e-js-select-primary-spell-school').click(this._onSelectPrimarySpellSchool.bind(this));
+    html.find('.a5e-js-toggle-action-option').click(this._onToggleActionOptions.bind(this));
+    html.find('.a5e-js-toggle-ammunition-property').click(this._onToggleAmmunitionProperty.bind(this));
     html.find('.a5e-js-toggle-ritual-tag').click(this._onToggleRitualTag.bind(this));
     html.find('.a5e-js-toggle-secondary-spell-school').click(this._onToggleSecondarySpellSchool.bind(this));
     html.find('.a5e-js-toggle-spell-component').click(this._onToggleSpellComponent.bind(this));
-    html.find('.a5e-js-toggle-action-option').click(this._onToggleActionOptions.bind(this));
     html.find('.a5e-js-toggle-weapon-property').click(this._onToggleWeaponProperty.bind(this));
 
     // Item configuration listeners
@@ -246,6 +248,24 @@ export default class ItemSheet5e extends ItemSheet {
 
     const { school } = event.currentTarget.dataset;
     this.item.update({ 'data.schools.primary': school });
+  }
+
+  /**
+   * Handle clicking on the tags for ammunition properties.
+   *
+   * @param {Event} event The originating click event.
+   */
+  _onToggleAmmunitionProperty(event) {
+    event.preventDefault();
+
+    const selectedAmmunitionProperties = this.item.data.data.ammunitionProperties;
+    const { ammunitionProperty } = event.currentTarget.dataset;
+    const index = selectedAmmunitionProperties.indexOf(ammunitionProperty);
+
+    if (index !== -1) selectedAmmunitionProperties.splice(index, 1);
+    else selectedAmmunitionProperties.push(ammunitionProperty);
+
+    this.item.update({ 'data.ammunitionProperties': selectedAmmunitionProperties });
   }
 
   /**

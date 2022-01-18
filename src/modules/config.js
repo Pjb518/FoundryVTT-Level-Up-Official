@@ -67,6 +67,12 @@ A5E.actorSizes = {
   grg: 'A5E.SizeGargantuan'
 };
 
+A5E.ammunitionProperties = {
+  explosive: 'A5E.AmmunitionPropertyExplosive',
+  flaming: 'A5E.AmmunitionPropertyFlaming',
+  punching: 'A5E.AmmunitionPropertyPunching'
+};
+
 A5E.areaIcons = {
   cone: '<i class="fas fa-wifi"></i>',
   cube: '<i class="fas fa-cube"></i>',

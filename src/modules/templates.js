@@ -30,6 +30,7 @@ export default async () => loadTemplates([
   'systems/a5e/templates/items/spell-sheet.hbs',
 
   // Item sheet tabs
+  'systems/a5e/templates/items/tabs/ammunition-properties.hbs',
   'systems/a5e/templates/items/tabs/details.hbs',
   'systems/a5e/templates/items/tabs/maneuver-properties.hbs',
   'systems/a5e/templates/items/tabs/object-properties.hbs',
@@ -52,7 +53,6 @@ export default async () => loadTemplates([
   'systems/a5e/templates/items/partials/saving-throw-config.hbs',
   'systems/a5e/templates/items/partials/range.hbs',
   'systems/a5e/templates/items/partials/target.hbs',
-  'systems/a5e/templates/items/partials/weapon-properties.hbs',
 
   // Chat
   'systems/a5e/templates/chat/ability-check.hbs',
