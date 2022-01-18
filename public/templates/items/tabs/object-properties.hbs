@@ -38,7 +38,7 @@
             <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
                 <label
                     class="a5e-form__input-label a5e-form__input-label--inline"
-                    for="{{item._id}}-attunementRequired"
+                    for="{{item._id}}-attunement-required"
                 >
                     {{localize "A5E.AttunementRequiredPrompt"}}
                 </label>
@@ -49,7 +49,7 @@
                         data-dtype="Boolean"
                         name="data.requiresAttunement"
                         value="{{item.data.requiresAttunement}}"
-                        id="{{item._id}}-attunementRequired"
+                        id="{{item._id}}-attunement-required"
                         {{#if
                         item.data.requiresAttunement}}checked{{/if}}
                     >
@@ -79,6 +79,29 @@
                     </div>
                 </div>
             {{/if}}
+        </div>
+    </div>
+
+    <div class="a5e-box a5e-box--padded">
+        <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
+            <label
+                class="a5e-form__input-label a5e-form__input-label--inline"
+                for="{{item._id}}-plot-item"
+            >
+                {{localize "A5E.PlotItemPrompt"}}
+            </label>
+
+            <div class="a5e-input-container a5e-input-container--inline-wide">
+                <input
+                    type="checkbox"
+                    data-dtype="Boolean"
+                    name="data.plotItem"
+                    value="{{item.data.plot-item}}"
+                    id="{{item._id}}-plotItem"
+                    {{#if
+                    item.data.plotItem}}checked{{/if}}
+                >
+            </div>
         </div>
     </div>
 
