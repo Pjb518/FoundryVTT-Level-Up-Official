@@ -641,6 +641,16 @@ A5E.timePeriods = {
 };
 
 /**
+ * Colors used to visualize temporary and temporary maximum HP in token health bars.
+ * @enum {number}
+ */
+A5E.tokenHPColors = {
+  damage: 0xFF0000,
+  healing: 0x00FF00,
+  temp: 0x66CCFF
+};
+
+/**
  * The set of core weapons used in the system.
  */
 A5E.weapons = {

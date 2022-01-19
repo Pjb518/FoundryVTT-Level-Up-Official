@@ -11,12 +11,25 @@ import ActorSheet5eCharacter from './modules/sheets/character';
 import ActorSheet5eNPC from './modules/sheets/npc';
 import ItemSheet5e from './modules/sheets/item';
 import ReactiveDialog from './modules/apps/reactiveDialog';
+import Token5e from './modules/actor/token';
+import TokenDocument5e from './modules/actor/tokenDocument';
 
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
 import preloadHandlebarsTemplates from './modules/templates';
+import registerSystemSettings from './modules/settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
+
+// Migrations
+import migrateWorld from './modules/migrations/migrateWorld';
+import migrateActorData from './modules/migrations/migrateActorData';
+import migrateCompendium from './modules/migrations/migrateCompendium';
+import migrateItemData from './modules/migrations/migrateItemData';
+import migrateMacroData from './modules/migrations/migrateMacroData';
+import migrateSceneData from './modules/migrations/migrateSceneData';
+
+import migrateCurrentHitPoints from './modules/migrations/helpers/migrateCurrentHitPoints';
 
 Hooks.once('init', () => {
   game.a5e = {
@@ -33,13 +46,26 @@ Hooks.once('init', () => {
     },
     entities: {
       Actor5e,
-      Item5e
+      Item5e,
+      TokenDocument5e,
+      Token5e
+    },
+    migrations: {
+      migrateWorld,
+      migrateActorData,
+      migrateCompendium,
+      migrateItemData,
+      migrateMacroData,
+      migrateSceneData,
+      migrateCurrentHitPoints
     }
   };
 
   CONFIG.A5E = A5E;
   CONFIG.Actor.documentClass = Actor5e;
   CONFIG.Item.documentClass = Item5e;
+  CONFIG.Token.documentClass = TokenDocument5e;
+  CONFIG.Token.objectClass = Token5e;
 
   CONFIG.Dice.D20Roll = D20Roll;
   CONFIG.Dice.DamageRoll = DamageRoll;
@@ -47,21 +73,23 @@ Hooks.once('init', () => {
   CONFIG.Dice.rolls.push(D20Roll);
   CONFIG.Dice.rolls.push(DamageRoll);
 
+  registerSystemSettings();
+
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('dnd5e', ActorSheet5eCharacter, {
+  Actors.registerSheet('a5e', ActorSheet5eCharacter, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'
   });
 
-  Actors.registerSheet('dnd5e', ActorSheet5eNPC, {
+  Actors.registerSheet('a5e', ActorSheet5eNPC, {
     types: ['npc'],
     makeDefault: true,
     label: 'A5E.SheetClassNPC'
   });
 
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('dnd5e', ItemSheet5e, {
+  Items.registerSheet('a5e', ItemSheet5e, {
     makeDefault: true,
     label: 'A5E.SheetClassItem'
   });
@@ -77,6 +105,28 @@ Hooks.once('init', () => {
   Combat.prototype.rollInitiative = rollInitiative;
 
   return preloadHandlebarsTemplates();
+});
+
+/**
+ * Once the entire VTT framework is initialized, check to see if we should perform a data migration
+ */
+Hooks.once('ready', () => {
+  // Determine whether a system migration is required
+  if (!game.user.isGM) return;
+
+  const currentVersion = game.settings.get('a5e', 'systemMigrationVersion');
+  const NEEDS_MIGRATION_VERSION = '0.3.0';
+  const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
+
+  if (!currentVersion && totalDocuments === 0) {
+    game.settings.set('a5e', 'systemMigrationVersion', game.system.data.version);
+    return;
+  }
+
+  const needsMigration = !currentVersion || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  if (!needsMigration) return;
+
+  game.a5e.migrations.migrateWorld();
 });
 
 Hooks.on('renderChatMessage', (app, html) => Item5e.chatListeners(html));

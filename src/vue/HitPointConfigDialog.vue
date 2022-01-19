@@ -77,7 +77,7 @@ export default {
     const hitPointData = actorData.attributes.hp;
     const { hitDice } = actorData.attributes;
 
-    const currentHP = ref(hitPointData.current);
+    const currentHP = ref(hitPointData.value);
     const maxHP = ref(hitPointData.baseMax);
     const temporaryHP = ref(hitPointData.temp);
     const hitPointModifier = ref(hitPointData.bonus);
@@ -114,7 +114,7 @@ export default {
       const data = {
         "data.attributes": {
           hp: {
-            current: currentHP.value,
+            value: currentHP.value,
             baseMax: maxHP.value,
             temp: temporaryHP.value,
             bonus: hitPointModifier.value,

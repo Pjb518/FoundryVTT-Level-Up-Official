@@ -126,13 +126,13 @@ export default class Actor5e extends Actor {
     await super._preUpdate(changed, options, user);
 
     // If hp drops below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'data.attributes.hp.current') < 0) {
-      foundry.utils.setProperty(changed, 'data.attributes.hp.current', 0);
+    if (foundry.utils.getProperty(changed, 'data.attributes.hp.value') < 0) {
+      foundry.utils.setProperty(changed, 'data.attributes.hp.value', 0);
     }
 
     // Reset death save counters
-    const isUnconscious = this.data.data.attributes.hp.current === 0;
-    const willRegainConsciousness = foundry.utils.getProperty(changed, 'data.attributes.hp.current') > 0;
+    const isUnconscious = this.data.data.attributes.hp.value === 0;
+    const willRegainConsciousness = foundry.utils.getProperty(changed, 'data.attributes.hp.value') > 0;
 
     if (isUnconscious && willRegainConsciousness) {
       foundry.utils.setProperty(changed, 'data.attributes.death.success', 0);
@@ -168,15 +168,15 @@ export default class Actor5e extends Actor {
    */
   async applyDamage(damage) {
     const updates = {};
-    const { current, temp } = this.data.data.attributes.hp;
+    const { value, temp } = this.data.data.attributes.hp;
 
     if (temp) {
       updates['data.attributes.hp'] = {
         temp: Math.clamped(temp - damage, 0, temp),
-        current: Math.clamped(current + temp - damage, 0, current)
+        value: Math.clamped(value + temp - damage, 0, value)
       };
     } else {
-      updates['data.attributes.hp.current'] = Math.clamped(current - damage, 0, current);
+      updates['data.attributes.hp.value'] = Math.clamped(value - damage, 0, value);
     }
 
     return this.update(updates);
@@ -200,7 +200,7 @@ export default class Actor5e extends Actor {
    */
   async applyHealing(healing, options = { temp: false }) {
     const updates = {};
-    const { current, max, temp } = this.data.data.attributes.hp;
+    const { value, max, temp } = this.data.data.attributes.hp;
 
     if (options.temp) {
       if (healing <= temp) {
@@ -210,7 +210,7 @@ export default class Actor5e extends Actor {
 
       updates['data.attributes.hp.temp'] = healing;
     } else {
-      updates['data.attributes.hp.current'] = Math.clamped(current + healing, current, max);
+      updates['data.attributes.hp.value'] = Math.clamped(value + healing, value, max);
     }
 
     return this.update(updates);
@@ -660,12 +660,12 @@ export default class Actor5e extends Actor {
   }
 
   async resetHitPoints() {
-    const { hp } = this.data.data.attributes;
+    const { baseMax } = this.data.data.attributes.hp;
 
     this.update({
       'data.attributes.hp': {
         bonus: '',
-        current: hp.baseMax,
+        value: baseMax,
         temp: ''
       }
     });
@@ -904,7 +904,7 @@ export default class Actor5e extends Actor {
     this.update({
       'data.attributes': {
         [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
-        'hp.current': Math.min(attributes.hp.current + hpDelta, maxHp)
+        'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
       }
     });
   }
@@ -1025,7 +1025,7 @@ export default class Actor5e extends Actor {
     };
 
     if (d20Result === 1) updates['data.attributes.death'].failure += 2;
-    else if (d20Result === 20) updates['data.attributes.hp.current'] = 1;
+    else if (d20Result === 20) updates['data.attributes.hp.value'] = 1;
     else if (d20Result < 10) updates['data.attributes.death'].failure += 1;
     else updates['data.attributes.death'].success += 1;
 

@@ -3,17 +3,17 @@
         class="a5e-health-bar"
         min=0
         max="{{hp.max}}"
-        value="{{hp.current}}"
+        value="{{hp.value}}"
     >
-        {{hp.current}} / {{hp.max}}
+        {{hp.value}} / {{hp.max}}
     </meter>
 
     <div class="a5e-health-bar__text">
         <input
             class="a5e-health-bar__current-hp"
             type="number"
-            name="data.attributes.hp.current"
-            value="{{hp.current}}"
+            name="data.attributes.hp.value"
+            value="{{hp.value}}"
             placeholder="0"
             min="0"
             data-dtype="Number"
