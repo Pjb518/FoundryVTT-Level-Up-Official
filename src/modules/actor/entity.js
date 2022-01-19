@@ -143,8 +143,10 @@ export default class Actor5e extends Actor {
   /**
    * Given a list of items to add to the Actor, optionally prompt the
    * user for which they would like to add.
+   *
    * @param {Item5e[]} items         The items being added to the Actor.
    * @param {boolean} [prompt=true]  Whether or not to prompt the user.
+   *
    * @returns {Promise<Item5e[]>}
    */
   async addEmbeddedItems(items) {
@@ -154,6 +156,64 @@ export default class Actor5e extends Actor {
       items.map((item) => item.toObject()),
       { parent: this }
     );
+  }
+
+  /**
+   * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
+   * Negative damage values will have no effect.
+   *
+   * @param {number} damage  An amount of damage to apply to the actor.
+   *
+   * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
+   */
+  async applyDamage(damage) {
+    const updates = {};
+    const { current, temp } = this.data.data.attributes.hp;
+
+    if (temp) {
+      updates['data.attributes.hp'] = {
+        temp: Math.clamped(temp - damage, 0, temp),
+        current: Math.clamped(current + temp - damage, 0, current)
+      };
+    } else {
+      updates['data.attributes.hp.current'] = Math.clamped(current - damage, 0, current);
+    }
+
+    return this.update(updates);
+  }
+
+  /**
+   * Apply a certain amount of healing to the health pool for Actor. Temporary healing can be set
+   * using a flag in the options object.
+   *
+   * When dealing with temporary hp, providing a value below the current temp hp of the target will
+   * trigger a warning and abort the update of the actor.
+   *
+   * Negative healing value are ignored.
+   *
+   * @param {number} healing        An amount of damage to apply to the actor.
+   * @param {Object} options
+   * @param {Boolean} options.temp  A flag for indicating whether the healing being applied is
+   *                                temporary.
+   *
+   * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
+   */
+  async applyHealing(healing, options = { temp: false }) {
+    const updates = {};
+    const { current, max, temp } = this.data.data.attributes.hp;
+
+    if (options.temp) {
+      if (healing <= temp) {
+        ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
+        return this;
+      }
+
+      updates['data.attributes.hp.temp'] = healing;
+    } else {
+      updates['data.attributes.hp.current'] = Math.clamped(current + healing, current, max);
+    }
+
+    return this.update(updates);
   }
 
   prepareSkills() {
