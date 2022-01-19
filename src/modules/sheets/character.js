@@ -930,7 +930,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
   }
 
   _prepareItems(items) {
-    const itemGroups = items.reduce((acc, item) => {
+    const itemGroups = items.sort((a, b) => a.sort - b.sort).reduce((acc, item) => {
       if (item.type === 'feature') acc.features.push(item);
       else if (item.type === 'maneuver') acc.maneuvers.push(item);
       else if (item.type === 'spell') acc.spells.push(item);
