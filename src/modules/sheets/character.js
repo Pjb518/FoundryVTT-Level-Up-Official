@@ -236,18 +236,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     this.actor.activateItem(item);
   }
 
-  _onClickTrackItem(event) {
-    event.preventDefault();
-
-    const updates = {};
-    const { degree } = event.currentTarget.dataset;
-    const { track } = $(event.currentTarget).closest('.a5e-js-track')[0].dataset;
-
-    updates[`data.attributes.${track}`] = parseInt(degree, 10);
-
-    this.actor.update(updates);
-  }
-
   /**
    * Handle clicking the configuration button for selecting armour proficiencies.
    *
@@ -339,30 +327,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
       name: game.i18n.localize('A5E.ItemNew'),
       type: 'maneuver'
     }]);
-  }
-
-  /**
-  * Handle clicking the delete button in the item context menu.
-  *
-  * @param {Event} event  The originating click event.
-  */
-  _onDeleteItem(event) {
-    event.preventDefault();
-    const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
-    this.actor.deleteEmbeddedDocuments('Item', [id]);
-  }
-
-  /**
-  * Handle clicking the edit button in the item context menu.
-  *
-  * @param {Event} event  The originating click event.
-  */
-  _onEditItem(event) {
-    event.preventDefault();
-    const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
-    this.actor.items.get(id).sheet.render(true);
-
-    $(document).find('.a5e-context-menu').removeClass('a5e-context-menu--visible');
   }
 
   /**
