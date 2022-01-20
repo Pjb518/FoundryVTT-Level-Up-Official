@@ -1,7 +1,9 @@
+import ActorSheet5e from './baseActor';
+
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 import arraysAreEqual from '../utils/arraysAreEqual';
 
-export default class ActorSheet5eCharacter extends ActorSheet {
+export default class ActorSheet5eCharacter extends ActorSheet5e {
   /**
    * Define default rendering options for the character sheet.
    *
@@ -166,9 +168,6 @@ export default class ActorSheet5eCharacter extends ActorSheet {
 
   /** @inheritdoc */
   activateListeners(html) {
-    // Listener for a custom tab handler
-    html.find('.a5e-js-sheet-tab').click(this._onClickTab.bind(this));
-
     // Roll handlers
     html.find('.a5e-js-roll-ability-check').click(this._onRollAbilityCheck.bind(this));
     html.find('.a5e-js-roll-death-saving-throw').click(this._onRollDeathSavingThrow.bind(this));
@@ -400,20 +399,6 @@ export default class ActorSheet5eCharacter extends ActorSheet {
     const item = this.actor.items.get(id);
 
     this.actor.activateItem(item);
-  }
-
-  /**
-   * Handle clicking one of the main sheet tabs.
-   *
-   * @param {Event} event The originating click event.
-   */
-  _onClickTab(event) {
-    event.preventDefault();
-
-    const { group } = event.currentTarget.parentElement.dataset;
-    const { tab } = event.currentTarget.dataset;
-
-    this.changePage(group, tab);
   }
 
   _onClickItem(event) {
