@@ -17,8 +17,9 @@
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div>
-            {{>
+        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelRarity"
                 filterCategory="item-rarity"
@@ -27,36 +28,38 @@
                 inclusiveCount=filters.itemRarity.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'item-rarity')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="item-rarity"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    {{#each config.itemRarity as | rarity key |}}
-                        <li
-                            class="
-                                a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
-                                {{#if (contains ../filters.itemRarity.inclusive key)}}''
-                                {{else if (contains ../filters.itemRarity.exclusive key)}}a5e-tag--red
-                                {{else}}a5e-tag--inactive
-                                {{/if}}
-                                a5e-js-toggle-filter
-                            "
-                            data-item-type="object"
-                            data-category="rarity"
-                            data-value="{{key}}"
-                        >
-                            {{localize rarity}}
-                        </li>
-                    {{/each}}
-                </ul>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'item-rarity')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="item-rarity"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        {{#each config.itemRarity as | rarity key |}}
+                            <li
+                                class="
+                                    a5e-tag
+                                    a5e-tag--small
+                                    a5e-tag--clickable
+                                    {{#if (contains ../filters.itemRarity.inclusive key)}}''
+                                    {{else if (contains ../filters.itemRarity.exclusive key)}}
+                                        a5e-tag--red
+                                    {{else}}
+                                        a5e-tag--inactive
+                                    {{/if}}
+                                    a5e-js-toggle-filter
+                                "
+                                data-item-type="object"
+                                data-category="rarity"
+                                data-value="{{key}}"
+                            >
+                                {{localize rarity}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div>
-            {{>
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelMiscellaneous"
                 filterCategory="item-miscellaneous"
@@ -65,49 +68,53 @@
                 inclusiveCount=filters.itemMiscellaneous.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'item-miscellaneous')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="item-miscellaneous"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    <li
-                        class="
-                            a5e-tag
-                            a5e-tag--small
-                            a5e-tag--clickable
-                            {{#if (contains filters.itemMiscellaneous.inclusive 'attuned')}}''
-                            {{else if (contains filters.itemMiscellaneous.exclusive 'attuned')}}a5e-tag--red
-                            {{else}}a5e-tag--inactive
-                            {{/if}}
-                            a5e-js-toggle-filter
-                        "
-                        data-item-type="object"
-                        data-category="miscellaneous"
-                        data-value="attuned"
-                    >
-                        {{localize "A5E.Attuned"}}
-                    </li>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'item-miscellaneous')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="item-miscellaneous"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.itemMiscellaneous.inclusive 'attuned')}}''
+                                {{else if (contains filters.itemMiscellaneous.exclusive 'attuned')}}
+                                    a5e-tag--red
+                                {{else}}
+                                    a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="object"
+                            data-category="miscellaneous"
+                            data-value="attuned"
+                        >
+                            {{localize "A5E.Attuned"}}
+                        </li>
 
-                    <li
-                        class="
-                    a5e-tag
-                    a5e-tag--small
-                    a5e-tag--clickable
-                    {{#if (contains filters.itemMiscellaneous.inclusive 'bulky')}}''
-                    {{else if (contains filters.itemMiscellaneous.exclusive 'bulky')}}a5e-tag--red
-                    {{else}}a5e-tag--inactive
-                    {{/if}}
-                    a5e-js-toggle-filter
-                "
-                        data-item-type="object"
-                        data-category="miscellaneous"
-                        data-value="bulky"
-                    >
-                        {{localize "A5E.ItemBulky"}}
-                    </li>
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.itemMiscellaneous.inclusive 'bulky')}}''
+                                {{else if (contains filters.itemMiscellaneous.exclusive 'bulky')}}
+                                    a5e-tag--red
+                                {{else}}
+                                    a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="object"
+                            data-category="miscellaneous"
+                            data-value="bulky"
+                        >
+                            {{localize "A5E.ItemBulky"}}
+                        </li>
 
-                    <li
-                        class="
+                        <li
+                            class="
                             a5e-tag
                             a5e-tag--small
                             a5e-tag--clickable
@@ -117,49 +124,54 @@
                             {{/if}}
                             a5e-js-toggle-filter
                         "
-                        data-item-type="object"
-                        data-category="miscellaneous"
-                        data-value="equipped"
-                    >
-                        {{localize "A5E.ItemEquipped"}}
-                    </li>
+                            data-item-type="object"
+                            data-category="miscellaneous"
+                            data-value="equipped"
+                        >
+                            {{localize "A5E.ItemEquipped"}}
+                        </li>
 
-                    <li
-                        class="
-                        a5e-tag
-                        a5e-tag--small
-                        a5e-tag--clickable
-                        {{#if (contains filters.itemMiscellaneous.inclusive 'plotItem')}}''
-                        {{else if (contains filters.itemMiscellaneous.exclusive 'plotItem')}}a5e-tag--red
-                        {{else}}a5e-tag--inactive
-                        {{/if}}
-                        a5e-js-toggle-filter
-                    "
-                        data-item-type="object"
-                        data-category="miscellaneous"
-                        data-value="plotItem"
-                    >
-                        {{localize "A5E.PlotItem"}}
-                    </li>
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.itemMiscellaneous.inclusive 'plotItem')}}''
+                                {{else if (contains filters.itemMiscellaneous.exclusive 'plotItem')}}
+                                    a5e-tag--red
+                                {{else}}
+                                    a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="object"
+                            data-category="miscellaneous"
+                            data-value="plotItem"
+                        >
+                            {{localize "A5E.PlotItem"}}
+                        </li>
 
-                    <li
-                        class="
-                        a5e-tag
-                        a5e-tag--small
-                        a5e-tag--clickable
-                        {{#if (contains filters.itemMiscellaneous.inclusive 'requiresAttunement')}}''
-                        {{else if (contains filters.itemMiscellaneous.exclusive 'requiresAttunement')}}a5e-tag--red
-                        {{else}}a5e-tag--inactive
-                        {{/if}}
-                        a5e-js-toggle-filter
-                    "
-                        data-item-type="object"
-                        data-category="miscellaneous"
-                        data-value="requiresAttunement"
-                    >
-                        {{localize "A5E.AttunementRequired"}}
-                    </li>
-                </ul>
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.itemMiscellaneous.inclusive 'requiresAttunement')}}''
+                                {{else if (contains filters.itemMiscellaneous.exclusive 'requiresAttunement')}}
+                                    a5e-tag--red
+                                {{else}}
+                                    a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="object"
+                            data-category="miscellaneous"
+                            data-value="requiresAttunement"
+                        >
+                            {{localize "A5E.AttunementRequired"}}
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 

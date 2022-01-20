@@ -1,5 +1,10 @@
 <section
-    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--spells {{#unless (eq currentTab 'spells')}}a5e-sheet__tab-content--hidden{{/unless}}"
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--spells
+        {{#unless (eq currentTab 'spells')}}a5e-sheet__tab-content--hidden{{/unless}}
+    "
     data-group="main"
     data-tab="spells"
 >
@@ -8,8 +13,9 @@
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div>
-            {{>
+        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelSpellComponents"
                 filterCategory="spell-components"
@@ -17,36 +23,36 @@
                 inclusiveCount=filters.spellComponents.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'spell-components')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="spell-components"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    {{#each config.spellComponents as | component key | }}
-                        <li
-                            class="
-                                a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
-                                {{#if (contains ../filters.spellComponents.inclusive key)}}''
-                                {{else if (contains ../filters.spellComponents.exclusive key)}}a5e-tag--red
-                                {{else}}a5e-tag--inactive
-                                {{/if}}
-                                a5e-js-toggle-filter
-                            "
-                            data-item-type="spell"
-                            data-category="components"
-                            data-value="{{key}}"
-                        >
-                            {{localize component}}
-                        </li>
-                    {{/each}}
-                </ul>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'spell-components')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="spell-components"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        {{#each config.spellComponents as | component key | }}
+                            <li
+                                class="
+                                    a5e-tag
+                                    a5e-tag--small
+                                    a5e-tag--clickable
+                                    {{#if (contains ../filters.spellComponents.inclusive key)}}''
+                                    {{else if (contains ../filters.spellComponents.exclusive key)}}a5e-tag--red
+                                    {{else}}a5e-tag--inactive
+                                    {{/if}}
+                                    a5e-js-toggle-filter
+                                "
+                                data-item-type="spell"
+                                data-category="components"
+                                data-value="{{key}}"
+                            >
+                                {{localize component}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div>
-            {{>
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelSpellSchools"
                 filterCategory="spell-schools"
@@ -54,36 +60,36 @@
                 inclusiveCount=filters.spellSchools.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'spell-schools')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="spell-schools"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    {{#each config.spellSchools.primary as | school key | }}
-                        <li
-                            class="
-                                a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
-                                {{#if (contains ../filters.spellSchools.inclusive key)}}''
-                                {{else if (contains ../filters.spellSchools.exclusive key)}}a5e-tag--red
-                                {{else}}a5e-tag--inactive
-                                {{/if}}
-                                a5e-js-toggle-filter
-                            "
-                            data-item-type="spell"
-                            data-category="school"
-                            data-value="{{key}}"
-                        >
-                            {{localize school}}
-                        </li>
-                    {{/each}}
-                </ul>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'spell-schools')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="spell-schools"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        {{#each config.spellSchools.primary as | school key | }}
+                            <li
+                                class="
+                                    a5e-tag
+                                    a5e-tag--small
+                                    a5e-tag--clickable
+                                    {{#if (contains ../filters.spellSchools.inclusive key)}}''
+                                    {{else if (contains ../filters.spellSchools.exclusive key)}}a5e-tag--red
+                                    {{else}}a5e-tag--inactive
+                                    {{/if}}
+                                    a5e-js-toggle-filter
+                                "
+                                data-item-type="spell"
+                                data-category="school"
+                                data-value="{{key}}"
+                            >
+                                {{localize school}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div>
-            {{>
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelMiscellaneous"
                 filterCategory="spell-miscellaneous"
@@ -91,65 +97,66 @@
                 inclusiveCount=filters.spellMiscellaneous.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'spell-miscellaneous')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="spell-miscellaneous"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    <li
-                        class="
-                            a5e-tag
-                            a5e-tag--small
-                            a5e-tag--clickable
-                            {{#if (contains filters.spellMiscellaneous.inclusive 'concentration')}}''
-                            {{else if (contains filters.spellMiscellaneous.exclusive 'concentration')}}a5e-tag--red
-                            {{else}}a5e-tag--inactive
-                            {{/if}}
-                            a5e-js-toggle-filter
-                        "
-                        data-item-type="spell"
-                        data-category="miscellaneous"
-                        data-value="concentration"
-                    >
-                        {{localize "A5E.SpellConcentration"}}
-                    </li>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'spell-miscellaneous')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="spell-miscellaneous"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.spellMiscellaneous.inclusive 'concentration')}}''
+                                {{else if (contains filters.spellMiscellaneous.exclusive 'concentration')}}a5e-tag--red
+                                {{else}}a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="spell"
+                            data-category="miscellaneous"
+                            data-value="concentration"
+                        >
+                            {{localize "A5E.SpellConcentration"}}
+                        </li>
 
-                    <li
-                        class="
-                            a5e-tag
-                            a5e-tag--small
-                            a5e-tag--clickable
-                            {{#if (contains filters.spellMiscellaneous.inclusive 'prepared')}}''
-                            {{else if (contains filters.spellMiscellaneous.exclusive 'prepared')}}a5e-tag--red
-                            {{else}}a5e-tag--inactive
-                            {{/if}}
-                            a5e-js-toggle-filter
-                        "
-                        data-item-type="spell"
-                        data-category="miscellaneous"
-                        data-value="prepared"
-                    >
-                        {{localize "A5E.ItemPrepared"}}
-                    </li>
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.spellMiscellaneous.inclusive 'prepared')}}''
+                                {{else if (contains filters.spellMiscellaneous.exclusive 'prepared')}}a5e-tag--red
+                                {{else}}a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="spell"
+                            data-category="miscellaneous"
+                            data-value="prepared"
+                        >
+                            {{localize "A5E.ItemPrepared"}}
+                        </li>
 
-                    <li
-                        class="
-                            a5e-tag
-                            a5e-tag--small
-                            a5e-tag--clickable
-                            {{#if (contains filters.spellMiscellaneous.inclusive 'ritual')}}''
-                            {{else if (contains filters.spellMiscellaneous.exclusive 'ritual')}}a5e-tag--red
-                            {{else}}a5e-tag--inactive
-                            {{/if}}
-                            a5e-js-toggle-filter
-                        "
-                        data-item-type="spell"
-                        data-category="miscellaneous"
-                        data-value="ritual"
-                    >
-                        {{localize "A5E.SpellRitual"}}
-                    </li>
-                </ul>
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains filters.spellMiscellaneous.inclusive 'ritual')}}''
+                                {{else if (contains filters.spellMiscellaneous.exclusive 'ritual')}}a5e-tag--red
+                                {{else}}a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="spell"
+                            data-category="miscellaneous"
+                            data-value="ritual"
+                        >
+                            {{localize "A5E.SpellRitual"}}
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 

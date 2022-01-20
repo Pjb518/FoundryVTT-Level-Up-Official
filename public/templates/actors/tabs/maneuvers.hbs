@@ -1,5 +1,10 @@
 <section
-    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--maneuvers {{#unless (eq currentTab 'maneuvers')}}a5e-sheet__tab-content--hidden{{/unless}}"
+    class="
+        a5e-js-sheet-page
+        a5e-sheet__tab-content
+        a5e-sheet__tab-content--maneuvers
+        {{#unless (eq currentTab 'maneuvers')}}a5e-sheet__tab-content--hidden{{/unless}}
+    "
     data-group="main"
     data-tab="maneuvers"
 >
@@ -8,8 +13,9 @@
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div>
-            {{>
+        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.ManeuverDegree"
                 filterCategory="maneuver-degrees"
@@ -17,36 +23,36 @@
                 inclusiveCount=filters.maneuverDegree.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'maneuver-degrees')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="maneuver-degrees"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    {{#each config.maneuverDegrees as | degree key |}}
-                        <li
-                            class="
-                                a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
-                                {{#if (contains ../filters.maneuverDegree.inclusive key)}}''
-                                {{else if (contains ../filters.maneuverDegree.exclusive key)}}a5e-tag--red
-                                {{else}}a5e-tag--inactive
-                                {{/if}}
-                                a5e-js-toggle-filter
-                            "
-                            data-item-type="maneuver"
-                            data-category="degree"
-                            data-value="{{key}}"
-                        >
-                            {{localize degree}}
-                        </li>
-                    {{/each}}
-                </ul>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'maneuver-degrees')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="maneuver-degrees"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        {{#each config.maneuverDegrees as | degree key |}}
+                            <li
+                                class="
+                                    a5e-tag
+                                    a5e-tag--small
+                                    a5e-tag--clickable
+                                    {{#if (contains ../filters.maneuverDegree.inclusive key)}}''
+                                    {{else if (contains ../filters.maneuverDegree.exclusive key)}}a5e-tag--red
+                                    {{else}}a5e-tag--inactive
+                                    {{/if}}
+                                    a5e-js-toggle-filter
+                                "
+                                data-item-type="maneuver"
+                                data-category="degree"
+                                data-value="{{key}}"
+                            >
+                                {{localize degree}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div>
-            {{>
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.ManeuverTradition"
                 filterCategory="maneuver-traditions"
@@ -54,31 +60,32 @@
                 inclusiveCount=filters.maneuverTradition.inclusive.length
             }}
 
-            <div
-                class="{{#unless (contains expandedFilterCategories 'maneuver-traditions')}}a5e-u-hidden{{/unless}}"
-                data-filter-category="maneuver-traditions"
-            >
-                <ul class="a5e-tag-group a5e-tag-group--filter">
-                    {{#each config.maneuverTraditions as | tradition key |}}
-                        <li
-                            class="
-                                a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
-                                {{#if (contains ../filters.maneuverTradition.inclusive key)}}''
-                                {{else if (contains ../filters.maneuverTradition.exclusive key)}}a5e-tag--red
-                                {{else}}a5e-tag--inactive
-                                {{/if}}
-                                a5e-js-toggle-filter
-                            "
-                            data-item-type="maneuver"
-                            data-category="tradition"
-                            data-value="{{key}}"
-                        >
-                            {{localize tradition}}
-                        </li>
-                    {{/each}}
-                </ul>
+                <div
+                    class="{{#unless (contains expandedFilterCategories 'maneuver-traditions')}}a5e-u-hidden{{/unless}}"
+                    data-filter-category="maneuver-traditions"
+                >
+                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                        {{#each config.maneuverTraditions as | tradition key |}}
+                            <li
+                                class="
+                                    a5e-tag
+                                    a5e-tag--small
+                                    a5e-tag--clickable
+                                    {{#if (contains ../filters.maneuverTradition.inclusive key)}}''
+                                    {{else if (contains ../filters.maneuverTradition.exclusive key)}}a5e-tag--red
+                                    {{else}}a5e-tag--inactive
+                                    {{/if}}
+                                    a5e-js-toggle-filter
+                                "
+                                data-item-type="maneuver"
+                                data-category="tradition"
+                                data-value="{{key}}"
+                            >
+                                {{localize tradition}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
         </div>
 
