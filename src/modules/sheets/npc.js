@@ -1,7 +1,6 @@
 import ActorSheet5e from './baseActor';
 
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
-import arraysAreEqual from '../utils/arraysAreEqual';
 
 export default class ActorSheet5eNPC extends ActorSheet5e {
   /**
@@ -83,70 +82,10 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
         .sort();
     });
 
-    // Split weapons into categories.
-    const weaponProficiencies = data.data.proficiencies.weapons.reduce(
-      (acc, curr) => {
-        if (Object.keys(CONFIG.A5E.weaponsPlural.martial).includes(curr)) {
-          acc.martial.push(curr);
-        } else if (Object.keys(CONFIG.A5E.weaponsPlural.simple).includes(curr)) {
-          acc.simple.push(curr);
-        } else if (Object.keys(CONFIG.A5E.weaponsPlural.rare).includes(curr)) {
-          acc.rare.push(curr);
-        } else {
-          acc.other.push(curr);
-        }
-
-        return acc;
-      },
-      {
-        simple: [],
-        martial: [],
-        rare: [],
-        other: []
-      }
-    );
-
-    // Replace complete weapon groups with a category name, instead of displaying dozens of tags.
-    ['simple', 'martial', 'rare'].forEach((weaponType) => {
-      const weaponKeys = Object.keys(CONFIG.A5E.weaponsPlural[weaponType]);
-
-      if (arraysAreEqual(weaponKeys, weaponProficiencies[weaponType])) {
-        weaponProficiencies[weaponType] = game.i18n.localize(
-          `A5E.Weapons${weaponType[0].toUpperCase() + weaponType.slice(1)}`
-        );
-      } else {
-        weaponProficiencies[weaponType] = weaponProficiencies[weaponType].map((weapon) => (
-          game.i18n.localize(CONFIG.A5E.weaponsPlural[weaponType][weapon])
-        ));
-      }
-    });
-
-    const toolProficiencies = data.data.proficiencies.tools.reduce((acc, curr) => {
-      let tool;
-
-      /* eslint-disable no-restricted-syntax */
-      for (const toolType of ['artisansTools', 'gamingSets', 'musicalInstruments', 'miscellaneous', 'vehicles']) {
-        if (CONFIG.A5E.toolsPlural[toolType][curr]) {
-          tool = game.i18n.localize(CONFIG.A5E.toolsPlural[toolType][curr]);
-          break;
-        }
-      }
-
-      acc.push(tool || curr);
-      return acc;
-    }, []);
-
-    data.data.proficiencies.armor = data.data.proficiencies.armor.map((armor) => (
-      game.i18n.localize(CONFIG.A5E.armorPlural[armor])
-    )).sort();
-
     data.data.proficiencies.languages = data.data.proficiencies.languages.map((language) => {
       const localisationString = CONFIG.A5E.languages[language];
       return localisationString ? game.i18n.localize(localisationString) : language;
     }).sort();
-
-    data.data.proficiencies.tools = toolProficiencies.sort();
-    data.data.proficiencies.weapons = Object.values(weaponProficiencies).flat().sort();
 
     data.items = this._prepareItems(actorData.items);
     data.sizeCategory = game.i18n.localize(CONFIG.A5E.actorSizes[actorData.data.traits?.size]);

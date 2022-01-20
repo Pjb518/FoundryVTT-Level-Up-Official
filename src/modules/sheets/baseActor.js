@@ -1,3 +1,5 @@
+// TODO: Continue migrating shared methods and data preparation to this base class.
+
 import calculateContextMenuPlacement from '../utils/calculateContextMenuPlacement';
 
 export default class ActorSheet5e extends ActorSheet {
