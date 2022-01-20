@@ -329,41 +329,9 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     }]);
   }
 
-  /**
-  * Handle clicking the equip button in the item context menu.
-  *
-  * @param {Event} event  The originating click event.
-  */
-  _onToggleEquip(event) {
-    event.preventDefault();
-
-    const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
-    const item = this.actor.items.get(id);
-
-    item.update({ 'data.equipped': !item.data.data.equipped });
-  }
-
   _onToggleInspiration(event) {
     event.preventDefault();
     this.actor.toggleInspiration();
-  }
-
-  _onToggleSpellPreparation(event) {
-    event.preventDefault();
-
-    const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
-    const item = this.actor.items.get(id);
-
-    item.update({ 'data.prepared': !item.data.data.prepared });
-  }
-
-  _onToggleTrackVisibility(event) {
-    event.preventDefault();
-
-    const track = event.currentTarget;
-
-    if (event.handleObj.type === 'mouseover') $(track).addClass('a5e-track--expanded');
-    else $(track).removeClass('a5e-track--expanded');
   }
 
   /**
@@ -418,22 +386,24 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     this.actor.rollSkillCheck(skill, { event });
   }
 
+  /**
+   * @inheritdoc
+   */
   async _onToggleFilter(event) {
     const { category, itemType, value } = event.currentTarget.dataset;
 
-    if (itemType === 'feature') await this.actor.updateFeatureFilters(category, value);
-    else if (itemType === 'object') await this.actor.updateObjectFilters(category, value);
-    else if (itemType === 'maneuver') await this.actor.updateManeuverFilters(category, value);
-    else if (itemType === 'spell') await this.actor.updateSpellFilters(category, value);
+    if (itemType === 'maneuver') await this.actor.updateManeuverFilters(category, value);
+    else await super._onToggleFilter(event);
   }
 
+  /**
+   * @inheritdoc
+   */
   async _onResetFilters(event) {
     const { itemType } = event.currentTarget.dataset;
 
-    if (itemType === 'feature') await this.actor.resetFeatureFilters();
-    else if (itemType === 'object') await this.actor.resetObjectFilters();
-    else if (itemType === 'maneuver') await this.actor.resetManeuverFilters();
-    else if (itemType === 'spell') await this.actor.resetSpellFilters();
+    if (itemType === 'maneuver') await this.actor.resetManeuverFilters();
+    else super._onResetFilters(event);
   }
 
   _onTriggerRest(event) {

@@ -460,4 +460,62 @@ export default class ActorSheet5e extends ActorSheet {
 
     $(document).find('.a5e-context-menu').removeClass('a5e-context-menu--visible');
   }
+
+  /**
+   * Handle clicking the reset filters button to remove all filters for a given item type.
+   *
+   * @param {Event} event  The originating click event.
+   */
+  async _onResetFilters(event) {
+    const { itemType } = event.currentTarget.dataset;
+
+    if (itemType === 'feature') await this.actor.resetFeatureFilters();
+    else if (itemType === 'object') await this.actor.resetObjectFilters();
+    else if (itemType === 'spell') await this.actor.resetSpellFilters();
+  }
+
+  /**
+  * Handle clicking the equip button in the item context menu.
+  *
+  * @param {Event} event  The originating click event.
+  */
+  _onToggleEquip(event) {
+    event.preventDefault();
+
+    const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
+    const item = this.actor.items.get(id);
+
+    item.update({ 'data.equipped': !item.data.data.equipped });
+  }
+
+  /**
+   * Handle clicking on a filter tag to update the filters being applied to an actor's items.
+   *
+   * @param {Event} event  The originating click event.
+   */
+  async _onToggleFilter(event) {
+    const { category, itemType, value } = event.currentTarget.dataset;
+
+    if (itemType === 'feature') await this.actor.updateFeatureFilters(category, value);
+    else if (itemType === 'object') await this.actor.updateObjectFilters(category, value);
+    else if (itemType === 'spell') await this.actor.updateSpellFilters(category, value);
+  }
+
+  _onToggleSpellPreparation(event) {
+    event.preventDefault();
+
+    const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
+    const item = this.actor.items.get(id);
+
+    item.update({ 'data.prepared': !item.data.data.prepared });
+  }
+
+  _onToggleTrackVisibility(event) {
+    event.preventDefault();
+
+    const track = event.currentTarget;
+
+    if (event.handleObj.type === 'mouseover') $(track).addClass('a5e-track--expanded');
+    else $(track).removeClass('a5e-track--expanded');
+  }
 }
