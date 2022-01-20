@@ -1,16 +1,23 @@
-<h3 class="a5e-form__input-label a5e-form__input-label--filter">
+<h3
+    class="
+        a5e-form__input-label
+        a5e-form__input-label--filter
+        a5e-js-toggle-filter-category-visibility
+    "
+    data-filter-category="{{filterCategory}}"
+>
     {{localize heading}}
 
     <ul class="a5e-tag-group a5e-tag-group--small">
         {{#if inclusiveCount}}
             <li class="a5e-tag a5e-tag--small">
-                + {{inclusiveCount}}
+                {{inclusiveCount}}
             </li>
         {{/if}}
 
         {{#if exclusiveCount}}
             <li class="a5e-tag a5e-tag--red a5e-tag--small">
-                - {{exclusiveCount}}
+                {{exclusiveCount}}
             </li>
         {{/if}}
     </ul>

@@ -21,62 +21,73 @@
             {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelRarity"
-                inclusiveCount=filters.itemRarity.inclusive.length
+                filterCategory="item-rarity"
                 exclusiveCount=filters.itemRarity.exclusive.length
+                inclusiveCount=filters.itemRarity.inclusive.length
             }}
 
-            <ul class="a5e-tag-group">
-                {{#each config.itemRarity as | rarity key |}}
-                    <li
-                        class="
-                            a5e-tag
-                            a5e-tag--small
-                            a5e-tag--clickable
-                            {{#if (contains ../filters.itemRarity.inclusive key)}}''
-                            {{else if (contains ../filters.itemRarity.exclusive key)}}a5e-tag--red
-                            {{else}}a5e-tag--inactive
-                            {{/if}}
-                            a5e-js-toggle-filter
-                        "
-                        data-item-type="object"
-                        data-category="rarity"
-                        data-value="{{key}}"
-                    >
-                        {{localize rarity}}
-                    </li>
-                {{/each}}
-            </ul>
+            <div
+                class="a5e-u-hidden"
+                data-filter-category="item-rarity"
+            >
+                <ul class="a5e-tag-group a5e-tag-group--filter">
+                    {{#each config.itemRarity as | rarity key |}}
+                        <li
+                            class="
+                                a5e-tag
+                                a5e-tag--small
+                                a5e-tag--clickable
+                                {{#if (contains ../filters.itemRarity.inclusive key)}}''
+                                {{else if (contains ../filters.itemRarity.exclusive key)}}a5e-tag--red
+                                {{else}}a5e-tag--inactive
+                                {{/if}}
+                                a5e-js-toggle-filter
+                            "
+                            data-item-type="object"
+                            data-category="rarity"
+                            data-value="{{key}}"
+                        >
+                            {{localize rarity}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
 
         <div>
             {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelMiscellaneous"
-                inclusiveCount=filters.itemMiscellaneous.inclusive.length
+                filterCategory="item-miscellaneous"
                 exclusiveCount=filters.itemMiscellaneous.exclusive.length
+                inclusiveCount=filters.itemMiscellaneous.inclusive.length
             }}
 
-            <ul class="a5e-tag-group">
-                <li
-                    class="
-                        a5e-tag
-                        a5e-tag--small
-                        a5e-tag--clickable
-                        {{#if (contains filters.itemMiscellaneous.inclusive 'attuned')}}''
-                        {{else if (contains filters.itemMiscellaneous.exclusive 'attuned')}}a5e-tag--red
-                        {{else}}a5e-tag--inactive
-                        {{/if}}
-                        a5e-js-toggle-filter
-                    "
-                    data-item-type="object"
-                    data-category="miscellaneous"
-                    data-value="attuned"
-                >
-                    {{localize "A5E.Attuned"}}
-                </li>
+            <div
+                class="a5e-u-hidden"
+                data-filter-category="item-miscellaneous"
+            >
+                <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <li
+                        class="
+                            a5e-tag
+                            a5e-tag--small
+                            a5e-tag--clickable
+                            {{#if (contains filters.itemMiscellaneous.inclusive 'attuned')}}''
+                            {{else if (contains filters.itemMiscellaneous.exclusive 'attuned')}}a5e-tag--red
+                            {{else}}a5e-tag--inactive
+                            {{/if}}
+                            a5e-js-toggle-filter
+                        "
+                        data-item-type="object"
+                        data-category="miscellaneous"
+                        data-value="attuned"
+                    >
+                        {{localize "A5E.Attuned"}}
+                    </li>
 
-                <li
-                    class="
+                    <li
+                        class="
                     a5e-tag
                     a5e-tag--small
                     a5e-tag--clickable
@@ -86,33 +97,33 @@
                     {{/if}}
                     a5e-js-toggle-filter
                 "
-                    data-item-type="object"
-                    data-category="miscellaneous"
-                    data-value="bulky"
-                >
-                    {{localize "A5E.ItemBulky"}}
-                </li>
+                        data-item-type="object"
+                        data-category="miscellaneous"
+                        data-value="bulky"
+                    >
+                        {{localize "A5E.ItemBulky"}}
+                    </li>
 
-                <li
-                    class="
-                        a5e-tag
-                        a5e-tag--small
-                        a5e-tag--clickable
-                        {{#if (contains filters.itemMiscellaneous.inclusive 'equipped')}}''
-                        {{else if (contains filters.itemMiscellaneous.exclusive 'equipped')}}a5e-tag--red
-                        {{else}}a5e-tag--inactive
-                        {{/if}}
-                        a5e-js-toggle-filter
-                    "
-                    data-item-type="object"
-                    data-category="miscellaneous"
-                    data-value="equipped"
-                >
-                    {{localize "A5E.ItemEquipped"}}
-                </li>
+                    <li
+                        class="
+                            a5e-tag
+                            a5e-tag--small
+                            a5e-tag--clickable
+                            {{#if (contains filters.itemMiscellaneous.inclusive 'equipped')}}''
+                            {{else if (contains filters.itemMiscellaneous.exclusive 'equipped')}}a5e-tag--red
+                            {{else}}a5e-tag--inactive
+                            {{/if}}
+                            a5e-js-toggle-filter
+                        "
+                        data-item-type="object"
+                        data-category="miscellaneous"
+                        data-value="equipped"
+                    >
+                        {{localize "A5E.ItemEquipped"}}
+                    </li>
 
-                <li
-                    class="
+                    <li
+                        class="
                         a5e-tag
                         a5e-tag--small
                         a5e-tag--clickable
@@ -122,15 +133,15 @@
                         {{/if}}
                         a5e-js-toggle-filter
                     "
-                    data-item-type="object"
-                    data-category="miscellaneous"
-                    data-value="plotItem"
-                >
-                    {{localize "A5E.PlotItem"}}
-                </li>
+                        data-item-type="object"
+                        data-category="miscellaneous"
+                        data-value="plotItem"
+                    >
+                        {{localize "A5E.PlotItem"}}
+                    </li>
 
-                <li
-                    class="
+                    <li
+                        class="
                         a5e-tag
                         a5e-tag--small
                         a5e-tag--clickable
@@ -140,13 +151,14 @@
                         {{/if}}
                         a5e-js-toggle-filter
                     "
-                    data-item-type="object"
-                    data-category="miscellaneous"
-                    data-value="requiresAttunement"
-                >
-                    {{localize "A5E.AttunementRequired"}}
-                </li>
-            </ul>
+                        data-item-type="object"
+                        data-category="miscellaneous"
+                        data-value="requiresAttunement"
+                    >
+                        {{localize "A5E.AttunementRequired"}}
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <a

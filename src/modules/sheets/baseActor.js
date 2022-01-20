@@ -59,6 +59,7 @@ export default class ActorSheet5e extends ActorSheet {
     html.find('.a5e-js-item').on('dragstart', (event) => this._onDragStart.call(this, event.originalEvent));
 
     // Filter handlers
+    html.find('.a5e-js-toggle-filter-category-visibility').click(this._onToggleFilterCategoryVisibility.bind(this));
     html.find('.a5e-js-toggle-filter').click(this._onToggleFilter.bind(this));
     html.find('.a5e-js-reset-filters').click(this._onResetFilters.bind(this));
 
@@ -565,6 +566,15 @@ export default class ActorSheet5e extends ActorSheet {
     if (itemType === 'feature') await this.actor.updateFeatureFilters(category, value);
     else if (itemType === 'object') await this.actor.updateObjectFilters(category, value);
     else if (itemType === 'spell') await this.actor.updateSpellFilters(category, value);
+  }
+
+  _onToggleFilterCategoryVisibility(event) {
+    event.preventDefault();
+
+    const { filterCategory } = event.currentTarget.dataset;
+    const filterTags = $(event.currentTarget).siblings(`[data-filter-category=${filterCategory}]`);
+
+    $(filterTags).slideToggle();
   }
 
   _onToggleSpellPreparation(event) {
