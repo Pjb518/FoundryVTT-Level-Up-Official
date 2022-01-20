@@ -189,13 +189,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     // Item creation handlers specific to NPCs
     html.find('.a5e-js-create-weapon').click(this._onCreateWeapon.bind(this));
 
-    // Drag and drop handlers
-    html.find('.a5e-js-item').on('dragstart', (event) => this._onDragStart.call(this, event.originalEvent));
-
-    // Filter handlers
-    html.find('.a5e-js-toggle-filter').click(this._onToggleFilter.bind(this));
-    html.find('.a5e-js-reset-filters').click(this._onResetFilters.bind(this));
-
     super.activateListeners(html);
   }
 

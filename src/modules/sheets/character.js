@@ -192,38 +192,7 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     // Inspiration toggle
     html.find('.a5e-js-toggle-inspiration').click(this._onToggleInspiration.bind(this));
 
-    // Drag and drop handlers
-    html.find('.a5e-js-item').on('dragstart', (event) => this._onDragStart.call(this, event.originalEvent));
-
-    // Filter handlers
-    html.find('.a5e-js-toggle-filter').click(this._onToggleFilter.bind(this));
-    html.find('.a5e-js-reset-filters').click(this._onResetFilters.bind(this));
-
     super.activateListeners(html);
-  }
-
-  /**
-   * Implements custom tab switching logic for the main sheet body.
-   *
-   * @param {string} group   The name of the tab group.
-   * @param {string} target  The name of the requested sheet page.
-   */
-  changePage(group, target) {
-    const sheet = $(`[data-appid=${this.appId}]`);
-
-    // Mark the clicked tab as the active tab.
-    sheet.find('.a5e-js-sheet-tab').removeClass('a5e-sheet-tabs__tab--active');
-    sheet.find(`.a5e-js-sheet-tab[data-tab='${target}']`).addClass('a5e-sheet-tabs__tab--active');
-
-    // Hide all of the sheet pages.
-    const pageGroup = sheet.find(`.a5e-js-sheet-page[data-group='${group}']`);
-    pageGroup.addClass('a5e-sheet__tab-content--hidden');
-
-    // Remove the hidden modifier from the target page.
-    const page = sheet.find(`.a5e-js-sheet-page[data-group='${group}'][data-tab='${target}']`);
-    page.removeClass('a5e-sheet__tab-content--hidden');
-
-    this.options.currentTab = target;
   }
 
   _filterManeuvers(items) {
