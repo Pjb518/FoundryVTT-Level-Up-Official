@@ -186,25 +186,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     html.find('.a5e-js-configure-tools').click(this._onConfigureToolProficiencies.bind(this));
     html.find('.a5e-js-configure-weapon-proficiencies').click(this._onConfigureWeaponProficiencies.bind(this));
 
-    // Context menu handlers
-    html.find('.a5e-js-item').mouseup(this._onClickItem.bind(this));
-    html.find('.a5e-js-delete-item').click(this._onDeleteItem.bind(this));
-    html.find('.a5e-js-edit-item').click(this._onEditItem.bind(this));
-    html.find('.a5e-js-equip-item').click(this._onToggleEquip.bind(this));
-    html.find('.a5e-js-prepare-spell').click(this._onToggleSpellPreparation.bind(this));
-
-    $(document).mouseup((event) => {
-      if ($(event.target).hasClass('a5e-context-menu__option')) return;
-
-      if (event.which === 1) {
-        $(document).find('.a5e-context-menu').removeClass('a5e-context-menu--visible');
-      }
-    });
-
-    // Strife and fatigue track handlers
-    html.find('.a5e-js-track').hover(this._onToggleTrackVisibility.bind(this));
-    html.find('.a5e-js-track-item').click(this._onClickTrackItem.bind(this));
-
     // Item creation handlers specific to PCs
     html.find('.a5e-js-create-maneuver-item').click(this._onCreateManeuverItem.bind(this));
 
