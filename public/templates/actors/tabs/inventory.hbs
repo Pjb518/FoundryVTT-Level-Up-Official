@@ -22,12 +22,13 @@
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelRarity"
                 filterCategory="item-rarity"
+                expandedFilterCategories=expandedFilterCategories
                 exclusiveCount=filters.itemRarity.exclusive.length
                 inclusiveCount=filters.itemRarity.inclusive.length
             }}
 
             <div
-                class="a5e-u-hidden"
+                class="{{#unless (contains expandedFilterCategories 'item-rarity')}}a5e-u-hidden{{/unless}}"
                 data-filter-category="item-rarity"
             >
                 <ul class="a5e-tag-group a5e-tag-group--filter">
@@ -59,12 +60,13 @@
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.FilterLabelMiscellaneous"
                 filterCategory="item-miscellaneous"
+                expandedFilterCategories=expandedFilterCategories
                 exclusiveCount=filters.itemMiscellaneous.exclusive.length
                 inclusiveCount=filters.itemMiscellaneous.inclusive.length
             }}
 
             <div
-                class="a5e-u-hidden"
+                class="{{#unless (contains expandedFilterCategories 'item-miscellaneous')}}a5e-u-hidden{{/unless}}"
                 data-filter-category="item-miscellaneous"
             >
                 <ul class="a5e-tag-group a5e-tag-group--filter">

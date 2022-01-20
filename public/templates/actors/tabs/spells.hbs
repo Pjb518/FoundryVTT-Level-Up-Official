@@ -18,7 +18,7 @@
             }}
 
             <div
-                class="a5e-u-hidden"
+                class="{{#unless (contains expandedFilterCategories 'spell-components')}}a5e-u-hidden{{/unless}}"
                 data-filter-category="spell-components"
             >
                 <ul class="a5e-tag-group a5e-tag-group--filter">
@@ -55,7 +55,7 @@
             }}
 
             <div
-                class="a5e-u-hidden"
+                class="{{#unless (contains expandedFilterCategories 'spell-schools')}}a5e-u-hidden{{/unless}}"
                 data-filter-category="spell-schools"
             >
                 <ul class="a5e-tag-group a5e-tag-group--filter">
@@ -92,7 +92,7 @@
             }}
 
             <div
-                class="a5e-u-hidden"
+                class="{{#unless (contains expandedFilterCategories 'spell-miscellaneous')}}a5e-u-hidden{{/unless}}"
                 data-filter-category="spell-miscellaneous"
             >
                 <ul class="a5e-tag-group a5e-tag-group--filter">

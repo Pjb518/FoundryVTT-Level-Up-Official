@@ -279,15 +279,6 @@
         }}
 
         {{>
-            "systems/a5e/templates/actors/tabs/attributes.hbs"
-            actorType=actor.type
-            movement=movement
-            senses=senses
-            data=data
-            currentTab=currentTab
-        }}
-
-        {{>
             "systems/a5e/templates/actors/tabs/inventory.hbs"
             actorType=actor.type
             attunement=data.attributes.attunement
@@ -295,6 +286,7 @@
             filters=filters
             items=items.inventory
             currentTab=currentTab
+            expandedFilterCategories=expandedFilterCategories
         }}
 
         <section
@@ -329,6 +321,7 @@
             showSpellSlots=showSpellSlots
             showSpellPoints=showSpellPoints
             spellResources=data.spellResources
+            expandedFilterCategories=expandedFilterCategories
         }}
 
         <section

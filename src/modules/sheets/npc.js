@@ -98,7 +98,9 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
 
     data.showSpellSlots = this.actor.getFlag('a5e', 'showSpellSlots') ?? true;
     data.showSpellPoints = this.actor.getFlag('a5e', 'showSpellPoints') ?? true;
+
     data.filters = this._prepareFilters();
+    data.expandedFilterCategories = this.actor.getFlag('a5e', 'expandedFilterCategories') ?? [];
 
     data.creatureTypes = actorData.data.details.creatureTypes.map((creatureType) => {
       if (CONFIG.A5E.creatureTypes[creatureType]) {

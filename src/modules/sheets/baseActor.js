@@ -573,8 +573,18 @@ export default class ActorSheet5e extends ActorSheet {
 
     const { filterCategory } = event.currentTarget.dataset;
     const filterTags = $(event.currentTarget).siblings(`[data-filter-category=${filterCategory}]`);
+    const expandedFilterCategories = this.actor.getFlag('a5e', 'expandedFilterCategories') ?? [];
 
+    $(event.currentTarget).toggleClass('a5e-form__input-label--active-filter');
     $(filterTags).slideToggle();
+
+    if (expandedFilterCategories.includes(filterCategory)) {
+      expandedFilterCategories.splice(expandedFilterCategories.indexOf(filterCategory), 1);
+    } else {
+      expandedFilterCategories.push(filterCategory);
+    }
+
+    this.actor.setFlag('a5e', 'expandedFilterCategories', expandedFilterCategories);
   }
 
   _onToggleSpellPreparation(event) {

@@ -2,6 +2,7 @@
     class="
         a5e-form__input-label
         a5e-form__input-label--filter
+        {{#if (contains expandedFilterCategories filterCategory)}}a5e-form__input-label--active-filter{{/if}}
         a5e-js-toggle-filter-category-visibility
     "
     data-filter-category="{{filterCategory}}"

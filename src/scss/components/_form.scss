@@ -73,6 +73,14 @@
       margin-bottom: 0;
       cursor: pointer;
       gap: 0.5rem;
+
+      &::before {
+        content: '\002B';
+      }
+    }
+
+    &--active-filter::before {
+      content: '\2212';
     }
 
     &--extra-space {
