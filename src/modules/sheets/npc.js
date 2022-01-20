@@ -185,7 +185,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
 
     // Configuration handlers
     html.find('.a5e-js-configure-ability-score').click(this._onConfigureAbilityScore.bind(this));
-    html.find('.a5e-js-configure-armor-proficiencies').click(this._onConfigureArmorProficiencies.bind(this));
     html.find('.a5e-js-configure-condition-immunities').click(this._onConfigureConditionImmunities.bind(this));
     html.find('.a5e-js-configure-creature-types').click(this._onConfigureCreatureTypes.bind(this));
     html.find('.a5e-js-configure-damage-immunities').click(this._onConfigureDamageImmunities.bind(this));
@@ -200,7 +199,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     html.find('.a5e-js-configure-size-category').click(this._onConfigureSizeCategory.bind(this));
     html.find('.a5e-js-configure-skill').click(this._onConfigureSkill.bind(this));
     html.find('.a5e-js-configure-spell-tab').click(this._onConfigureSpellTab.bind(this));
-    html.find('.a5e-js-configure-tools').click(this._onConfigureToolProficiencies.bind(this));
     html.find('.a5e-js-configure-weapon-proficiencies').click(this._onConfigureWeaponProficiencies.bind(this));
 
     // Context menu handlers
@@ -240,137 +238,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     html.find('.a5e-js-reset-filters').click(this._onResetFilters.bind(this));
 
     super.activateListeners(html);
-  }
-
-  _filterManeuvers(items) {
-    let filteredItems = items;
-    const degreeFilters = this.actor.getFlag('a5e', 'maneuverDegreeFilters');
-    const traditionFilters = this.actor.getFlag('a5e', 'maneuverTraditionFilters');
-
-    if (degreeFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => degreeFilters.inclusive.includes(item.data.degree.toString())
-      );
-    }
-
-    if (degreeFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => !degreeFilters.exclusive.includes(item.data.degree.toString())
-      );
-    }
-
-    if (traditionFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => traditionFilters.inclusive.includes(item.data.tradition)
-      );
-    }
-
-    if (traditionFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => !traditionFilters.exclusive.includes(item.data.tradition)
-      );
-    }
-
-    return filteredItems;
-  }
-
-  _filterObjects(items) {
-    let filteredItems = items;
-    const rarityFilters = this.actor.getFlag('a5e', 'itemRarityFilters');
-    const miscellaneousFilters = this.actor.getFlag('a5e', 'miscellaneousItemFilters');
-
-    if (rarityFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => rarityFilters.inclusive.includes(item.data.rarity)
-      );
-    }
-
-    if (rarityFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => !rarityFilters.exclusive.includes(item.data.rarity)
-      );
-    }
-
-    if (miscellaneousFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => miscellaneousFilters.inclusive.some((property) => item.data[property])
-      );
-    }
-
-    if (miscellaneousFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => !miscellaneousFilters.exclusive.some((property) => item.data[property])
-      );
-    }
-
-    return filteredItems;
-  }
-
-  _filterSpells(items) {
-    let filteredItems = items;
-    const componentFilters = this.actor.getFlag('a5e', 'spellComponentFilters');
-    const schoolFilters = this.actor.getFlag('a5e', 'spellSchoolFilters');
-    const miscellaneousFilters = this.actor.getFlag('a5e', 'miscellaneousSpellFilters');
-
-    // Clean up any outdated filters.
-    if (componentFilters?.inclusive?.length) {
-      const { inclusive } = componentFilters;
-
-      if (inclusive.includes('concentration')) inclusive.splice(inclusive.indexOf('concentration'), 1);
-      if (inclusive.includes('ritual')) inclusive.splice(inclusive.indexOf('ritual'), 1);
-    }
-
-    // Clean up any outdated filters.
-    if (componentFilters?.exclusive?.length) {
-      const { exclusive } = componentFilters;
-
-      if (exclusive.includes('concentration')) exclusive.splice(exclusive.indexOf('concentration'), 1);
-      if (exclusive.includes('ritual')) exclusive.splice(exclusive.indexOf('ritual'), 1);
-    }
-
-    if (componentFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter((item) => (
-        componentFilters.inclusive.some((value) => item.data.components[value])));
-    }
-
-    if (componentFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter((item) => (
-        !componentFilters.exclusive.some((value) => item.data.components[value])));
-    }
-
-    if (schoolFilters?.inclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => schoolFilters.inclusive.includes(item.data.schools.primary)
-      );
-    }
-
-    if (schoolFilters?.exclusive?.length) {
-      filteredItems = filteredItems.filter(
-        (item) => !schoolFilters.exclusive.includes(item.data.schools.primary)
-      );
-    }
-
-    if (miscellaneousFilters?.inclusive.length) {
-      filteredItems = filteredItems.filter((item) => {
-        if (miscellaneousFilters.inclusive.includes('concentration')) return item.data.concentration;
-        if (miscellaneousFilters.inclusive.includes('prepared')) return item.data.prepared;
-        if (miscellaneousFilters.inclusive.includes('ritual')) return item.data.ritual;
-
-        return false;
-      });
-    }
-
-    if (miscellaneousFilters?.exclusive.length) {
-      filteredItems = filteredItems.filter((item) => {
-        if (miscellaneousFilters.exclusive.includes('concentration')) return !item.data.concentration;
-        if (miscellaneousFilters.exclusive.includes('prepared')) return !item.data.prepared;
-        if (miscellaneousFilters.exclusive.includes('ritual')) return !item.data.ritual;
-
-        return true;
-      });
-    }
-
-    return filteredItems;
   }
 
   _onActivateItem(event) {
@@ -466,17 +333,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     event.preventDefault();
     const { ability } = event.currentTarget.dataset;
     this.actor.configureAbilityScore(ability, { event });
-  }
-
-  /**
-   * Handle clicking the configuration button for selecting armour proficiencies.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureArmorProficiencies(event) {
-    event.preventDefault();
-    this.actor.configureArmorProficiencies();
   }
 
   /**
@@ -634,17 +490,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
   _onConfigureSpellTab(event) {
     event.preventDefault();
     this.actor.configureSpellTab();
-  }
-
-  /**
-   * Handle clicking the configuration button for selecting tool proficiencies.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureToolProficiencies(event) {
-    event.preventDefault();
-    this.actor.configureToolProficiencies();
   }
 
   /**
