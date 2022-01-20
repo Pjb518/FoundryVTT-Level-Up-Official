@@ -178,6 +178,15 @@ export default class ActorSheet5e extends ActorSheet {
     return filteredItems;
   }
 
+  _onActivateItem(event) {
+    event.preventDefault();
+
+    const { id } = event.currentTarget.parentElement.dataset;
+    const item = this.actor.items.get(id);
+
+    this.actor.activateItem(item);
+  }
+
   _onClickItem(event) {
     event.preventDefault();
     const item = event.currentTarget;
@@ -577,5 +586,75 @@ export default class ActorSheet5e extends ActorSheet {
   _onTriggerRest(event) {
     event.preventDefault();
     this.actor.triggerRest();
+  }
+
+  _prepareObjectLabels(items) {
+    return items.map((item) => {
+      const inlineLabels = [];
+
+      if (item.data.requiresAttunement && item.data.attuned) {
+        inlineLabels.push(game.i18n.localize('A5E.Attuned'));
+      }
+
+      if (item.data.bulky) inlineLabels.push(game.i18n.localize('A5E.ItemBulky'));
+      if (item.data.equipped) inlineLabels.push(game.i18n.localize('A5E.ItemEquipped'));
+
+      item.showQuantity = item.data.quantity && item.data.quantity > 1;
+      item.data.inlineLabels = inlineLabels;
+
+      return item;
+    });
+  }
+
+  _prepareSpellLabels(spell) {
+    const inlineLabels = [];
+    spell.data.descriptionLabels = {};
+
+    spell.data.descriptionLabels.schools = [
+      game.i18n.localize(CONFIG.A5E.spellSchools.primary[spell.data.schools.primary]),
+      ...spell.data.schools.secondary.map(
+        (school) => game.i18n.localize(CONFIG.A5E.spellSchools.secondary[school])
+      )
+    ].filter((x) => x).sort();
+
+    const { components } = spell.data;
+    spell.data.descriptionLabels.components = [];
+
+    if (components.vocalized) {
+      spell.data.descriptionLabels.components.push(game.i18n.localize('A5E.SpellComponentVocalizedAbbr'));
+    }
+
+    if (components.seen) {
+      spell.data.descriptionLabels.components.push(game.i18n.localize('A5E.SpellComponentSeenAbbr'));
+    }
+
+    if (components.material) {
+      const componentParts = [game.i18n.localize('A5E.SpellComponentMaterialAbbr')];
+
+      if (spell.data.materials) componentParts.push(`(${spell.data.materials})`);
+
+      spell.data.descriptionLabels.components.push(componentParts.join(' '));
+    }
+
+    if (spell.data.concentration) inlineLabels.push(game.i18n.localize('A5E.SpellConcentration'));
+    if (spell.data.prepared) inlineLabels.push(game.i18n.localize('A5E.ItemPrepared'));
+    if (spell.data.ritual) inlineLabels.push(game.i18n.localize('A5E.SpellRitual'));
+
+    spell.data.inlineLabels = inlineLabels;
+  }
+
+  _prepareSpells(spells) {
+    return spells.reduce((acc, spell) => {
+      let { level } = spell.data;
+
+      if (Number.isNaN(level) || typeof level !== 'number') level = 0;
+      if (!(acc[level] instanceof Array)) acc[level] = [];
+
+      this._prepareSpellLabels(spell);
+
+      acc[level].push(spell);
+
+      return acc;
+    }, {});
   }
 }
