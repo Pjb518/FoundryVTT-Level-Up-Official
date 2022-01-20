@@ -193,8 +193,8 @@ export default class Actor5e extends Actor {
    *
    * @param {number} healing        An amount of damage to apply to the actor.
    * @param {Object} options
-   * @param {Boolean} options.temp  A flag for indicating whether the healing being applied is
-   *                                temporary.
+   * @param {Boolean} options.temp    A flag for indicating whether the healing being applied is
+   *                                  temporary.
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
    */
@@ -617,10 +617,6 @@ export default class Actor5e extends Actor {
     dialog.render(true);
   }
 
-  toggleInspiration() {
-    this.update({ 'data.attributes.inspiration': !this.data.data.attributes.inspiration });
-  }
-
   async constructItemCard(data) {
     const chatData = {
       user: game.user?.id,
@@ -657,6 +653,22 @@ export default class Actor5e extends Actor {
     }
 
     ChatMessage.create(chatData);
+  }
+
+  async modifyTokenAttribute(attribute, value, isDelta, isBar) {
+    if (attribute === 'attributes.hp') {
+      const hp = getProperty(this.data.data, attribute);
+      const hpPool = hp.value + hp.temp;
+      const delta = hpPool - value;
+
+      if (isDelta) {
+        return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
+      }
+
+      return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyHealing(delta);
+    }
+
+    return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
   }
 
   async resetHitPoints() {
@@ -993,6 +1005,10 @@ export default class Actor5e extends Actor {
     };
 
     ChatMessage.create(chatData);
+  }
+
+  toggleInspiration() {
+    this.update({ 'data.attributes.inspiration': !this.data.data.attributes.inspiration });
   }
 
   async triggerRest() {
