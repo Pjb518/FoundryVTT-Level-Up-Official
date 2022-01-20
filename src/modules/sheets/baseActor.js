@@ -361,4 +361,55 @@ export default class ActorSheet5e extends ActorSheet {
     event.preventDefault();
     this.actor.configureSpellTab();
   }
+
+  /**
+   * Handle creating a new object in the actor's feature list as an Owned Item.
+   *
+   * @param {Event} event          The originating click event.
+   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @private
+   */
+  _onCreateFeatureItem(event) {
+    event.preventDefault();
+
+    return this.actor.createEmbeddedDocuments('Item', [{
+      name: game.i18n.localize('A5E.ItemNew'),
+      type: 'feature'
+    }]);
+  }
+
+  /**
+   * Handle creating a new object in the actor inventory as an Owned Item.
+   *
+   * @param {Event} event          The originating click event.
+   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @private
+   */
+  _onCreateInventoryItem(event) {
+    event.preventDefault();
+
+    return this.actor.createEmbeddedDocuments('Item', [{
+      name: game.i18n.localize('A5E.ItemNew'),
+      type: 'object'
+    }]);
+  }
+
+  /**
+   * Handle creating a new object in the actor's spell list as an Owned Item.
+   *
+   * @param {Event} event          The originating click event.
+   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @private
+   */
+  async _onCreateSpellItem(event) {
+    event.preventDefault();
+
+    const { level } = event.currentTarget.dataset;
+
+    return this.actor.createEmbeddedDocuments('Item', [{
+      name: game.i18n.localize('A5E.ItemNew'),
+      type: 'spell',
+      'data.level': Number(level)
+    }]);
+  }
 }
