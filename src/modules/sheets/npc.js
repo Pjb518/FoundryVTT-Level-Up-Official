@@ -208,68 +208,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     this.actor.activateItem(item);
   }
 
-  _onClickItem(event) {
-    event.preventDefault();
-    const item = event.currentTarget;
-
-    if (event.which === 1) {
-      const ignoreTarget = $(event.target).hasClass('a5e-item-list__item-details')
-        || $(event.target).hasClass('a5e-context-menu')
-        || $(event.target).hasClass('a5e-context-menu__option')
-        || $(event.target).hasClass('a5e-js-activate-item')
-        || $(event.target).closest('.a5e-item-list__item-details').length;
-
-      if (ignoreTarget) return;
-
-      const expanded = $(item).find('.a5e-item-list__item-details--visible').length;
-
-      $('.a5e-js-item')
-        .find('.a5e-item-list__item-details')
-        .removeClass('a5e-item-list__item-details--visible');
-
-      if (!expanded) {
-        $(item)
-          .find('.a5e-item-list__item-details')
-          .addClass('a5e-item-list__item-details--visible');
-      }
-    } else if (event.which === 3) {
-      $('.a5e-js-item')
-        .find('.a5e-context-menu')
-        .removeClass('a5e-context-menu--visible');
-
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-
-      const itemTop = $(item).offset().top;
-      const itemLeft = $(item).offset().left;
-
-      let contextTop = mouseY - itemTop + 1;
-      let contextLeft = mouseX - itemLeft + 1;
-      const contextWidth = $(item).find('.a5e-context-menu').width();
-      const contextHeight = $(item).find('.a5e-context-menu').height();
-      const contextRightBound = mouseX + contextWidth;
-      const contextTopBound = mouseY - (2 * contextHeight);
-
-      const itemsList = $(item).closest('.a5e-item-list');
-      const itemsListRightBound = itemsList.offset().left + itemsList.width() - 17;
-      const itemsListTopBound = itemsList.offset().top;
-
-      if (contextRightBound > itemsListRightBound) {
-        const rightDiff = itemsListRightBound - contextRightBound;
-        contextLeft += rightDiff;
-      }
-
-      if (contextTopBound > itemsListTopBound) {
-        contextTop -= (2 * contextHeight);
-      }
-
-      $(item)
-        .find('.a5e-context-menu')
-        .addClass('a5e-context-menu--visible')
-        .css({ top: `${contextTop}px`, left: `${contextLeft}px` });
-    }
-  }
-
   _onClickTrackItem(event) {
     event.preventDefault();
 
