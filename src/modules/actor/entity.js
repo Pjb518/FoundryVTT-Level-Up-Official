@@ -708,7 +708,7 @@ export default class Actor5e extends Actor {
   async restoreExertion() {
     const { exertion } = this.data.data.attributes;
 
-    if (!exertion.recoverOnRest) return;
+    if (!exertion?.recoverOnRest) return;
 
     await this.update({
       'data.attributes.exertion.current': exertion.max

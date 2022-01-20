@@ -174,15 +174,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
 
   /** @inheritdoc */
   activateListeners(html) {
-    // Roll handlers
-    html.find('.a5e-js-roll-ability-check').click(this._onRollAbilityCheck.bind(this));
-    html.find('.a5e-js-roll-death-saving-throw').click(this._onRollDeathSavingThrow.bind(this));
-    html.find('.a5e-js-roll-initiative').click(this._onRollInitiative.bind(this));
-    html.find('.a5e-js-roll-saving-throw').click(this._onRollSavingThrow.bind(this));
-    html.find('.a5e-js-roll-skill-check').click(this._onRollSkillCheck.bind(this));
-    html.find('.a5e-js-activate-item').click(this._onActivateItem.bind(this));
-    html.find('.a5e-js-trigger-rest').click(this._onTriggerRest.bind(this));
-
     // Configuration handlers specific to NPCs
     html.find('.a5e-js-configure-creature-types').click(this._onConfigureCreatureTypes.bind(this));
 
@@ -241,11 +232,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     this.actor.rollAbilityCheck(ability, { event });
   }
 
-  _onRollDeathSavingThrow(event) {
-    event.preventDefault();
-    this.actor.rollDeathSavingThrow();
-  }
-
   /**
   * Handle rolling an initiative check.
   *
@@ -281,17 +267,10 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     this.actor.rollSkillCheck(skill, { event });
   }
 
-  _onTriggerRest(event) {
-    event.preventDefault();
-    this.actor.triggerRest();
-  }
-
   _prepareFilters() {
     return {
       itemRarity: this.actor.getFlag('a5e', 'itemRarityFilters') ?? { inclusive: [], exclusive: [] },
       itemMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousItemFilters') ?? { inclusive: [], exclusive: [] },
-      maneuverDegree: this.actor.getFlag('a5e', 'maneuverDegreeFilters') ?? { inclusive: [], exclusive: [] },
-      maneuverTradition: this.actor.getFlag('a5e', 'maneuverTraditionFilters') ?? { inclusive: [], exclusive: [] },
       spellComponents: this.actor.getFlag('a5e', 'spellComponentFilters') ?? { inclusive: [], exclusive: [] },
       spellSchools: this.actor.getFlag('a5e', 'spellSchoolFilters') ?? { inclusive: [], exclusive: [] },
       spellMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousSpellFilters') ?? { inclusive: [], exclusive: [] }

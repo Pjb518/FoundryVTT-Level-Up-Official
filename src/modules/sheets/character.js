@@ -168,14 +168,8 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
 
   /** @inheritdoc */
   activateListeners(html) {
-    // Roll handlers
-    html.find('.a5e-js-roll-ability-check').click(this._onRollAbilityCheck.bind(this));
+    // Roll handlers specific to PCs
     html.find('.a5e-js-roll-death-saving-throw').click(this._onRollDeathSavingThrow.bind(this));
-    html.find('.a5e-js-roll-initiative').click(this._onRollInitiative.bind(this));
-    html.find('.a5e-js-roll-saving-throw').click(this._onRollSavingThrow.bind(this));
-    html.find('.a5e-js-roll-skill-check').click(this._onRollSkillCheck.bind(this));
-    html.find('.a5e-js-activate-item').click(this._onActivateItem.bind(this));
-    html.find('.a5e-js-trigger-rest').click(this._onTriggerRest.bind(this));
 
     // Configuration handlers specific to PCs
     html.find('.a5e-js-configure-armor-proficiencies').click(this._onConfigureArmorProficiencies.bind(this));
@@ -404,11 +398,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
 
     if (itemType === 'maneuver') await this.actor.resetManeuverFilters();
     else super._onResetFilters(event);
-  }
-
-  _onTriggerRest(event) {
-    event.preventDefault();
-    this.actor.triggerRest();
   }
 
   _prepareFilters() {

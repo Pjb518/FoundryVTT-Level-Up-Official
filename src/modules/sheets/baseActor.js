@@ -6,6 +6,14 @@ export default class ActorSheet5e extends ActorSheet {
     // Listener for a custom tab handler
     html.find('.a5e-js-sheet-tab').click(this._onClickTab.bind(this));
 
+    // Roll handlers
+    html.find('.a5e-js-roll-ability-check').click(this._onRollAbilityCheck.bind(this));
+    html.find('.a5e-js-roll-initiative').click(this._onRollInitiative.bind(this));
+    html.find('.a5e-js-roll-saving-throw').click(this._onRollSavingThrow.bind(this));
+    html.find('.a5e-js-roll-skill-check').click(this._onRollSkillCheck.bind(this));
+    html.find('.a5e-js-activate-item').click(this._onActivateItem.bind(this));
+    html.find('.a5e-js-trigger-rest').click(this._onTriggerRest.bind(this));
+
     // Configuration handlers
     html.find('.a5e-js-configure-ability-score').click(this._onConfigureAbilityScore.bind(this));
     html.find('.a5e-js-configure-condition-immunities').click(this._onConfigureConditionImmunities.bind(this));
@@ -517,5 +525,10 @@ export default class ActorSheet5e extends ActorSheet {
 
     if (event.handleObj.type === 'mouseover') $(track).addClass('a5e-track--expanded');
     else $(track).removeClass('a5e-track--expanded');
+  }
+
+  _onTriggerRest(event) {
+    event.preventDefault();
+    this.actor.triggerRest();
   }
 }
