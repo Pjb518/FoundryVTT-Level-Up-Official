@@ -681,9 +681,9 @@ export default class Actor5e extends Actor {
 
     this.update({
       'data.attributes.hp': {
-        bonus: '',
+        bonus: 0,
         value: baseMax,
-        temp: ''
+        temp: 0
       }
     });
   }
