@@ -271,7 +271,8 @@
     <section class="a5e-sheet__body-container">
         {{>
             "systems/a5e/templates/actors/tabs/core.hbs"
-            items=items.features
+            features=items.features
+            objects=items.inventory
             senses=senses
             data=data
             currentTab=currentTab
@@ -283,12 +284,6 @@
             movement=movement
             senses=senses
             data=data
-            currentTab=currentTab
-        }}
-
-        {{>
-            "systems/a5e/templates/actors/tabs/features.hbs"
-            items=items.features
             currentTab=currentTab
         }}
 
