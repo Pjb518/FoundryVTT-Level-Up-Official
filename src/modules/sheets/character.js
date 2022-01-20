@@ -157,8 +157,8 @@ export default class ActorSheet5eCharacter extends ActorSheet {
     data.availableSpellLevels = this.actor.getFlag('a5e', 'availableSpellLevels')
       || [...Array(10).keys()].map((x) => x.toString());
 
-    data.showSpellSlots = this.actor.getFlag('a5e', 'showSpellSlots');
-    data.showSpellPoints = this.actor.getFlag('a5e', 'showSpellPoints');
+    data.showSpellSlots = this.actor.getFlag('a5e', 'showSpellSlots') ?? true;
+    data.showSpellPoints = this.actor.getFlag('a5e', 'showSpellPoints') ?? true;
     data.filters = this._prepareFilters();
 
     return data;
