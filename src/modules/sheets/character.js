@@ -342,18 +342,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   }
 
   /**
-   * Handle clicking the configuration button for ability scores.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureAbilityScore(event) {
-    event.preventDefault();
-    const { ability } = event.currentTarget.dataset;
-    this.actor.configureAbilityScore(ability, { event });
-  }
-
-  /**
    * Handle clicking the configuration button for selecting armour proficiencies.
    *
    * @param {Event} event  The originating click event.
@@ -376,17 +364,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   }
 
   /**
-   * Handle clicking the configuration button for setting an actor's condition immunities.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureConditionImmunities(event) {
-    event.preventDefault();
-    this.actor.configureConditionImmunities();
-  }
-
-  /**
    * Handle clicking the configuration button for inputting an actor's culture.
    *
    * @param {Event} event  The originating click event.
@@ -395,50 +372,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   _onConfigureCulture(event) {
     event.preventDefault();
     this.actor.configureCulture();
-  }
-
-  /**
-   * Handle clicking the configuration button for setting an actor's damage immunities.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureDamageImmunities(event) {
-    event.preventDefault();
-    this.actor.configureDamageImmunities();
-  }
-
-  /**
-   * Handle clicking the configuration button for setting an actor's damage resistances.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureDamageResistances(event) {
-    event.preventDefault();
-    this.actor.configureDamageResistances();
-  }
-
-  /**
-   * Handle clicking the configuration button for setting an actor's damage vulnerabilities.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureDamageVulnerabilities(event) {
-    event.preventDefault();
-    this.actor.configureDamageVulnerabilities();
-  }
-
-  /**
-   * Handle clicking the configuration button for health and hit point modifiers.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureHealth(event) {
-    event.preventDefault();
-    this.actor.configureHealth();
   }
 
   /**
@@ -453,28 +386,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   }
 
   /**
-   * Handle clicking the configuration button for initiative bonuses.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureInitiative(event) {
-    event.preventDefault();
-    this.actor.configureInitiative();
-  }
-
-  /**
-   * Handle clicking the configuration button for language proficiencies.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureLanguages(event) {
-    event.preventDefault();
-    this.actor.configureLanguages();
-  }
-
-  /**
    * Handle clicking the configuration button for maneuvers.
    *
    * @param {Event} event  The originating click event.
@@ -483,64 +394,6 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   _onConfigureManeuvers(event) {
     event.preventDefault();
     this.actor.configureManeuvers();
-  }
-
-  /**
-   * Handle clicking the configuration button for movement speeds.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureMovement(event) {
-    event.preventDefault();
-    this.actor.configureMovement();
-  }
-
-  /**
-   * Handle clicking the configuration button for special senses.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureSenses(event) {
-    event.preventDefault();
-    this.actor.configureSenses();
-  }
-
-  /**
-   * Handle clicking the configuration button for special senses.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureSizeCategory(event) {
-    event.preventDefault();
-    this.actor.configureSizeCategory();
-  }
-
-  /**
-   * Handle clicking the configuration button for skills.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureSkill(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const { skill } = event.currentTarget.parentElement.dataset;
-    this.actor.configureSkill(skill, { event });
-  }
-
-  /**
-   * Handle clicking the configuration button for the spell tab, where users can set their spell
-   * slots for each level, as well as which spell levels appear on the tab.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureSpellTab(event) {
-    event.preventDefault();
-    this.actor.configureSpellTab();
   }
 
   /**
