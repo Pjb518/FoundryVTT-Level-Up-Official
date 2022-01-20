@@ -446,10 +446,10 @@ export default class ActorSheet5e extends ActorSheet {
   }
 
   /**
-  * Handle clicking the delete button in the item context menu.
-  *
-  * @param {Event} event  The originating click event.
-  */
+   * Handle clicking the delete button in the item context menu.
+   *
+   * @param {Event} event  The originating click event.
+   */
   _onDeleteItem(event) {
     event.preventDefault();
     const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
@@ -457,10 +457,10 @@ export default class ActorSheet5e extends ActorSheet {
   }
 
   /**
-    * Handle clicking the edit button in the item context menu.
-    *
-    * @param {Event} event  The originating click event.
-    */
+   * Handle clicking the edit button in the item context menu.
+   *
+   * @param {Event} event  The originating click event.
+   */
   _onEditItem(event) {
     event.preventDefault();
     const { id } = event.currentTarget.closest('.a5e-js-item').dataset;
@@ -483,10 +483,57 @@ export default class ActorSheet5e extends ActorSheet {
   }
 
   /**
-  * Handle clicking the equip button in the item context menu.
-  *
-  * @param {Event} event  The originating click event.
-  */
+   * Handle rolling an ability check.
+   *
+   * @param {Event} event  The originating click event.
+   * @private
+   */
+  _onRollAbilityCheck(event) {
+    event.preventDefault();
+    const { ability } = event.currentTarget.dataset;
+    this.actor.rollAbilityCheck(ability, { event });
+  }
+
+  /**
+   * Handle rolling an initiative check.
+   *
+   * @param {Event} event  The originating click event.
+   * @private
+   */
+  _onRollInitiative(event) {
+    event.preventDefault();
+    this.actor.rollInitiative({ createCombatants: true });
+  }
+
+  /**
+   * Handle rolling a saving throw.
+   *
+   * @param {Event} event  The originating click event.
+   * @private
+   */
+  _onRollSavingThrow(event) {
+    event.preventDefault();
+    const { ability } = event.currentTarget.dataset;
+    this.actor.rollSavingThrow(ability, { event });
+  }
+
+  /**
+   * Handle rolling a skill check.
+   *
+   * @param {Event} event  The originating click event.
+   * @private
+   */
+  _onRollSkillCheck(event) {
+    event.preventDefault();
+    const { skill } = event.currentTarget.dataset;
+    this.actor.rollSkillCheck(skill, { event });
+  }
+
+  /**
+   * Handle clicking the equip button in the item context menu.
+   *
+   * @param {Event} event  The originating click event.
+   */
   _onToggleEquip(event) {
     event.preventDefault();
 
