@@ -183,23 +183,8 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     html.find('.a5e-js-activate-item').click(this._onActivateItem.bind(this));
     html.find('.a5e-js-trigger-rest').click(this._onTriggerRest.bind(this));
 
-    // Configuration handlers
-    html.find('.a5e-js-configure-ability-score').click(this._onConfigureAbilityScore.bind(this));
-    html.find('.a5e-js-configure-condition-immunities').click(this._onConfigureConditionImmunities.bind(this));
+    // Configuration handlers specific to NPCs
     html.find('.a5e-js-configure-creature-types').click(this._onConfigureCreatureTypes.bind(this));
-    html.find('.a5e-js-configure-damage-immunities').click(this._onConfigureDamageImmunities.bind(this));
-    html.find('.a5e-js-configure-damage-resistances').click(this._onConfigureDamageResistances.bind(this));
-    html.find('.a5e-js-configure-damage-vulnerabilities').click(this._onConfigureDamageVulnerabilities.bind(this));
-    html.find('.a5e-js-configure-health').click(this._onConfigureHealth.bind(this));
-    html.find('.a5e-js-configure-initiative').click(this._onConfigureInitiative.bind(this));
-    html.find('.a5e-js-configure-languages').click(this._onConfigureLanguages.bind(this));
-    html.find('.a5e-js-configure-maneuvers').click(this._onConfigureManeuvers.bind(this));
-    html.find('.a5e-js-configure-movement').click(this._onConfigureMovement.bind(this));
-    html.find('.a5e-js-configure-senses').click(this._onConfigureSenses.bind(this));
-    html.find('.a5e-js-configure-size-category').click(this._onConfigureSizeCategory.bind(this));
-    html.find('.a5e-js-configure-skill').click(this._onConfigureSkill.bind(this));
-    html.find('.a5e-js-configure-spell-tab').click(this._onConfigureSpellTab.bind(this));
-    html.find('.a5e-js-configure-weapon-proficiencies').click(this._onConfigureWeaponProficiencies.bind(this));
 
     // Context menu handlers
     html.find('.a5e-js-item').mouseup(this._onClickItem.bind(this));
@@ -220,11 +205,7 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     html.find('.a5e-js-track').hover(this._onToggleTrackVisibility.bind(this));
     html.find('.a5e-js-track-item').click(this._onClickTrackItem.bind(this));
 
-    // Item creation handlers
-    html.find('.a5e-js-create-feature-item').click(this._onCreateFeatureItem.bind(this));
-    html.find('.a5e-js-create-inventory-item').click(this._onCreateInventoryItem.bind(this));
-    html.find('.a5e-js-create-maneuver-item').click(this._onCreateManeuverItem.bind(this));
-    html.find('.a5e-js-create-spell-item').click(this._onCreateSpellItem.bind(this));
+    // Item creation handlers specific to NPCs
     html.find('.a5e-js-create-weapon').click(this._onCreateWeapon.bind(this));
 
     // Inspiration toggle
@@ -421,17 +402,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
   _onConfigureLanguages(event) {
     event.preventDefault();
     this.actor.configureLanguages();
-  }
-
-  /**
-   * Handle clicking the configuration button for maneuvers.
-   *
-   * @param {Event} event  The originating click event.
-   * @private
-   */
-  _onConfigureManeuvers(event) {
-    event.preventDefault();
-    this.actor.configureManeuvers();
   }
 
   /**
@@ -748,7 +718,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     });
 
     itemGroups.inventory = this._prepareObjectLabels(this._filterObjects(itemGroups.inventory));
-    itemGroups.maneuvers = this._prepareManeuverLabels(this._filterManeuvers(itemGroups.maneuvers));
     itemGroups.spells = this._prepareSpells(this._filterSpells(itemGroups.spells));
 
     return itemGroups;
@@ -767,26 +736,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
 
       return acc;
     }, {});
-  }
-
-  _prepareManeuverLabels(maneuvers) {
-    return maneuvers.map((item) => {
-      const inlineLabels = [];
-
-      if (item.data.degree > 0) {
-        inlineLabels.push(game.i18n.localize(CONFIG.A5E.maneuverDegrees[item.data.degree]));
-        inlineLabels.push(game.i18n.localize(CONFIG.A5E.maneuverTraditions[item.data.tradition]));
-      }
-
-      if (item.data.exertionCost > 0) {
-        item.showExertionLabel = true;
-        item.exertionLabel = game.i18n.format('A5E.ItemExertionLabel', { exertion: item.data.exertionCost });
-      }
-
-      item.data.inlineLabels = inlineLabels;
-
-      return item;
-    });
   }
 
   _prepareObjectLabels(items) {

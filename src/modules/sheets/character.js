@@ -177,25 +177,12 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     html.find('.a5e-js-activate-item').click(this._onActivateItem.bind(this));
     html.find('.a5e-js-trigger-rest').click(this._onTriggerRest.bind(this));
 
-    // Configuration handlers
-    html.find('.a5e-js-configure-ability-score').click(this._onConfigureAbilityScore.bind(this));
+    // Configuration handlers specific to PCs
     html.find('.a5e-js-configure-armor-proficiencies').click(this._onConfigureArmorProficiencies.bind(this));
     html.find('.a5e-js-configure-background').click(this._onConfigureBackground.bind(this));
-    html.find('.a5e-js-configure-condition-immunities').click(this._onConfigureConditionImmunities.bind(this));
     html.find('.a5e-js-configure-culture').click(this._onConfigureCulture.bind(this));
-    html.find('.a5e-js-configure-damage-immunities').click(this._onConfigureDamageImmunities.bind(this));
-    html.find('.a5e-js-configure-damage-resistances').click(this._onConfigureDamageResistances.bind(this));
-    html.find('.a5e-js-configure-damage-vulnerabilities').click(this._onConfigureDamageVulnerabilities.bind(this));
-    html.find('.a5e-js-configure-health').click(this._onConfigureHealth.bind(this));
     html.find('.a5e-js-configure-heritage').click(this._onConfigureHeritage.bind(this));
-    html.find('.a5e-js-configure-initiative').click(this._onConfigureInitiative.bind(this));
-    html.find('.a5e-js-configure-languages').click(this._onConfigureLanguages.bind(this));
     html.find('.a5e-js-configure-maneuvers').click(this._onConfigureManeuvers.bind(this));
-    html.find('.a5e-js-configure-movement').click(this._onConfigureMovement.bind(this));
-    html.find('.a5e-js-configure-senses').click(this._onConfigureSenses.bind(this));
-    html.find('.a5e-js-configure-size-category').click(this._onConfigureSizeCategory.bind(this));
-    html.find('.a5e-js-configure-skill').click(this._onConfigureSkill.bind(this));
-    html.find('.a5e-js-configure-spell-tab').click(this._onConfigureSpellTab.bind(this));
     html.find('.a5e-js-configure-tools').click(this._onConfigureToolProficiencies.bind(this));
     html.find('.a5e-js-configure-weapon-proficiencies').click(this._onConfigureWeaponProficiencies.bind(this));
 
@@ -218,11 +205,8 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     html.find('.a5e-js-track').hover(this._onToggleTrackVisibility.bind(this));
     html.find('.a5e-js-track-item').click(this._onClickTrackItem.bind(this));
 
-    // Item creation handlers
-    html.find('.a5e-js-create-feature-item').click(this._onCreateFeatureItem.bind(this));
-    html.find('.a5e-js-create-inventory-item').click(this._onCreateInventoryItem.bind(this));
+    // Item creation handlers specific to PCs
     html.find('.a5e-js-create-maneuver-item').click(this._onCreateManeuverItem.bind(this));
-    html.find('.a5e-js-create-spell-item').click(this._onCreateSpellItem.bind(this));
 
     // Inspiration toggle
     html.find('.a5e-js-toggle-inspiration').click(this._onToggleInspiration.bind(this));

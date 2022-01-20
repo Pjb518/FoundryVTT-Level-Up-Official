@@ -4,6 +4,26 @@ export default class ActorSheet5e extends ActorSheet {
     // Listener for a custom tab handler
     html.find('.a5e-js-sheet-tab').click(this._onClickTab.bind(this));
 
+    // Configuration handlers
+    html.find('.a5e-js-configure-ability-score').click(this._onConfigureAbilityScore.bind(this));
+    html.find('.a5e-js-configure-condition-immunities').click(this._onConfigureConditionImmunities.bind(this));
+    html.find('.a5e-js-configure-damage-immunities').click(this._onConfigureDamageImmunities.bind(this));
+    html.find('.a5e-js-configure-damage-resistances').click(this._onConfigureDamageResistances.bind(this));
+    html.find('.a5e-js-configure-damage-vulnerabilities').click(this._onConfigureDamageVulnerabilities.bind(this));
+    html.find('.a5e-js-configure-health').click(this._onConfigureHealth.bind(this));
+    html.find('.a5e-js-configure-initiative').click(this._onConfigureInitiative.bind(this));
+    html.find('.a5e-js-configure-languages').click(this._onConfigureLanguages.bind(this));
+    html.find('.a5e-js-configure-movement').click(this._onConfigureMovement.bind(this));
+    html.find('.a5e-js-configure-senses').click(this._onConfigureSenses.bind(this));
+    html.find('.a5e-js-configure-size-category').click(this._onConfigureSizeCategory.bind(this));
+    html.find('.a5e-js-configure-skill').click(this._onConfigureSkill.bind(this));
+    html.find('.a5e-js-configure-spell-tab').click(this._onConfigureSpellTab.bind(this));
+
+    // Item creation handlers
+    html.find('.a5e-js-create-feature-item').click(this._onCreateFeatureItem.bind(this));
+    html.find('.a5e-js-create-inventory-item').click(this._onCreateInventoryItem.bind(this));
+    html.find('.a5e-js-create-spell-item').click(this._onCreateSpellItem.bind(this));
+
     super.activateListeners(html);
   }
 
