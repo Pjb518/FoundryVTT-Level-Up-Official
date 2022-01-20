@@ -1,0 +1,17 @@
+<h3 class="a5e-form__input-label a5e-form__input-label--filter">
+    {{localize heading}}
+
+    <ul class="a5e-tag-group a5e-tag-group--small">
+        {{#if inclusiveCount}}
+            <li class="a5e-tag a5e-tag--small">
+                + {{inclusiveCount}}
+            </li>
+        {{/if}}
+
+        {{#if exclusiveCount}}
+            <li class="a5e-tag a5e-tag--red a5e-tag--small">
+                - {{exclusiveCount}}
+            </li>
+        {{/if}}
+    </ul>
+</h3>

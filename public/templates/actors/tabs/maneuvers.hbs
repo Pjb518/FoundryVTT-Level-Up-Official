@@ -3,15 +3,18 @@
     data-group="main"
     data-tab="maneuvers"
 >
-    <div class="a5e-filter-container a5e-box">
+    <section class="a5e-filter-container a5e-box">
         <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
             {{ localize "A5E.Filters" }}
         </h2>
 
         <div>
-            <h3 class="a5e-form__input-label">
-                {{localize "A5E.ManeuverDegree"}}
-            </h3>
+            {{>
+                "systems/a5e/templates/actors/partials/filter-header.hbs"
+                heading="A5E.ManeuverDegree"
+                inclusiveCount=filters.maneuverDegree.inclusive.length
+                exclusiveCount=filters.maneuverDegree.exclusive.length
+            }}
 
             <ul class="a5e-tag-group">
                 {{#each config.maneuverDegrees as | degree key |}}
@@ -37,7 +40,12 @@
         </div>
 
         <div>
-            <h3 class="a5e-form__input-label">{{localize "A5E.ManeuverTradition"}}</h3>
+            {{>
+                "systems/a5e/templates/actors/partials/filter-header.hbs"
+                heading="A5E.ManeuverTradition"
+                inclusiveCount=filters.maneuverTradition.inclusive.length
+                exclusiveCount=filters.maneuverTradition.exclusive.length
+            }}
 
             <ul class="a5e-tag-group">
                 {{#each config.maneuverTraditions as | tradition key |}}
@@ -68,9 +76,9 @@
         >
             {{localize "A5E.FiltersReset"}}
         </a>
-    </div>
+    </section>
 
-    <div class="a5e-items-container a5e-scroll-container a5e-js-maneuver-scroll-area">
+    <section class="a5e-items-container a5e-scroll-container a5e-js-maneuver-scroll-area">
         <section class="a5e-item-group">
             <header class="a5e-header">
                 <h3 class="a5e-heading a5e-heading--item-group">
@@ -139,9 +147,9 @@
                 {{/each}}
             </ul>
         </section>
-    </div>
+    </section>
 
-    <div class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--maneuvers">
+    <footer class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--maneuvers">
         <div class="a5e-footer-group">
             <h3 class="a5e-u-mb-none">
                 {{localize "A5E.ManeuverDC"}}
@@ -183,5 +191,5 @@
                 class="a5e-config-button a5e-config-button--large a5e-js-configure-maneuvers fas fa-cog">
             </i>
         </div>
-    </div>
+    </footer>
 </section>
