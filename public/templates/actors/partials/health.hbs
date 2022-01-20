@@ -36,15 +36,16 @@
             class="a5e-health-bar__temp-hp"
             type="number"
             name="data.attributes.hp.temp"
-            value="{{hp.temp}}"
+            value="{{#if hp.temp}}{{hp.temp}}{{/if}}"
             placeholder="{{ localize 'A5E.HitPointsTemporaryLabel' }}"
             data-dtype="Number"
+            min="0"
         >
         <input
             class="a5e-health-bar__bonus-hp"
             type="number"
             name="data.attributes.hp.bonus"
-            value="{{hp.bonus}}"
+            value="{{#if hp.bonus}}{{hp.bonus}}{{/if}}"
             placeholder="{{ localize 'A5E.HitPointsMaxModifierLabel' }}"
             data-dtype="Number"
         >

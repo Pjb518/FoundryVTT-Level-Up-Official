@@ -130,6 +130,11 @@ export default class Actor5e extends Actor {
       foundry.utils.setProperty(changed, 'data.attributes.hp.value', 0);
     }
 
+    // If temp hp drops to or below 0, set the value to 0.
+    if (foundry.utils.getProperty(changed, 'data.attributes.hp.temp') <= 0) {
+      foundry.utils.setProperty(changed, 'data.attributes.hp.temp', 0);
+    }
+
     // Reset death save counters
     const isUnconscious = this.data.data.attributes.hp.value === 0;
     const willRegainConsciousness = foundry.utils.getProperty(changed, 'data.attributes.hp.value') > 0;
