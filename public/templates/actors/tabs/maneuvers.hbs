@@ -16,6 +16,25 @@
         <div class="a5e-filter-container__filter-list a5e-scroll-container">
             <div>
                 {{>
+                    "systems/a5e/templates/actors/partials/filter-header.hbs"
+                    heading="A5E.FilterLabelActivationCost"
+                    filterCategory="maneuver-activation-cost"
+                    expandedFilterCategories=expandedFilterCategories
+                    exclusiveCount=filters.maneuverActivationCost.exclusive.length
+                    inclusiveCount=filters.maneuverActivationCost.inclusive.length
+                }}
+
+                {{>
+                    "systems/a5e/templates/actors/partials/activation-cost-filter.hbs"
+                    heading="A5E.FilterLabelActivationCost"
+                    filterCategory="maneuver-activation-cost"
+                    expandedFilterCategories=expandedFilterCategories
+                    filters=filters
+                }}
+            </div>
+
+            <div>
+                {{>
                 "systems/a5e/templates/actors/partials/filter-header.hbs"
                 heading="A5E.ManeuverDegree"
                 filterCategory="maneuver-degrees"

@@ -612,6 +612,7 @@ export default class ActorSheet5e extends ActorSheet {
 
   _prepareFilters() {
     const filters = [
+      { key: 'featureActivationCost', flag: 'featureActivationCostFilters' },
       { key: 'itemActivationCost', flag: 'itemActivationCostFilters' },
       { key: 'itemRarity', flag: 'itemRarityFilters' },
       { key: 'itemMiscellaneous', flag: 'miscellaneousItemFilters' },

@@ -1,0 +1,32 @@
+<div
+    class="{{#unless (contains expandedFilterCategories filterCategory)}}a5e-u-hidden{{/unless}}"
+    data-filter-category="{{filterCategory}}"
+>
+    <ul class="a5e-tag-group a5e-tag-group--filter">
+        {{#each config.abilityActivationTypes as | activationCost key |}}
+            {{#unless (eq key "lairAction")}}
+                {{#unless (eq key "legendaryAction")}}
+                    <li
+                        class="
+                            a5e-tag
+                            a5e-tag--small
+                            a5e-tag--clickable
+                            {{#if (contains ../filters.itemActivationCost.inclusive key)}}''
+                            {{else if (contains ../filters.itemActivationCost.exclusive key)}}
+                                a5e-tag--red
+                            {{else}}
+                                a5e-tag--inactive
+                            {{/if}}
+                            a5e-js-toggle-filter
+                        "
+                        data-item-type="object"
+                        data-category="activationCost"
+                        data-value="{{key}}"
+                    >
+                        {{localize activationCost}}
+                    </li>
+                {{/unless}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>

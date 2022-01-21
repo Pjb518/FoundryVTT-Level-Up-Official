@@ -20,6 +20,7 @@ export default async () => loadTemplates([
 
   // Actor sheet partials
   'systems/a5e/templates/actors/partials/ability-score.hbs',
+  'systems/a5e/templates/actors/partials/activation-cost-filter.hbs',
   'systems/a5e/templates/actors/partials/filter-header.hbs',
   'systems/a5e/templates/actors/partials/health.hbs',
   'systems/a5e/templates/actors/partials/skill.hbs',

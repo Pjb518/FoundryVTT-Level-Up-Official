@@ -9,8 +9,25 @@
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div class="a5e-filter-container__not-implemented">
-            Coming soon!
+        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+            <div>
+                {{>
+                    "systems/a5e/templates/actors/partials/filter-header.hbs"
+                    heading="A5E.FilterLabelActivationCost"
+                    filterCategory="feature-activation-cost"
+                    expandedFilterCategories=expandedFilterCategories
+                    exclusiveCount=filters.featureActivationCost.exclusive.length
+                    inclusiveCount=filters.featureActivationCost.inclusive.length
+                }}
+
+                {{>
+                    "systems/a5e/templates/actors/partials/activation-cost-filter.hbs"
+                    heading="A5E.FilterLabelActivationCost"
+                    filterCategory="feature-activation-cost"
+                    expandedFilterCategories=expandedFilterCategories
+                    filters=filters
+                }}
+            </div>
         </div>
     </section>
 
