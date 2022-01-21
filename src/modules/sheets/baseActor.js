@@ -610,6 +610,22 @@ export default class ActorSheet5e extends ActorSheet {
     this.actor.triggerRest();
   }
 
+  _prepareFilters() {
+    const filters = [
+      { key: 'itemActivationCost', flag: 'itemActivationCostFilters' },
+      { key: 'itemRarity', flag: 'itemRarityFilters' },
+      { key: 'itemMiscellaneous', flag: 'miscellaneousItemFilters' },
+      { key: 'spellActivationCost', flag: 'spellActivationCostFilters' },
+      { key: 'spellComponents', flag: 'spellComponentFilters' },
+      { key: 'spellSchools', flag: 'spellSchoolFilters' },
+      { key: 'spellMiscellaneous', flag: 'miscellaneousSpellFilters' }
+    ];
+
+    return Object.fromEntries(filters.map(({ key, flag }) => (
+      [key, this.actor.getFlag('a5e', flag) ?? { inclusive: [], exclusive: [] }]
+    )));
+  }
+
   _prepareObjectLabels(items) {
     return items.map((item) => {
       const inlineLabels = [];

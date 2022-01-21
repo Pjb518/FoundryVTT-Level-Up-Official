@@ -152,16 +152,6 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     }]);
   }
 
-  _prepareFilters() {
-    return {
-      itemRarity: this.actor.getFlag('a5e', 'itemRarityFilters') ?? { inclusive: [], exclusive: [] },
-      itemMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousItemFilters') ?? { inclusive: [], exclusive: [] },
-      spellComponents: this.actor.getFlag('a5e', 'spellComponentFilters') ?? { inclusive: [], exclusive: [] },
-      spellSchools: this.actor.getFlag('a5e', 'spellSchoolFilters') ?? { inclusive: [], exclusive: [] },
-      spellMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousSpellFilters') ?? { inclusive: [], exclusive: [] }
-    };
-  }
-
   _prepareItems(items) {
     const itemGroups = items.sort((a, b) => a.sort - b.sort).reduce((acc, item) => {
       if (item.type === 'feature') acc.features.push(item);

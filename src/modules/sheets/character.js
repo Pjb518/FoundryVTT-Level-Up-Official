@@ -346,16 +346,22 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     else super._onResetFilters(event);
   }
 
+  /**
+   * @inheritdoc
+   */
   _prepareFilters() {
-    return {
-      itemRarity: this.actor.getFlag('a5e', 'itemRarityFilters') ?? { inclusive: [], exclusive: [] },
-      itemMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousItemFilters') ?? { inclusive: [], exclusive: [] },
-      maneuverDegree: this.actor.getFlag('a5e', 'maneuverDegreeFilters') ?? { inclusive: [], exclusive: [] },
-      maneuverTradition: this.actor.getFlag('a5e', 'maneuverTraditionFilters') ?? { inclusive: [], exclusive: [] },
-      spellComponents: this.actor.getFlag('a5e', 'spellComponentFilters') ?? { inclusive: [], exclusive: [] },
-      spellSchools: this.actor.getFlag('a5e', 'spellSchoolFilters') ?? { inclusive: [], exclusive: [] },
-      spellMiscellaneous: this.actor.getFlag('a5e', 'miscellaneousSpellFilters') ?? { inclusive: [], exclusive: [] }
-    };
+    const filters = [
+      { key: 'maneuverActivationCost', flag: 'maneuverActivationCostFilters' },
+      { key: 'maneuverDegree', flag: 'maneuverDegreeFilters' },
+      { key: 'maneuverTradition', flag: 'maneuverTraditionFilters' }
+    ];
+
+    return mergeObject(
+      super._prepareFilters(),
+      Object.fromEntries(filters.map(({ key, flag }) => (
+        [key, this.actor.getFlag('a5e', flag) ?? { inclusive: [], exclusive: [] }]
+      )))
+    );
   }
 
   _prepareItems(items) {
