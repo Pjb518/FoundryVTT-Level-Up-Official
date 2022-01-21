@@ -1,3 +1,7 @@
+import ReactiveDialog from '../apps/reactiveDialog';
+
+import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
+
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
@@ -7,6 +11,119 @@ export default class Item5e extends Item {
     html.find('.a5e-js-chat-ability-check-button').click(this._onClickChatAbilityCheckButton.bind(this));
     html.find('.a5e-js-chat-saving-throw-button').click(this._onClickChatSavingThrowButton.bind(this));
     html.find('.a5e-js-toggle-roll-tooltip-visibility').click(this._onToggleRollTooltipVisibility.bind(this));
+  }
+
+  async activate() {
+    const itemData = this.data.data;
+    let attack;
+    let damage;
+    let healing;
+
+    const dialogTitle = game.i18n.format(
+      'A5E.ItemActivationPrompt',
+      { name: this.actor.name, itemName: this.name }
+    );
+
+    const dialog = new ReactiveDialog(ItemActivationDialog, {
+      title: dialogTitle, props: { actor: this.actor, item: this }
+    });
+
+    const data = {
+      id: this.id,
+      img: this.img,
+      title: this.name,
+      description: itemData.description,
+      actionOptions: itemData.actionOptions,
+      isCrit: null,
+      isFumble: null,
+      attack: null,
+      damage: null,
+      healing: null,
+      abilityCheck: {
+        ...itemData.check,
+        label: game.i18n.format(
+          'A5E.RollPromptAbilityCheck',
+          { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.check.ability]) }
+        )
+      },
+      savingThrow: {
+        ...itemData.save,
+        label: game.i18n.format(
+          'A5E.RollPromptSavingThrow',
+          { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.save.targetAbility]) }
+        )
+      }
+    };
+
+    if (['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))) {
+      await dialog.render(true);
+
+      try {
+        const configuration = await dialog.promise;
+        attack = configuration.attack;
+        damage = configuration.damage;
+        healing = configuration.healing;
+      } catch {
+        return;
+      }
+    }
+
+    if (itemData.actionOptions.includes('attack')) {
+      const roll = new CONFIG.Dice.D20Roll(attack.formula, this.getRollData());
+      await roll.evaluate({ async: true });
+
+      data.isCrit = roll.dice[0].total >= itemData.attack.critThreshold;
+      data.isFumble = roll.dice[0].total === 1;
+
+      const tooltip = await roll.getTooltip();
+
+      data.attack = {
+        roll,
+        tooltip
+      };
+    }
+
+    if (itemData.actionOptions.includes('damage')) {
+      data.damage = [];
+
+      // TODO: Refactor this to stop eslint complaining
+      for (const { canCrit, damageType, formula } of damage) {
+        const roll = new CONFIG.Dice.DamageRoll(
+          formula || '0',
+          this.getRollData(),
+          { canCrit, isCrit: data.isCrit }
+        );
+
+        await roll.evaluate({ async: true });
+        const tooltip = await roll.getTooltip();
+
+        data.damage.push({
+          damageType, roll, tooltip
+        });
+      }
+    }
+
+    if (itemData.actionOptions.includes('healing')) {
+      data.healing = [];
+
+      // TODO: Refactor this to stop eslint complaining
+      for (const { healingType, formula } of healing) {
+        const roll = new CONFIG.Dice.DamageRoll(
+          formula || '0',
+          this.getRollData(),
+          { canCrit: false }
+        );
+
+        await roll.evaluate({ async: true });
+        const tooltip = await roll.getTooltip();
+
+        data.healing.push({
+          healingType, roll, tooltip
+        });
+      }
+    }
+
+    this.actor.constructItemCard(data);
   }
 
   static async _onClickChatAbilityCheckButton(event) {

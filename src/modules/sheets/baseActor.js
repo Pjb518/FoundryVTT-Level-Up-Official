@@ -209,7 +209,7 @@ export default class ActorSheet5e extends ActorSheet {
     const { id } = event.currentTarget.parentElement.dataset;
     const item = this.actor.items.get(id);
 
-    this.actor.activateItem(item);
+    item.activate();
   }
 
   _onClickItem(event) {
