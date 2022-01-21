@@ -92,8 +92,19 @@ export default class ActorSheet5e extends ActorSheet {
 
   _filterObjects(items) {
     let filteredItems = items;
+    const activationCostFilters = this.actor.getFlag('a5e', 'itemActivationCostFilters');
     const rarityFilters = this.actor.getFlag('a5e', 'itemRarityFilters');
     const miscellaneousFilters = this.actor.getFlag('a5e', 'miscellaneousItemFilters');
+
+    if (activationCostFilters?.inclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        activationCostFilters.inclusive.some((value) => value === item.data.activation.type)));
+    }
+
+    if (activationCostFilters?.exclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        !activationCostFilters.exclusive.some((value) => value === item.data.activation.type)));
+    }
 
     if (rarityFilters?.inclusive?.length) {
       filteredItems = filteredItems.filter(
@@ -124,9 +135,20 @@ export default class ActorSheet5e extends ActorSheet {
 
   _filterSpells(items) {
     let filteredItems = items;
+    const activationCostFilters = this.actor.getFlag('a5e', 'spellActivationCostFilters');
     const componentFilters = this.actor.getFlag('a5e', 'spellComponentFilters');
     const schoolFilters = this.actor.getFlag('a5e', 'spellSchoolFilters');
     const miscellaneousFilters = this.actor.getFlag('a5e', 'miscellaneousSpellFilters');
+
+    if (activationCostFilters?.inclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        activationCostFilters.inclusive.some((value) => value === item.data.activation.type)));
+    }
+
+    if (activationCostFilters?.exclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        !activationCostFilters.exclusive.some((value) => value === item.data.activation.type)));
+    }
 
     // Clean up any outdated filters.
     if (componentFilters?.inclusive?.length) {
@@ -612,7 +634,6 @@ export default class ActorSheet5e extends ActorSheet {
 
   _prepareFilters() {
     const filters = [
-      { key: 'featureActivationCost', flag: 'featureActivationCostFilters' },
       { key: 'itemActivationCost', flag: 'itemActivationCostFilters' },
       { key: 'itemRarity', flag: 'itemRarityFilters' },
       { key: 'itemMiscellaneous', flag: 'miscellaneousItemFilters' },

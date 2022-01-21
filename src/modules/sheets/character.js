@@ -191,10 +191,38 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     super.activateListeners(html);
   }
 
+  _filterFeatures(items) {
+    let filteredItems = items;
+    const activationCostFilters = this.actor.getFlag('a5e', 'featureActivationCostFilters');
+
+    if (activationCostFilters?.inclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        activationCostFilters.inclusive.some((value) => value === item.data.activation.type)));
+    }
+
+    if (activationCostFilters?.exclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        !activationCostFilters.exclusive.some((value) => value === item.data.activation.type)));
+    }
+
+    return filteredItems;
+  }
+
   _filterManeuvers(items) {
     let filteredItems = items;
+    const activationCostFilters = this.actor.getFlag('a5e', 'maneuverActivationCostFilters');
     const degreeFilters = this.actor.getFlag('a5e', 'maneuverDegreeFilters');
     const traditionFilters = this.actor.getFlag('a5e', 'maneuverTraditionFilters');
+
+    if (activationCostFilters?.inclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        activationCostFilters.inclusive.some((value) => value === item.data.activation.type)));
+    }
+
+    if (activationCostFilters?.exclusive?.length) {
+      filteredItems = filteredItems.filter((item) => (
+        !activationCostFilters.exclusive.some((value) => value === item.data.activation.type)));
+    }
 
     if (degreeFilters?.inclusive?.length) {
       filteredItems = filteredItems.filter(
@@ -351,6 +379,7 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
    */
   _prepareFilters() {
     const filters = [
+      { key: 'featureActivationCost', flag: 'featureActivationCostFilters' },
       { key: 'maneuverActivationCost', flag: 'maneuverActivationCostFilters' },
       { key: 'maneuverDegree', flag: 'maneuverDegreeFilters' },
       { key: 'maneuverTradition', flag: 'maneuverTraditionFilters' }
@@ -376,6 +405,7 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
       features: [], inventory: [], maneuvers: [], spells: []
     });
 
+    itemGroups.features = this._filterFeatures(itemGroups.features);
     itemGroups.inventory = this._prepareObjectLabels(this._filterObjects(itemGroups.inventory));
     itemGroups.maneuvers = this._prepareManeuverLabels(this._filterManeuvers(itemGroups.maneuvers));
     itemGroups.spells = this._prepareSpells(this._filterSpells(itemGroups.spells));

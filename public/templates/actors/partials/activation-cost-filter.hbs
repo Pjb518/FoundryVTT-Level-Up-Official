@@ -11,15 +11,15 @@
                             a5e-tag
                             a5e-tag--small
                             a5e-tag--clickable
-                            {{#if (contains ../filters.itemActivationCost.inclusive key)}}''
-                            {{else if (contains ../filters.itemActivationCost.exclusive key)}}
+                            {{#if (contains ../inclusiveFilters key)}}''
+                            {{else if (contains ../exclusiveFilters key)}}
                                 a5e-tag--red
                             {{else}}
                                 a5e-tag--inactive
                             {{/if}}
                             a5e-js-toggle-filter
                         "
-                        data-item-type="object"
+                        data-item-type="{{../itemType}}"
                         data-category="activationCost"
                         data-value="{{key}}"
                     >

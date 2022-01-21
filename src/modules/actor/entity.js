@@ -688,8 +688,15 @@ export default class Actor5e extends Actor {
     });
   }
 
+  async resetFeatureFilters() {
+    await Promise.all([
+      this.setFlag('a5e', 'featureActivationCostFilters', { inclusive: [], exclusive: [] })
+    ]);
+  }
+
   async resetManeuverFilters() {
     await Promise.all([
+      this.setFlag('a5e', 'maneuverActivationCostFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'maneuverDegreeFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'maneuverTraditionFilters', { inclusive: [], exclusive: [] })
     ]);
@@ -697,6 +704,7 @@ export default class Actor5e extends Actor {
 
   async resetObjectFilters() {
     await Promise.all([
+      this.setFlag('a5e', 'itemActivationCostFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'itemRarityFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'miscellaneousItemFilters', { inclusive: [], exclusive: [] })
     ]);
@@ -704,6 +712,7 @@ export default class Actor5e extends Actor {
 
   async resetSpellFilters() {
     await Promise.all([
+      this.setFlag('a5e', 'spellActivationCostFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'spellComponentFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'spellSchoolFilters', { inclusive: [], exclusive: [] }),
       this.setFlag('a5e', 'miscellaneousSpellFilters', { inclusive: [], exclusive: [] })
@@ -1053,11 +1062,34 @@ export default class Actor5e extends Actor {
     await this.update(updates);
   }
 
+  async updateFeatureFilters(filterCategory, filterValue) {
+    const activationCostFilters = this.getFlag('a5e', 'featureActivationCostFilters') ?? {};
+
+    if (filterCategory === 'activationCost') {
+      const [inclusiveFilters, exclusiveFilters] = toggleFilter(activationCostFilters, filterValue);
+
+      await this.setFlag(
+        'a5e',
+        'featureActivationCostFilters',
+        { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
+      );
+    }
+  }
+
   async updateManeuverFilters(filterCategory, filterValue) {
+    const activationCostFilters = this.getFlag('a5e', 'maneuverActivationCostFilters') ?? {};
     const degreeFilters = this.getFlag('a5e', 'maneuverDegreeFilters') ?? {};
     const traditionFilters = this.getFlag('a5e', 'maneuverTraditionFilters') ?? {};
 
-    if (filterCategory === 'degree') {
+    if (filterCategory === 'activationCost') {
+      const [inclusiveFilters, exclusiveFilters] = toggleFilter(activationCostFilters, filterValue);
+
+      await this.setFlag(
+        'a5e',
+        'maneuverActivationCostFilters',
+        { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
+      );
+    } else if (filterCategory === 'degree') {
       const [inclusiveFilters, exclusiveFilters] = toggleFilter(degreeFilters, filterValue);
 
       await this.setFlag(
@@ -1077,10 +1109,19 @@ export default class Actor5e extends Actor {
   }
 
   async updateObjectFilters(filterCategory, filterValue) {
+    const activationCostFilters = this.getFlag('a5e', 'itemActivationCostFilters') ?? {};
     const rarityFilters = this.getFlag('a5e', 'itemRarityFilters') ?? {};
     const miscellaneousFilters = this.getFlag('a5e', 'miscellaneousItemFilters') ?? {};
 
-    if (filterCategory === 'rarity') {
+    if (filterCategory === 'activationCost') {
+      const [inclusiveFilters, exclusiveFilters] = toggleFilter(activationCostFilters, filterValue);
+
+      await this.setFlag(
+        'a5e',
+        'itemActivationCostFilters',
+        { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
+      );
+    } else if (filterCategory === 'rarity') {
       const [inclusiveFilters, exclusiveFilters] = toggleFilter(rarityFilters, filterValue);
 
       await this.setFlag(
@@ -1100,11 +1141,20 @@ export default class Actor5e extends Actor {
   }
 
   async updateSpellFilters(filterCategory, filterValue) {
+    const activationCostFilters = this.getFlag('a5e', 'spellActivationCostFilters') ?? {};
     const componentFilters = this.getFlag('a5e', 'spellComponentFilters') ?? {};
     const schoolFilters = this.getFlag('a5e', 'spellSchoolFilters') ?? {};
     const miscellaneousFilters = this.getFlag('a5e', 'miscellaneousSpellFilters') ?? {};
 
-    if (filterCategory === 'components') {
+    if (filterCategory === 'activationCost') {
+      const [inclusiveFilters, exclusiveFilters] = toggleFilter(activationCostFilters, filterValue);
+
+      await this.setFlag(
+        'a5e',
+        'spellActivationCostFilters',
+        { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
+      );
+    } else if (filterCategory === 'components') {
       const [inclusiveFilters, exclusiveFilters] = toggleFilter(componentFilters, filterValue);
 
       await this.setFlag(
