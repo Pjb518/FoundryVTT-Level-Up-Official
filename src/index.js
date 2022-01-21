@@ -21,6 +21,10 @@ import registerSystemSettings from './modules/settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
 
+// Macros
+import activateItemMacro from './modules/macros/activateItemMacro';
+import createMacro from './modules/macros/createMacro';
+
 // Migrations
 import migrateWorld from './modules/migrations/migrateWorld';
 import migrateActorData from './modules/migrations/migrateActorData';
@@ -49,6 +53,10 @@ Hooks.once('init', () => {
       Item5e,
       TokenDocument5e,
       Token5e
+    },
+    macros: {
+      activateItemMacro,
+      createMacro
     },
     migrations: {
       migrateWorld,
@@ -111,6 +119,8 @@ Hooks.once('init', () => {
  * Once the entire VTT framework is initialized, check to see if we should perform a data migration
  */
 Hooks.once('ready', () => {
+  Hooks.on('hotbarDrop', (bar, data, slot) => game.a5e.macros.createMacro(data, slot));
+
   // Determine whether a system migration is required
   if (!game.user.isGM) return;
 
