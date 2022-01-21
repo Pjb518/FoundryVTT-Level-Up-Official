@@ -142,6 +142,7 @@ A5E.conditions = {
   deafened: 'A5E.ConditionDeafened',
   doomed: 'A5E.ConditionDoomed',
   encumbered: 'A5E.ConditionEncumbered',
+  fatigue: 'A5E.ConditionFatigue',
   frightened: 'A5E.ConditionFrightened',
   grappled: 'A5E.ConditionGrappled',
   incapacitated: 'A5E.ConditionIncapacitated',
@@ -153,6 +154,7 @@ A5E.conditions = {
   rattled: 'A5E.ConditionRattled',
   restrained: 'A5E.ConditionRestrained',
   slowed: 'A5E.ConditionSlowed',
+  strife: 'A5E.ConditionStrife',
   stunned: 'A5E.ConditionStunned',
   unconscious: 'A5E.ConditionUnconscious'
 };
