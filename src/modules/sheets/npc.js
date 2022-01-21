@@ -153,6 +153,8 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
   }
 
   _prepareItems(items) {
+    // TODO: Prepare weapons separately from other inventory items to avoid unwanted filtering.
+
     const itemGroups = items.sort((a, b) => a.sort - b.sort).reduce((acc, item) => {
       if (item.type === 'feature') acc.features.push(item);
       else if (item.type === 'maneuver') acc.maneuvers.push(item);
@@ -164,6 +166,7 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
       features: [], inventory: [], maneuvers: [], spells: []
     });
 
+    itemGroups.weapons = itemGroups.inventory.filter((item) => item.data.objectType === 'weapon');
     itemGroups.inventory = this._prepareObjectLabels(this._filterObjects(itemGroups.inventory));
     itemGroups.spells = this._prepareSpells(this._filterSpells(itemGroups.spells));
 

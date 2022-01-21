@@ -171,10 +171,15 @@
         </header>
 
         <ul class="a5e-item-list a5e-item-list--no-padding">
-            {{#each objects}}
+            {{#each weapons}}
                 {{#if (eq this.data.objectType "weapon")}}
                     <li
-                        class="a5e-item-list__item a5e-box a5e-js-item"
+                        class="
+                            a5e-box
+                            a5e-item-list__item
+                            {{#if this.data.equipped}}a5e-box--green{{/if}}
+                            a5e-js-item
+                        "
                         data-id="{{this._id}}"
                         data-item-id="{{this._id}}"
                         draggable="true"
@@ -185,7 +190,20 @@
                             class="a5e-image a5e-image--item-inline a5e-js-activate-item"
                         />
 
-                        <span>{{this.name}}</span>
+                        <span>
+                            {{this.name}}
+                            {{#if this.showQuantity}}({{this.data.quantity}}){{/if}}
+                        </span>
+
+                        {{#if this.data.inlineLabels.length}}
+                            <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                                {{#each this.data.inlineLabels}}
+                                    <div class="a5e-tag a5e-tag--small">
+                                        {{this}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/if}}
 
                         <div class="a5e-item-list__item-details">
                             <hr class="a5e-rule">
@@ -198,6 +216,15 @@
                         </div>
 
                         <div class="a5e-context-menu">
+                            <a class="a5e-context-menu__option a5e-js-equip-item">
+                                <i class="fas fa-shopping-bag"></i>
+                                {{#if this.data.equipped}}
+                                    {{localize "A5E.ItemUnequip"}}
+                                {{else}}
+                                    {{ localize "A5E.ItemEquip" }}
+                                {{/if}}
+                            </a>
+
                             <a class="a5e-context-menu__option a5e-js-edit-item">
                                 <i class="fas fa-pen"></i>
                                 {{ localize "A5E.ItemEdit" }}
