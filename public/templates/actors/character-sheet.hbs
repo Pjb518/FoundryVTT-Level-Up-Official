@@ -234,6 +234,7 @@
                         class="a5e-input a5e-input--level"
                         name="data.details.level"
                         type="number"
+                        data-dtype="Number"
                         min=1
                         value="{{ data.details.level }}"
                     />
@@ -247,6 +248,21 @@
                     +{{data.attributes.prof}}
                     <span class="a5e-header-shield__label">
                         {{ localize "A5E.ProficiencyBonusAbbr" }}
+                    </span>
+                </div>
+
+                <div class="a5e-header-shield">
+                    <input
+                        class="a5e-input a5e-input--level"
+                        name="data.details.prestige"
+                        type="number"
+                        data-dtype="Number"
+                        min=1
+                        value="{{ data.details.prestige }}"
+                    />
+
+                    <span class="a5e-header-shield__label">
+                        {{localize "A5E.Prestige"}}
                     </span>
                 </div>
             </div>
