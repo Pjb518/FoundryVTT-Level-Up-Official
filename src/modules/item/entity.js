@@ -1,6 +1,7 @@
 import ReactiveDialog from '../apps/reactiveDialog';
-
 import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
+
+import getChatCardTargets from '../utils/getChatCardTargets';
 
 /**
  * Override and extend the basic Item implementation.
@@ -131,7 +132,7 @@ export default class Item5e extends Item {
     event.preventDefault();
 
     const { ability } = event.currentTarget.dataset;
-    const targets = this._getChatCardTargets();
+    const targets = getChatCardTargets();
 
     for (const token of targets) {
       await token.actor.rollAbilityCheck(ability);
@@ -142,31 +143,11 @@ export default class Item5e extends Item {
     event.preventDefault();
 
     const { ability } = event.currentTarget.dataset;
-    const targets = this._getChatCardTargets();
+    const targets = getChatCardTargets();
 
     for (const token of targets) {
       await token.actor.rollSavingThrow(ability);
     }
-  }
-
-  /**
-   * Find the currently selected tokens on the canvas.
-   *
-   * @returns {Actor[]} An Array of Actor documents, if any
-   * @private
-   */
-  static _getChatCardTargets() {
-    let targets = canvas.tokens.controlled.filter((target) => !!target.actor);
-
-    if (!targets.length && game.user.character) {
-      targets = targets.concat(game.user.character.getActiveTokens());
-    }
-
-    if (!targets.length) {
-      ui.notifications.warn(game.i18n.localize('A5E.ActionWarningNoSelectedTokens'));
-    }
-
-    return targets;
   }
 
   static _onToggleRollTooltipVisibility(event) {
