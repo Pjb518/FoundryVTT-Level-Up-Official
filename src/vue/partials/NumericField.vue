@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
 
 export default {
   props: {

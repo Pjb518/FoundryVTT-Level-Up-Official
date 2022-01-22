@@ -81,10 +81,10 @@ export default class Actor5e extends Actor {
     const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
     actorData.attributes.hp.max = baseHP + bonusHP;
 
-    actorData.attributes.maneuverDC = 8 + actorData.attributes.prof + Math.max(
-      actorData.abilities.str.check.mod,
-      actorData.abilities.dex.check.mod
-    );
+    actorData.attributes.maneuverDC = 8
+      + actorData.attributes.prof
+      + parseInt(actorData.bonuses.maneuverDC, 10)
+      + Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod);
 
     if (this.type === 'character') {
       actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
