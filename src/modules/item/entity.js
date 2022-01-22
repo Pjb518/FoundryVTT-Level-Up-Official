@@ -16,6 +16,7 @@ export default class Item5e extends Item {
 
   async activate() {
     const itemData = this.data.data;
+    const rollData = this.actor.getRollData();
     let attack;
     let damage;
     let healing;
@@ -70,7 +71,7 @@ export default class Item5e extends Item {
     }
 
     if (itemData.actionOptions.includes('attack')) {
-      const roll = new CONFIG.Dice.D20Roll(attack.formula, this.getRollData());
+      const roll = new CONFIG.Dice.D20Roll(attack.formula, rollData);
       await roll.evaluate({ async: true });
 
       data.isCrit = roll.dice[0].total >= itemData.attack.critThreshold;
@@ -91,7 +92,7 @@ export default class Item5e extends Item {
       for (const { canCrit, damageType, formula } of damage) {
         const roll = new CONFIG.Dice.DamageRoll(
           formula || '0',
-          this.getRollData(),
+          rollData,
           { canCrit, isCrit: data.isCrit }
         );
 
@@ -111,7 +112,7 @@ export default class Item5e extends Item {
       for (const { healingType, formula } of healing) {
         const roll = new CONFIG.Dice.DamageRoll(
           formula || '0',
-          this.getRollData(),
+          rollData,
           { canCrit: false }
         );
 
