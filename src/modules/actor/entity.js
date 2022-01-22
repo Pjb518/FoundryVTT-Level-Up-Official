@@ -246,11 +246,19 @@ export default class Actor5e extends Actor {
 
     data.prof = this.data.data.attributes.prof || 0;
 
-    // Add a shortcut for abilities.<ability>.check.mod
+    // Add a shortcut for abilities.<ability>.check.mod.
     data.abilities = Object.entries(abilities).reduce((acc, [key, ability]) => {
       acc[key] = { ...ability, mod: ability.check.mod };
       return acc;
     }, {});
+
+    // Add a shortcut for ability scores.
+    Object.entries(abilities).reduce((acc, [key, ability]) => {
+      acc[key] = { ...ability, mod: ability.check.mod };
+      return acc;
+    }, data);
+
+    data.level = this.data.data.details.level;
 
     return data;
   }
