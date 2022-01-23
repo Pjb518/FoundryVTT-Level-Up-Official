@@ -83,7 +83,7 @@ export default class Actor5e extends Actor {
 
     actorData.attributes.maneuverDC = 8
       + actorData.attributes.prof
-      + parseInt(actorData.bonuses.maneuverDC, 10)
+      + (parseInt(actorData.bonuses.maneuverDC, 10) || 0)
       + Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod);
 
     if (this.type === 'character') {
