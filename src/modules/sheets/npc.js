@@ -34,7 +34,8 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
       config: CONFIG.A5E,
       rollData: this.actor.getRollData.bind(this.actor),
       items: {},
-      currentTab: this.options.currentTab
+      currentTab: this.options.currentTab,
+      labels: {}
     };
 
     const actorData = this.actor.data.toObject(false);
@@ -110,6 +111,14 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
       return creatureType;
     });
 
+    // Challenge Rating
+    const cr = parseFloat(data.data.details.cr || 0);
+    const crLabels = {
+      0: '0', 0.125: '1/8', 0.25: '1/4', 0.5: '1/2'
+    };
+
+    data.labels.cr = cr >= 1 ? String(cr) : crLabels[cr] || 1;
+
     return data;
   }
 
@@ -171,5 +180,17 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
     itemGroups.spells = this._prepareSpells(this._filterSpells(itemGroups.spells));
 
     return itemGroups;
+  }
+
+  /** @override */
+  async _updateObject(event, formData) {
+    const fractionalChallengeRatings = { '1/8': 0.125, '1/4': 0.25, '1/2': 0.5 };
+
+    let cr = formData['data.details.cr'];
+    cr = fractionalChallengeRatings[cr] || parseFloat(cr);
+
+    if (cr) formData['data.details.cr'] = cr < 1 ? cr : parseInt(cr, 10);
+
+    return super._updateObject(event, formData);
   }
 }
