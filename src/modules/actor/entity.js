@@ -552,6 +552,22 @@ export default class Actor5e extends Actor {
     }
 
     ChatMessage.create(chatData);
+
+    if (data.damage?.length) {
+      data.damage.forEach((damageSource) => {
+        game.dice3d.showForRoll(
+          damageSource.roll, game.user, false, null, false, null, chatData.speaker
+        );
+      });
+    }
+
+    if (data.healing?.length) {
+      data.healing.forEach((healingSource) => {
+        game.dice3d.showForRoll(
+          healingSource.roll, game.user, false, null, false, null, chatData.speaker
+        );
+      });
+    }
   }
 
   async modifyTokenAttribute(attribute, value, isDelta, isBar) {
@@ -810,8 +826,8 @@ export default class Actor5e extends Actor {
       title,
       img: this.img,
       attack: null,
-      damage: [{ damageType: 'healing', roll, tooltip }],
-      actionOptions: ['damage'],
+      healing: [{ healingType: 'healing', roll, tooltip }],
+      actionOptions: ['healing'],
       isCrit: false,
       isFumble: false
     };

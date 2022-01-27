@@ -236,6 +236,8 @@ export default class ActorSheet5e extends ActorSheet {
           .find('.a5e-item__details')
           .addClass('a5e-item__details--visible');
       }
+    } else if (event.which === 2) {
+      this._onEditItem(event);
     } else if (event.which === 3) {
       $('.a5e-js-item')
         .find('.a5e-context-menu')
