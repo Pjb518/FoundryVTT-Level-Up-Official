@@ -4,12 +4,14 @@
     data-tab="features"
 >
 
-    <section class="a5e-filter-container a5e-box">
-        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+    <section
+        class="u-w-30 u-flex-shrink-0 u-font-secondary u-flex u-flex-col u-gap-md u-mb-xl u-p-md a5e-box"
+    >
+        <h2 class="a5e-heading a5e-heading--filter u-text-center">
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+        <div class="u-flex u-flex-col u-gap-md u-p-md u-h-full u-overflow-y-auto">
             <div>
                 {{>
                     "systems/a5e/templates/actors/partials/filter-header.hbs"
@@ -40,10 +42,15 @@
         </a>
     </section>
 
-    <section class="a5e-items-container a5e-scroll-container a5e-js-features-scroll-area">
-        <section class="a5e-item-group">
-            <header class="a5e-header">
-                <h3 class="a5e-heading a5e-heading--item-group">{{ localize "A5E.TabFeatures" }}
+    <section
+        class="u-flex u-flex-col u-flex-grow u-gap-lg u-h-full u-mb-xl u-overflow-y-auto u-pb-xl a5e-js-features-scroll-area"
+    >
+        <section>
+            <header
+                class="u-border-b u-border-gray u-flex u-justify-space-between u-mr-xl u-mb-md u-pb-md u-px-md"
+            >
+                <h3 class="a5e-heading a5e-heading--item-group">
+                    {{ localize "A5E.TabFeatures" }}
                 </h3>
 
                 <a class="a5e-button a5e-button--add-item a5e-js-create-feature-item">
@@ -51,10 +58,11 @@
                 </a>
             </header>
 
-            <ul class="a5e-item-list">
+            <ul
+                class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
                 {{#each items}}
                     <li
-                        class="a5e-item-list__item a5e-box a5e-js-item"
+                        class="a5e-item a5e-box a5e-js-item"
                         data-id="{{this._id}}"
                         data-item-id="{{this._id}}"
                         draggable="true"
@@ -67,7 +75,7 @@
 
                         <span>{{this.name}}</span>
 
-                        <div class="a5e-item-list__item-details">
+                        <div class="a5e-item__details">
                             <hr class="a5e-rule">
 
                             {{#if this.data.description}}

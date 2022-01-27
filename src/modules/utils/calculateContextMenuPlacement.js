@@ -20,7 +20,7 @@ export default function calculateContextMenuPlacement(event) {
   const contextRightBound = mouseX + contextWidth;
   const contextTopBound = mouseY - (2 * contextHeight);
 
-  const itemsList = $(item).closest('.a5e-item-list');
+  const itemsList = $(item).closest('.a5e-js-item-list');
   const itemsListRightBound = itemsList.offset().left + itemsList.width() - 17;
   const itemsListTopBound = itemsList.offset().top;
 

@@ -1,11 +1,13 @@
-<div class="a5e-chat-card">
-    <header class="a5e-chat-card__header">
+<div class="u-flex u-flex-col u-gap-sm">
+    <header class="u-align-center u-flex u-gap-md u-p-xs u-pb-0">
         <img
             class="a5e-image a5e-image--card"
             src="{{img}}"
         >
 
-        <h3 class="a5e-heading a5e-heading--card">{{title}}</h3>
+        <h3 class="u-font-serif u-mb-0 u-text-xl">
+            {{title}}
+        </h3>
     </header>
 
     {{#if hasDescription }}
@@ -20,12 +22,14 @@
         <hr class="a5e-rule a5e-rule--card">
 
         <div>
-            <h3 class="a5e-chat-card__roll-label">{{localize "A5E.RollLabelAttack"}}</h3>
+            <h3 class="u-mb-xs u-text-capitalise u-text-center u-text-xs">
+                {{localize "A5E.RollLabelAttack"}}
+            </h3>
 
             <div class="
-                a5e-chat-card__roll
-                {{#if isCrit}}a5e-chat-card__roll--crit{{/if}}
-                {{#if isFumble}}a5e-chat-card__roll--fumble{{/if}}
+                a5e-roll
+                {{#if isCrit}}a5e-roll--crit{{/if}}
+                {{#if isFumble}}a5e-roll--fumble{{/if}}
                 a5e-js-toggle-roll-tooltip-visibility
             ">
                 {{attack.roll.formula}}
@@ -33,7 +37,7 @@
 
             {{{attack.tooltip}}}
 
-            <div class="a5e-chat-card__roll a5e-chat-card__roll--total">
+            <div class="a5e-roll a5e-roll--total">
                 {{attack.roll.total}}
             </div>
         </div>
@@ -44,7 +48,7 @@
 
         {{#each damage}}
             <div>
-                <h3 class="a5e-chat-card__roll-label">
+                <h3 class="u-mb-xs u-text-capitalise u-text-center u-text-xs">
                     {{localize "A5E.RollLabelDamage"}}
                     {{#if this.damageType}}
                         ({{localize (lookup ../config.damageTypes this.damageType)}})
@@ -53,13 +57,13 @@
                     {{/if}}
                 </h3>
 
-                <div class="a5e-chat-card__roll a5e-js-toggle-roll-tooltip-visibility">
+                <div class="a5e-roll a5e-js-toggle-roll-tooltip-visibility">
                     {{this.roll.formula}}
                 </div>
 
                 {{{this.tooltip}}}
 
-                <div class="a5e-chat-card__roll a5e-chat-card__roll--total">
+                <div class="a5e-roll a5e-roll--total">
                     {{this.roll.total}}
                 </div>
             </div>
@@ -71,7 +75,7 @@
 
         {{#each healing}}
             <div>
-                <h3 class="a5e-chat-card__roll-label">
+                <h3 class="u-mb-xs u-text-capitalise u-text-center u-text-xs">
                     {{#if this.healingType}}
                         {{localize (lookup ../config.healingTypes this.healingType)}}
                     {{else}}
@@ -79,13 +83,13 @@
                     {{/if}}
                 </h3>
 
-                <div class="a5e-chat-card__roll a5e-js-toggle-roll-tooltip-visibility">
+                <div class="a5e-roll a5e-js-toggle-roll-tooltip-visibility">
                     {{this.roll.formula}}
                 </div>
 
                 {{{this.tooltip}}}
 
-                <div class="a5e-chat-card__roll a5e-chat-card__roll--total">
+                <div class="a5e-roll a5e-roll--total">
                     {{this.roll.total}}
                 </div>
             </div>

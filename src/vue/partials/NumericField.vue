@@ -1,6 +1,6 @@
 <template>
   <section class="a5e-form__section a5e-form__section--inline">
-    <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+    <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
       {{ heading }}
     </h3>
 

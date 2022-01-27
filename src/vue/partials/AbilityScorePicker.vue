@@ -1,11 +1,11 @@
 <template>
   <section class="a5e-form__section">
-    <h3 class="a5e-form__input-label">{{ heading }}</h3>
+    <h3 class="u-text-bold u-text-sm">{{ heading }}</h3>
 
-    <div class="a5e-radio-group">
+    <div class="u-flex u-gap-md u-text-sm">
       <template v-for="ability in abilities" :key="ability.name">
         <input
-          class="a5e-u-hidden"
+          class="u-hidden"
           type="radio"
           name="ability"
           :value="ability.name"

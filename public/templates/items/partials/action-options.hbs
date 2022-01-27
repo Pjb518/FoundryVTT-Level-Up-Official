@@ -1,20 +1,21 @@
 <div class="
     a5e-box
-    a5e-box--padded
+    u-p-md
     a5e-form__section
     a5e-form__section--no-margin
     a5e-form__section--inline
 ">
-    <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+    <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
         {{ localize "A5E.ActionOptions" }}
     </h3>
 
-    <ul class="a5e-tag-group a5e-tag-group--inline">
+    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-align-self-end">
         {{#each config.actionOptions as |name key|}}
             <li
                 class="
                     a5e-tag
-                    a5e-tag--clickable
+                    .u-pointer
                     {{#unless (contains ../item.data.actionOptions key)}}a5e-tag--inactive{{/unless}}
                     a5e-js-toggle-action-option
                 "

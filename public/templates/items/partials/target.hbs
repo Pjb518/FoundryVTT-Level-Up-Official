@@ -1,16 +1,16 @@
-<div class="a5e-box a5e-box--padded">
+<div class="a5e-box u-p-md">
     <div class="
         a5e-form__section
         a5e-form__section--inline
         {{#unless (eq item.data.target.type 'area')}}a5e-form__section--no-margin{{/unless}}
     ">
-        <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
             {{ localize "A5E.ItemTarget" }}
         </h3>
 
         <div class="a5e-input-container a5e-input-container--inline">
             <select
-                class="a5e-select a5e-select--inline"
+                class="u-w-full"
                 name="data.target.type"
             >
                 {{#select data.target.type}}
@@ -26,10 +26,10 @@
 
     {{#if (eq item.data.target.type "area") }}
         <div class="a5e-form__section">
-            <div class="a5e-radio-group a5e-radio-group--area-templates">
+            <div class="u-align-center u-flex u-gap-xl u-text-md">
                 {{#each config.areaTypes as |name key|}}
                     <input
-                        class="a5e-u-hidden"
+                        class="u-hidden"
                         type="radio"
                         name="data.target.shape"
                         value="{{key}}"
@@ -52,7 +52,7 @@
         </div>
 
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{localize 'A5E.ItemAreaSize'}}
             </h3>
 

@@ -1,11 +1,22 @@
 <template>
   <section class="a5e-form__section">
-    <h3 class="a5e-form__input-label">{{ heading }}</h3>
+    <h3 class="u-text-bold u-text-sm">{{ heading }}</h3>
 
-    <div class="a5e-tag-group">
+    <div
+      class="
+        u-flex
+        u-flex-wrap
+        u-font-san-serif
+        u-gap-md
+        u-list-style-none
+        u-m-0
+        u-p-0
+        u-text-xs
+      "
+    >
       <template v-for="skill in skills" :key="skill.name">
         <input
-          class="a5e-u-hidden"
+          class="u-hidden"
           type="radio"
           name="skill"
           :value="skill.name"
@@ -14,7 +25,7 @@
         />
 
         <label
-          class="a5e-tag a5e-tag--clickable"
+          class="a5e-tag .u-pointer"
           :class="{ 'a5e-tag--inactive': skill.name !== selectedSkill }"
           :for="appId + '-skill-' + skill.name"
         >

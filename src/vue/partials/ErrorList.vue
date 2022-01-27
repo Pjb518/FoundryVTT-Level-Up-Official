@@ -1,7 +1,15 @@
 <template>
-  <ul class="a5e-error-list">
-    <li class="a5e-error" v-for="error in errors" :key="error">
-      <i class="a5e-error__icon fas fa-exclamation-circle"></i>
+  <ul
+    class="
+      u-flex u-flex-col u-gap-md u-list-style-none u-p-0 u-text-light u-text-sm
+    "
+  >
+    <li
+      class="u-align-center u-bg-red u-flex u-px-lg u-py-md u-rounded"
+      v-for="error in errors"
+      :key="error"
+    >
+      <i class="u-mr-md fas fa-exclamation-circle"></i>
       {{ error }}
     </li>
   </ul>

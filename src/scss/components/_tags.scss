@@ -1,45 +1,11 @@
-.a5e-tag-group {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
-  font-family: $font-secondary;
-  font-size: $font-size-xs;
-  gap: 0.5rem;
-  line-height: $font-size-xs;
-  list-style: none;
-
-  &--filter {
-    margin-top: 0.5rem;
-  }
-
-  &--inline {
-    align-self: flex-end;
-  }
-
-  &--small {
-    font-size: $font-size-xxs;
-    line-height: $font-size-xxs;
-  }
-
-  &--small,
-  &--tight {
-    gap: 0.25rem;
-  }
-}
-
 .a5e-tag {
   padding: 0.15rem 0.4rem;
-  border: 0.5px solid darken($color-primary, 5%);
+  border: 1px solid darken($color-primary, 5%);
   background: $color-primary;
   border-radius: $border-radius-standard;
   color: lighten($color-primary, 80%);
+  transition: $standard-transition;
   white-space: nowrap;
-
-  &--clickable {
-    cursor: pointer;
-    transition: $standard-transition;
-  }
 
   &--inactive {
     border-color: #7e7960;
@@ -52,18 +18,18 @@
   }
 
   &--light {
-    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
     background: transparent;
     color: $color-dark-text;
   }
 
   &--red {
-    border: 0.5px solid darken(#8b2525, 5%);
+    border-color: darken(#8b2525, 5%);
     background: #8b2525;
     color: lighten(#8b2525, 95%);
   }
 
-  &--small {
-    padding: 0.1rem 0.3rem;
+  &--tight {
+    padding: 0.1rem 0.375rem;
   }
 }

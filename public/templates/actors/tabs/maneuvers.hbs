@@ -8,12 +8,14 @@
     data-group="main"
     data-tab="maneuvers"
 >
-    <section class="a5e-filter-container a5e-box">
-        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+    <section
+        class="u-w-30 u-flex-shrink-0 u-font-secondary u-flex u-flex-col u-gap-md u-mb-xl u-p-md a5e-box"
+    >
+        <h2 class="a5e-heading a5e-heading--filter u-text-center">
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+        <div class="u-flex u-flex-col u-gap-md u-p-md u-h-full u-overflow-y-auto">
             <div>
                 {{>
                     "systems/a5e/templates/actors/partials/filter-header.hbs"
@@ -45,16 +47,17 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'maneuver-degrees')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'maneuver-degrees')}}u-hidden{{/unless}}"
                     data-filter-category="maneuver-degrees"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         {{#each config.maneuverDegrees as | degree key |}}
                             <li
                                 class="
                                     a5e-tag
-                                    a5e-tag--small
-                                    a5e-tag--clickable
+                                    a5e-tag--tight
+                                    .u-pointer
                                     {{#if (contains ../filters.maneuverDegree.inclusive key)}}''
                                     {{else if (contains ../filters.maneuverDegree.exclusive key)}}a5e-tag--red
                                     {{else}}a5e-tag--inactive
@@ -82,16 +85,17 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'maneuver-traditions')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'maneuver-traditions')}}u-hidden{{/unless}}"
                     data-filter-category="maneuver-traditions"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         {{#each config.maneuverTraditions as | tradition key |}}
                             <li
                                 class="
                                     a5e-tag
-                                    a5e-tag--small
-                                    a5e-tag--clickable
+                                    a5e-tag--tight
+                                    .u-pointer
                                     {{#if (contains ../filters.maneuverTradition.inclusive key)}}''
                                     {{else if (contains ../filters.maneuverTradition.exclusive key)}}a5e-tag--red
                                     {{else}}a5e-tag--inactive
@@ -118,9 +122,13 @@
         </a>
     </section>
 
-    <section class="a5e-items-container a5e-scroll-container a5e-js-maneuver-scroll-area">
-        <section class="a5e-item-group">
-            <header class="a5e-header">
+    <section
+        class="u-flex u-flex-col u-flex-grow u-gap-lg u-h-full u-mb-xl u-overflow-y-auto u-pb-xl a5e-js-maneuver-scroll-area"
+    >
+        <section>
+            <header
+                class="u-border-b u-border-gray u-flex u-justify-space-between u-mr-xl u-mb-md u-pb-md u-px-md"
+            >
                 <h3 class="a5e-heading a5e-heading--item-group">
                     {{ localize "A5E.TabManeuvers" }}
                 </h3>
@@ -130,10 +138,11 @@
                 </a>
             </header>
 
-            <ul class="a5e-item-list">
+            <ul
+                class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
                 {{#each items}}
                     <li
-                        class="a5e-item-list__item a5e-box a5e-js-item"
+                        class="a5e-item a5e-box a5e-js-item"
                         data-id="{{this._id}}"
                         data-item-id="{{this._id}}"
                         draggable="true"
@@ -150,16 +159,17 @@
                         </span>
 
                         {{#if this.data.inlineLabels.length}}
-                            <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                            <div class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
                                 {{#each this.data.inlineLabels}}
-                                    <div class="a5e-tag a5e-tag--small">
+                                    <div class="a5e-tag a5e-tag--tight">
                                         {{this}}
                                     </div>
                                 {{/each}}
                             </div>
                         {{/if}}
 
-                        <div class="a5e-item-list__item-details">
+                        <div class="a5e-item__details">
                             <hr class="a5e-rule">
 
                             {{#if this.data.description}}
@@ -190,16 +200,16 @@
     </section>
 
     <footer class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--maneuvers">
-        <div class="a5e-footer-group">
-            <h3 class="a5e-u-mb-none">
+        <div class="u-align-center u-flex u-gap-md u-text-md">
+            <h3 class="u-mb-0">
                 {{localize "A5E.ManeuverDC"}}
             </h3>
 
             <span class="a5e-footer-group__value">{{ maneuverDC }}</span>
         </div>
 
-        <div class="a5e-footer-group">
-            <h3 class="a5e-u-mb-none">
+        <div class="u-align-center u-flex u-gap-md u-text-md">
+            <h3 class="u-mb-0">
                 {{localize "A5E.ExertionPool"}}
             </h3>
 
@@ -224,8 +234,8 @@
             >
         </div>
 
-        <div class="a5e-footer-group">
-            <h3 class="a5e-u-mb-none">{{ localize "A5E.ConfigureManeuvers"}}</h3>
+        <div class="u-align-center u-flex u-gap-md u-text-md">
+            <h3 class="u-mb-0">{{ localize "A5E.ConfigureManeuvers"}}</h3>
 
             <i
                 class="a5e-config-button a5e-config-button--large a5e-js-configure-maneuvers fas fa-cog">

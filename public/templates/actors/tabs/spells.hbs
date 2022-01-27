@@ -8,12 +8,14 @@
     data-group="main"
     data-tab="spells"
 >
-    <section class="a5e-filter-container a5e-box">
-        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+    <section
+        class="u-w-30 u-flex-shrink-0 u-font-secondary u-flex u-flex-col u-gap-md u-mb-xl u-p-md a5e-box"
+    >
+        <h2 class="a5e-heading a5e-heading--filter u-text-center">
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+        <div class="u-flex u-flex-col u-gap-md u-p-md u-h-full u-overflow-y-auto">
             <div>
                 {{>
                     "systems/a5e/templates/actors/partials/filter-header.hbs"
@@ -45,16 +47,17 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'spell-components')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'spell-components')}}u-hidden{{/unless}}"
                     data-filter-category="spell-components"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         {{#each config.spellComponents as | component key | }}
                             <li
                                 class="
                                     a5e-tag
-                                    a5e-tag--small
-                                    a5e-tag--clickable
+                                    a5e-tag--tight
+                                    .u-pointer
                                     {{#if (contains ../filters.spellComponents.inclusive key)}}''
                                     {{else if (contains ../filters.spellComponents.exclusive key)}}a5e-tag--red
                                     {{else}}a5e-tag--inactive
@@ -82,16 +85,17 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'spell-schools')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'spell-schools')}}u-hidden{{/unless}}"
                     data-filter-category="spell-schools"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         {{#each config.spellSchools.primary as | school key | }}
                             <li
                                 class="
                                     a5e-tag
-                                    a5e-tag--small
-                                    a5e-tag--clickable
+                                    a5e-tag--tight
+                                    .u-pointer
                                     {{#if (contains ../filters.spellSchools.inclusive key)}}''
                                     {{else if (contains ../filters.spellSchools.exclusive key)}}a5e-tag--red
                                     {{else}}a5e-tag--inactive
@@ -119,15 +123,16 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'spell-miscellaneous')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'spell-miscellaneous')}}u-hidden{{/unless}}"
                     data-filter-category="spell-miscellaneous"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.spellMiscellaneous.inclusive 'concentration')}}''
                                 {{else if (contains filters.spellMiscellaneous.exclusive 'concentration')}}a5e-tag--red
                                 {{else}}a5e-tag--inactive
@@ -144,8 +149,8 @@
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.spellMiscellaneous.inclusive 'prepared')}}''
                                 {{else if (contains filters.spellMiscellaneous.exclusive 'prepared')}}a5e-tag--red
                                 {{else}}a5e-tag--inactive
@@ -162,8 +167,8 @@
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.spellMiscellaneous.inclusive 'ritual')}}''
                                 {{else if (contains filters.spellMiscellaneous.exclusive 'ritual')}}a5e-tag--red
                                 {{else}}a5e-tag--inactive
@@ -189,18 +194,22 @@
         </a>
     </section>
 
-    <section class="a5e-items-container a5e-scroll-container a5e-js-spell-scroll-area">
+    <section
+        class="u-flex u-flex-col u-flex-grow u-gap-lg u-h-full u-mb-xl u-overflow-y-auto u-pb-xl a5e-js-spell-scroll-area"
+    >
         {{#each config.spellLevels as |label level|}}
             {{#if (contains ../availableSpellLevels level)}}
-                <section class="a5e-item-group">
-                    <header class="a5e-header a5e-header--spells">
+                <section>
+                    <header
+                        class="u-border-b u-border-gray u-flex u-gap-lg u-mr-xl u-mb-md u-pb-md u-px-md"
+                    >
                         <h3 class="a5e-heading a5e-heading--item-group">
                             {{ localize label }}
                         </h3>
 
                         {{#unless (eq level "0")}}
                             {{#if ../showSpellSlots}}
-                                <div class="a5e-spell-slots">
+                                <div class="u-align-center u-flex u-gap-sm">
                                     {{#with (lookup ../spellResources.slots level) as | resources |}}
                                         <input
                                             class="a5e-spell-slots__input"
@@ -234,13 +243,14 @@
                         </a>
                     </header>
 
-                    <ul class="a5e-item-list">
+                    <ul
+                        class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
                         {{#each (lookup ../items level) }}
                             <li
                                 class="
                                     a5e-box
-                                    a5e-item-list__item
-                                    {{#if this.data.prepared}}a5e-box--green{{/if}}
+                                    a5e-item
+                                    {{#if this.data.prepared}}u-bg-light-green{{/if}}
                                     a5e-js-item
                                 "
                                 data-id="{{this._id}}"
@@ -256,16 +266,17 @@
                                 <span>{{this.name}}</span>
 
                                 {{#if this.data.inlineLabels.length}}
-                                    <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                                    <div class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
                                         {{#each this.data.inlineLabels}}
-                                            <div class="a5e-tag a5e-tag--small">
+                                            <div class="a5e-tag a5e-tag--tight">
                                                 {{this}}
                                             </div>
                                         {{/each}}
                                     </div>
                                 {{/if}}
 
-                                <div class="a5e-item-list__item-details">
+                                <div class="a5e-item__details">
                                     <hr class="a5e-rule">
 
                                     {{#if this.data.description}}
@@ -275,17 +286,19 @@
                                     {{/if}}
 
                                     {{#if this.data.descriptionLabels.components.length}}
-                                        <ul class="a5e-tag-group a5e-tag-group--small">
+                                        <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                                             {{#each this.data.descriptionLabels.components}}
-                                                <li class="a5e-tag a5e-tag--small">{{this}}</li>
+                                                <li class="a5e-tag a5e-tag--tight">{{this}}</li>
                                             {{/each}}
                                         </ul>
                                     {{/if}}
 
                                     {{#if this.data.descriptionLabels.schools.length}}
-                                        <ul class="a5e-tag-group a5e-tag-group--small">
+                                        <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                                             {{#each this.data.descriptionLabels.schools}}
-                                                <li class="a5e-tag a5e-tag--small">{{this}}</li>
+                                                <li class="a5e-tag a5e-tag--tight">{{this}}</li>
                                             {{/each}}
                                         </ul>
                                     {{/if}}
@@ -320,8 +333,8 @@
 
     <footer class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--spells">
         {{#if showSpellPoints}}
-            <div class="a5e-footer-group">
-                <h3 class="a5e-u-mb-none">
+            <div class="u-align-center u-flex u-gap-md u-text-md">
+                <h3 class="u-mb-0">
                     {{localize "A5E.SpellPoints"}}
                 </h3>
 
@@ -347,8 +360,8 @@
             </div>
         {{/if}}
 
-        <div class="a5e-footer-group a5e-footer-group--config">
-            <h3 class="a5e-u-mb-none">{{ localize "A5E.ConfigureSpells"}}</h3>
+        <div class="u-align-center u-flex u-gap-md u-text-md u-ml-auto">
+            <h3 class="u-mb-0">{{ localize "A5E.ConfigureSpells"}}</h3>
 
             <i
                 class="a5e-config-button a5e-config-button--large a5e-js-configure-spell-tab fas fa-cog">

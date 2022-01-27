@@ -8,7 +8,7 @@
     />
 
     <div class="a5e-form__section a5e-form__section--inline">
-      <label class="a5e-form__input-label a5e-form__input-label--inline">
+      <label class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
         {{ exertionRecoveryLabel }}
       </label>
 

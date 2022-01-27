@@ -1,12 +1,13 @@
-<div class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--no-margin">
-    <h3 class="a5e-form__input-label">{{ localize "A5E.SpellSchoolSecondaryPlural" }}</h3>
+<div class="a5e-box u-p-md a5e-form__section a5e-form__section--no-margin">
+    <h3 class="u-text-bold u-text-sm">{{ localize "A5E.SpellSchoolSecondaryPlural" }}</h3>
 
-    <ul class="a5e-tag-group">
+    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs">
         {{#each config.spellSchools.secondary as | school key |}}
             <li
                 class="
                     a5e-tag
-                    a5e-tag--clickable
+                    .u-pointer
                     {{#unless (contains ../item.data.schools.secondary key)}}a5e-tag--inactive{{/unless}}
                     a5e-js-toggle-secondary-spell-school
                 "

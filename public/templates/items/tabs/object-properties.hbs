@@ -4,7 +4,7 @@
         a5e-sheet__tab-content
         a5e-sheet__tab-content--object-properties
         {{#unless (eq currentTab 'objectProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
-        a5e-scroll-container
+        u-h-full u-overflow-y-auto
         a5e-js-object-properties-scroll-area
     "
     data-group="item-{{item._id}}"
@@ -12,15 +12,15 @@
 >
     {{> "systems/a5e/templates/items/partials/object-type.hbs" config=config item=item}}
 
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{ localize "A5E.ItemRarity" }}
             </h3>
 
             <div class="a5e-input-container a5e-input-container--inline">
                 <select
-                    class="a5e-select a5e-select--inline"
+                    class="u-w-full"
                     name="data.rarity"
                 >
                     {{#select item.data.rarity}}
@@ -35,11 +35,11 @@
         </div>
     </div>
 
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
             <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
                 <label
-                    class="a5e-form__input-label a5e-form__input-label--inline"
+                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
                     for="{{item._id}}-attunement-required"
                 >
                     {{localize "A5E.AttunementRequiredPrompt"}}
@@ -62,7 +62,7 @@
                 <div
                     class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
                     <label
-                        class="a5e-form__input-label a5e-form__input-label--inline"
+                        class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
                         for="{{item._id}}-attuned"
                     >
                         {{localize "A5E.AttunementPrompt"}}
@@ -84,10 +84,10 @@
         </div>
     </div>
 
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
             <label
-                class="a5e-form__input-label a5e-form__input-label--inline"
+                class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
                 for="{{item._id}}-plot-item"
             >
                 {{localize "A5E.PlotItemPrompt"}}
@@ -107,9 +107,9 @@
         </div>
     </div>
 
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{localize 'A5E.ItemQuantity'}}
             </h3>
 
@@ -126,13 +126,13 @@
         </div>
     </div>
 
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="
                 a5e-form__section
                 a5e-form__section--inline
                 a5e-form__section--no-margin
             ">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{localize 'A5E.ItemWeight'}}
             </h3>
 
@@ -150,7 +150,7 @@
 
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
             <label
-                class="a5e-form__input-label a5e-form__input-label--inline"
+                class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
                 for="{{item._id}}-bulky"
             >
                 {{localize 'A5E.ItemBulkyPrompt'}}
@@ -170,9 +170,9 @@
         </div>
     </div>
 
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{localize 'A5E.ItemPrice'}}
             </h3>
 

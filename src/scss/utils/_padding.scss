@@ -1,0 +1,68 @@
+$padding-sizes: (
+  'xxxs': 0.1rem,
+  'xxs': 0.125rem,
+  'xs': 0.25rem,
+  'sm': 0.375rem,
+  'md': 0.5rem,
+  'lg': 0.75rem,
+  'xl': 1rem,
+  'xxl': 1.5rem,
+  '0': 0);
+
+.u-p {
+  @each $label, $size in $padding-sizes {
+    &-#{$label} {
+      padding: $size;
+    }
+  }
+
+  &b {
+    @each $label, $size in $padding-sizes {
+      &-#{$label} {
+        padding-bottom: $size;
+      }
+    }
+  }
+
+  &l {
+    @each $label, $size in $padding-sizes {
+      &-#{$label} {
+        padding-left: $size;
+      }
+    }
+  }
+
+  &r {
+    @each $label, $size in $padding-sizes {
+      &-#{$label} {
+        padding-right: $size;
+      }
+    }
+  }
+
+  &t {
+    @each $label, $size in $padding-sizes {
+      &-#{$label} {
+        padding-top: $size;
+      }
+    }
+  }
+
+  &x {
+    @each $label, $size in $padding-sizes {
+      &-#{$label} {
+        padding-right: $size;
+        padding-left: $size;
+      }
+    }
+  }
+
+  &y {
+    @each $label, $size in $padding-sizes {
+      &-#{$label} {
+        padding-top: $size;
+        padding-bottom: $size;
+      }
+    }
+  }
+}

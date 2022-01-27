@@ -13,7 +13,7 @@
       v-if="restType === 'long'"
       class="a5e-form__section a5e-form__section--inline"
     >
-      <label class="a5e-form__input-label a5e-form__input-label--inline">
+      <label class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
         {{ havenLabel }}
       </label>
 
@@ -26,7 +26,7 @@
       v-if="restType === 'long'"
       class="a5e-form__section a5e-form__section--inline"
     >
-      <label class="a5e-form__input-label a5e-form__input-label--inline">
+      <label class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
         {{ supplyLabel }}
       </label>
 
@@ -36,9 +36,9 @@
     </div>
 
     <div v-if="restType === 'short'" class="a5e-form__section">
-      <h3 class="a5e-form__input-label">{{ hitDiceLabel }}</h3>
+      <h3 class="u-text-bold u-text-sm">{{ hitDiceLabel }}</h3>
 
-      <div class="a5e-radio-group">
+      <div class="u-flex u-gap-md u-text-md">
         <div
           class="a5e-hit-die-wrapper"
           v-for="die in ['d6', 'd8', 'd10', 'd12']"

@@ -10,7 +10,7 @@
             data-edit="img"
         />
 
-        <div class="a5e-sheet-header__name-container">
+        <div class="u-flex-grow">
             <input
                 class="a5e-input a5e-input--character-name"
                 name="name"
@@ -22,33 +22,33 @@
     </header>
 
     <nav
-        class="a5e-sheet-tabs"
+        class="u-flex"
         data-group="item-{{item._id}}"
     >
         <a
-            class="a5e-sheet-tabs__tab a5e-js-sheet-tab {{#if (eq currentTab 'description')}}a5e-sheet-tabs__tab--active{{/if}}"
+            class="a5e-tab a5e-js-sheet-tab {{#if (eq currentTab 'description')}}a5e-tab--active{{/if}}"
             data-tab="description"
         >
             {{ localize "A5E.Description" }}
         </a>
 
         <a
-            class="a5e-sheet-tabs__tab a5e-js-sheet-tab {{#if (eq currentTab 'details')}}a5e-sheet-tabs__tab--active{{/if}}"
+            class="a5e-tab a5e-js-sheet-tab {{#if (eq currentTab 'details')}}a5e-tab--active{{/if}}"
             data-tab="details"
         >
             {{ localize "A5E.TabDetails" }}
         </a>
 
-        <div class="a5e-sheet-tabs__filler"></div>
+        <div class="u-border-b u-border-gray u-w-full"></div>
     </nav>
 
-    <section class="a5e-u-y-overflow-hidden a5e-u-height-full a5e-js-sheet-body">
+    <section class="u-overflow-y-hidden u-h-full a5e-js-sheet-body">
         <section
             class="
                 a5e-js-sheet-page
                 a5e-sheet__tab-content
                 a5e-sheet__tab-content--item-details
-                a5e-scroll-container
+                u-h-full u-overflow-y-auto
                 a5e-js-item-description-scroll-area
                 {{#unless (eq currentTab 'description')}}a5e-sheet__tab-content--hidden{{/unless}}
             "

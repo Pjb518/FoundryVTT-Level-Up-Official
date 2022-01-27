@@ -6,9 +6,9 @@
     }"
   >
     <h3
-      class="a5e-form__input-label"
+      class="u-text-bold u-text-sm"
       v-if="heading"
-      :class="{ 'a5e-form__input-label--inline': inline }"
+      :class="{ 'u-flex-shrink-0 u-mb-0': inline }"
     >
       {{ heading }}
     </h3>
@@ -17,7 +17,7 @@
       class="a5e-input-container"
       :class="{ 'a5e-input-container--inline': inline }"
     >
-      <select v-model="currentSelection" class="a5e-select">
+      <select v-model="currentSelection" class="u-w-full">
         <option v-for="[key, value] of values" :key="key" :value="key">
           {{ value }}
         </option>

@@ -3,132 +3,166 @@
     data-group="main"
     data-tab="attributes"
 >
-    <div class="a5e-sheet__secondary-details">
-        <section class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+    <div class="u-font-sans-serif u-flex u-flex-col u-gap-md">
+        <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.SensesSpecial" }}
             </h2>
 
-            <i
-                class="a5e-config-button a5e-config-button--details a5e-js-configure-senses fas fa-cog">
+            <i class="
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-senses
+                fas
+                fa-cog
+            ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if senses.length}}
                     {{#each senses}}
-                        <li class="a5e-tag a5e-tag--small">{{ this.name }} - {{ this.range }}
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ this.name }} - {{ this.range }}
                             {{ localize "A5E.MeasurementFeetAbbr" }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li
+                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        {{ localize "A5E.None" }}
+                    </li>
                 {{/if}}
             </ul>
         </section>
 
-        <section class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.DamageResistances" }}
             </h2>
 
             <i class="
-                    a5e-config-button
-                    a5e-config-button--details
-                    a5e-js-configure-damage-resistances
-                    fas
-                    fa-cog
-                ">
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-damage-resistances
+                fas
+                fa-cog
+            ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if damageResistances }}
                     {{#each damageResistances}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ this }}
+                        </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li
+                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        {{ localize "A5E.None" }}
+                    </li>
                 {{/if}}
             </ul>
         </section>
 
-        <section class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.DamageImmunities" }}
             </h2>
 
             <i class="
-                    a5e-config-button
-                    a5e-config-button--details
-                    a5e-js-configure-damage-immunities
-                    fas
-                    fa-cog
-                ">
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-damage-immunities
+                fas
+                fa-cog
+            ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if damageImmunities }}
                     {{#each damageImmunities}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ this }}
+                        </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li
+                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        {{ localize "A5E.None" }}
+                    </li>
                 {{/if}}
             </ul>
         </section>
 
-        <section class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.DamageVulnerabilities" }}
             </h2>
 
             <i class="
-                    a5e-config-button
-                    a5e-config-button--details
-                    a5e-js-configure-damage-vulnerabilities
-                    fas
-                    fa-cog
-                ">
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-damage-vulnerabilities
+                fas
+                fa-cog
+            ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if damageVulnerabilities }}
                     {{#each damageVulnerabilities}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ this }}
+                        </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li
+                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        {{ localize "A5E.None" }}
+                    </li>
                 {{/if}}
             </ul>
         </section>
 
-        <section class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.ConditionImmunities" }}
             </h2>
 
             <i class="
-                    a5e-config-button
-                    a5e-config-button--details
-                    a5e-js-configure-condition-immunities
-                    fas
-                    fa-cog
-                ">
+                a5e-config-button
+                a5e-config-button--details
+                a5e-js-configure-condition-immunities
+                fas
+                fa-cog
+            ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if conditionImmunities }}
                     {{#each conditionImmunities}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ this }}
+                        </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li
+                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        {{ localize "A5E.None" }}
+                    </li>
                 {{/if}}
             </ul>
         </section>
 
         {{#unless (eq actorType "npc")}}
-            <section class="a5e-details-container a5e-box">
-                <h2 class="a5e-heading a5e-heading--details">
+            <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+                <h2 class="u-text-bold u-text-sm">
                     {{ localize "A5E.ArmorProficiencies" }}
                 </h2>
 
@@ -136,19 +170,25 @@
                     class="a5e-config-button a5e-config-button--details a5e-js-configure-armor-proficiencies fas fa-cog">
                 </i>
 
-                <ul class="a5e-tag-group a5e-tag-group--small">
+                <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                     {{#if data.proficiencies.armor.length }}
                         {{#each data.proficiencies.armor}}
-                            <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                            <li
+                                class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                                {{ this }}
+                            </li>
                         {{/each}}
                     {{else}}
-                        <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ localize "A5E.None" }}
+                        </li>
                     {{/if}}
                 </ul>
             </section>
 
-            <section class="a5e-details-container a5e-box">
-                <h2 class="a5e-heading a5e-heading--details">
+            <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+                <h2 class="u-text-bold u-text-sm">
                     {{ localize "A5E.WeaponProficiencies" }}
                 </h2>
 
@@ -156,19 +196,25 @@
                     class="a5e-config-button a5e-config-button--details a5e-js-configure-weapon-proficiencies fas fa-cog">
                 </i>
 
-                <ul class="a5e-tag-group a5e-tag-group--small">
+                <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                     {{#if data.proficiencies.weapons.length}}
                         {{#each data.proficiencies.weapons}}
-                            <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                            <li
+                                class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                                {{ this }}
+                            </li>
                         {{/each}}
                     {{else}}
-                        <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ localize "A5E.None" }}
+                        </li>
                     {{/if}}
                 </ul>
             </section>
 
-            <section class="a5e-details-container a5e-box">
-                <h2 class="a5e-heading a5e-heading--details">
+            <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+                <h2 class="u-text-bold u-text-sm">
                     {{ localize "A5E.ToolProficiencies" }}
                 </h2>
 
@@ -176,20 +222,26 @@
                     class="a5e-config-button a5e-config-button--details a5e-js-configure-tools fas fa-cog">
                 </i>
 
-                <ul class="a5e-tag-group a5e-tag-group--small">
+                <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                     {{#if data.proficiencies.tools.length}}
                         {{#each data.proficiencies.tools}}
-                            <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                            <li
+                                class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                                {{ this }}
+                            </li>
                         {{/each}}
                     {{else}}
-                        <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ localize "A5E.None" }}
+                        </li>
                     {{/if}}
                 </ul>
             </section>
         {{/unless}}
 
-        <section class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <section class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.Languages" }}
             </h2>
 
@@ -197,20 +249,26 @@
                 class="a5e-config-button a5e-config-button--details a5e-js-configure-languages fas fa-cog">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if data.proficiencies.languages.length}}
                     {{#each data.proficiencies.languages}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li
+                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            {{ this }}
+                        </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li
+                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        {{ localize "A5E.None" }}
+                    </li>
                 {{/if}}
             </ul>
         </section>
     </div>
 
     <div>
-        <ul class="a5e-skill-container">
+        <ul class="u-flex-shrink-0 u-gap-sm u-grid u-grid-2 u-list-style-none u-m-0 u-p-0">
             {{#each data.skills as |skill key|}}
                 {{> "systems/a5e/templates/actors/partials/skill.hbs" skill=skill key=key }}
             {{/each}}

@@ -1,7 +1,7 @@
 {{#each data.damage}}
-    <div class="a5e-box a5e-box--padded">
+    <div class="a5e-box u-p-md">
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{ localize "A5E.DamageLabel" }}
             </h3>
 
@@ -17,13 +17,13 @@
         </div>
 
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{ localize "A5E.DamageType" }}
             </h3>
 
             <div class="a5e-input-container a5e-input-container--inline">
                 <select
-                    class="a5e-select a5e-select--inline"
+                    class="u-w-full"
                     name="data.damage.{{@index}}.damageType"
                 >
                     {{#select (lookup this 'damageType')}}
@@ -38,7 +38,7 @@
         </div>
 
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--reduced-margin">
-            <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                 {{ localize "A5E.DamageFormula" }}
             </h3>
 
@@ -55,7 +55,7 @@
 
         <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
             <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-                <label class="a5e-form__input-label a5e-form__input-label--inline">
+                <label class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                     {{ localize "A5E.DamageDoubleOnCrit"}}
                 </label>
 

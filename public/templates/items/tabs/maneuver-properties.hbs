@@ -4,24 +4,24 @@
         a5e-sheet__tab-content
         a5e-sheet__tab-content--maneuver-properties
         {{#unless (eq currentTab 'maneuverProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
-        a5e-scroll-container
+        u-h-full u-overflow-y-auto
         a5e-js-maneuver-properties-scroll-area
     "
     data-group="item-{{item._id}}"
     data-tab="maneuverProperties"
 >
     <div class="
-        a5e-box a5e-box--padded
+        a5e-box u-p-md
         a5e-form__section
         a5e-form__section--inline a5e-form__section--no-margin
         ">
-        <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
             {{ localize "A5E.ManeuverDegreePrompt" }}
         </h3>
 
         <div class="a5e-input-container a5e-input-container--inline">
             <select
-                class="a5e-select"
+                class="u-w-full"
                 name="data.degree"
                 data-dtype="Number"
             >
@@ -37,9 +37,9 @@
     {{#if item.data.degree}}
         {{> "systems/a5e/templates/items/partials/maneuver-tradition.hbs" config=config item=item}}
 
-        <div class="a5e-box a5e-box--padded">
+        <div class="a5e-box u-p-md">
             <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-                <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+                <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
                     {{localize 'A5E.ItemExertionCost'}}
                 </h3>
 

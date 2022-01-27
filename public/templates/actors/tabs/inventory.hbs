@@ -12,12 +12,14 @@
     data-group="main"
     data-tab="inventory"
 >
-    <section class="a5e-filter-container a5e-box">
-        <h2 class="a5e-heading a5e-heading--filter a5e-heading--center">
+    <section
+        class="u-w-30 u-flex-shrink-0 u-font-secondary u-flex u-flex-col u-gap-md u-mb-xl u-p-md a5e-box"
+    >
+        <h2 class="a5e-heading a5e-heading--filter u-text-center">
             {{ localize "A5E.Filters" }}
         </h2>
 
-        <div class="a5e-filter-container__filter-list a5e-scroll-container">
+        <div class="u-flex u-flex-col u-gap-md u-p-md u-h-full u-overflow-y-auto">
             <div>
                 {{>
                     "systems/a5e/templates/actors/partials/filter-header.hbs"
@@ -50,16 +52,17 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'item-rarity')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'item-rarity')}}u-hidden{{/unless}}"
                     data-filter-category="item-rarity"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         {{#each config.itemRarity as | rarity key |}}
                             <li
                                 class="
                                     a5e-tag
-                                    a5e-tag--small
-                                    a5e-tag--clickable
+                                    a5e-tag--tight
+                                    .u-pointer
                                     {{#if (contains ../filters.itemRarity.inclusive key)}}''
                                     {{else if (contains ../filters.itemRarity.exclusive key)}}
                                         a5e-tag--red
@@ -90,15 +93,16 @@
             }}
 
                 <div
-                    class="{{#unless (contains expandedFilterCategories 'item-miscellaneous')}}a5e-u-hidden{{/unless}}"
+                    class="{{#unless (contains expandedFilterCategories 'item-miscellaneous')}}u-hidden{{/unless}}"
                     data-filter-category="item-miscellaneous"
                 >
-                    <ul class="a5e-tag-group a5e-tag-group--filter">
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.itemMiscellaneous.inclusive 'attuned')}}''
                                 {{else if (contains filters.itemMiscellaneous.exclusive 'attuned')}}
                                     a5e-tag--red
@@ -117,8 +121,8 @@
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.itemMiscellaneous.inclusive 'bulky')}}''
                                 {{else if (contains filters.itemMiscellaneous.exclusive 'bulky')}}
                                     a5e-tag--red
@@ -137,8 +141,8 @@
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.itemMiscellaneous.inclusive 'equipped')}}''
                                 {{else if (contains filters.itemMiscellaneous.exclusive 'equipped')}}a5e-tag--red
                                 {{else}}a5e-tag--inactive
@@ -155,8 +159,8 @@
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.itemMiscellaneous.inclusive 'plotItem')}}''
                                 {{else if (contains filters.itemMiscellaneous.exclusive 'plotItem')}}
                                     a5e-tag--red
@@ -175,8 +179,8 @@
                         <li
                             class="
                                 a5e-tag
-                                a5e-tag--small
-                                a5e-tag--clickable
+                                a5e-tag--tight
+                                .u-pointer
                                 {{#if (contains filters.itemMiscellaneous.inclusive 'requiresAttunement')}}''
                                 {{else if (contains filters.itemMiscellaneous.exclusive 'requiresAttunement')}}
                                     a5e-tag--red
@@ -204,9 +208,13 @@
         </a>
     </section>
 
-    <section class="a5e-items-container a5e-scroll-container a5e-js-inventory-scroll-area">
-        <section class="a5e-item-group">
-            <header class="a5e-header">
+    <section
+        class="u-flex u-flex-col u-flex-grow u-gap-lg u-h-full u-mb-xl u-overflow-y-auto u-pb-xl a5e-js-inventory-scroll-area"
+    >
+        <section>
+            <header
+                class="u-border-b u-border-gray u-flex u-justify-space-between u-mr-xl u-mb-md u-pb-md u-px-md"
+            >
                 <h3 class="a5e-heading a5e-heading--item-group">
                     {{ localize "A5E.TabInventory" }}
                 </h3>
@@ -216,13 +224,14 @@
                 </a>
             </header>
 
-            <ul class="a5e-item-list">
+            <ul
+                class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
                 {{#each items}}
                     <li
                         class="
                             a5e-box
-                            a5e-item-list__item
-                            {{#if this.data.equipped}}a5e-box--green{{/if}}
+                            a5e-item
+                            {{#if this.data.equipped}}u-bg-light-green{{/if}}
                             a5e-js-item
                         "
                         data-id="{{this._id}}"
@@ -241,16 +250,17 @@
                         </span>
 
                         {{#if this.data.inlineLabels.length}}
-                            <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                            <div class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
                                 {{#each this.data.inlineLabels}}
-                                    <div class="a5e-tag a5e-tag--small">
+                                    <div class="a5e-tag a5e-tag--tight">
                                         {{this}}
                                     </div>
                                 {{/each}}
                             </div>
                         {{/if}}
 
-                        <div class="a5e-item-list__item-details">
+                        <div class="a5e-item__details">
                             <hr class="a5e-rule">
 
                             {{#if this.data.description}}
@@ -291,7 +301,7 @@
 
     {{#unless (eq actorType "npc")}}
         <footer class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--inventory">
-            <div class="a5e-footer-group">
+            <div class="u-align-center u-flex u-gap-md u-text-md">
                 <h3 class="a5e-footer-group__label">
                     {{localize "A5E.Attunement"}}
                 </h3>
@@ -312,8 +322,8 @@
                 >
             </div>
 
-            <div class="a5e-footer-group">
-                <div class="a5e-footer-group">
+            <div class="u-align-center u-flex u-gap-md u-text-md">
+                <div class="u-align-center u-flex u-gap-md u-text-md">
                     <h3 class="a5e-footer-group__label">
                         {{localize "A5E.Supply"}}
                     </h3>
@@ -330,15 +340,15 @@
                 </div>
             </div>
 
-            <div class="a5e-footer-group">
+            <div class="u-align-center u-flex u-gap-md u-text-md">
                 <h3 class="a5e-footer-group__label">
                     {{localize "A5E.Currency"}}
                     <i class="fas fa-coins"></i>
                 </h3>
 
-                <ol class="a5e-currency-list">
+                <ol class="u-flex u-gap-lg u-list-style-none u-ml-xl u-p-0 ">
                     {{#each currency as |value key|}}
-                        <li class="a5e-currency-list__item">
+                        <li class="u-align-center u-flex u-gap-md u-text-serif">
                             <label
                                 class="a5e-footer-group__label a5e-footer-group__label--currency">
                                 {{ key }}

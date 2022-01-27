@@ -10,7 +10,7 @@
             data-edit="img"
         />
 
-        <div class="a5e-sheet-header__name-container">
+        <div class="u-flex-grow">
             <input
                 class="a5e-input a5e-input--character-name"
                 name="name"
@@ -22,14 +22,14 @@
     </header>
 
     <nav
-        class="a5e-sheet-tabs"
+        class="u-flex"
         data-group="item-{{item._id}}"
     >
         <a
             class="
-                a5e-sheet-tabs__tab
+                a5e-tab
                 a5e-js-sheet-tab
-                {{#if (eq currentTab 'description')}}a5e-sheet-tabs__tab--active{{/if}}
+                {{#if (eq currentTab 'description')}}a5e-tab--active{{/if}}
             "
             data-tab="description"
         >
@@ -38,9 +38,9 @@
 
         <a
             class="
-                a5e-sheet-tabs__tab
+                a5e-tab
                 a5e-js-sheet-tab
-                {{#if (eq currentTab 'objectProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+                {{#if (eq currentTab 'objectProperties')}}a5e-tab--active{{/if}}
             "
             data-tab="objectProperties"
         >
@@ -50,9 +50,9 @@
         {{#if (eq data.objectType 'ammunition')}}
             <a
                 class="
-                    a5e-sheet-tabs__tab
+                    a5e-tab
                     a5e-js-sheet-tab
-                    {{#if (eq currentTab 'ammunitionProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+                    {{#if (eq currentTab 'ammunitionProperties')}}a5e-tab--active{{/if}}
                 "
                 data-tab="ammunitionProperties"
             >
@@ -63,9 +63,9 @@
         {{#if (eq data.objectType 'armor')}}
             <a
                 class="
-                    a5e-sheet-tabs__tab
+                    a5e-tab
                     a5e-js-sheet-tab
-                    {{#if (eq currentTab 'armorProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+                    {{#if (eq currentTab 'armorProperties')}}a5e-tab--active{{/if}}
                 "
                 data-tab="armorProperties"
             >
@@ -76,9 +76,9 @@
         {{#if (eq data.objectType 'weapon')}}
             <a
                 class="
-                    a5e-sheet-tabs__tab
+                    a5e-tab
                     a5e-js-sheet-tab
-                    {{#if (eq currentTab 'weaponProperties')}}a5e-sheet-tabs__tab--active{{/if}}
+                    {{#if (eq currentTab 'weaponProperties')}}a5e-tab--active{{/if}}
                 "
                 data-tab="weaponProperties"
             >
@@ -88,38 +88,42 @@
 
         <a
             class="
-                a5e-sheet-tabs__tab
+                a5e-tab
                 a5e-js-sheet-tab
-                {{#if (eq currentTab 'details')}}a5e-sheet-tabs__tab--active{{/if}}
+                {{#if (eq currentTab 'details')}}a5e-tab--active{{/if}}
             "
             data-tab="details"
         >
             {{ localize "A5E.TabDetails" }}
         </a>
 
-        <div class="a5e-sheet-tabs__filler"></div>
+        <div class="u-border-b u-border-gray u-w-full"></div>
     </nav>
 
-    <section class="a5e-u-y-overflow-hidden a5e-u-height-full a5e-js-sheet-body">
-        <section
-            class="
-                a5e-js-sheet-page
-                a5e-sheet__tab-content
-                a5e-sheet__tab-content--item-details
-                a5e-scroll-container
-                a5e-js-item-description-scroll-area
-                {{#unless (eq currentTab 'description')}}a5e-sheet__tab-content--hidden{{/unless}}
-            "
-            data-group="item-{{item._id}}"
-            data-tab="description"
-        >
-            {{ editor content=data.description target="data.description" button=true owner=true editable=true }}
-        </section>
-
+    <section class="u-overflow-y-hidden u-h-full a5e-js-sheet-body">
+        {{#if (eq currentTab 'description')}}
+            <section
+                class="
+                    a5e-sheet__tab-content
+                    a5e-sheet__tab-content--item-details
+                    u-h-full u-overflow-y-auto
+                    a5e-js-sheet-page
+                    a5e-js-item-description-scroll-area
+                "
+                data-group="item-{{item._id}}"
+                data-tab="description"
+            >
+                {{ editor content=data.description target="data.description" button=true owner=true editable=true }}
+            </section>
+        {{/if}}
+        <!--
         {{> "systems/a5e/templates/items/tabs/object-properties.hbs" config=config currentTab=currentTab item=item}}
         {{> "systems/a5e/templates/items/tabs/ammunition-properties.hbs" config=config currentTab=currentTab item=item}}
         {{> "systems/a5e/templates/items/tabs/armor-properties.hbs" config=config currentTab=currentTab item=item}}
-        {{> "systems/a5e/templates/items/tabs/weapon-properties.hbs" config=config currentTab=currentTab item=item}}
-        {{> "systems/a5e/templates/items/tabs/details.hbs" config=config currentTab=currentTab item=item}}
+        {{> "systems/a5e/templates/items/tabs/weapon-properties.hbs" config=config currentTab=currentTab item=item}} -->
+
+        {{#if (eq currentTab 'details')}}
+            {{> "systems/a5e/templates/items/tabs/details.hbs" config=config item=item}}
+        {{/if}}
     </section>
 </form>

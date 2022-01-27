@@ -1,6 +1,12 @@
 <h3
     class="
-        a5e-form__input-label
+        u-align-center
+        u-flex
+        u-gap-md
+        u-mb-0
+        u-pointer
+        u-text-bold
+        u-text-sm
         a5e-form__input-label--filter
         {{#if (contains expandedFilterCategories filterCategory)}}a5e-form__input-label--active-filter{{/if}}
         a5e-js-toggle-filter-category-visibility
@@ -9,15 +15,16 @@
 >
     {{localize heading}}
 
-    <ul class="a5e-tag-group a5e-tag-group--small">
+    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
         {{#if inclusiveCount}}
-            <li class="a5e-tag a5e-tag--small">
+            <li class="a5e-tag a5e-tag--tight">
                 {{inclusiveCount}}
             </li>
         {{/if}}
 
         {{#if exclusiveCount}}
-            <li class="a5e-tag a5e-tag--red a5e-tag--small">
+            <li class="a5e-tag a5e-tag--red a5e-tag--tight">
                 {{exclusiveCount}}
             </li>
         {{/if}}

@@ -2,7 +2,7 @@
     class="
         a5e-sheet__tab-content
         a5e-sheet__tab-content--core
-        a5e-scroll-container
+        u-h-full u-overflow-y-auto
         {{#unless (eq currentTab 'core')}}a5e-sheet__tab-content--hidden{{/unless}}
         a5e-js-sheet-page
         a5e-js-core-features-scroll-area
@@ -10,9 +10,9 @@
     data-group="main"
     data-tab="core"
 >
-    <section class="a5e-npc-core-details">
-        <div class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+    <section class="u-gap-md u-grid u-grid-3 u-h-fit  u-span-2">
+        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.DamageResistances" }}
             </h2>
 
@@ -25,19 +25,20 @@
             ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                 {{#if damageResistances }}
                     {{#each damageResistances}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
                 {{/if}}
             </ul>
         </div>
 
-        <div class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.DamageImmunities" }}
             </h2>
 
@@ -50,19 +51,20 @@
                 ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                 {{#if damageImmunities }}
                     {{#each damageImmunities}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
                 {{/if}}
             </ul>
         </div>
 
-        <div class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.DamageVulnerabilities" }}
             </h2>
 
@@ -75,19 +77,20 @@
             ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                 {{#if damageVulnerabilities }}
                     {{#each damageVulnerabilities}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
                 {{/if}}
             </ul>
         </div>
 
-        <div class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.SensesSpecial" }}
             </h2>
 
@@ -100,21 +103,22 @@
             ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                 {{#if senses.length}}
                     {{#each senses}}
-                        <li class="a5e-tag a5e-tag--small">{{ this.name }} - {{ this.range }}
+                        <li class="a5e-tag a5e-tag--tight">{{ this.name }} - {{ this.range }}
                             {{ localize "A5E.MeasurementFeetAbbr" }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
                 {{/if}}
             </ul>
         </div>
 
-        <div class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.ConditionImmunities" }}
             </h2>
 
@@ -127,19 +131,20 @@
                 ">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                 {{#if conditionImmunities }}
                     {{#each conditionImmunities}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
                 {{/if}}
             </ul>
         </div>
 
-        <div class="a5e-details-container a5e-box">
-            <h2 class="a5e-heading a5e-heading--details">
+        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
+            <h2 class="u-text-bold u-text-sm">
                 {{ localize "A5E.Languages" }}
             </h2>
 
@@ -147,20 +152,23 @@
                 class="a5e-config-button a5e-config-button--details a5e-js-configure-languages fas fa-cog">
             </i>
 
-            <ul class="a5e-tag-group a5e-tag-group--small">
+            <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                 {{#if data.proficiencies.languages.length}}
                     {{#each data.proficiencies.languages}}
-                        <li class="a5e-tag a5e-tag--small">{{ this }}</li>
+                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
                     {{/each}}
                 {{else}}
-                    <li class="a5e-tag a5e-tag--small">{{ localize "A5E.None" }}</li>
+                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
                 {{/if}}
             </ul>
         </div>
     </section>
 
-    <section class="a5e-item-group a5e-item-group--no-margin">
-        <header class="a5e-header a5e-header--core-features">
+    <section>
+        <header
+            class="u-border-b u-border-gray u-flex u-justify-space-between u-mb-md u-pb-md u-px-md"
+        >
             <h3 class="a5e-heading a5e-heading--item-group">
                 {{ localize "A5E.Weapons" }}
             </h3>
@@ -170,14 +178,15 @@
             </a>
         </header>
 
-        <ul class="a5e-item-list a5e-item-list--no-padding">
+        <ul
+            class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-w-full a5e-js-item-list">
             {{#each weapons}}
                 {{#if (eq this.data.objectType "weapon")}}
                     <li
                         class="
                             a5e-box
-                            a5e-item-list__item
-                            {{#if this.data.equipped}}a5e-box--green{{/if}}
+                            a5e-item
+                            {{#if this.data.equipped}}u-bg-light-green{{/if}}
                             a5e-js-item
                         "
                         data-id="{{this._id}}"
@@ -196,16 +205,17 @@
                         </span>
 
                         {{#if this.data.inlineLabels.length}}
-                            <div class="a5e-tag-group a5e-tag-group--small a5e-u-ml-auto">
+                            <div class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
                                 {{#each this.data.inlineLabels}}
-                                    <div class="a5e-tag a5e-tag--small">
+                                    <div class="a5e-tag a5e-tag--tight">
                                         {{this}}
                                     </div>
                                 {{/each}}
                             </div>
                         {{/if}}
 
-                        <div class="a5e-item-list__item-details">
+                        <div class="a5e-item__details">
                             <hr class="a5e-rule">
 
                             {{#if this.data.description}}
@@ -245,8 +255,10 @@
         </ul>
     </section>
 
-    <section class="a5e-item-group a5e-item-group--no-margin">
-        <header class="a5e-header a5e-header--core-features">
+    <section>
+        <header
+            class="u-border-b u-border-gray u-flex u-justify-space-between u-mb-md u-pb-md u-px-md"
+        >
             <h3 class="a5e-heading a5e-heading--item-group">
                 {{ localize "A5E.TabFeatures" }}
             </h3>
@@ -256,10 +268,11 @@
             </a>
         </header>
 
-        <ul class="a5e-item-list a5e-item-list--no-padding">
+        <ul
+            class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-w-full a5e-js-item-list">
             {{#each features}}
                 <li
-                    class="a5e-item-list__item a5e-box a5e-js-item"
+                    class="a5e-item a5e-box a5e-js-item"
                     data-id="{{this._id}}"
                     data-item-id="{{this._id}}"
                     draggable="true"
@@ -272,7 +285,7 @@
 
                     <span>{{this.name}}</span>
 
-                    <div class="a5e-item-list__item-details">
+                    <div class="a5e-item__details">
                         <hr class="a5e-rule">
 
                         {{#if this.data.description}}

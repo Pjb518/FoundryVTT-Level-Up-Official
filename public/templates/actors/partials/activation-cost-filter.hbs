@@ -1,16 +1,17 @@
 <div
-    class="{{#unless (contains expandedFilterCategories filterCategory)}}a5e-u-hidden{{/unless}}"
+    class="{{#unless (contains expandedFilterCategories filterCategory)}}u-hidden{{/unless}}"
     data-filter-category="{{filterCategory}}"
 >
-    <ul class="a5e-tag-group a5e-tag-group--filter">
+    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
         {{#each config.abilityActivationTypes as | activationCost key |}}
             {{#unless (eq key "lairAction")}}
                 {{#unless (eq key "legendaryAction")}}
                     <li
                         class="
                             a5e-tag
-                            a5e-tag--small
-                            a5e-tag--clickable
+                            a5e-tag--tight
+                            .u-pointer
                             {{#if (contains ../inclusiveFilters key)}}''
                             {{else if (contains ../exclusiveFilters key)}}
                                 a5e-tag--red

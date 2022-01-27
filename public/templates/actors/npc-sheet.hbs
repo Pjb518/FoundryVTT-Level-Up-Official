@@ -76,67 +76,8 @@
             {{> "systems/a5e/templates/actors/partials/health.hbs" hp=data.attributes.hp }}
         </div>
 
-        <div class="a5e-flex-container a5e-u-flex-wrap">
-            <div class="a5e-flex-container a5e-flex-container--align-center">
-                <h2 class="a5e-heading a5e-heading--small">
-                    {{ localize "A5E.Size" }}.
-                </h2>
-
-                <span>
-                    {{#if sizeCategory}}
-                        {{ sizeCategory }}
-                    {{else}}
-                        {{ localize "A5E.None" }}
-                    {{/if}}
-                </span>
-
-                <i class="a5e-config-button a5e-js-configure-size-category fas fa-cog"></i>
-            </div>
-
-            <div class="a5e-flex-container a5e-flex-container--align-center">
-                <h2 class="a5e-heading a5e-heading--small">
-                    {{ localize "A5E.CreatureTypesLabel" }}.
-                </h2>
-
-                {{#if creatureTypes.length}}
-                    <ul class="a5e-tag-group a5e-tag-group--small">
-                        {{#each creatureTypes}}
-                            <li class="a5e-tag a5e-tag--small">
-                                {{ localize this}}
-                            </li>
-                        {{/each}}
-                    </ul>
-                {{else}}
-                    <span>
-                        {{ localize "A5E.None" }}
-
-                    </span>
-                {{/if}}
-
-                <i class="a5e-config-button a5e-js-configure-creature-types fas fa-cog"></i>
-            </div>
-        </div>
-
-        <div class="a5e-flex-container a5e-flex-container--align-center">
-            <h2 class="a5e-heading a5e-heading--small">
-                {{ localize "A5E.MovementSpeed" }}.
-            </h2>
-
-            {{#if movement}}
-                <ul class="a5e-tag-group a5e-tag-group--tight">
-                    {{#each movement}}
-                        <li class="a5e-tag a5e-tag--light">{{ this.name }} - {{ this.speed }}
-                            {{ localize "A5E.MeasurementFeetAbbr" }}
-                        </li>
-                    {{/each}}
-                </ul>
-            {{/if}}
-
-            <i class="a5e-config-button a5e-js-configure-movement fas fa-cog"></i>
-        </div>
-
-        <div class="a5e-sheet-header__primary-details">
-            <div class="a5e-sheet-header__name-container a5e-sheet-header__name-container--npc">
+        <div class="u-flex u-gap-xl">
+            <div class="u-flex-grow u-flex-grow--npc">
                 <input
                     type="text"
                     name="name"
@@ -170,9 +111,78 @@
             </div>
         </div>
 
-        <ul class="a5e-primary-attributes">
-            <li class="a5e-ability-score a5e-box">
-                <h4 class="a5e-ability-score__label">{{ localize "A5E.ArmorClassAbbr" }}</h4>
+        <div class="u-flex u-flex-wrap u-gap-md">
+            <div class="u-flex u-gap-md u-align-center ">
+                <h2 class="a5e-heading a5e-heading--small">
+                    {{ localize "A5E.Size" }}.
+                </h2>
+
+                <span>
+                    {{#if sizeCategory}}
+                        {{ sizeCategory }}
+                    {{else}}
+                        {{ localize "A5E.None" }}
+                    {{/if}}
+                </span>
+
+                <i class="a5e-config-button a5e-js-configure-size-category fas fa-cog"></i>
+            </div>
+
+            <div class="u-flex u-gap-md u-align-center ">
+                <h2 class="a5e-heading a5e-heading--small">
+                    {{ localize "A5E.CreatureTypesLabel" }}.
+                </h2>
+
+                {{#if creatureTypes.length}}
+                    <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
+                        {{#each creatureTypes}}
+                            <li class="a5e-tag a5e-tag--tight">
+                                {{ localize this}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <span>
+                        {{ localize "A5E.None" }}
+
+                    </span>
+                {{/if}}
+
+                <i class="a5e-config-button a5e-js-configure-creature-types fas fa-cog"></i>
+            </div>
+        </div>
+
+        <div class="u-flex u-gap-md u-align-center ">
+            <h2 class="a5e-heading a5e-heading--small">
+                {{ localize "A5E.MovementSpeed" }}.
+            </h2>
+
+            {{#if movement}}
+                <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-sm">
+                    {{#each movement}}
+                        <li class="a5e-tag a5e-tag--light">{{ this.name }} - {{ this.speed }}
+                            {{ localize "A5E.MeasurementFeetAbbr" }}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+
+            <i class="a5e-config-button a5e-js-configure-movement fas fa-cog"></i>
+        </div>
+
+        <ul class="u-flex u-font-serif u-gap-md u-list-style-none u-m-0 u-pl-0">
+            <li class="
+                u-align-center
+                u-bg-gray
+                u-flex
+                u-flex-col
+                u-justify-space-between
+                u-py-xs u-rounded
+                u-w-full
+            ">
+                <h4 class="u-text-lg">{{ localize "A5E.ArmorClassAbbr" }}</h4>
 
                 <input
                     class="a5e-ability-score__value a5e-ability-score__value--ac"
@@ -184,8 +194,16 @@
                 />
             </li>
 
-            <li class="a5e-ability-score a5e-box">
-                <h4 class="a5e-ability-score__label">{{ localize "A5E.Initiative" }}</h4>
+            <li class="
+                u-align-center
+                u-bg-gray
+                u-flex
+                u-flex-col
+                u-justify-space-between
+                u-py-xs u-rounded
+                u-w-full
+            ">
+                <h4 class="u-text-lg">{{ localize "A5E.Initiative" }}</h4>
 
                 <i class="a5e-initiative-button a5e-js-roll-initiative fas fa-dice-d20"></i>
 
@@ -205,13 +223,13 @@
     </header>
 
     <nav
-        class="a5e-sheet-tabs"
+        class="u-flex"
         data-group="main"
     >
         <a
             class="
-                a5e-sheet-tabs__tab
-                {{#if (eq currentTab 'core')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-tab
+                {{#if (eq currentTab 'core')}}a5e-tab--active{{/if}}
                 a5e-js-sheet-tab
             "
             data-tab="core"
@@ -221,8 +239,8 @@
 
         <a
             class="
-                a5e-sheet-tabs__tab
-                {{#if (eq currentTab 'attributes')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-tab
+                {{#if (eq currentTab 'attributes')}}a5e-tab--active{{/if}}
                 a5e-js-sheet-tab
             "
             data-tab="skills"
@@ -232,8 +250,8 @@
 
         <a
             class="
-                a5e-sheet-tabs__tab
-                {{#if (eq currentTab 'inventory')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-tab
+                {{#if (eq currentTab 'inventory')}}a5e-tab--active{{/if}}
                 a5e-js-sheet-tab
             "
             data-tab="inventory"
@@ -243,8 +261,8 @@
 
         <a
             class="
-                a5e-sheet-tabs__tab
-                {{#if (eq currentTab 'spells')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-tab
+                {{#if (eq currentTab 'spells')}}a5e-tab--active{{/if}}
                 a5e-js-sheet-tab
             "
             data-tab="spells"
@@ -254,8 +272,8 @@
 
         <a
             class="
-                a5e-sheet-tabs__tab
-                {{#if (eq currentTab 'notes')}}a5e-sheet-tabs__tab--active{{/if}}
+                a5e-tab
+                {{#if (eq currentTab 'notes')}}a5e-tab--active{{/if}}
                 a5e-js-sheet-tab
             "
             data-tab="notes"
@@ -263,11 +281,11 @@
             {{ localize "A5E.TabNotes" }}
         </a>
 
-        <div class="a5e-sheet-tabs__filler"></div>
+        <div class="u-border-b u-border-gray u-w-full"></div>
 
     </nav>
 
-    <section class="a5e-sheet__body-container">
+    <section class="u-h-full u-overflow-y-hidden">
         {{>
             "systems/a5e/templates/actors/tabs/core.hbs"
             features=items.features
@@ -293,7 +311,7 @@
             class="
                 a5e-sheet__tab-content
                 a5e-sheet__tab-content--skills
-                a5e-scroll-container
+                u-h-full u-overflow-y-auto
                 {{#unless (eq currentTab 'skills')}}a5e-sheet__tab-content--hidden{{/unless}}
                 a5e-js-sheet-page
                 a5e-js-skills-scroll-area
@@ -301,7 +319,7 @@
             data-group="main"
             data-tab="skills"
         >
-            <ul class="a5e-skill-container a5e-skill-container--triple">
+            <ul class="u-flex-shrink-0 u-gap-sm u-grid u-grid-3 u-list-style-none u-m-0 u-p-0">
                 {{#each data.skills as |skill key|}}
                     {{>
                         "systems/a5e/templates/actors/partials/skill.hbs"
@@ -328,7 +346,7 @@
             class="
                 a5e-sheet__tab-content
                 a5e-sheet__tab-content--npc-notes
-                a5e-scroll-container
+                u-h-full u-overflow-y-auto
                 {{#unless (eq currentTab 'notes')}}a5e-sheet__tab-content--hidden{{/unless}}
                 a5e-js-sheet-page
                 a5e-js-notes-scroll-area
@@ -336,7 +354,7 @@
             data-group="main"
             data-tab="notes"
         >
-            <div class="a5e-u-flex a5e-u-flex--column">
+            <div class="u-flex u-flex-col">
                 <h3 class="a5e-heading">{{localize "A5E.DetailsNotes"}}</h3>
 
                 {{
@@ -347,7 +365,7 @@
                 }}
             </div>
 
-            <div class="a5e-u-flex a5e-u-flex--column">
+            <div class="u-flex u-flex-col">
                 <h3 class="a5e-heading">{{localize "A5E.DetailsNotesPrivate"}}</h3>
 
                 {{

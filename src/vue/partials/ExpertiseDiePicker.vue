@@ -1,14 +1,14 @@
 <template>
   <section class="a5e-form__section">
-    <h3 class="a5e-form__input-label">{{ heading }}</h3>
+    <h3 class="u-text-bold u-text-sm">{{ heading }}</h3>
 
-    <div class="a5e-radio-group a5e-radio-group--expertise">
+    <div class="u-flex u-gap-md u-text-sm a5e-radio-group--expertise">
       <template
         v-for="value in expertiseDice"
         :key="appId + baseId + (value.id || value.name)"
       >
         <input
-          class="a5e-u-hidden"
+          class="u-hidden"
           type="radio"
           :name="appId + baseId + value.name"
           :value="value.value"

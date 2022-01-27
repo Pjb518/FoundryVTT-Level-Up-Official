@@ -1,14 +1,14 @@
 <template>
   <section class="a5e-form__section">
-    <h3 v-if="heading" class="a5e-form__input-label">{{ heading }}</h3>
+    <h3 v-if="heading" class="u-text-bold u-text-sm">{{ heading }}</h3>
 
-    <div class="a5e-radio-group">
+    <div class="a5e-radio-group u-flex u-gap-md u-text-sm">
       <template
         v-for="value in values"
         :key="baseId + (value.id || value.name)"
       >
         <input
-          class="a5e-u-hidden"
+          class="u-hidden"
           type="radio"
           :name="baseId + value.name"
           :value="value.value"

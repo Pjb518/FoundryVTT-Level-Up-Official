@@ -4,22 +4,22 @@
     a5e-sheet__tab-content
     a5e-sheet__tab-content--spell-properties
     {{#unless (eq currentTab 'spellProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
-    a5e-scroll-container
+    u-h-full u-overflow-y-auto
     a5e-js-spell-properties-scroll-area
   "
   data-group="item-{{item._id}}"
   data-tab="spellProperties"
 >
   <div
-    class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--inline a5e-form__section--no-margin"
+    class="a5e-box u-p-md a5e-form__section a5e-form__section--inline a5e-form__section--no-margin"
   >
-    <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+    <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
       {{ localize "A5E.SpellLevel" }}
     </h3>
 
     <div class="a5e-input-container a5e-input-container--inline">
       <select
-        class="a5e-select"
+        class="u-w-full"
         name="data.level"
         data-dtype="Number"
       >
@@ -32,21 +32,22 @@
     </div>
   </div>
 
-  <div class="a5e-box a5e-box--padded">
+  <div class="a5e-box u-p-md">
     <div class="
       a5e-form__section
       a5e-form__section--inline
       {{#unless item.data.components.material}}a5e-form__section--no-margin{{/unless}}
     ">
-      <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+      <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
         {{ localize "A5E.SpellComponents" }}
       </h3>
 
-      <ul class="a5e-tag-group a5e-tag-group--inline">
+      <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-align-self-end">
         <li
           class="
           a5e-tag
-          a5e-tag--clickable
+          .u-pointer
           {{#unless item.data.components.vocalized }}a5e-tag--inactive{{/unless}}
           a5e-js-toggle-spell-component
         "
@@ -58,7 +59,7 @@
         <li
           class="
           a5e-tag
-          a5e-tag--clickable
+          .u-pointer
           {{#unless item.data.components.seen }}a5e-tag--inactive{{/unless}}
           a5e-js-toggle-spell-component
         "
@@ -70,7 +71,7 @@
         <li
           class="
         a5e-tag
-        a5e-tag--clickable
+        .u-pointer
         {{#unless item.data.components.material }}a5e-tag--inactive{{/unless}}
         a5e-js-toggle-spell-component
       "
@@ -81,7 +82,7 @@
 
         <li class="
         a5e-tag
-        a5e-tag--clickable
+        .u-pointer
         {{#unless item.data.concentration }}a5e-tag--inactive{{/unless}}
         a5e-js-toggle-concentration-requirement
       ">
@@ -90,7 +91,7 @@
 
         <li class="
         a5e-tag
-        a5e-tag--clickable
+        .u-pointer
         {{#unless item.data.ritual }}a5e-tag--inactive{{/unless}}
         a5e-js-toggle-ritual-tag
       ">
@@ -101,7 +102,7 @@
 
     {{#if item.data.components.material }}
       <div class="a5e-form__section a5e-form__section--inline a5e-form__section--no-margin">
-        <h3 class="a5e-form__input-label a5e-form__input-label--inline">
+        <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
           {{localize "A5E.SpellMaterials"}}
         </h3>
 

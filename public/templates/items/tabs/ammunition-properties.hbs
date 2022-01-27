@@ -4,21 +4,22 @@
         a5e-sheet__tab-content
         a5e-sheet__tab-content--object-properties
         {{#unless (eq currentTab 'ammunitionProperties')}}a5e-sheet__tab-content--hidden{{/unless}}
-        a5e-scroll-container
+        u-h-full u-overflow-y-auto
         a5e-js-ammunition-properties-scroll-area
     "
     data-group="item-{{item._id}}"
     data-tab="ammunitionProperties"
 >
-    <div class="a5e-box a5e-box--padded a5e-form__section a5e-form__section--no-margin">
-        <h3 class="a5e-form__input-label">{{ localize "A5E.AmmunitionProperties" }}</h3>
+    <div class="a5e-box u-p-md a5e-form__section a5e-form__section--no-margin">
+        <h3 class="u-text-bold u-text-sm">{{ localize "A5E.AmmunitionProperties" }}</h3>
 
-        <ul class="a5e-tag-group">
+        <ul class="u-flex u-flex-wrap u-font-san-serif
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs">
             {{#each config.ammunitionProperties as | property key |}}
                 <li
                     class="
                         a5e-tag
-                        a5e-tag--clickable
+                        .u-pointer
                         {{#unless (contains ../item.data.ammunitionProperties key)}}a5e-tag--inactive{{/unless}}
                         a5e-js-toggle-ammunition-property
                     "

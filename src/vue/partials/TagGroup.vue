@@ -1,17 +1,28 @@
 <template>
   <section class="a5e-form__section">
-    <div class="a5e-form__label-container">
-      <h3 class="a5e-form__input-label a5e-u-mb-none">
+    <div class="u-align-center u-flex u-gap-md u-mb-md u-text-xs">
+      <h3 class="u-text-bold u-text-sm u-mb-0">
         {{ heading }}
       </h3>
 
       <a @click="toggleAll"> + Toggle All </a>
     </div>
 
-    <ul class="a5e-tag-group">
+    <ul
+      class="
+        u-flex
+        u-flex-wrap
+        u-font-san-serif
+        u-gap-md
+        u-list-style-none
+        u-m-0
+        u-p-0
+        u-text-xs
+      "
+    >
       <li
         v-for="[key, value] in tags"
-        class="a5e-tag a5e-tag--clickable"
+        class="a5e-tag .u-pointer"
         :class="{ 'a5e-tag--inactive': !selected.includes(key) }"
         @click="toggleTag(key)"
         :key="key"

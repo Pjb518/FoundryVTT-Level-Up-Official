@@ -2,7 +2,6 @@
   min-width: 20rem;
   padding: 0.75rem 1rem;
   background: rgba(246, 242, 235, 0.6);
-  font-family: $font-primary, 'Modesto Condensed';
 
   &--reactive-dialog {
     max-width: 26rem;
@@ -10,7 +9,6 @@
 
   &__section {
     margin-bottom: 1rem;
-    font-family: $font-primary, 'Modesto Condensed';
 
     &--inline {
       display: flex;
@@ -28,31 +26,12 @@
       margin-bottom: 0;
     }
 
-    &--bio {
-      display: flex;
-      width: 100%;
-      flex-grow: 1;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0;
-      gap: 0.5rem;
-    }
-
     &--bio-wrapper {
       display: grid;
       gap: 0.5rem 2rem;
       grid-area: details;
       grid-template-columns: repeat(4, 1fr);
     }
-  }
-
-  &__label-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    font-family: $font-secondary;
-    font-size: $font-size-xs;
-    gap: 0.5rem;
   }
 
   &__hint {
@@ -63,17 +42,7 @@
   }
 
   &__input-label {
-    font-family: $font-secondary;
-    font-size: $font-size-sm;
-    font-weight: 700;
-
     &--filter {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0;
-      cursor: pointer;
-      gap: 0.5rem;
-
       &::before {
         content: '\002B';
       }
@@ -81,15 +50,6 @@
 
     &--active-filter::before {
       content: '\2212';
-    }
-
-    &--extra-space {
-      margin-bottom: 0.75rem;
-    }
-
-    &--inline {
-      flex-shrink: 0;
-      margin-bottom: 0;
     }
   }
 }

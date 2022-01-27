@@ -76,8 +76,8 @@ export default class ActorSheet5e extends ActorSheet {
     const sheet = $(`[data-appid=${this.appId}]`);
 
     // Mark the clicked tab as the active tab.
-    sheet.find('.a5e-js-sheet-tab').removeClass('a5e-sheet-tabs__tab--active');
-    sheet.find(`.a5e-js-sheet-tab[data-tab='${target}']`).addClass('a5e-sheet-tabs__tab--active');
+    sheet.find('.a5e-js-sheet-tab').removeClass('a5e-tab--active');
+    sheet.find(`.a5e-js-sheet-tab[data-tab='${target}']`).addClass('a5e-tab--active');
 
     // Hide all of the sheet pages.
     const pageGroup = sheet.find(`.a5e-js-sheet-page[data-group='${group}']`);
@@ -217,24 +217,24 @@ export default class ActorSheet5e extends ActorSheet {
     const item = event.currentTarget;
 
     if (event.which === 1) {
-      const ignoreTarget = $(event.target).hasClass('a5e-item-list__item-details')
+      const ignoreTarget = $(event.target).hasClass('a5e-item__details')
         || $(event.target).hasClass('a5e-context-menu')
         || $(event.target).hasClass('a5e-context-menu__option')
         || $(event.target).hasClass('a5e-js-activate-item')
-        || $(event.target).closest('.a5e-item-list__item-details').length;
+        || $(event.target).closest('.a5e-item__details').length;
 
       if (ignoreTarget) return;
 
-      const expanded = $(item).find('.a5e-item-list__item-details--visible').length;
+      const expanded = $(item).find('.a5e-item__details--visible').length;
 
       $('.a5e-js-item')
-        .find('.a5e-item-list__item-details')
-        .removeClass('a5e-item-list__item-details--visible');
+        .find('.a5e-item__details')
+        .removeClass('a5e-item__details--visible');
 
       if (!expanded) {
         $(item)
-          .find('.a5e-item-list__item-details')
-          .addClass('a5e-item-list__item-details--visible');
+          .find('.a5e-item__details')
+          .addClass('a5e-item__details--visible');
       }
     } else if (event.which === 3) {
       $('.a5e-js-item')

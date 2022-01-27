@@ -7,8 +7,8 @@
     }"
   >
     <h3
-      class="a5e-form__input-label"
-      :class="{ 'a5e-form__input-label--inline': inline }"
+      class="u-text-bold u-text-sm"
+      :class="{ 'u-flex-shrink-0 u-mb-0': inline }"
     >
       {{ heading }}
     </h3>

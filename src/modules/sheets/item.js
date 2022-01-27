@@ -122,8 +122,8 @@ export default class ItemSheet5e extends ItemSheet {
     const sheet = $(`[data-appid=${this.appId}]`);
 
     // Mark the clicked tab as the active tab.
-    sheet.find('.a5e-js-sheet-tab').removeClass('a5e-sheet-tabs__tab--active');
-    sheet.find(`.a5e-js-sheet-tab[data-tab='${target}']`).addClass('a5e-sheet-tabs__tab--active');
+    sheet.find('.a5e-js-sheet-tab').removeClass('a5e-tab--active');
+    sheet.find(`.a5e-js-sheet-tab[data-tab='${target}']`).addClass('a5e-tab--active');
 
     // Hide all of the sheet pages.
     const pageGroup = sheet.find(`.a5e-js-sheet-page[data-group='${group}']`);
@@ -134,6 +134,7 @@ export default class ItemSheet5e extends ItemSheet {
     page.removeClass('a5e-sheet__tab-content--hidden');
 
     this.options.currentTab = target;
+    this.render(false);
   }
 
   _onAddDamageSource(event) {

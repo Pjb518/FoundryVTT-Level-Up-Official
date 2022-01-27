@@ -1,19 +1,110 @@
-.a5e-u-flex {
-  display: flex;
-}
-
-.a5e-u-flex--align-centre {
-  align-items: center;
-}
-
-.a5e-u-flex--column {
-  flex-direction: column;
-}
-
-.a5e-u-flex-wrap {
-  flex-wrap: wrap;
-}
-
-.a5e-u-hidden {
+.u-hidden {
   display: none;
+}
+
+
+// Flex
+
+.u-flex {
+  display: flex;
+
+  &-col {
+    flex-direction: column;
+  }
+
+  &-grow {
+    flex-grow: 1;
+  }
+
+  &-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.u-align {
+  &-center {
+    align-items: center;
+  }
+
+  &-self {
+    &-end {
+      align-self: flex-end;
+    }
+  }
+}
+
+.u-justify {
+  &-center {
+    justify-content: center;
+  }
+
+  &-space-around {
+    justify-content: space-around;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+}
+
+.u-place-items-center {
+  place-items: center;
+}
+
+
+// Flex and grid spacing
+
+.u-gap {
+  &-xs {
+    gap: 0.125rem;
+  }
+
+  &-sm {
+    gap: 0.25rem;
+  }
+
+  &-md {
+    gap: 0.5rem;
+  }
+
+  &-lg {
+    gap: 1rem;
+  }
+
+  &-xl {
+    gap: 1.5rem;
+  }
+}
+
+
+// Grid
+
+$grid-sizes: 2, 3, 4, 6, 12;
+
+.u-grid {
+  display: grid;
+
+  @each $size in $grid-sizes {
+    &-#{$size} {
+      grid-template-columns: repeat($size, 1fr);
+    }
+  }
+}
+
+.u-span {
+  &-2 {
+    grid-column: span 2;
+  }
+
+  &-3 {
+    grid-column: span 3;
+  }
+
+  &-4 {
+    grid-column: span 4;
+  }
 }
