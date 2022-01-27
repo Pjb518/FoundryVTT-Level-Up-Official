@@ -1,7 +1,11 @@
 <template>
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
     <section>
-      <h2 class="a5e-heading a5e-heading--form">Ability Check Configuration</h2>
+      <h2
+        class="u-border-none u-font-serif u-text-lg u-w-full u-mb-lg u-text-xl"
+      >
+        Ability Check Configuration
+      </h2>
 
       <expertise-die-picker
         :appId="appId"
@@ -29,7 +33,11 @@
     <hr />
 
     <section>
-      <h2 class="a5e-heading a5e-heading--form">Saving Throw Configuration</h2>
+      <h2
+        class="u-border-none u-font-serif u-text-lg u-w-full u-mb-lg u-text-xl"
+      >
+        Saving Throw Configuration
+      </h2>
 
       <radio-group
         heading="A5E.Proficiency"
