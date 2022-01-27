@@ -21,15 +21,13 @@
             <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if senses.length}}
                     {{#each senses}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ this.name }} - {{ this.range }}
                             {{ localize "A5E.MeasurementFeetAbbr" }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li
-                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                    <li class="a5e-tag a5e-tag--tight">
                         {{ localize "A5E.None" }}
                     </li>
                 {{/if}}
@@ -53,14 +51,12 @@
             <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if damageResistances }}
                     {{#each damageResistances}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ this }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li
-                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                    <li class="a5e-tag a5e-tag--tight">
                         {{ localize "A5E.None" }}
                     </li>
                 {{/if}}
@@ -84,14 +80,12 @@
             <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if damageImmunities }}
                     {{#each damageImmunities}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ this }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li
-                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                    <li class="a5e-tag a5e-tag--tight">
                         {{ localize "A5E.None" }}
                     </li>
                 {{/if}}
@@ -115,14 +109,12 @@
             <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if damageVulnerabilities }}
                     {{#each damageVulnerabilities}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ this }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li
-                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                    <li class="a5e-tag a5e-tag--tight">
                         {{ localize "A5E.None" }}
                     </li>
                 {{/if}}
@@ -146,14 +138,12 @@
             <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if conditionImmunities }}
                     {{#each conditionImmunities}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ this }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li
-                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                    <li class="a5e-tag a5e-tag--tight">
                         {{ localize "A5E.None" }}
                     </li>
                 {{/if}}
@@ -173,14 +163,12 @@
                 <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                     {{#if data.proficiencies.armor.length }}
                         {{#each data.proficiencies.armor}}
-                            <li
-                                class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            <li class="a5e-tag a5e-tag--tight">
                                 {{ this }}
                             </li>
                         {{/each}}
                     {{else}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ localize "A5E.None" }}
                         </li>
                     {{/if}}
@@ -199,14 +187,12 @@
                 <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                     {{#if data.proficiencies.weapons.length}}
                         {{#each data.proficiencies.weapons}}
-                            <li
-                                class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            <li class="a5e-tag a5e-tag--tight">
                                 {{ this }}
                             </li>
                         {{/each}}
                     {{else}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ localize "A5E.None" }}
                         </li>
                     {{/if}}
@@ -225,14 +211,12 @@
                 <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                     {{#if data.proficiencies.tools.length}}
                         {{#each data.proficiencies.tools}}
-                            <li
-                                class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                            <li class="a5e-tag a5e-tag--tight">
                                 {{ this }}
                             </li>
                         {{/each}}
                     {{else}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ localize "A5E.None" }}
                         </li>
                     {{/if}}
@@ -252,14 +236,12 @@
             <ul class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xxs">
                 {{#if data.proficiencies.languages.length}}
                     {{#each data.proficiencies.languages}}
-                        <li
-                            class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                        <li class="a5e-tag a5e-tag--tight">
                             {{ this }}
                         </li>
                     {{/each}}
                 {{else}}
-                    <li
-                        class="u-bg-green u-border u-border-green u-px-sm u-py-xxxs u-rounded u-text-light">
+                    <li class="a5e-tag a5e-tag--tight">
                         {{ localize "A5E.None" }}
                     </li>
                 {{/if}}
