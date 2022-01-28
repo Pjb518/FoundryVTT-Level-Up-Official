@@ -1,12 +1,28 @@
 <section
-    class="a5e-js-sheet-page a5e-sheet__tab-content a5e-sheet__tab-content--features {{#unless (eq currentTab 'features')}}u-hidden{{/unless}}"
+    class="
+        u-flex
+        u-gap-md
+        u-h-full
+        u-pl-lg
+        u-pt-lg
+        {{#unless (eq currentTab 'features')}}u-hidden{{/unless}}
+        a5e-js-sheet-page
+    "
     data-group="main"
     data-tab="features"
 >
 
-    <section
-        class="u-w-30 u-flex-shrink-0 u-font-secondary u-flex u-flex-col u-gap-md u-mb-xl u-p-md a5e-box"
-    >
+    <section class="
+        a5e-box
+        u-flex
+        u-flex-col
+        u-flex-shrink-0
+        u-font-secondary
+        u-gap-md
+        u-mb-lg
+        u-p-md
+        u-w-30
+    ">
         <h2 class="u-border-none u-font-serif u-text-lg u-w-full u-text-center">
             {{ localize "A5E.Filters" }}
         </h2>
@@ -42,9 +58,17 @@
         </a>
     </section>
 
-    <section
-        class="u-flex u-flex-col u-flex-grow u-gap-xl u-h-full u-mb-xl u-overflow-y-auto u-pb-xl a5e-js-features-scroll-area"
-    >
+    <section class="
+        u-flex
+        u-flex-col
+        u-flex-grow
+        u-gap-xl
+        u-h-full
+        u-mb-xl
+        u-overflow-y-auto
+        u-pb-lg
+        a5e-js-features-scroll-area
+    ">
         <section>
             <header
                 class="u-border-b u-border-gray u-flex u-justify-space-between u-mr-xl u-mb-md u-pb-md u-px-md"
@@ -59,7 +83,7 @@
             </header>
 
             <ul
-                class="u-flex u-flex-col u-gap-xs u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
+                class="u-flex u-flex-col u-gap-xs u-list-style-none u-m-0 u-p-0 u-pr-lg u-w-full a5e-js-item-list">
                 {{#each items}}
                     <li
                         class="a5e-item a5e-box a5e-js-item"

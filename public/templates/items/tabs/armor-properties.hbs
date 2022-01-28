@@ -1,7 +1,6 @@
 <section
     class="
         a5e-js-sheet-page
-        a5e-sheet__tab-content
         u-flex u-flex-col u-gap-md u-p-lg
         {{#unless (eq currentTab 'armorProperties')}}u-hidden{{/unless}}
         u-h-full u-overflow-y-auto
@@ -13,8 +12,16 @@
     <div class="a5e-box u-p-md a5e-form__section a5e-form__section--no-margin">
         <h3 class="u-text-bold u-text-sm">{{ localize "A5E.ArmorCategory" }}</h3>
 
-        <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs">
+        <ul class="
+            u-flex
+            u-flex-wrap
+            u-font-san-serif
+            u-gap-md
+            u-list-style-none
+            u-m-0
+            u-p-0
+            u-text-xs
+        ">
             {{#each config.armor as | category key |}}
                 {{#unless (eq key 'shield')}}
                     <li
@@ -36,8 +43,16 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs">
     <div class="a5e-box u-p-md a5e-form__section a5e-form__section--no-margin">
         <h3 class="u-text-bold u-text-sm">{{ localize "A5E.ArmorProperties" }}</h3>
 
-        <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs">
+        <ul class="
+            u-flex
+            u-flex-wrap
+            u-font-san-serif
+            u-gap-md
+            u-list-style-none
+            u-m-0
+            u-p-0
+            u-text-xs
+        ">
             {{#each config.armorProperties as | property key |}}
                 <li
                     class="

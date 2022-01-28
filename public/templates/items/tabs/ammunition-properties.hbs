@@ -1,11 +1,14 @@
 <section
     class="
-        a5e-js-sheet-page
-        a5e-sheet__tab-content
-        u-flex u-flex-col u-gap-md u-p-lg
+        u-flex
+        u-flex-col
+        u-gap-md
+        u-h-full
+        u-p-lg
+        u-overflow-y-auto
         {{#unless (eq currentTab 'ammunitionProperties')}}u-hidden{{/unless}}
-        u-h-full u-overflow-y-auto
         a5e-js-ammunition-properties-scroll-area
+        a5e-js-sheet-page
     "
     data-group="item-{{item._id}}"
     data-tab="ammunitionProperties"
@@ -13,8 +16,16 @@
     <div class="a5e-box u-p-md a5e-form__section a5e-form__section--no-margin">
         <h3 class="u-text-bold u-text-sm">{{ localize "A5E.AmmunitionProperties" }}</h3>
 
-        <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs">
+        <ul class="
+            u-flex
+            u-flex-wrap
+            u-font-san-serif
+            u-gap-md
+            u-list-style-none
+            u-m-0
+            u-p-0
+            u-text-xs
+        ">
             {{#each config.ammunitionProperties as | property key |}}
                 <li
                     class="

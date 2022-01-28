@@ -1,20 +1,28 @@
 <section
     class="
-        a5e-js-sheet-page
-        a5e-sheet__tab-content
-        {{#if (eq actorType 'npc')}}
-            a5e-sheet__tab-content--npc-inventory
-        {{else}}
-            a5e-sheet__tab-content--inventory
-        {{/if}}
+        u-flex
+        u-gap-md
+        u-h-full
+        u-pl-lg
+        u-pt-lg
+        {{#if (eq actorType 'npc')}}u-pb-lg{{else}}u-pb-xxxl{{/if}}
         {{#unless (eq currentTab 'inventory')}}u-hidden{{/unless}}
+        a5e-js-sheet-page
     "
     data-group="main"
     data-tab="inventory"
 >
-    <section
-        class="u-w-30 u-flex-shrink-0 u-font-secondary u-flex u-flex-col u-gap-md u-mb-xl u-p-md a5e-box"
-    >
+    <section class="
+        a5e-box
+        u-flex
+        u-flex-col
+        u-flex-shrink-0
+        u-font-secondary
+        u-gap-md
+        u-p-md
+        u-w-30
+        {{#unless (eq actorType 'npc')}}u-mb-xl{{/unless}}
+    ">
         <h2 class="u-border-none u-font-serif u-text-lg u-w-full u-text-center">
             {{ localize "A5E.Filters" }}
         </h2>
@@ -251,7 +259,7 @@
             </header>
 
             <ul
-                class="u-flex u-flex-col u-gap-xs u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
+                class="u-flex u-flex-col u-gap-xs u-list-style-none u-m-0 u-p-0 u-pr-lg u-w-full a5e-js-item-list">
                 {{#each items}}
                     <li
                         class="
