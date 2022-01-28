@@ -135,7 +135,7 @@
 
                 {{#if creatureTypes.length}}
                     <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
+u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-xs u-text-xxs">
                         {{#each creatureTypes}}
                             <li class="a5e-tag a5e-tag--tight">
                                 {{ localize this}}
@@ -160,7 +160,7 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
 
             {{#if movement}}
                 <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-sm">
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-xs">
                     {{#each movement}}
                         <li class="a5e-tag a5e-tag--light">{{ this.name }} - {{ this.speed }}
                             {{ localize "A5E.MeasurementFeetAbbr" }}
@@ -313,14 +313,14 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-sm">
                 a5e-sheet__tab-content
                 a5e-sheet__tab-content--skills
                 u-h-full u-overflow-y-auto
-                {{#unless (eq currentTab 'skills')}}a5e-sheet__tab-content--hidden{{/unless}}
+                {{#unless (eq currentTab 'skills')}}u-hidden{{/unless}}
                 a5e-js-sheet-page
                 a5e-js-skills-scroll-area
             "
             data-group="main"
             data-tab="skills"
         >
-            <ul class="u-flex-shrink-0 u-gap-sm u-grid u-grid-3 u-list-style-none u-m-0 u-p-0">
+            <ul class="u-flex-shrink-0 u-gap-xs u-grid u-grid-3 u-list-style-none u-m-0 u-p-0">
                 {{#each data.skills as |skill key|}}
                     {{>
                         "systems/a5e/templates/actors/partials/skill.hbs"
@@ -345,10 +345,13 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-sm">
 
         <section
             class="
-                a5e-sheet__tab-content
-                a5e-sheet__tab-content--npc-notes
-                u-h-full u-overflow-y-auto
-                {{#unless (eq currentTab 'notes')}}a5e-sheet__tab-content--hidden{{/unless}}
+                u-gap-md
+                u-grid
+                u-grid-2
+                u-h-full
+                u-p-xl
+                u-overflow-y-auto
+                {{#unless (eq currentTab 'notes')}}u-hidden{{/unless}}
                 a5e-js-sheet-page
                 a5e-js-notes-scroll-area
             "

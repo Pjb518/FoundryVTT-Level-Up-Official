@@ -8,26 +8,12 @@
   }
 }
 
-.u-bottom {
-  &-0 {
-    bottom: 0;
-  }
-}
+$directions: 'bottom', 'left', 'right', 'top';
 
-.u-left {
-  &-0 {
-    left: 0;
-  }
-}
-
-.u-right {
-  &-0 {
-    right: 0;
-  }
-}
-
-.u-top {
-  &-0 {
-    top: 0;
+@each $direction in $directions {
+  .u-#{$direction} {
+    &-0 {
+      #{$direction}: 0;
+    }
   }
 }

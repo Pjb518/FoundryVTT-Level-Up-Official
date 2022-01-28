@@ -127,11 +127,11 @@ export default class ItemSheet5e extends ItemSheet {
 
     // Hide all of the sheet pages.
     const pageGroup = sheet.find(`.a5e-js-sheet-page[data-group='${group}']`);
-    pageGroup.addClass('a5e-sheet__tab-content--hidden');
+    pageGroup.addClass('u-hidden');
 
     // Remove the hidden modifier from the target page.
     const page = sheet.find(`.a5e-js-sheet-page[data-group='${group}'][data-tab='${target}']`);
-    page.removeClass('a5e-sheet__tab-content--hidden');
+    page.removeClass('u-hidden');
 
     this.options.currentTab = target;
     this.render(false);

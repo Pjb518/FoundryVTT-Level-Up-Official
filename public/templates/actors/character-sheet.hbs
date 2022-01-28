@@ -257,7 +257,7 @@
 
             {{#if movement}}
                 <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-sm">
+u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-xs">
                     {{#each movement}}
                         <li class="a5e-tag a5e-tag--light">{{ this.name }} - {{ this.speed }}
                             {{ localize "A5E.MeasurementFeetAbbr" }}
@@ -465,7 +465,7 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-gap-sm">
                 a5e-sheet__tab-content
                 a5e-sheet__tab-content--journal
                 u-h-full u-overflow-y-auto
-                {{#unless (eq currentTab 'journal')}}a5e-sheet__tab-content--hidden{{/unless}}
+                {{#unless (eq currentTab 'journal')}}u-hidden{{/unless}}
                 a5e-js-sheet-page
                 a5e-js-journal-scroll-area
             "
