@@ -50,8 +50,17 @@
                     class="{{#unless (contains expandedFilterCategories 'spell-components')}}u-hidden{{/unless}}"
                     data-filter-category="spell-components"
                 >
-                    <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
+                    <ul class="
+                        u-flex
+                        u-flex-wrap
+                        u-font-san-serif
+                        u-gap-md
+                        u-list-style-none
+                        u-m-0
+                        u-mt-md
+                        u-p-0
+                        u-text-xs
+                    ">
                         {{#each config.spellComponents as | component key | }}
                             <li
                                 class="
@@ -88,8 +97,17 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                     class="{{#unless (contains expandedFilterCategories 'spell-schools')}}u-hidden{{/unless}}"
                     data-filter-category="spell-schools"
                 >
-                    <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
+                    <ul class="
+                        u-flex
+                        u-flex-wrap
+                        u-font-san-serif
+                        u-gap-md
+                        u-list-style-none
+                        u-m-0
+                        u-mt-md
+                        u-p-0
+                        u-text-xs
+                    ">
                         {{#each config.spellSchools.primary as | school key | }}
                             <li
                                 class="
@@ -126,8 +144,17 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                     class="{{#unless (contains expandedFilterCategories 'spell-miscellaneous')}}u-hidden{{/unless}}"
                     data-filter-category="spell-miscellaneous"
                 >
-                    <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
+                    <ul class="
+                        u-flex
+                        u-flex-wrap
+                        u-font-san-serif
+                        u-gap-md
+                        u-list-style-none
+                        u-m-0
+                        u-mt-md
+                        u-p-0
+                        u-text-xs
+                    ">
                         <li
                             class="
                                 a5e-tag
@@ -194,9 +221,17 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
         </a>
     </section>
 
-    <section
-        class="u-flex u-flex-col u-flex-grow u-gap-lg u-h-full u-mb-xl u-overflow-y-auto u-pb-xl a5e-js-spell-scroll-area"
-    >
+    <section class="
+        u-flex
+        u-flex-col
+        u-flex-grow
+        u-gap-lg
+        u-h-full
+        u-mb-xl
+        u-overflow-y-auto
+        u-pb-xl
+        a5e-js-spell-scroll-area
+    ">
         {{#each config.spellLevels as |label level|}}
             {{#if (contains ../availableSpellLevels level)}}
                 <section>
@@ -243,8 +278,17 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                         </a>
                     </header>
 
-                    <ul
-                        class="u-flex u-flex-col u-gap-sm u-list-style-none u-m-0 u-p-0 u-pr-xl u-w-full a5e-js-item-list">
+                    <ul class="
+                        u-flex
+                        u-flex-col
+                        u-gap-sm
+                        u-list-style-none
+                        u-m-0
+                        u-p-0
+                        u-pr-xl
+                        u-w-full
+                        a5e-js-item-list
+                    ">
                         {{#each (lookup ../items level) }}
                             <li
                                 class="
@@ -266,8 +310,18 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
                                 <span>{{this.name}}</span>
 
                                 {{#if this.data.inlineLabels.length}}
-                                    <div class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
+                                    <div class="
+                                        u-flex
+                                        u-flex-wrap
+                                        u-font-san-serif
+                                        u-gap-md
+                                        u-list-style-none
+                                        u-m-0
+                                        u-p-0
+                                        u-gap-sm
+                                        u-text-xxs
+                                        u-ml-auto
+                                    ">
                                         {{#each this.data.inlineLabels}}
                                             <div class="a5e-tag a5e-tag--tight">
                                                 {{this}}
@@ -286,8 +340,17 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
                                     {{/if}}
 
                                     {{#if this.data.descriptionLabels.components.length}}
-                                        <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
+                                        <ul class="
+                                            u-flex
+                                            u-flex-wrap
+                                            u-font-san-serif
+                                            u-gap-md
+                                            u-list-style-none
+                                            u-m-0
+                                            u-p-0
+                                            u-gap-sm
+                                            u-text-xxs
+                                        ">
                                             {{#each this.data.descriptionLabels.components}}
                                                 <li class="a5e-tag a5e-tag--tight">{{this}}</li>
                                             {{/each}}
@@ -295,8 +358,17 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                                     {{/if}}
 
                                     {{#if this.data.descriptionLabels.schools.length}}
-                                        <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
+                                        <ul class="
+                                            u-flex
+                                            u-flex-wrap
+                                            u-font-san-serif
+                                            u-gap-md
+                                            u-list-style-none
+                                            u-m-0
+                                            u-p-0
+                                            u-gap-sm
+                                            u-text-xxs
+                                        ">
                                             {{#each this.data.descriptionLabels.schools}}
                                                 <li class="a5e-tag a5e-tag--tight">{{this}}</li>
                                             {{/each}}
@@ -331,7 +403,21 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
         {{/each}}
     </section>
 
-    <footer class="a5e-sheet__bottom-bar a5e-sheet__bottom-bar--spells">
+    <footer class="
+        u-bg-light
+        u-border-t
+        u-border-gray
+        u-bottom-0
+        u-flex
+        u-font-serif
+        u-justify-space-between
+        u-left-0
+        u-pos-absolute
+        u-px-xxl
+        u-py-md
+        u-text-lg
+        u-w-full
+    ">
         {{#if showSpellPoints}}
             <div class="u-align-center u-flex u-gap-md u-text-md">
                 <h3 class="u-mb-0">
