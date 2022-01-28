@@ -10,159 +10,43 @@
     data-group="main"
     data-tab="core"
 >
-    <section class="u-gap-md u-grid u-grid-3 u-h-fit  u-span-2">
-        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
-            <h2 class="u-text-bold u-text-sm">
-                {{ localize "A5E.DamageResistances" }}
-            </h2>
+    <section class="u-gap-md u-grid u-grid-3 u-h-fit u-span-2">
+        {{>
+            "systems/a5e/templates/actors/partials/secondary-details.hbs"
+            title="A5E.DamageResistances"
+            configListener="a5e-js-configure-damage-resistances"
+            items=damageResistances
+        }}
 
-            <i class="
-                a5e-config-button
-                a5e-config-button--details
-                a5e-js-configure-damage-resistances
-                fas
-                fa-cog
-            ">
-            </i>
+        {{>
+            "systems/a5e/templates/actors/partials/secondary-details.hbs"
+            title="A5E.DamageImmunities"
+            configListener="a5e-js-configure-damage-immunities"
+            items=damageImmunities
+        }}
 
-            <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
-                {{#if damageResistances }}
-                    {{#each damageResistances}}
-                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
-                    {{/each}}
-                {{else}}
-                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
-                {{/if}}
-            </ul>
-        </div>
+        {{>
+            "systems/a5e/templates/actors/partials/secondary-details.hbs"
+            title="A5E.DamageVulnerabilities"
+            configListener="a5e-js-configure-damage-vulnerabilities"
+            items=damageVulnerabilities
+        }}
 
-        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
-            <h2 class="u-text-bold u-text-sm">
-                {{ localize "A5E.DamageImmunities" }}
-            </h2>
+        {{> "systems/a5e/templates/actors/partials/senses.hbs" senses=senses }}
 
-            <i class="
-                    a5e-config-button
-                    a5e-config-button--details
-                    a5e-js-configure-damage-immunities
-                    fas
-                    fa-cog
-                ">
-            </i>
+        {{>
+            "systems/a5e/templates/actors/partials/secondary-details.hbs"
+            title="A5E.ConditionImmunities"
+            configListener="a5e-js-configure-condition-immunities"
+            items=conditionImmunities
+        }}
 
-            <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
-                {{#if damageImmunities }}
-                    {{#each damageImmunities}}
-                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
-                    {{/each}}
-                {{else}}
-                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
-                {{/if}}
-            </ul>
-        </div>
-
-        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
-            <h2 class="u-text-bold u-text-sm">
-                {{ localize "A5E.DamageVulnerabilities" }}
-            </h2>
-
-            <i class="
-                a5e-config-button
-                a5e-config-button--details
-                a5e-js-configure-damage-vulnerabilities
-                fas
-                fa-cog
-            ">
-            </i>
-
-            <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
-                {{#if damageVulnerabilities }}
-                    {{#each damageVulnerabilities}}
-                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
-                    {{/each}}
-                {{else}}
-                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
-                {{/if}}
-            </ul>
-        </div>
-
-        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
-            <h2 class="u-text-bold u-text-sm">
-                {{ localize "A5E.SensesSpecial" }}
-            </h2>
-
-            <i class="
-                a5e-config-button
-                a5e-config-button--details
-                a5e-js-configure-senses
-                fas
-                fa-cog
-            ">
-            </i>
-
-            <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
-                {{#if senses.length}}
-                    {{#each senses}}
-                        <li class="a5e-tag a5e-tag--tight">{{ this.name }} - {{ this.range }}
-                            {{ localize "A5E.MeasurementFeetAbbr" }}
-                        </li>
-                    {{/each}}
-                {{else}}
-                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
-                {{/if}}
-            </ul>
-        </div>
-
-        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
-            <h2 class="u-text-bold u-text-sm">
-                {{ localize "A5E.ConditionImmunities" }}
-            </h2>
-
-            <i class="
-                    a5e-config-button
-                    a5e-config-button--details
-                    a5e-js-configure-condition-immunities
-                    fas
-                    fa-cog
-                ">
-            </i>
-
-            <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
-                {{#if conditionImmunities }}
-                    {{#each conditionImmunities}}
-                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
-                    {{/each}}
-                {{else}}
-                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
-                {{/if}}
-            </ul>
-        </div>
-
-        <div class="u-bg-gray u-flex u-flex-col u-gap-sm u-p-md u-pos-relative u-rounded">
-            <h2 class="u-text-bold u-text-sm">
-                {{ localize "A5E.Languages" }}
-            </h2>
-
-            <i
-                class="a5e-config-button a5e-config-button--details a5e-js-configure-languages fas fa-cog">
-            </i>
-
-            <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
-                {{#if data.proficiencies.languages.length}}
-                    {{#each data.proficiencies.languages}}
-                        <li class="a5e-tag a5e-tag--tight">{{ this }}</li>
-                    {{/each}}
-                {{else}}
-                    <li class="a5e-tag a5e-tag--tight">{{ localize "A5E.None" }}</li>
-                {{/if}}
-            </ul>
-        </div>
+        {{>
+            "systems/a5e/templates/actors/partials/secondary-details.hbs"
+            title="A5E.Languages"
+            configListener="a5e-js-configure-language-proficiencies"
+            items=data.proficiencies.languages
+        }}
     </section>
 
     <section>
@@ -205,8 +89,18 @@ u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs">
                         </span>
 
                         {{#if this.data.inlineLabels.length}}
-                            <div class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-gap-sm u-text-xxs u-ml-auto">
+                            <div class="
+                                u-flex
+                                u-flex-wrap
+                                u-font-san-serif
+                                u-gap-md
+                                u-list-style-none
+                                u-m-0
+                                u-p-0
+                                u-gap-sm
+                                u-text-xxs
+                                u-ml-auto
+                            ">
                                 {{#each this.data.inlineLabels}}
                                     <div class="a5e-tag a5e-tag--tight">
                                         {{this}}

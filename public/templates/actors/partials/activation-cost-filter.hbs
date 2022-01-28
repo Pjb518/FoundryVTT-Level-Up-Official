@@ -2,8 +2,17 @@
     class="{{#unless (contains expandedFilterCategories filterCategory)}}u-hidden{{/unless}}"
     data-filter-category="{{filterCategory}}"
 >
-    <ul class="u-flex u-flex-wrap u-font-san-serif
-u-gap-md u-list-style-none u-m-0 u-p-0 u-text-xs u-mt-md">
+    <ul class="
+        u-flex
+        u-flex-wrap
+        u-font-san-serif
+        u-gap-md
+        u-list-style-none
+        u-m-0
+        u-p-0
+        u-text-xs
+        u-mt-md
+    ">
         {{#each config.abilityActivationTypes as | activationCost key |}}
             {{#unless (eq key "lairAction")}}
                 {{#unless (eq key "legendaryAction")}}

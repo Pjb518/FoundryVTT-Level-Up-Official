@@ -179,7 +179,7 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     html.find('.a5e-js-configure-culture').click(this._onConfigureCulture.bind(this));
     html.find('.a5e-js-configure-heritage').click(this._onConfigureHeritage.bind(this));
     html.find('.a5e-js-configure-maneuvers').click(this._onConfigureManeuvers.bind(this));
-    html.find('.a5e-js-configure-tools').click(this._onConfigureToolProficiencies.bind(this));
+    html.find('.a5e-js-configure-tool-proficiencies').click(this._onConfigureToolProficiencies.bind(this));
     html.find('.a5e-js-configure-weapon-proficiencies').click(this._onConfigureWeaponProficiencies.bind(this));
 
     // Item creation handlers specific to PCs

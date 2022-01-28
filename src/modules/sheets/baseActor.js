@@ -24,7 +24,7 @@ export default class ActorSheet5e extends ActorSheet {
     html.find('.a5e-js-configure-damage-vulnerabilities').click(this._onConfigureDamageVulnerabilities.bind(this));
     html.find('.a5e-js-configure-health').click(this._onConfigureHealth.bind(this));
     html.find('.a5e-js-configure-initiative').click(this._onConfigureInitiative.bind(this));
-    html.find('.a5e-js-configure-languages').click(this._onConfigureLanguages.bind(this));
+    html.find('.a5e-js-configure-language-proficiencies').click(this._onConfigureLanguages.bind(this));
     html.find('.a5e-js-configure-movement').click(this._onConfigureMovement.bind(this));
     html.find('.a5e-js-configure-senses').click(this._onConfigureSenses.bind(this));
     html.find('.a5e-js-configure-size-category').click(this._onConfigureSizeCategory.bind(this));

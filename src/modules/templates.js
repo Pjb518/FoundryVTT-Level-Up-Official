@@ -23,6 +23,8 @@ export default async () => loadTemplates([
   'systems/a5e/templates/actors/partials/activation-cost-filter.hbs',
   'systems/a5e/templates/actors/partials/filter-header.hbs',
   'systems/a5e/templates/actors/partials/health.hbs',
+  'systems/a5e/templates/actors/partials/secondary-details.hbs',
+  'systems/a5e/templates/actors/partials/senses.hbs',
   'systems/a5e/templates/actors/partials/skill.hbs',
 
   // Item sheets
