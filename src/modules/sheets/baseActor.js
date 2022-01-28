@@ -433,40 +433,54 @@ export default class ActorSheet5e extends ActorSheet {
   /**
    * Handle creating a new object in the actor's feature list as an Owned Item.
    *
-   * @param {Event} event          The originating click event.
-   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @param {Event} event  The originating click event.
+   * @returns {Item5e[]}   The newly created items.
+   *
+   * @async
    * @private
    */
-  _onCreateFeatureItem(event) {
+  async _onCreateFeatureItem(event) {
     event.preventDefault();
 
-    return this.actor.createEmbeddedDocuments('Item', [{
+    const newItems = await this.actor.createEmbeddedDocuments('Item', [{
       name: game.i18n.localize('A5E.ItemNew'),
       type: 'feature'
     }]);
+
+    newItems[0].sheet.render(true);
+
+    return newItems;
   }
 
   /**
    * Handle creating a new object in the actor inventory as an Owned Item.
    *
-   * @param {Event} event          The originating click event.
-   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @param {Event} event  The originating click event.
+   * @returns {Item5e[]}   The newly created item.
+   *
+   * @async
    * @private
    */
-  _onCreateInventoryItem(event) {
+  async _onCreateInventoryItem(event) {
     event.preventDefault();
 
-    return this.actor.createEmbeddedDocuments('Item', [{
+    const newItems = await this.actor.createEmbeddedDocuments('Item', [{
       name: game.i18n.localize('A5E.ItemNew'),
       type: 'object'
     }]);
+
+    newItems[0].sheet.render(true);
+
+    return newItems;
   }
 
   /**
    * Handle creating a new object in the actor's spell list as an Owned Item.
    *
-   * @param {Event} event          The originating click event.
-   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @param {Event} event  The originating click event.
+   * @returns {Item5e[]}   The newly created item.
+   *
+   * @async
    * @private
    */
   async _onCreateSpellItem(event) {
@@ -474,11 +488,15 @@ export default class ActorSheet5e extends ActorSheet {
 
     const { level } = event.currentTarget.dataset;
 
-    return this.actor.createEmbeddedDocuments('Item', [{
+    const newItems = await this.actor.createEmbeddedDocuments('Item', [{
       name: game.i18n.localize('A5E.ItemNew'),
       type: 'spell',
       'data.level': Number(level)
     }]);
+
+    newItems[0].sheet.render(true);
+
+    return newItems;
   }
 
   /**

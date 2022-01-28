@@ -331,17 +331,23 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   /**
    * Handle creating a new object in the actor maneuver list as an Owned Item.
    *
-   * @param {Event} event          The originating click event.
-   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @param {Event} event  The originating click event.
+   * @returns {Item5e[]}   The newly created item.
+   *
+   * @async
    * @private
    */
-  _onCreateManeuverItem(event) {
+  async _onCreateManeuverItem(event) {
     event.preventDefault();
 
-    return this.actor.createEmbeddedDocuments('Item', [{
+    const newItems = await this.actor.createEmbeddedDocuments('Item', [{
       name: game.i18n.localize('A5E.ItemNew'),
       type: 'maneuver'
     }]);
+
+    newItems[0].sheet.render(true);
+
+    return newItems;
   }
 
   _onToggleInspiration(event) {

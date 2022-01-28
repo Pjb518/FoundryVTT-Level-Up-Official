@@ -147,18 +147,24 @@ export default class ActorSheet5eNPC extends ActorSheet5e {
   /**
    * Handle creating a new weapon object in the actor inventory as an Owned Item.
    *
-   * @param {Event} event          The originating click event.
-   * @returns {Promise<Item5e[]>}  The newly created item.
+   * @param {Event} event  The originating click event.
+   * @returns {Item5e[]}   The newly created item.
+   *
+   * @async
    * @private
    */
-  _onCreateWeapon(event) {
+  async _onCreateWeapon(event) {
     event.preventDefault();
 
-    return this.actor.createEmbeddedDocuments('Item', [{
+    const newItems = await this.actor.createEmbeddedDocuments('Item', [{
       name: game.i18n.localize('A5E.ItemNew'),
       type: 'object',
       'data.objectType': 'weapon'
     }]);
+
+    newItems[0].sheet.render(true);
+
+    return newItems;
   }
 
   _prepareItems(items) {

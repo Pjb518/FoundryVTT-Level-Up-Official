@@ -145,11 +145,9 @@ export default class Actor5e extends Actor {
   }
 
   /**
-   * Given a list of items to add to the Actor, optionally prompt the
-   * user for which they would like to add.
+   * Given a list of items to add to the Actor.
    *
    * @param {Item5e[]} items         The items being added to the Actor.
-   * @param {boolean} [prompt=true]  Whether or not to prompt the user.
    *
    * @returns {Promise<Item5e[]>}
    */
