@@ -1,7 +1,11 @@
 <section
     class="
-        a5e-sheet__tab-content
-        a5e-sheet__tab-content--attributes
+        u-gap-md
+        u-grid
+        u-grid-3
+        u-p-lg
+        u-h-full
+        u-overflow-y-auto
         {{#unless (eq currentTab 'attributes')}}u-hidden{{/unless}}
         a5e-js-sheet-page
         a5e-js-attributes-scroll-area
@@ -69,11 +73,19 @@
         }}
     </div>
 
-    <div>
-        <ul class="u-flex-shrink-0 u-gap-xs u-grid u-grid-2 u-list-style-none u-m-0 u-p-0">
-            {{#each data.skills as |skill key|}}
-                {{> "systems/a5e/templates/actors/partials/skill.hbs" skill=skill key=key }}
-            {{/each}}
-        </ul>
-    </div>
+    <ul class="
+        u-flex-shrink-0
+        u-gap-xs
+        u-grid
+        u-grid-2
+        u-h-fit
+        u-span-2
+        u-list-style-none
+        u-m-0
+        u-p-0
+    ">
+        {{#each data.skills as |skill key|}}
+            {{> "systems/a5e/templates/actors/partials/skill.hbs" skill=skill key=key }}
+        {{/each}}
+    </ul>
 </section>
