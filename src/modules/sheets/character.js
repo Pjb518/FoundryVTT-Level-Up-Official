@@ -8,6 +8,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
   constructor(...args) {
     super(...args);
 
+    this._disable_popout_module = true;
     this.component = null;
   }
 
