@@ -1,5 +1,13 @@
 <template>
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
+    <ability-score-picker
+      :appId="appId"
+      heading="A5E.SpellcastinAbilityScore"
+      :initialSelection="spellcastingAbility"
+      :showNone="false"
+      @update-selected-ability="updateSelectedAbility"
+    />
+
     <tag-group
       heading="A5E.AvailableSpellLevels"
       :initialSelections="initiallySelectedSpellLevels"
@@ -34,16 +42,19 @@
 </template>
 
 <script>
+import AbilityScorePicker from "./partials/AbilityScorePicker.vue";
 import NumericField from "./partials/NumericField.vue";
 import TagGroup from "./partials/TagGroup.vue";
 
 import { ref } from "vue";
 
 export default {
-  components: { NumericField, TagGroup },
+  components: { AbilityScorePicker, NumericField, TagGroup },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
+    const appId = appWindow.id;
 
+    const spellcastingAbility = ref(actor.data.data.attributes.spellcasting);
     const showSpellSlots = ref(actor.getFlag("a5e", "showSpellSlots") ?? true);
 
     const showSpellPoints = ref(
@@ -59,8 +70,14 @@ export default {
       availableSpellLevels.value = value;
     }
 
+    function updateSelectedAbility(ability) {
+      spellcastingAbility.value = ability;
+    }
+
     async function onSubmit() {
-      const data = {};
+      const data = {
+        "data.attributes.spellcasting": spellcastingAbility.value,
+      };
 
       await actor.setFlag(
         "a5e",
@@ -70,22 +87,26 @@ export default {
 
       await actor.setFlag("a5e", "showSpellPoints", showSpellPoints.value);
       await actor.setFlag("a5e", "showSpellSlots", showSpellSlots.value);
+      await actor.update(data);
 
       appWindow.submit();
     }
 
     return {
+      appId,
       initiallySelectedSpellLevels:
         actor.getFlag("a5e", "availableSpellLevels") ||
         [...Array(10).keys()].map((x) => x.toString()),
       onSubmit,
       showSpellPoints,
       showSpellSlots,
+      spellcastingAbility,
       spellLevels: CONFIG.A5E.spellLevels,
       spellSlotsLabel: game.i18n.localize("A5E.SpellShowSpellSlots"),
       spellPointsLabel: game.i18n.localize("A5E.SpellShowSpellPoints"),
       submitText: game.i18n.localize("A5E.SaveSubmit"),
       updateAvailableSpellLevels,
+      updateSelectedAbility,
     };
   },
 };

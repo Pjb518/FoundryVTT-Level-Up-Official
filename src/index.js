@@ -8,7 +8,6 @@ import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
 import Item5e from './modules/item/entity';
 import ActorSheet5eCharacter from './modules/sheets/character';
-import ActorSheet5eNPC from './modules/sheets/npc';
 import ItemSheet5e from './modules/sheets/item';
 import ReactiveDialog from './modules/apps/reactiveDialog';
 import Token5e from './modules/actor/token';
@@ -39,7 +38,6 @@ Hooks.once('init', () => {
   game.a5e = {
     applications: {
       ActorSheet5eCharacter,
-      ActorSheet5eNPC,
       ItemSheet5e,
       ReactiveDialog
     },
@@ -90,7 +88,7 @@ Hooks.once('init', () => {
     label: 'A5E.SheetClassCharacter'
   });
 
-  Actors.registerSheet('a5e', ActorSheet5eNPC, {
+  Actors.registerSheet('a5e', ActorSheet5eCharacter, {
     types: ['npc'],
     makeDefault: true,
     label: 'A5E.SheetClassNPC'

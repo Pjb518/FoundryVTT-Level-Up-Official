@@ -5,27 +5,8 @@
  */
 export default async () => loadTemplates([
   // Actor sheets
-  'systems/a5e/templates/actors/character-sheet.hbs',
-  'systems/a5e/templates/actors/npc-sheet.hbs',
-  'systems/a5e/templates/actors/limited-actor-sheet.hbs',
-
-  // Actor sheet tabs
-  'systems/a5e/templates/actors/tabs/attributes.hbs',
-  'systems/a5e/templates/actors/tabs/bio.hbs',
-  'systems/a5e/templates/actors/tabs/core.hbs',
-  'systems/a5e/templates/actors/tabs/features.hbs',
-  'systems/a5e/templates/actors/tabs/inventory.hbs',
-  'systems/a5e/templates/actors/tabs/maneuvers.hbs',
-  'systems/a5e/templates/actors/tabs/spells.hbs',
-
-  // Actor sheet partials
-  'systems/a5e/templates/actors/partials/ability-score.hbs',
-  'systems/a5e/templates/actors/partials/activation-cost-filter.hbs',
-  'systems/a5e/templates/actors/partials/filter-header.hbs',
-  'systems/a5e/templates/actors/partials/health.hbs',
-  'systems/a5e/templates/actors/partials/secondary-details.hbs',
-  'systems/a5e/templates/actors/partials/senses.hbs',
-  'systems/a5e/templates/actors/partials/skill.hbs',
+  'systems/a5e/templates/sheet.html',
+  'systems/a5e/templates/limited-actor-sheet.hbs',
 
   // Item sheets
   'systems/a5e/templates/items/feature-sheet.hbs',

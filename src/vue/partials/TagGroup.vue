@@ -22,7 +22,7 @@
     >
       <li
         v-for="[key, value] in tags"
-        class="a5e-tag .u-pointer"
+        class="a5e-tag u-pointer"
         :class="{ 'a5e-tag--inactive': !selected.includes(key) }"
         @click="toggleTag(key)"
         :key="key"

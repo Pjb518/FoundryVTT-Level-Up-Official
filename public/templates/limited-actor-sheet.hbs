@@ -1,0 +1,28 @@
+<form
+    class="u-flex u-flex-col u-h-full u-bg-sheet"
+    autocomplete="off"
+>
+    <header class="a5e-sheet-header a5e-sheet-header--limited">
+        <div class="a5e-sheet-header__left">
+            <img
+                src="{{img}}"
+                title="{{name}}"
+                data-edit="img"
+                class="a5e-image a5e-image--actor-header"
+            />
+        </div>
+
+        <div class="a5e-sheet-header__primary-details a5e-sheet-header__primary-details--limited">
+            <div class="u-flex-grow">
+                <h1 class="u-border-none u-font-serif u-text-lg u-w-full u-text-xxxl">{{name}}
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="u-h-full u-overflow-y-hidden u-px-xl">
+        <div class="u-h-full u-overflow-y-auto a5e-js-journal-scroll-area">
+            {{{ data.details.bio }}}
+        </div>
+    </section>
+</form>

@@ -17,6 +17,12 @@ $sizes: (
 );
 
 .u-h {
+  @each $label, $size in $sizes {
+    &-#{$label} {
+      height: $size;
+    }
+  }
+
   &-fit {
     height: fit-content;
   }
@@ -27,8 +33,10 @@ $sizes: (
 }
 
 .u-w {
-  &-30 {
-    width: 15rem;
+  @each $label, $size in $sizes {
+    &-#{$label} {
+      width: $size;
+    }
   }
 
   &-fit {

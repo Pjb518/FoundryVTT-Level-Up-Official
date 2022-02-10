@@ -1,0 +1,188 @@
+<template>
+  <section
+    class="u-flex u-flex-col u-gap-lg u-h-full u-pt-lg u-overflow-y-auto"
+  >
+    <section class="a5e-box u-mx-lg u-p-md a5e-form__section--bio-wrapper">
+      <div
+        v-for="[key, label] in Object.entries({
+          age: 'A5E.DetailsAge',
+          eyeColor: 'A5E.DetailsEyeColor',
+          hairColor: 'A5E.DetailsHairColor',
+          skinColor: 'A5E.DetailsSkinColor',
+          height: 'A5E.DetailsHeight',
+          weight: 'A5E.DetailsWeight',
+          gender: 'A5E.DetailsGender',
+        })"
+        :key="key"
+        class="u-align-center u-flex u-gap-md u-justify-space-between"
+      >
+        <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
+          {{ localize(label) }}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--bio">
+          <input
+            class="a5e-input a5e-input--slim"
+            type="text"
+            :name="`data.details.${key}`"
+            :value="data.data.details[key]"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="u-flex u-flex-grow u-gap-lg">
+      <div class="u-flex u-flex-col u-flex-grow">
+        <div
+          class="
+            u-align-center
+            u-border-b
+            u-border-gray
+            u-flex
+            u-gap-lg
+            u-mx-lg
+            u-mb-md
+            u-pb-md
+          "
+        >
+          <a
+            class="
+              a5e-button
+              u-border
+              u-hover-bg-green
+              u-hover-text-light
+              u-hover-text-shadow-none
+              u-p-sm
+              u-rounded
+              u-text-sm
+              u-transition
+            "
+            :class="{
+              'u-border-gray': currentEditor !== 'backstory',
+              'u-bg-green u-border-green u-text-light':
+                currentEditor === 'backstory',
+            }"
+            @click.prevent="onSelectEditor('backstory')"
+          >
+            {{ localize("A5E.DetailsBackstory") }}
+          </a>
+
+          <a
+            class="
+              a5e-button
+              u-border
+              u-hover-bg-green
+              u-hover-text-light
+              u-hover-text-shadow-none
+              u-p-sm
+              u-rounded
+              u-text-sm
+              u-transition
+            "
+            :class="{
+              'u-border-gray': currentEditor !== 'appearance',
+              'u-bg-green u-border-green u-text-light':
+                currentEditor === 'appearance',
+            }"
+            @click.prevent="onSelectEditor('appearance')"
+          >
+            {{ localize("A5E.DetailsAppearance") }}
+          </a>
+        </div>
+
+        <template v-if="currentEditor === 'backstory'">
+          <div
+            v-if="sheetIsLocked"
+            v-html="data.data.details.backstory || `<p>Nothing to display.</p>`"
+            class="u-flex-grow u-p-lg u-pt-0"
+          ></div>
+
+          <div v-else class="u-flex-grow">
+            <editor
+              :init="{
+                content_style: '.mce-content-body { font-size:0.833rem; }',
+                toolbar:
+                  'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
+                menubar: false,
+              }"
+              :initial-value="data.data.details.backstory"
+              plugins="code hr image link lists table"
+              v-model="backstory"
+            />
+          </div>
+        </template>
+
+        <template v-if="currentEditor === 'appearance'">
+          <div
+            v-if="sheetIsLocked"
+            v-html="
+              data.data.details.appearance || `<p>Nothing to display.</p>`
+            "
+            class="u-flex-grow u-p-lg u-pt-xs"
+          ></div>
+
+          <div v-else class="u-flex-grow">
+            <editor
+              :init="{
+                content_style: '.mce-content-body { font-size:0.833rem; }',
+                toolbar:
+                  'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
+                menubar: false,
+              }"
+              :initial-value="data.data.details.appearance"
+              plugins="code hr image link lists table"
+              v-model="appearance"
+            />
+          </div>
+        </template>
+      </div>
+    </section>
+  </section>
+</template>
+
+<script>
+import { inject, ref, watch } from "vue";
+
+import Editor from "@tinymce/tinymce-vue";
+
+export default {
+  components: { Editor },
+  setup() {
+    const actor = inject("actor");
+    const data = inject("data");
+    const sheetIsLocked = inject("sheetIsLocked");
+
+    const currentEditor = ref("backstory");
+    const appearance = ref(data.value.data.details.appearance);
+    const backstory = ref(data.value.data.details.backstory);
+
+    function onSelectEditor(editor) {
+      currentEditor.value = editor;
+    }
+
+    watch(
+      () => appearance.value,
+      async (curr) => {
+        await actor.update({ "data.details.appearance": curr });
+      }
+    );
+
+    watch(
+      () => backstory.value,
+      async (curr) => {
+        await actor.update({ "data.details.backstory": curr });
+      }
+    );
+
+    return {
+      appearance,
+      backstory,
+      currentEditor,
+      data,
+      localize: (key) => game.i18n.localize(key),
+      onSelectEditor,
+      sheetIsLocked,
+    };
+  },
+};
+</script>

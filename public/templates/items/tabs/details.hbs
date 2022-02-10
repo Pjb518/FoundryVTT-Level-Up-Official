@@ -1,74 +1,48 @@
 <section
     class="
         u-flex
-        u-gap-xl
-        u-p-xl
-        u-h-full u-overflow-y-auto
-        a5e-js-sheet-page
+        u-flex-col
+        u-gap-md
+        u-h-full
+        u-p-lg
+        u-overflow-y-auto
+        {{#unless (eq currentTab 'details')}}u-hidden{{/unless}}
         a5e-js-details-scroll-area
+        a5e-js-sheet-page
     "
     data-group="item-{{item._id}}"
     data-tab="details"
 >
-    <nav class="u-flex u-flex-col u-gap-xs">
-        <a class="
-            u-border
-            u-border-gray
-            u-px-md
-            u-py-sm
-            u-rounded
-            u-hover-bg-green
-            u-hover-border-green
-            u-hover-text-light
-            u-hover-text-shadow-none
-        ">
-            Example 1
-        </a>
+    {{> "systems/a5e/templates/items/partials/activation-settings.hbs" config=config item=item}}
+    {{> "systems/a5e/templates/items/partials/range.hbs" config=config item=item}}
+    {{> "systems/a5e/templates/items/partials/target.hbs" config=config item=item}}
+    {{> "systems/a5e/templates/items/partials/duration.hbs" config=config item=item}}
 
-        <a class="
-            u-border
-            u-border-gray
-            u-px-md
-            u-py-sm
-            u-rounded
-            u-hover-bg-green
-            u-hover-border-green
-            u-hover-text-light
-            u-hover-text-shadow-none
-        ">
-            Example 1
-        </a>
+    <hr class="a5e-rule">
 
-        <a class="
-            u-border
-            u-border-gray
-            u-px-md
-            u-py-sm
-            u-rounded
-            u-hover-bg-green
-            u-hover-border-green
-            u-hover-text-light
-            u-hover-text-shadow-none
-        ">
-            Example 1
-        </a>
+    {{> "systems/a5e/templates/items/partials/action-options.hbs" config=config item=item}}
 
-        <a class="
-            u-border
-            u-border-gray
-            u-px-md
-            u-py-sm
-            u-rounded
-            u-hover-bg-green
-            u-hover-border-green
-            u-hover-text-light
-            u-hover-text-shadow-none
-        ">
-            Example 1
-        </a>
-    </nav>
+    {{#if showAbilityScoreConfig }}
+        {{> "systems/a5e/templates/items/partials/ability-score-config.hbs" config=config item=item}}
+    {{/if}}
 
-    <div>
-        testing some more
-    </div>
+    {{#if (contains item.data.actionOptions "attack")}}
+        {{> "systems/a5e/templates/items/partials/attack-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "damage")}}
+        {{> "systems/a5e/templates/items/partials/damage-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "healing")}}
+        {{> "systems/a5e/templates/items/partials/healing-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "abilityCheck")}}
+        {{> "systems/a5e/templates/items/partials/ability-check-config.hbs" config=config item=item}}
+    {{/if}}
+
+    {{#if (contains item.data.actionOptions "savingThrow")}}
+        {{> "systems/a5e/templates/items/partials/saving-throw-config.hbs" config=config item=item}}
+    {{/if}}
 </section>

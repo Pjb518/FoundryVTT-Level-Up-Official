@@ -29,19 +29,30 @@ import { ref, watch } from "vue";
 import A5E from "../../modules/config";
 
 export default {
-  props: { appId: String },
-  setup(_, context) {
-    const heading = game.i18n.localize("A5E.AbilityScore");
+  props: {
+    appId: String,
+    heading: { type: String, default: "A5E.AbilityScore" },
+    initialSelection: { type: String, default: "none" },
+    showNone: { type: Boolean, default: true },
+  },
+  setup(props, context) {
+    const heading = game.i18n.localize(props.heading);
 
     const abilities = [
-      { name: "none", localized: game.i18n.localize("A5E.None") },
       ...Object.entries(A5E.abilityAbbreviations).map(([name, i18nKey]) => ({
         name,
         localized: game.i18n.localize(i18nKey),
       })),
     ];
 
-    const selectedAbility = ref("none");
+    if (props.showNone) {
+      abilities.unshift({
+        name: "none",
+        localized: game.i18n.localize("A5E.None"),
+      });
+    }
+
+    const selectedAbility = ref(props.initialSelection);
 
     watch(selectedAbility, (curr) => {
       context.emit("update-selected-ability", curr === "none" ? null : curr);

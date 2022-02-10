@@ -19,10 +19,6 @@ $colors: (
 
   transition: width 0.3s ease;
 
-  &--expanded {
-    overflow: initial;
-  }
-
   &--fatigue {
     z-index: 3;
     top: 0;
@@ -32,22 +28,6 @@ $colors: (
   &--strife {
     top: 2.5rem;
     left: -0.75rem;
-  }
-
-  &:hover > &__icon {
-    color: lighten(#191813, 35%);
-
-    @each $level, $color in $colors {
-      &--level-#{$level} {
-        border-color: $color;
-        box-shadow: 0 0 10px $color inset;
-        color: $color;
-      }
-    }
-  }
-
-  &:hover > .a5e-tooltip {
-    display: block;
   }
 
   &__icon {
@@ -95,10 +75,6 @@ $colors: (
     transition: $standard-transition;
   }
 
-  &--expanded &__list {
-    opacity: 1;
-  }
-
   &__list-item {
     display: flex;
     height: 100%;
@@ -114,6 +90,30 @@ $colors: (
 
     &--selected {
       background: darken(#dddace, 2.5%);
+    }
+  }
+
+  &:hover {
+    overflow: initial;
+
+    .a5e-track__list {
+      opacity: 1;
+    }
+
+    .a5e-track__icon {
+      color: lighten(#191813, 35%);
+
+      @each $level, $color in $colors {
+        &--level-#{$level} {
+          border-color: $color;
+          box-shadow: 0 0 10px $color inset;
+          color: $color;
+        }
+      }
+    }
+
+    .a5e-tooltip {
+      display: block;
     }
   }
 }

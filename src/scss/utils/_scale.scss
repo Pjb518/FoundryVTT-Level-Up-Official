@@ -1,0 +1,28 @@
+$scales: (
+  20: 0.2,
+  40: 0.4,
+  60: 0.6,
+  80: 0.8,
+  100: 1,
+  120: 1.2,
+  140: 1.4,
+  160: 1.6,
+  180: 1.8,
+  200: 2,
+);
+
+.u-scale {
+  @each $label, $scale in $scales {
+    &-#{$label} {
+      transform: scale($scale);
+    }
+  }
+}
+
+.u-hover-scale {
+  @each $label, $scale in $scales {
+    &-#{$label}:hover {
+      transform: scale($scale);
+    }
+  }
+}

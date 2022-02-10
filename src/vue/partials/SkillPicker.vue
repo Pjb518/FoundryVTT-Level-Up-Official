@@ -25,7 +25,7 @@
         />
 
         <label
-          class="a5e-tag .u-pointer"
+          class="a5e-tag u-pointer"
           :class="{ 'a5e-tag--inactive': skill.name !== selectedSkill }"
           :for="appId + '-skill-' + skill.name"
         >
