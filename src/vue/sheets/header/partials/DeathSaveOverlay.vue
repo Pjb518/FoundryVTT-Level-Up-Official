@@ -14,6 +14,7 @@
 
     <i
       class="a5e-death-saves__icon fas fa-skull a5e-js-roll-death-saving-throw"
+      @click="onRollDeathSavingThrow"
     ></i>
 
     <input
@@ -31,7 +32,20 @@
 </template>
 
 <script>
+import { inject } from "vue";
+
 export default {
   props: { success: Number, failure: Number },
+  setup() {
+    const actor = inject("actor");
+
+    function onRollDeathSavingThrow() {
+      actor.rollDeathSavingThrow();
+    }
+
+    return {
+      onRollDeathSavingThrow,
+    };
+  },
 };
 </script>
