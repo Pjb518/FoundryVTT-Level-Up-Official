@@ -91,15 +91,15 @@
 <script>
 import { computed, inject } from "vue";
 
-import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
-import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
-import prepareDamageImmunities from "../../dataPreparationHelpers/prepareDamageImmunities";
-import prepareDamageResistances from "../../dataPreparationHelpers/prepareDamageResistances";
-import prepareDamageVulnerabilities from "../../dataPreparationHelpers/prepareDamageVulnerabilities";
-import prepareLanguageProficiencies from "../../dataPreparationHelpers/prepareLanguageProficiencies";
-import prepareSenses from "../../dataPreparationHelpers/prepareSenses";
-import prepareToolProficiencies from "../../dataPreparationHelpers/prepareToolProficiencies";
-import prepareWeaponProficiencies from "../../dataPreparationHelpers/prepareWeaponProficiencies";
+import prepareArmorProficiencies from "../../utils/dataPreparationHelpers/prepareArmorProficiencies";
+import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
+import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
+import prepareDamageResistances from "../../utils/dataPreparationHelpers/prepareDamageResistances";
+import prepareDamageVulnerabilities from "../../utils/dataPreparationHelpers/prepareDamageVulnerabilities";
+import prepareLanguageProficiencies from "../../utils/dataPreparationHelpers/prepareLanguageProficiencies";
+import prepareSenses from "../../utils/dataPreparationHelpers/prepareSenses";
+import prepareToolProficiencies from "../../utils/dataPreparationHelpers/prepareToolProficiencies";
+import prepareWeaponProficiencies from "../../utils/dataPreparationHelpers/prepareWeaponProficiencies";
 
 import DetailsCategory from "./partials/DetailsCategory.vue";
 import Skill from "./partials/Skill.vue";

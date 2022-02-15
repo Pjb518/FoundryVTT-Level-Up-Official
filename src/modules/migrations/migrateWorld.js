@@ -18,12 +18,31 @@ export default async function migrateWorld() {
   // Migrate World Actors
   for (const actor of game.actors) {
     try {
-      const updateData = migrateActorData(actor.toObject());
+      const actorUpdateData = migrateActorData(actor.toObject());
+      const embeddedDocumentUpdateData = actor.items.reduce((itemUpdates, item) => {
+        const itemMigrationData = migrateItemData(item.toObject());
 
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+        if (!isObjectEmpty(itemMigrationData)) {
+          itemMigrationData._id = item.id;
+          itemUpdates.push(itemMigrationData);
+        }
+
+        return itemUpdates;
+      }, []);
+
+      const updateOperations = [];
+
+      if (!foundry.utils.isObjectEmpty(actorUpdateData)) {
         console.info(`Migrating Actor document ${actor.name}`);
-        await actor.update(updateData, { enforceTypes: false });
+        updateOperations.push(() => (actor.update(actorUpdateData, { enforceTypes: false })));
       }
+
+      if (embeddedDocumentUpdateData.length) {
+        console.info(`Migrating embedded items for Actor ${actor.name}`);
+        updateOperations.push(() => (actor.updateEmbeddedDocuments('Item', embeddedDocumentUpdateData)));
+      }
+
+      await Promise.all(updateOperations.map((operation) => operation()));
     } catch (err) {
       err.message = `Failed Level Up system migration for Actor ${actor.name}: ${err.message}`;
       console.error(err);

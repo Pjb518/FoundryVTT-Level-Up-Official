@@ -135,6 +135,10 @@
 </template>
 
 <script>
+import { computed, inject } from "vue";
+
+import prepareChallengeRating from "../../utils/dataPreparationHelpers/prepareChallengeRating";
+
 import AbilityScore from "./partials/AbilityScore.vue";
 import ArmorClass from "./partials/ArmorClass.vue";
 import CreatureTypes from "./partials/CreatureTypes.vue";
@@ -144,10 +148,6 @@ import Initiative from "./partials/Initiative.vue";
 import Movement from "./partials/Movement.vue";
 import SizeCategory from "./partials/SizeCategory.vue";
 import StatusTrack from "./partials/StatusTrack.vue";
-
-import prepareChallengeRating from "../../dataPreparationHelpers/prepareChallengeRating";
-
-import { computed, inject } from "vue";
 
 export default {
   components: {

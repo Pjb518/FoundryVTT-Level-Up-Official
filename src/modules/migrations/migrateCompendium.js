@@ -45,5 +45,5 @@ export default async function migrateCompendium(pack) {
   // Apply the original locked status for the pack
   await pack.configure({ locked: wasLocked });
 
-  console.log(`Migrated all ${documentName} documents from Compendium ${pack.collection}`);
+  console.info(`Migrated all ${documentName} documents from Compendium ${pack.collection}`);
 }

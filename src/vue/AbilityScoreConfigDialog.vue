@@ -39,14 +39,20 @@
         Saving Throw Configuration
       </h2>
 
-      <radio-group
-        heading="A5E.Proficiency"
-        :baseId="appId"
-        :initialSelection="saveProficiency"
-        :values="proficiencyOptions"
-        :wide="true"
-        @updateSelection="updateSaveProficiency"
-      />
+      <section class="a5e-form__section">
+        <h3 class="u-text-bold u-text-sm">
+          {{ localize("A5E.Proficiency") }}
+        </h3>
+
+        <radio-group
+          :baseId="appId"
+          :initialSelection="saveProficiency"
+          :values="proficiencyOptions"
+          :wide="true"
+          :wrap="false"
+          @updateSelection="updateSaveProficiency"
+        />
+      </section>
 
       <expertise-die-picker
         :appId="appId"
@@ -179,6 +185,7 @@ export default {
       }),
       globalCheckBonus,
       globalSaveBonus,
+      localize: (key) => game.i18n.localize(key),
       proficiencyOptions: [
         {
           id: 1,

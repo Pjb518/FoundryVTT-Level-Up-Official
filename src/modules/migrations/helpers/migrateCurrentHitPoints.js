@@ -1,6 +1,6 @@
 export default function migrateCurrentHitPoints(actorData, updateData) {
   // Check for the presence of the old value.
-  const old = actorData?.data?.attributes.hp?.current;
+  const old = actorData?.data?.attributes?.hp?.current;
   const hasOld = old !== undefined;
 
   if (hasOld) {

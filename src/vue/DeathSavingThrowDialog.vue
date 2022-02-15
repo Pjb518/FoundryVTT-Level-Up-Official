@@ -2,14 +2,20 @@
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
     <error-list v-if="errors.length" :errors="errors" />
 
-    <radio-group
-      heading="A5E.RollModeHeading"
-      :baseId="appId"
-      :initialSelection="initialRollMode"
-      :values="rollModeOptions"
-      :wide="true"
-      @updateSelection="updateRollMode"
-    />
+    <section class="a5e-form__section">
+      <h3 class="u-text-bold u-text-sm">
+        {{ localize("A5E.RollModeHeading") }}
+      </h3>
+
+      <radio-group
+        :baseId="appId"
+        :initialSelection="initialRollMode"
+        :values="rollModeOptions"
+        :wide="true"
+        :wrap="false"
+        @updateSelection="updateRollMode"
+      />
+    </section>
 
     <expertise-die-picker
       :appId="appId"
@@ -127,6 +133,7 @@ export default {
       baseExpertiseLevel: 0,
       errors,
       initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
+      localize: (key) => game.i18n.localize(key),
       onSubmit,
       rollFormula,
       rollFormulaIsValid,

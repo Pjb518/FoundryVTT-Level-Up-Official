@@ -39,8 +39,10 @@ A5E.abilityAbbreviations = {
 A5E.abilityActivationTypes = {
   action: 'A5E.ActionActivationAction',
   bonusAction: 'A5E.ActionActivationBonusAction',
+  hour: 'A5E.DurationHour',
   lairAction: 'A5E.ActionActivationLairAction',
   legendaryAction: 'A5E.ActionActivationLegendaryAction',
+  minute: 'A5E.DurationMinute',
   none: 'A5E.ActionActivationNone',
   reaction: 'A5E.ActionActivationReaction',
   special: 'A5E.ActionActivationSpecial'
@@ -200,6 +202,16 @@ A5E.damageTypes = {
   thunder: 'A5E.DamageThunder'
 };
 
+A5E.featureTypes = {
+  background: 'A5E.FeatureBackground',
+  class: 'A5E.FeatureClass',
+  culture: 'A5E.FeatureCulture',
+  destiny: 'A5E.FeatureDestiny',
+  feat: 'A5E.FeatureFeat',
+  heritage: 'A5E.FeatureHeritage',
+  knack: 'A5E.FeatureKnack'
+};
+
 /**
  * The set of core healing types in the system.
  * @enum {string}
@@ -274,6 +286,22 @@ A5E.maneuverTraditions = {
   unendingWheel: 'A5E.ManeuverTraditionUnendingWheel'
 };
 
+A5E.materialProperties = {
+  comfortable: 'A5E.MaterialPropertyComfortable',
+  feybane: 'A5E.MaterialPropertyFeybane',
+  flaw: 'A5E.MaterialPropertyFlaw',
+  fortified: 'A5E.MaterialPropertyFortified',
+  hardy: 'A5E.MaterialPropertyHardy',
+  highQuality: 'A5E.MaterialPropertyHighQuality',
+  lightweight: 'A5E.MaterialPropertyLightweight',
+  lowMaintenance: 'A5E.MaterialPropertyLowMaintenance',
+  rust: 'A5E.MaterialPropertyRust',
+  silvered: 'A5E.MaterialPropertySilvered',
+  underarmor: 'A5E.MaterialPropertyUnderarmor',
+  weighty: 'A5E.MaterialPropertyWeighty',
+  wild: 'A5E.MaterialPropertyWild'
+};
+
 /**
  * The set of core movement types in the system.
  * @enum {string}
@@ -334,6 +362,19 @@ A5E.rangeValues = {
   short: 30,
   medium: 60,
   long: 120
+};
+
+A5E.resourceRecoveryOptions = {
+  shortRest: 'A5E.RestShort',
+  longRest: 'A5E.RestLong',
+  round: 'A5E.DurationRound',
+  turn: 'A5E.DurationTurn',
+  minute: 'A5E.DurationMinute',
+  hour: 'A5E.DurationHour',
+  day: 'A5E.DurationDay',
+  week: 'A5E.DurationWeek',
+  month: 'A5E.DurationMonth',
+  year: 'A5E.DurationYear'
 };
 
 A5E.rollModes = {
@@ -627,6 +668,14 @@ A5E.skillSpecialties = {
   }
 };
 
+A5E.targetTypes = {
+  self: 'A5E.TargetSelf',
+  creature: 'A5E.TargetCreature',
+  object: 'A5E.TargetObject',
+  creatureObject: 'A5E.TargetCreatureObject',
+  other: 'A5E.TargetOther'
+};
+
 A5E.timePeriods = {
   instantaneous: 'A5E.DurationInstantaneous',
   round: 'A5E.DurationRound',
@@ -650,6 +699,122 @@ A5E.tokenHPColors = {
   damage: 0xFF0000,
   healing: 0x00FF00,
   temp: 0x66CCFF
+};
+
+A5E.tools = {
+  artisansTools: {
+    alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
+    brewersSupplies: 'A5E.ToolBrewersSupplies',
+    calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
+    carpentersTools: 'A5E.ToolCarpentersTools',
+    cartographersTools: 'A5E.ToolCartographersTools',
+    cobblersTools: 'A5E.ToolCobblersTools',
+    cooksUtensils: 'A5E.ToolCooksUtensils',
+    glassblowersTools: 'A5E.ToolGlassblowersTools',
+    jewelersTools: 'A5E.ToolJewelersTools',
+    leatherworkersTools: 'A5E.ToolLeatherworkersTools',
+    masonsTools: 'A5E.ToolMasonsTools',
+    paintersSupplies: 'A5E.ToolPaintersSupplies',
+    pottersTools: 'A5E.ToolPottersTools',
+    tinkersTools: 'A5E.ToolTinkersTools',
+    weaversTools: 'A5E.ToolWeaversTools',
+    woodcarversTools: 'A5E.ToolWoodcarversTools'
+  },
+  gamingSets: {
+    diceSet: 'A5E.ToolDiceSet',
+    boardGameSet: 'A5E.ToolBoardGameSet',
+    playingCardSet: 'A5E.ToolPlayingCardSet'
+  },
+  musicalInstruments: {
+    bagpipes: 'A5E.InstrumentBagpipes',
+    casaba: 'A5E.InstrumentCasaba',
+    castanet: 'A5E.InstrumentCastanet',
+    drum: 'A5E.InstrumentDrum',
+    dulcimer: 'A5E.InstrumentDulcimer',
+    flute: 'A5E.InstrumentFlute',
+    harp: 'A5E.InstrumentHarp',
+    horn: 'A5E.InstrumentHorn',
+    lute: 'A5E.InstrumentLute',
+    lyre: 'A5E.InstrumentLyre',
+    maraca: 'A5E.InstrumentMaraca',
+    ocarina: 'A5E.InstrumentOcarina',
+    panFlute: 'A5E.InstrumentPanFlute',
+    trombone: 'A5E.InstrumentTrombone',
+    violin: 'A5E.InstrumentViolin'
+  },
+  miscellaneous: {
+    disguiseKit: 'A5E.ToolDisguiseKit',
+    forgeryKit: 'A5E.ToolForgeryKit',
+    herbalismKit: 'A5E.ToolHerbalismKit',
+    navigatorsTools: 'A5E.ToolNavigatorsTools',
+    poisonersKit: 'A5E.ToolPoisonersKit',
+    sewingKit: 'A5E.ToolSewingKit',
+    smithsTools: 'A5E.ToolSmithsTools',
+    thievesTools: 'A5E.ToolThievesTools'
+  },
+  vehicles: {
+    landVehicles: 'A5E.VehicleLand',
+    waterVehicles: 'A5E.VehicleWater',
+    airVehicles: 'A5E.VehicleAir'
+  }
+};
+
+A5E.toolsPlural = {
+  artisansTools: {
+    alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
+    brewersSupplies: 'A5E.ToolBrewersSupplies',
+    calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
+    carpentersTools: 'A5E.ToolCarpentersTools',
+    cartographersTools: 'A5E.ToolCartographersTools',
+    cobblersTools: 'A5E.ToolCobblersTools',
+    cooksUtensils: 'A5E.ToolCooksUtensils',
+    glassblowersTools: 'A5E.ToolGlassblowersTools',
+    jewelersTools: 'A5E.ToolJewelersTools',
+    leatherworkersTools: 'A5E.ToolLeatherworkersTools',
+    masonsTools: 'A5E.ToolMasonsTools',
+    paintersSupplies: 'A5E.ToolPaintersSupplies',
+    pottersTools: 'A5E.ToolPottersTools',
+    tinkersTools: 'A5E.ToolTinkersTools',
+    weaversTools: 'A5E.ToolWeaversTools',
+    woodcarversTools: 'A5E.ToolWoodcarversTools'
+  },
+  gamingSets: {
+    diceSet: 'A5E.ToolDiceSetPlural',
+    boardGameSet: 'A5E.ToolBoardGameSetPlural',
+    playingCardSet: 'A5E.ToolPlayingCardSetPlural'
+  },
+  musicalInstruments: {
+    bagpipes: 'A5E.InstrumentBagpipesPlural',
+    casaba: 'A5E.InstrumentCasabaPlural',
+    castanet: 'A5E.InstrumentCastanetPlural',
+    drum: 'A5E.InstrumentDrumPlural',
+    dulcimer: 'A5E.InstrumentDulcimerPlural',
+    flute: 'A5E.InstrumentFlutePlural',
+    harp: 'A5E.InstrumentHarpPlural',
+    horn: 'A5E.InstrumentHornPlural',
+    lute: 'A5E.InstrumentLutePlural',
+    lyre: 'A5E.InstrumentLyrePlural',
+    maraca: 'A5E.InstrumentMaracaPlural',
+    ocarina: 'A5E.InstrumentOcarinaPlural',
+    panFlute: 'A5E.InstrumentPanFlutePlural',
+    trombone: 'A5E.InstrumentTrombonePlural',
+    violin: 'A5E.InstrumentViolinPlural'
+  },
+  miscellaneous: {
+    disguiseKit: 'A5E.ToolDisguiseKitPlural',
+    forgeryKit: 'A5E.ToolForgeryKitPlural',
+    herbalismKit: 'A5E.ToolHerbalismKitPlural',
+    navigatorsTools: 'A5E.ToolNavigatorsToolsPlural',
+    poisonersKit: 'A5E.ToolPoisonersKitPlural',
+    sewingKit: 'A5E.ToolSewingKitPlural',
+    smithsTools: 'A5E.ToolSmithsToolsPlural',
+    thievesTools: 'A5E.ToolThievesToolsPlural'
+  },
+  vehicles: {
+    landVehicles: 'A5E.VehicleLandPlural',
+    waterVehicles: 'A5E.VehicleWaterPlural',
+    airVehicles: 'A5E.VehicleAirPlural'
+  }
 };
 
 /**
@@ -827,132 +992,6 @@ A5E.weaponProperties = {
   twoHanded: 'A5E.WeaponPropertyTwoHanded',
   versatile: 'A5E.WeaponPropertyVersatile',
   vicious: 'A5E.WeaponPropertyVicious'
-};
-
-A5E.targetTypes = {
-  self: 'A5E.TargetSelf',
-  area: 'A5E.TargetArea',
-  creature: 'A5E.TargetCreature',
-  object: 'A5E.TargetObject',
-  creatureObject: 'A5E.TargetCreatureObject',
-  none: 'A5E.TargetNone',
-  other: 'A5E.TargetOther'
-};
-
-A5E.tools = {
-  artisansTools: {
-    alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
-    brewersSupplies: 'A5E.ToolBrewersSupplies',
-    calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
-    carpentersTools: 'A5E.ToolCarpentersTools',
-    cartographersTools: 'A5E.ToolCartographersTools',
-    cobblersTools: 'A5E.ToolCobblersTools',
-    cooksUtensils: 'A5E.ToolCooksUtensils',
-    glassblowersTools: 'A5E.ToolGlassblowersTools',
-    jewelersTools: 'A5E.ToolJewelersTools',
-    leatherworkersTools: 'A5E.ToolLeatherworkersTools',
-    masonsTools: 'A5E.ToolMasonsTools',
-    paintersSupplies: 'A5E.ToolPaintersSupplies',
-    pottersTools: 'A5E.ToolPottersTools',
-    tinkersTools: 'A5E.ToolTinkersTools',
-    weaversTools: 'A5E.ToolWeaversTools',
-    woodcarversTools: 'A5E.ToolWoodcarversTools'
-  },
-  gamingSets: {
-    diceSet: 'A5E.ToolDiceSet',
-    boardGameSet: 'A5E.ToolBoardGameSet',
-    playingCardSet: 'A5E.ToolPlayingCardSet'
-  },
-  musicalInstruments: {
-    bagpipes: 'A5E.InstrumentBagpipes',
-    casaba: 'A5E.InstrumentCasaba',
-    castanet: 'A5E.InstrumentCastanet',
-    drum: 'A5E.InstrumentDrum',
-    dulcimer: 'A5E.InstrumentDulcimer',
-    flute: 'A5E.InstrumentFlute',
-    harp: 'A5E.InstrumentHarp',
-    horn: 'A5E.InstrumentHorn',
-    lute: 'A5E.InstrumentLute',
-    lyre: 'A5E.InstrumentLyre',
-    maraca: 'A5E.InstrumentMaraca',
-    ocarina: 'A5E.InstrumentOcarina',
-    panFlute: 'A5E.InstrumentPanFlute',
-    trombone: 'A5E.InstrumentTrombone',
-    violin: 'A5E.InstrumentViolin'
-  },
-  miscellaneous: {
-    disguiseKit: 'A5E.ToolDisguiseKit',
-    forgeryKit: 'A5E.ToolForgeryKit',
-    herbalismKit: 'A5E.ToolHerbalismKit',
-    navigatorsTools: 'A5E.ToolNavigatorsTools',
-    poisonersKit: 'A5E.ToolPoisonersKit',
-    sewingKit: 'A5E.ToolSewingKit',
-    smithsTools: 'A5E.ToolSmithsTools',
-    thievesTools: 'A5E.ToolThievesTools'
-  },
-  vehicles: {
-    landVehicles: 'A5E.VehicleLand',
-    waterVehicles: 'A5E.VehicleWater',
-    airVehicles: 'A5E.VehicleAir'
-  }
-};
-
-A5E.toolsPlural = {
-  artisansTools: {
-    alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
-    brewersSupplies: 'A5E.ToolBrewersSupplies',
-    calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
-    carpentersTools: 'A5E.ToolCarpentersTools',
-    cartographersTools: 'A5E.ToolCartographersTools',
-    cobblersTools: 'A5E.ToolCobblersTools',
-    cooksUtensils: 'A5E.ToolCooksUtensils',
-    glassblowersTools: 'A5E.ToolGlassblowersTools',
-    jewelersTools: 'A5E.ToolJewelersTools',
-    leatherworkersTools: 'A5E.ToolLeatherworkersTools',
-    masonsTools: 'A5E.ToolMasonsTools',
-    paintersSupplies: 'A5E.ToolPaintersSupplies',
-    pottersTools: 'A5E.ToolPottersTools',
-    tinkersTools: 'A5E.ToolTinkersTools',
-    weaversTools: 'A5E.ToolWeaversTools',
-    woodcarversTools: 'A5E.ToolWoodcarversTools'
-  },
-  gamingSets: {
-    diceSet: 'A5E.ToolDiceSetPlural',
-    boardGameSet: 'A5E.ToolBoardGameSetPlural',
-    playingCardSet: 'A5E.ToolPlayingCardSetPlural'
-  },
-  musicalInstruments: {
-    bagpipes: 'A5E.InstrumentBagpipesPlural',
-    casaba: 'A5E.InstrumentCasabaPlural',
-    castanet: 'A5E.InstrumentCastanetPlural',
-    drum: 'A5E.InstrumentDrumPlural',
-    dulcimer: 'A5E.InstrumentDulcimerPlural',
-    flute: 'A5E.InstrumentFlutePlural',
-    harp: 'A5E.InstrumentHarpPlural',
-    horn: 'A5E.InstrumentHornPlural',
-    lute: 'A5E.InstrumentLutePlural',
-    lyre: 'A5E.InstrumentLyrePlural',
-    maraca: 'A5E.InstrumentMaracaPlural',
-    ocarina: 'A5E.InstrumentOcarinaPlural',
-    panFlute: 'A5E.InstrumentPanFlutePlural',
-    trombone: 'A5E.InstrumentTrombonePlural',
-    violin: 'A5E.InstrumentViolinPlural'
-  },
-  miscellaneous: {
-    disguiseKit: 'A5E.ToolDisguiseKitPlural',
-    forgeryKit: 'A5E.ToolForgeryKitPlural',
-    herbalismKit: 'A5E.ToolHerbalismKitPlural',
-    navigatorsTools: 'A5E.ToolNavigatorsToolsPlural',
-    poisonersKit: 'A5E.ToolPoisonersKitPlural',
-    sewingKit: 'A5E.ToolSewingKitPlural',
-    smithsTools: 'A5E.ToolSmithsToolsPlural',
-    thievesTools: 'A5E.ToolThievesToolsPlural'
-  },
-  vehicles: {
-    landVehicles: 'A5E.VehicleLandPlural',
-    waterVehicles: 'A5E.VehicleWaterPlural',
-    airVehicles: 'A5E.VehicleAirPlural'
-  }
 };
 
 export default A5E;

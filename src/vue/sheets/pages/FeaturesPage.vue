@@ -13,6 +13,12 @@
         "
         heading="A5E.FilterLabelActivationCost"
       />
+
+      <filter-group
+        filterKey="featureTypeFilters"
+        :filterOptions="config.featureTypes"
+        heading="A5E.FilterLabelFeatureTypes"
+      />
     </filter-box>
 
     <section
@@ -76,7 +82,7 @@
 <script>
 import { computed, inject, onMounted } from "vue";
 
-import applyFeatureFilters from "../../filterHelpers/applyFeatureFilters";
+import applyFeatureFilters from "../../utils/filterHelpers/applyFeatureFilters";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";

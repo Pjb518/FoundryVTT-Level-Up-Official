@@ -194,6 +194,8 @@
 </template>
 
 <script>
+import { inject } from "vue";
+
 import AbilityScore from "./partials/AbilityScore.vue";
 import ArmorClass from "./partials/ArmorClass.vue";
 import Background from "./partials/Background.vue";
@@ -206,8 +208,6 @@ import Initiative from "./partials/Initiative.vue";
 import Movement from "./partials/Movement.vue";
 import SizeCategory from "./partials/SizeCategory.vue";
 import StatusTrack from "./partials/StatusTrack.vue";
-
-import { inject } from "vue";
 
 export default {
   components: {

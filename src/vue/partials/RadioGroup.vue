@@ -1,31 +1,27 @@
 <template>
-  <section class="a5e-form__section">
-    <h3 v-if="heading" class="u-text-bold u-text-sm">{{ heading }}</h3>
+  <div
+    class="a5e-radio-group u-flex u-gap-md u-text-sm"
+    :class="{ 'u-flex-wrap': wrap }"
+  >
+    <template v-for="value in values" :key="baseId + (value.id || value.name)">
+      <input
+        class="u-hidden"
+        type="radio"
+        :name="baseId + value.name"
+        :value="value.value"
+        :id="baseId + (value.id || value.name)"
+        v-model="selectedValue"
+      />
 
-    <div class="a5e-radio-group u-flex u-gap-md u-text-sm">
-      <template
-        v-for="value in values"
-        :key="baseId + (value.id || value.name)"
+      <label
+        class="a5e-radio-group__button"
+        :class="{ 'a5e-radio-group__button--full-width': wide }"
+        :for="baseId + (value.id || value.name)"
       >
-        <input
-          class="u-hidden"
-          type="radio"
-          :name="baseId + value.name"
-          :value="value.value"
-          :id="baseId + (value.id || value.name)"
-          v-model="selectedValue"
-        />
-
-        <label
-          class="a5e-radio-group__button"
-          :class="{ 'a5e-radio-group__button--full-width': wide }"
-          :for="baseId + (value.id || value.name)"
-        >
-          {{ value.name }}
-        </label>
-      </template>
-    </div>
-  </section>
+        {{ value.name }}
+      </label>
+    </template>
+  </div>
 </template>
 
 <script>
@@ -34,10 +30,10 @@ import { ref, watch } from "vue";
 export default {
   props: {
     baseId: String,
-    heading: { type: String, required: false },
     initialSelection: [Boolean, String, Number],
     values: Array,
     wide: { type: Boolean, default: false },
+    wrap: { type: Boolean, default: true },
   },
   setup(props, context) {
     const heading = game.i18n.localize(props.heading);

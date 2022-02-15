@@ -1,7 +1,7 @@
 <template>
   <NPCHeader />
 
-  <player-character-navigation
+  <navigation
     :active-tab="activeTab"
     :tabs="tabs"
     @update-active-tab="updateActiveTab"
@@ -15,8 +15,12 @@
 </template>
 
 <script>
+import { computed, provide, ref, shallowRef } from "vue";
+
+import registerSheetListeners from "../utils/hookHelpers/registerSheetListeners";
+
+import Navigation from "./navigation/Navigation.vue";
 import NPCHeader from "./header/NPCHeader.vue";
-import PlayerCharacterNavigation from "./navigation/PlayerCharacterNavigation.vue";
 
 import CorePage from "./pages/CorePage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
@@ -24,11 +28,9 @@ import InventoryPage from "./pages/InventoryPage.vue";
 import SkillsPage from "./pages/SkillsPage.vue";
 import SpellsPage from "./pages/SpellsPage.vue";
 
-import { computed, provide, ref, shallowRef } from "vue";
-
 export default {
   inheritAttrs: false,
-  components: { NPCHeader, PlayerCharacterNavigation },
+  components: { NPCHeader, Navigation },
   setup(_, context) {
     const { actor, sheet } = context.attrs;
     const { appId } = sheet;
@@ -58,28 +60,11 @@ export default {
       data.value = context.attrs.sheet.getData();
     }
 
-    // Register listeners for changes to actor data and embedded items so that the
-    // sheet data can be refreshed.
-    const registeredListeners = [
-      "updateActor",
-      "createItem",
-      "deleteItem",
-      "updateItem",
-    ].reduce((hookIDs, hook) => {
-      hookIDs[hook] = Hooks.on(hook, () => updateStoredActorData());
-      return hookIDs;
-    }, {});
-
-    // Unregister the above listeners when the sheet is closed, along with this listener.
-    const closeSheetHookID = Hooks.on("closeActorSheet", (sheetData) => {
-      if (sheetData.appId === appId) {
-        Object.entries(registeredListeners).forEach(([name, id]) => {
-          Hooks.off(name, id);
-        });
-
-        Hooks.off("closeActorSheet", closeSheetHookID);
-      }
-    });
+    registerSheetListeners(
+      appId,
+      ["updateActor", "createItem", "deleteItem", "updateItem"],
+      updateStoredActorData
+    );
 
     return {
       activeTab,

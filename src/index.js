@@ -7,7 +7,7 @@ import Actor5e from './modules/actor/entity';
 import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
 import Item5e from './modules/item/entity';
-import ActorSheet5eCharacter from './modules/sheets/character';
+import ActorSheet5e from './modules/sheets/character';
 import ItemSheet5e from './modules/sheets/item';
 import ReactiveDialog from './modules/apps/reactiveDialog';
 import Token5e from './modules/actor/token';
@@ -37,7 +37,7 @@ import migrateCurrentHitPoints from './modules/migrations/helpers/migrateCurrent
 Hooks.once('init', () => {
   game.a5e = {
     applications: {
-      ActorSheet5eCharacter,
+      ActorSheet5e,
       ItemSheet5e,
       ReactiveDialog
     },
@@ -82,13 +82,13 @@ Hooks.once('init', () => {
   registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('a5e', ActorSheet5eCharacter, {
+  Actors.registerSheet('a5e', ActorSheet5e, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'
   });
 
-  Actors.registerSheet('a5e', ActorSheet5eCharacter, {
+  Actors.registerSheet('a5e', ActorSheet5e, {
     types: ['npc'],
     makeDefault: true,
     label: 'A5E.SheetClassNPC'
@@ -123,7 +123,7 @@ Hooks.once('ready', () => {
   if (!game.user.isGM) return;
 
   const currentVersion = game.settings.get('a5e', 'systemMigrationVersion');
-  const NEEDS_MIGRATION_VERSION = '0.3.0';
+  const NEEDS_MIGRATION_VERSION = '0.4.0';
   const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 
   if (!currentVersion && totalDocuments === 0) {

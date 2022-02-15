@@ -181,7 +181,7 @@
 <script>
 import { computed, inject, onMounted } from "vue";
 
-import applySpellFilters from "../../filterHelpers/applySpellFilters";
+import applySpellFilters from "../../utils/filterHelpers/applySpellFilters";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";

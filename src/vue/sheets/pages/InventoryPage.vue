@@ -15,6 +15,12 @@
       />
 
       <filter-group
+        filterKey="objectTypeFilters"
+        :filterOptions="config.objectTypes"
+        heading="A5E.FilterLabelObjectTypes"
+      />
+
+      <filter-group
         filterKey="itemRarityFilters"
         :filterOptions="config.itemRarity"
         heading="A5E.FilterLabelRarity"
@@ -137,7 +143,10 @@
         </div>
       </div>
 
-      <div class="u-align-center u-flex u-gap-md u-ml-auto u-text-md">
+      <div
+        class="u-align-center u-flex u-gap-md u-text-md"
+        :class="{ 'u-ml-auto': actorType === 'npc' }"
+      >
         <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
           {{ localize("A5E.Currency") }}
           <i class="fas fa-coins"></i>
@@ -170,7 +179,7 @@
 <script>
 import { computed, inject, onMounted } from "vue";
 
-import applyObjectFilters from "../../filterHelpers/applyObjectFilters";
+import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";

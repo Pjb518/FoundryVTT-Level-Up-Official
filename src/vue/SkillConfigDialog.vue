@@ -1,13 +1,19 @@
 <template>
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
-    <radio-group
-      heading="A5E.Proficiency"
-      :baseId="appId"
-      :initialSelection="proficient"
-      :values="proficiencyOptions"
-      :wide="true"
-      @updateSelection="updateProficiency"
-    />
+    <section class="a5e-form__section">
+      <h3 class="u-text-bold u-text-sm">
+        {{ localize("A5E.RestType") }}
+      </h3>
+
+      <radio-group
+        :baseId="appId"
+        :initialSelection="proficient"
+        :values="proficiencyOptions"
+        :wide="true"
+        :wrap="false"
+        @updateSelection="updateProficiency"
+      />
+    </section>
 
     <tag-group
       heading="A5E.SkillSpecialties"
@@ -196,6 +202,7 @@ export default {
       globalAbilityCheckBonus,
       globalSkillCheckBonus,
       initialMinRollValue: skillData.minRoll,
+      localize: (key) => game.i18n.localize(key),
       onSubmit,
       passiveBonus,
       passiveBonusHeading: game.i18n.format("A5E.SkillCheckBonusPassive", {

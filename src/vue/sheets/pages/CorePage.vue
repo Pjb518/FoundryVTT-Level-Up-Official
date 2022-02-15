@@ -125,14 +125,14 @@
 <script>
 import { computed, inject, onMounted } from "vue";
 
-import applyFeatureFilters from "../../filterHelpers/applyFeatureFilters";
-import applyObjectFilters from "../../filterHelpers/applyObjectFilters";
-import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
-import prepareDamageImmunities from "../../dataPreparationHelpers/prepareDamageImmunities";
-import prepareDamageResistances from "../../dataPreparationHelpers/prepareDamageResistances";
-import prepareDamageVulnerabilities from "../../dataPreparationHelpers/prepareDamageVulnerabilities";
-import prepareLanguageProficiencies from "../../dataPreparationHelpers/prepareLanguageProficiencies";
-import prepareSenses from "../../dataPreparationHelpers/prepareSenses";
+import applyFeatureFilters from "../../utils/filterHelpers/applyFeatureFilters";
+import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
+import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
+import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
+import prepareDamageResistances from "../../utils/dataPreparationHelpers/prepareDamageResistances";
+import prepareDamageVulnerabilities from "../../utils/dataPreparationHelpers/prepareDamageVulnerabilities";
+import prepareLanguageProficiencies from "../../utils/dataPreparationHelpers/prepareLanguageProficiencies";
+import prepareSenses from "../../utils/dataPreparationHelpers/prepareSenses";
 
 import DetailsCategory from "./partials/DetailsCategory.vue";
 import Item from "./partials/Item.vue";

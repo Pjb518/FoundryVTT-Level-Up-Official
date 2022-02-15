@@ -1,13 +1,19 @@
 <template>
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
-    <radio-group
-      heading="A5E.RestType"
-      initialSelection="short"
-      :baseId="appId"
-      :values="restTypeOptions"
-      :wide="true"
-      @updateSelection="updateRestType"
-    />
+    <section class="a5e-form__section">
+      <h3 class="u-text-bold u-text-sm">
+        {{ localize("A5E.RestType") }}
+      </h3>
+
+      <radio-group
+        initialSelection="short"
+        :baseId="appId"
+        :values="restTypeOptions"
+        :wide="true"
+        :wrap="false"
+        @updateSelection="updateRestType"
+      />
+    </section>
 
     <div
       v-if="restType === 'long'"
@@ -147,6 +153,7 @@ export default {
         d12,
       },
       hitDiceLabel: game.i18n.localize("A5E.HitDiceLabel"),
+      localize: (key) => game.i18n.localize(key),
       onSubmit,
       restType,
       restTypeOptions,

@@ -2,14 +2,20 @@
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
     <error-list v-if="errors.length" :errors="errors" />
 
-    <radio-group
-      heading="A5E.RollModeHeading"
-      :baseId="appId"
-      :initialSelection="initialRollMode"
-      :values="rollModeOptions"
-      :wide="true"
-      @updateSelection="updateRollMode"
-    />
+    <section class="a5e-form__section">
+      <h3 class="u-text-bold u-text-sm">
+        {{ localize("A5E.RollModeHeading") }}
+      </h3>
+
+      <radio-group
+        :baseId="appId"
+        :initialSelection="initialRollMode"
+        :values="rollModeOptions"
+        :wide="true"
+        :wrap="false"
+        @updateSelection="updateRollMode"
+      />
+    </section>
 
     <expertise-die-picker
       :appId="appId"
@@ -17,15 +23,19 @@
       @updateSelection="updateExpertiseDie"
     />
 
-    <radio-group
-      v-if="isConSave"
-      heading="A5E.SavingThrowType"
-      :baseId="appId"
-      :initialSelection="false"
-      :values="concentrationCheckValues"
-      :wide="true"
-      @updateSelection="toggleConcentrationCheck"
-    />
+    <section v-if="isConSave" class="a5e-form__section">
+      <h3 class="u-text-bold u-text-sm">
+        {{ localize("A5E.SavingThrowType") }}
+      </h3>
+
+      <radio-group
+        :baseId="appId"
+        :initialSelection="false"
+        :values="concentrationCheckValues"
+        :wide="true"
+        @updateSelection="toggleConcentrationCheck"
+      />
+    </section>
 
     <formula-field
       :hasInitialFocus="true"
@@ -210,6 +220,7 @@ export default {
       initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
       isConcentrationCheck,
       isConSave: isSave && ability === "con",
+      localize: (key) => game.i18n.localize(key),
       onSubmit,
       rollFormula,
       rollFormulaIsValid,

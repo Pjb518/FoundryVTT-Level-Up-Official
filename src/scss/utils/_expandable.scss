@@ -1,0 +1,14 @@
+.u-expandable {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+
+  &-active::before {
+    content: '\2212';
+  }
+
+  &-inactive::before {
+    content: '\002B';
+  }
+}

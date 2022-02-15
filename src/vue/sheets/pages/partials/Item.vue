@@ -14,11 +14,28 @@
       @click.stop="onActivateItem"
     />
 
-    <div>
+    <div class="u-flex u-gap-md">
       <h3 class="u-text-sm">
         {{ item.name }}
       </h3>
-      <span v-if="item.showQuantity">({{ item.data.quantity }})</span>
+
+      <span v-if="item.data.quantity > 1">({{ item.data.quantity }})</span>
+
+      <span v-if="hasUses">
+        (
+        <span>
+          {{ item.data.uses.value || 0 }}
+        </span>
+
+        <span v-if="item.data.uses.max"> / </span>
+        <span v-if="item.data.uses.max">{{ item.data.uses.max }}</span>
+
+        <span v-if="item.data.uses.per">
+          Per
+          {{ localize(config.resourceRecoveryOptions[item.data.uses.per]) }}
+        </span>
+        )
+      </span>
     </div>
 
     <item-action-buttons :item="item" />
@@ -36,7 +53,7 @@
 </template>
 
 <script>
-import { inject, ref } from "vue";
+import { computed, inject, ref } from "vue";
 
 import ItemActionButtons from "./ItemActionButtons.vue";
 
@@ -46,6 +63,11 @@ export default {
   setup(props) {
     const actor = inject("actor");
     const descriptionVisible = ref(false);
+
+    const hasUses = computed(() => {
+      const { uses } = props.item.data;
+      return uses.value || uses.max;
+    });
 
     function onActivateItem() {
       const item = actor.items.get(props.item._id);
@@ -57,7 +79,9 @@ export default {
     }
 
     return {
+      config: CONFIG.A5E,
       descriptionVisible,
+      hasUses,
       localize: (key) => game.i18n.localize(key),
       onActivateItem,
       onToggleDescriptionVisibility,

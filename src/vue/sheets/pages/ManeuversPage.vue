@@ -134,7 +134,7 @@
 <script>
 import { computed, inject, onMounted } from "vue";
 
-import applyManeuverFilters from "../../filterHelpers/applyManeuverFilters";
+import applyManeuverFilters from "../../utils/filterHelpers/applyManeuverFilters";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";
