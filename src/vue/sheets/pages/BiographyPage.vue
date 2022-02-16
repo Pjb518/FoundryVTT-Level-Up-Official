@@ -93,7 +93,7 @@
         <template v-if="currentEditor === 'backstory'">
           <div
             v-if="sheetIsLocked"
-            v-html="data.data.details.backstory || `<p>Nothing to display.</p>`"
+            v-html="data.data.details.bio || `<p>Nothing to display.</p>`"
             class="u-flex-grow u-p-lg u-pt-0"
           ></div>
 
@@ -105,7 +105,7 @@
                   'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
                 menubar: false,
               }"
-              :initial-value="data.data.details.backstory"
+              :initial-value="data.data.details.bio"
               plugins="code hr image link lists table"
               v-model="backstory"
             />
@@ -154,7 +154,7 @@ export default {
 
     const currentEditor = ref("backstory");
     const appearance = ref(data.value.data.details.appearance);
-    const backstory = ref(data.value.data.details.backstory);
+    const backstory = ref(data.value.data.details.bio);
 
     function onSelectEditor(editor) {
       currentEditor.value = editor;
@@ -170,7 +170,7 @@ export default {
     watch(
       () => backstory.value,
       async (curr) => {
-        await actor.update({ "data.details.backstory": curr });
+        await actor.update({ "data.details.bio": curr });
       }
     );
 

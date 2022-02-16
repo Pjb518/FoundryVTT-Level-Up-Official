@@ -23,6 +23,7 @@ export default class ReactiveDialog extends Application {
 
     this.app = App;
     this.data = data;
+    this._disable_popout_module = true;
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;
     });
