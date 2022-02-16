@@ -157,8 +157,7 @@ export default {
     );
 
     const maneuverDC = computed(() => {
-      const actorData = actor.data.data;
-      const { abilities, attributes, bonuses } = actorData;
+      const { abilities, attributes, bonuses } = data.value.data;
 
       return (
         8 +

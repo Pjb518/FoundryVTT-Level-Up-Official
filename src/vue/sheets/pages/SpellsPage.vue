@@ -136,6 +136,14 @@
     </section>
 
     <tab-footer>
+      <div class="u-align-center u-flex u-gap-md u-text-md">
+        <h3 class="u-mb-0">
+          {{ localize("A5E.SpellDC") }}
+        </h3>
+
+        <span class="a5e-footer-group__value">{{ spellDC }}</span>
+      </div>
+
       <div
         v-if="showSpellPoints"
         class="u-align-center u-flex u-gap-md u-text-md"
@@ -203,6 +211,18 @@ export default {
       ).sort((a, b) => a.sort - b.sort)
     );
 
+    const spellDC = computed(() => {
+      const { abilities, attributes, bonuses } = data.value.data;
+      const spellcastingAbility = attributes.spellcasting || "int";
+
+      return (
+        8 +
+        attributes.prof +
+        (parseInt(bonuses?.spell?.dc, 10) || 0) +
+        abilities[spellcastingAbility].check.mod
+      );
+    });
+
     const showSpellPoints = computed(
       () => data.value.flags?.a5e?.showSpellPoints ?? true
     );
@@ -241,6 +261,7 @@ export default {
       showSpellPoints,
       showSpellSlots,
       sheetIsLocked,
+      spellDC,
     };
   },
 };
