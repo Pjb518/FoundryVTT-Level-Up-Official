@@ -118,7 +118,10 @@
         />
       </div>
 
-      <div class="u-align-center u-flex u-gap-md u-text-md">
+      <div
+        v-if="!sheetIsLocked"
+        class="u-align-center u-flex u-gap-md u-text-md"
+      >
         <h3 class="u-mb-0">{{ localize("A5E.ConfigureManeuvers") }}</h3>
 
         <i

@@ -1,5 +1,12 @@
 <template>
   <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
+    <tag-group
+      heading="A5E.AvailableSpellLevels"
+      :initialSelections="initiallySelectedSpellLevels"
+      :tags="spellLevels"
+      @updateSelectionList="updateAvailableSpellLevels"
+    />
+
     <ability-score-picker
       :appId="appId"
       heading="A5E.SpellcastinAbilityScore"
@@ -8,11 +15,11 @@
       @update-selected-ability="updateSelectedAbility"
     />
 
-    <tag-group
-      heading="A5E.AvailableSpellLevels"
-      :initialSelections="initiallySelectedSpellLevels"
-      :tags="spellLevels"
-      @updateSelectionList="updateAvailableSpellLevels"
+    <numeric-field
+      :hasInitialFocus="true"
+      :initialValue="spellDCBonus"
+      heading="A5E.SpellDCBonus"
+      @update-field-value="updateSpellDCBonus"
     />
 
     <div class="a5e-form__section a5e-form__section--inline">
@@ -66,6 +73,8 @@ export default {
         [...Array(10).keys()].map((x) => x.toString())
     );
 
+    const spellDCBonus = ref(actor.data.data.bonuses.spell.dc || 0);
+
     function updateAvailableSpellLevels(value) {
       availableSpellLevels.value = value;
     }
@@ -74,9 +83,14 @@ export default {
       spellcastingAbility.value = ability;
     }
 
+    function updateSpellDCBonus(value) {
+      spellDCBonus.value = value;
+    }
+
     async function onSubmit() {
       const data = {
         "data.attributes.spellcasting": spellcastingAbility.value,
+        "data.bonuses.spell.dc": spellDCBonus.value,
       };
 
       await actor.setFlag(
@@ -101,12 +115,14 @@ export default {
       showSpellPoints,
       showSpellSlots,
       spellcastingAbility,
+      spellDCBonus,
       spellLevels: CONFIG.A5E.spellLevels,
       spellSlotsLabel: game.i18n.localize("A5E.SpellShowSpellSlots"),
       spellPointsLabel: game.i18n.localize("A5E.SpellShowSpellPoints"),
       submitText: game.i18n.localize("A5E.SaveSubmit"),
       updateAvailableSpellLevels,
       updateSelectedAbility,
+      updateSpellDCBonus,
     };
   },
 };
