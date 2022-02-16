@@ -553,7 +553,7 @@ export default class Actor5e extends Actor {
 
     if (data.damage?.length) {
       data.damage.forEach((damageSource) => {
-        game.dice3d.showForRoll(
+        game.dice3d?.showForRoll(
           damageSource.roll, game.user, false, null, false, null, chatData.speaker
         );
       });
@@ -561,7 +561,7 @@ export default class Actor5e extends Actor {
 
     if (data.healing?.length) {
       data.healing.forEach((healingSource) => {
-        game.dice3d.showForRoll(
+        game.dice3d?.showForRoll(
           healingSource.roll, game.user, false, null, false, null, chatData.speaker
         );
       });
