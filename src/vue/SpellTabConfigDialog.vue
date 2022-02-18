@@ -9,7 +9,7 @@
 
     <ability-score-picker
       :appId="appId"
-      heading="A5E.SpellcastinAbilityScore"
+      heading="A5E.SpellcastingAbilityScore"
       :initialSelection="spellcastingAbility"
       :showNone="false"
       @update-selected-ability="updateSelectedAbility"
