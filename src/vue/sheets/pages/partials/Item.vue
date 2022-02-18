@@ -19,7 +19,17 @@
         {{ item.name }}
       </h3>
 
-      <span v-if="item.data.quantity > 1">({{ item.data.quantity }})</span>
+      <div v-if="item.data.quantity > 1" class="u-text-xs">
+        <input
+          class="a5e-spell-slots__input"
+          style="wid"
+          type="number"
+          @click.stop=""
+          v-model="quantity"
+          v-autowidth
+          min="0"
+        />
+      </div>
 
       <span v-if="hasUses">
         (
@@ -54,11 +64,13 @@
 
 <script>
 import { computed, inject, ref } from "vue";
+import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import ItemActionButtons from "./ItemActionButtons.vue";
 
 export default {
   components: { ItemActionButtons },
+  directives: { autowidth: VueInputAutowidth },
   props: { item: Object },
   setup(props) {
     const actor = inject("actor");
@@ -67,6 +79,17 @@ export default {
     const hasUses = computed(() => {
       const { uses } = props.item.data;
       return uses.value || uses.max;
+    });
+
+    const quantity = computed({
+      get: () => {
+        const item = actor.items.get(props.item._id);
+        return item.data.data.quantity;
+      },
+      set: (value) => {
+        const item = actor.items.get(props.item._id);
+        item.update({ "data.quantity": value });
+      },
     });
 
     function onActivateItem() {
@@ -85,6 +108,7 @@ export default {
       localize: (key) => game.i18n.localize(key),
       onActivateItem,
       onToggleDescriptionVisibility,
+      quantity,
     };
   },
 };
