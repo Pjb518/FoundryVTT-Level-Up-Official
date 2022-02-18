@@ -16,7 +16,7 @@
 
     <div class="u-flex u-flex-col u-gap-xs u-py-xs">
       <div class="u-align-center u-flex u-gap-xl u-text-sm">
-        <div class="u-align-center u-flex u-gap-lg u-text-xs">
+        <div class="u-align-center u-flex u-gap-md u-text-xs">
           <h3 class="u-align-center u-flex u-h-5 u-text-sm">
             {{ item.name }}
           </h3>
@@ -62,6 +62,7 @@
         </div>
       </div>
 
+      <object-item-tags v-if="item.type === 'object'" :item="item" />
       <spell-item-tags v-if="item.type === 'spell'" :item="item" />
     </div>
 
@@ -84,10 +85,11 @@ import { computed, inject, ref } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import ItemActionButtons from "./ItemActionButtons.vue";
+import ObjectItemTags from "./ObjectItemTags.vue";
 import SpellItemTags from "./SpellItemTags.vue";
 
 export default {
-  components: { ItemActionButtons, SpellItemTags },
+  components: { ItemActionButtons, ObjectItemTags, SpellItemTags },
   directives: { autowidth: VueInputAutowidth },
   props: { item: Object },
   setup(props) {

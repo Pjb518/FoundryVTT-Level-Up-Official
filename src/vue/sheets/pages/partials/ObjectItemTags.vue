@@ -21,32 +21,32 @@ export default {
       const config = CONFIG.A5E;
       const item = actor.items.get(props.item._id);
       const itemData = item.data.data;
-      const spellLevel = parseInt(itemData.level, 10);
-      const rangeCategory = itemData.range.category;
+      const rangeCategory = item.data.data.range.category;
 
-      const tagList = Object.entries(config.spellComponents).reduce(
-        (acc, [key, value]) => {
-          if (itemData.components[key]) {
-            acc.push(game.i18n.localize(`${value}Abbr`));
-          }
+      const tagList = [];
 
-          return acc;
-        },
-        []
-      );
-
-      if (itemData.concentration) {
-        tagList.push(game.i18n.localize("A5E.SpellConcentrationAbbr"));
+      if (itemData.requiresAttunement) {
+        if (itemData.attuned) {
+          tagList.push(game.i18n.localize("A5E.Attuned"));
+        } else {
+          tagList.push(game.i18n.localize("A5E.AttunementRequired"));
+        }
       }
 
-      if (spellLevel && itemData.ritual) {
-        tagList.push(game.i18n.localize("A5E.SpellRitualAbbr"));
+      if (itemData.bulky) {
+        tagList.push(game.i18n.localize("A5E.ItemBulky"));
+      }
+
+      if (itemData.plotItem) {
+        tagList.push(game.i18n.localize("A5E.PlotItem"));
       }
 
       if (rangeCategory && rangeCategory !== "null") {
         if (rangeCategory === "other") {
           tagList.push(
-            `${game.i18n.localize("A5E.ItemRange")} - ${itemData.range.custom}`
+            `${game.i18n.localize("A5E.ItemRange")} - ${
+              item.data.data.range.custom
+            }`
           );
         } else {
           const rangeComponents = [game.i18n.localize("A5E.ItemRange"), "-"];
@@ -73,6 +73,7 @@ export default {
     });
 
     return {
+      localize: (key) => game.i18n.localize(key),
       tags,
     };
   },
