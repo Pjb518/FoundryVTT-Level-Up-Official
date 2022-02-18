@@ -2,7 +2,10 @@
   <section
     class="u-flex u-flex-col u-gap-lg u-h-full u-pt-lg u-overflow-y-auto"
   >
-    <section class="a5e-box u-mx-lg u-p-md a5e-form__section--bio-wrapper">
+    <section
+      v-if="actorType === 'character'"
+      class="a5e-box u-mx-lg u-p-md a5e-form__section--bio-wrapper"
+    >
       <div
         v-for="[key, label] in Object.entries({
           age: 'A5E.DetailsAge',
@@ -64,10 +67,15 @@
             }"
             @click.prevent="onSelectEditor('backstory')"
           >
-            {{ localize("A5E.DetailsBackstory") }}
+            {{
+              actorType === "character"
+                ? localize("A5E.DetailsBackstory")
+                : localize("A5E.DetailsNotes")
+            }}
           </a>
 
           <a
+            v-if="actorType === 'character'"
             class="
               a5e-button
               u-border
@@ -87,6 +95,29 @@
             @click.prevent="onSelectEditor('appearance')"
           >
             {{ localize("A5E.DetailsAppearance") }}
+          </a>
+
+          <a
+            v-if="actorType === 'npc'"
+            class="
+              a5e-button
+              u-border
+              u-hover-bg-green
+              u-hover-text-light
+              u-hover-text-shadow-none
+              u-p-sm
+              u-rounded
+              u-text-sm
+              u-transition
+            "
+            :class="{
+              'u-border-gray': currentEditor !== 'privateNotes',
+              'u-bg-green u-border-green u-text-light':
+                currentEditor === 'privateNotes',
+            }"
+            @click.prevent="onSelectEditor('privateNotes')"
+          >
+            {{ localize("A5E.DetailsNotesPrivate") }}
           </a>
         </div>
 
@@ -135,6 +166,30 @@
             />
           </div>
         </template>
+
+        <template v-if="currentEditor === 'privateNotes'">
+          <div
+            v-if="sheetIsLocked"
+            v-html="
+              data.data.details.privateNotes || `<p>Nothing to display.</p>`
+            "
+            class="u-flex-grow u-p-lg u-pt-0"
+          ></div>
+
+          <div v-else class="u-flex-grow">
+            <editor
+              :init="{
+                content_style: '.mce-content-body { font-size:0.833rem; }',
+                toolbar:
+                  'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
+                menubar: false,
+              }"
+              :initial-value="data.data.details.privateNotes"
+              plugins="code hr image link lists table"
+              v-model="privateNotes"
+            />
+          </div>
+        </template>
       </div>
     </section>
   </section>
@@ -150,11 +205,13 @@ export default {
   setup() {
     const actor = inject("actor");
     const data = inject("data");
-    const sheetIsLocked = inject("sheetIsLocked");
 
+    const sheetIsLocked = inject("sheetIsLocked");
     const currentEditor = ref("backstory");
+
     const appearance = ref(data.value.data.details.appearance);
     const backstory = ref(data.value.data.details.bio);
+    const privateNotes = ref(data.value.data.details.privateNotes);
 
     function onSelectEditor(editor) {
       currentEditor.value = editor;
@@ -174,13 +231,22 @@ export default {
       }
     );
 
+    watch(
+      () => privateNotes.value,
+      async (curr) => {
+        await actor.update({ "data.details.privateNotes": curr });
+      }
+    );
+
     return {
+      actorType: actor.type,
       appearance,
       backstory,
       currentEditor,
       data,
       localize: (key) => game.i18n.localize(key),
       onSelectEditor,
+      privateNotes,
       sheetIsLocked,
     };
   },

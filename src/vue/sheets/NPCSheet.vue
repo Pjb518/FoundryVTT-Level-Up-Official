@@ -22,6 +22,7 @@ import registerSheetListeners from "../utils/hookHelpers/registerSheetListeners"
 import Navigation from "./navigation/Navigation.vue";
 import NPCHeader from "./header/NPCHeader.vue";
 
+import BiographyPage from "./pages/BiographyPage.vue";
 import CorePage from "./pages/CorePage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
 import InventoryPage from "./pages/InventoryPage.vue";
@@ -42,6 +43,7 @@ export default {
       { name: "inventory", label: "A5E.TabInventory", comp: InventoryPage },
       { name: "features", label: "A5E.TabFeatures", comp: FeaturesPage },
       { name: "spells", label: "A5E.TabSpells", comp: SpellsPage },
+      { name: "biography", label: "A5E.DetailsNotes", comp: BiographyPage },
     ];
 
     const activeTab = shallowRef(tabs[0]);
