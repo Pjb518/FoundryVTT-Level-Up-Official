@@ -62,6 +62,7 @@
         </div>
       </div>
 
+      <feature-item-tags v-if="item.type === 'feature'" :item="item" />
       <object-item-tags v-if="item.type === 'object'" :item="item" />
       <spell-item-tags v-if="item.type === 'spell'" :item="item" />
     </div>
@@ -84,12 +85,18 @@
 import { computed, inject, ref } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
+import FeatureItemTags from "./FeatureItemTags.vue";
 import ItemActionButtons from "./ItemActionButtons.vue";
 import ObjectItemTags from "./ObjectItemTags.vue";
 import SpellItemTags from "./SpellItemTags.vue";
 
 export default {
-  components: { ItemActionButtons, ObjectItemTags, SpellItemTags },
+  components: {
+    FeatureItemTags,
+    ItemActionButtons,
+    ObjectItemTags,
+    SpellItemTags,
+  },
   directives: { autowidth: VueInputAutowidth },
   props: { item: Object },
   setup(props) {
