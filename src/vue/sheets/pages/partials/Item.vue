@@ -1,6 +1,6 @@
 <template>
   <li
-    class="a5e-box a5e-item a5e-js-item"
+    class="a5e-box a5e-item a5e-js-item u-align-center"
     :class="{ 'u-bg-light-green': item.data.equipped || item.data.prepared }"
     :data-id="item._id"
     :data-item-id="item._id"
@@ -14,51 +14,55 @@
       @click.stop="onActivateItem"
     />
 
-    <div class="u-align-center u-flex u-gap-xxl u-text-sm">
-      <div class="u-align-center u-flex u-gap-lg u-text-xs">
-        <h3 class="u-text-sm">
-          {{ item.name }}
-        </h3>
+    <div class="u-flex u-flex-col u-gap-xs u-py-xs">
+      <div class="u-align-center u-flex u-gap-xl u-text-sm">
+        <div class="u-align-center u-flex u-gap-lg u-text-xs">
+          <h3 class="u-align-center u-flex u-h-5 u-text-sm">
+            {{ item.name }}
+          </h3>
 
-        <div v-if="item.data.quantity > 1">
+          <div v-if="item.data.quantity > 1">
+            <input
+              class="a5e-input a5e-input--inline-item"
+              type="number"
+              @click.stop=""
+              v-model="quantity"
+              v-autowidth
+              min="0"
+            />
+          </div>
+        </div>
+
+        <div v-if="hasUses" class="u-align-center u-flex u-gap-ch u-text-xs">
           <input
             class="a5e-input a5e-input--inline-item"
             type="number"
             @click.stop=""
-            v-model="quantity"
+            v-model="usesRemaining"
             v-autowidth
             min="0"
           />
+
+          <span v-if="item.data.uses.max"> / </span>
+
+          <input
+            v-if="item.data.uses.max"
+            class="a5e-input a5e-input--inline-item"
+            type="number"
+            @click.stop=""
+            v-model="maxUses"
+            v-autowidth
+            min="0"
+          />
+
+          <span v-if="item.data.uses.per">
+            Per
+            {{ localize(config.resourceRecoveryOptions[item.data.uses.per]) }}
+          </span>
         </div>
       </div>
 
-      <div v-if="hasUses" class="u-align-center u-flex u-gap-ch u-text-xs">
-        <input
-          class="a5e-input a5e-input--inline-item"
-          type="number"
-          @click.stop=""
-          v-model="usesRemaining"
-          v-autowidth
-          min="0"
-        />
-
-        <span v-if="item.data.uses.max"> / </span>
-
-        <input
-          v-if="item.data.uses.max"
-          class="a5e-input a5e-input--inline-item"
-          type="number"
-          @click.stop=""
-          v-model="maxUses"
-          v-autowidth
-          min="0"
-        />
-
-        <span v-if="item.data.uses.per">
-          Per
-          {{ localize(config.resourceRecoveryOptions[item.data.uses.per]) }}
-        </span>
-      </div>
+      <spell-item-tags v-if="item.type === 'spell'" :item="item" />
     </div>
 
     <item-action-buttons :item="item" />
@@ -80,9 +84,10 @@ import { computed, inject, ref } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import ItemActionButtons from "./ItemActionButtons.vue";
+import SpellItemTags from "./SpellItemTags.vue";
 
 export default {
-  components: { ItemActionButtons },
+  components: { ItemActionButtons, SpellItemTags },
   directives: { autowidth: VueInputAutowidth },
   props: { item: Object },
   setup(props) {
