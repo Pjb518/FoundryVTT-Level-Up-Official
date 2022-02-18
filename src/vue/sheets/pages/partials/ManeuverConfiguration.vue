@@ -30,33 +30,37 @@
         />
       </form-section>
 
-      <form-section heading="A5E.ManeuverTraditionPrompt">
-        <radio-group
-          :document="item"
-          :options="Object.entries(config.maneuverTraditions)"
-          updatePath="data.tradition"
-        />
-      </form-section>
+      <template v-if="data.data.degree > 0">
+        <form-section heading="A5E.ManeuverTraditionPrompt">
+          <radio-group
+            :document="item"
+            :options="Object.entries(config.maneuverTraditions)"
+            updatePath="data.tradition"
+          />
+        </form-section>
 
-      <form-section>
-        <div
-          class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-        >
-          <label class="u-text-bold u-w-full" :for="`${appId}-exertion-cost`">
-            {{ localize("A5E.ItemExertionCost") }}
-          </label>
+        <form-section>
+          <div
+            class="
+              u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full
+            "
+          >
+            <label class="u-text-bold u-w-full" :for="`${appId}-exertion-cost`">
+              {{ localize("A5E.ItemExertionCost") }}
+            </label>
 
-          <div class="u-w-20">
-            <input
-              type="number"
-              data-dtype="Number"
-              name="data.exertionCost"
-              :value="data.data.exertionCost"
-              :id="`${appId}-exertion-cost`"
-            />
+            <div class="u-w-20">
+              <input
+                type="number"
+                data-dtype="Number"
+                name="data.exertionCost"
+                :value="data.data.exertionCost"
+                :id="`${appId}-exertion-cost`"
+              />
+            </div>
           </div>
-        </div>
-      </form-section>
+        </form-section>
+      </template>
     </div>
 
     <dl
@@ -71,24 +75,26 @@
         </dd>
       </div>
 
-      <div v-if="data.data.degree" class="u-flex u-gap-md">
-        <dt class="u-text-bold">
-          {{ localize("A5E.ManeuverTraditionPrompt") }}:
-        </dt>
+      <template v-if="data.data.degree > 0">
+        <div class="u-flex u-gap-md">
+          <dt class="u-text-bold">
+            {{ localize("A5E.ManeuverTraditionPrompt") }}:
+          </dt>
 
-        <dd class="u-m-0 u-p-0">
-          {{
-            localize(
-              config.maneuverTraditions[data.data.tradition] ?? "A5E.None"
-            )
-          }}
-        </dd>
-      </div>
+          <dd class="u-m-0 u-p-0">
+            {{
+              localize(
+                config.maneuverTraditions[data.data.tradition] ?? "A5E.None"
+              )
+            }}
+          </dd>
+        </div>
 
-      <div v-if="data.data.degree" class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemExertionCost") }}:</dt>
-        <dd class="u-m-0 u-p-0">{{ data.data.exertionCost || 0 }}</dd>
-      </div>
+        <div class="u-flex u-gap-md">
+          <dt class="u-text-bold">{{ localize("A5E.ItemExertionCost") }}:</dt>
+          <dd class="u-m-0 u-p-0">{{ data.data.exertionCost || 0 }}</dd>
+        </div>
+      </template>
     </dl>
   </section>
 </template>

@@ -3,7 +3,11 @@
     v-if="tags.length"
     class="u-flex u-flex-wrap u-gap-xs u-list-style-none u-m-0 u-p-0 u-text-xxs"
   >
-    <span v-for="tag in tags" :key="tag" class="a5e-tag a5e-tag--tight">
+    <span
+      v-for="tag in tags"
+      :key="tag"
+      class="a5e-tag a5e-tag--light a5e-tag--tight"
+    >
       {{ tag }}
     </span>
   </ul>

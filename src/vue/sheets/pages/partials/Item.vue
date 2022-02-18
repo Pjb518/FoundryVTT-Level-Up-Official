@@ -63,6 +63,7 @@
       </div>
 
       <feature-item-tags v-if="item.type === 'feature'" :item="item" />
+      <maneuver-item-tags v-if="item.type === 'maneuver'" :item="item" />
       <object-item-tags v-if="item.type === 'object'" :item="item" />
       <spell-item-tags v-if="item.type === 'spell'" :item="item" />
     </div>
@@ -87,6 +88,7 @@ import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import FeatureItemTags from "./FeatureItemTags.vue";
 import ItemActionButtons from "./ItemActionButtons.vue";
+import ManeuverItemTags from "./ManeuverItemTags.vue";
 import ObjectItemTags from "./ObjectItemTags.vue";
 import SpellItemTags from "./SpellItemTags.vue";
 
@@ -94,6 +96,7 @@ export default {
   components: {
     FeatureItemTags,
     ItemActionButtons,
+    ManeuverItemTags,
     ObjectItemTags,
     SpellItemTags,
   },
