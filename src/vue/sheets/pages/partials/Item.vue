@@ -14,53 +14,50 @@
       @click.stop="onActivateItem"
     />
 
-    <div class="u-align-center u-flex u-gap-md u-text-sm">
-      <h3 class="u-text-sm">
-        {{ item.name }}
-      </h3>
+    <div class="u-align-center u-flex u-gap-xxl u-text-sm">
+      <div class="u-align-center u-flex u-gap-lg u-text-xs">
+        <h3 class="u-text-sm">
+          {{ item.name }}
+        </h3>
 
-      <div v-if="item.data.quantity > 1" class="u-text-xs">
+        <div v-if="item.data.quantity > 1">
+          <input
+            class="a5e-input a5e-input--inline-item"
+            type="number"
+            @click.stop=""
+            v-model="quantity"
+            v-autowidth
+            min="0"
+          />
+        </div>
+      </div>
+
+      <div v-if="hasUses" class="u-align-center u-flex u-gap-ch u-text-xs">
         <input
           class="a5e-input a5e-input--inline-item"
           type="number"
           @click.stop=""
-          v-model="quantity"
+          v-model="usesRemaining"
           v-autowidth
           min="0"
         />
-      </div>
-
-      <div v-if="hasUses" class="u-align-center u-flex u-gap-ch">
-        (
-        <div class="u-text-xs">
-          <input
-            class="a5e-input a5e-input--inline-item"
-            type="number"
-            @click.stop=""
-            v-model="usesRemaining"
-            v-autowidth
-            min="0"
-          />
-        </div>
 
         <span v-if="item.data.uses.max"> / </span>
 
-        <div v-if="item.data.uses.max" class="u-text-xs">
-          <input
-            class="a5e-input a5e-input--inline-item"
-            type="number"
-            @click.stop=""
-            v-model="maxUses"
-            v-autowidth
-            min="0"
-          />
-        </div>
+        <input
+          v-if="item.data.uses.max"
+          class="a5e-input a5e-input--inline-item"
+          type="number"
+          @click.stop=""
+          v-model="maxUses"
+          v-autowidth
+          min="0"
+        />
 
         <span v-if="item.data.uses.per">
           Per
           {{ localize(config.resourceRecoveryOptions[item.data.uses.per]) }}
         </span>
-        )
       </div>
     </div>
 
