@@ -204,6 +204,7 @@ A5E.damageTypes = {
 
 A5E.featureTypes = {
   background: 'A5E.FeatureBackground',
+  boon: 'A5E.FeatureBoon',
   class: 'A5E.FeatureClass',
   culture: 'A5E.FeatureCulture',
   destiny: 'A5E.FeatureDestiny',
