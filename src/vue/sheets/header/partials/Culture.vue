@@ -4,10 +4,10 @@
     :class="{ 'u-mr-md': sheetIsLocked }"
   >
     <h2 class="u-font-sans-serif u-text-bold u-text-sm u-w-fit">
-      {{ localize("A5E.Culture") }}.
+      {{ localize("A5E.Culture") }}:
     </h2>
 
-    <span>
+    <span class="u-text-sm">
       {{ culture || localize("A5E.None") }}
     </span>
 

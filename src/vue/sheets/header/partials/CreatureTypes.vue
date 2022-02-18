@@ -4,12 +4,13 @@
     :class="{ 'u-mr-md': sheetIsLocked }"
   >
     <h2 class="u-font-sans-serif u-text-bold u-text-sm u-w-fit">
-      {{ localize("A5E.CreatureTypesLabel") }}.
+      {{ localize("A5E.CreatureTypesLabel") }}:
     </h2>
 
     <ul
       v-if="creatureTypes.length"
       class="
+        u-comma-list
         u-flex
         u-flex-wrap
         u-font-san-serif
@@ -17,14 +18,10 @@
         u-list-style-none
         u-m-0
         u-p-0
-        u-text-xxs
+        u-text-sm
       "
     >
-      <li
-        v-for="creatureType in creatureTypes"
-        :key="creatureType"
-        class="a5e-tag a5e-tag--tight"
-      >
+      <li v-for="creatureType in creatureTypes" :key="creatureType">
         {{ localize(config.creatureTypes[creatureType] ?? creatureType) }}
       </li>
     </ul>

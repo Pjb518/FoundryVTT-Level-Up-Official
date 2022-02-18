@@ -1,11 +1,12 @@
 <template>
   <div class="u-flex u-gap-md u-align-center">
     <h2 class="u-font-sans-serif u-text-bold u-text-sm u-w-fit">
-      {{ localize("A5E.MovementSpeed") }}.
+      {{ localize("A5E.MovementSpeed") }}:
     </h2>
 
     <ul
       class="
+        u-comma-list
         u-flex
         u-flex-wrap
         u-font-san-serif
@@ -13,7 +14,7 @@
         u-list-style-none
         u-m-0
         u-p-0
-        u-text-xs
+        u-text-sm
         u-gap-xs
       "
     >
@@ -22,7 +23,6 @@
           ([_, speed]) => speed
         )"
         :key="label"
-        class="a5e-tag a5e-tag--light"
       >
         {{ localize(config.movementAbbreviations[label]) }} - {{ speed }}
         {{ localize("A5E.MeasurementFeetAbbr") }}
