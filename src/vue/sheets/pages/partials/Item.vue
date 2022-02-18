@@ -21,8 +21,7 @@
 
       <div v-if="item.data.quantity > 1" class="u-text-xs">
         <input
-          class="a5e-spell-slots__input"
-          style="wid"
+          class="a5e-input a5e-input--inline-item"
           type="number"
           @click.stop=""
           v-model="quantity"
@@ -31,21 +30,38 @@
         />
       </div>
 
-      <span v-if="hasUses">
+      <div v-if="hasUses" class="u-align-center u-flex u-gap-ch">
         (
-        <span>
-          {{ item.data.uses.value || 0 }}
-        </span>
+        <div class="u-text-xs">
+          <input
+            class="a5e-input a5e-input--inline-item"
+            type="number"
+            @click.stop=""
+            v-model="usesRemaining"
+            v-autowidth
+            min="0"
+          />
+        </div>
 
         <span v-if="item.data.uses.max"> / </span>
-        <span v-if="item.data.uses.max">{{ item.data.uses.max }}</span>
+
+        <div v-if="item.data.uses.max" class="u-text-xs">
+          <input
+            class="a5e-input a5e-input--inline-item"
+            type="number"
+            @click.stop=""
+            v-model="maxUses"
+            v-autowidth
+            min="0"
+          />
+        </div>
 
         <span v-if="item.data.uses.per">
           Per
           {{ localize(config.resourceRecoveryOptions[item.data.uses.per]) }}
         </span>
         )
-      </span>
+      </div>
     </div>
 
     <item-action-buttons :item="item" />
@@ -81,6 +97,17 @@ export default {
       return uses.value || uses.max;
     });
 
+    const maxUses = computed({
+      get: () => {
+        const item = actor.items.get(props.item._id);
+        return item.data.data.uses.max;
+      },
+      set: (value) => {
+        const item = actor.items.get(props.item._id);
+        item.update({ "data.uses.max": value });
+      },
+    });
+
     const quantity = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
@@ -89,6 +116,17 @@ export default {
       set: (value) => {
         const item = actor.items.get(props.item._id);
         item.update({ "data.quantity": value });
+      },
+    });
+
+    const usesRemaining = computed({
+      get: () => {
+        const item = actor.items.get(props.item._id);
+        return item.data.data.uses.value || 0;
+      },
+      set: (value) => {
+        const item = actor.items.get(props.item._id);
+        item.update({ "data.uses.value": value });
       },
     });
 
@@ -106,9 +144,11 @@ export default {
       descriptionVisible,
       hasUses,
       localize: (key) => game.i18n.localize(key),
+      maxUses,
       onActivateItem,
       onToggleDescriptionVisibility,
       quantity,
+      usesRemaining,
     };
   },
 };
