@@ -46,7 +46,7 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ArmorCategory") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ArmorCategory") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.armorCategory">
             {{
@@ -64,7 +64,7 @@
 
       <div class="u-flex u-gap-md">
         <dt class="u-flex-shrink-0 u-text-bold">
-          {{ localize("A5E.ArmorProperties") }}.
+          {{ localize("A5E.ArmorProperties") }}:
         </dt>
         <dd class="u-m-0 u-p-0">
           <ul

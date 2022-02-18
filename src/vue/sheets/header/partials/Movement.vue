@@ -15,7 +15,6 @@
         u-m-0
         u-p-0
         u-text-sm
-        u-gap-xs
       "
     >
       <li

@@ -64,7 +64,7 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ManeuverDegreePrompt") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ManeuverDegreePrompt") }}:</dt>
 
         <dd class="u-m-0 u-p-0">
           {{ localize(config.maneuverDegrees[data.data.degree]) }}
@@ -73,7 +73,7 @@
 
       <div v-if="data.data.degree" class="u-flex u-gap-md">
         <dt class="u-text-bold">
-          {{ localize("A5E.ManeuverTraditionPrompt") }}.
+          {{ localize("A5E.ManeuverTraditionPrompt") }}:
         </dt>
 
         <dd class="u-m-0 u-p-0">
@@ -86,7 +86,7 @@
       </div>
 
       <div v-if="data.data.degree" class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemExertionCost") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemExertionCost") }}:</dt>
         <dd class="u-m-0 u-p-0">{{ data.data.exertionCost || 0 }}</dd>
       </div>
     </dl>

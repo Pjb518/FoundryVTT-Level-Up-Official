@@ -69,7 +69,7 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemSavingThrowType") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemSavingThrowType") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <div class="u-flex u-gap-ch" v-if="data.data.save.dc">
             <span>DC {{ data.data.save.dc }}</span>
@@ -82,7 +82,7 @@
       </div>
 
       <div v-if="data.data.save.onSave" class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemEffectOnSave") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemEffectOnSave") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <div class="u-flex u-gap-ch">
             <span v-if="data.data.save.targetAbility">

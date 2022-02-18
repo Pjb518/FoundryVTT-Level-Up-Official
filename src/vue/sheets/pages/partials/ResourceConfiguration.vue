@@ -75,7 +75,7 @@
     </div>
 
     <dl v-else class="a5e-box u-flex u-gap-sm u-m-0 u-p-md u-text-sm">
-      <dt class="u-text-bold">{{ localize("A5E.Uses") }}.</dt>
+      <dt class="u-text-bold">{{ localize("A5E.Uses") }}:</dt>
       <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
         <div v-if="hasUses" class="u-flex u-gap-md">
           <span>

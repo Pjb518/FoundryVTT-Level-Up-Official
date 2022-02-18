@@ -49,19 +49,23 @@
             <dt class="u-text-bold">
               {{
                 damageRoll.name || `${localize("A5E.Damage")} #${index + 1}`
-              }}.
+              }}:
             </dt>
 
             <dd class="u-m-0 u-p-0">
-              {{ damageRoll.formula }}
+              {{ damageRoll.formula || 0 }}
             </dd>
           </div>
 
           <div class="u-flex u-gap-md">
-            <dt class="u-text-bold">{{ localize("A5E.DamageType") }}.</dt>
+            <dt class="u-text-bold">{{ localize("A5E.DamageType") }}:</dt>
 
             <dd class="u-m-0 u-p-0">
-              {{ localize(config.damageTypes[damageRoll.damageType]) }}
+              {{
+                localize(
+                  config.damageTypes[damageRoll.damageType] ?? "A5E.None"
+                )
+              }}
             </dd>
           </div>
         </dl>

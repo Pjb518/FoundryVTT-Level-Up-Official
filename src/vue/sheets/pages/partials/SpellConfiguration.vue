@@ -140,14 +140,14 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.SpellLevel") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.SpellLevel") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{ localize(config.spellLevels[data.data.level]) }}
         </dd>
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.SpellSchoolPrimary") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.SpellSchoolPrimary") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{ localize(config.spellSchools.primary[data.data.schools.primary]) }}
         </dd>
@@ -155,7 +155,7 @@
 
       <div class="u-flex u-gap-md">
         <dt class="u-flex-shrink-0 u-text-bold">
-          {{ localize("A5E.SpellSchoolSecondaryPlural") }}.
+          {{ localize("A5E.SpellSchoolSecondaryPlural") }}:
         </dt>
 
         <dd class="u-m-0 u-p-0">
@@ -185,7 +185,7 @@
       <hr class="a5e-rule u-my-sm" />
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.SpellComponents") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.SpellComponents") }}:</dt>
         <dd class="u-flex u-gap-ch u-m-0 u-p-0">
           <ul
             class="
@@ -225,7 +225,7 @@
         class="u-flex u-gap-md"
       >
         <dt class="u-flex-shrink-0 u-text-bold">
-          {{ localize("A5E.SpellMaterials") }}.
+          {{ localize("A5E.SpellMaterials") }}:
         </dt>
 
         <dd class="u-m-0 u-p-0">

@@ -171,7 +171,7 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ObjectTypePrompt") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ObjectTypePrompt") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{
             localize(
@@ -182,7 +182,7 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemRarity") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemRarity") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{
             localize(config.itemRarity[data.data.rarity] ?? data.data.rarity)
@@ -191,7 +191,7 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.Attunement") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.Attunement") }}:</dt>
         <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
           <template v-if="data.data.requiresAttunement">
             {{ localize("A5E.AttunementRequired") }}
@@ -210,7 +210,7 @@
       <hr class="a5e-rule u-my-sm" />
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemWeight") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemWeight") }}:</dt>
         <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
           {{ data.data.weight }}
 
@@ -221,14 +221,14 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemQuantity") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemQuantity") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{ data.data.quantity || 0 }}
         </dd>
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemPrice") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemPrice") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{ data.data.price || 0 }}
         </dd>

@@ -182,7 +182,7 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemActivationCost") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemActivationCost") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="showActivationCost && data.data.activation.cost">
             {{ data.data.activation.cost }}
@@ -195,7 +195,7 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemRange") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemRange") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.range.category === 'other'">
             {{ data.data.range.custom }}
@@ -222,7 +222,7 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.TargetArea") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.TargetArea") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.area.shape">
             {{ localize(config.areaTypes[data.data.area.shape]) }}
@@ -239,7 +239,7 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemTarget") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemTarget") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.target.type">
             <template v-if="showTargetQuantity && data.data.target.quantity">
@@ -256,7 +256,7 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemDuration") }}.</dt>
+        <dt class="u-text-bold">{{ localize("A5E.ItemDuration") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.duration.unit">
             <template v-if="showDurationValue && data.data.duration.value">

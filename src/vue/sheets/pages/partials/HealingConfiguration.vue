@@ -49,7 +49,7 @@
             <dt class="u-text-bold">
               {{
                 healingRoll.name || `${localize("A5E.Healing")} #${index + 1}`
-              }}.
+              }}:
             </dt>
 
             <dd class="u-m-0 u-p-0">
@@ -58,7 +58,7 @@
           </div>
 
           <div class="u-flex u-gap-md">
-            <dt class="u-text-bold">{{ localize("A5E.HealingType") }}.</dt>
+            <dt class="u-text-bold">{{ localize("A5E.HealingType") }}:</dt>
 
             <dd class="u-m-0 u-p-0">
               {{ localize(config.healingTypes[healingRoll.healingType]) }}

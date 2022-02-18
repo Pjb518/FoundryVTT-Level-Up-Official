@@ -14,7 +14,7 @@
       @click.stop="onActivateItem"
     />
 
-    <div class="u-flex u-gap-md">
+    <div class="u-align-center u-flex u-gap-md u-text-sm">
       <h3 class="u-text-sm">
         {{ item.name }}
       </h3>

@@ -14,7 +14,6 @@
         u-flex
         u-flex-wrap
         u-font-san-serif
-        u-gap-xs
         u-list-style-none
         u-m-0
         u-p-0

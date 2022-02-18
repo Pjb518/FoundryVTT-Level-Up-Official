@@ -37,7 +37,7 @@
     >
       <div class="u-flex u-gap-md">
         <dt class="u-flex-shrink-0 u-text-bold">
-          {{ localize("A5E.WeaponProperties") }}.
+          {{ localize("A5E.WeaponProperties") }}:
         </dt>
         <dd class="u-m-0 u-p-0">
           <ul
