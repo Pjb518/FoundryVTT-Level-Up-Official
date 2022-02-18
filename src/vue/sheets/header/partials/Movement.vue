@@ -1,5 +1,5 @@
 <template>
-  <div class="u-flex u-gap-md u-align-center">
+  <div class="u-flex u-gap-ch u-align-center">
     <h2 class="u-font-sans-serif u-text-bold u-text-sm u-w-fit">
       {{ localize("A5E.MovementSpeed") }}:
     </h2>
@@ -10,7 +10,7 @@
         u-flex
         u-flex-wrap
         u-font-san-serif
-        u-gap-md
+        u-gap-ch
         u-list-style-none
         u-m-0
         u-p-0

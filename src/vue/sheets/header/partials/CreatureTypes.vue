@@ -1,6 +1,6 @@
 <template>
   <div
-    class="u-flex u-gap-md u-align-center"
+    class="u-flex u-gap-ch u-align-center"
     :class="{ 'u-mr-md': sheetIsLocked }"
   >
     <h2 class="u-font-sans-serif u-text-bold u-text-sm u-w-fit">
@@ -14,6 +14,7 @@
         u-flex
         u-flex-wrap
         u-font-san-serif
+        u-gap-ch
         u-list-style-none
         u-m-0
         u-p-0
