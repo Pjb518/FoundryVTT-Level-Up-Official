@@ -51,7 +51,15 @@
         />
 
         <div class="u-flex u-text-medium">
+          <div
+            v-if="sheetIsLocked"
+            class="a5e-input--classes u-align-center u-flex"
+          >
+            {{ data.data.details.classes }}
+          </div>
+
           <input
+            v-else
             class="a5e-input a5e-input--classes"
             type="text"
             data-dtype="String"
