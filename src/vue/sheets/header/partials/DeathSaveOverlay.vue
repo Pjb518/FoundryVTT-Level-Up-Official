@@ -12,10 +12,21 @@
       :value="success"
     />
 
-    <i
-      class="a5e-death-saves__icon fas fa-skull a5e-js-roll-death-saving-throw"
-      @click="onRollDeathSavingThrow"
-    ></i>
+    <div
+      class="
+        a5e-death-saves__icon
+        u-align-center u-flex u-flex-col u-pos-relative
+      "
+    >
+      <i
+        class="fas fa-skull a5e-js-roll-death-saving-throw"
+        @click="onRollDeathSavingThrow"
+      ></i>
+
+      <div class="a5e-tooltip a5e-tooltip--death-save">
+        {{ localize("A5E.DeathSavingThrowRoll") }}
+      </div>
+    </div>
 
     <input
       class="a5e-death-saves__input"
@@ -44,6 +55,7 @@ export default {
     }
 
     return {
+      localize: (key) => game.i18n.localize(key),
       onRollDeathSavingThrow,
     };
   },
