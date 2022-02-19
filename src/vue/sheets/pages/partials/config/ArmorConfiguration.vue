@@ -14,7 +14,7 @@
       "
       @click="editModeActive = !editModeActive"
     >
-      <h3>Weapon Configuration</h3>
+      <h3>Armor Configuration</h3>
       <i
         class="u-text-sm fas"
         :class="editModeActive ? 'fa-chevron-up' : 'fa-edit'"
@@ -22,11 +22,21 @@
     </header>
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
-      <form-section heading="A5E.WeaponProperties">
+      <form-section heading="A5E.ArmorCategory">
+        <radio-group
+          :document="item"
+          :options="
+            Object.entries(config.armor).filter(([key, _]) => key !== 'shield')
+          "
+          updatePath="data.armorCategory"
+        />
+      </form-section>
+
+      <form-section heading="A5E.ArmorProperties">
         <checkbox-group
           :document="item"
-          :options="Object.entries(config.weaponProperties)"
-          updatePath="data.weaponProperties"
+          :options="Object.entries(config.armorProperties)"
+          updatePath="data.armorProperties"
         />
       </form-section>
     </div>
@@ -36,8 +46,25 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
+        <dt class="u-text-bold">{{ localize("A5E.ArmorCategory") }}:</dt>
+        <dd class="u-m-0 u-p-0">
+          <template v-if="data.data.armorCategory">
+            {{
+              localize(
+                config.armor[data.data.armorCategory] ?? data.data.armorCategory
+              )
+            }}
+          </template>
+
+          <template v-else>
+            {{ localize("A5E.Unknown") }}
+          </template>
+        </dd>
+      </div>
+
+      <div class="u-flex u-gap-md">
         <dt class="u-flex-shrink-0 u-text-bold">
-          {{ localize("A5E.WeaponProperties") }}:
+          {{ localize("A5E.ArmorProperties") }}:
         </dt>
         <dd class="u-m-0 u-p-0">
           <ul
@@ -50,10 +77,10 @@
               u-m-0
               u-p-0
             "
-            v-if="data.data.weaponProperties.length"
+            v-if="data.data.armorProperties.length"
           >
-            <li v-for="property in data.data.weaponProperties" :key="property">
-              {{ localize(config.weaponProperties[property] ?? property) }}
+            <li v-for="property in data.data.armorProperties" :key="property">
+              {{ localize(config.armorProperties[property] ?? property) }}
             </li>
           </ul>
 
@@ -67,11 +94,11 @@
 </template>
 
 <script>
-import { computed, inject, ref } from "vue";
+import { inject, ref } from "vue";
 
-import CheckboxGroup from "../../../forms/CheckboxGroup.vue";
-import FormSection from "../../../forms/FormSection.vue";
-import RadioGroup from "../../../forms/RadioGroup.vue";
+import CheckboxGroup from "../../../../forms/CheckboxGroup.vue";
+import FormSection from "../../../../forms/FormSection.vue";
+import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
   components: { CheckboxGroup, FormSection, RadioGroup },
@@ -81,7 +108,6 @@ export default {
     const item = inject("item");
 
     const editModeActive = ref(false);
-    const proficient = computed(() => data.value.data.proficient);
 
     return {
       appId,
@@ -90,7 +116,6 @@ export default {
       editModeActive,
       item,
       localize: (key) => game.i18n.localize(key),
-      proficient,
     };
   },
 };

@@ -14,7 +14,7 @@
       "
       @click="editModeActive = !editModeActive"
     >
-      <h3>Ammunition Configuration</h3>
+      <h3>Feature Properties</h3>
       <i
         class="u-text-sm fas"
         :class="editModeActive ? 'fa-chevron-up' : 'fa-edit'"
@@ -22,11 +22,11 @@
     </header>
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
-      <form-section heading="A5E.AmmunitionProperties">
-        <checkbox-group
+      <form-section heading="A5E.FeatureTypePrompt">
+        <radio-group
           :document="item"
-          :options="Object.entries(config.ammunitionProperties)"
-          updatePath="data.ammunitionProperties"
+          :options="Object.entries(config.featureTypes)"
+          updatePath="data.featureType"
         />
       </form-section>
     </div>
@@ -36,33 +36,11 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-flex-shrink-0 u-text-bold">
-          {{ localize("A5E.AmmunitionProperties") }}:
-        </dt>
+        <dt class="u-text-bold">{{ localize("A5E.FeatureTypePrompt") }}:</dt>
         <dd class="u-m-0 u-p-0">
-          <ul
-            class="
-              u-comma-list
-              u-flex
-              u-flex-wrap
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-            "
-            v-if="data.data.ammunitionProperties.length"
-          >
-            <li
-              v-for="property in data.data.ammunitionProperties"
-              :key="property"
-            >
-              {{ localize(config.ammunitionProperties[property] ?? property) }}
-            </li>
-          </ul>
-
-          <template v-else>
-            {{ localize("A5E.None") }}
-          </template>
+          {{
+            localize(config.featureTypes[data.data.featureType] ?? "A5E.None")
+          }}
         </dd>
       </div>
     </dl>
@@ -72,11 +50,11 @@
 <script>
 import { inject, ref } from "vue";
 
-import CheckboxGroup from "../../../forms/CheckboxGroup.vue";
-import FormSection from "../../../forms/FormSection.vue";
+import FormSection from "../../../../forms/FormSection.vue";
+import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
-  components: { CheckboxGroup, FormSection },
+  components: { FormSection, RadioGroup },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

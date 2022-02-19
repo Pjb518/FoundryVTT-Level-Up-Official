@@ -14,7 +14,7 @@
       "
       @click="editModeActive = !editModeActive"
     >
-      <h3>Damage Configuration</h3>
+      <h3>Healing Configuration</h3>
       <i
         class="u-text-sm fas"
         :class="editModeActive ? 'fa-chevron-up' : 'fa-edit'"
@@ -22,50 +22,46 @@
     </header>
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
-      <template v-if="data.data.damage.length">
-        <damage-source
-          v-for="(damageRoll, index) in data.data.damage"
-          :key="`damage-roll-${index}`"
-          v-bind="{ damageRoll, index }"
+      <template v-if="data.data.healing.length">
+        <healing-source
+          v-for="(healingRoll, index) in data.data.healing"
+          :key="`healing-roll-${index}`"
+          v-bind="{ healingRoll, index }"
         />
       </template>
 
       <button
         class="a5e-button a5e-button--no-shadow u-bg-green u-text-light"
-        @click.prevent="onAddDamageSource"
+        @click.prevent="onAddHealingSource"
       >
-        + {{ localize("A5E.DamageAddSource") }}
+        + {{ localize("A5E.HealingAddSource") }}
       </button>
     </div>
 
     <template v-else>
       <div class="u-flex u-flex-col u-gap-md">
         <dl
-          v-for="(damageRoll, index) in data.data.damage"
-          :key="`damage-summary-${index}`"
+          v-for="(healingRoll, index) in data.data.healing"
+          :key="`healing-summary-${index}`"
           class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
         >
           <div class="u-flex u-gap-md">
             <dt class="u-text-bold">
               {{
-                damageRoll.name || `${localize("A5E.Damage")} #${index + 1}`
+                healingRoll.name || `${localize("A5E.Healing")} #${index + 1}`
               }}:
             </dt>
 
             <dd class="u-m-0 u-p-0">
-              {{ damageRoll.formula || 0 }}
+              {{ healingRoll.formula }}
             </dd>
           </div>
 
           <div class="u-flex u-gap-md">
-            <dt class="u-text-bold">{{ localize("A5E.DamageType") }}:</dt>
+            <dt class="u-text-bold">{{ localize("A5E.HealingType") }}:</dt>
 
             <dd class="u-m-0 u-p-0">
-              {{
-                localize(
-                  config.damageTypes[damageRoll.damageType] ?? "A5E.None"
-                )
-              }}
+              {{ localize(config.healingTypes[healingRoll.healingType]) }}
             </dd>
           </div>
         </dl>
@@ -77,12 +73,12 @@
 <script>
 import { inject, ref } from "vue";
 
-import DamageSource from "./DamageSource.vue";
-import FormSection from "../../../forms/FormSection.vue";
-import RadioGroup from "../../../forms/RadioGroup.vue";
+import HealingSource from "../HealingSource.vue";
+import FormSection from "../../../../forms/FormSection.vue";
+import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
-  components: { DamageSource, FormSection, RadioGroup },
+  components: { HealingSource, FormSection, RadioGroup },
   setup() {
     const appId = inject("appId");
     const data = inject("data");
@@ -90,17 +86,16 @@ export default {
 
     const editModeActive = ref(false);
 
-    function onAddDamageSource() {
-      const damage = data.value.data.damage ?? [];
+    function onAddHealingSource() {
+      const healing = data.value.data.healing ?? [];
 
-      damage.push({
+      healing.push({
         name: "",
         formula: "",
-        canCrit: !!data.value.data.actionOptions.includes("attack"),
-        damageType: "",
+        healingType: "",
       });
 
-      item.update({ "data.damage": damage });
+      item.update({ "data.healing": healing });
     }
 
     return {
@@ -110,7 +105,7 @@ export default {
       editModeActive,
       item,
       localize: (key) => game.i18n.localize(key),
-      onAddDamageSource,
+      onAddHealingSource,
     };
   },
 };

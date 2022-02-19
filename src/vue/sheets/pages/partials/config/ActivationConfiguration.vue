@@ -305,8 +305,8 @@
 <script>
 import { computed, inject, ref } from "vue";
 
-import FormSection from "../../../forms/FormSection.vue";
-import RadioGroup from "../../../forms/RadioGroup.vue";
+import FormSection from "../../../../forms/FormSection.vue";
+import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
   components: { FormSection, RadioGroup },

@@ -239,10 +239,10 @@
 <script>
 import { computed, inject, ref, watch } from "vue";
 
-import CheckboxGroup from "../../../forms/CheckboxGroup.vue";
-import FormSection from "../../../forms/FormSection.vue";
-import OptionTag from "../../../forms/OptionTag.vue";
-import RadioGroup from "../../../forms/RadioGroup.vue";
+import CheckboxGroup from "../../../../forms/CheckboxGroup.vue";
+import FormSection from "../../../../forms/FormSection.vue";
+import OptionTag from "../../../../forms/OptionTag.vue";
+import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
   components: { CheckboxGroup, FormSection, OptionTag, RadioGroup },

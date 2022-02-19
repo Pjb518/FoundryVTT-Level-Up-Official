@@ -14,7 +14,7 @@
       "
       @click="editModeActive = !editModeActive"
     >
-      <h3>{{ localize("A5E.MaterialProperties") }}</h3>
+      <h3>Ammunition Configuration</h3>
       <i
         class="u-text-sm fas"
         :class="editModeActive ? 'fa-chevron-up' : 'fa-edit'"
@@ -22,11 +22,11 @@
     </header>
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
-      <form-section heading="A5E.MaterialProperties">
+      <form-section heading="A5E.AmmunitionProperties">
         <checkbox-group
           :document="item"
-          :options="Object.entries(config.materialProperties)"
-          updatePath="data.materialProperties"
+          :options="Object.entries(config.ammunitionProperties)"
+          updatePath="data.ammunitionProperties"
         />
       </form-section>
     </div>
@@ -36,26 +36,27 @@
       class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
     >
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.MaterialProperties") }}:</dt>
+        <dt class="u-flex-shrink-0 u-text-bold">
+          {{ localize("A5E.AmmunitionProperties") }}:
+        </dt>
         <dd class="u-m-0 u-p-0">
           <ul
             class="
               u-comma-list
               u-flex
-              u-flex-shrink-0
+              u-flex-wrap
               u-gap-ch
               u-list-style-none
               u-m-0
               u-p-0
-              u-w-fit
             "
-            v-if="data.data.materialProperties.length"
+            v-if="data.data.ammunitionProperties.length"
           >
             <li
-              v-for="property in data.data.materialProperties"
+              v-for="property in data.data.ammunitionProperties"
               :key="property"
             >
-              {{ localize(config.materialProperties[property] ?? component) }}
+              {{ localize(config.ammunitionProperties[property] ?? property) }}
             </li>
           </ul>
 
@@ -71,11 +72,11 @@
 <script>
 import { inject, ref } from "vue";
 
-import FormSection from "../../../forms/FormSection.vue";
-import CheckboxGroup from "../../../forms/CheckboxGroup.vue";
+import CheckboxGroup from "../../../../forms/CheckboxGroup.vue";
+import FormSection from "../../../../forms/FormSection.vue";
 
 export default {
-  components: { FormSection, CheckboxGroup },
+  components: { CheckboxGroup, FormSection },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

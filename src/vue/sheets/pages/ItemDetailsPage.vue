@@ -61,24 +61,24 @@
 <script>
 import { inject } from "vue";
 
-import AbilityCheckConfiguration from "./partials/AbilityCheckConfiguration.vue";
-import ActivationConfiguration from "./partials/ActivationConfiguration.vue";
-import AmmunitionConfiguration from "./partials/AmmunitionConfiguration.vue";
-import ArmorConfiguration from "./partials/ArmorConfiguration.vue";
-import AttackConfiguration from "./partials/AttackConfiguration.vue";
+import AbilityCheckConfiguration from "./partials/config/AbilityCheckConfiguration.vue";
+import ActivationConfiguration from "./partials/config/ActivationConfiguration.vue";
+import AmmunitionConfiguration from "./partials/config/AmmunitionConfiguration.vue";
+import ArmorConfiguration from "./partials/config/ArmorConfiguration.vue";
+import AttackConfiguration from "./partials/config/AttackConfiguration.vue";
 import CheckboxGroup from "../../forms/CheckboxGroup.vue";
-import DamageConfiguration from "./partials/DamageConfiguration.vue";
+import DamageConfiguration from "./partials/config/DamageConfiguration.vue";
 import FormSection from "../../forms/FormSection.vue";
-import FeatureConfiguration from "./partials/FeatureConfiguration.vue";
-import HealingConfiguration from "./partials/HealingConfiguration.vue";
-import ManeuverConfiguration from "./partials/ManeuverConfiguration.vue";
-import MaterialConfiguration from "./partials/MaterialConfiguration.vue";
-import ObjectConfiguration from "./partials/ObjectConfiguration.vue";
+import FeatureConfiguration from "./partials/config/FeatureConfiguration.vue";
+import HealingConfiguration from "./partials/config/HealingConfiguration.vue";
+import ManeuverConfiguration from "./partials/config/ManeuverConfiguration.vue";
+import MaterialConfiguration from "./partials/config/MaterialConfiguration.vue";
+import ObjectConfiguration from "./partials/config/ObjectConfiguration.vue";
 import RadioGroup from "../../forms/RadioGroup.vue";
-import ResourceConfiguration from "./partials/ResourceConfiguration.vue";
-import SavingThrowConfiguration from "./partials/SavingThrowConfiguration.vue";
-import SpellConfiguration from "./partials/SpellConfiguration.vue";
-import WeaponConfiguration from "./partials/WeaponConfiguration.vue";
+import ResourceConfiguration from "./partials/config/ResourceConfiguration.vue";
+import SavingThrowConfiguration from "./partials/config/SavingThrowConfiguration.vue";
+import SpellConfiguration from "./partials/config/SpellConfiguration.vue";
+import WeaponConfiguration from "./partials/config/WeaponConfiguration.vue";
 
 export default {
   components: {

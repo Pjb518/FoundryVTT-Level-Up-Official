@@ -86,11 +86,11 @@
 import { computed, inject, ref } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
-import FeatureItemTags from "./FeatureItemTags.vue";
+import FeatureItemTags from "./itemTags/FeatureItemTags.vue";
 import ItemActionButtons from "./ItemActionButtons.vue";
-import ManeuverItemTags from "./ManeuverItemTags.vue";
-import ObjectItemTags from "./ObjectItemTags.vue";
-import SpellItemTags from "./SpellItemTags.vue";
+import ManeuverItemTags from "./itemTags/ManeuverItemTags.vue";
+import ObjectItemTags from "./itemTags/ObjectItemTags.vue";
+import SpellItemTags from "./itemTags/SpellItemTags.vue";
 
 export default {
   components: {
