@@ -50,6 +50,20 @@
         </div>
       </form-section>
 
+      <form-section
+        heading="A5E.ActionActivationReactionTrigger"
+        v-if="data.data.activation.type === 'reaction'"
+      >
+        <div class="u-text-sm u-w-full">
+          <input
+            type="text"
+            name="data.activation.reactionTrigger"
+            :value="data.data.activation.reactionTrigger"
+            data-dtype="String"
+          />
+        </div>
+      </form-section>
+
       <form-section heading="A5E.ItemRange">
         <div class="u-align-center u-flex u-gap-lg u-w-full">
           <select class="u-flex-shrink-0 u-w-30" name="data.range.category">
@@ -189,8 +203,21 @@
           </template>
 
           {{
-            localize(config.abilityActivationTypes[data.data.activation.type])
+            localize(
+              data.data.activation.type
+                ? config.abilityActivationTypes[data.data.activation.type]
+                : "A5E.None"
+            )
           }}
+
+          <template
+            v-if="
+              data.data.activation.type === 'reaction' &&
+              data.data.activation.reactionTrigger
+            "
+          >
+            ({{ data.data.activation.reactionTrigger }})
+          </template>
         </dd>
       </div>
 
@@ -303,7 +330,10 @@ export default {
       const activationType = data.value.data.activation.type;
 
       if (!activationType) return false;
-      if (["none", "special"].includes(activationType)) return false;
+
+      if (["none", "special"].includes(activationType)) {
+        return false;
+      }
 
       return true;
     });
