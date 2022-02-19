@@ -73,6 +73,9 @@
     <div v-if="descriptionVisible" class="a5e-item__details">
       <hr class="a5e-rule" />
 
+      <spell-item-details v-if="item.type === 'spell'" :item="item" />
+      <hr v-if="item.type === 'spell'" class="a5e-rule" />
+
       <div v-html="item.data.description" v-if="item.data.description"></div>
 
       <div v-else>
@@ -90,6 +93,7 @@ import FeatureItemTags from "./itemTags/FeatureItemTags.vue";
 import ItemActionButtons from "./ItemActionButtons.vue";
 import ManeuverItemTags from "./itemTags/ManeuverItemTags.vue";
 import ObjectItemTags from "./itemTags/ObjectItemTags.vue";
+import SpellItemDetails from "./itemDetails/SpellItemDetails.vue";
 import SpellItemTags from "./itemTags/SpellItemTags.vue";
 
 export default {
@@ -98,6 +102,7 @@ export default {
     ItemActionButtons,
     ManeuverItemTags,
     ObjectItemTags,
+    SpellItemDetails,
     SpellItemTags,
   },
   directives: { autowidth: VueInputAutowidth },

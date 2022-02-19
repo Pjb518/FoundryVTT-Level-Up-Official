@@ -81,7 +81,13 @@
         </dd>
       </div>
 
-      <div v-if="data.data.save.onSave" class="u-flex u-gap-md">
+      <div
+        v-if="
+          item.data.actionOptions.includes('savingThrow') &&
+          data.data.save.onSave
+        "
+        class="u-flex u-gap-md"
+      >
         <dt class="u-text-bold">{{ localize("A5E.ItemEffectOnSave") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <div class="u-flex u-gap-ch">
