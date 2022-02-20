@@ -119,6 +119,7 @@
           min="0"
           max="9"
           data-dtype="Number"
+          v-autowidth
         />
       </div>
 
@@ -139,6 +140,7 @@
             placeholder="0"
             min="0"
             data-dtype="Number"
+            v-autowidth
           />
         </div>
       </div>
@@ -168,6 +170,7 @@
               :name="`data.currency.${label}`"
               :value="value"
               data-dtype="Number"
+              v-autowidth="{ minWidth: '2.5rem' }"
             />
           </li>
         </ol>
@@ -178,6 +181,7 @@
 
 <script>
 import { computed, inject, onMounted } from "vue";
+import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
 
@@ -188,6 +192,7 @@ import TabFooter from "./partials/TabFooter.vue";
 
 export default {
   components: { FilterBox, FilterGroup, Item, TabFooter },
+  directives: { autowidth: VueInputAutowidth },
   setup() {
     const actor = inject("actor");
     const data = inject("data");

@@ -1,5 +1,7 @@
 <template>
-  <section class="u-flex u-flex-col u-gap-xl u-h-full u-p-lg u-overflow-y-auto">
+  <section
+    class="u-flex u-flex-col u-gap-xl u-h-full u-p-lg u-pb-xl u-overflow-y-auto"
+  >
     <section class="u-gap-md u-grid u-grid-3 u-h-fit u-w-full">
       <details-category
         category="senses"
@@ -44,7 +46,7 @@
       />
     </section>
 
-    <div class="u-flex u-gap-lg u-w-full">
+    <div class="u-flex u-gap-lg u-mb-xl u-pb-xl u-w-full">
       <section class="u-w-full">
         <header
           class="
@@ -120,6 +122,16 @@
       </section>
     </div>
   </section>
+
+  <tab-footer>
+    <div class="u-align-center u-flex u-gap-md u-ml-auto u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.XP") }}
+      </h3>
+
+      <span class="a5e-footer-group__value">{{ xp }}</span>
+    </div>
+  </tab-footer>
 </template>
 
 <script>
@@ -127,6 +139,7 @@ import { computed, inject, onMounted } from "vue";
 
 import applyFeatureFilters from "../../utils/filterHelpers/applyFeatureFilters";
 import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
+import prepareChallengeRating from "../../utils/dataPreparationHelpers/prepareChallengeRating";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
 import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
 import prepareDamageResistances from "../../utils/dataPreparationHelpers/prepareDamageResistances";
@@ -136,9 +149,10 @@ import prepareSenses from "../../utils/dataPreparationHelpers/prepareSenses";
 
 import DetailsCategory from "./partials/DetailsCategory.vue";
 import Item from "./partials/Item.vue";
+import TabFooter from "./partials/TabFooter.vue";
 
 export default {
-  components: { DetailsCategory, Item },
+  components: { DetailsCategory, Item, TabFooter },
   setup() {
     const actor = inject("actor");
     const data = inject("data");
@@ -188,6 +202,11 @@ export default {
         )
       ).sort((a, b) => a.sort - b.sort)
     );
+
+    const xp = computed(() => {
+      const cr = prepareChallengeRating(data);
+      return CONFIG.A5E.CR_EXP_LEVELS[cr];
+    });
 
     onMounted(() => {
       sheet.activateVueListeners($(sheet.form));
@@ -239,6 +258,7 @@ export default {
       sheet,
       sheetIsLocked,
       weapons,
+      xp,
     };
   },
 };

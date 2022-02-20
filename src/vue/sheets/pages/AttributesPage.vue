@@ -1,6 +1,8 @@
 <template>
-  <section class="u-gap-md u-grid u-grid-3 u-p-lg u-h-full u-overflow-y-auto">
-    <div class="u-font-sans-serif u-flex u-flex-col u-gap-md">
+  <section
+    class="u-gap-md u-grid u-grid-3 u-p-lg u-pb-xl u-h-full u-overflow-y-auto"
+  >
+    <div class="u-flex u-flex-col u-font-sans-serif u-gap-md u-mb-xl u-pb-xl">
       <details-category
         category="senses"
         heading="A5E.SensesSpecial"
@@ -75,7 +77,9 @@
         u-span-2
         u-list-style-none
         u-m-0
+        u-mb-xl
         u-p-0
+        u-pb-xl
       "
     >
       <skill
@@ -86,10 +90,34 @@
       />
     </ul>
   </section>
+
+  <tab-footer>
+    <div class="u-align-center u-flex u-gap-md u-ml-auto u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.XP") }}
+      </h3>
+
+      <input
+        class="a5e-footer-group__input"
+        type="number"
+        name="data.details.xp"
+        :value="data.data.details.xp"
+        placeholder="0"
+        min="0"
+        data-dtype="Number"
+        v-autowidth
+      />
+      /
+      <span class="a5e-footer-group__value">
+        {{ config.CHARACTER_EXP_LEVELS[data.data.details.level.toString()] }}
+      </span>
+    </div>
+  </tab-footer>
 </template>
 
 <script>
 import { computed, inject } from "vue";
+import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import prepareArmorProficiencies from "../../utils/dataPreparationHelpers/prepareArmorProficiencies";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
@@ -103,9 +131,11 @@ import prepareWeaponProficiencies from "../../utils/dataPreparationHelpers/prepa
 
 import DetailsCategory from "./partials/DetailsCategory.vue";
 import Skill from "./partials/Skill.vue";
+import TabFooter from "./partials/TabFooter.vue";
 
 export default {
-  components: { DetailsCategory, Skill },
+  components: { DetailsCategory, Skill, TabFooter },
+  directives: { autowidth: VueInputAutowidth },
   setup() {
     const actor = inject("actor");
     const data = inject("data");
@@ -168,6 +198,7 @@ export default {
       damageResistances,
       damageVulnerabilities,
       languages,
+      localize: (key) => game.i18n.localize(key),
       onClickConfigButton,
       senses,
       toolProficiencies,
