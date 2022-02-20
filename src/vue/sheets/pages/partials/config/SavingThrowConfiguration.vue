@@ -83,7 +83,7 @@
 
       <div
         v-if="
-          item.data.actionOptions.includes('savingThrow') &&
+          data.data.actionOptions.includes('savingThrow') &&
           data.data.save.onSave
         "
         class="u-flex u-gap-md"
