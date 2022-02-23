@@ -1,3 +1,4 @@
+import { setTransitionHooks } from 'vue';
 import ReactiveDialog from '../apps/reactiveDialog';
 import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
 
@@ -143,7 +144,11 @@ export default class Item5e extends Item {
           return 'dex';
         }
 
-        return itemData.weaponProperties.includes('finesse') ? 'dex' : 'str';
+        if (this.actor && itemData.weaponProperties.includes('finesse')) {
+          const { str, dex } = this.actor.data.data.abilities;
+
+          return dex.value > str.value ? 'dex' : 'str';
+        }
       }
 
       if (this.type === 'spell') {
