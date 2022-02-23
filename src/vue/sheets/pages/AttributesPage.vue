@@ -109,7 +109,7 @@
       />
       /
       <span class="a5e-footer-group__value">
-        {{ config.CHARACTER_EXP_LEVELS[data.data.details.level.toString()] }}
+        {{ nextXPIncrement }}
       </span>
     </div>
   </tab-footer>
@@ -173,6 +173,16 @@ export default {
     );
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
+
+    const nextXPIncrement = computed(() => {
+      let level = data.value.data.details.level;
+
+      if (level < 1) level = 1;
+      else if (level > 19) level = 19;
+
+      return CONFIG.A5E.CHARACTER_EXP_LEVELS[level.toString()];
+    });
+
     const senses = computed(() => prepareSenses(data.value));
 
     const toolProficiencies = computed(() =>
@@ -199,6 +209,7 @@ export default {
       damageVulnerabilities,
       languages,
       localize: (key) => game.i18n.localize(key),
+      nextXPIncrement,
       onClickConfigButton,
       senses,
       toolProficiencies,
