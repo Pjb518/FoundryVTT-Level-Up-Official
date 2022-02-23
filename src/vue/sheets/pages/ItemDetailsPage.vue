@@ -40,7 +40,7 @@
     >
       <radio-group
         :document="item"
-        :options="[[null, 'A5E.None'], ...Object.entries(config.abilities)]"
+        :options="abilityOptions"
         updatePath="data.ability"
       />
     </form-section>
@@ -108,7 +108,15 @@ export default {
     const data = inject("data");
     const item = inject("item");
 
+    const abilityOptions = [
+      [null, "A5E.None"],
+      ["default", "A5E.AbilityDefault"],
+      ["spellcasting", "A5E.AbilitySpellcasting"],
+      ...Object.entries(CONFIG.A5E.abilities),
+    ];
+
     return {
+      abilityOptions,
       config: CONFIG.A5E,
       data,
       item,
