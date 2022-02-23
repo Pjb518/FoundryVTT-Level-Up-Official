@@ -712,6 +712,20 @@ export default class Actor5e extends Actor {
     await this.update(updates);
   }
 
+  async restoreItemUses() {
+    const items = Array.from(this.items);
+
+    items.forEach(async (item) => {
+      const { uses } = item.data.data;
+
+      if (['shortRest', 'longRest'].includes(uses.per)) {
+        if (uses.max) {
+          await item.update({ 'data.uses.value': uses.max });
+        }
+      }
+    });
+  }
+
   async restoreSpellResources(restType) {
     const { spellResources } = this.data.data;
 
@@ -958,6 +972,7 @@ export default class Actor5e extends Actor {
     }
 
     await this.restoreExertion();
+    await this.restoreItemUses();
     await this.restoreSpellResources(restType);
   }
 
