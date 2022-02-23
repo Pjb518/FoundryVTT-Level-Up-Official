@@ -128,6 +128,34 @@ export default class Item5e extends Item {
     this.actor.constructItemCard(data);
   }
 
+  get abilityMod() {
+    const itemData = this.data.data;
+
+    if (!itemData.ability) return null;
+
+    if (itemData.ability === 'spellcasting') {
+      return this.actor ? this.actor.data.data.attributes.spellcasting : 'int';
+    }
+
+    if (itemData.ability === 'default') {
+      if (this.type === 'object' && itemData.objectType === 'weapon') {
+        if (itemData.actionOptions.includes('attack') && itemData.attack.type === 'rangedWeaponAttack') {
+          return 'dex';
+        }
+
+        return itemData.weaponProperties.includes('finesse') ? 'dex' : 'str';
+      }
+
+      if (this.type === 'spell') {
+        return this.actor ? this.actor.data.data.attributes.spellcasting : 'int';
+      }
+
+      return 'str';
+    }
+
+    return itemData.ability || 'str';
+  }
+
   static async _onClickChatAbilityCheckButton(event) {
     /* eslint-disable no-await-in-loop, no-restricted-syntax */
     event.preventDefault();

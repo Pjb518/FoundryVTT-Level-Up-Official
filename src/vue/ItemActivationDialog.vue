@@ -84,10 +84,10 @@ export default {
     const itemData = item.data.data;
 
     const rollData = actor.getRollData();
-    rollData.mod = actorData.abilities[itemData.ability]?.check.mod || 0;
+    rollData.mod = actorData.abilities[item.abilityMod]?.check.mod || 0;
 
-    const { actionOptions, ability, attack, damage, healing } = itemData;
-    const abilityMod = actorData.abilities[ability]?.check.mod;
+    const { actionOptions, attack, damage, healing } = itemData;
+    const abilityMod = actorData.abilities[item.abilityMod]?.check.mod;
     const addProficiencyBonus = itemData.proficient;
     const hasAttackRoll = actionOptions.includes("attack");
     const hasDamage = actionOptions.includes("damage");
