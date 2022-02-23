@@ -15,6 +15,7 @@
 
 <script>
 import { computed, inject } from "@vue/runtime-core";
+import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 export default {
   props: { item: Object },
@@ -26,7 +27,6 @@ export default {
       const item = actor.items.get(props.item._id);
       const itemData = item.data.data;
       const spellLevel = parseInt(itemData.level, 10);
-      const rangeCategory = itemData.range.category;
 
       const tagList = Object.entries(config.spellComponents).reduce(
         (acc, [key, value]) => {
@@ -47,30 +47,10 @@ export default {
         tagList.push(game.i18n.localize("A5E.SpellRitualAbbr"));
       }
 
-      if (rangeCategory && rangeCategory !== "null") {
-        if (rangeCategory === "other") {
-          tagList.push(
-            `${game.i18n.localize("A5E.ItemRange")} - ${itemData.range.custom}`
-          );
-        } else {
-          const rangeComponents = [game.i18n.localize("A5E.ItemRange"), "-"];
-
-          const rangeDescriptor = game.i18n.localize(
-            config.rangeDescriptors[rangeCategory]
-          );
-
-          rangeComponents.push(rangeDescriptor);
-
-          if (
-            config.rangeValues[rangeCategory] &&
-            config.rangeValues[rangeCategory] !==
-              config.rangeDescriptors[rangeCategory]
-          ) {
-            rangeComponents.push(`(${config.rangeValues[rangeCategory]} ft.)`);
-          }
-
-          tagList.push(rangeComponents.join(" "));
-        }
+      if (itemData.range.filter(Boolean).length) {
+        const rangeComponents = [game.i18n.localize("A5E.ItemRange"), "-"];
+        rangeComponents.push(prepareRangeSummary(itemData.range));
+        tagList.push(rangeComponents.join(" "));
       }
 
       return tagList;

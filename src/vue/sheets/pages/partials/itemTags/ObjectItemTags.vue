@@ -15,6 +15,7 @@
 
 <script>
 import { computed, inject } from "@vue/runtime-core";
+import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 export default {
   props: { item: Object },
@@ -22,10 +23,8 @@ export default {
     const actor = inject("actor");
 
     const tags = computed(() => {
-      const config = CONFIG.A5E;
       const item = actor.items.get(props.item._id);
       const itemData = item.data.data;
-      const rangeCategory = item.data.data.range.category;
 
       const tagList = [];
 
@@ -45,32 +44,10 @@ export default {
         tagList.push(game.i18n.localize("A5E.PlotItem"));
       }
 
-      if (rangeCategory && rangeCategory !== "null") {
-        if (rangeCategory === "other") {
-          tagList.push(
-            `${game.i18n.localize("A5E.ItemRange")} - ${
-              item.data.data.range.custom
-            }`
-          );
-        } else {
-          const rangeComponents = [game.i18n.localize("A5E.ItemRange"), "-"];
-
-          const rangeDescriptor = game.i18n.localize(
-            config.rangeDescriptors[rangeCategory]
-          );
-
-          rangeComponents.push(rangeDescriptor);
-
-          if (
-            config.rangeValues[rangeCategory] &&
-            config.rangeValues[rangeCategory] !==
-              config.rangeDescriptors[rangeCategory]
-          ) {
-            rangeComponents.push(`(${config.rangeValues[rangeCategory]} ft.)`);
-          }
-
-          tagList.push(rangeComponents.join(" "));
-        }
+      if (itemData.range.filter(Boolean).length) {
+        const rangeComponents = [game.i18n.localize("A5E.ItemRange"), "-"];
+        rangeComponents.push(prepareRangeSummary(itemData.range));
+        tagList.push(rangeComponents.join(" "));
       }
 
       return tagList;

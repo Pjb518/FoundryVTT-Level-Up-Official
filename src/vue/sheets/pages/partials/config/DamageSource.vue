@@ -93,10 +93,9 @@
 import { inject } from "vue";
 
 import FormSection from "../../../../forms/FormSection.vue";
-import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection },
   props: { damageRoll: Object, index: Number },
   setup() {
     const appId = inject("appId");
@@ -107,7 +106,7 @@ export default {
       const { damage } = data.value.data;
       damage.splice(index, 1);
 
-      this.item.update({ "data.damage": damage });
+      item.update({ "data.damage": damage });
     }
 
     return {

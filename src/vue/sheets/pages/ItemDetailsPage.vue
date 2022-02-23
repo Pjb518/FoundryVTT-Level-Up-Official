@@ -13,6 +13,7 @@
 
     <spell-configuration v-else-if="item.type === 'spell'" />
     <activation-configuration />
+    <range-configuration />
     <resource-configuration />
 
     <hr class="a5e-rule" />
@@ -75,6 +76,7 @@ import ManeuverConfiguration from "./partials/config/ManeuverConfiguration.vue";
 import MaterialConfiguration from "./partials/config/MaterialConfiguration.vue";
 import ObjectConfiguration from "./partials/config/ObjectConfiguration.vue";
 import RadioGroup from "../../forms/RadioGroup.vue";
+import RangeConfiguration from "./partials/config/RangeConfiguration.vue";
 import ResourceConfiguration from "./partials/config/ResourceConfiguration.vue";
 import SavingThrowConfiguration from "./partials/config/SavingThrowConfiguration.vue";
 import SpellConfiguration from "./partials/config/SpellConfiguration.vue";
@@ -96,6 +98,7 @@ export default {
     MaterialConfiguration,
     ObjectConfiguration,
     RadioGroup,
+    RangeConfiguration,
     ResourceConfiguration,
     SavingThrowConfiguration,
     SpellConfiguration,

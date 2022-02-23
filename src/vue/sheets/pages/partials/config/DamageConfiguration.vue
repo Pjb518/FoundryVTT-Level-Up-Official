@@ -38,39 +38,33 @@
       </button>
     </div>
 
-    <template v-else>
-      <div class="u-flex u-flex-col u-gap-md">
-        <dl
-          v-for="(damageRoll, index) in data.data.damage"
-          :key="`damage-summary-${index}`"
-          class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
-        >
-          <div class="u-flex u-gap-md">
-            <dt class="u-text-bold">
-              {{
-                damageRoll.name || `${localize("A5E.Damage")} #${index + 1}`
-              }}:
-            </dt>
+    <div v-else class="u-flex u-flex-col u-gap-md">
+      <dl
+        v-for="(damageRoll, index) in data.data.damage"
+        :key="`damage-summary-${index}`"
+        class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm"
+      >
+        <div class="u-flex u-gap-md">
+          <dt class="u-text-bold">
+            {{ damageRoll.name || `${localize("A5E.Damage")} #${index + 1}` }}:
+          </dt>
 
-            <dd class="u-m-0 u-p-0">
-              {{ damageRoll.formula || 0 }}
-            </dd>
-          </div>
+          <dd class="u-m-0 u-p-0">
+            {{ damageRoll.formula || 0 }}
+          </dd>
+        </div>
 
-          <div class="u-flex u-gap-md">
-            <dt class="u-text-bold">{{ localize("A5E.DamageType") }}:</dt>
+        <div class="u-flex u-gap-md">
+          <dt class="u-text-bold">{{ localize("A5E.DamageType") }}:</dt>
 
-            <dd class="u-m-0 u-p-0">
-              {{
-                localize(
-                  config.damageTypes[damageRoll.damageType] ?? "A5E.None"
-                )
-              }}
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </template>
+          <dd class="u-m-0 u-p-0">
+            {{
+              localize(config.damageTypes[damageRoll.damageType] ?? "A5E.None")
+            }}
+          </dd>
+        </div>
+      </dl>
+    </div>
   </section>
 </template>
 
@@ -79,10 +73,9 @@ import { inject, ref } from "vue";
 
 import DamageSource from "./DamageSource.vue";
 import FormSection from "../../../../forms/FormSection.vue";
-import RadioGroup from "../../../../forms/RadioGroup.vue";
 
 export default {
-  components: { DamageSource, FormSection, RadioGroup },
+  components: { DamageSource, FormSection },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

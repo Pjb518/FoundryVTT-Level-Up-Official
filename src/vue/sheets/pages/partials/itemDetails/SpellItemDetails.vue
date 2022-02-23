@@ -40,27 +40,9 @@
         </dd>
       </div>
 
-      <div v-if="item.data.range.category" class="u-flex u-gap-ch">
+      <div v-if="rangeSummary" class="u-flex u-gap-ch">
         <dt>{{ localize("A5E.ItemRange") }}:</dt>
-        <dd class="u-m-0 u-p-0">
-          <template v-if="item.data.range.category === 'other'">
-            {{ item.data.range.custom }}
-          </template>
-
-          <template v-else>
-            {{ localize(config.rangeDescriptors[item.data.range.category]) }}
-
-            <template
-              v-if="
-                config.rangeValues[item.data.range.category] &&
-                config.rangeValues[item.data.range.category] !==
-                  config.rangeDescriptors[item.data.range.category]
-              "
-            >
-              ({{ config.rangeValues[item.data.range.category] }} ft.)
-            </template>
-          </template>
-        </dd>
+        <dd class="u-m-0 u-p-0">{{ rangeSummary }}</dd>
       </div>
 
       <div v-if="item.data.area.shape" class="u-align-center u-flex u-gap-ch">
@@ -162,10 +144,15 @@
 
 <script>
 import { computed } from "vue";
+import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 export default {
   props: { item: Object },
   setup(props) {
+    const rangeSummary = computed(() =>
+      prepareRangeSummary(props.item.data.range)
+    );
+
     const showActivationCost = computed(() => {
       const activationType = props.item.data.activation.type;
 
@@ -226,6 +213,7 @@ export default {
     return {
       config: CONFIG.A5E,
       localize: (key) => game.i18n.localize(key),
+      rangeSummary,
       showActivationCost,
       showDurationValue,
       showTargetQuantity,

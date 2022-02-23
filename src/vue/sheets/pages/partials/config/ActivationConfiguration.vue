@@ -64,35 +64,6 @@
         </div>
       </form-section>
 
-      <form-section heading="A5E.ItemRange">
-        <div class="u-align-center u-flex u-gap-lg u-w-full">
-          <select class="u-flex-shrink-0 u-w-30" name="data.range.category">
-            <option value=""></option>
-
-            <option
-              v-for="[key, name] in Object.entries(config.rangeDescriptors)"
-              :key="key"
-              :value="key"
-              :selected="data.data.range.category === key"
-            >
-              {{ localize(name) }}
-            </option>
-          </select>
-
-          <div
-            v-if="data.data.range.category === 'other'"
-            class="u-text-sm u-w-full"
-          >
-            <input
-              type="text"
-              name="data.range.custom"
-              :value="data.data.range.custom"
-              data-dtype="String"
-            />
-          </div>
-        </div>
-      </form-section>
-
       <form-section heading="A5E.ItemAreaShape">
         <div
           class="u-align-center u-flex u-font-serif u-gap-xl u-text-md u-w-full"
@@ -222,33 +193,6 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemRange") }}:</dt>
-        <dd class="u-m-0 u-p-0">
-          <template v-if="data.data.range.category === 'other'">
-            {{ data.data.range.custom }}
-          </template>
-
-          <template v-else-if="data.data.range.category">
-            {{ localize(config.rangeDescriptors[data.data.range.category]) }}
-
-            <template
-              v-if="
-                config.rangeValues[data.data.range.category] &&
-                config.rangeValues[data.data.range.category] !==
-                  config.rangeDescriptors[data.data.range.category]
-              "
-            >
-              ({{ config.rangeValues[data.data.range.category] }} ft.)
-            </template>
-          </template>
-
-          <template v-else>
-            {{ localize("A5E.None") }}
-          </template>
-        </dd>
-      </div>
-
-      <div class="u-flex u-gap-md">
         <dt class="u-text-bold">{{ localize("A5E.TargetArea") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.area.shape">
@@ -307,9 +251,10 @@ import { computed, inject, ref } from "vue";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import RangeIncrement from "./RangeIncrement.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection, RadioGroup, RangeIncrement },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

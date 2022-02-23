@@ -117,13 +117,13 @@ Hooks.once('init', () => {
  * Once the entire VTT framework is initialized, check to see if we should perform a data migration
  */
 Hooks.once('ready', () => {
-  Hooks.on('hotbarDrop', (bar, data, slot) => game.a5e.macros.createMacro(data, slot));
+  Hooks.on('hotbarDrop', (_, data, slot) => game.a5e.macros.createMacro(data, slot));
 
   // Determine whether a system migration is required
   if (!game.user.isGM) return;
 
   const currentVersion = game.settings.get('a5e', 'systemMigrationVersion');
-  const NEEDS_MIGRATION_VERSION = '0.4.0';
+  const NEEDS_MIGRATION_VERSION = '0.5.0';
   const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 
   if (!currentVersion && totalDocuments === 0) {
@@ -137,4 +137,4 @@ Hooks.once('ready', () => {
   game.a5e.migrations.migrateWorld();
 });
 
-Hooks.on('renderChatMessage', (app, html) => Item5e.chatListeners(html));
+Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
