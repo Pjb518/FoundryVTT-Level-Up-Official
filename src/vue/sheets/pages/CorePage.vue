@@ -205,7 +205,7 @@ export default {
 
     const xp = computed(() => {
       const cr = prepareChallengeRating(data);
-      return CONFIG.A5E.CR_EXP_LEVELS[cr];
+      return CONFIG.A5E.CR_EXP_LEVELS[parseInt(cr) > 30 ? "30" : cr];
     });
 
     onMounted(() => {
