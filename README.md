@@ -13,6 +13,7 @@ In addition to the wealth of system agnostic modules available on Foundry, sever
 If you've developed a module for the Level Up system and would like it listed here, feel free to get in touch. You can find several ways to contact me in the `system.json`, or you can open a ticket if you'd prefer.
 
 - [A5E DragRuler Integration](https://github.com/NekroDarkmoon/a5edragruler) - A Level Up integration for the Drag Ruler module, adding support for movement rules specific to Level Up.
+- [A5E Utility Helpers](https://github.com/NekroDarkmoon/a5e-utility-helpers) - A small module to provide helper functions for use in the A5E System.
 - [Does it hit!?](https://github.com/NekroDarkmoon/does-it-hit-a5e) - A module to help with hit detection and limited damage automation.
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.
