@@ -64,77 +64,6 @@
         </div>
       </form-section>
 
-      <form-section heading="A5E.ItemAreaShape">
-        <div
-          class="u-align-center u-flex u-font-serif u-gap-xl u-text-md u-w-full"
-        >
-          <label
-            class="
-              a5e-radio-group__button a5e-radio-group__button--area-templates
-            "
-            :class="{
-              'u-bg-green u-hover-bg-green u-text-light': selectedArea === null,
-            }"
-            @click="onSelectArea(null)"
-          >
-            <i class="fas fa-times-circle"></i>
-            {{ localize("A5E.None") }}
-          </label>
-
-          <label
-            v-for="[key, name] in Object.entries(config.areaTypes)"
-            :key="key"
-            class="
-              a5e-radio-group__button a5e-radio-group__button--area-templates
-            "
-            :class="{
-              'u-bg-green u-hover-bg-green u-text-light': selectedArea === key,
-            }"
-            @click="onSelectArea(key)"
-          >
-            <span class="u-text-sm" v-html="config.areaIcons[key]"></span>
-            {{ localize(name) }}
-          </label>
-        </div>
-      </form-section>
-
-      <form-section v-if="data.data.area.shape" heading="A5E.ItemAreaSize">
-        <div class="u-w-full">
-          <input
-            class="a5e-input"
-            name="data.area.size"
-            type="text"
-            :value="data.data.area.size"
-          />
-        </div>
-      </form-section>
-
-      <form-section heading="A5E.ItemTarget">
-        <div class="u-align-center u-flex u-gap-lg u-w-full">
-          <div v-if="showTargetQuantity" class="u-text-center u-text-sm u-w-20">
-            <input
-              type="number"
-              name="data.target.quantity"
-              :value="data.data.target.quantity"
-              data-dtype="Number"
-            />
-          </div>
-
-          <select class="u-w-fit" name="data.target.type">
-            <option value=""></option>
-
-            <option
-              v-for="[key, name] in Object.entries(config.targetTypes)"
-              :key="key"
-              :value="key"
-              :selected="data.data.target.type === key"
-            >
-              {{ localize(name) }}
-            </option>
-          </select>
-        </div>
-      </form-section>
-
       <form-section heading="A5E.ItemDuration">
         <div class="u-align-center u-flex u-gap-lg u-w-full">
           <div v-if="showDurationValue" class="u-text-center u-text-sm u-w-20">
@@ -193,40 +122,6 @@
       </div>
 
       <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.TargetArea") }}:</dt>
-        <dd class="u-m-0 u-p-0">
-          <template v-if="data.data.area.shape">
-            {{ localize(config.areaTypes[data.data.area.shape]) }}
-
-            <template v-if="data.data.area.size">
-              ({{ data.data.area.size }})
-            </template>
-          </template>
-
-          <template v-else>
-            {{ localize("A5E.None") }}
-          </template>
-        </dd>
-      </div>
-
-      <div class="u-flex u-gap-md">
-        <dt class="u-text-bold">{{ localize("A5E.ItemTarget") }}:</dt>
-        <dd class="u-m-0 u-p-0">
-          <template v-if="data.data.target.type">
-            <template v-if="showTargetQuantity && data.data.target.quantity">
-              {{ data.data.target.quantity }} &#10761;
-            </template>
-
-            {{ localize(config.targetTypes[data.data.target.type]) }}
-          </template>
-
-          <template v-else>
-            {{ localize("A5E.None") }}
-          </template>
-        </dd>
-      </div>
-
-      <div class="u-flex u-gap-md">
         <dt class="u-text-bold">{{ localize("A5E.ItemDuration") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="data.data.duration.unit">
@@ -262,15 +157,6 @@ export default {
 
     const editModeActive = ref(false);
 
-    const selectedArea = computed(() => {
-      if (
-        Object.keys(CONFIG.A5E.areaTypes).includes(data.value.data.area.shape)
-      )
-        return data.value.data.area.shape;
-
-      return null;
-    });
-
     const showActivationCost = computed(() => {
       const activationType = data.value.data.activation.type;
 
@@ -279,15 +165,6 @@ export default {
       if (["none", "special"].includes(activationType)) {
         return false;
       }
-
-      return true;
-    });
-
-    const showTargetQuantity = computed(() => {
-      const targetType = data.value.data.target.type;
-
-      if (!targetType) return false;
-      if (["other", "self"].includes(targetType)) return false;
 
       return true;
     });
@@ -302,10 +179,6 @@ export default {
       return true;
     });
 
-    function onSelectArea(areaType) {
-      item.update({ "data.area.shape": areaType });
-    }
-
     return {
       appId,
       config: CONFIG.A5E,
@@ -313,11 +186,8 @@ export default {
       editModeActive,
       item,
       localize: (key) => game.i18n.localize(key),
-      onSelectArea,
-      selectedArea,
       showActivationCost,
       showDurationValue,
-      showTargetQuantity,
     };
   },
 };
