@@ -9,7 +9,9 @@ export default function migrateItemAreaConfiguration(itemData, updateData) {
       if (category === 'other') updateData['data.range'] = [custom];
       else updateData['data.range'] = [category];
 
-      updateData['data.range'] = updateData['data.range'].filter(Boolean);
+      updateData['data.range'] = updateData['data.range'].filter(
+        (range) => range && range !== 'null'
+      );
     } catch (error) {
       console.error(`Failed range increment migration for Item ${itemData.name}`);
     }
