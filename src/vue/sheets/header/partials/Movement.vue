@@ -23,7 +23,7 @@
         )"
         :key="label"
       >
-        {{ localize(config.movementAbbreviations[label]) }} - {{ speed }}
+        {{ localize(config.movementAbbreviations[label]) }} {{ speed }}
         {{ localize("A5E.MeasurementFeetAbbr") }}
       </li>
     </ul>
