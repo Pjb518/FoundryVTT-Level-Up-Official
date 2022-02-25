@@ -40,7 +40,7 @@ export default class ReactiveDialog extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['a5e-dialog'],
-      width: 400
+      width: 416
     });
   }
 
