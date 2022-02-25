@@ -14,7 +14,7 @@ import DamageIRVConfigDialog from '../../vue/DamageIRVConfigDialog.vue';
 import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
 import HeritageConfigDialog from '../../vue/dialogs/HeritageConfigDialog.vue';
 import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
-import InitiativeConfigDialog from '../../vue/InitiativeConfigDialog.vue';
+import InitiativeConfigDialog from '../../vue/dialogs/InitiativeConfigDialog.vue';
 import LanguagesConfigDialog from '../../vue/LanguagesConfigDialog.vue';
 import ManeuverTabConfigDialog from '../../vue/ManeuverTabConfigDialog.vue';
 import MovementConfigDialog from '../../vue/dialogs/MovementConfigDialog.vue';
