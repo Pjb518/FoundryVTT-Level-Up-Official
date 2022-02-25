@@ -1,5 +1,8 @@
 <template>
-  <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
+  <form
+    @submit.prevent="onSubmit"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog"
+  >
     <template v-if="hasAttackRoll">
       <section class="a5e-form__section">
         <h3 class="u-text-bold u-text-sm">

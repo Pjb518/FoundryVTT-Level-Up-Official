@@ -3,7 +3,7 @@ import Item5e from '../item/entity';
 import ReactiveDialog from '../apps/reactiveDialog';
 
 import AbilityDialog from '../../vue/AbilityDialog.vue';
-import AbilityScoreConfigDialog from '../../vue/AbilityScoreConfigDialog.vue';
+import AbilityScoreConfigDialog from '../../vue/dialogs/AbilityScoreConfigDialog.vue';
 import ArmorClassConfigDialog from '../../vue/ArmorClassConfigDialog.vue';
 import ArmorProficienciesConfigDialog from '../../vue/ArmorProficienciesConfigDialog.vue';
 import BackgroundConfigDialog from '../../vue/BackgroundConfigDialog.vue';

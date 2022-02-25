@@ -14,7 +14,7 @@
     <option-tag
       v-for="[value, label] in options"
       :key="value"
-      v-bind="{ label, value }"
+      v-bind="{ classes, label, value }"
       :selected="selected.includes(value)"
       @option-selected="onOptionSelected"
     />
@@ -29,6 +29,7 @@ import OptionTag from "./OptionTag.vue";
 export default {
   components: { OptionTag },
   props: {
+    classes: { type: String, default: "" },
     document: Object,
     options: Array,
     updatePath: [String, Array],

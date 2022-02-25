@@ -1,8 +1,11 @@
 <template>
-  <form @submit.prevent="onSubmit" class="a5e-form a5e-form--reactive-dialog">
+  <form
+    @submit.prevent="onSubmit"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog"
+  >
     <section class="a5e-form__section">
       <h3 class="u-text-bold u-text-sm">
-        {{ localize("A5E.RestType") }}
+        {{ localize("A5E.Proficiency") }}
       </h3>
 
       <radio-group

@@ -10,11 +10,12 @@
       u-text-xs
       u-w-full
     "
+    :class="listClasses"
   >
     <option-tag
       v-for="[value, label] in options"
       :key="value"
-      v-bind="{ label, value }"
+      v-bind="{ classes: optionClasses, label, value }"
       :selected="selected === value || selected?.toString() === value"
       @option-selected="onOptionSelected"
     />
@@ -30,6 +31,8 @@ export default {
   components: { OptionTag },
   props: {
     document: Object,
+    listClasses: { type: String, default: "" },
+    optionClasses: { type: String, default: "" },
     options: Array,
     updatePath: String,
   },

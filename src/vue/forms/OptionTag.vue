@@ -1,7 +1,7 @@
 <template>
   <li
     class="a5e-tag u-pointer"
-    :class="{ 'a5e-tag--inactive': !selected }"
+    :class="[{ 'a5e-tag--inactive': !selected }, classes]"
     @click="$emit('option-selected', value)"
   >
     {{ localize(label) }}
@@ -12,6 +12,7 @@
 export default {
   emits: ["option-selected"],
   props: {
+    classes: { type: String, default: "" },
     label: String,
     value: [Boolean, String, Number],
     selected: { type: Boolean, default: false },

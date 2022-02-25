@@ -17,13 +17,16 @@ import { createApp } from 'vue';
  *
  * @implements {Application}
  */
-export default class ReactiveDialog extends Application {
+export default class ReactiveDialog extends FormApplication {
   constructor(App, data, options) {
     super(data, options);
 
+    this._disable_popout_module = true;
+
     this.app = App;
     this.data = data;
-    this._disable_popout_module = true;
+    this.object = data.props.actor;
+
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;
     });
@@ -36,20 +39,17 @@ export default class ReactiveDialog extends Application {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['a5e-dialog']
+      classes: ['a5e-dialog'],
+      width: 400
     });
   }
 
-  /**
-   * After rendering, create and mount the Vue application. Set the height property for the
-   * application window to "fit-content" to allow for apps with varying and variable size.
-   *
-   * @override
-   */
-  activateListeners() {
-    this.appInstance = createApp(this.app, { appWindow: this, ...this.data.props });
-    this.appInstance.mount(`#${this.id} .window-content`);
-    document.getElementById(this.id).style.setProperty('height', 'fit-content');
+  get template() {
+    return 'systems/a5e/templates/sheet.html';
+  }
+
+  get title() {
+    return this.data.title;
   }
 
   /**
@@ -76,15 +76,26 @@ export default class ReactiveDialog extends Application {
     return super.close(options);
   }
 
-  /**
-   * A dummy method to satisfy Foundry's Application class. It returns an empty string as the
-   * actual inner content is mounted in the activateListeners method.
-   *
-   * @override
-   * @returns {string} An empty string to satisfy Foundry's Application logic.
-   */
-  async _renderInner() {
-    return '';
+  /** @override */
+  async render(force = false, options = {}) {
+    if (this.component) {
+      const states = Application.RENDER_STATES;
+      if (this._state === states.RENDERING || this._state === states.RENDERED) return;
+    }
+
+    try {
+      await this._render(force, options);
+    } catch (err) {
+      err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
+      console.error(err.message);
+      this._state = Application.RENDER_STATES.ERROR;
+    }
+
+    const componentWrapper = this.element.find('.a5e-js-component-wrapper')[0];
+
+    this.component = createApp(this.app, { appWindow: this, ...this.data.props });
+    this.component.mount(componentWrapper);
+    this.activateListeners($(this.form));
   }
 
   resolvePromise(data) {
@@ -106,5 +117,16 @@ export default class ReactiveDialog extends Application {
   submit(data) {
     this.resolvePromise(data);
     return super.close();
+  }
+
+  async _onChangeInput(event) {
+    super._onChangeInput(event);
+
+    const data = this._getSubmitData();
+    this._updateObject(event, data);
+  }
+
+  async _updateObject(event, formData) {
+    return this.object?.id ? this.object.update(formData) : null;
   }
 }
