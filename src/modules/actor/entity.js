@@ -17,7 +17,7 @@ import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
 import InitiativeConfigDialog from '../../vue/InitiativeConfigDialog.vue';
 import LanguagesConfigDialog from '../../vue/LanguagesConfigDialog.vue';
 import ManeuverTabConfigDialog from '../../vue/ManeuverTabConfigDialog.vue';
-import MovementConfigDialog from '../../vue/MovementConfigDialog.vue';
+import MovementConfigDialog from '../../vue/dialogs/MovementConfigDialog.vue';
 import RestDialog from '../../vue/RestDialog.vue';
 import SensesConfigDialog from '../../vue/SensesConfigDialog.vue';
 import SizeCategoryConfigDialog from '../../vue/SizeCategoryConfigDialog.vue';
