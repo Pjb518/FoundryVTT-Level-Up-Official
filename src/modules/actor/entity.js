@@ -12,7 +12,7 @@ import CreatureTypesConfigDialog from '../../vue/CreatureTypesConfigDialog.vue';
 import CultureConfigDialog from '../../vue/dialogs/CultureConfigDialog.vue';
 import DamageIRVConfigDialog from '../../vue/DamageIRVConfigDialog.vue';
 import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
-import HeritageConfigDialog from '../../vue/HeritageConfigDialog.vue';
+import HeritageConfigDialog from '../../vue/dialogs/HeritageConfigDialog.vue';
 import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
 import InitiativeConfigDialog from '../../vue/InitiativeConfigDialog.vue';
 import LanguagesConfigDialog from '../../vue/LanguagesConfigDialog.vue';
