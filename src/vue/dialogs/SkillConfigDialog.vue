@@ -23,7 +23,7 @@
         v-slot="slotProps"
       >
         <custom-tag-group
-          heading="A5E.AvailableSpellLevels"
+          heading="A5E.SkillSpecialties"
           :options="Object.entries(config.skillSpecialties[skill])"
           :selected="data.data.skills[skill].specialties"
           :selectionHandler="slotProps.selectionHandler"
