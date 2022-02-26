@@ -175,7 +175,7 @@
 
       <div
         v-if="!sheetIsLocked"
-        class="u-align-center u-flex u-gap-md u-h-6 u-text-md u-ml-auto"
+        class="u-align-center u-flex u-gap-md u-h-6 u-text-md"
       >
         <h3 class="u-mb-0">{{ localize("A5E.ConfigureSpells") }}</h3>
 

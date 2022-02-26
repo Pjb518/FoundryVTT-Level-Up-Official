@@ -34,6 +34,8 @@
 <script>
 import { ref } from "vue";
 
+import registerDialogListeners from "../utils/hookHelpers/registerDialogListeners";
+
 import FormSection from "../forms/FormSection.vue";
 
 export default {
@@ -42,6 +44,12 @@ export default {
     const { actor, appWindow } = context.attrs;
     const appId = appWindow.id;
     const data = ref(actor.sheet.getData());
+
+    function updateStoredActorData() {
+      data.value = actor.sheet.getData();
+    }
+
+    registerDialogListeners(appId, ["updateActor"], updateStoredActorData);
 
     return {
       appId,

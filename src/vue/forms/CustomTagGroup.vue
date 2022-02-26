@@ -1,6 +1,6 @@
 <template>
   <header class="u-align-center u-flex u-gap-lg">
-    <h3 class="u-text-sm">{{ localize(heading) }}</h3>
+    <h3 class="u-text-bold u-text-sm">{{ localize(heading) }}</h3>
 
     <a @click.prevent="toggleAll" class="u-text-xs"> + Toggle All</a>
   </header>
