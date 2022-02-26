@@ -1,7 +1,7 @@
 <template>
   <form
     @submit.prevent="onSubmit"
-    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
   >
     <section class="a5e-form__section">
       <h3 class="u-text-bold u-text-sm">

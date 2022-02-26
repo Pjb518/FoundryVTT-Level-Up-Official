@@ -1,10 +1,10 @@
 <template>
   <form
     @submit.prevent="onSubmit"
-    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
   >
     <template v-if="hasAttackRoll">
-      <section class="a5e-form__section">
+      <section class="a5e-form__section u-flex u-flex-col u-gap-md">
         <h3 class="u-text-bold u-text-sm">
           {{ localize("A5E.RollModeHeading") }}
         </h3>

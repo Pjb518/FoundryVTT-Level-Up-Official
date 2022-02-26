@@ -1,6 +1,6 @@
 <template>
   <section
-    class="a5e-form__section"
+    class="a5e-form__section u-flex u-flex-col u-gap-md"
     :class="{
       'a5e-form__section--reduced-margin': reduceMargin,
       'a5e-form__section--inline': inline,

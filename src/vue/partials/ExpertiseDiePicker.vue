@@ -1,5 +1,5 @@
 <template>
-  <section class="a5e-form__section">
+  <section class="a5e-form__section u-flex u-flex-col u-gap-md">
     <h3 class="u-text-bold u-text-sm">{{ heading }}</h3>
 
     <div class="u-flex u-gap-md u-text-sm a5e-radio-group--expertise">
