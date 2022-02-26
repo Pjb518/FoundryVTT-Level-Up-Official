@@ -27,7 +27,6 @@
         class="u-align-center u-flex u-gap-md u-w-full"
       >
         <input
-          class="u-pointer"
           type="text"
           :id="`${appId}-range-${index}`"
           v-model="customRange"

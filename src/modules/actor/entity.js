@@ -4,7 +4,6 @@ import ReactiveDialog from '../apps/reactiveDialog';
 
 import AbilityDialog from '../../vue/AbilityDialog.vue';
 import AbilityScoreConfigDialog from '../../vue/dialogs/AbilityScoreConfigDialog.vue';
-import ArmorClassConfigDialog from '../../vue/ArmorClassConfigDialog.vue';
 import ArmorProficienciesConfigDialog from '../../vue/dialogs/ArmorProficienciesConfigDialog.vue';
 import BackgroundConfigDialog from '../../vue/dialogs/BackgroundConfigDialog.vue';
 import ConditionImmunitiesConfigDialog from '../../vue/dialogs/ConditionImmunitiesConfigDialog.vue';
@@ -16,7 +15,7 @@ import HeritageConfigDialog from '../../vue/dialogs/HeritageConfigDialog.vue';
 import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
 import InitiativeConfigDialog from '../../vue/dialogs/InitiativeConfigDialog.vue';
 import LanguagesConfigDialog from '../../vue/dialogs/LanguagesConfigDialog.vue';
-import ManeuverTabConfigDialog from '../../vue/ManeuverTabConfigDialog.vue';
+import ManeuverTabConfigDialog from '../../vue/dialogs/ManeuverTabConfigDialog.vue';
 import MovementConfigDialog from '../../vue/dialogs/MovementConfigDialog.vue';
 import RestDialog from '../../vue/RestDialog.vue';
 import SensesConfigDialog from '../../vue/dialogs/SensesConfigDialog.vue';
@@ -293,16 +292,6 @@ export default class Actor5e extends Actor {
 
     const dialog = new ReactiveDialog(AbilityScoreConfigDialog, {
       title: dialogTitle, props: { actor: this, ability, isSave: false }
-    });
-
-    dialog.render(true);
-  }
-
-  configureAC() {
-    const dialogTitle = game.i18n.localize('A5E.ACConfigurationPrompt');
-
-    const dialog = new ReactiveDialog(ArmorClassConfigDialog, {
-      title: dialogTitle, props: { actor: this }
     });
 
     dialog.render(true);
