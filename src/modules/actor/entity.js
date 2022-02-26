@@ -19,7 +19,7 @@ import ManeuverTabConfigDialog from '../../vue/dialogs/ManeuverTabConfigDialog.v
 import MovementConfigDialog from '../../vue/dialogs/MovementConfigDialog.vue';
 import RestDialog from '../../vue/RestDialog.vue';
 import SensesConfigDialog from '../../vue/dialogs/SensesConfigDialog.vue';
-import SizeCategoryConfigDialog from '../../vue/SizeCategoryConfigDialog.vue';
+import SizeCategoryConfigDialog from '../../vue/dialogs/SizeCategoryConfigDialog.vue';
 import SkillDialog from '../../vue/SkillDialog.vue';
 import SkillConfigDialog from '../../vue/dialogs/SkillConfigDialog.vue';
 import SpellTabConfigDialog from '../../vue/dialogs/SpellTabConfigDialog.vue';

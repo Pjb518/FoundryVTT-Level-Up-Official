@@ -1,22 +1,26 @@
 <template>
   <div class="u-p-lg">
-    <form-section heading="A5E.Heritage">
-      <div class="u-w-full">
-        <input
-          class="a5e-input"
-          type="text"
-          name="data.details.heritage"
-          :value="data.data.details.heritage"
-          v-autowidth="{ minWidth: '12.5rem', maxWidth: '100%' }"
-        />
+    <form-section heading="A5E.SizeCategory" :inline="true">
+      <div class="u-flex u-flex-col u-w-fit">
+        <select class="u-h-8 u-w-fit" name="data.traits.size">
+          <option value=""></option>
+
+          <option
+            v-for="[key, name] in Object.entries(config.actorSizes)"
+            :key="key"
+            :value="key"
+            :selected="data.data.traits.size === key"
+          >
+            {{ localize(name) }}
+          </option>
+        </select>
       </div>
     </form-section>
   </div>
 </template>
 
 <script>
-import { ref, provide } from "vue";
-import { directive as VueInputAutowidth } from "vue-input-autowidth";
+import { ref } from "vue";
 
 import registerDialogListeners from "../utils/hookHelpers/registerDialogListeners";
 
@@ -24,7 +28,6 @@ import FormSection from "../forms/FormSection.vue";
 
 export default {
   components: { FormSection },
-  directives: { autowidth: VueInputAutowidth },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
     const appId = appWindow.id;
@@ -34,13 +37,12 @@ export default {
       data.value = actor.sheet.getData();
     }
 
-    provide("data", data);
-
     registerDialogListeners(appId, ["updateActor"], updateStoredActorData);
 
     return {
       data,
       config: CONFIG.A5E,
+      localize: (key) => game.i18n.localize(key),
     };
   },
 };
