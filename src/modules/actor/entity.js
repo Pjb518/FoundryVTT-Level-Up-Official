@@ -7,7 +7,7 @@ import AbilityScoreConfigDialog from '../../vue/dialogs/AbilityScoreConfigDialog
 import ArmorClassConfigDialog from '../../vue/ArmorClassConfigDialog.vue';
 import ArmorProficienciesConfigDialog from '../../vue/dialogs/ArmorProficienciesConfigDialog.vue';
 import BackgroundConfigDialog from '../../vue/dialogs/BackgroundConfigDialog.vue';
-import ConditionImmunitiesConfigDialog from '../../vue/ConditionImmunitiesConfigDialog.vue';
+import ConditionImmunitiesConfigDialog from '../../vue/dialogs/ConditionImmunitiesConfigDialog.vue';
 import CreatureTypesConfigDialog from '../../vue/CreatureTypesConfigDialog.vue';
 import CultureConfigDialog from '../../vue/dialogs/CultureConfigDialog.vue';
 import DamageIRVConfigDialog from '../../vue/DamageIRVConfigDialog.vue';

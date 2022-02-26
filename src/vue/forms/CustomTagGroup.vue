@@ -11,7 +11,7 @@
     :selectionHandler="onOptionSelected"
   />
 
-  <div class="u-mt-sm u-w-full">
+  <div v-if="showCustomInput" class="u-mt-sm u-w-full">
     <input class="a5e-input" type="text" v-model.lazy="selectedCustomOptions" />
 
     <span class="a5e-form__hint">{{
@@ -34,6 +34,7 @@ export default {
     options: Array,
     selected: Array,
     selectionHandler: Function,
+    showCustomInput: { type: Boolean, default: true },
   },
   setup(props) {
     const optionKeys = props.options.map(([key]) => key);
