@@ -5,26 +5,11 @@
     <a @click.prevent="toggleAll" class="u-text-xs"> + Toggle All</a>
   </header>
 
-  <ul
-    class="
-      u-flex
-      u-flex-wrap
-      u-gap-sm
-      u-list-style-none
-      u-m-0
-      u-p-0
-      u-text-xs
-      u-w-full
-    "
-  >
-    <option-tag
-      v-for="[value, label] in options"
-      :key="value"
-      v-bind="{ label, value }"
-      :selected="selectedCoreOptions.includes(value)"
-      @option-selected="onOptionSelected"
-    />
-  </ul>
+  <checkbox-group
+    :options="options"
+    :selected="selectedCoreOptions"
+    :selectionHandler="onOptionSelected"
+  />
 
   <div class="u-mt-sm u-w-full">
     <input class="a5e-input" type="text" v-model.lazy="selectedCustomOptions" />
@@ -40,10 +25,10 @@ import { computed } from "vue";
 
 import arraysAreEqual from "../../modules/utils/arraysAreEqual";
 
-import OptionTag from "../forms/OptionTag.vue";
+import CheckboxGroup from "../forms/CheckboxGroup.vue";
 
 export default {
-  components: { OptionTag },
+  components: { CheckboxGroup },
   props: {
     heading: String,
     options: Array,
@@ -82,14 +67,8 @@ export default {
       },
     });
 
-    function onOptionSelected(option) {
-      const currentSelection = Array.from(selectedCoreOptions.value);
-      const index = currentSelection.indexOf(option);
-
-      if (index !== -1) currentSelection.splice(index, 1);
-      else currentSelection.push(option);
-
-      selectedCoreOptions.value = currentSelection;
+    function onOptionSelected(currentCoreSelection) {
+      selectedCoreOptions.value = currentCoreSelection;
     }
 
     function toggleAll() {
