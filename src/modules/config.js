@@ -188,7 +188,7 @@ A5E.attackTypes = {
  */
 A5E.conditions = {
   blinded: 'A5E.ConditionBlinded',
-  Bloodied: 'A5E.ConditionBloodied',
+  bloodied: 'A5E.ConditionBloodied',
   charmed: 'A5E.ConditionCharmed',
   confused: 'A5E.ConditionConfused',
   deafened: 'A5E.ConditionDeafened',

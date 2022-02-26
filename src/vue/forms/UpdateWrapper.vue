@@ -1,6 +1,6 @@
 /*
- * This wrapper component is used to provide automatic update functionality to checkbox and
- * radio groups.
+ * This wrapper component is used to provide automatic update functionality to custom tag,
+ * checkbox, and radio groups.
  */
 
 <template>
