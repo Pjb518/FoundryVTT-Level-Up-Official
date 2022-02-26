@@ -29,7 +29,6 @@
           u-flex
           u-flex-wrap
           u-font-san-serif
-          u-gap-md
           u-list-style-none
           u-m-0
           u-p-0
