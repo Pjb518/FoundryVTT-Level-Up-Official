@@ -10,7 +10,7 @@ import BackgroundConfigDialog from '../../vue/dialogs/BackgroundConfigDialog.vue
 import ConditionImmunitiesConfigDialog from '../../vue/dialogs/ConditionImmunitiesConfigDialog.vue';
 import CreatureTypesConfigDialog from '../../vue/CreatureTypesConfigDialog.vue';
 import CultureConfigDialog from '../../vue/dialogs/CultureConfigDialog.vue';
-import DamageIRVConfigDialog from '../../vue/DamageIRVConfigDialog.vue';
+import DamageIRVConfigDialog from '../../vue/dialogs/DamageIRVConfigDialog.vue';
 import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
 import HeritageConfigDialog from '../../vue/dialogs/HeritageConfigDialog.vue';
 import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
