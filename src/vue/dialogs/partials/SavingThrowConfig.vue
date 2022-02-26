@@ -6,7 +6,7 @@
           class="u-pointer"
           type="checkbox"
           :name="`data.abilities.${ability}.save.proficient`"
-          :id="`${appId}-proficient`"
+          :id="`${appId}-${ability}-proficient`"
           :checked="data.data.abilities[ability].save.proficient"
         />
 
