@@ -23,11 +23,17 @@
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
       <form-section heading="A5E.FeatureTypePrompt">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.featureTypes)"
           updatePath="data.featureType"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.featureTypes)"
+            :selected="data.data.featureType"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
     </div>
 
@@ -52,9 +58,10 @@ import { inject, ref } from "vue";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection, RadioGroup, UpdateWrapper },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

@@ -10,20 +10,26 @@
           :checked="data.data.abilities[ability].save.proficient"
         />
 
-        <label class="u-pointer" :for="`${appId}-proficient`">
+        <label class="u-pointer" :for="`${appId}-${ability}-proficient`">
           {{ localize("A5E.ProficiencyProficient") }}
         </label>
       </div>
     </form-section>
 
     <form-section heading="A5E.ExpertiseDie">
-      <radio-group
-        listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
-        optionClasses="u-p-md u-text-center u-w-12"
+      <update-wrapper
         :document="actor"
-        :options="expertiseDiceOptions"
         :updatePath="`data.abilities.${ability}.save.expertiseDice`"
-      />
+        v-slot="slotProps"
+      >
+        <radio-group
+          listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
+          optionClasses="u-p-md u-text-center u-w-12"
+          :options="expertiseDiceOptions"
+          :selected="data.data.abilities[ability].save.expertiseDice"
+          :selectionHandler="slotProps.selectionHandler"
+        />
+      </update-wrapper>
     </form-section>
 
     <form-section
@@ -78,9 +84,10 @@ import prepareExpertiseDiceOptions from "../../utils/dataPreparationHelpers/prep
 
 import FormSection from "../../forms/FormSection.vue";
 import RadioGroup from "../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection, RadioGroup, UpdateWrapper },
   setup() {
     const ability = inject("ability");
     const actor = inject("actor");

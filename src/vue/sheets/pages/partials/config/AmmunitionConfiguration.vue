@@ -23,11 +23,17 @@
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
       <form-section heading="A5E.AmmunitionProperties">
-        <checkbox-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.ammunitionProperties)"
           updatePath="data.ammunitionProperties"
-        />
+          v-slot="slotProps"
+        >
+          <checkbox-group
+            :options="Object.entries(config.ammunitionProperties)"
+            :selected="data.data.ammunitionProperties"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
     </div>
 
@@ -74,9 +80,10 @@ import { inject, ref } from "vue";
 
 import CheckboxGroup from "../../../../forms/CheckboxGroup.vue";
 import FormSection from "../../../../forms/FormSection.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { CheckboxGroup, FormSection },
+  components: { CheckboxGroup, FormSection, UpdateWrapper },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

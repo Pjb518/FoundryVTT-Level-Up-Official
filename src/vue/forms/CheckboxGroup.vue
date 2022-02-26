@@ -10,11 +10,12 @@
       u-text-xs
       u-w-full
     "
+    :class="listClasses"
   >
     <option-tag
       v-for="[value, label] in options"
       :key="value"
-      v-bind="{ classes, label, value }"
+      v-bind="{ classes: optionClasses, label, value }"
       :selected="selected.includes(value)"
       @option-selected="onOptionSelected"
     />
@@ -22,39 +23,30 @@
 </template>
 
 <script>
-import { computed, inject } from "vue";
-
 import OptionTag from "./OptionTag.vue";
 
 export default {
   components: { OptionTag },
   props: {
-    classes: { type: String, default: "" },
-    document: Object,
+    listClasses: { type: String, default: "" },
+    optionClasses: { type: String, default: "" },
     options: Array,
-    updatePath: [String, Array],
+    selected: Array,
+    selectionHandler: Function,
   },
   setup(props) {
-    const data = inject("data");
-
-    const selected = computed(() => {
-      return getProperty(data.value, props.updatePath);
-    });
-
     function onOptionSelected(option) {
-      const currentSelection = Array.from(selected.value);
-      const index = currentSelection.indexOf(option);
+      const selected = Array.from(props.selected);
+      const index = selected.indexOf(option);
 
-      if (index !== -1) currentSelection.splice(index, 1);
-      else currentSelection.push(option);
+      if (index !== -1) selected.splice(index, 1);
+      else selected.push(option);
 
-      props.document.update({ [props.updatePath]: currentSelection });
+      props.selectionHandler(selected);
     }
 
     return {
-      data,
       onOptionSelected,
-      selected,
     };
   },
 };

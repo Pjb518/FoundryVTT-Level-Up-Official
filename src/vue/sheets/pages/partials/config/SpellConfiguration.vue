@@ -23,27 +23,45 @@
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
       <form-section heading="A5E.SpellLevel">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.spellLevels)"
           updatePath="data.level"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.spellLevels)"
+            :selected="data.data.level"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <form-section heading="A5E.SpellSchoolPrimary">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.spellSchools.primary)"
           updatePath="data.schools.primary"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.spellSchools.primary)"
+            :selected="data.data.schools.primary"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <form-section heading="A5E.SpellSchoolSecondaryPlural">
-        <checkbox-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.spellSchools.secondary)"
           updatePath="data.schools.secondary"
-        />
+          v-slot="slotProps"
+        >
+          <checkbox-group
+            :options="Object.entries(config.spellSchools.secondary)"
+            :selected="data.data.schools.secondary"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <form-section heading="A5E.SpellComponents">
@@ -237,15 +255,22 @@
 </template>
 
 <script>
-import { computed, inject, ref, watch } from "vue";
+import { inject, ref, watch } from "vue";
 
 import CheckboxGroup from "../../../../forms/CheckboxGroup.vue";
 import FormSection from "../../../../forms/FormSection.vue";
 import OptionTag from "../../../../forms/OptionTag.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { CheckboxGroup, FormSection, OptionTag, RadioGroup },
+  components: {
+    CheckboxGroup,
+    FormSection,
+    OptionTag,
+    RadioGroup,
+    UpdateWrapper,
+  },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

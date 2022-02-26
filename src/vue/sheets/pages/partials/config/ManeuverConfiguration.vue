@@ -23,20 +23,32 @@
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
       <form-section heading="A5E.ManeuverDegreePrompt">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.maneuverDegrees)"
           updatePath="data.degree"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.maneuverDegrees)"
+            :selected="data.data.degree"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <template v-if="data.data.degree > 0">
         <form-section heading="A5E.ManeuverTraditionPrompt">
-          <radio-group
+          <update-wrapper
             :document="item"
-            :options="Object.entries(config.maneuverTraditions)"
             updatePath="data.tradition"
-          />
+            v-slot="slotProps"
+          >
+            <radio-group
+              :options="Object.entries(config.maneuverTraditions)"
+              :selected="data.data.tradition"
+              :selectionHandler="slotProps.selectionHandler"
+            />
+          </update-wrapper>
         </form-section>
 
         <form-section>
@@ -100,13 +112,14 @@
 </template>
 
 <script>
-import { computed, inject, ref } from "vue";
+import { inject, ref } from "vue";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection, RadioGroup, UpdateWrapper },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

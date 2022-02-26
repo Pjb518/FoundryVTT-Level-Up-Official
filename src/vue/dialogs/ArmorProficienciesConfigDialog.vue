@@ -1,11 +1,17 @@
 <template>
   <div class="u-p-lg">
     <form-section heading="A5E.ArmorProficiencies">
-      <checkbox-group
+      <update-wrapper
         :document="actor"
-        :options="Object.entries(config.armorPlural)"
         updatePath="data.proficiencies.armor"
-      />
+        v-slot="slotProps"
+      >
+        <checkbox-group
+          :options="Object.entries(config.armorPlural)"
+          :selected="data.data.proficiencies.armor"
+          :selectionHandler="slotProps.selectionHandler"
+        />
+      </update-wrapper>
     </form-section>
   </div>
 </template>
@@ -17,9 +23,10 @@ import registerDialogListeners from "../utils/hookHelpers/registerDialogListener
 
 import CheckboxGroup from "../forms/CheckboxGroup.vue";
 import FormSection from "../forms/FormSection.vue";
+import UpdateWrapper from "../forms/UpdateWrapper.vue";
 
 export default {
-  components: { CheckboxGroup, FormSection },
+  components: { CheckboxGroup, FormSection, UpdateWrapper },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
     const appId = appWindow.id;
@@ -35,6 +42,7 @@ export default {
 
     return {
       actor,
+      data,
       config: CONFIG.A5E,
     };
   },

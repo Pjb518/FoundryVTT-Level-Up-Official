@@ -21,11 +21,17 @@
         heading="A5E.AbilityScore"
         hint="Select the ability score to use for the check."
       >
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.abilities)"
           updatePath="data.check.ability"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.abilities)"
+            :selected="data.data.check.ability"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
     </div>
   </section>
@@ -36,9 +42,10 @@ import { inject } from "vue";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection, RadioGroup, UpdateWrapper },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

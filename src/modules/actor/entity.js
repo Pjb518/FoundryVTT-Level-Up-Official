@@ -22,7 +22,7 @@ import RestDialog from '../../vue/RestDialog.vue';
 import SensesConfigDialog from '../../vue/dialogs/SensesConfigDialog.vue';
 import SizeCategoryConfigDialog from '../../vue/SizeCategoryConfigDialog.vue';
 import SkillDialog from '../../vue/SkillDialog.vue';
-import SkillConfigDialog from '../../vue/SkillConfigDialog.vue';
+import SkillConfigDialog from '../../vue/dialogs/SkillConfigDialog.vue';
 import SpellTabConfigDialog from '../../vue/SpellTabConfigDialog.vue';
 import ToolProficienciesConfigDialog from '../../vue/ToolProficienciesConfigDialog.vue';
 import WeaponProficienciesConfigDialog from '../../vue/WeaponProficienciesConfigDialog.vue';

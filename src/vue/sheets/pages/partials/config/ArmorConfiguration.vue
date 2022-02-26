@@ -23,21 +23,35 @@
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
       <form-section heading="A5E.ArmorCategory">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="
-            Object.entries(config.armor).filter(([key, _]) => key !== 'shield')
-          "
           updatePath="data.armorCategory"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="
+              Object.entries(config.armor).filter(
+                ([key, _]) => key !== 'shield'
+              )
+            "
+            :selected="data.data.armorCategory"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <form-section heading="A5E.ArmorProperties">
-        <checkbox-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.armorProperties)"
           updatePath="data.armorProperties"
-        />
+          v-slot="slotProps"
+        >
+          <checkbox-group
+            :options="Object.entries(config.armorProperties)"
+            :selected="data.data.armorProperties"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
     </div>
 
@@ -99,9 +113,10 @@ import { inject, ref } from "vue";
 import CheckboxGroup from "../../../../forms/CheckboxGroup.vue";
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { CheckboxGroup, FormSection, RadioGroup },
+  components: { CheckboxGroup, FormSection, RadioGroup, UpdateWrapper },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

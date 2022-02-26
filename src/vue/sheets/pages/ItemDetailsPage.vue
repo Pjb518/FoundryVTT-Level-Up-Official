@@ -22,11 +22,17 @@
       heading="A5E.ActionOptions"
       hint="Activate specialized configuration options by toggling the tags above."
     >
-      <checkbox-group
+      <update-wrapper
         :document="item"
-        :options="Object.entries(config.actionOptions)"
         updatePath="data.actionOptions"
-      />
+        v-slot="slotProps"
+      >
+        <checkbox-group
+          :options="Object.entries(config.actionOptions)"
+          :selected="data.data.actionOptions"
+          :selectionHandler="slotProps.selectionHandler"
+        />
+      </update-wrapper>
     </form-section>
 
     <form-section
@@ -38,11 +44,17 @@
       heading="A5E.AbilityScore"
       hint="The selected ability is used to determine the attack roll formula for the weapon (if it has one). You can also use @mod to reference the modifier for the selected ability in roll formulae."
     >
-      <radio-group
+      <update-wrapper
         :document="item"
-        :options="abilityOptions"
         updatePath="data.ability"
-      />
+        v-slot="slotProps"
+      >
+        <radio-group
+          :options="abilityOptions"
+          :selected="data.data.ability"
+          :selectionHandler="slotProps.selectionHandler"
+        />
+      </update-wrapper>
     </form-section>
 
     <ability-check-configuration
@@ -80,6 +92,7 @@ import ResourceConfiguration from "./partials/config/ResourceConfiguration.vue";
 import SavingThrowConfiguration from "./partials/config/SavingThrowConfiguration.vue";
 import SpellConfiguration from "./partials/config/SpellConfiguration.vue";
 import TargetingConfiguration from "./partials/config/TargetingConfiguration.vue";
+import UpdateWrapper from "../../forms/UpdateWrapper.vue";
 import WeaponConfiguration from "./partials/config/WeaponConfiguration.vue";
 
 export default {
@@ -102,6 +115,7 @@ export default {
     SavingThrowConfiguration,
     SpellConfiguration,
     TargetingConfiguration,
+    UpdateWrapper,
     WeaponConfiguration,
   },
   setup() {

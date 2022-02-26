@@ -23,19 +23,31 @@
 
     <div v-if="editModeActive" class="u-flex u-flex-col u-gap-md">
       <form-section heading="A5E.ObjectTypePrompt">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.objectTypes)"
           updatePath="data.objectType"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.objectTypes)"
+            :selected="data.data.objectType"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <form-section heading="A5E.ItemRarity">
-        <radio-group
+        <update-wrapper
           :document="item"
-          :options="Object.entries(config.itemRarity)"
           updatePath="data.rarity"
-        />
+          v-slot="slotProps"
+        >
+          <radio-group
+            :options="Object.entries(config.itemRarity)"
+            :selected="data.data.rarity"
+            :selectionHandler="slotProps.selectionHandler"
+          />
+        </update-wrapper>
       </form-section>
 
       <form-section>
@@ -242,9 +254,10 @@ import { inject, ref } from "vue";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
+import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
-  components: { FormSection, RadioGroup },
+  components: { FormSection, RadioGroup, UpdateWrapper },
   setup() {
     const appId = inject("appId");
     const data = inject("data");

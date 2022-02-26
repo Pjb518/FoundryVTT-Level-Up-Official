@@ -23,31 +23,24 @@
 </template>
 
 <script>
-import { computed, inject } from "vue";
-
 import OptionTag from "./OptionTag.vue";
 
 export default {
   components: { OptionTag },
   props: {
-    document: Object,
     listClasses: { type: String, default: "" },
     optionClasses: { type: String, default: "" },
     options: Array,
-    updatePath: String,
+    selected: String | Number,
+    selectionHandler: Function,
   },
   setup(props) {
-    const data = inject("data");
-    const selected = computed(() => getProperty(data.value, props.updatePath));
-
     function onOptionSelected(option) {
-      props.document.update({ [props.updatePath]: option });
+      props.selectionHandler(option);
     }
 
     return {
-      data,
       onOptionSelected,
-      selected,
     };
   },
 };

@@ -73,7 +73,7 @@
 <script>
 import { inject, ref } from "vue";
 
-import HealingSource from "../HealingSource.vue";
+import HealingSource from "./HealingSource.vue";
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
 

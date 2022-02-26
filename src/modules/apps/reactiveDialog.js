@@ -40,7 +40,8 @@ export default class ReactiveDialog extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['a5e-dialog'],
-      width: 416
+      width: 416,
+      height: 500
     });
   }
 
@@ -96,6 +97,7 @@ export default class ReactiveDialog extends FormApplication {
     this.component = createApp(this.app, { appWindow: this, ...this.data.props });
     this.component.mount(componentWrapper);
     this.activateListeners($(this.form));
+    document.getElementById(this.id).style.setProperty('height', 'fit-content');
   }
 
   resolvePromise(data) {
