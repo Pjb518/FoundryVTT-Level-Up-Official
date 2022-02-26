@@ -16,6 +16,21 @@
       </div>
     </form-section>
 
+    <form-section>
+      <update-wrapper
+        :document="actor"
+        :updatePath="`data.skills.${skill}.specialties`"
+        v-slot="slotProps"
+      >
+        <custom-tag-group
+          heading="A5E.AvailableSpellLevels"
+          :options="Object.entries(config.skillSpecialties[skill])"
+          :selected="data.data.skills[skill].specialties"
+          :selectionHandler="slotProps.selectionHandler"
+        />
+      </update-wrapper>
+    </form-section>
+
     <form-section heading="A5E.ExpertiseDie">
       <update-wrapper
         :document="actor"
@@ -108,13 +123,14 @@ import { provide, ref } from "vue";
 import prepareExpertiseDiceOptions from "../utils/dataPreparationHelpers/prepareExpertiseDiceOptions";
 import registerDialogListeners from "../utils/hookHelpers/registerDialogListeners";
 
+import CustomTagGroup from "../forms/CustomTagGroup.vue";
 import FormSection from "../forms/FormSection.vue";
 import RadioGroup from "../forms/RadioGroup.vue";
 import UpdateWrapper from "../forms/UpdateWrapper.vue";
 
 export default {
   inheritAttrs: false,
-  components: { FormSection, RadioGroup, UpdateWrapper },
+  components: { CustomTagGroup, FormSection, RadioGroup, UpdateWrapper },
   setup(_, context) {
     const { actor, skill, appWindow } = context.attrs;
     const appId = appWindow.id;
@@ -139,6 +155,7 @@ export default {
       checkBonusHeading: game.i18n.format("A5E.SkillCheckBonus", {
         skill: game.i18n.localize(CONFIG.A5E.skills[skill]),
       }),
+      config: CONFIG.A5E,
       data,
       expertiseDiceOptions,
       localize: (key) => game.i18n.localize(key),
