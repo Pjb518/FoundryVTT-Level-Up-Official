@@ -181,12 +181,12 @@
         :sheetIsLocked="sheetIsLocked"
         :background="data.data.details.background"
       />
-    </div>
 
-    <Movement
-      :sheetIsLocked="sheetIsLocked"
-      :movement="data.data.attributes.movement"
-    />
+      <movement
+        :sheetIsLocked="sheetIsLocked"
+        :movement="data.data.attributes.movement"
+      />
+    </div>
 
     <div>
       <ul class="u-flex u-font-serif u-gap-md u-list-style-none u-m-0 u-pl-0">

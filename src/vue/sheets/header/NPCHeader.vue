@@ -116,7 +116,7 @@
       />
     </div>
 
-    <Movement
+    <movement
       :sheetIsLocked="sheetIsLocked"
       :movement="data.data.attributes.movement"
     />
