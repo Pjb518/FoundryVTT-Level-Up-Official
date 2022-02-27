@@ -59,7 +59,9 @@
             v-if="data.data.ammunitionProperties.length"
           >
             <li
-              v-for="property in data.data.ammunitionProperties"
+              v-for="property in data.data.ammunitionProperties.sort((a, b) =>
+                a.toLowerCase().localeCompare(b.toLowerCase())
+              )"
               :key="property"
             >
               {{ localize(config.ammunitionProperties[property] ?? property) }}

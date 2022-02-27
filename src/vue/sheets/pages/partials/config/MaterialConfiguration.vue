@@ -58,7 +58,9 @@
             v-if="data.data.materialProperties.length"
           >
             <li
-              v-for="property in data.data.materialProperties"
+              v-for="property in data.data.materialProperties.sort((a, b) =>
+                a.toLowerCase().localeCompare(b.toLowerCase())
+              )"
               :key="property"
             >
               {{ localize(config.materialProperties[property] ?? component) }}

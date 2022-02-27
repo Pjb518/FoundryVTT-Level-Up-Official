@@ -38,7 +38,9 @@
       >
         <template v-if="skill.specialties.length">
           <li
-            v-for="specialty in skill.specialties"
+            v-for="specialty in skill.specialties.sort((a, b) =>
+              a.toLowerCase().localeCompare(b.toLowerCase())
+            )"
             :key="specialty"
             class="a5e-tag a5e-tag--tight"
           >

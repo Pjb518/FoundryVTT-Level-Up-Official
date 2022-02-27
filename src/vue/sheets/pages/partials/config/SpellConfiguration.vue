@@ -189,7 +189,12 @@
             "
             v-if="data.data.schools.secondary.length"
           >
-            <li v-for="school in data.data.schools.secondary" :key="school">
+            <li
+              v-for="school in data.data.schools.secondary.sort((a, b) =>
+                a.toLowerCase().localeCompare(b.toLowerCase())
+              )"
+              :key="school"
+            >
               {{ localize(config.spellSchools.secondary[school] ?? school) }}
             </li>
           </ul>
