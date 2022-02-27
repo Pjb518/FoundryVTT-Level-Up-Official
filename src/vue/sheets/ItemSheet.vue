@@ -58,7 +58,7 @@ export default {
       data.value = context.attrs.sheet.getData();
     }
 
-    registerSheetListeners(appId, ["updateItem"], updateStoredItemData);
+    registerSheetListeners(appId, item, ["updateItem"], updateStoredItemData);
 
     return {
       activeTab,
