@@ -37,7 +37,12 @@ export default {
       data.value = actor.sheet.getData();
     }
 
-    registerDialogListeners(appId, ["updateActor"], updateStoredActorData);
+    registerDialogListeners(
+      appId,
+      actor,
+      ["updateActor"],
+      updateStoredActorData
+    );
 
     return {
       data,

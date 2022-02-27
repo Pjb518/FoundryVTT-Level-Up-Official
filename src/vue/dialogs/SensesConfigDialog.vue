@@ -45,7 +45,12 @@ export default {
 
     provide("data", data);
 
-    registerDialogListeners(appId, ["updateActor"], updateStoredActorData);
+    registerDialogListeners(
+      appId,
+      actor,
+      ["updateActor"],
+      updateStoredActorData
+    );
 
     return {
       config: CONFIG.A5E,

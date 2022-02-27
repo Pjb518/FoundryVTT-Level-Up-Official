@@ -1,6 +1,13 @@
-export default function registerDialogListeners(appId, hooks, updateFunction) {
+export default function registerDialogListeners(appId, actor, hooks, updateFunction) {
   const registeredHooks = hooks.reduce((hookIDs, hook) => {
-    hookIDs[hook] = Hooks.on(hook, () => updateFunction());
+    hookIDs[hook] = Hooks.on(hook, (_, diff) => {
+      if (diff._id === actor.id) {
+        return updateFunction();
+      }
+
+      return null;
+    });
+
     return hookIDs;
   }, {});
 
