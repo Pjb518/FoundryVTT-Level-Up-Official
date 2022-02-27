@@ -103,7 +103,11 @@
     <div class="u-flex u-flex-wrap u-gap-md">
       <creature-types
         :sheetIsLocked="sheetIsLocked"
-        :creature-types="data.data.details.creatureTypes"
+        :creature-types="
+          data.data.details.creatureTypes.sort((a, b) =>
+            a.toLowerCase().localeCompare(b.toLowerCase())
+          )
+        "
       />
 
       <size-category
