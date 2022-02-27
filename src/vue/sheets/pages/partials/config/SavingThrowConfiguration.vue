@@ -25,7 +25,7 @@
       <form-section heading="A5E.ItemSavingThrowType">
         <update-wrapper
           :document="item"
-          updatePath="data.rarity"
+          updatePath="data.save.targetAbility"
           v-slot="slotProps"
         >
           <radio-group
@@ -84,6 +84,14 @@
               ({{ localize(config.abilities[data.data.save.targetAbility]) }})
             </span>
           </div>
+
+          <div v-else-if="data.data.save.targetAbility">
+            {{ localize(config.abilities[data.data.save.targetAbility]) }}
+          </div>
+
+          <div v-else>
+            {{ localize("A5E.None") }}
+          </div>
         </dd>
       </div>
 
@@ -97,9 +105,7 @@
         <dt class="u-text-bold">{{ localize("A5E.ItemEffectOnSave") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <div class="u-flex u-gap-ch">
-            <span v-if="data.data.save.targetAbility">
-              {{ data.data.save.onSave }}
-            </span>
+            {{ data.data.save.onSave }}
           </div>
         </dd>
       </div>

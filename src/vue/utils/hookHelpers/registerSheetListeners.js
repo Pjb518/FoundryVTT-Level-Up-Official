@@ -1,6 +1,10 @@
 export default function registerSheetListeners(appId, hooks, updateFunction) {
   const registeredHooks = hooks.reduce((hookIDs, hook) => {
-    hookIDs[hook] = Hooks.on(hook, () => updateFunction());
+    hookIDs[hook] = Hooks.on(hook, (...args) => {
+      console.log(...args);
+      return updateFunction();
+    });
+
     return hookIDs;
   }, {});
 
