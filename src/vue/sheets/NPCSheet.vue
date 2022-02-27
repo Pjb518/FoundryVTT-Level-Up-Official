@@ -65,7 +65,7 @@ export default {
     registerSheetListeners(
       appId,
       actor,
-      [("updateActor", "createItem", "deleteItem", "updateItem")],
+      ["updateActor", "createItem", "deleteItem", "updateItem"],
       updateStoredActorData
     );
 
