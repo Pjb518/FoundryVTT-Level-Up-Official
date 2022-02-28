@@ -121,29 +121,25 @@
           </a>
         </div>
 
-        <template v-if="currentEditor === 'backstory'">
+        <section
+          v-if="currentEditor === 'backstory'"
+          class="a5e-editor u-flex u-flex-col u-flex-grow u-overflow-y-auto"
+        >
           <div
             v-if="sheetIsLocked"
             v-html="data.data.details.bio || `<p>Nothing to display.</p>`"
-            class="u-flex-grow u-p-lg u-pt-0"
+            class="u-flex-grow u-p-lg u-pt-xs"
           ></div>
 
-          <div v-else class="u-flex-grow">
-            <editor
-              :init="{
-                content_style: '.mce-content-body { font-size:0.833rem; }',
-                toolbar:
-                  'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
-                menubar: false,
-              }"
-              :initial-value="data.data.details.bio"
-              plugins="code hr image link lists table"
-              v-model="backstory"
-            />
+          <div class="u-flex u-flex-col u-flex-grow u-p-lg u-pt-xs" v-else>
+            <editor v-model="backstory" />
           </div>
-        </template>
+        </section>
 
-        <template v-if="currentEditor === 'appearance'">
+        <section
+          v-if="currentEditor === 'appearance'"
+          class="a5e-editor u-flex u-flex-col u-flex-grow u-overflow-y-auto"
+        >
           <div
             v-if="sheetIsLocked"
             v-html="
@@ -152,44 +148,27 @@
             class="u-flex-grow u-p-lg u-pt-xs"
           ></div>
 
-          <div v-else class="u-flex-grow">
-            <editor
-              :init="{
-                content_style: '.mce-content-body { font-size:0.833rem; }',
-                toolbar:
-                  'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
-                menubar: false,
-              }"
-              :initial-value="data.data.details.appearance"
-              plugins="code hr image link lists table"
-              v-model="appearance"
-            />
+          <div class="u-flex u-flex-col u-flex-grow u-p-lg u-pt-xs" v-else>
+            <editor v-model="appearance" />
           </div>
-        </template>
+        </section>
 
-        <template v-if="currentEditor === 'privateNotes'">
+        <section
+          v-if="currentEditor === 'privateNotes'"
+          class="a5e-editor u-flex u-flex-col u-flex-grow u-overflow-y-auto"
+        >
           <div
             v-if="sheetIsLocked"
             v-html="
               data.data.details.privateNotes || `<p>Nothing to display.</p>`
             "
-            class="u-flex-grow u-p-lg u-pt-0"
+            class="u-flex-grow u-p-lg u-pt-xs"
           ></div>
 
-          <div v-else class="u-flex-grow">
-            <editor
-              :init="{
-                content_style: '.mce-content-body { font-size:0.833rem; }',
-                toolbar:
-                  'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
-                menubar: false,
-              }"
-              :initial-value="data.data.details.privateNotes"
-              plugins="code hr image link lists table"
-              v-model="privateNotes"
-            />
+          <div class="u-flex u-flex-col u-flex-grow u-p-lg u-pt-xs" v-else>
+            <editor v-model="privateNotes" />
           </div>
-        </template>
+        </section>
       </div>
     </section>
   </section>
@@ -198,17 +177,16 @@
 <script>
 import { inject, ref, watch } from "vue";
 
-import Editor from "@tinymce/tinymce-vue";
+import Editor from "../../forms/Editor.vue";
 
 export default {
   components: { Editor },
   setup() {
     const actor = inject("actor");
     const data = inject("data");
-
     const sheetIsLocked = inject("sheetIsLocked");
-    const currentEditor = ref("backstory");
 
+    const currentEditor = ref("backstory");
     const appearance = ref(data.value.data.details.appearance);
     const backstory = ref(data.value.data.details.bio);
     const privateNotes = ref(data.value.data.details.privateNotes);

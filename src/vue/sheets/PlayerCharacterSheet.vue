@@ -7,7 +7,7 @@
     @update-active-tab="updateActiveTab"
   />
 
-  <section class="u-h-full u-overflow-y-hidden">
+  <section class="u-flex u-flex-col u-flex-grow u-overflow-y-hidden">
     <keep-alive>
       <component :is="activeTab.comp" />
     </keep-alive>

@@ -7,32 +7,26 @@
     </h3>
   </header>
 
-  <section class="u-h-full u-overflow-y-auto">
+  <section class="a5e-editor u-flex u-flex-col u-flex-grow u-overflow-y-auto">
     <div
       v-if="sheetIsLocked"
-      v-html="data.data.details.notes || `<p>Nothing to display.</p>`"
+      v-html="
+        TextEditor.enrichHTML(data.data.details.notes) ||
+        `<p>Nothing to display.</p>`
+      "
       class="u-flex-grow u-p-lg u-pt-xs"
     ></div>
 
-    <editor
-      v-else
-      :init="{
-        content_style: '.mce-content-body { font-size:0.833rem; }',
-        toolbar:
-          'styleselect | alignleft aligncenter alignright alignjustify | bullist numlist | image table hr link removeformat code',
-        menubar: false,
-      }"
-      :initial-value="data.data.details.notes"
-      plugins="code hr image link lists table"
-      v-model="notes"
-    />
+    <div class="u-flex u-flex-col u-flex-grow u-p-lg u-pt-xs" v-else>
+      <editor v-model="notes" />
+    </div>
   </section>
 </template>
 
 <script>
 import { inject, ref, watch } from "vue";
 
-import Editor from "@tinymce/tinymce-vue";
+import Editor from "../../forms/Editor.vue";
 
 export default {
   components: { Editor },
@@ -55,6 +49,7 @@ export default {
       notes,
       localize: (key) => game.i18n.localize(key),
       sheetIsLocked,
+      TextEditor,
     };
   },
 };
