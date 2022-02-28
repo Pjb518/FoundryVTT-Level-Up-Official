@@ -127,7 +127,10 @@
         >
           <div
             v-if="sheetIsLocked"
-            v-html="data.data.details.bio || `<p>Nothing to display.</p>`"
+            v-html="
+              TextEditor.enrichHTML(data.data.details.bio) ||
+              `<p>Nothing to display.</p>`
+            "
             class="u-flex-grow u-p-lg u-pt-xs"
           ></div>
 
@@ -143,7 +146,8 @@
           <div
             v-if="sheetIsLocked"
             v-html="
-              data.data.details.appearance || `<p>Nothing to display.</p>`
+              TextEditor.enrichHTML(data.data.details.appearance) ||
+              `<p>Nothing to display.</p>`
             "
             class="u-flex-grow u-p-lg u-pt-xs"
           ></div>
@@ -160,7 +164,8 @@
           <div
             v-if="sheetIsLocked"
             v-html="
-              data.data.details.privateNotes || `<p>Nothing to display.</p>`
+              TextEditor.enrichHTML(data.data.details.privateNotes) ||
+              `<p>Nothing to display.</p>`
             "
             class="u-flex-grow u-p-lg u-pt-xs"
           ></div>
@@ -226,6 +231,7 @@ export default {
       onSelectEditor,
       privateNotes,
       sheetIsLocked,
+      TextEditor,
     };
   },
 };
