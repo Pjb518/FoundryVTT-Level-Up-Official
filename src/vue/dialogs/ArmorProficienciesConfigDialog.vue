@@ -40,8 +40,8 @@ export default {
 
     registerDialogListeners({
       appId,
-      documentId: actor.id,
-      hooks: ["updateActor"],
+      documentId: actor.parent ? actor.parent.id : actor.id,
+      hooks: [actor.parent ? "updateToken" : "updateActor"],
       updateFunction: updateStoredActorData,
     });
 
