@@ -64,12 +64,18 @@ export default {
       data.value = context.attrs.sheet.getData();
     }
 
-    registerSheetListeners(
+    registerSheetListeners({
       appId,
-      actor,
-      ["updateActor", "createItem", "deleteItem", "updateItem"],
-      updateStoredActorData
-    );
+      documentId: actor.parent ? actor.parent.id : actor.id,
+      documentType: "Actor",
+      hooks: [
+        actor.parent ? "updateToken" : "updateActor",
+        "createItem",
+        "deleteItem",
+        "updateItem",
+      ],
+      updateFunction: updateStoredActorData,
+    });
 
     return {
       activeTab,

@@ -58,7 +58,13 @@ export default {
       data.value = context.attrs.sheet.getData();
     }
 
-    registerSheetListeners(appId, item, ["updateItem"], updateStoredItemData);
+    registerSheetListeners({
+      appId,
+      documentId: item.id,
+      documentName: "Item",
+      hooks: ["updateItem"],
+      updateFunction: updateStoredItemData,
+    });
 
     return {
       activeTab,

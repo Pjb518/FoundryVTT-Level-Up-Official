@@ -1,7 +1,9 @@
-export default function registerSheetListeners(appId, document, hooks, updateFunction) {
+export default function registerSheetListeners({
+  appId, documentId, documentType, hooks, updateFunction
+}) {
   const registeredHooks = hooks.reduce((hookIDs, hook) => {
     hookIDs[hook] = Hooks.on(hook, (target, diff) => {
-      if (target?.parent?.id === document.id || diff._id === document.id) {
+      if (target?.parent?.id === documentId || diff._id === documentId) {
         return updateFunction();
       }
 
@@ -11,7 +13,7 @@ export default function registerSheetListeners(appId, document, hooks, updateFun
     return hookIDs;
   }, {});
 
-  const sheetCloseHookName = `close${document.documentName}Sheet`;
+  const sheetCloseHookName = `close${documentType}Sheet`;
 
   const closeSheetHookID = Hooks.on(sheetCloseHookName, (sheetData) => {
     if (sheetData.appId === appId) {
