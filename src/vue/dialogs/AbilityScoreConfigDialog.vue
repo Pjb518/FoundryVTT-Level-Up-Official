@@ -61,12 +61,12 @@ export default {
       data.value = actor.sheet.getData();
     }
 
-    registerDialogListeners(
+    registerDialogListeners({
       appId,
-      actor,
-      ["updateActor"],
-      updateStoredActorData
-    );
+      documentId: actor.id,
+      hooks: ["updateActor"],
+      updateFunction: updateStoredActorData,
+    });
 
     return {
       ability,

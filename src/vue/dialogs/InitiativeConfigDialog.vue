@@ -73,12 +73,12 @@ export default {
     provide("data", data);
     provide("dialog", appWindow);
 
-    registerDialogListeners(
+    registerDialogListeners({
       appId,
-      actor,
-      ["updateActor"],
-      updateStoredActorData
-    );
+      documentId: actor.id,
+      hooks: ["updateActor"],
+      updateFunction: updateStoredActorData,
+    });
 
     return {
       actor,

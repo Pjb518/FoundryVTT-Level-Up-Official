@@ -1,4 +1,6 @@
-export default function registerDialogListeners(appId, documentId, hooks, updateFunction) {
+export default function registerDialogListeners({
+  appId, documentId, hooks, updateFunction
+}) {
   const registeredHooks = hooks.reduce((hookIDs, hook) => {
     hookIDs[hook] = Hooks.on(hook, (_, diff) => {
       if (diff._id === documentId) {

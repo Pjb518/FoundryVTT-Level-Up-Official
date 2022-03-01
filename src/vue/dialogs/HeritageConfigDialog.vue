@@ -36,12 +36,12 @@ export default {
 
     provide("data", data);
 
-    registerDialogListeners(
+    registerDialogListeners({
       appId,
-      actor,
-      ["updateActor"],
-      updateStoredActorData
-    );
+      documentId: actor.id,
+      hooks: ["updateActor"],
+      updateFunction: updateStoredActorData,
+    });
 
     return {
       data,
