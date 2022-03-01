@@ -17,3 +17,8 @@ If you've developed a module for the Level Up system and would like it listed he
 - [Does it hit!?](https://github.com/NekroDarkmoon/does-it-hit-a5e) - A module to help with hit detection and limited damage automation.
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.
+
+
+## Acknowledgements
+
+The system currently makes use of the free and open-source icons provided by the [Remix Icon library](https://remixicon.com/#editor).
