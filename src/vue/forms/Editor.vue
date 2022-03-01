@@ -30,6 +30,26 @@
       </button>
 
       <button
+        v-for="alignment in ['left', 'center', 'right', 'justify']"
+        :key="alignment"
+        @click="editor.chain().focus().setTextAlign(alignment).run()"
+        class="u-align-center u-flex u-px-lg u-pointer u-w-fit"
+        :class="{
+          'u-bg-green u-text-light': editor?.isActive({ textAlign: alignment }),
+        }"
+      >
+        <i :class="`ri-align-${alignment} u-m-0`"></i>
+      </button>
+
+      <button
+        @click="editor.chain().focus().toggleBlockquote().run()"
+        class="u-align-center u-flex u-px-lg u-pointer u-w-fit"
+        :class="{ 'u-bg-green u-text-light': editor?.isActive('blockquote') }"
+      >
+        <i class="ri-double-quotes-l u-m-0"></i>
+      </button>
+
+      <button
         @click="editor.chain().focus().toggleBulletList().run()"
         class="u-align-center u-flex u-px-lg u-pointer u-w-fit"
         :class="{ 'u-bg-green u-text-light': editor?.isActive('bulletList') }"
@@ -44,6 +64,13 @@
       >
         <i class="ri-list-ordered u-m-0"></i>
       </button>
+
+      <button
+        @click="editor.chain().focus().setHorizontalRule().run()"
+        class="u-align-center u-flex u-px-lg u-pointer u-w-fit"
+      >
+        <i class="ri-separator u-m-0"></i>
+      </button>
     </div>
 
     <editor-content
@@ -57,11 +84,13 @@
 import { Editor, EditorContent } from "@tiptap/vue-3";
 
 import StarterKit from "@tiptap/starter-kit";
+import TextAlign from "@tiptap/extension-text-align";
 
 export default {
   components: {
     EditorContent,
     StarterKit,
+    TextAlign,
   },
 
   props: { modelValue: { type: String, default: "" } },
@@ -93,6 +122,14 @@ export default {
       extensions: [
         StarterKit.configure({
           history: false,
+          horizontalRule: {
+            HTMLAttributes: {
+              class: "a5e-rule u-my-md",
+            },
+          },
+        }),
+        TextAlign.configure({
+          types: ["heading", "paragraph"],
         }),
       ],
       content: this.modelValue,
