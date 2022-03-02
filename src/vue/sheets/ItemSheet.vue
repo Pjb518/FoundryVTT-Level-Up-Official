@@ -8,7 +8,7 @@
   />
 
   <section
-    class="u-h-full u-overflow-y-auto"
+    class="u-flex u-flex-col u-flex-grow u-overflow-y-auto"
     :class="{ 'u-p-lg': activeTab.name !== 'description' }"
   >
     <keep-alive>

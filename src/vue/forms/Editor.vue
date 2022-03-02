@@ -1,6 +1,6 @@
 <template>
   <div class="u-flex u-flex-col u-flex-grow u-gap-md">
-    <div class="u-flex u-gap-sm">
+    <div class="u-flex u-flex-wrap u-gap-sm">
       <button
         v-for="level in 4"
         @click="editor.chain().focus().toggleHeading({ level }).run()"
