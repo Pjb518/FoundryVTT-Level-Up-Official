@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import { onBeforeUnmount, ref } from "vue";
 import { Editor, EditorContent } from "@tiptap/vue-3";
 
 import StarterKit from "@tiptap/starter-kit";
@@ -92,28 +93,14 @@ export default {
     StarterKit,
     TextAlign,
   },
-
-  props: { modelValue: { type: String, default: "" } },
-  data() {
-    return {
-      editor: null,
-    };
+  props: {
+    editable: { type: Boolean, default: true },
+    modelValue: { type: String, default: "" },
   },
+  setup(props, context) {
+    const modelValue = ref(props.modelValue);
 
-  watch: {
-    modelValue(value) {
-      const isSame = this.editor.getHTML() === value;
-
-      if (isSame) {
-        return;
-      }
-
-      this.editor.commands.setContent(value, false);
-    },
-  },
-
-  mounted() {
-    this.editor = new Editor({
+    const editor = new Editor({
       editorProps: {
         attributes: {
           class: "u-flex u-flex-col u-flex-grow u-p-md",
@@ -132,15 +119,19 @@ export default {
           types: ["heading", "paragraph"],
         }),
       ],
-      content: this.modelValue,
+      content: modelValue.value,
       onUpdate: () => {
-        this.$emit("update:modelValue", this.editor.getHTML());
+        context.emit("update:modelValue", editor.getHTML());
       },
     });
-  },
 
-  beforeUnmount() {
-    this.editor.destroy();
+    onBeforeUnmount(() => {
+      editor.destroy();
+    });
+
+    return {
+      editor,
+    };
   },
 };
 </script>
