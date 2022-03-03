@@ -14,14 +14,16 @@ import { onBeforeUnmount, ref } from "vue";
 import { Editor, EditorContent } from "@tiptap/vue-3";
 
 import EditorMenuBar from "./partials/EditorMenuBar.vue";
+import Image from "@tiptap/extension-image";
+import Link from "@tiptap/extension-link";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
-import Link from "@tiptap/extension-link";
 
 export default {
   components: {
     EditorMenuBar,
     EditorContent,
+    Image,
     Link,
     StarterKit,
     TextAlign,
@@ -40,6 +42,7 @@ export default {
         },
       },
       extensions: [
+        Image,
         Link,
         StarterKit.configure({
           history: false,

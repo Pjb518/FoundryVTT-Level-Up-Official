@@ -44,6 +44,8 @@
       @click="editor.chain().focus().unsetLink().run()"
     />
 
+    <editor-menu-button icon="ri-image-fill" @click="addImage" />
+
     <editor-menu-button
       :class="{ 'u-bg-green u-text-light': editor?.isActive('blockquote') }"
       icon="ri-double-quotes-l"
@@ -85,6 +87,20 @@ export default {
       else return url;
     }
 
+    async function addImage() {
+      const path = await new Promise((resolve) => {
+        const filepicker = new FilePicker({
+          type: "image",
+          callback: (path) => resolve(path),
+          close: () => resolve(null),
+        });
+
+        filepicker.browse();
+      });
+
+      if (path) editor.chain().focus().setImage({ src: path }).run();
+    }
+
     function setLink() {
       const previousUrl = editor.getAttributes("link").href;
       const url = window.prompt("URL", previousUrl);
@@ -108,6 +124,7 @@ export default {
     }
 
     return {
+      addImage,
       setLink,
     };
   },
