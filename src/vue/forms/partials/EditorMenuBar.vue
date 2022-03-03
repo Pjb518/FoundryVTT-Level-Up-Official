@@ -57,11 +57,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import EditorMenuButton from "./EditorMenuButton.vue";
-
-export default {
-  components: { EditorMenuButton },
-  props: { editor: Object },
-};
+const props = defineProps({ editor: Object });
 </script>

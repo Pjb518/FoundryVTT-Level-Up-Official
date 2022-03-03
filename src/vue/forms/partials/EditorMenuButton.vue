@@ -4,9 +4,7 @@
   </button>
 </template>
 
-<script>
-export default {
-  emits: ["onEditorButtonClick"],
-  props: { icon: String },
-};
+<script setup>
+const emits = defineEmits(["onEditorButtonClick"]);
+const props = defineProps({ icon: String });
 </script>
