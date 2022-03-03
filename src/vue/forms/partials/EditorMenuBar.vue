@@ -33,6 +33,18 @@
     />
 
     <editor-menu-button
+      :class="{ 'u-bg-green u-text-light': editor?.isActive('link') }"
+      icon="ri-link-m"
+      @click="setLink"
+    />
+
+    <editor-menu-button
+      :class="{ 'u-bg-green u-text-light': editor?.isActive('link') }"
+      icon="ri-link-unlink-m"
+      @click="editor.chain().focus().unsetLink().run()"
+    />
+
+    <editor-menu-button
       :class="{ 'u-bg-green u-text-light': editor?.isActive('blockquote') }"
       icon="ri-double-quotes-l"
       @click="editor.chain().focus().toggleBlockquote().run()"
@@ -57,7 +69,47 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import EditorMenuButton from "./EditorMenuButton.vue";
-const props = defineProps({ editor: Object });
+
+export default {
+  components: { EditorMenuButton },
+  props: { editor: Object },
+  setup(props) {
+    const editor = props.editor;
+
+    function createExternalLink(url) {
+      const containsProtocol = /^(http:\/\/)|(https:\/\/)/.test(url);
+
+      if (!containsProtocol) return `https://${url}`;
+      else return url;
+    }
+
+    function setLink() {
+      const previousUrl = editor.getAttributes("link").href;
+      const url = window.prompt("URL", previousUrl);
+
+      // cancelled
+      if (url === null) return;
+
+      // empty
+      if (url === "") {
+        editor.chain().focus().extendMarkRange("link").unsetLink().run();
+        return;
+      }
+
+      // update link
+      editor
+        .chain()
+        .focus()
+        .extendMarkRange("link")
+        .setLink({ href: createExternalLink(url) })
+        .run();
+    }
+
+    return {
+      setLink,
+    };
+  },
+};
 </script>

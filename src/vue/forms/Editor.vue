@@ -16,11 +16,13 @@ import { Editor, EditorContent } from "@tiptap/vue-3";
 import EditorMenuBar from "./partials/EditorMenuBar.vue";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
+import Link from "@tiptap/extension-link";
 
 export default {
   components: {
     EditorMenuBar,
     EditorContent,
+    Link,
     StarterKit,
     TextAlign,
   },
@@ -38,6 +40,7 @@ export default {
         },
       },
       extensions: [
+        Link,
         StarterKit.configure({
           history: false,
           horizontalRule: {
