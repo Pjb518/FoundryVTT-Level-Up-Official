@@ -76,7 +76,11 @@
       <spell-item-details v-if="item.type === 'spell'" :item="item" />
       <hr v-if="item.type === 'spell'" class="a5e-rule" />
 
-      <div v-html="item.data.description" v-if="item.data.description"></div>
+      <div
+        v-html="item.data.description"
+        v-if="item.data.description"
+        class="a5e-editor"
+      ></div>
 
       <div v-else>
         {{ localize("A5E.NoDescription") }}

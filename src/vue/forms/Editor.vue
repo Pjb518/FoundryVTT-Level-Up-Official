@@ -4,7 +4,10 @@
 
     <editor-content
       :editor="editor"
-      class="u-border u-border-gray u-flex u-flex-col u-flex-grow u-rounded"
+      class="
+        a5e-editor
+        u-border u-border-gray u-flex u-flex-col u-flex-grow u-rounded
+      "
     />
   </div>
 </template>
