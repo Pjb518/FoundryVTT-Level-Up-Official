@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { onBeforeUnmount, ref } from "vue";
+import { onBeforeUnmount, inject, ref } from "vue";
 import { Editor, EditorContent } from "@tiptap/vue-3";
 
 import EditorMenuBar from "./partials/EditorMenuBar.vue";
@@ -39,6 +39,7 @@ export default {
     const modelValue = ref(props.modelValue);
 
     const editor = new Editor({
+      content: modelValue.value,
       editorProps: {
         attributes: {
           class: "u-flex u-flex-col u-flex-grow u-p-md",
@@ -59,7 +60,6 @@ export default {
           types: ["heading", "paragraph"],
         }),
       ],
-      content: modelValue.value,
       onUpdate: () => {
         context.emit("update:modelValue", editor.getHTML());
       },
