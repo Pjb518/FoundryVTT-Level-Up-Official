@@ -18,6 +18,16 @@ If you've developed a module for the Level Up system and would like it listed he
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.
 
+## Licenses
+
+This system is offered and may be used under the terms of the Open Gaming License v1.0a and the accompanying
+Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5e.com/system-reference-document).
+
+The content of the `public/packs/` directory is taken from the Level Up: Advanced 5th Edition System Reference Document and used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the OGL.md document.
+
+The images in the `public/assets/` directory are provided for non-commercial uses by EN Publishing Inc., and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
+
+The system software is distributed under the [MIT License](https://mit-license.org/).
 
 ## Acknowledgements
 
