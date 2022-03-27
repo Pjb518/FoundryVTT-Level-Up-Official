@@ -1,5 +1,5 @@
 {
-  "name": "Grick",
+  "name": "Troglodyte",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 2,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 5,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -281,7 +281,7 @@
         "value": 0,
         "proficient": true,
         "specialties": [],
-        "expertiseDice": 0,
+        "expertiseDice": 2,
         "minRoll": 1,
         "bonuses": {
           "check": "",
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 14,
+      "ac": 11,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 33,
-        "baseMax": 33,
+        "value": 19,
+        "baseMax": 19,
         "temp": "",
         "bonus": null
       },
@@ -388,14 +388,14 @@
       },
       "movement": {
         "burrow": "",
-        "climb": "30",
+        "climb": "",
         "fly": "",
-        "swim": "",
+        "swim": "30",
         "walk": "30"
       },
       "senses": {
         "blindsight": "",
-        "darkvision": "60",
+        "darkvision": "120",
         "tremorsense": "",
         "truesight": ""
       },
@@ -426,14 +426,16 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "monstrosity"
+        "humanoid"
       ],
-      "cr": 2,
-      "privateNotes": "<p></p>"
+      "cr": 0.5,
+      "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [],
+      "languages": [
+        "Troglodyte"
+      ],
       "tools": [],
       "weapons": []
     },
@@ -461,14 +463,14 @@
       "size": "med",
       "conditionImmunities": [],
       "damageImmunities": [],
-      "damageResistances": [
-        "Damage from non-magical weapons"
-      ],
-      "damageVulnerabilities": []
+      "damageResistances": [],
+      "damageVulnerabilities": [
+        "Sunlight Sensitivity"
+      ]
     }
   },
   "token": {
-    "name": "Grick",
+    "name": "Troglodyte",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -520,209 +522,19 @@
   },
   "items": [
     {
-      "_id": "62mhfJV6YmlElCNp",
-      "name": "Camoflage",
+      "_id": "pg7XvZzMZizrBBzB",
+      "name": "Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 100000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "02m5KZu5iJuEc7hp",
-      "name": "Spider Climb",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "E4qP4ZWeueK1gapu",
-      "name": "Tentacles",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "default",
+        "ability": "str",
         "actionOptions": [
           "attack",
           "damage"
         ],
         "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6+@mod",
-            "name": ""
-          }
-        ],
-        "description": "<p>On a hit, the target is grappled (escape DC 12). Until this grapple ends, the grick can’t attack a different target with its tentacle</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 300000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "4J8E4wV0EGR3qaSK",
-      "name": "Beak",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
+          "cost": null,
+          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -741,11 +553,11 @@
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "2d6+@mod",
-            "name": ""
+            "formula": "1d6 + @mod",
+            "name": "Bite Damage"
           }
         ],
-        "description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
+        "description": "<p>On hit, target makes a DC 12 CON saving throw. On failure, it is infected with troglodyte's stench</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -760,8 +572,8 @@
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -772,7 +584,351 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 400000,
+      "sort": -100000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "rVniOFtdH2BCqRhF",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The troglodyte attacks with its bite and its claws</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": -200000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "vW2zMvNFrpG7hahs",
+      "name": "Claws",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d4+@mod",
+            "name": "Claw Attack"
+          }
+        ],
+        "description": "",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "YhrD4nqsZ50sqcit",
+      "name": "Dart",
+      "type": "object",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "default",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "rangedWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d4+@mod",
+            "name": "Dart"
+          },
+          {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "1d6",
+            "name": "Dart's Poison"
+          }
+        ],
+        "description": "<p>Troglodyte's dart also does poison damage</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "20/60"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "bulky": false,
+        "equipped": true,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": "5 SP",
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "weaponProperties": [
+          "range"
+        ],
+        "weight": "0"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "y8cQsxwN83FgSOaP",
+      "name": "Stench",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>A non-troglodyte that starts its turn within 5 feet of the troglodyte makes a DC 12 Constitution saving throw. On a failure, the creature is poisoned until the start of its next turn. On a successful save, the creature is immune to a troglodyte’s Stench for 24 hours.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "maw1YSfsL4E6g1zQ",
+      "name": "Sunlight Sensitivity",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Perception checks that rely on sight.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3

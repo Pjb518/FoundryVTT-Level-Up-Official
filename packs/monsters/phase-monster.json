@@ -1,11 +1,11 @@
 {
-  "name": "Grick",
+  "name": "Phase Monster",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 14,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -23,13 +23,13 @@
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "con": {
-        "value": 14,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 2,
+        "value": 4,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 5,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -224,7 +224,7 @@
       },
       "prc": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 14,
+      "ac": 13,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 33,
-        "baseMax": 33,
+        "value": 85,
+        "baseMax": 85,
         "temp": "",
         "bonus": null
       },
@@ -388,8 +388,8 @@
       },
       "movement": {
         "burrow": "",
-        "climb": "30",
-        "fly": "",
+        "climb": "",
+        "fly": "50",
         "swim": "",
         "walk": "30"
       },
@@ -428,8 +428,8 @@
       "creatureTypes": [
         "monstrosity"
       ],
-      "cr": 2,
-      "privateNotes": "<p></p>"
+      "cr": 4,
+      "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
@@ -458,17 +458,15 @@
       }
     },
     "traits": {
-      "size": "med",
+      "size": "lg",
       "conditionImmunities": [],
       "damageImmunities": [],
-      "damageResistances": [
-        "Damage from non-magical weapons"
-      ],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Grick",
+    "name": "Phase Monster",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -503,8 +501,7 @@
       "darkness": {
         "min": 0,
         "max": 1
-      },
-      "color": null
+      }
     },
     "disposition": -1,
     "displayBars": 0,
@@ -512,16 +509,15 @@
       "attribute": "attributes.hp"
     },
     "bar2": {
-      "attribute": ""
+      "attribute": null
     },
     "flags": {},
-    "randomImg": false,
-    "tint": null
+    "randomImg": false
   },
   "items": [
     {
-      "_id": "62mhfJV6YmlElCNp",
-      "name": "Camoflage",
+      "_id": "inpCIGp9mB0vW5nl",
+      "name": "Mirror Image",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -545,7 +541,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
+        "description": "<p>A magical illusion cloaks the phase monster, creating a reflection of the monster nearby and concealing its precise location. While the monster is not incapacitated, attack rolls against it have disadvantage. When a creature hits the phase monster with an attack, this trait stops working until the end of the phase monster’s next turn.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -580,16 +576,16 @@
       "flags": {}
     },
     {
-      "_id": "02m5KZu5iJuEc7hp",
-      "name": "Spider Climb",
+      "_id": "Bvu3LTWzm5r3uALd",
+      "name": "Multiattack",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -605,7 +601,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
+        "description": "<p>The phase monster attacks with its horns and its claws.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -640,19 +636,20 @@
       "flags": {}
     },
     {
-      "_id": "E4qP4ZWeueK1gapu",
-      "name": "Tentacles",
+      "_id": "axwUvUaUybHS8E6d",
+      "name": "Horns",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
+        "ability": "str",
         "actionOptions": [
           "attack",
-          "damage"
+          "damage",
+          "savingThrow"
         ],
         "activation": {
-          "cost": 1,
-          "type": "action",
+          "cost": "",
+          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -671,11 +668,17 @@
           {
             "canCrit": true,
             "damageType": "bludgeoning",
-            "formula": "2d6+@mod",
-            "name": ""
+            "formula": "2d4+@mod",
+            "name": "Base Horn Damage"
+          },
+          {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "2d4",
+            "name": "Additional Horn Damage after movement"
           }
         ],
-        "description": "<p>On a hit, the target is grappled (escape DC 12). Until this grapple ends, the grick can’t attack a different target with its tentacle</p>",
+        "description": "<p>If the target is a creature and the phase monster moves at least 20 feet straight towards the target before the attack, the target takes additional damage. In addition, the target is forced to make a DC 14 Strength save, falling prone on failure.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -684,14 +687,14 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 14,
+          "onSave": "Avoid Falling prone",
+          "targetAbility": "str"
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -710,19 +713,19 @@
       "flags": {}
     },
     {
-      "_id": "4J8E4wV0EGR3qaSK",
-      "name": "Beak",
+      "_id": "5lkaz07prkvcaAWP",
+      "name": "Claws",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
+        "ability": "str",
         "actionOptions": [
           "attack",
           "damage"
         ],
         "activation": {
-          "cost": 1,
-          "type": "bonusAction",
+          "cost": "",
+          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -740,12 +743,18 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "piercing",
-            "formula": "2d6+@mod",
-            "name": ""
+            "damageType": "slashing",
+            "formula": "2d4+@mod",
+            "name": "Base Claw Damage"
+          },
+          {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d4",
+            "name": "Bonus Prone-Target Claw Damage"
           }
         ],
-        "description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
+        "description": "<p>(True form only)</p><p>Can only be used while in True Form, and does additional damage when target is prone.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -760,8 +769,8 @@
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -773,6 +782,128 @@
       "effects": [],
       "folder": null,
       "sort": 400000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "9u0TIFqHPKmASims",
+      "name": "Blood-Curdling Scream",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "60"
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>(Recharge 5-6)</p><p></p><p>The phase monster unleashes a horrific screech. Each creature within 60 feet that can hear it makes a DC 13 Wisdom saving throw. On a failure, it is frightened for 1 minute. While frightened by Blood-Curdling Scream, a creature must take the Dash action and move away from the phase monster by the safest available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to the phase monster, the creature makes a Wisdom saving throw. On a successful save, it is no longer frightened</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": 13,
+          "onSave": "Not Frightened",
+          "targetAbility": "wis"
+        },
+        "source": "",
+        "target": {
+          "quantity": null,
+          "type": "self"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 450000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "4UM7eSm6NdHM22UK",
+      "name": "Shapeshift",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The phase monster magically changes its form to that of a Small goat or into its true form. While in goat form, it loses its fly speed and Mirror Image trait. Its statistics, other than its size and speed, are unchanged in each form.&nbsp;</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500000,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3

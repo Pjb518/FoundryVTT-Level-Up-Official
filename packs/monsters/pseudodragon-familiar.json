@@ -1,11 +1,11 @@
 {
-  "name": "Grick",
+  "name": "Pseudodragon Familiar",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 14,
+        "value": 6,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 2,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 5,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -224,9 +224,9 @@
       },
       "prc": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
-        "expertiseDice": 0,
+        "expertiseDice": 2,
         "minRoll": 1,
         "bonuses": {
           "check": "",
@@ -281,7 +281,7 @@
         "value": 0,
         "proficient": true,
         "specialties": [],
-        "expertiseDice": 0,
+        "expertiseDice": 2,
         "minRoll": 1,
         "bonuses": {
           "check": "",
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 14,
+      "ac": 13,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 33,
-        "baseMax": 33,
+        "value": 7,
+        "baseMax": 7,
         "temp": "",
         "bonus": null
       },
@@ -388,13 +388,13 @@
       },
       "movement": {
         "burrow": "",
-        "climb": "30",
-        "fly": "",
+        "climb": "",
+        "fly": "60",
         "swim": "",
-        "walk": "30"
+        "walk": "15"
       },
       "senses": {
-        "blindsight": "",
+        "blindsight": "10",
         "darkvision": "60",
         "tremorsense": "",
         "truesight": ""
@@ -426,14 +426,17 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "monstrosity"
+        "dragon"
       ],
-      "cr": 2,
-      "privateNotes": "<p></p>"
+      "cr": 0.25,
+      "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [],
+      "languages": [
+        "common",
+        "draconic"
+      ],
       "tools": [],
       "weapons": []
     },
@@ -458,17 +461,15 @@
       }
     },
     "traits": {
-      "size": "med",
+      "size": "tiny",
       "conditionImmunities": [],
       "damageImmunities": [],
-      "damageResistances": [
-        "Damage from non-magical weapons"
-      ],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Grick",
+    "name": "Pseudodragon Familiar",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -503,8 +504,7 @@
       "darkness": {
         "min": 0,
         "max": 1
-      },
-      "color": null
+      }
     },
     "disposition": -1,
     "displayBars": 0,
@@ -512,24 +512,25 @@
       "attribute": "attributes.hp"
     },
     "bar2": {
-      "attribute": ""
+      "attribute": null
     },
     "flags": {},
-    "randomImg": false,
-    "tint": null
+    "randomImg": false
   },
   "items": [
     {
-      "_id": "62mhfJV6YmlElCNp",
-      "name": "Camoflage",
+      "_id": "csQSu8tgfOwmGVbV",
+      "name": "Telepathic Static",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
-        "actionOptions": [],
+        "actionOptions": [
+          "savingThrow"
+        ],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -545,110 +546,57 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
+        "description": "<p> (3/Day)</p><p>The pseudodragon targets one creature it can see within 10 feet, forcing it to make a DC 11 Charisma saving throw. On a failure, it’s stunned until the end of its next turn as it suffers a barrage of telepathic imagery</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "10"
+        ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 11,
+          "onSave": "Not stunned",
+          "targetAbility": "cha"
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": ""
+          "quantity": 1,
+          "type": "creature"
         },
         "uses": {
-          "value": null,
-          "max": "",
-          "per": null
+          "value": 3,
+          "max": 3,
+          "per": "day"
         },
         "featureType": ""
       },
       "effects": [],
       "folder": null,
-      "sort": 100000,
+      "sort": 231250,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.afTgFRmPnOFe7ryL"
+        }
+      }
     },
     {
-      "_id": "02m5KZu5iJuEc7hp",
-      "name": "Spider Climb",
+      "_id": "qOPrf1fj9DH78IEa",
+      "name": "Sting",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "E4qP4ZWeueK1gapu",
-      "name": "Tentacles",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "default",
+        "ability": "dex",
         "actionOptions": [
           "attack",
-          "damage"
+          "damage",
+          "savingThrow"
         ],
         "activation": {
           "cost": 1,
@@ -670,12 +618,12 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6+@mod",
-            "name": ""
+            "damageType": "piercing",
+            "formula": "1d4+@mod",
+            "name": "Sting"
           }
         ],
-        "description": "<p>On a hit, the target is grappled (escape DC 12). Until this grapple ends, the grick can’t attack a different target with its tentacle</p>",
+        "description": "<p>On hit, target must succeed on DC 11 Constitution saving throw or become poisoned. If it fails, at the end of its next turn, it repeats the saving throw. On a success, the effect ends. On a failure, it falls unconscious for 1 hour. If it takes damage, or a creature uses an action to shake it awake, it wakes up, and the effect ends.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -684,14 +632,14 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 11,
+          "onSave": "Not Poisoned",
+          "targetAbility": "con"
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -702,33 +650,34 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 300000,
+      "sort": 131250,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.ACC9WW9nyEbTubOr"
+        }
+      }
     },
     {
-      "_id": "4J8E4wV0EGR3qaSK",
-      "name": "Beak",
+      "_id": "qwO2OENR0zQbH1Ov",
+      "name": "Magic Resistance",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
+        "ability": "",
+        "actionOptions": [],
         "activation": {
-          "cost": 1,
-          "type": "bonusAction",
+          "cost": "",
+          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
           "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
+          "critThreshold": 20,
+          "type": ""
         },
         "area": {
           "shape": "",
@@ -737,15 +686,8 @@
         "check": {
           "ability": "str"
         },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "2d6+@mod",
-            "name": ""
-          }
-        ],
-        "description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
+        "damage": [],
+        "description": "<p>The pseudodragon has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -760,8 +702,8 @@
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -772,7 +714,135 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 400000,
+      "sort": -56250,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.hhqERHFch1BzjrEb"
+        }
+      }
+    },
+    {
+      "_id": "H9a0S3bMhoG7HbWL",
+      "name": "Limited Telepathy",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The pseudodragon can magically communicate simple ideas, emotions, and images telepathically to any creature within 10 feet of it.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": -100000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.nEibl1b30T8u4X47"
+        }
+      }
+    },
+    {
+      "_id": "XFdsbst4qI4EsBvu",
+      "name": "Familiar",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The pseudodragon can communicate telepathically with its master while they are within 1 mile of each other. When the pseudodragon is within 10 feet of its master, its master shares its Magic Resistance trait.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": -12500,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3

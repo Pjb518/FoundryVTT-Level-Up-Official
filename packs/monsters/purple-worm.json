@@ -1,23 +1,23 @@
 {
-  "name": "Grick",
+  "name": "Purple Worm",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 14,
+        "value": 28,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "dex": {
-        "value": 14,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,13 +29,13 @@
         }
       },
       "con": {
-        "value": 14,
+        "value": 22,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": "",
           "concentrationBonus": ""
@@ -48,31 +48,31 @@
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "wis": {
-        "value": 14,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "cha": {
-        "value": 5,
+        "value": 4,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
@@ -279,7 +279,7 @@
       },
       "ste": {
         "value": 0,
-        "proficient": true,
+        "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 14,
+      "ac": 18,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 33,
-        "baseMax": 33,
+        "value": 247,
+        "baseMax": 247,
         "temp": "",
         "bonus": null
       },
@@ -387,16 +387,16 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": "",
-        "climb": "30",
-        "fly": "",
-        "swim": "",
-        "walk": "30"
+        "burrow": 0,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "walk": 30
       },
       "senses": {
-        "blindsight": "",
-        "darkvision": "60",
-        "tremorsense": "",
+        "blindsight": "30",
+        "darkvision": "",
+        "tremorsense": "60",
         "truesight": ""
       },
       "inspiration": false,
@@ -428,8 +428,8 @@
       "creatureTypes": [
         "monstrosity"
       ],
-      "cr": 2,
-      "privateNotes": "<p></p>"
+      "cr": 15,
+      "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
@@ -458,17 +458,15 @@
       }
     },
     "traits": {
-      "size": "med",
+      "size": "grg",
       "conditionImmunities": [],
       "damageImmunities": [],
-      "damageResistances": [
-        "Damage from non-magical weapons"
-      ],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Grick",
+    "name": "Purple Worm",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -503,8 +501,7 @@
       "darkness": {
         "min": 0,
         "max": 1
-      },
-      "color": null
+      }
     },
     "disposition": -1,
     "displayBars": 0,
@@ -512,16 +509,15 @@
       "attribute": "attributes.hp"
     },
     "bar2": {
-      "attribute": ""
+      "attribute": null
     },
     "flags": {},
-    "randomImg": false,
-    "tint": null
+    "randomImg": false
   },
   "items": [
     {
-      "_id": "62mhfJV6YmlElCNp",
-      "name": "Camoflage",
+      "_id": "EDqFONyVVVObl9TA",
+      "name": "Tunneler",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -545,7 +541,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
+        "description": "<p>The worm can tunnel through earth and solid rock, leaving behind a 10-foot-diameter tunnel.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -580,8 +576,8 @@
       "flags": {}
     },
     {
-      "_id": "02m5KZu5iJuEc7hp",
-      "name": "Spider Climb",
+      "_id": "GaTYRMKKcpzyzcuO",
+      "name": "Multiattack",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -605,7 +601,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
+        "description": "<p>The worm attacks two different targets with its bite and its tail stinger.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -632,7 +628,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 200000,
+      "sort": 150000,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
@@ -640,25 +636,22 @@
       "flags": {}
     },
     {
-      "_id": "E4qP4ZWeueK1gapu",
-      "name": "Tentacles",
+      "_id": "PH7jHnH8uKGM3Aj2",
+      "name": "Fighting Retreat",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
+        "ability": "",
+        "actionOptions": [],
         "activation": {
           "cost": 1,
-          "type": "action",
+          "type": "reaction",
           "reactionTrigger": ""
         },
         "attack": {
           "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
+          "critThreshold": 20,
+          "type": ""
         },
         "area": {
           "shape": "",
@@ -667,15 +660,8 @@
         "check": {
           "ability": "str"
         },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6+@mod",
-            "name": ""
-          }
-        ],
-        "description": "<p>On a hit, the target is grappled (escape DC 12). Until this grapple ends, the grick can’t attack a different target with its tentacle</p>",
+        "damage": [],
+        "description": "<p>When a creature makes an opportunity attack on the worm, the worm attacks with either its bite or its tail stinger.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -690,8 +676,8 @@
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -702,27 +688,32 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 300000,
+      "sort": 600000,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.p1mymh7m7v8uwje6"
+        }
+      }
     },
     {
-      "_id": "4J8E4wV0EGR3qaSK",
-      "name": "Beak",
+      "_id": "BGH0ZnxLgp5tWMlU",
+      "name": "Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
+        "ability": "str",
         "actionOptions": [
+          "damage",
           "attack",
-          "damage"
+          "savingThrow"
         ],
         "activation": {
-          "cost": 1,
-          "type": "bonusAction",
+          "cost": "",
+          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -741,22 +732,113 @@
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "2d6+@mod",
-            "name": ""
+            "formula": "3d10+@mod",
+            "name": "Bite Base Damage"
+          },
+          {
+            "canCrit": true,
+            "damageType": "acid",
+            "formula": "7d6",
+            "name": "Swallowed Damage"
           }
         ],
-        "description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
+        "description": "<p style=\"text-align: start\">On hit, if the target is a Large or smaller creature, it makes a DC 19 Dexterity saving throw. On a failure, the target is swallowed. A swallowed creature is blinded and restrained, it has total cover from attacks from outside the worm, and it takes 24 (7d6) acid damage at the start of each of the worm’s turns.</p><p><br>If a swallowed creature deals 35 or more damage to the worm in a single turn, or if the worm dies, the worm vomits up all swallowed creatures.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "10"
+        ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 19,
+          "onSave": "Avoids Being Swallowed",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.Ojrre9k5X6Z7DMfC"
+        }
+      }
+    },
+    {
+      "_id": "tGnOh6dZzf8WYpsp",
+      "name": "Tail Stinger",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "",
+            "formula": "3d6+@mod",
+            "name": "Stinger Base"
+          },
+          {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "12d6",
+            "name": "Poison Damage"
+          }
+        ],
+        "description": "<p>On hit, target makes a DC 19 Constitution saving throw. The target will take half damage from the additional poison damage on success.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "10"
+        ],
+        "save": {
+          "dc": 19,
+          "onSave": "Half Poison Damage",
+          "targetAbility": "con"
         },
         "source": "",
         "target": {
@@ -777,7 +859,11 @@
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.yHDnzzYvPbfGtm1h"
+        }
+      }
     }
   ],
   "effects": [],

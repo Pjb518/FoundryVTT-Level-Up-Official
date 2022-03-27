@@ -1,11 +1,11 @@
 {
-  "name": "Grick",
+  "name": "Peryton",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 14,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 14,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 2,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 5,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -224,7 +224,7 @@
       },
       "prc": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -279,7 +279,7 @@
       },
       "ste": {
         "value": 0,
-        "proficient": true,
+        "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 14,
+      "ac": 13,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 33,
-        "baseMax": 33,
+        "value": 34,
+        "baseMax": 34,
         "temp": "",
         "bonus": null
       },
@@ -388,16 +388,16 @@
       },
       "movement": {
         "burrow": "",
-        "climb": "30",
-        "fly": "",
+        "climb": "",
+        "fly": "60",
         "swim": "",
         "walk": "30"
       },
       "senses": {
-        "blindsight": "",
-        "darkvision": "60",
-        "tremorsense": "",
-        "truesight": ""
+        "blindsight": 0,
+        "darkvision": 0,
+        "tremorsense": 0,
+        "truesight": 0
       },
       "inspiration": false,
       "fatigue": 0,
@@ -429,11 +429,14 @@
         "monstrosity"
       ],
       "cr": 2,
-      "privateNotes": "<p></p>"
+      "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [],
+      "languages": [
+        "common",
+        "sylvan"
+      ],
       "tools": [],
       "weapons": []
     },
@@ -458,7 +461,7 @@
       }
     },
     "traits": {
-      "size": "med",
+      "size": "lg",
       "conditionImmunities": [],
       "damageImmunities": [],
       "damageResistances": [
@@ -468,7 +471,7 @@
     }
   },
   "token": {
-    "name": "Grick",
+    "name": "Peryton",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -503,8 +506,7 @@
       "darkness": {
         "min": 0,
         "max": 1
-      },
-      "color": null
+      }
     },
     "disposition": -1,
     "displayBars": 0,
@@ -512,16 +514,15 @@
       "attribute": "attributes.hp"
     },
     "bar2": {
-      "attribute": ""
+      "attribute": null
     },
     "flags": {},
-    "randomImg": false,
-    "tint": null
+    "randomImg": false
   },
   "items": [
     {
-      "_id": "62mhfJV6YmlElCNp",
-      "name": "Camoflage",
+      "_id": "OjRi7yjeT0OzEHzU",
+      "name": "Multiattack",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -545,7 +546,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
+        "description": "<p>The peryton attacks with its gore and talons</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -572,7 +573,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 100000,
+      "sort": 0,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
@@ -580,149 +581,19 @@
       "flags": {}
     },
     {
-      "_id": "02m5KZu5iJuEc7hp",
-      "name": "Spider Climb",
+      "_id": "JP6hQOgu8XI3Mklc",
+      "name": "Gore",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
         "activation": {
-          "cost": "",
+          "cost": null,
           "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "E4qP4ZWeueK1gapu",
-      "name": "Tentacles",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6+@mod",
-            "name": ""
-          }
-        ],
-        "description": "<p>On a hit, the target is grappled (escape DC 12). Until this grapple ends, the grick can’t attack a different target with its tentacle</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 300000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "4J8E4wV0EGR3qaSK",
-      "name": "Beak",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
           "reactionTrigger": ""
         },
         "attack": {
@@ -741,11 +612,11 @@
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "2d6+@mod",
-            "name": ""
+            "formula": "1d8+@mod",
+            "name": "Gore"
           }
         ],
-        "description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
+        "description": "<p>This attack crits on rolls of 18,19, or 20. If the crit reduces a humanoid to 0 HP, the peryton can use a bonus action to rip the targets heart out with its teeth, killing it. </p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -760,8 +631,8 @@
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creatureObject"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -772,7 +643,143 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 400000,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "Gso9SfiBaaMgPVhm",
+      "name": "Talons",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6+@mod",
+            "name": "Talons, no movement bonus"
+          },
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "2d6+@mod",
+            "name": "Talons, movement bonus (moved 20 ft)"
+          }
+        ],
+        "description": "<p>Does more damage if the peryton moves 20 feet towards target prior to attack.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "FggWZ22CPELZsXJJ",
+      "name": "Keen Sight and Smell",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The peryton has advantage on Perception checks that rely on sight or smell.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
