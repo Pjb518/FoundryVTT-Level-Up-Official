@@ -1,10 +1,16 @@
-# FoundryVTT - Level Up: Advanced 5e (Official)
+# FoundryVTT - Level Up: Advanced 5th Edition (Official)
 
 This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition. The system is currently released as part of an open beta, but it's fully game ready for those of your itching to play Level Up online.
 
 The system currently has dedicated sheets for both PCs and NPCs, both of which feature various pieces of helpful automation, including roll buttons and resource tracking.
 
-Make sure to update regularly, as new features are currently being added daily!
+Make sure to update regularly, as new features are currently being added very regularly!
+
+## Funding
+
+If you'd like to support the development of the Level Up: Advanced 5th Edition system for Foundry VTT, please consider donating to my Ko-Fi page:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S76EJJP)
 
 ## Modules
 
@@ -23,9 +29,9 @@ If you've developed a module for the Level Up system and would like it listed he
 This system is offered and may be used under the terms of the Open Gaming License v1.0a and the accompanying
 Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5e.com/system-reference-document).
 
-The content of the `public/packs/` directory is taken from the Level Up: Advanced 5th Edition System Reference Document and used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the OGL.md document.
+The content of the `public/packs/` directory is taken from the Level Up: Advanced 5th Edition System Reference Document and used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the `OGL.md` document.
 
-The images in the `public/assets/` directory are provided for non-commercial uses by EN Publishing Inc., and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
+The images in the `public/assets/` directory are provided for non-commercial use by EN Publishing Inc., and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
 
 The system software is distributed under the [MIT License](https://mit-license.org/).
 
