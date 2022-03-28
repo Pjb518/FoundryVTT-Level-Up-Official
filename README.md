@@ -1,5 +1,9 @@
 # FoundryVTT - Level Up: Advanced 5th Edition (Official)
 
+![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json&color=blue)
+![Latest Release Download Count](https://img.shields.io/github/downloads/Pjb518/FoundryVTT-Level-Up-Official/latest/a5e.zip)
+[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fa5e&colorB=brightgreen)](https://forge-vtt.com/bazaar#package=a5e)
+
 This is an official FoundryVTT system implementation for Level Up: Advanced 5th Edition. The system is currently released as part of an open beta, but it's fully game ready for those of your itching to play Level Up online.
 
 The system currently has dedicated sheets for both PCs and NPCs, both of which feature various pieces of helpful automation, including roll buttons and resource tracking.
