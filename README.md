@@ -8,7 +8,9 @@ This is an official FoundryVTT system implementation for Level Up: Advanced 5th 
 
 The system currently has dedicated sheets for both PCs and NPCs, both of which feature various pieces of helpful automation, including roll buttons and resource tracking.
 
-Make sure to update regularly, as new features are currently being added very regularly!
+Make sure to update regularly, as new features are currently being added all the time!
+
+If you want to keep up to date with the system's development and influence its future, join our [community Discord server](https://discord.gg/XtkZ6RkN9E).
 
 ## Funding
 
