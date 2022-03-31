@@ -116,7 +116,8 @@ A5E.actorSizes = {
   med: 'A5E.SizeMedium',
   lg: 'A5E.SizeLarge',
   huge: 'A5E.SizeHuge',
-  grg: 'A5E.SizeGargantuan'
+  grg: 'A5E.SizeGargantuan',
+  titan: 'A5E.SizeTitanic'
 };
 
 A5E.ammunitionProperties = {
