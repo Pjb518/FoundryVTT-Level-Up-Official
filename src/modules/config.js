@@ -260,7 +260,8 @@ A5E.featureTypes = {
   destiny: 'A5E.FeatureDestiny',
   feat: 'A5E.FeatureFeat',
   heritage: 'A5E.FeatureHeritage',
-  knack: 'A5E.FeatureKnack'
+  knack: 'A5E.FeatureKnack',
+  naturalWeapon: 'A5E.FeatureNaturalWeapon'
 };
 
 /**
