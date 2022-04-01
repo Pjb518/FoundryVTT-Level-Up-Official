@@ -1,22 +1,10 @@
 {
-  "name": "Scarecrow",
+  "name": "Basilisk",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
         "value": 14,
         "check": {
           "expertiseDice": 0,
@@ -28,8 +16,20 @@
           "bonus": ""
         }
       },
+      "dex": {
+        "value": 8,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
       "con": {
-        "value": 10,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 2,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 15,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 52,
+        "baseMax": 52,
         "temp": "",
         "bonus": null
       },
@@ -387,15 +387,15 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "",
+        "climb": "10",
+        "fly": "",
+        "swim": "",
+        "walk": "20"
       },
       "senses": {
         "blindsight": "",
-        "darkvision": "60",
+        "darkvision": "30",
         "tremorsense": "",
         "truesight": ""
       },
@@ -424,19 +424,16 @@
       "cp": 0
     },
     "details": {
-      "bio": "",
+      "bio": "<h2><strong>COMBAT</strong></h2><p>The basilisk uses Stone Gaze and Stone Glance on anyone nearby that is not averting their eyes, and bites only if it has no such target.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE&nbsp;</strong></h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> A basilisk’s gaze can turn its victims to stone.</p><p><strong>DC 15</strong> If you act quickly, <em>lesser restoration</em> can prevent petrification. If it’s too late, extracted basilisk venom can be used to unpetrify a creature, but victims don’t always survive the process.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>A basilisk is a venomous eight-legged reptile that turns creatures to stone with its gaze.</p><p><strong><em>Dangerous Guardians</em>.</strong> Basilisks can be trained as pets and guardians, although the process is dangerous. They can learn to avoid meeting the eyes of specific creatures. A well-trained basilisk commands a high price, and even a basilisk egg is precious.</p><p>Basilisks are often used as guardians by blind creatures, such as grimlocks, and creatures immune to petrification, such as stone giants.&nbsp;</p><p><strong><em>Killing Cure</em>.</strong> The venom in a basilisk’s mouth removes petrification, allowing the beast to consume a petrified victim piece by piece. If a basilisk’s venom is extracted and spread on a petrified creature, the petrification ends—but the newly-cured creature takes 10 (3d6) poison damage from the venom.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Attacks on sight</p><p>2 Eating pieces of a statue</p><p>3 Immobile; doesn’t immediately attack but will meet your eyes if you examine it</p><p>4 Asleep</p><p>5 Protecting a clutch of eggs</p><p>6 Guarding treasure for its master</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p><strong>Wilderness Signs</strong></p><p>1 Toppled statue of a griffon with one leg missing</p><p>2 Statue of a basilisk with shoulder and tail missing</p><p>3 Nest containing stone birds</p><p>4 Big lizard footprints</p><hr class=\"a5e-rule u-my-md\"><h2><strong>Underground Signs</strong></h2><p>1 Statue of a knight with sword raised</p><p>2 Heaped flagstones sheltering large eggs</p><p>3 A life-sized stone head lying on the floor</p><p>4 Stone rat statues sitting in a circle</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Basilisks favor caves, mountains, and other rocky environments.</p><p><strong>CR 3–4</strong> Basilisk</p><p><strong>Treasure</strong> 450 petrified gp on a petrified statue</p><p><strong>CR 5–10</strong> 2 or 3 basilisks; basilisk and 1d4 + 1 cockatrices</p><p><strong>Treasure</strong> 400 gp, 800 sp, a golden-framed hand mirror (75 gp), a silver-and-pearl bracelet (125 gp), <em>+1 dagger</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like centaurs. Others have bizarre or unnatural appearances, like many-tentacled ropers. Monstrosities could only arise in a world suffused with magic.</p>",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "monstrosity"
       ],
-      "cr": 1,
+      "cr": 3,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [
-        "understands the languages of its creator but can’t speak"
-      ],
+      "languages": [],
       "tools": [],
       "weapons": []
     },
@@ -462,26 +459,14 @@
     },
     "traits": {
       "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison"
-      ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Basilisk",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,272 +516,17 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      }
-    },
-    {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
+      "_id": "ppAn3zt96rueXMC0",
+      "name": "Stone Gaze (Gaze)",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
         "actionOptions": [
-          "damage"
+          "savingThrow"
         ],
         "activation": {
           "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
-          }
-        ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
-        }
-      }
-    },
-    {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
           "type": "action",
           "reactionTrigger": ""
         },
@@ -813,23 +543,25 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
+        "description": "<p>The basilisk targets a creature within 60 feet. The target makes a DC 13 Constitution saving throw. On a failure, the target magically begins to turn to stone and is restrained. A <em>lesser restoration</em> spell ends this effect. At the beginning of the basilisk’s next turn, if still restrained, the target repeats the saving throw. On a success, the effect ends. On a failure, the target is petrified. This petrification can be removed with <em>greater restoration</em> or similar magic or with basilisk venom.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "medium"
+        ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 13,
+          "onSave": "Avoid restrained or petrified.",
+          "targetAbility": "con"
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": ""
+          "quantity": 1,
+          "type": "creature"
         },
         "uses": {
           "value": null,
@@ -843,24 +575,24 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
     },
     {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
+      "_id": "udpj1C8FrV3uW0nv",
+      "name": "Venomous Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "dex",
+        "ability": "str",
         "actionOptions": [
-          "damage",
-          "attack"
+          "attack",
+          "damage"
         ],
         "activation": {
           "cost": "",
-          "type": "",
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -878,12 +610,18 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
+            "damageType": "piercing",
+            "formula": "1d8 + @mod",
+            "name": ""
+          },
+          {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "3d6",
+            "name": ""
           }
         ],
-        "description": "",
+        "description": "<p><em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage plus 10 (3d6) poison damage</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -913,13 +651,13 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
     },
     {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
+      "_id": "RBtjbdNzDWb88BLb",
+      "name": "(Reaction) Stone Gaze",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -928,69 +666,9 @@
           "savingThrow"
         ],
         "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
+          "cost": null,
+          "type": "reaction",
+          "reactionTrigger": "A creature within 60 feet that the basilisk can see hits the basilisk with an attack"
         },
         "attack": {
           "bonus": "",
@@ -1005,28 +683,30 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
+        "description": "<p>If a creature within 60 feet that the basilisk can see hits the basilisk with an attack, the basilisk uses Stone Gaze on the attacker.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "medium"
+        ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 13,
+          "onSave": "Avoid Stone Gaze.",
+          "targetAbility": "con"
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": ""
+          "quantity": 1,
+          "type": "creature"
         },
         "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
+          "value": null,
+          "max": "",
+          "per": null
         },
         "featureType": ""
       },
@@ -1035,7 +715,7 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
     }
@@ -1043,7 +723,7 @@
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "holdencoast",
+      "world": "test",
       "system": "a5e",
       "coreVersion": "9.255",
       "systemVersion": "0.5.5"

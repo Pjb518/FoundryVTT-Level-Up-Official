@@ -1,5 +1,5 @@
 {
-  "name": "Scarecrow",
+  "name": "Rust Monster",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 2,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 6,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 15,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 27,
+        "baseMax": 27,
         "temp": "",
         "bonus": null
       },
@@ -366,8 +366,8 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
+          "current": 5,
+          "total": 5
         },
         "d10": {
           "current": 0,
@@ -387,11 +387,11 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "",
+        "climb": "",
+        "fly": "",
+        "swim": "",
+        "walk": "40"
       },
       "senses": {
         "blindsight": "",
@@ -426,17 +426,14 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "monstrosity"
       ],
-      "cr": 1,
+      "cr": 0.5,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [
-        "understands the languages of its creator but can’t speak"
-      ],
+      "languages": [],
       "tools": [],
       "weapons": []
     },
@@ -462,26 +459,14 @@
     },
     "traits": {
       "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison"
-      ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Rust Monster",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,8 +516,8 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
+      "_id": "YZo940kKD522D77o",
+      "name": "Metal Detection",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -556,7 +541,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
+        "description": "<p>The rust monster can smell metal within 30 feet</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -588,213 +573,78 @@
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      }
+      "flags": {}
     },
     {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
+      "_id": "aQURDYZ1qKihT1mx",
+      "name": "Rust Metal",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>A nonmagical weapon made of metal that hits the rust monster corrodes after dealing damage, taking a permanent -1 penalty to damage rolls per hit. If this penalty reaches -5, the weapon is destroyed. Metal nonmagical ammunition is destroyed after dealing damage.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "xCRRkWaWso2Bq1aQ",
+      "name": "Antennae",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
         "actionOptions": [
-          "damage"
+          "savingThrow"
         ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
-          }
-        ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
-        }
-      }
-    },
-    {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
         "activation": {
           "cost": 1,
           "type": "action",
@@ -813,7 +663,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
+        "description": "<p>The rust monster corrodes a nonmagic metal object within 5 feet. It can destroy up to a 1-foot-square portion of an unattended object. If the object is worn or carried, the object’s owner makes a DC 11 Dexterity saving throw, avoiding the rust monster’s antennae on a success. </p><p>Metal shields or armor the rust monster touches with its antennae corrode, taking a permanent -1 penalty to its AC protection per hit. If the penalty reduces the armor’s AC protection to 10, the armor is destroyed. If a metal weapon is touched, it is subject to the Rust Metal trait.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -822,9 +672,9 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 11,
+          "onSave": "Avoids corrosion",
+          "targetAbility": "dex"
         },
         "source": "",
         "target": {
@@ -848,19 +698,19 @@
       "flags": {}
     },
     {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
+      "_id": "7YWPDIRPtChNaOVM",
+      "name": "Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "dex",
+        "ability": "str",
         "actionOptions": [
-          "damage",
-          "attack"
+          "attack",
+          "damage"
         ],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -878,9 +728,9 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
+            "damageType": "piercing",
+            "formula": "1d8+@mod",
+            "name": "Bite damage"
           }
         ],
         "description": "",
@@ -918,84 +768,25 @@
       "flags": {}
     },
     {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
+      "_id": "mKkS4R6jRQDwEbsm",
+      "name": "Defensive Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
+        "ability": "str",
         "actionOptions": [
-          "savingThrow"
+          "attack",
+          "damage"
         ],
         "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "Hit by a melee attack by a creature it can see within 5 feet"
         },
         "attack": {
           "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
         },
         "area": {
           "shape": "",
@@ -1004,8 +795,15 @@
         "check": {
           "ability": "str"
         },
-        "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8+@mod",
+            "name": "Defensive bite"
+          }
+        ],
+        "description": "<p>When the rust monster is hit by a melee attack made by a creature it can see within 5 feet, it bites the attacker.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -1024,9 +822,9 @@
           "type": ""
         },
         "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
+          "value": null,
+          "max": "",
+          "per": null
         },
         "featureType": ""
       },

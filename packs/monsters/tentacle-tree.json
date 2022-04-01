@@ -1,11 +1,11 @@
 {
-  "name": "Scarecrow",
+  "name": "Tentacle Tree",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 10,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 4,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 20,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 93,
+        "baseMax": 93,
         "temp": "",
         "bonus": null
       },
@@ -366,12 +366,12 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
-        },
-        "d10": {
           "current": 0,
           "total": 0
+        },
+        "d10": {
+          "current": 11,
+          "total": 11
         },
         "d12": {
           "current": 0,
@@ -387,14 +387,14 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "",
+        "climb": "",
+        "fly": "",
+        "swim": "",
+        "walk": "0"
       },
       "senses": {
-        "blindsight": "",
+        "blindsight": "30",
         "darkvision": "60",
         "tremorsense": "",
         "truesight": ""
@@ -426,17 +426,14 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "plant"
       ],
-      "cr": 1,
+      "cr": 5,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [
-        "understands the languages of its creator but can’t speak"
-      ],
+      "languages": [],
       "tools": [],
       "weapons": []
     },
@@ -461,27 +458,15 @@
       }
     },
     "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison"
-      ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "size": "lg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Tentacle Tree",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,7 +516,7 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
+      "_id": "l3iWn0Ii1ebQ2bpH",
       "name": "False Appearance",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -556,7 +541,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
+        "description": "<p>While motionless, the tree is indistinguishable from a normal willow tree</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -583,7 +568,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": -100000,
       "permission": {
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
@@ -595,7 +580,283 @@
       }
     },
     {
-      "_id": "2GxVqJVGoaKIF4LP",
+      "_id": "1Mtq9I8btAVC50YC",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The tentacle tree makes up to four tendril attacks, then uses Reel, then attacks with its bite.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 150000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.XF5oeIOvGFBvDj4T"
+        }
+      }
+    },
+    {
+      "_id": "vnd2Q4UT1ePpJPhw",
+      "name": "Tendril (attack)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>On hit, the target is grappled (escape DC 15). Until this grapple ends, the target is restrained and the tentacle tree can’t use this tendril on another target</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "50"
+        ],
+        "save": {
+          "dc": null,
+          "onSave": "",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.LbOVGdIJelW5zrZW"
+        }
+      }
+    },
+    {
+      "_id": "gKy1KSqoN9kAoHgj",
+      "name": "Reel",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The tentacle tree pulls each creature it is grappling up to 25 feet straight towards it.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.RLcl6R1MNbxc37AT"
+        }
+      }
+    },
+    {
+      "_id": "JdMhs5wrHN3UB7rb",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "2d8+@mod",
+            "name": "Piercing"
+          },
+          {
+            "canCrit": true,
+            "damageType": "acid",
+            "formula": "2d8",
+            "name": "Acid Damage"
+          }
+        ],
+        "description": "<p>Piercing + acid damage</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.mnnZvxWweUahaYvO"
+        }
+      }
+    },
+    {
+      "_id": "9YZn51j2a9PTs8eN",
       "name": "Flammable",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -629,7 +890,7 @@
             "name": "Self-Fire Damage"
           }
         ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
+        "description": "<p>The tree’s tendrils are vulnerable to fire damage. After taking fire damage, the tree catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. At the end of each of its turns, it makes a DC 15 Constitution saving throw, ending the ongoing damage on a success.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -651,382 +912,6 @@
           "value": null,
           "max": "",
           "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
-        }
-      }
-    },
-    {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
-        "actionOptions": [
-          "damage",
-          "attack"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
-          }
-        ],
-        "description": "",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
         },
         "featureType": ""
       },

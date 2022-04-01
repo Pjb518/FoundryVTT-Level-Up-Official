@@ -1,11 +1,11 @@
 {
-  "name": "Scarecrow",
+  "name": "Scarecrow Harvester",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 10,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 14,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 67,
+        "baseMax": 67,
         "temp": "",
         "bonus": null
       },
@@ -366,8 +366,8 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
+          "current": 9,
+          "total": 9
         },
         "d10": {
           "current": 0,
@@ -387,11 +387,11 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "",
+        "climb": "",
+        "fly": "",
+        "swim": "",
+        "walk": "40"
       },
       "senses": {
         "blindsight": "",
@@ -429,7 +429,7 @@
         "undead",
         "construct"
       ],
-      "cr": 1,
+      "cr": 4,
       "privateNotes": ""
     },
     "proficiencies": {
@@ -466,8 +466,8 @@
         "charmed",
         "fatigue",
         "frightened",
-        "petrified",
         "paralyzed",
+        "petrified",
         "poisoned"
       ],
       "damageImmunities": [
@@ -481,7 +481,7 @@
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Scarecrow Harvester",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,71 +531,7 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      }
-    },
-    {
-      "_id": "2GxVqJVGoaKIF4LP",
+      "_id": "1d2HAg3pAGHxtROO",
       "name": "Flammable",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -668,67 +604,7 @@
       }
     },
     {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
+      "_id": "58W7JW8No4qpnvOI",
       "name": "Spell Created",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -753,7 +629,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
+        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19. A disabled scarecrow is inanimate. After 1 hour, it animates again unless its body is destroyed</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -785,140 +661,14 @@
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.khZr5nNtZfFMxT0P"
+        }
+      }
     },
     {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
-        "actionOptions": [
-          "damage",
-          "attack"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
-          }
-        ],
-        "description": "",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "ZLnfvP2KX4utvzER",
+      "_id": "H2kDyVNPJszm2yEY",
       "name": "Scare",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -945,7 +695,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
+        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 13 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -954,7 +704,7 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": 12,
+          "dc": 13,
           "onSave": "Avoids being Frightened",
           "targetAbility": "wis"
         },
@@ -977,19 +727,23 @@
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.ZLnfvP2KX4utvzER"
+        }
+      }
     },
     {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
+      "_id": "tqCFq7gc424PMYKL",
+      "name": "Multiattack",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -1005,7 +759,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
+        "description": "<p>The scarecrow uses Scare and makes two claw attacks.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -1022,6 +776,296 @@
         "target": {
           "quantity": "",
           "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.dsYUjRLtFX1jfoPg"
+        }
+      }
+    },
+    {
+      "_id": "R8yPcrqvppMB3sIC",
+      "name": "Claw",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "dex",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d8+@mod",
+            "name": "Claw"
+          },
+          {
+            "canCrit": true,
+            "damageType": "necrotic",
+            "formula": "1d6",
+            "name": "Claw Necrotic"
+          }
+        ],
+        "description": "<p>Does slashing + necrotic damage.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.UkShXb1o9e887Wjq"
+        }
+      }
+    },
+    {
+      "_id": "kgUPrgIpWNzzgS6Q",
+      "name": "Fire Breath",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": null,
+        "actionOptions": [
+          "savingThrow",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "cone",
+          "size": "30"
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "6d6",
+            "name": "Fire Breath"
+          }
+        ],
+        "description": "<p>(Recharge 4-6)</p><p>The scarecrow exhales fire from its jack-o-lantern head in a 30-foot cone. Each creature in the area makes a DC 13 Dexterity saving throw, taking fire damage on a failed save or half damage on a success</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": 13,
+          "onSave": "Half Damage",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.F1TOyhFVPhWcfnel"
+        }
+      }
+    },
+    {
+      "_id": "qegqReYGPvbUFpHt",
+      "name": "Pumpkin Head",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": null,
+        "actionOptions": [
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "20 foot radius"
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "6d6",
+            "name": "Pumpkin Head"
+          }
+        ],
+        "description": "<p>The scarecrow throws its head up to 60 feet. Each creature within 20 feet of the head makes a DC 13 Dexterity saving throw, taking fire damage on a failed save or half damage on a success. After using this action, the scarecrow no longer has a head. It can still use its senses but can no longer use Fire Breath. It can create a new head when it finishes a long rest</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "medium"
+        ],
+        "save": {
+          "dc": 13,
+          "onSave": "Half damage",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": "other"
+        },
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "bscb9K9L8pLLu6Dw",
+      "name": "Invisibility",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The scarecrow, along with any mount it is riding, is invisible for 1 hour or until it attacks or uses Scare, Fire Breath, or Pumpkin Head</p>",
+        "duration": {
+          "unit": "hour",
+          "value": 1
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": "self"
         },
         "uses": {
           "value": 1,

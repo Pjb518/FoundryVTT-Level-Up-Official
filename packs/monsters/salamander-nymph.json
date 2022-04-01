@@ -1,11 +1,11 @@
 {
-  "name": "Scarecrow",
+  "name": "Salamander Nymph",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
+        "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 14,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 27,
+        "baseMax": 27,
         "temp": "",
         "bonus": null
       },
@@ -366,8 +366,8 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
+          "current": 5,
+          "total": 5
         },
         "d10": {
           "current": 0,
@@ -426,8 +426,7 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "elemental"
       ],
       "cr": 1,
       "privateNotes": ""
@@ -435,7 +434,7 @@
     "proficiencies": {
       "armor": [],
       "languages": [
-        "understands the languages of its creator but can’t speak"
+        "ignan"
       ],
       "tools": [],
       "weapons": []
@@ -462,26 +461,16 @@
     },
     "traits": {
       "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
+      "conditionImmunities": [],
       "damageImmunities": [
-        "poison"
+        "fire"
       ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Salamander Nymph",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,76 +520,12 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
+      "_id": "nIk9OUyKg20Y3dJj",
+      "name": "Heated Body",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      }
-    },
-    {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
+        "ability": null,
         "actionOptions": [
           "damage"
         ],
@@ -625,11 +550,11 @@
           {
             "canCrit": false,
             "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
+            "formula": "1d6",
+            "name": "Normal Fire Damage"
           }
         ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
+        "description": "<p>A creature that starts its turn grappled by the salamander, touches it, or hits it with a melee attack while within 5 feet takes fire damage A creature can take this damage only once on a turn. If the salamander has been subjected to cold damage since the end of its last turn, this trait doesn’t function</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -645,7 +570,7 @@
         "source": "",
         "target": {
           "quantity": "",
-          "type": "self"
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -663,204 +588,24 @@
       },
       "flags": {
         "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
+          "sourceId": "Item.Casf0qJ1fTIlcpwo"
         }
       }
     },
     {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
+      "_id": "QDCYnKhUSiLzs8Wv",
+      "name": "Tail",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
         "activation": {
           "cost": 1,
           "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
-        "actionOptions": [
-          "damage",
-          "attack"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -879,11 +624,17 @@
           {
             "canCrit": true,
             "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
+            "formula": "1d4+@mod",
+            "name": "Tail Attack"
+          },
+          {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "1d6",
+            "name": "Heated Body trait"
           }
         ],
-        "description": "",
+        "description": "<p>On hit, target is subjected to the salamander's heated body trait.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -905,128 +656,6 @@
           "value": null,
           "max": "",
           "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
         },
         "featureType": ""
       },
@@ -1042,6 +671,9 @@
   ],
   "effects": [],
   "flags": {
+    "core": {
+      "sourceId": "Actor.y2wIJfuAmd1o0KYh"
+    },
     "exportSource": {
       "world": "holdencoast",
       "system": "a5e",

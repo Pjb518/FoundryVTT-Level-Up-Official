@@ -1,11 +1,11 @@
 {
-  "name": "Scarecrow",
+  "name": "Sea Serpent",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
+        "value": 28,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,50 +29,50 @@
         }
       },
       "con": {
-        "value": 10,
+        "value": 22,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": "",
           "concentrationBonus": ""
         }
       },
       "int": {
-        "value": 6,
+        "value": 4,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "wis": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
         "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 8,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 17,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 247,
+        "baseMax": 247,
         "temp": "",
         "bonus": null
       },
@@ -366,8 +366,8 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
+          "current": 0,
+          "total": 0
         },
         "d10": {
           "current": 0,
@@ -426,17 +426,14 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "monstrosity"
       ],
-      "cr": 1,
+      "cr": 16,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [
-        "understands the languages of its creator but can’t speak"
-      ],
+      "languages": [],
       "tools": [],
       "weapons": []
     },
@@ -461,27 +458,15 @@
       }
     },
     "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison"
-      ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "size": "grg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Sea Serpent",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,8 +516,8 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
+      "_id": "4nV4ZAyil9MxY4vn",
+      "name": "Amphibious",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -556,7 +541,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
+        "description": "<p>The serpent can breathe air and water. </p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -590,20 +575,18 @@
       },
       "flags": {
         "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
+          "sourceId": "Item.VCP4aqBJP6I09eWX"
         }
       }
     },
     {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
+      "_id": "apbFik7mhnGrv5cw",
+      "name": "Reactive",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
-        "actionOptions": [
-          "damage"
-        ],
+        "actionOptions": [],
         "activation": {
           "cost": "",
           "type": "",
@@ -613,6 +596,129 @@
           "bonus": "",
           "critThreshold": 20,
           "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The serpent can take two reactions per round, one with its tail and one with its bite. It can’t take two reactions on the same turn.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "dMnoWRsUX30VESKf",
+      "name": "Sinuous",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The serpent can share the space of other creatures and objects</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "g7PsaddoU112f7XO",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
         },
         "area": {
           "shape": "",
@@ -623,84 +729,22 @@
         },
         "damage": [
           {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "4d10+@mod",
+            "name": "Bite"
           }
         ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
+        "description": "",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
-        }
-      }
-    },
-    {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
+        "range": [
+          "15 ft"
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -728,139 +772,20 @@
       "flags": {}
     },
     {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
+      "_id": "j8vbxGMCZ6hK6hn0",
+      "name": "Tail",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage",
+          "savingThrow"
+        ],
         "activation": {
           "cost": 1,
           "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
-        "actionOptions": [
-          "damage",
-          "attack"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -879,11 +804,73 @@
           {
             "canCrit": true,
             "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
+            "formula": "4d8+@mod",
+            "name": "Tail Damage"
           }
         ],
-        "description": "",
+        "description": "<p>On hit, if the target is a creature, it makes a DC 22 Strength saving throw. On a failure, it is pushed up to 15 feet away from the serpent and knocked prone.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "15 ft"
+        ],
+        "save": {
+          "dc": 22,
+          "onSave": "Avoid being pushed away and knocked prone",
+          "targetAbility": "str"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "F8es4CwCzg3DxaGA",
+      "name": "Thrash",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>(While bloodied only)</p><p>The serpent moves up to its speed and then attacks with its tail and its bite.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -918,70 +905,8 @@
       "flags": {}
     },
     {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
+      "_id": "UqsrlPKYGZQveqIB",
+      "name": "Recover",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -1005,7 +930,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
+        "description": "<p>1/Day While Bloodied</p><p>The serpent ends one condition or effect on itself</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -1038,6 +963,155 @@
         "VMSZNizx1N7Lmk0A": 3
       },
       "flags": {}
+    },
+    {
+      "_id": "qwkheXlTVs32tBuX",
+      "name": "Reactive Bite",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "Taking 15 or more damage from a creature it can see"
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "4d10+@mod",
+            "name": "Reactive Bite"
+          }
+        ],
+        "description": "<p>If the serpent takes 15 damage or more from a melee attack made by a creature it can see, it uses the bite attack as a reaction against the attacker</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "15 ft"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "iW0SPGajxZGWrZHr",
+      "name": "Reactive Tail",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "4d8+@mod",
+            "name": "Tail Damage"
+          }
+        ],
+        "description": "<p>If the serpent takes 15 damage or more from a melee attack made by a creature it can see, it uses the tail attack as a reaction against the attacker</p><p>On hit, if the target is a creature, it makes a DC 22 Strength saving throw. On a failure, it is pushed up to 15 feet away from the serpent and knocked prone.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "15 ft"
+        ],
+        "save": {
+          "dc": 22,
+          "onSave": "Avoid being pushed away and knocked prone",
+          "targetAbility": "str"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.j8vbxGMCZ6hK6hn0"
+        }
+      }
     }
   ],
   "effects": [],

@@ -1,11 +1,11 @@
 {
-  "name": "Scarecrow",
+  "name": "Remorhaz Spawn",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 10,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,31 +42,31 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 4,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "wis": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "cha": {
-        "value": 14,
+        "value": 5,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 14,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 95,
+        "baseMax": 95,
         "temp": "",
         "bonus": null
       },
@@ -366,12 +366,12 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
-        },
-        "d10": {
           "current": 0,
           "total": 0
+        },
+        "d10": {
+          "current": 10,
+          "total": 10
         },
         "d12": {
           "current": 0,
@@ -387,16 +387,16 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "20",
+        "climb": "",
+        "fly": "",
+        "swim": "",
+        "walk": "30"
       },
       "senses": {
         "blindsight": "",
         "darkvision": "60",
-        "tremorsense": "",
+        "tremorsense": "60",
         "truesight": ""
       },
       "inspiration": false,
@@ -426,17 +426,14 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "monstrosity"
       ],
-      "cr": 1,
+      "cr": 5,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [
-        "understands the languages of its creator but can’t speak"
-      ],
+      "languages": [],
       "tools": [],
       "weapons": []
     },
@@ -461,27 +458,18 @@
       }
     },
     "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
+      "size": "lg",
+      "conditionImmunities": [],
       "damageImmunities": [
-        "poison"
+        "fire",
+        "cold"
       ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Remorhaz Spawn",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,8 +519,8 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
+      "_id": "6TrHozHtvUrjlbKj",
+      "name": "Multiattack",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -556,7 +544,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
+        "description": "<p>The remorhaz makes a bite attack and then a constrict attack.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -590,17 +578,17 @@
       },
       "flags": {
         "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
+          "sourceId": "Item.Ji9FhbFZ9JnlZW7F"
         }
       }
     },
     {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
+      "_id": "QRSdg3g3npvZse2a",
+      "name": "Heated Body",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
+        "ability": null,
         "actionOptions": [
           "damage"
         ],
@@ -625,11 +613,11 @@
           {
             "canCrit": false,
             "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
+            "formula": "1d6",
+            "name": "Normal Fire Damage"
           }
         ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
+        "description": "<p>A creature that starts its turn grappled by the remorhaz, touches it, or hits it with a melee attack while within 5 feet takes fire damage. A creature can take this damage only once on a turn. If the remorhaz has been subjected to cold damage since the end of its last turn, this trait doesn’t function</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -645,7 +633,7 @@
         "source": "",
         "target": {
           "quantity": "",
-          "type": "self"
+          "type": ""
         },
         "uses": {
           "value": null,
@@ -663,197 +651,17 @@
       },
       "flags": {
         "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
+          "sourceId": "Item.Casf0qJ1fTIlcpwo"
         }
       }
     },
     {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
+      "_id": "0suofETTh9FmAfBO",
+      "name": "Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
+        "ability": "str",
         "actionOptions": [
           "damage",
           "attack"
@@ -878,12 +686,18 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
+            "damageType": "piercing",
+            "formula": "2d6+@mod",
+            "name": "Bite Damage"
+          },
+          {
+            "canCrit": true,
+            "damageType": "fire",
+            "formula": "1d6",
+            "name": "Fire Damage"
           }
         ],
-        "description": "",
+        "description": "<p>Piercing + Fire damage</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -915,17 +729,22 @@
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.hLSZkzJ8TFTPKYF7"
+        }
+      }
     },
     {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
+      "_id": "eXSrzS31Zft3fsBA",
+      "name": "Constrict",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
+        "ability": "str",
         "actionOptions": [
-          "savingThrow"
+          "attack",
+          "damage"
         ],
         "activation": {
           "cost": "",
@@ -934,68 +753,8 @@
         },
         "attack": {
           "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
         },
         "area": {
           "shape": "",
@@ -1004,8 +763,21 @@
         "check": {
           "ability": "str"
         },
-        "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "3d6+@mod",
+            "name": "Base Constrict Damage"
+          },
+          {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "1d6",
+            "name": "Heated Body (dont click the heated body feature too)"
+          }
+        ],
+        "description": "<p>Target is subjected to remorhaz's heated body trait. On hit, the target is grappled (escape DC 15) and restrained while grappled.  Until this grapple ends, the remorhaz can’t grapple another creature.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -1014,7 +786,7 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": "",
+          "dc": null,
           "onSave": "",
           "targetAbility": ""
         },
@@ -1024,9 +796,9 @@
           "type": ""
         },
         "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
+          "value": null,
+          "max": "",
+          "per": null
         },
         "featureType": ""
       },
@@ -1037,7 +809,11 @@
         "default": 0,
         "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.0jiKxMnYLd5DDZ2A"
+        }
+      }
     }
   ],
   "effects": [],

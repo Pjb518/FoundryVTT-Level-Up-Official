@@ -1,22 +1,10 @@
 {
-  "name": "Scarecrow",
+  "name": "Ankheg Spawn",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
         "value": 14,
         "check": {
           "expertiseDice": 0,
@@ -28,8 +16,20 @@
           "bonus": ""
         }
       },
+      "dex": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
       "con": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 2,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 13,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 11,
+        "baseMax": 11,
         "temp": "",
         "bonus": null
       },
@@ -366,8 +366,8 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
+          "current": 2,
+          "total": 2
         },
         "d10": {
           "current": 0,
@@ -387,16 +387,16 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "10",
+        "climb": "",
+        "fly": "",
+        "swim": "",
+        "walk": "30"
       },
       "senses": {
         "blindsight": "",
-        "darkvision": "60",
-        "tremorsense": "",
+        "darkvision": "",
+        "tremorsense": "30",
         "truesight": ""
       },
       "inspiration": false,
@@ -424,19 +424,16 @@
       "cp": 0
     },
     "details": {
-      "bio": "",
+      "bio": "<h2><strong>COMBAT</strong></h2><p>Ankheg spawn attack in a pack, surrounding their prey if possible. When attacking a group, some ankheg spawn use their claws to drag one victim away, while other spawn occupy the victim’s allies by biting and spitting acid.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS &amp; LORE</strong></h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Ankhegs are giant insects that burst out of the ground and attack people and livestock.</p><p><strong>DC 15</strong> Ankhegs bite off people’s heads and spit acid. They have a hard exoskeleton but a vulnerable underbelly.</p><p><strong>DC 20</strong> Ankheg tunnels sometimes contain a huge ankheg queen and dozens of young, each bigger and fiercer than a mastiff.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Ankheg spawn rarely leave their tunnels except when they reach adulthood or during their periodic swarms, but they chase and devour any who enter their lair.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1–4 Bursts from the earth to attack</p><p>5 Half aboveground, eating prey</p><p>6 Dragging a struggling humanoid into its hole</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Partially collapsed tunnels (possibly containing treasure from a previous victim)</p><p>2 Acid-scarred trees</p><p>3 The ground vibrating as if something is digging below</p><p>4 A big, half-buried, grasshopper-like shed skin</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>Ankhegs burrow beneath the soil in temperate and warm lands.</p><p><strong>CR 0–2</strong> ankheg; 2 to 4 ankheg spawn</p><p><strong>CR 3–4</strong> 2 ankhegs; ankheg queen; ankheg with 2 to 4 ankheg spawn; 1d4 + 4 ankheg spawn</p><p><strong>Treasure</strong> platinum armlet (250 gp), ancient brass key to an unknown door, 2 <em>potions of healing</em></p><p><strong>CR 5–10</strong> ankheg queen with 2 or 3 ankhegs or 1d8 + 4 ankheg spawn; 1d10 + 10 ankheg spawn</p><p><strong>Treasure</strong> 900 sp, 450 gp, vial made of glass as hard as steel (250 gp)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like centaurs. Others have bizarre or unnatural appearances, like many-tentacled ropers. Monstrosities could only arise in a world suffused with magic.</p>",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "monstrosity"
       ],
-      "cr": 1,
+      "cr": 0.25,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [
-        "understands the languages of its creator but can’t speak"
-      ],
+      "languages": [],
       "tools": [],
       "weapons": []
     },
@@ -462,26 +459,16 @@
     },
     "traits": {
       "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison"
-      ],
+      "conditionImmunities": [],
+      "damageImmunities": [],
       "damageResistances": [
-        "bludgeoning",
-        "piercing"
+        "acid"
       ],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Ankheg Spawn",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,336 +518,19 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
+      "_id": "xkx0f2tyu6yklF67",
+      "name": "Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      }
-    },
-    {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
+        "ability": "str",
         "actionOptions": [
+          "attack",
           "damage"
         ],
         "activation": {
           "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
-          }
-        ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
-        }
-      }
-    },
-    {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
           "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
-        "actionOptions": [
-          "damage",
-          "attack"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
@@ -878,12 +548,12 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@mod",
-            "name": "Slam"
+            "damageType": "slashing",
+            "formula": "1d6 + @mod",
+            "name": ""
           }
         ],
-        "description": "",
+        "description": "<p><em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) slashing damage</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -899,7 +569,7 @@
         "source": "",
         "target": {
           "quantity": "",
-          "type": ""
+          "type": "creature"
         },
         "uses": {
           "value": null,
@@ -913,39 +583,48 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
     },
     {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
+      "_id": "RkyU4SDRO3F1Nx39",
+      "name": "Claw",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
+        "ability": "str",
         "actionOptions": [
+          "attack",
+          "damage",
           "savingThrow"
         ],
         "activation": {
           "cost": "",
-          "type": "",
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
           "bonus": "",
-          "critThreshold": 20,
-          "type": ""
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
         },
         "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
+          "shape": "",
+          "size": ""
         },
         "check": {
           "ability": "str"
         },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d4 + @mod",
+            "name": ""
+          }
+        ],
+        "description": "<p><em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one Medium or smaller creature. <em>Hit:</em> 4 (1d4 + 2) slashing damage, and the target makes a DC 12 Strength check. On a failure, it is knocked prone. If the target is already prone, the ankheg can instead move up to half its Speed, dragging the target with it.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -955,13 +634,13 @@
         "range": [],
         "save": {
           "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
+          "onSave": "Avoid being knocked prone.",
+          "targetAbility": "str"
         },
         "source": "",
         "target": {
           "quantity": "",
-          "type": ""
+          "type": "creature"
         },
         "uses": {
           "value": null,
@@ -975,27 +654,30 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
     },
     {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
+      "_id": "Oyt0WbIgrB2xmDFj",
+      "name": "Acid Spit",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
+        "ability": "dex",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
         "activation": {
           "cost": "",
-          "type": "",
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
           "bonus": "",
-          "critThreshold": 20,
-          "type": ""
+          "critThreshold": "20",
+          "type": "rangedWeaponAttack"
         },
         "area": {
           "shape": "",
@@ -1004,15 +686,24 @@
         "check": {
           "ability": "str"
         },
-        "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "acid",
+            "formula": "1d8",
+            "name": ""
+          }
+        ],
+        "description": "<p><em>Ranged Weapon Attack:</em> +3 to hit, range 30 ft., one creature. <em>Hit: </em>4 (1d8) acid damage.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "short"
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -1020,13 +711,13 @@
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": ""
+          "quantity": null,
+          "type": "creature"
         },
         "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
+          "value": null,
+          "max": "",
+          "per": null
         },
         "featureType": ""
       },
@@ -1035,7 +726,7 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
     }
@@ -1043,7 +734,7 @@
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "holdencoast",
+      "world": "test",
       "system": "a5e",
       "coreVersion": "9.255",
       "systemVersion": "0.5.5"

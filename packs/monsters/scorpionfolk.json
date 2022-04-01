@@ -1,22 +1,10 @@
 {
-  "name": "Scarecrow",
+  "name": "Scorpionfolk",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
         "value": 14,
         "check": {
           "expertiseDice": 0,
@@ -28,8 +16,20 @@
           "bonus": ""
         }
       },
+      "dex": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
       "con": {
-        "value": 10,
+        "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 6,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 14,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -224,7 +224,7 @@
       },
       "prc": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -279,7 +279,7 @@
       },
       "ste": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -290,7 +290,7 @@
       },
       "sur": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 15,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 31,
-        "baseMax": 31,
+        "value": 52,
+        "baseMax": 52,
         "temp": "",
         "bonus": null
       },
@@ -366,12 +366,12 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
-        },
-        "d10": {
           "current": 0,
           "total": 0
+        },
+        "d10": {
+          "current": 7,
+          "total": 7
         },
         "d12": {
           "current": 0,
@@ -387,17 +387,17 @@
         "expertiseDice": 0
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
+        "burrow": "",
+        "climb": "",
+        "fly": "",
+        "swim": "",
+        "walk": "40"
       },
       "senses": {
-        "blindsight": "",
-        "darkvision": "60",
-        "tremorsense": "",
-        "truesight": ""
+        "blindsight": 0,
+        "darkvision": 0,
+        "tremorsense": 0,
+        "truesight": 0
       },
       "inspiration": false,
       "fatigue": 0,
@@ -426,16 +426,16 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "undead",
-        "construct"
+        "monstrosity"
       ],
-      "cr": 1,
+      "cr": 3,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
       "languages": [
-        "understands the languages of its creator but can’t speak"
+        "common",
+        "Scorpionfolk"
       ],
       "tools": [],
       "weapons": []
@@ -461,27 +461,15 @@
       }
     },
     "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "petrified",
-        "paralyzed",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison"
-      ],
-      "damageResistances": [
-        "bludgeoning",
-        "piercing"
-      ],
+      "size": "lg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Scarecrow",
+    "name": "Scorpionfolk",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -531,332 +519,15 @@
   },
   "items": [
     {
-      "_id": "fh8oFSQQte1osq1c",
-      "name": "False Appearance",
+      "_id": "ciVWPjgjyq29kv0c",
+      "name": "Claw",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the scarecrow is indistinguishable from an ordinary scarecrow</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      }
-    },
-    {
-      "_id": "2GxVqJVGoaKIF4LP",
-      "name": "Flammable",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
+        "ability": "str",
         "actionOptions": [
+          "attack",
           "damage"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
-          }
-        ],
-        "description": "<p>After taking fire damage, the scarecrow catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can spend an action to extinguish this fire</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.9YZn51j2a9PTs8eN"
-        }
-      }
-    },
-    {
-      "_id": "ZFLrY9uLDpeF9ouh",
-      "name": "Local Spirit",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow is destroyed if it travels more than a mile from the place it was created.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "khZr5nNtZfFMxT0P",
-      "name": "Spell Created",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "dsYUjRLtFX1jfoPg",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The scarecrow uses Scare and makes two slam attacks.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "qnuaAY0Mdhu2AsaE",
-      "name": "Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "dex",
-        "actionOptions": [
-          "damage",
-          "attack"
         ],
         "activation": {
           "cost": "",
@@ -880,10 +551,10 @@
             "canCrit": true,
             "damageType": "bludgeoning",
             "formula": "1d6+@mod",
-            "name": "Slam"
+            "name": ""
           }
         ],
-        "description": "",
+        "description": "<p>On hit, target is grappled. Until this grapple ends, the scorpionfolk can't attack a different target with its claws</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -918,34 +589,138 @@
       "flags": {}
     },
     {
-      "_id": "ZLnfvP2KX4utvzER",
-      "name": "Scare",
-      "type": "feature",
+      "_id": "5Yc9QSpP0UfkiczE",
+      "name": "Javelin",
+      "type": "object",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "",
+        "ability": "str",
         "actionOptions": [
-          "savingThrow"
+          "attack",
+          "damage"
         ],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
           "bonus": "",
-          "critThreshold": 20,
-          "type": ""
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
         },
         "area": {
-          "shape": "sphere",
-          "size": "30 foot radius"
+          "shape": "",
+          "size": ""
         },
         "check": {
           "ability": "str"
         },
-        "damage": [],
-        "description": "<p>Each creature of the scarecrow’s choice within 30 feet that can see the scarecrow makes a DC 12 Wisdom saving throw. On a failure, it is magically frightened for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature’s saving throw is successful or the effect ends for it, it is immune to Scare for 24 hours.</p>",
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6+@mod",
+            "name": "Javelin"
+          }
+        ],
+        "description": "<p></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "short",
+          "long"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "bulky": false,
+        "equipped": false,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": "5 sp",
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "weaponProperties": [
+          "thrown"
+        ],
+        "weight": "2"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "brs4PWLdtVP9Yfhj",
+      "name": "Sting",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6+@mod",
+            "name": "Claw attack"
+          },
+          {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "3d10",
+            "name": "Poison Damage"
+          }
+        ],
+        "description": "<p>On hit, target makes a DC 12 Constitution saving throw, taking half poison damage on success.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -955,8 +730,8 @@
         "range": [],
         "save": {
           "dc": 12,
-          "onSave": "Avoids being Frightened",
-          "targetAbility": "wis"
+          "onSave": "Half Poison Damage",
+          "targetAbility": "con"
         },
         "source": "",
         "target": {
@@ -965,68 +740,8 @@
         },
         "uses": {
           "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "tqXztwKTMOdOPMh9",
-      "name": "Hat of Illusion",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>(1/Day)</p><p>While wearing a hat or other head covering, the scarecrow takes on the illusory appearance of the last living humanoid to wear that hat. It requires a DC 12 Insight or Perception check to recognize the illusion. The illusion ends when the scarecrow is touched, takes damage, attacks, or uses Scare, or when the scarecrow chooses to end it as a bonus action.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
+          "max": null,
+          "per": ""
         },
         "featureType": ""
       },
