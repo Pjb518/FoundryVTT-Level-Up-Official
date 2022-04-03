@@ -26,7 +26,7 @@
         v-slot="slotProps"
       >
         <radio-group
-          listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
+          listClasses="u-gap-md u-mb-md u-text-sm"
           optionClasses="u-p-md u-text-center u-w-12"
           :options="Object.entries(config.abilityAbbreviations)"
           :selected="data.data.attributes.spellcasting"
