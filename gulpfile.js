@@ -32,8 +32,8 @@ function compilePacks() {
           const json = JSON.parse(file.contents.toString());
 
           // Generate id
-          let id = randomID(32);
-          while (ids.includes(id)) id = randomID(32);
+          let id = randomID();
+          while (ids.includes(id)) id = randomID();
           ids.push(id);
           // eslint-disable-next-line no-underscore-dangle
           json._id = id;
