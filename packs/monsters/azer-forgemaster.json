@@ -1,7 +1,7 @@
 {
   "name": "Azer Forgemaster",
   "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/a5e/assets/azer.webp",
   "data": {
     "abilities": {
       "str": {
@@ -477,7 +477,7 @@
   },
   "token": {
     "name": "Azer Forgemaster",
-    "img": "icons/svg/mystery-man.svg",
+    "img": "systems/a5e/assets/azer.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
@@ -493,26 +493,27 @@
     "brightSight": 0,
     "sightAngle": 0,
     "light": {
-      "alpha": 0.5,
+      "alpha": 0.6,
       "angle": 0,
       "bright": 10,
       "coloration": 1,
-      "dim": 10,
+      "dim": 20,
       "gradual": true,
       "luminosity": 0.5,
       "saturation": 0,
       "contrast": 0,
       "shadows": 0,
       "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false
+        "speed": 3,
+        "intensity": 3,
+        "reverse": false,
+        "type": "torch"
       },
       "darkness": {
         "min": 0,
         "max": 1
       },
-      "color": null
+      "color": "#d58310"
     },
     "disposition": -1,
     "displayBars": 0,
@@ -732,9 +733,9 @@
     },
     {
       "_id": "x7ZA2vsNKJ48YXaM",
-      "name": "Returning Hammer (melee or ranged)",
+      "name": "Returning Hammer",
       "type": "object",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/weapons/hammers/shorthammer-double-bronze-worn.webp",
       "data": {
         "ability": "str",
         "actionOptions": [
@@ -763,16 +764,16 @@
             "canCrit": true,
             "damageType": "bludgeoning",
             "formula": "2d6 + @mod",
-            "name": ""
+            "name": "Weapon Damage"
           },
           {
             "canCrit": true,
             "damageType": "fire",
             "formula": "2d6",
-            "name": ""
+            "name": "Fire Damage"
           }
         ],
-        "description": "<p><em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 20/60 feet, one target. <em>Hit: </em>&nbsp;8 (1d8 + 4) bludgeoning damage plus 7 (2d6) fire damage. The azer’s hammer returns to its hand after it’s thrown.</p>",
+        "description": "<p>The azer’s hammer returns to its hand after it’s thrown.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -780,7 +781,9 @@
         "healing": [],
         "proficient": true,
         "range": [
-          "20/60 ft."
+          "5 ft.",
+          "20 ft.",
+          "60 ft."
         ],
         "save": {
           "dc": "",
@@ -789,8 +792,8 @@
         },
         "source": "",
         "target": {
-          "quantity": null,
-          "type": "creature"
+          "quantity": 1,
+          "type": "creatureObject"
         },
         "uses": {
           "value": null,
@@ -827,7 +830,7 @@
     },
     {
       "_id": "XUabvaJ3BkyKKNGZ",
-      "name": "Bonfire (3/day)",
+      "name": "Bonfire",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -900,7 +903,7 @@
       "_id": "mhJFzbfRUMpxESbU",
       "name": "Fire Step",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/magic/fire/flame-burning-earth-orange.webp",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -962,10 +965,16 @@
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "test",
+      "world": "a5e-packs",
       "system": "a5e",
       "coreVersion": "9.255",
       "systemVersion": "0.5.5"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.6tptjxzpgsj2bnlu"
+    },
+    "a5e": {
+      "sheetIsLocked": true
     }
   }
 }

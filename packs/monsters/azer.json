@@ -1,7 +1,7 @@
 {
   "name": "Azer",
   "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/a5e/assets/azer.webp",
   "data": {
     "abilities": {
       "str": {
@@ -476,7 +476,7 @@
   },
   "token": {
     "name": "Azer",
-    "img": "icons/svg/mystery-man.svg",
+    "img": "systems/a5e/assets/azer.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
@@ -492,26 +492,27 @@
     "brightSight": 0,
     "sightAngle": 0,
     "light": {
-      "alpha": 0.5,
+      "alpha": 0.6,
       "angle": 0,
       "bright": 10,
       "coloration": 1,
-      "dim": 10,
+      "dim": 20,
       "gradual": true,
       "luminosity": 0.5,
       "saturation": 0,
       "contrast": 0,
       "shadows": 0,
       "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false
+        "speed": 3,
+        "intensity": 3,
+        "reverse": false,
+        "type": "torch"
       },
       "darkness": {
         "min": 0,
         "max": 1
       },
-      "color": null
+      "color": "#d58310"
     },
     "disposition": -1,
     "displayBars": 0,
@@ -599,7 +600,7 @@
       "_id": "1MnVZxtFbII9UK5r",
       "name": "Hammer",
       "type": "object",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/weapons/hammers/shorthammer-double-bronze-worn.webp",
       "data": {
         "ability": "str",
         "actionOptions": [
@@ -628,23 +629,25 @@
             "canCrit": true,
             "damageType": "bludgeoning",
             "formula": "1d8 + @mod",
-            "name": ""
+            "name": "Weapon Damage"
           },
           {
             "canCrit": true,
             "damageType": "fire",
             "formula": "1d6",
-            "name": ""
+            "name": "Fire Damage"
           }
         ],
-        "description": "<p>1d8 bludgeoning damage.</p>",
+        "description": "<p></p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft."
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -652,8 +655,8 @@
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": "creature"
+          "quantity": 1,
+          "type": "creatureObject"
         },
         "uses": {
           "value": null,
@@ -689,9 +692,9 @@
       "_id": "K00lTLhX0EhTAxHE",
       "name": "Heat Metal",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/magic/fire/dagger-rune-enchant-flame-strong-orange.webp",
       "data": {
-        "ability": "",
+        "ability": "con",
         "actionOptions": [
           "savingThrow",
           "damage",
@@ -722,7 +725,7 @@
             "name": ""
           }
         ],
-        "description": "<p><em>Ranged Spell Attack:</em> +4 to hit, range 60 ft., one creature wearing or holding a metal object. <em>Hit:</em> 9 (2d8) fire damage. If a creature is holding the object and suffers damage, it makes a DC 12 Constitution saving throw, dropping the object on a failure.&nbsp;</p>",
+        "description": "<p>The azer targets one creature wearing or holding a metal object. If a creature is holding the object and suffers damage, it makes a DC 12 Constitution saving throw, dropping the object on a failure.&nbsp;</p>",
         "duration": {
           "unit": "instantaneous",
           "value": ""
@@ -741,68 +744,6 @@
         "target": {
           "quantity": null,
           "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "af4lzpCYrZNHadpC": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "FJeQ7vOMeG0dhaq7",
-      "name": "Fire Step",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": null,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While standing in fire, the azer can magically teleport up to 90 feet to a space within fire.</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "90 ft."
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
         },
         "uses": {
           "value": null,
@@ -893,6 +834,73 @@
         "af4lzpCYrZNHadpC": 3
       },
       "flags": {}
+    },
+    {
+      "_id": "VkYLECG2OtmQUgoJ",
+      "name": "Fire Step",
+      "type": "feature",
+      "img": "icons/magic/fire/flame-burning-earth-orange.webp",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": null,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>While standing in fire, the azer can magically teleport up to 90 feet to a space within fire.</p>",
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "90 ft."
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "af4lzpCYrZNHadpC": 3,
+        "82YOdvddglSYyJe3": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.mhJFzbfRUMpxESbU"
+        }
+      }
     }
   ],
   "effects": [],
@@ -901,10 +909,13 @@
       "sourceId": "Actor.IdrMSPb4Nwy0nm0D"
     },
     "exportSource": {
-      "world": "test",
+      "world": "a5e-packs",
       "system": "a5e",
       "coreVersion": "9.255",
       "systemVersion": "0.5.5"
+    },
+    "a5e": {
+      "sheetIsLocked": true
     }
   }
 }

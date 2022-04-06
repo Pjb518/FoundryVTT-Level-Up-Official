@@ -1,7 +1,7 @@
 {
   "name": "Balor General",
   "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/a5e/assets/balor.webp",
   "data": {
     "abilities": {
       "str": {
@@ -374,8 +374,8 @@
           "total": 0
         },
         "d12": {
-          "current": 0,
-          "total": 0
+          "current": 33,
+          "total": 33
         },
         "d4": {
           "current": 0,
@@ -479,7 +479,7 @@
   },
   "token": {
     "name": "Balor General",
-    "img": "icons/svg/mystery-man.svg",
+    "img": "systems/a5e/assets/balor.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 3,
@@ -848,7 +848,7 @@
     },
     {
       "_id": "Htb3UxtcOppTdO6h",
-      "name": "Lightning Sword (10 ft)",
+      "name": "Lightning Sword",
       "type": "object",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -878,7 +878,7 @@
           {
             "canCrit": true,
             "damageType": "slashing",
-            "formula": "3d8+@str.mod",
+            "formula": "3d8 + @mod",
             "name": "Physical"
           },
           {
@@ -895,7 +895,9 @@
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "10 ft."
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -938,7 +940,7 @@
     },
     {
       "_id": "9xRLRgQVVBwKTPjv",
-      "name": "Fire Whip (45 ft)",
+      "name": "Fire Whip",
       "type": "object",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -986,7 +988,9 @@
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "45 ft."
+        ],
         "save": {
           "dc": 19,
           "onSave": "",
@@ -1548,10 +1552,13 @@
       "sheetIsLocked": true
     },
     "exportSource": {
-      "world": "a5e-rend",
+      "world": "a5e-packs",
       "system": "a5e",
       "coreVersion": "9.255",
       "systemVersion": "0.5.5"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.b8truligp8nmbw2u"
     }
   }
 }
