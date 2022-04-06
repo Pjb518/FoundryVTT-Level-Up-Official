@@ -1,7 +1,7 @@
 {
   "name": "Animated Armor",
   "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/a5e/assets/shield-guardian.webp",
   "data": {
     "abilities": {
       "str": {
@@ -481,7 +481,7 @@
   },
   "token": {
     "name": "Animated Armor",
-    "img": "icons/svg/mystery-man.svg",
+    "img": "systems/a5e/assets/shield-guardian.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
@@ -533,7 +533,7 @@
       "_id": "rJDDxrRSLZ42NdaN",
       "name": "Spell-Created",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/magic/lightning/bolt-strike-sparks-teal.webp",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -593,7 +593,7 @@
       "_id": "JEtdmh9lseyKDxw6",
       "name": "False Appearance",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/equipment/chest/breastplate-helmet-metal.webp",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -653,7 +653,7 @@
       "_id": "qSYlDnYmnohOTjPm",
       "name": "Weapon",
       "type": "object",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/weapons/swords/greatsword-crossguard-embossed-gold.webp",
       "data": {
         "ability": "str",
         "actionOptions": [
@@ -681,19 +681,19 @@
           {
             "canCrit": true,
             "damageType": "bludgeoning",
-            "formula": "1d10+@str.mod",
+            "formula": "1d10 + @mod",
             "name": "Bludgeoning"
           },
           {
             "canCrit": true,
             "damageType": "slashing",
-            "formula": "1d10+@str.mod",
+            "formula": "1d10 + @mod",
             "name": "Slashing"
           },
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "1d10+@str.mod",
+            "formula": "1d10 + @mod",
             "name": "Piercing"
           }
         ],
@@ -704,7 +704,9 @@
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft."
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -752,10 +754,13 @@
       "sheetIsLocked": true
     },
     "exportSource": {
-      "world": "a5e-rend",
+      "world": "lu-a5e",
       "system": "a5e",
       "coreVersion": "9.255",
       "systemVersion": "0.5.5"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.xwpwus28xg1egw88"
     }
   }
 }

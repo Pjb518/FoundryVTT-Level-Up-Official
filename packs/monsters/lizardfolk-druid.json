@@ -1,5 +1,5 @@
 {
-  "name": "Lizardfolk",
+  "name": "Lizardfolk Druid",
   "type": "npc",
   "img": "icons/svg/mystery-man.svg",
   "data": {
@@ -428,7 +428,7 @@
       "creatureTypes": [
         "humanoid"
       ],
-      "cr": 0.5,
+      "cr": 2,
       "privateNotes": ""
     },
     "proficiencies": {
@@ -468,7 +468,7 @@
     }
   },
   "token": {
-    "name": "Lizardfolk",
+    "name": "Lizardfolk Druid",
     "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
@@ -570,7 +570,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 100000,
       "permission": {
         "default": 0,
         "L6CZ1nwwmPZYVdIN": 3
@@ -630,7 +630,7 @@
       },
       "effects": [],
       "folder": "yKYZJ2BF51Rij43x",
-      "sort": 100000,
+      "sort": 262500,
       "permission": {
         "default": 0,
         "L6CZ1nwwmPZYVdIN": 3
@@ -643,14 +643,15 @@
     },
     {
       "_id": "WfqOuIajqyYBAhQ8",
-      "name": "Bite",
+      "name": "Bite (Crocodile Form)",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "str",
         "actionOptions": [
           "attack",
-          "damage"
+          "damage",
+          "savingThrow"
         ],
         "activation": {
           "cost": 1,
@@ -673,17 +674,11 @@
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "1d6+@str.mod",
-            "name": "Bite (Normal)"
-          },
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "2d6+@str.mod",
-            "name": "Bite (if attack with Advantage)"
+            "formula": "1d10+@str.mod",
+            "name": "Bite"
           }
         ],
-        "description": "<p></p>",
+        "description": "<p>On a hit, the target is grappled (escape DC 12).&nbsp;Until this grapple ends, the target is restrained, and&nbsp;the lizardfolk can’t bite a different creature.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -692,9 +687,9 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": "",
+          "dc": 12,
           "onSave": "",
-          "targetAbility": ""
+          "targetAbility": "dex"
         },
         "source": "",
         "target": {
@@ -710,7 +705,7 @@
       },
       "effects": [],
       "folder": "yKYZJ2BF51Rij43x",
-      "sort": 500000,
+      "sort": 275000,
       "permission": {
         "default": 0,
         "L6CZ1nwwmPZYVdIN": 3
@@ -972,6 +967,418 @@
         "L6CZ1nwwmPZYVdIN": 3
       },
       "flags": {}
+    },
+    {
+      "_id": "xIHwtTzRMYeq3kdb",
+      "name": "Spellcasting",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>Spellcasting. The lizardfolk druid is a 5th level spellcaster.&nbsp;Its spellcasting ability is Wisdom (spell save&nbsp;DC 10, +2 to hit with spell attacks). It has the following druid spells prepared:</p><p style=\"text-align: start\">Cantrips (at will): <em>druidcraft, produce flame  </em></p><p style=\"text-align: start\">1st-level (4 slots): <em>fog cloud, purify food and drink </em></p><p style=\"text-align: start\">2nd-level (3 slots): <em>heat metal, pass without trace</em></p><p style=\"text-align: start\">3rd-level (2 slots): <em>conjure animals, plant growth</em></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "permission": {
+        "default": 0,
+        "L6CZ1nwwmPZYVdIN": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "TQHt78JtPm1zovGM",
+      "name": "Shapeshift",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The lizardfolk magically changes its form&nbsp;into a Large crocodile or back into its true form. Its&nbsp;statistics are the same in each form, but it can’t speak&nbsp;or cast spells in crocodile form. Any equipment the&nbsp;lizardfolk is wearing or wielding merges into its new&nbsp;form. It reverts to its true form if it dies.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 250000,
+      "permission": {
+        "default": 0,
+        "L6CZ1nwwmPZYVdIN": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "w5cyGsuMYeEOQhpg",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6+@str.mod",
+            "name": "Bite (Normal)"
+          },
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "2d6+@str.mod",
+            "name": "Bite (if attack with Advantage)"
+          }
+        ],
+        "description": "<p></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 800000,
+      "permission": {
+        "default": 0,
+        "L6CZ1nwwmPZYVdIN": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      }
+    },
+    {
+      "_id": "kituVgrvJImvzYmi",
+      "name": "Produce Flame (Cantrip; V, S)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "spellcasting",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "rangedWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "fire",
+            "formula": "2d8",
+            "name": "Flame"
+          }
+        ],
+        "description": "<p>Range 30 ft.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": null,
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 900000,
+      "permission": {
+        "default": 0,
+        "L6CZ1nwwmPZYVdIN": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      }
+    },
+    {
+      "_id": "Rlj81AhcN4D0CQuF",
+      "name": "Heat Metal (2nd-Level; V, S, M, Concentration)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [
+          "savingThrow",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "2d8",
+            "name": "Heat Metal"
+          }
+        ],
+        "description": "<p>The&nbsp;lizardfolk heats a metal object within 60 feet. A creature&nbsp;touching the item takes 9 (2d8) fire damage when&nbsp;the spell is cast. On subsequent turns for 1 minute, the&nbsp;lizardfolk can use a bonus action to inflict the same&nbsp;damage. If a creature is holding the object, it makes a&nbsp;DC 10 Constitution saving throw or drops the object.&nbsp;If it can’t or won’t drop the object, it has disadvantage&nbsp;on attack rolls and ability checks until the start of the&nbsp;lizardfolk’s next turn.</p>",
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": 10,
+          "onSave": "",
+          "targetAbility": "con"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 700000,
+      "permission": {
+        "default": 0,
+        "L6CZ1nwwmPZYVdIN": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      }
+    },
+    {
+      "_id": "XY6B9Fsi5WMM2cPS",
+      "name": "Conjure Animals (3rd-Level; V, S, Concentration)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The&nbsp;lizardfolk summons 1 swarm of poisonous snakes or&nbsp;3 crocodiles, which appear in spaces the lizardfolk can&nbsp;see within 60 feet and remain for 1 hour or until killed.&nbsp;The beasts are allies that act on the lizardfolk’s turn&nbsp;under its control.</p>",
+        "duration": {
+          "unit": "hour",
+          "value": 1
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 300000,
+      "permission": {
+        "default": 0,
+        "L6CZ1nwwmPZYVdIN": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      }
     }
   ],
   "effects": [],

@@ -1,7 +1,7 @@
 {
   "name": "Adamanticore",
   "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/a5e/assets/manticore.webp",
   "data": {
     "abilities": {
       "str": {
@@ -469,7 +469,7 @@
   },
   "token": {
     "name": "Adamanticore",
-    "img": "icons/svg/mystery-man.svg",
+    "img": "icons/creatures/abilities/stinger-poison-green.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 2,
@@ -530,7 +530,7 @@
       "_id": "mmM4v1MGHJFUCRZz",
       "name": "Multiattack",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/skills/melee/strike-slashes-orange.webp",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -647,7 +647,7 @@
           "max": "",
           "per": null
         },
-        "featureType": ""
+        "featureType": "naturalWeapon"
       },
       "effects": [],
       "folder": null,
@@ -720,7 +720,7 @@
           "max": "",
           "per": null
         },
-        "featureType": ""
+        "featureType": "naturalWeapon"
       },
       "effects": [],
       "folder": null,
@@ -739,7 +739,7 @@
       "_id": "OCFGX9cTvcfORKrM",
       "name": "Tail",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/creatures/abilities/stinger-poison-green.webp",
       "data": {
         "ability": "str",
         "actionOptions": [
@@ -767,7 +767,7 @@
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "1d8 =@mod",
+            "formula": "1d8 + @mod",
             "name": "Piercing"
           }
         ],
@@ -796,7 +796,7 @@
           "max": "",
           "per": null
         },
-        "featureType": ""
+        "featureType": "naturalWeapon"
       },
       "effects": [],
       "folder": null,
@@ -815,7 +815,7 @@
       "_id": "XkcF01634KTFT8DD",
       "name": "Tail Spike Volley",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/commodities/stone/geode-raw-yellow.webp",
       "data": {
         "ability": null,
         "actionOptions": [
@@ -847,7 +847,7 @@
             "name": "Piercing"
           }
         ],
-        "description": "<p>The manticore fires tail spikes in a 5-foot-wide, 60-foot-long line. Each creature in the area makes a DC 12 Dexterity saving throw, taking [[/r 4d6 #piercing]] piercing damage on a failure or half damage on a success.<br><strong>A creature that takes damage from the adamanticore’s Tail Spike Volley also suffers [[/r 1d10 #ongoing damage]] ongoing damage from blood loss</strong>. The ongoing damage lasts until a creature uses an action to remove the spikes. <br></p>",
+        "description": "<p>The manticore fires tail spikes in a 5-foot-wide, 60-foot-long line. Each creature in the area makes a DC 12 Dexterity saving throw, taking 4d6 piercing damage on a failure or half damage on a success.</p><p>A creature that takes damage from the adamanticore’s Tail Spike Volley also suffers [[/r 1d10 #ongoing damage]] ongoing damage from blood loss. The ongoing damage lasts until a creature uses an action to remove the spikes.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -872,7 +872,7 @@
           "max": 4,
           "per": "day"
         },
-        "featureType": ""
+        "featureType": "other"
       },
       "effects": [],
       "folder": null,
@@ -954,10 +954,13 @@
       "sourceId": "Actor.qqzw4E2dbMNmeKm4"
     },
     "exportSource": {
-      "world": "kingdoms-a5e",
+      "world": "lu-a5e",
       "system": "a5e",
-      "coreVersion": "9.249",
+      "coreVersion": "9.255",
       "systemVersion": "0.5.5"
+    },
+    "a5e": {
+      "sheetIsLocked": true
     }
   }
 }
