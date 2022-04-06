@@ -6,6 +6,14 @@ const path = require('path');
 
 const PACK_DEST = './public/packs';
 const PACK_SRC = './packs';
+const ids = [];
+
+function randomID(length = 16) {
+  const rnd = () => Math.random().toString(36).substring(2);
+  let id = '';
+  while (id.length < length) { id += rnd(); }
+  return id.substring(0, length);
+}
 
 function compilePacks() {
   const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true })
@@ -22,6 +30,14 @@ function compilePacks() {
       .pipe(through2.obj((file, enc, callback) => {
         try {
           const json = JSON.parse(file.contents.toString());
+
+          // Generate id
+          let id = randomID();
+          while (ids.includes(id)) id = randomID();
+          ids.push(id);
+          // eslint-disable-next-line no-underscore-dangle
+          json._id = id;
+
           data.push(json);
         } catch (e) {
           // eslint-disable-next-line no-console
