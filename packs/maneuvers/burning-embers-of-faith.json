@@ -1,0 +1,78 @@
+{
+  "name": "Burning Embers of Faith",
+  "type": "maneuver",
+  "img": "icons/svg/item-bag.svg",
+  "data": {
+    "ability": "default",
+    "actionOptions": [
+      "healing"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "reaction",
+      "reactionTrigger": "When you are reduced to 0 hit points."
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [],
+    "description": "<p>Digging within, you stave off the call of death and surge renewed towards your foes.</p><p>When you are reduced to 0 hit points, you can use your reaction to heal a number of hit points equal to your proficiency bonus.</p><p>If you were reduced to 0 hit points by a spell, you instead heal a number of hit points equal to your level. In addition, for the next minute you gain advantage on attack rolls made against the creature that reduced you to 0 hit points, and your weapon attacks against it deal extra damage equal to your proficiency bonus.</p>",
+    "duration": {
+      "unit": "minute",
+      "value": 1
+    },
+    "healing": [
+      {
+        "formula": "@prof",
+        "healingType": "healing",
+        "name": "Default"
+      }
+    ],
+    "proficient": true,
+    "range": [
+      "self",
+      "self"
+    ],
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "self",
+      "shape": "",
+      "size": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 5,
+    "exertionCost": 3,
+    "tradition": "temperedIron"
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.o7CKmWhjgbIYg3F2"
+    },
+    "exportSource": {
+      "world": "a-story-of-beginnings-again",
+      "system": "a5e",
+      "coreVersion": "9.255",
+      "systemVersion": "0.5.5"
+    }
+  }
+}
