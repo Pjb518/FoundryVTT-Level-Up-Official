@@ -79,7 +79,16 @@ export default {
         : getProperty(data.value, `data.range.${index}`)
     );
 
-    const options = Object.entries(CONFIG.A5E.rangeDescriptors);
+    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
+      ([value, label]) => {
+        if (["short", "medium", "long"].includes(value)) {
+          const range = CONFIG.A5E.rangeValues[value];
+          return [value, `${game.i18n.localize(label)} (${range} ft.)`];
+        }
+
+        return [value, label];
+      }
+    );
 
     const selected = computed(() => {
       const range = getProperty(data.value, `data.range.${index}`);
