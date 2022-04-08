@@ -37,7 +37,7 @@ Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5
 
 The content of the `public/packs/` directory is taken from the Level Up: Advanced 5th Edition System Reference Document and used under the terms of the Open Gaming License v1.0a. A copy of the license can be found in the `OGL.md` document.
 
-The images in the `public/assets/` directory are provided for non-commercial use by EN Publishing Inc., and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
+The images in the `public/assets/` directory are provided for non-commercial use by EN Publishing Inc. and can be found [here](https://www.enworld.org/newsimages/lu_monstrous_menagerie_tokens.zip).
 
 The system software is distributed under the [MIT License](https://mit-license.org/).
 
