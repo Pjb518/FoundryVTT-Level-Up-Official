@@ -40,13 +40,14 @@
         <div
           class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
         >
-          <div class="u-w-20">
+          <div class="u-w-full">
             <input
               type="text"
               data-dtype="String"
               name="data.save.dc"
               :id="`${appId}-save-dc`"
               :value="data.data.save.dc"
+              v-autowidth="{ maxWidth: '100%', minWidth: '5rem' }"
             />
           </div>
         </div>
@@ -115,6 +116,7 @@
 
 <script>
 import { inject, ref } from "vue";
+import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
@@ -122,6 +124,7 @@ import UpdateWrapper from "../../../../forms/UpdateWrapper.vue";
 
 export default {
   components: { FormSection, RadioGroup, UpdateWrapper },
+  directives: { autowidth: VueInputAutowidth },
   setup() {
     const appId = inject("appId");
     const data = inject("data");
