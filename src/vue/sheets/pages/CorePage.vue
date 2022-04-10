@@ -190,7 +190,9 @@ export default {
     const features = computed(() =>
       applyFeatureFilters(
         actor,
-        data.value.items.filter((x) => x.type === "feature")
+        data.value.items.filter(
+          (x) => x.type === "feature" && x.data.featureType !== "naturalWeapon"
+        )
       ).sort((a, b) => a.sort - b.sort)
     );
 
@@ -198,7 +200,9 @@ export default {
       applyObjectFilters(
         actor,
         data.value.items.filter(
-          (x) => x.type === "object" && x.data.objectType === "weapon"
+          (x) =>
+            (x.type === "object" && x.data.objectType === "weapon") ||
+            (x.type === "feature" && x.data.featureType === "naturalWeapon")
         )
       ).sort((a, b) => a.sort - b.sort)
     );
