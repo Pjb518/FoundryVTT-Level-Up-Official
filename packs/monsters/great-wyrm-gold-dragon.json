@@ -1,5 +1,5 @@
 {
-  "name": "Ancient Gold Dragon",
+  "name": "Great Wyrm Gold Dragon",
   "type": "npc",
   "img": "systems/a5e/assets/gold-dragon.webp",
   "data": {
@@ -355,8 +355,8 @@
         "failure": 0
       },
       "hp": {
-        "value": 487,
-        "baseMax": 487,
+        "value": 975,
+        "baseMax": 975,
         "temp": "",
         "bonus": null
       },
@@ -374,8 +374,8 @@
           "total": 0
         },
         "d12": {
-          "current": "",
-          "total": ""
+          "current": 0,
+          "total": 0
         },
         "d4": {
           "current": 0,
@@ -472,7 +472,7 @@
     }
   },
   "token": {
-    "name": "Ancient Gold Dragon",
+    "name": "Great Wyrm Gold Dragon",
     "img": "systems/a5e/assets/gold-dragon.webp",
     "displayName": 0,
     "actorLink": false,
@@ -1467,7 +1467,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p style=\"text-align: start\">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature’s turn. It regains spent legendary actions at the start of its turn.</p><p style=\"text-align: start\"><strong>Roar. </strong>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 25 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong>Wing Attack. </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 26 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p><p><strong>Fiery Reprisal (Costs 2 Actions).</strong> The dragon uses Molten Spit against the last creature to deal damage to it.</p>",
+        "description": "<p style=\"text-align: start\">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature’s turn. It regains spent legendary actions at the start of its turn.</p><p style=\"text-align: start\"><strong>Roar. </strong>Each creature of the dragon’s choice within 120 feet that can hear it makes a DC 25 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p><p><strong>Wing Attack. </strong>The dragon beats its wings. Each creature within 15 feet makes a DC 26 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p><p><strong>Fiery Reprisal (Costs 2 Actions).</strong> The dragon uses Molten Spit against the last creature to deal damage to it.</p><p></p><p>The dragon has the following additional legendary actions, which it can be only used while bloodied:</p><p></p><p><strong>Elite Recovery.</strong> The dragon ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated. </p><p><strong>Mortal Terror (Gaze).</strong> A creature within 120 feet makes a saving throw against Roar, even if it has already successfully saved within the past 24 hours. </p><p><strong>Dragon Breath (Costs 2 Actions).</strong> The dragon uses its breath weapon. </p><p><strong>Inner Crucible (Costs 2 Actions).</strong> The dragon recharges its breath weapon.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -1699,7 +1699,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1300000,
+      "sort": 1225000,
       "permission": {
         "default": 0,
         "OzHPoD2Kq4RoEaoB": 3
@@ -1707,7 +1707,322 @@
       "flags": {}
     },
     {
-      "_id": "JIcmTLEr0l4VNkGP",
+      "_id": "418s7VoU5XnFkbLz",
+      "name": "Gleaming Brilliance",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "default",
+        "actionOptions": [
+          "damage"
+        ],
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "3d6",
+            "name": "First time on turn"
+          }
+        ],
+        "description": "<p>When the dragon is first bloodied, it immediately recharges its breath weapon, if it’s not already available. After doing so, the dragon’s golden scales melt, coating its body in a layer of molten gold. A creature that touches the dragon or hits it with a melee attack for the first time on a turn takes 10 (3d6) fire damage.</p>",
+        "duration": {
+          "unit": "permanent",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "self"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": -100000,
+      "permission": {
+        "default": 0,
+        "OzHPoD2Kq4RoEaoB": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "IwuwiEqFaW8Y5dKj",
+      "name": "Legendary Action: Elite Recovery",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "legendaryAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>Can only be used while bloodied.</p><p>The dragon ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "self"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1237500,
+      "permission": {
+        "default": 0,
+        "OzHPoD2Kq4RoEaoB": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "GzKbYQumt3WEWYcC",
+      "name": "Legendary Action: Mortal Terror (Gaze)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "legendaryAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>Can only be used while bloodied.</p><p>A creature within 120 feet makes a saving throw against Roar, even if it has already successfully saved within the past 24 hours.</p>",
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "long"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1262500,
+      "permission": {
+        "default": 0,
+        "OzHPoD2Kq4RoEaoB": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "3Vpy315WalfljhE5",
+      "name": "Legendary Action: Dragon Breath (Costs 2 Actions)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 2,
+          "type": "legendaryAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>Can only be used while bloodied.</p><p>The dragon uses its breath weapon.</p>",
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1268750,
+      "permission": {
+        "default": 0,
+        "OzHPoD2Kq4RoEaoB": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ZakUOIRi3bIQgqlT",
+      "name": "Legendary Action: Inner Crucible (Costs 2 Actions)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 2,
+          "type": "legendaryAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>Can only be used while bloodied.</p><p>The dragon recharges its breath weapon.</p>",
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1275000,
+      "permission": {
+        "default": 0,
+        "OzHPoD2Kq4RoEaoB": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ZPR7nwgN47u3cHhz",
       "name": "Greatsword (Humanoid Form Only)",
       "type": "object",
       "img": "icons/svg/item-bag.svg",

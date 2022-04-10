@@ -262,6 +262,7 @@ A5E.featureTypes = {
   feat: 'A5E.FeatureFeat',
   heritage: 'A5E.FeatureHeritage',
   knack: 'A5E.FeatureKnack',
+  legendaryAction: 'A5E.FeatureLegendaryAction',
   naturalWeapon: 'A5E.FeatureNaturalWeapon',
   other: 'A5E.FeatureOther'
 };
