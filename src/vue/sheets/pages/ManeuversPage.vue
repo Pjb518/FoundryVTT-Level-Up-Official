@@ -138,6 +138,7 @@
 import { computed, inject, onMounted } from "vue";
 
 import applyManeuverFilters from "../../utils/filterHelpers/applyManeuverFilters";
+import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";
@@ -160,14 +161,7 @@ export default {
     );
 
     const maneuverDC = computed(() => {
-      const { abilities, attributes, bonuses } = data.value.data;
-
-      return (
-        8 +
-        attributes.prof +
-        (parseInt(bonuses.maneuverDC, 10) || 0) +
-        Math.max(abilities.str.check.mod, abilities.dex.check.mod)
-      );
+      return calculateManeuverDC(data.value);
     });
 
     onMounted(() => {

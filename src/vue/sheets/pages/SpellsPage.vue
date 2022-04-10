@@ -193,6 +193,7 @@
 import { computed, inject, onMounted } from "vue";
 
 import applySpellFilters from "../../utils/filterHelpers/applySpellFilters";
+import calculateSpellDC from "../../../modules/utils/calculateSpellDC";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";
@@ -215,15 +216,7 @@ export default {
     );
 
     const spellDC = computed(() => {
-      const { abilities, attributes, bonuses } = data.value.data;
-      const spellcastingAbility = attributes.spellcasting || "int";
-
-      return (
-        8 +
-        attributes.prof +
-        (parseInt(bonuses?.spell?.dc, 10) || 0) +
-        abilities[spellcastingAbility].check.mod
-      );
+      return calculateSpellDC(data.value);
     });
 
     const showSpellPoints = computed(

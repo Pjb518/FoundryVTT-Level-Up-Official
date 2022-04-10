@@ -1,8 +1,8 @@
-import { setTransitionHooks } from 'vue';
 import ReactiveDialog from '../apps/reactiveDialog';
 import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
 
 import getChatCardTargets from '../utils/getChatCardTargets';
+import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 /**
  * Override and extend the basic Item implementation.
@@ -50,11 +50,12 @@ export default class Item5e extends Item {
         )
       },
       savingThrow: {
-        ...itemData.save,
+        dc: getDeterministicBonus(itemData.save.dc, rollData),
         label: game.i18n.format(
           'A5E.RollPromptSavingThrow',
           { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.save.targetAbility]) }
-        )
+        ),
+        targetAbility: itemData.save.targetAbility
       }
     };
 

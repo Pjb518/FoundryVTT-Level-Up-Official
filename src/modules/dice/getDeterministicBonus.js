@@ -14,7 +14,7 @@ export default function getDeterministicBonus(formula, rollData = {}) {
   // Construct a roll from the formula and ensure that it's valid before continuing.
   // If the formula isn't valid, return null.
   try {
-    roll = new Roll(formula, rollData);
+    roll = new Roll(formula.toString(), rollData);
     if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
   } catch {
     return null;

@@ -26,6 +26,8 @@ import SpellTabConfigDialog from '../../vue/dialogs/SpellTabConfigDialog.vue';
 import ToolProficienciesConfigDialog from '../../vue/ToolProficienciesConfigDialog.vue';
 import WeaponProficienciesConfigDialog from '../../vue/WeaponProficienciesConfigDialog.vue';
 
+import calculateSpellDC from '../utils/calculateSpellDC';
+import calculateManeuverDC from '../utils/calculateManeuverDC';
 import getBaseAbilityMod from '../utils/getBaseAbilityMod';
 import getDialogData from '../dice/getDialogData';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
@@ -256,6 +258,9 @@ export default class Actor5e extends Actor {
     }, data);
 
     data.level = this.data.data.details.level;
+
+    data.spellDC = calculateSpellDC(this.data);
+    data.maneuverDC = calculateManeuverDC(this.data);
 
     return data;
   }

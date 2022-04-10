@@ -42,8 +42,8 @@
         >
           <div class="u-w-20">
             <input
-              type="number"
-              data-dtype="Number"
+              type="text"
+              data-dtype="String"
               name="data.save.dc"
               :id="`${appId}-save-dc`"
               :value="data.data.save.dc"
