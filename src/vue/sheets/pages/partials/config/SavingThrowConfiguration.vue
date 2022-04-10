@@ -78,8 +78,8 @@
       <div class="u-flex u-gap-md">
         <dt class="u-text-bold">{{ localize("A5E.ItemSavingThrowType") }}:</dt>
         <dd class="u-m-0 u-p-0">
-          <div class="u-flex u-gap-ch" v-if="data.data.save.dc">
-            <span>DC {{ data.data.save.dc }}</span>
+          <div class="u-flex u-gap-ch" v-if="saveDC">
+            <span>DC {{ saveDC }}</span>
 
             <span v-if="data.data.save.targetAbility">
               ({{ localize(config.abilities[data.data.save.targetAbility]) }})
@@ -115,8 +115,10 @@
 </template>
 
 <script>
-import { inject, ref } from "vue";
+import { computed, inject, ref } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
+
+import getDeterministicBonus from "../../../../../modules/dice/getDeterministicBonus";
 
 import FormSection from "../../../../forms/FormSection.vue";
 import RadioGroup from "../../../../forms/RadioGroup.vue";
@@ -126,11 +128,25 @@ export default {
   components: { FormSection, RadioGroup, UpdateWrapper },
   directives: { autowidth: VueInputAutowidth },
   setup() {
+    const actor = inject("actor");
     const appId = inject("appId");
     const data = inject("data");
     const item = inject("item");
 
     const editModeActive = ref(false);
+
+    const saveDC = computed(() => {
+      if (actor === null) return null;
+
+      console.log(
+        getDeterministicBonus(data.value.data.save.dc, actor.getRollData())
+      );
+
+      return getDeterministicBonus(
+        data.value.data.save.dc,
+        actor.getRollData()
+      );
+    });
 
     return {
       appId,
@@ -139,6 +155,7 @@ export default {
       editModeActive,
       item,
       localize: (key) => game.i18n.localize(key),
+      saveDC,
     };
   },
 };

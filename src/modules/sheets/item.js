@@ -100,7 +100,7 @@ export default class ItemSheet5e extends ItemSheet {
 
     const componentWrapper = this.element.find('.a5e-js-component-wrapper')[0];
 
-    this.component = createApp(Sheet, { item: this.item, sheet: this });
+    this.component = createApp(Sheet, { actor: this.item.actor, item: this.item, sheet: this });
     this.component.mount(componentWrapper);
     this.activateListeners($(this.form));
   }

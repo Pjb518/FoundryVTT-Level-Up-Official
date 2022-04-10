@@ -31,7 +31,7 @@ export default {
   inheritAttrs: false,
   components: { ItemDescriptionPage, ItemDetailsPage, ItemHeader, Navigation },
   setup(_, context) {
-    const { item, sheet } = context.attrs;
+    const { actor, item, sheet } = context.attrs;
     const { appId } = sheet;
     const data = ref(sheet.getData());
 
@@ -46,6 +46,7 @@ export default {
 
     const activeTab = shallowRef(tabs[0]);
 
+    provide("actor", actor);
     provide("appId", appId);
     provide("data", data);
     provide("item", item);
