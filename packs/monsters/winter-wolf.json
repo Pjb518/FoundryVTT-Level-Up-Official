@@ -1,11 +1,11 @@
 {
-  "name": "Rug of Smothering",
+  "name": "Winter Wolf",
   "type": "npc",
-  "img": "systems/a5e/assets/animated-object.webp",
+  "img": "systems/a5e/assets/winter-wolf.webp",
   "data": {
     "abilities": {
       "str": {
-        "value": 16,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 1,
+        "value": 6,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 1,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -224,7 +224,7 @@
       },
       "prc": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -279,7 +279,7 @@
       },
       "ste": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 12,
+      "ac": 13,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 45,
-        "baseMax": 45,
+        "value": 67,
+        "baseMax": 67,
         "temp": "",
         "bonus": null
       },
@@ -366,12 +366,12 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
-        },
-        "d10": {
           "current": 0,
           "total": 0
+        },
+        "d10": {
+          "current": 9,
+          "total": 9
         },
         "d12": {
           "current": 0,
@@ -389,13 +389,13 @@
       "movement": {
         "burrow": "",
         "climb": "",
-        "fly": "30",
+        "fly": "",
         "swim": "",
-        "walk": "0"
+        "walk": "50"
       },
       "senses": {
-        "blindsight": "blind beyond 60",
-        "darkvision": "",
+        "blindsight": "",
+        "darkvision": "30",
         "tremorsense": "",
         "truesight": ""
       },
@@ -424,16 +424,20 @@
       "cp": 0
     },
     "details": {
-      "bio": "<h2><strong>COMBAT</strong></h2><p>Animated objects usually wait immobile until touched or approached, and then attack the closest creature. Some follow more complicated routines. Animated objects follow the commands last given them by their creators and show no initiative.</p><p><strong>DESCRIPTION</strong></p><p>A rug of smothering lies in wait in a well-furnished room. When a victim steps on or sits on the rug, it rolls up around the victim and squeezes the life out of them. A nearby skeleton might betray the rug’s dangerous nature.&nbsp;</p><p>A rug of smothering can also be used as a curtain or tapestry, in which case it may attack creatures that touch it or merely move within 5 feet.</p><p><strong>BEHAVIOR</strong></p><p>1-3 Immobile, attacking when an intruder comes within a set distance</p><p>4 When approached, delivers a riddle or warning with a <em>magic mouth </em>and attacks those that don’t heed it</p><p>5 Loudly patrolling or mock-fighting</p><p>6 Immobile, attacking only when intruders approach an object or location it guards</p><p><strong>ENCOUNTERS</strong></p><p>Animated objects stand guard in magical laboratories and ancient ruins.</p><p><strong>CR 0–2</strong> 1d4 flying swords; 1 or 2 animated armors; rug of smothering</p><p><strong>Treasure</strong> 700 sp, silver and agate bracelet (25 gp)</p><p><strong>CR 3–4</strong> 3 or 4 animated armors; 2 animated armors with 1d4 flying swords; walking statue; rug of smothering with animated armor and 2 flying swords</p><p><strong>Treasure</strong> 350 gp, <em>spell scrolls</em> of <em>thunderwave</em> and <em>unseen servant</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Constructs are beings that were built or made. Some are mindless machines, while others have some form of intelligence. Guardians are constructs.</p>",
+      "bio": "",
       "creatureTypes": [
-        "construct"
+        "monstrosity"
       ],
-      "cr": 2,
+      "cr": 3,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [],
+      "languages": [
+        "common",
+        "giant",
+        "Winter Wolf"
+      ],
       "tools": [],
       "weapons": []
     },
@@ -459,37 +463,25 @@
     },
     "traits": {
       "size": "lg",
-      "conditionImmunities": [
-        "blinded",
-        "charmed",
-        "deafened",
-        "fatigue",
-        "frightened",
-        "paralyzed",
-        "petrified",
-        "poisoned"
-      ],
+      "conditionImmunities": [],
       "damageImmunities": [
-        "poison",
-        "psychic"
+        "cold"
       ],
-      "damageResistances": [
-        "bludgeoning"
-      ],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Rug of Smothering",
-    "img": "systems/a5e/assets/animated-object.webp",
+    "name": "Winter Wolf",
+    "img": "systems/a5e/assets/winter-wolf.webp",
     "displayName": 0,
     "actorLink": false,
-    "width": 2,
-    "height": 2,
+    "width": 1,
+    "height": 1,
     "scale": 1,
     "mirrorX": false,
     "mirrorY": false,
-    "lockRotation": false,
+    "lockRotation": true,
     "rotation": 0,
     "alpha": 1,
     "vision": false,
@@ -517,23 +509,80 @@
         "max": 1
       }
     },
-    "disposition": -1,
+    "disposition": 0,
     "displayBars": 0,
     "bar1": {
-      "attribute": "attributes.hp"
+      "attribute": null
     },
     "bar2": {
       "attribute": null
     },
-    "flags": {},
+    "flags": {
+      "perfect-vision": {
+        "visionRules": "default",
+        "monoVisionColor": "",
+        "sightLimit": null,
+        "light": {}
+      },
+      "core": {},
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "monks-enhanced-journal": {
+        "chatbubble": ""
+      },
+      "tagger": {
+        "tags": ""
+      },
+      "barbrawl": {
+        "resourceBars": {
+          "bar1": {
+            "order": 0,
+            "id": "bar1",
+            "attribute": "attributes.hp",
+            "mincolor": "#FF0000",
+            "maxcolor": "#80FF00",
+            "ownerVisibility": 50,
+            "otherVisibility": 0,
+            "position": "bottom-inner"
+          },
+          "bar2": {
+            "order": 1,
+            "id": "bar2",
+            "attribute": "attributes.ac",
+            "mincolor": "#000080",
+            "maxcolor": "#80B3FF",
+            "ownerVisibility": 50,
+            "otherVisibility": 50,
+            "position": "top-inner"
+          }
+        }
+      },
+      "token-auras": {
+        "aura1": {
+          "permission": "all",
+          "colour": "#ffffff",
+          "opacity": 0.5,
+          "distance": null,
+          "square": false
+        },
+        "aura2": {
+          "permission": "all",
+          "colour": "#ffffff",
+          "opacity": 0.5,
+          "distance": null,
+          "square": false
+        }
+      }
+    },
     "randomImg": false
   },
   "items": [
     {
-      "_id": "FJqCGCU5YrxK5fBU",
-      "name": "Spell-Created",
+      "_id": "t2wLkYWhz6xPdfhQ",
+      "name": "Keen Hearing and Smell",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/mystery-man.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -555,7 +604,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19.</p>",
+        "description": "<p>The wolf has advantage on Perception checks that rely on hearing and smell.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -585,19 +634,27 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.rJDDxrRSLZ42NdaN"
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.G6ZUR5lBdpNHCx0O"
+        },
+        "scene-packer": {
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.G6ZUR5lBdpNHCx0O",
+          "hash": "f59c811abf2532440977393a9873149ed206320f"
+        },
+        "cf": {
+          "id": "temp_7voeoukxej5"
         }
       }
     },
     {
-      "_id": "ZE0rPt6n9V5UCy1D",
-      "name": "False Appearance",
+      "_id": "6LnTIiZX50epMOhy",
+      "name": "Pack Tactics",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/mystery-man.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -619,7 +676,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>While motionless, the rug is indistinguishable from a normal rug.</p>",
+        "description": "<p>The wolf has advantage on attack rolls against a creature if at least one of the wolf’s allies is within 5 feet of the creature and not incapacitated.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -649,34 +706,39 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.JEtdmh9lseyKDxw6"
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.CVfmopBXNXNThu3F"
+        },
+        "scene-packer": {
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.CVfmopBXNXNThu3F",
+          "hash": "b9a79c934b23eaff8f3a0e265a28b71afe3d7074"
+        },
+        "cf": {
+          "id": "temp_7voeoukxej5"
         }
       }
     },
     {
-      "_id": "IorrZ7xbDdetIcjR",
-      "name": "Smother",
+      "_id": "O3CP3ylDqyux9rLI",
+      "name": "Camouflage",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/mystery-man.svg",
       "data": {
-        "ability": "str",
-        "actionOptions": [
-          "savingThrow",
-          "attack"
-        ],
+        "ability": "",
+        "actionOptions": [],
         "activation": {
-          "cost": 1,
-          "type": "action",
+          "cost": "",
+          "type": "",
           "reactionTrigger": ""
         },
         "attack": {
           "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
+          "critThreshold": 20,
+          "type": ""
         },
         "area": {
           "shape": "",
@@ -685,15 +747,8 @@
         "check": {
           "ability": "str"
         },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "",
-            "formula": "",
-            "name": "Smothering"
-          }
-        ],
-        "description": "<p>One Large or smaller creature. </p><p>On a hit<em>, </em>the target is grappled (escape DC 13). Until this grapple ends, the target is restrained and can’t breathe. When the rug is dealt damage while it is grappling, it takes half the damage (rounded down) and the other half is dealt to the grappled target. The rug can only have one creature grappled at once.</p>",
+        "damage": [],
+        "description": "<p>The wolf has advantage on Stealth checks made to hide in snow.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -702,9 +757,9 @@
         "proficient": true,
         "range": [],
         "save": {
-          "dc": 13,
+          "dc": "",
           "onSave": "",
-          "targetAbility": "dex"
+          "targetAbility": ""
         },
         "source": "",
         "target": {
@@ -719,28 +774,37 @@
         "featureType": ""
       },
       "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 50000,
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.5z8anPpat3kpCA6j"
+        },
+        "scene-packer": {
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.5z8anPpat3kpCA6j",
+          "hash": "e6b5b635e87dc4efdd360a0e6255200ce40c7461"
+        },
+        "cf": {
+          "id": "temp_7voeoukxej5"
         }
       }
     },
     {
-      "_id": "xz9bBWBmyz5T5Xgf",
-      "name": "Squeeze",
+      "_id": "4YItE7SkGb8Xzplv",
+      "name": "Bite",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/melee.svg",
       "data": {
         "ability": "str",
         "actionOptions": [
           "attack",
-          "damage"
+          "damage",
+          "savingThrow"
         ],
         "activation": {
           "cost": 1,
@@ -762,27 +826,110 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6+@str.mod",
-            "name": "Squeeze"
+            "damageType": "piercing",
+            "formula": "2d6 + @mod",
+            "name": "Normal"
           }
         ],
-        "description": "<p>One creature grappled by the rug.</p>",
+        "description": "<p><em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6+4) piercing damage. If the target is a creature, it makes a DC 14 Strength saving throw, falling prone on a failure.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft."
+        ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 14,
+          "onSave": "Negates falling prone.",
+          "targetAbility": "str"
         },
         "source": "",
         "target": {
-          "quantity": "",
+          "quantity": 1,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "PauvUFKWSIF97Z10": 3
+      },
+      "flags": {
+        "scene-packer": {
+          "hash": "fb5a1e78fe2911b26e1e22107cefcb8894a84d80",
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.iXW8MsOcG1XuXIn2"
+        },
+        "core": {
+          "sourceId": "Item.6y5L0wnBLYVcFKCn"
+        },
+        "cf": {
+          "id": "temp_fssdi0qyh2"
+        }
+      }
+    },
+    {
+      "_id": "oH6GpNIaperuhFv9",
+      "name": "Cold Breath (Recharge 5-6)",
+      "type": "feature",
+      "img": "systems/pf2e/icons/default-icons/melee.svg",
+      "data": {
+        "ability": null,
+        "actionOptions": [
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "6",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "cone",
+          "size": "15-foot"
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "cold",
+            "formula": "4d8",
+            "name": "Normal"
+          }
+        ],
+        "description": "<p style=\"text-align: start\">The wolf exhales frost in a 15-foot cone. Each target creature in the area makes a DC 12 Dexterity saving throw, taking 18 (4d8) cold damage on a failure or half damage on a success.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": false,
+        "range": [],
+        "save": {
+          "dc": 12,
+          "onSave": "Half damage",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
           "type": ""
         },
         "uses": {
@@ -793,28 +940,47 @@
         "featureType": ""
       },
       "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 100000,
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+          "sourceId": "Item.O4rfmFbmQha1aafV"
+        },
+        "scene-packer": {
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.AtKLfdgC3o50Q6ry",
+          "hash": "6669a62e1b3df5335fe949682a7a78b60e005ddb"
+        },
+        "cf": {
+          "id": "temp_fssdi0qyh2"
         }
       }
     }
   ],
   "effects": [],
   "flags": {
+    "scene-packer": {
+      "hash": "cd75e4c5fc0243a4df57794b13e4b6a0fb31e001",
+      "sourceId": "Actor.ctnoqkMWYLsVgo2X"
+    },
     "a5e": {
+      "availableSpellLevels": [],
       "sheetIsLocked": true
     },
+    "core": {
+      "sourceId": "Actor.ctnoqkMWYLsVgo2X"
+    },
+    "cf": {
+      "id": "temp_6tavq04sq4n"
+    },
     "exportSource": {
-      "world": "a5e-rend",
+      "world": "a5e-packs",
       "system": "a5e",
-      "coreVersion": "9.255",
+      "coreVersion": "9.266",
       "systemVersion": "0.5.5"
     }
   }

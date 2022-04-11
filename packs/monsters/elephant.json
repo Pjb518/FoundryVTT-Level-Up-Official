@@ -1,11 +1,11 @@
 {
-  "name": "Rug of Smothering",
+  "name": "Elephant",
   "type": "npc",
-  "img": "systems/a5e/assets/animated-object.webp",
+  "img": "icons/svg/mystery-man.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 16,
+        "value": 22,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,7 +17,7 @@
         }
       },
       "dex": {
-        "value": 14,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 14,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 1,
+        "value": 4,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 1,
+        "value": 6,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -355,8 +355,8 @@
         "failure": 0
       },
       "hp": {
-        "value": 45,
-        "baseMax": 45,
+        "value": 76,
+        "baseMax": 76,
         "temp": "",
         "bonus": null
       },
@@ -366,16 +366,16 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
+          "current": 0,
+          "total": 0
         },
         "d10": {
           "current": 0,
           "total": 0
         },
         "d12": {
-          "current": 0,
-          "total": 0
+          "current": 8,
+          "total": 8
         },
         "d4": {
           "current": 0,
@@ -389,15 +389,15 @@
       "movement": {
         "burrow": "",
         "climb": "",
-        "fly": "30",
+        "fly": "",
         "swim": "",
-        "walk": "0"
+        "walk": "40"
       },
       "senses": {
-        "blindsight": "blind beyond 60",
-        "darkvision": "",
-        "tremorsense": "",
-        "truesight": ""
+        "blindsight": 0,
+        "darkvision": 0,
+        "tremorsense": 0,
+        "truesight": 0
       },
       "inspiration": false,
       "fatigue": 0,
@@ -424,11 +424,11 @@
       "cp": 0
     },
     "details": {
-      "bio": "<h2><strong>COMBAT</strong></h2><p>Animated objects usually wait immobile until touched or approached, and then attack the closest creature. Some follow more complicated routines. Animated objects follow the commands last given them by their creators and show no initiative.</p><p><strong>DESCRIPTION</strong></p><p>A rug of smothering lies in wait in a well-furnished room. When a victim steps on or sits on the rug, it rolls up around the victim and squeezes the life out of them. A nearby skeleton might betray the rug’s dangerous nature.&nbsp;</p><p>A rug of smothering can also be used as a curtain or tapestry, in which case it may attack creatures that touch it or merely move within 5 feet.</p><p><strong>BEHAVIOR</strong></p><p>1-3 Immobile, attacking when an intruder comes within a set distance</p><p>4 When approached, delivers a riddle or warning with a <em>magic mouth </em>and attacks those that don’t heed it</p><p>5 Loudly patrolling or mock-fighting</p><p>6 Immobile, attacking only when intruders approach an object or location it guards</p><p><strong>ENCOUNTERS</strong></p><p>Animated objects stand guard in magical laboratories and ancient ruins.</p><p><strong>CR 0–2</strong> 1d4 flying swords; 1 or 2 animated armors; rug of smothering</p><p><strong>Treasure</strong> 700 sp, silver and agate bracelet (25 gp)</p><p><strong>CR 3–4</strong> 3 or 4 animated armors; 2 animated armors with 1d4 flying swords; walking statue; rug of smothering with animated armor and 2 flying swords</p><p><strong>Treasure</strong> 350 gp, <em>spell scrolls</em> of <em>thunderwave</em> and <em>unseen servant</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Constructs are beings that were built or made. Some are mindless machines, while others have some form of intelligence. Guardians are constructs.</p>",
+      "bio": "",
       "creatureTypes": [
-        "construct"
+        "beast"
       ],
-      "cr": 2,
+      "cr": 4,
       "privateNotes": ""
     },
     "proficiencies": {
@@ -458,38 +458,24 @@
       }
     },
     "traits": {
-      "size": "lg",
-      "conditionImmunities": [
-        "blinded",
-        "charmed",
-        "deafened",
-        "fatigue",
-        "frightened",
-        "paralyzed",
-        "petrified",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison",
-        "psychic"
-      ],
-      "damageResistances": [
-        "bludgeoning"
-      ],
+      "size": "huge",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Rug of Smothering",
-    "img": "systems/a5e/assets/animated-object.webp",
+    "name": "Elephant",
+    "img": "icons/svg/mystery-man.svg",
     "displayName": 0,
     "actorLink": false,
-    "width": 2,
-    "height": 2,
+    "width": 1,
+    "height": 1,
     "scale": 1,
     "mirrorX": false,
     "mirrorY": false,
-    "lockRotation": false,
+    "lockRotation": true,
     "rotation": 0,
     "alpha": 1,
     "vision": false,
@@ -517,156 +503,86 @@
         "max": 1
       }
     },
-    "disposition": -1,
+    "disposition": 0,
     "displayBars": 0,
     "bar1": {
-      "attribute": "attributes.hp"
+      "attribute": null
     },
     "bar2": {
       "attribute": null
     },
-    "flags": {},
+    "flags": {
+      "perfect-vision": {
+        "visionRules": "default",
+        "monoVisionColor": "",
+        "sightLimit": null,
+        "light": {}
+      },
+      "core": {},
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "monks-enhanced-journal": {
+        "chatbubble": ""
+      },
+      "tagger": {
+        "tags": ""
+      },
+      "barbrawl": {
+        "resourceBars": {
+          "bar1": {
+            "order": 0,
+            "id": "bar1",
+            "attribute": "attributes.hp",
+            "mincolor": "#FF0000",
+            "maxcolor": "#80FF00",
+            "ownerVisibility": 50,
+            "otherVisibility": 0,
+            "position": "bottom-inner"
+          },
+          "bar2": {
+            "order": 1,
+            "id": "bar2",
+            "attribute": "attributes.ac",
+            "mincolor": "#000080",
+            "maxcolor": "#80B3FF",
+            "ownerVisibility": 50,
+            "otherVisibility": 50,
+            "position": "top-inner"
+          }
+        }
+      },
+      "token-auras": {
+        "aura1": {
+          "permission": "all",
+          "colour": "#ffffff",
+          "opacity": 0.5,
+          "distance": null,
+          "square": false
+        },
+        "aura2": {
+          "permission": "all",
+          "colour": "#ffffff",
+          "opacity": 0.5,
+          "distance": null,
+          "square": false
+        }
+      }
+    },
     "randomImg": false
   },
   "items": [
     {
-      "_id": "FJqCGCU5YrxK5fBU",
-      "name": "Spell-Created",
+      "_id": "WKfGqII84ftoqiLe",
+      "name": "Gore",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.rJDDxrRSLZ42NdaN"
-        }
-      }
-    },
-    {
-      "_id": "ZE0rPt6n9V5UCy1D",
-      "name": "False Appearance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the rug is indistinguishable from a normal rug.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.JEtdmh9lseyKDxw6"
-        }
-      }
-    },
-    {
-      "_id": "IorrZ7xbDdetIcjR",
-      "name": "Smother",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/melee.svg",
       "data": {
         "ability": "str",
         "actionOptions": [
-          "savingThrow",
-          "attack"
+          "attack",
+          "damage",
+          "savingThrow"
         ],
         "activation": {
           "cost": 1,
@@ -688,28 +604,30 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "",
-            "formula": "",
-            "name": "Smothering"
+            "damageType": "piercing",
+            "formula": "3d8 +@mod",
+            "name": "Normal"
           }
         ],
-        "description": "<p>One Large or smaller creature. </p><p>On a hit<em>, </em>the target is grappled (escape DC 13). Until this grapple ends, the target is restrained and can’t breathe. When the rug is dealt damage while it is grappling, it takes half the damage (rounded down) and the other half is dealt to the grappled target. The rug can only have one creature grappled at once.</p>",
+        "description": "<p style=\"text-align: start\">Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage. If the elephant moves at least 20 feet straight towards the target before the attack, the target makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft"
+        ],
         "save": {
-          "dc": 13,
-          "onSave": "",
-          "targetAbility": "dex"
+          "dc": 16,
+          "onSave": "Negates falling prone.",
+          "targetAbility": "str"
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": ""
+          "quantity": 1,
+          "type": "creature"
         },
         "uses": {
           "value": null,
@@ -719,23 +637,27 @@
         "featureType": ""
       },
       "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 50000,
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+          "sourceId": "Item.O4rfmFbmQha1aafV"
+        },
+        "scene-packer": {
+          "hash": "b021917934e990aa2d6bbabd9a2a576fcecb641c"
         }
       }
     },
     {
-      "_id": "xz9bBWBmyz5T5Xgf",
-      "name": "Squeeze",
+      "_id": "XQBNNOy2MzmOr4FW",
+      "name": "Stomp",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/melee.svg",
       "data": {
         "ability": "str",
         "actionOptions": [
@@ -763,11 +685,81 @@
           {
             "canCrit": true,
             "damageType": "bludgeoning",
-            "formula": "2d6+@str.mod",
-            "name": "Squeeze"
+            "formula": "3d10 + @mod",
+            "name": "Normal"
           }
         ],
-        "description": "<p>One creature grappled by the rug.</p>",
+        "description": "<p style=\"text-align: start\">Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage. If the elephant moves at least 20 feet straight towards the target before the attack, the target makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "5 ft"
+        ],
+        "save": {
+          "dc": 16,
+          "onSave": "Negates falling prone.",
+          "targetAbility": "str"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.O4rfmFbmQha1aafV"
+        },
+        "scene-packer": {
+          "hash": "9efc5988bf7b7152705c3b21944ce5f6854ce74b"
+        }
+      }
+    },
+    {
+      "_id": "T87V1QFE488UgZ8s",
+      "name": "Trample Underfoot",
+      "type": "feature",
+      "img": "systems/pf2e/icons/default-icons/effect.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The elephant makes a stomp attack against a prone creature.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -793,28 +785,43 @@
         "featureType": ""
       },
       "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 100000,
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+          "sourceId": "Item.O4rfmFbmQha1aafV"
+        },
+        "scene-packer": {
+          "hash": "534946b1a65f4b7b0b17fcbef370af1b7d5cffdf"
         }
       }
     }
   ],
   "effects": [],
   "flags": {
+    "scene-packer": {
+      "hash": "40b86c8bd3fc5fbb1f240f84acfa15fb275c90ba",
+      "sourceId": "Actor.MaEzHw70PGn82gwZ"
+    },
     "a5e": {
+      "availableSpellLevels": [],
       "sheetIsLocked": true
     },
+    "core": {
+      "sourceId": "Actor.MaEzHw70PGn82gwZ"
+    },
+    "cf": {
+      "id": "temp_dm8wib8p4or"
+    },
     "exportSource": {
-      "world": "a5e-rend",
+      "world": "a5e-packs",
       "system": "a5e",
-      "coreVersion": "9.255",
+      "coreVersion": "9.266",
       "systemVersion": "0.5.5"
     }
   }

@@ -1,11 +1,11 @@
 {
-  "name": "Rug of Smothering",
+  "name": "Giant Owl",
   "type": "npc",
-  "img": "systems/a5e/assets/animated-object.webp",
+  "img": "icons/svg/cowled.svg",
   "data": {
     "abilities": {
       "str": {
-        "value": 16,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -29,7 +29,7 @@
         }
       },
       "con": {
-        "value": 14,
+        "value": 12,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,7 +42,7 @@
         }
       },
       "int": {
-        "value": 1,
+        "value": 8,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -54,7 +54,7 @@
         }
       },
       "wis": {
-        "value": 10,
+        "value": 14,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 1,
+        "value": 10,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -224,7 +224,7 @@
       },
       "prc": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -279,7 +279,7 @@
       },
       "ste": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -355,8 +355,8 @@
         "failure": 0
       },
       "hp": {
-        "value": 45,
-        "baseMax": 45,
+        "value": 19,
+        "baseMax": 19,
         "temp": "",
         "bonus": null
       },
@@ -366,12 +366,12 @@
           "total": 0
         },
         "d8": {
-          "current": 7,
-          "total": 7
-        },
-        "d10": {
           "current": 0,
           "total": 0
+        },
+        "d10": {
+          "current": 3,
+          "total": 3
         },
         "d12": {
           "current": 0,
@@ -389,13 +389,13 @@
       "movement": {
         "burrow": "",
         "climb": "",
-        "fly": "30",
+        "fly": "60",
         "swim": "",
-        "walk": "0"
+        "walk": "5"
       },
       "senses": {
-        "blindsight": "blind beyond 60",
-        "darkvision": "",
+        "blindsight": "",
+        "darkvision": "120",
         "tremorsense": "",
         "truesight": ""
       },
@@ -424,16 +424,18 @@
       "cp": 0
     },
     "details": {
-      "bio": "<h2><strong>COMBAT</strong></h2><p>Animated objects usually wait immobile until touched or approached, and then attack the closest creature. Some follow more complicated routines. Animated objects follow the commands last given them by their creators and show no initiative.</p><p><strong>DESCRIPTION</strong></p><p>A rug of smothering lies in wait in a well-furnished room. When a victim steps on or sits on the rug, it rolls up around the victim and squeezes the life out of them. A nearby skeleton might betray the rug’s dangerous nature.&nbsp;</p><p>A rug of smothering can also be used as a curtain or tapestry, in which case it may attack creatures that touch it or merely move within 5 feet.</p><p><strong>BEHAVIOR</strong></p><p>1-3 Immobile, attacking when an intruder comes within a set distance</p><p>4 When approached, delivers a riddle or warning with a <em>magic mouth </em>and attacks those that don’t heed it</p><p>5 Loudly patrolling or mock-fighting</p><p>6 Immobile, attacking only when intruders approach an object or location it guards</p><p><strong>ENCOUNTERS</strong></p><p>Animated objects stand guard in magical laboratories and ancient ruins.</p><p><strong>CR 0–2</strong> 1d4 flying swords; 1 or 2 animated armors; rug of smothering</p><p><strong>Treasure</strong> 700 sp, silver and agate bracelet (25 gp)</p><p><strong>CR 3–4</strong> 3 or 4 animated armors; 2 animated armors with 1d4 flying swords; walking statue; rug of smothering with animated armor and 2 flying swords</p><p><strong>Treasure</strong> 350 gp, <em>spell scrolls</em> of <em>thunderwave</em> and <em>unseen servant</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Constructs are beings that were built or made. Some are mindless machines, while others have some form of intelligence. Guardians are constructs.</p>",
+      "bio": "",
       "creatureTypes": [
-        "construct"
+        "beast"
       ],
-      "cr": 2,
+      "cr": 0.25,
       "privateNotes": ""
     },
     "proficiencies": {
       "armor": [],
-      "languages": [],
+      "languages": [
+        "Giant Owl, understands but can’t speak Common, Elvish, and Sylvan"
+      ],
       "tools": [],
       "weapons": []
     },
@@ -459,37 +461,23 @@
     },
     "traits": {
       "size": "lg",
-      "conditionImmunities": [
-        "blinded",
-        "charmed",
-        "deafened",
-        "fatigue",
-        "frightened",
-        "paralyzed",
-        "petrified",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison",
-        "psychic"
-      ],
-      "damageResistances": [
-        "bludgeoning"
-      ],
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Rug of Smothering",
-    "img": "systems/a5e/assets/animated-object.webp",
+    "name": "Giant Owl",
+    "img": "icons/svg/cowled.svg",
     "displayName": 0,
     "actorLink": false,
-    "width": 2,
-    "height": 2,
+    "width": 1,
+    "height": 1,
     "scale": 1,
     "mirrorX": false,
     "mirrorY": false,
-    "lockRotation": false,
+    "lockRotation": true,
     "rotation": 0,
     "alpha": 1,
     "vision": false,
@@ -515,25 +503,91 @@
       "darkness": {
         "min": 0,
         "max": 1
-      }
+      },
+      "color": null
     },
-    "disposition": -1,
-    "displayBars": 0,
+    "disposition": 0,
+    "displayBars": 50,
     "bar1": {
-      "attribute": "attributes.hp"
+      "attribute": null
     },
     "bar2": {
       "attribute": null
     },
-    "flags": {},
-    "randomImg": false
+    "flags": {
+      "perfect-vision": {
+        "visionRules": "default",
+        "monoVisionColor": "",
+        "sightLimit": null,
+        "light": {}
+      },
+      "core": {},
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "monks-enhanced-journal": {
+        "chatbubble": ""
+      },
+      "tagger": {
+        "tags": ""
+      },
+      "barbrawl": {
+        "resourceBars": {
+          "bar1": {
+            "order": 0,
+            "id": "bar1",
+            "attribute": "attributes.hp",
+            "mincolor": "#FF0000",
+            "maxcolor": "#80FF00",
+            "ownerVisibility": 50,
+            "otherVisibility": 0,
+            "position": "bottom-inner"
+          },
+          "bar2": {
+            "order": 1,
+            "id": "bar2",
+            "attribute": "attributes.ac",
+            "mincolor": "#000080",
+            "maxcolor": "#80B3FF",
+            "ownerVisibility": 50,
+            "otherVisibility": 50,
+            "position": "top-inner",
+            "max": null
+          }
+        }
+      },
+      "token-auras": {
+        "aura1": {
+          "permission": "all",
+          "colour": "#ffffff",
+          "opacity": 0.5,
+          "distance": null,
+          "square": false
+        },
+        "aura2": {
+          "permission": "all",
+          "colour": "#ffffff",
+          "opacity": 0.5,
+          "distance": null,
+          "square": false
+        }
+      },
+      "monks-little-details": {
+        "bloodsplat-colour": ""
+      },
+      "image-hover": {
+        "hideArt": false
+      }
+    },
+    "randomImg": false,
+    "tint": null
   },
   "items": [
     {
-      "_id": "FJqCGCU5YrxK5fBU",
-      "name": "Spell-Created",
+      "_id": "g04ECPIYKvNjwk4H",
+      "name": "Flyby",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/mystery-man.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -555,7 +609,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The DC for <em>dispel magic</em> to destroy this creature is 19.</p>",
+        "description": "<p>The owl doesn’t provoke opportunity attacks when it flies out of a creature’s reach.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -585,19 +639,23 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.rJDDxrRSLZ42NdaN"
+          "sourceId": "Item.O4rfmFbmQha1aafV"
+        },
+        "scene-packer": {
+          "hash": "57c41f45e6c08ba3091b81c14a4229903956e6da"
         }
       }
     },
     {
-      "_id": "ZE0rPt6n9V5UCy1D",
-      "name": "False Appearance",
+      "_id": "5x6yRYrX9WXhxtnS",
+      "name": "Keen Hearing and Sight",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/mystery-man.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
@@ -619,7 +677,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>While motionless, the rug is indistinguishable from a normal rug.</p>",
+        "description": "<p>The owl has advantage on Perception checks that rely on hearing and sight.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -649,93 +707,23 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.JEtdmh9lseyKDxw6"
+          "sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.G6ZUR5lBdpNHCx0O"
+        },
+        "scene-packer": {
+          "hash": "bc5117b2135846819e8fc9ca628816026d24aac7"
         }
       }
     },
     {
-      "_id": "IorrZ7xbDdetIcjR",
-      "name": "Smother",
+      "_id": "7EO8AvAU6fl1Bp3Q",
+      "name": "Talons",
       "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "str",
-        "actionOptions": [
-          "savingThrow",
-          "attack"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "",
-            "formula": "",
-            "name": "Smothering"
-          }
-        ],
-        "description": "<p>One Large or smaller creature. </p><p>On a hit<em>, </em>the target is grappled (escape DC 13). Until this grapple ends, the target is restrained and can’t breathe. When the rug is dealt damage while it is grappling, it takes half the damage (rounded down) and the other half is dealt to the grappled target. The rug can only have one creature grappled at once.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 13,
-          "onSave": "",
-          "targetAbility": "dex"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 50000,
-      "permission": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      }
-    },
-    {
-      "_id": "xz9bBWBmyz5T5Xgf",
-      "name": "Squeeze",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
+      "img": "systems/pf2e/icons/default-icons/melee.svg",
       "data": {
         "ability": "str",
         "actionOptions": [
@@ -762,19 +750,21 @@
         "damage": [
           {
             "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6+@str.mod",
-            "name": "Squeeze"
+            "damageType": "slashing",
+            "formula": "1d6 + @mod",
+            "name": "Normal"
           }
         ],
-        "description": "<p>One creature grappled by the rug.</p>",
+        "description": "<p style=\"text-align: start\"><em>Melee Weapon Attack</em>: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage.</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft"
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -782,8 +772,8 @@
         },
         "source": "",
         "target": {
-          "quantity": "",
-          "type": ""
+          "quantity": 1,
+          "type": "creature"
         },
         "uses": {
           "value": null,
@@ -793,28 +783,42 @@
         "featureType": ""
       },
       "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 100000,
+      "folder": null,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
+        "YmEH73LzFTitIZhk": 3,
+        "PauvUFKWSIF97Z10": 3
       },
       "flags": {
         "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+          "sourceId": "Item.O4rfmFbmQha1aafV"
+        },
+        "scene-packer": {
+          "hash": "680871bd24cf993f8c2593463ff38880a9ec6d00"
         }
       }
     }
   ],
   "effects": [],
   "flags": {
+    "scene-packer": {
+      "hash": "886efd84053d2e7c6c4409624c0d566309c56444",
+      "sourceId": "Actor.1hUsznqDhFwn0uQu"
+    },
     "a5e": {
       "sheetIsLocked": true
     },
+    "core": {
+      "sourceId": "Actor.1hUsznqDhFwn0uQu"
+    },
+    "cf": {
+      "id": "temp_x6whmrabqf"
+    },
     "exportSource": {
-      "world": "a5e-rend",
+      "world": "a5e-packs",
       "system": "a5e",
-      "coreVersion": "9.255",
+      "coreVersion": "9.266",
       "systemVersion": "0.5.5"
     }
   }
