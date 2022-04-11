@@ -12,7 +12,7 @@ import CultureConfigDialog from '../../vue/dialogs/CultureConfigDialog.vue';
 import DamageIRVConfigDialog from '../../vue/dialogs/DamageIRVConfigDialog.vue';
 import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
 import HeritageConfigDialog from '../../vue/dialogs/HeritageConfigDialog.vue';
-import HitPointConfigDialog from '../../vue/HitPointConfigDialog.vue';
+import HitPointConfigDialog from '../../vue/dialogs/HitPointConfigDialog.vue';
 import InitiativeConfigDialog from '../../vue/dialogs/InitiativeConfigDialog.vue';
 import LanguagesConfigDialog from '../../vue/dialogs/LanguagesConfigDialog.vue';
 import ManeuverTabConfigDialog from '../../vue/dialogs/ManeuverTabConfigDialog.vue';
