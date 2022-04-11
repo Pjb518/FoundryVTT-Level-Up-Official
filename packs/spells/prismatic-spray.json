@@ -1,0 +1,83 @@
+{
+  "name": "Prismatic Spray",
+  "type": "spell",
+  "img": "icons/magic/light/beams-rays-orange-purple-large.webp",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "savingThrow"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "action",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [],
+    "description": "<p>You unleash 8 rays of light, each with a different purpose and effect. For each target in the area, roll a d8 to determine the ray that affects it.</p><p>1&mdash;Red: The target takes 10d6 fire damage.</p><p>2&mdash;Orange: The target takes 10d6 acid damage.</p><p>3&mdash;Yellow: The target takes 10d6 lightning damage.</p><p>4&mdash;Green: The target takes 10d6 poison damage.</p><p>5&mdash;Blue: The target takes 10d6 cold damage.</p><p>6&mdash;Indigo: The target is restrained and at the end of each of its turns it makes a Constitution saving throw. Once it accumulates two failed saves it permanently turns to stone, or when it accumulates two successful saves the effect ends.</p><p>7&mdash;Violet: The target is blinded. At the start of your next turn, the target makes a Wisdom saving throw, ending the effect on a success.</p><p>On a failed save, the target is banished to another random plane and is no longer blind. If it originated from another plane it returns there, while other creatures are generally cast into the Astral Plane or Ethereal Plane.</p><p>8&mdash;Special: The target is hit by two rays.</p><p>Roll a d8 twice to determine which rays, rerolling any 8s.</p>",
+    "duration": {
+      "unit": "instantaneous",
+      "value": ""
+    },
+    "healing": [],
+    "proficient": true,
+    "range": [
+      "self"
+    ],
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage damage or negates a condition",
+      "targetAbility": "dex"
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "area",
+      "shape": "cone",
+      "size": "60 ft."
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 7,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "prismatic"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "lu-a5e",
+      "system": "a5e",
+      "coreVersion": "9.266",
+      "systemVersion": "0.5.5"
+    }
+  }
+}

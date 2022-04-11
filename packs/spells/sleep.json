@@ -1,0 +1,90 @@
+{
+  "name": "Sleep",
+  "type": "spell",
+  "img": "icons/magic/control/sleep-bubble-purple.webp",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "damage"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "action",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {
+        "canCrit": false,
+        "damageType": "",
+        "formula": "4d10",
+        "name": "Hit Points Affected"
+      }
+    ],
+    "description": "<p>You send your enemies into a magical slumber.</p><p>Starting with the target with the lowest hit points (ignoring unconscious creatures), targets within the area fall unconscious in ascending order according to their hit points. Slumbering creatures stay asleep until the spell ends, they take damage, or someone uses an action to physically wake them.</p><p>As each target falls asleep, subtract its hit points from the total before moving on to the next target.</p><p>A target's hit points must be equal to or less than the total remaining for the spell to have any effect.</p><p>If the spell puts no creatures to sleep, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn.</p><p>Constructs and undead are not affected by this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell affects an additional 2d10 hit points worth of creatures for each slot level above 1st.</p>",
+    "duration": {
+      "unit": "minute",
+      "value": "1"
+    },
+    "healing": [],
+    "proficient": true,
+    "range": [
+      "medium"
+    ],
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "area",
+      "shape": "sphere",
+      "size": "20 ft."
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "pinch of fine sand",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "arcane",
+        "compulsion"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "lu-a5e",
+      "system": "a5e",
+      "coreVersion": "9.266",
+      "systemVersion": "0.5.5"
+    }
+  }
+}
