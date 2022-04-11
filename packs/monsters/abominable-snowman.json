@@ -1,5 +1,5 @@
 {
-  "name": "Yeti",
+  "name": "Abominable Snowman",
   "type": "npc",
   "img": "systems/a5e/assets/yeti.webp",
   "data": {
@@ -355,8 +355,8 @@
         "failure": 0
       },
       "hp": {
-        "value": 68,
-        "baseMax": 68,
+        "value": 136,
+        "baseMax": 136,
         "temp": "",
         "bonus": null
       },
@@ -370,8 +370,8 @@
           "total": 0
         },
         "d10": {
-          "current": 8,
-          "total": 8
+          "current": 16,
+          "total": 16
         },
         "d12": {
           "current": 0,
@@ -474,7 +474,7 @@
     }
   },
   "token": {
-    "name": "Yeti",
+    "name": "Abominable Snowman",
     "img": "systems/a5e/assets/yeti.webp",
     "displayName": 0,
     "actorLink": false,
@@ -585,7 +585,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 100000,
       "permission": {
         "default": 0,
         "axQjTRP7Ewd9xrAh": 3
@@ -645,7 +645,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": -100000,
+      "sort": 0,
       "permission": {
         "default": 0,
         "axQjTRP7Ewd9xrAh": 3
@@ -739,19 +739,16 @@
       "flags": {}
     },
     {
-      "_id": "I3P3xLoB9Z1uicBb",
-      "name": "Chilling Gaze (Gaze).",
-      "type": "object",
+      "_id": "kmEss8jkPluY2Icj",
+      "name": "Elite Recovery",
+      "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
-        "actionOptions": [
-          "savingThrow",
-          "damage"
-        ],
+        "actionOptions": [],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "bonusAction",
           "reactionTrigger": ""
         },
         "attack": {
@@ -766,26 +763,19 @@
         "check": {
           "ability": "str"
         },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "3d6",
-            "name": ""
-          }
-        ],
-        "description": "<p>One creature within 30 feet that is not immune to cold damage makes a DC 13 Constitution saving throw. On a failure, the creature takes 10 (3d6) cold damage and is paralyzed for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on a success. If a creature&rsquo;s saving throw is successful or the effect ends for it, it is immune to any Chilling Gaze for 24 hours.</p>",
+        "damage": [],
+        "description": "<p>The snowman ends one negative effect currently affecting it. It can use this bonus action as long as it has at least 1 hit point, even while unconscious  or incapacitated.</p>",
         "duration": {
-          "unit": "",
+          "unit": "instantaneous",
           "value": ""
         },
         "healing": [],
         "proficient": true,
         "range": [],
         "save": {
-          "dc": 13,
+          "dc": "",
           "onSave": "",
-          "targetAbility": "con"
+          "targetAbility": ""
         },
         "source": "",
         "target": {
@@ -797,33 +787,220 @@
           "max": "",
           "per": null
         },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": 0,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "weaponProperties": [],
-        "weight": 0
+        "featureType": "other"
       },
       "effects": [],
       "folder": null,
-      "sort": 100000,
+      "sort": 300000,
       "permission": {
         "default": 0,
-        "axQjTRP7Ewd9xrAh": 3
+        "eunZYRLVMq93MkmD": 3
       },
       "flags": {}
     },
     {
-      "_id": "cpRDCNnWZh3xk6jK",
+      "_id": "z4xdGVOgI2mQgvUt",
+      "name": "Cold Breath",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "default",
+        "actionOptions": [
+          "savingThrow",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "cone",
+          "size": "30"
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": false,
+            "damageType": "cold",
+            "formula": "6d10",
+            "name": ""
+          }
+        ],
+        "description": "<p>The snowman breathes a 30-foot cone of freezing wind. Each creature in the area makes a DC 13 Constitution saving throw , taking 21 (6d10) cold damage on a failed save or half damage on a success.</p>",
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "13",
+          "onSave": "Half Damage.",
+          "targetAbility": "con"
+        },
+        "source": "",
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500000,
+      "permission": {
+        "default": 0,
+        "eunZYRLVMq93MkmD": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "jYZF5E4Hu9ULjjlk",
+      "name": "Blizzard",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "default",
+        "actionOptions": [
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "500"
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": false,
+            "damageType": "cold",
+            "formula": "2d6",
+            "name": ""
+          }
+        ],
+        "description": "<p>The snowman summons a magical blizzard that affects a 500-foot-radius area for 10 minutes or until the snowman dies. The area is difficult terrain, and a creature’s visibility is reduced to 20 feet; beyond this, vision is obscured by snow. A creature in the area that doesn’t move from its space during its turn takes 7 (2d6) cold damage.</p>",
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "other"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600000,
+      "permission": {
+        "default": 0,
+        "eunZYRLVMq93MkmD": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "rnCoA5soExNSLf35",
+      "name": "Roar (1/Day)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>Each creature of the snowman’s choice within 120 feet that hears its roar makes a DC 13 Charisma saving throw . On a failure, a creature is frightened  for 1 minute. While frightened in this way, a creature is paralyzed . A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success.</p>",
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "13",
+          "onSave": "Not frightened/paralyzed.",
+          "targetAbility": "cha"
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700000,
+      "permission": {
+        "default": 0,
+        "eunZYRLVMq93MkmD": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "k1GJRGZAKKpVVZ2u",
       "name": "Chilling Gaze",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -887,16 +1064,12 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 400000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.k1GJRGZAKKpVVZ2u"
-        }
-      }
+      "flags": {}
     }
   ],
   "effects": [],
