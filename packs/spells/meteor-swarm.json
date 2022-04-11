@@ -1,0 +1,101 @@
+{
+  "name": "Meteor Swarm",
+  "type": "spell",
+  "img": "icons/magic/earth/projectiles-magma-stone-orange.webp",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "savingThrow",
+      "damage"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "action",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {
+        "canCrit": false,
+        "damageType": "bludgeoning",
+        "formula": "1d46",
+        "name": ""
+      },
+      {
+        "canCrit": false,
+        "damageType": "fire",
+        "formula": "14d6",
+        "name": ""
+      }
+    ],
+    "description": "<p>Scorching spheres of flame strike the ground at 4 different points within range. The effects of a sphere reach around corners. Creatures and objects in the area take 14d6 fire damage and 14d6 bludgeoning damage, and flammable unattended objects catch on fire. If a creature is in the area of more than one sphere, it is affected only once.</p>",
+    "duration": {
+      "unit": "instantaneous",
+      "value": ""
+    },
+    "healing": [],
+    "proficient": true,
+    "range": {
+      "category": "other",
+      "custom": "1 mile"
+    },
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "dex"
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "area",
+      "shape": "sphere",
+      "size": "Four 40 ft. radius spheres"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 9,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "attack",
+        "fire",
+        "storm"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "lu-a5e",
+      "system": "a5e",
+      "coreVersion": "9.266",
+      "systemVersion": "0.5.5"
+    }
+  }
+}
