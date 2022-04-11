@@ -1,5 +1,5 @@
 {
-  "name": "Chimera",
+  "name": "Sewer Chimera",
   "type": "npc",
   "img": "systems/a5e/assets/chimera.webp",
   "data": {
@@ -389,7 +389,7 @@
       "movement": {
         "burrow": "",
         "climb": "",
-        "fly": "60",
+        "fly": "",
         "swim": "",
         "walk": "30"
       },
@@ -459,14 +459,18 @@
     },
     "traits": {
       "size": "lg",
-      "conditionImmunities": [],
-      "damageImmunities": [],
+      "conditionImmunities": [
+        "poisoned"
+      ],
+      "damageImmunities": [
+        "poison"
+      ],
       "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Chimera",
+    "name": "Sewer Chimera",
     "img": "systems/a5e/assets/chimera.webp",
     "displayName": 0,
     "actorLink": false,
@@ -779,7 +783,7 @@
     },
     {
       "_id": "oST4B2GB3NhHXJq4",
-      "name": "Headbutt",
+      "name": "Horned Snake Headbutt",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -852,7 +856,7 @@
     },
     {
       "_id": "RLVXjlKfqHQBZr0I",
-      "name": "Bite",
+      "name": "Alligator Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -924,7 +928,7 @@
     },
     {
       "_id": "6HUCArjFFGtMNHQd",
-      "name": "Claw",
+      "name": "Giant Rat Claw",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -1002,7 +1006,7 @@
     },
     {
       "_id": "GuE5BpzfG9FSg2ht",
-      "name": "Breath Weapon (Recharge 5-6)",
+      "name": "Horned Snake's Breath Weapon (Recharge 5-6)",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -1031,12 +1035,12 @@
         "damage": [
           {
             "canCrit": false,
-            "damageType": "fire",
+            "damageType": "poison",
             "formula": "6d6",
             "name": "Default"
           }
         ],
-        "description": "<p>The dragon head breathes fire in a 15-foot cone. Creatures in the area make a DC 15 Dexterity saving throw, taking 21 (6d6) fire damage on a failed save or half damage on a success.</p>",
+        "description": "<p>The horned snake exhales a cone of gas in a 15-foot cone. Creatures in the area make a DC 15 Dexterity saving throw, taking 21 (6d6) poison damage on a failed save or half damage on a success.</p>",
         "duration": {
           "unit": "instantaneous",
           "value": ""
