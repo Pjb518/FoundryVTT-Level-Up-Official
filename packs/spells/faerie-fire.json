@@ -1,12 +1,11 @@
 {
-  "name": "Acid Splash",
+  "name": "Faerie Fire",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/light/projectiles-pink-purple.webp",
   "data": {
     "ability": "",
     "actionOptions": [
-      "savingThrow",
-      "damage"
+      "savingThrow"
     ],
     "activation": {
       "cost": 1,
@@ -26,17 +25,12 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
@@ -46,35 +40,37 @@
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
+      "onSave": "Special",
       "targetAbility": "dex"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "area",
+      "shape": "range",
+      "size": "20 ft."
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
-      "seen": true,
+      "seen": false,
       "material": false
     },
-    "concentration": false,
-    "level": 0,
+    "concentration": true,
+    "level": 1,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "evocation",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "utility"
       ]
     }
   },

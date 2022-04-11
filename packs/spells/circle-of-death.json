@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Circle of Death",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/unholy/barrier-fire-pink.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -19,8 +19,8 @@
       "type": ""
     },
     "area": {
-      "shape": "",
-      "size": ""
+      "shape": "sphere",
+      "size": "60 ft. radius"
     },
     "check": {
       "ability": "str"
@@ -28,12 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "necrotic",
+        "formula": "9d6",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>A sphere of negative energy sucks life from the area.</p><p>Creatures in the area take 9d6 necrotic damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d6 for each slot level above 6th.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,40 +41,41 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "Half damage",
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": "creature"
+      "quantity": null,
+      "type": "",
+      "shape": "sphere",
+      "size": "60 ft."
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
     "concentration": false,
-    "level": 0,
-    "materials": "",
+    "level": 6,
+    "materials": "shards of a black pearl worth at least 500 gold",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "necromancy",
       "secondary": [
-        "acid",
-        "arcane"
+        "necrotic"
       ]
     }
   },

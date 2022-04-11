@@ -1,11 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Weird",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/control/fear-fright-white.webp",
   "data": {
     "ability": "",
     "actionOptions": [
-      "savingThrow",
       "damage"
     ],
     "activation": {
@@ -28,60 +27,62 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "psychic",
+        "formula": "4d10",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You create illusions which manifest the deepest fears and worst nightmares in the minds of all creatures in the spell's area. Each creature in the area makes a Wisdom saving throw or becomes frightened until the spell ends. At the end of each of a frightened creature's turns, it makes a Wisdom saving throw or it takes 4d10 psychic damage. On a successful save, the spell ends for that creature.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "area",
+      "size": "30 ft."
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
       "material": false
     },
-    "concentration": false,
-    "level": 0,
+    "concentration": true,
+    "level": 9,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "illusion",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "attack",
+        "fear"
       ]
     }
   },
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "lu-a5e",
+      "world": "a5e-compendium-stuff",
       "system": "a5e",
       "coreVersion": "9.266",
       "systemVersion": "0.5.5"

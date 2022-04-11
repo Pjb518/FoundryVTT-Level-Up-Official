@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Geas",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -10,7 +10,7 @@
     ],
     "activation": {
       "cost": 1,
-      "type": "action",
+      "type": "minute",
       "reactionTrigger": ""
     },
     "attack": {
@@ -28,15 +28,15 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "psychic",
+        "formula": "5d10",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p><p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is 1 year when using a 7th-level spell slot, or permanent until dispelled when using a 9th-level spell slot.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "day",
+      "value": "30"
     },
     "healing": [],
     "proficient": true,
@@ -47,7 +47,7 @@
     "save": {
       "dc": "@spellDC",
       "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "targetAbility": "wis"
     },
     "source": "",
     "target": {
@@ -56,8 +56,8 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +65,17 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 5,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "enchantment",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "compulsion",
+        "divine"
       ]
     }
   },

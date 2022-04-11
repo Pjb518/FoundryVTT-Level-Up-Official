@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Dramatic Sting",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/skills/trades/music-notes-sound-blue.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -10,7 +10,7 @@
     ],
     "activation": {
       "cost": 1,
-      "type": "action",
+      "type": "bonus action",
       "reactionTrigger": ""
     },
     "attack": {
@@ -28,26 +28,26 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "psychic",
+        "formula": "1d4",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You frighten the target by echoing its movements with ominous music and terrifying sound effects. It takes 1d4 psychic damage and becomes frightened of you until the spell ends.</p><p>At the end of each of the creature's turns, it can make another Wisdom saving throw, ending the effect on itself on a success. On a failed save, the creature takes 1d4 psychic damage.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for each slot level above 1st.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "short",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
       "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "targetAbility": "wis"
     },
     "source": "",
     "target": {
@@ -56,25 +56,26 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
-    "concentration": false,
-    "level": 0,
-    "materials": "",
+    "concentration": true,
+    "level": 1,
+    "materials": "broken violin string and a wasp's stinger",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "enchantment",
       "secondary": [
-        "acid",
-        "arcane"
+        "fear",
+        "psychic",
+        "sound"
       ]
     }
   },

@@ -1,11 +1,11 @@
 {
-  "name": "Acid Splash",
+  "name": "Cobra's Spit",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/creatures/reptiles/serpent-horned-green.webp",
   "data": {
     "ability": "",
     "actionOptions": [
-      "savingThrow",
+      "attack",
       "damage"
     ],
     "activation": {
@@ -16,7 +16,7 @@
     "attack": {
       "bonus": "",
       "critThreshold": 20,
-      "type": ""
+      "type": "rangedSpellAttack"
     },
     "area": {
       "shape": "",
@@ -27,54 +27,54 @@
     },
     "damage": [
       {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "canCrit": true,
+        "damageType": "poison",
+        "formula": "4d8",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "self",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "self"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
-      "vocalized": true,
+      "vocalized": false,
       "seen": true,
-      "material": false
+      "material": true
     },
-    "concentration": false,
-    "level": 0,
-    "materials": "",
+    "concentration": true,
+    "level": 3,
+    "materials": "poisonous snake's fang",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
       "primary": "conjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "attack",
+        "poison"
       ]
     }
   },

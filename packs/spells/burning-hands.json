@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Burning Hands",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,12 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "fire",
+        "formula": "3d6",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,23 +41,24 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "self",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
+      "onSave": "Half damage",
       "targetAbility": "dex"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "area",
+      "size": "15 ft."
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +66,16 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 1,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "evocation",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "fire"
       ]
     }
   },

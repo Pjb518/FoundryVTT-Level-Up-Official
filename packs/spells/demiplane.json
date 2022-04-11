@@ -1,13 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Demiplane",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/unholy/orb-stone-pink.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -26,17 +23,12 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You create a shadowy door on the target. The door is large enough for Medium creatures to pass through. The door leads to a demiplane that appears as an empty, 30-foot-cube chamber made of wood or stone. When the spell ends, the door disappears from both sides, trapping any creatures or objects inside the demiplane.</p><p>Each time you cast this spell, you can either create a new demiplane, conjure the door to a demiplane you have previously created, or make a door leading to a demiplane whose nature or contents you are familiar with.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "hour",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
@@ -45,27 +37,27 @@
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "other"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
-      "vocalized": true,
+      "vocalized": false,
       "seen": true,
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 8,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
@@ -73,8 +65,8 @@
     "schools": {
       "primary": "conjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "planar"
       ]
     }
   },

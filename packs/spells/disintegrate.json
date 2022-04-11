@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Disintegrate",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/unholy/beam-impact-green.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,12 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "force",
+        "formula": "10d6+40",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>A pale ray emanates from your pointed finger to the target as you attempt to undo it.</p><p>The target takes 10d6 + 40 force damage. A creature reduced to 0 hit points is obliterated, leaving behind nothing but fine dust, along with anything it was wearing or carrying (except magic items). Only true resurrection or a wish spell can restore it to life.</p><p>This spell automatically disintegrates nonmagical objects and creations of magical force that are Large-sized or smaller. Larger objects and creations of magical force have a 10-foot-cube portion disintegrated instead. Magic items are unaffected.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 3d6 for each slot level above 6th.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -52,29 +52,30 @@
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "creatureObject"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
     "concentration": false,
-    "level": 0,
-    "materials": "",
+    "level": 6,
+    "materials": "lodestone and pinch of dust",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "transmutation",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "attack",
+        "transformation"
       ]
     }
   },

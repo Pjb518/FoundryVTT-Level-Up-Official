@@ -1,16 +1,13 @@
 {
-  "name": "Acid Splash",
+  "name": "Friends",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/skills/social/diplomacy-handshake-yellow.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
-      "type": "action",
+      "type": "bonus action",
       "reactionTrigger": ""
     },
     "attack": {
@@ -26,28 +23,23 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>Once before the start of your next turn, when you make a Charisma ability check against the target, you gain an expertise die. If you roll a 1 on the ability or skill check, the target realizes its judgment was influenced by magic and may become hostile.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "round",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "short",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
@@ -56,11 +48,11 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
-      "vocalized": true,
+      "vocalized": false,
       "seen": true,
       "material": false
     },
@@ -71,9 +63,8 @@
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "enchantment",
       "secondary": [
-        "acid",
         "arcane"
       ]
     }

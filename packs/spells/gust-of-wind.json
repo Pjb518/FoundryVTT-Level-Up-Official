@@ -1,0 +1,86 @@
+{
+  "name": "Gust of Wind",
+  "type": "spell",
+  "img": "icons/magic/air/wind-swirl-gray-blue.webp",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "savingThrow"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "action",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {}
+    ],
+    "description": "<p>A torrent of wind erupts from your hand in a direction you choose. Each creature that starts its turn in the area or moves into the area must succeed on a Strength saving throw or be pushed 15 feet from you in the direction of the line.</p><p>Any creature in the area must spend 2 feet of movement for every foot moved when trying to approach you.</p><p>The blast of wind extinguishes small fires and disperses gas or vapor.</p><p>You can use a bonus action to change the direction of the gust.</p>",
+    "duration": {
+      "unit": "minute",
+      "value": "1"
+    },
+    "healing": [],
+    "proficient": true,
+    "range": {
+      "category": "self",
+      "custom": ""
+    },
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Special",
+      "targetAbility": "str"
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "area",
+      "shape": "line",
+      "size": "60 ft. long and 10 ft. wide"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "seed",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "air",
+        "nature"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "lu-a5e",
+      "system": "a5e",
+      "coreVersion": "9.266",
+      "systemVersion": "0.5.5"
+    }
+  }
+}

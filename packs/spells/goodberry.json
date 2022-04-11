@@ -1,13 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Goodberry",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/consumables/fruit/berry-leaf-purple-teal.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -26,14 +23,9 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You transform the components into 2d4 berries.</p><p>For the next 24 hours, any creature that consumes one of these berries regains 1 hit point. Eating or administering a berry is an action. The berries do not provide any nourishment or sate hunger.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create 1d4 additional berries for every 2 slot levels above 1st.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,40 +33,41 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "touch",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "object"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
     "concentration": false,
-    "level": 0,
-    "materials": "",
+    "level": 1,
+    "materials": "mistletoe and a handful of grass",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "transmutation",
       "secondary": [
-        "acid",
-        "arcane"
+        "healing",
+        "nature",
+        "plants"
       ]
     }
   },

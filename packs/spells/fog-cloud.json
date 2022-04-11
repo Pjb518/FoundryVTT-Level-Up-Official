@@ -1,13 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Fog Cloud",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/air/fog-gas-smoke-blue-gray.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -26,46 +23,43 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's radius increases by 20 feet for each slot level above 1st.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "hour",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "area",
+      "shape": "sphere",
+      "size": "20 ft."
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
       "material": false
     },
-    "concentration": false,
-    "level": 0,
+    "concentration": true,
+    "level": 1,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
@@ -73,8 +67,9 @@
     "schools": {
       "primary": "conjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "obscurement",
+        "weather"
       ]
     }
   },

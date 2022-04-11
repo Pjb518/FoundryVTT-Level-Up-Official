@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Eldritch Cube",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/unholy/hand-light-pink.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,44 +28,44 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "psychic",
+        "formula": "5d6",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>A black, nonreflective, incorporeal 10-foot cube appears in an unoccupied space that you can see. Its space can be in midair if you so desire. When a creature starts its turn in the cube or enters the cube for the first time on its turn it must make an Intelligence saving throw, taking 5d6 psychic damage on a failed save, or half damage on a success.</p><p>As a bonus action, you can move the cube up to 10 feet in any direction to a space you can see. The cube cannot be made to pass through other creatures in this way.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "onSave": "",
+      "targetAbility": "int"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "none"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
       "material": false
     },
-    "concentration": false,
-    "level": 0,
+    "concentration": true,
+    "level": 5,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
@@ -73,8 +73,7 @@
     "schools": {
       "primary": "conjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "psychic"
       ]
     }
   },

@@ -1,11 +1,11 @@
 {
-  "name": "Acid Splash",
+  "name": "Arcane Sword",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/fire/dagger-rune-enchant-flame-strong-blue.webp",
   "data": {
     "ability": "",
     "actionOptions": [
-      "savingThrow",
+      "attack",
       "damage"
     ],
     "activation": {
@@ -16,7 +16,7 @@
     "attack": {
       "bonus": "",
       "critThreshold": 20,
-      "type": ""
+      "type": "meleeSpellAttack"
     },
     "area": {
       "shape": "",
@@ -27,16 +27,16 @@
     },
     "damage": [
       {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "canCrit": true,
+        "damageType": "force",
+        "formula": "3d10",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You summon an insubstantial yet deadly sword to do your bidding.</p><p>Make a melee spell attack against a target of your choice within 5 feet of the sword, dealing 3d10 force damage on a hit.</p><p>Until the spell ends, you can use a bonus action on subsequent turns to move the sword up to 20 feet to a space you can see and make an identical melee spell attack against a target.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
@@ -45,36 +45,39 @@
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "none"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
-    "concentration": false,
-    "level": 0,
-    "materials": "",
+    "concentration": true,
+    "level": 7,
+    "materials": "miniature sword worth 250 gold",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "evocation",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "attack",
+        "force",
+        "summoning",
+        "weaponry"
       ]
     }
   },

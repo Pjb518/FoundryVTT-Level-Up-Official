@@ -1,13 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Dispel Magic",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -26,14 +23,9 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You scour the magic from your target. Any spell cast on the target ends if it was cast with a spell slot of 3rd-level or lower. For spells using a spell slot of 4th-level or higher, make an ability check with a DC equal to 10 + the spell's level for each one, ending the effect on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You automatically end the effects of a spell on the target if the level of the spell slot used to cast it is equal to or less than the level of the spell slot used to cast dispel magic.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,23 +33,23 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "creatureObject"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +57,18 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 3,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "abjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "negation",
+        "protection",
+        "utility"
       ]
     }
   },

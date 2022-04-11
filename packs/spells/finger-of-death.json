@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Finger of Death",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,12 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "necrotic",
+        "formula": "7d8+30",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -46,8 +46,8 @@
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "onSave": "Half damage",
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
@@ -56,8 +56,8 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +65,17 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 7,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "necromancy",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "necrotic",
+        "undead"
       ]
     }
   },

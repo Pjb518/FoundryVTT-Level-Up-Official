@@ -1,17 +1,14 @@
 {
-  "name": "Acid Splash",
+  "name": "Earth Barrier",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/earth/barrier-stone-explosion-red.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
-      "type": "action",
-      "reactionTrigger": ""
+      "type": "reaction",
+      "reactionTrigger": "which you take when you are targeted with a ranged attack"
     },
     "attack": {
       "bonus": "",
@@ -26,38 +23,33 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>Choose an unoccupied space between you and the source of the attack which triggers the spell. You call forth a pillar of earth or stone (3 feet diameter, 20 feet tall, AC 10, 20 hit points) in that space that provides you with three-quarters cover (+5 to AC, Dexterity saving throws, and ability checks made to hide).</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "short",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "other"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +57,16 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 1,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "abjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "earth",
+        "protection"
       ]
     }
   },

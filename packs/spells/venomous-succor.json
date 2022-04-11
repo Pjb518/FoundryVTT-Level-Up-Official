@@ -1,16 +1,17 @@
 {
-  "name": "Acid Splash",
+  "name": "Venomous Succor",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/life/cross-beam-green.webp",
   "data": {
     "ability": "",
     "actionOptions": [
       "savingThrow",
-      "damage"
+      "damage",
+      "healing"
     ],
     "activation": {
       "cost": 1,
-      "type": "action",
+      "type": "bonus action",
       "reactionTrigger": ""
     },
     "attack": {
@@ -28,12 +29,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "poison",
+        "formula": "1d6",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You cause a searing poison to burn quickly through the target's wounds, dealing 1d6 poison damage. The target regains 2d4 hit points at the start of each of its turns for the next 1d4+1 rounds.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 2nd, the initial damage increases by 1d6 and target regains an additional 1d4 hit points.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,13 +42,13 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "touch",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
       "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
@@ -56,32 +57,33 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
-      "vocalized": true,
+      "vocalized": false,
       "seen": true,
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 3,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "evocation",
       "secondary": [
-        "acid",
-        "arcane"
+        "healing",
+        "nature",
+        "poison"
       ]
     }
   },
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "lu-a5e",
+      "world": "a5e-compendium-stuff",
       "system": "a5e",
       "coreVersion": "9.266",
       "systemVersion": "0.5.5"

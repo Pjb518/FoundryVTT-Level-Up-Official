@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Blade Barrier",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,53 +28,55 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "slashing",
+        "formula": "6d10",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.</p><p>When a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 6th.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "minute",
+      "value": "10"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
+      "onSave": "Half damage",
       "targetAbility": "dex"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "Area",
+      "size": "Wall, varies"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
       "material": false
     },
-    "concentration": false,
-    "level": 0,
+    "concentration": true,
+    "level": 6,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "evocation",
       "secondary": [
-        "acid",
-        "arcane"
+        "divine",
+        "protection",
+        "weaponry"
       ]
     }
   },

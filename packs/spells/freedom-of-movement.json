@@ -1,13 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Freedom of Movement",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -26,28 +23,23 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>The target ignores difficult terrain. Spells and magical effects can't reduce its speed or cause it to be paralyzed or restrained. It can spend 5 feet of movement to escape from nonmagical restraints or grapples. The target's movement and attacks aren't penalized from being underwater.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 6th-level spell slot the duration is 8 hours. When using an 8th-level spell slot the duration is 24 hours.</p>",
     "duration": {
-      "unit": "instantaneous",
-      "value": ""
+      "unit": "hour",
+      "value": "1"
     },
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "touch",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
@@ -56,25 +48,27 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
     "concentration": false,
-    "level": 0,
-    "materials": "",
+    "level": 4,
+    "materials": "grease",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "abjuration",
       "secondary": [
-        "acid",
-        "arcane"
+        "divine",
+        "movement",
+        "protection",
+        "water"
       ]
     }
   },

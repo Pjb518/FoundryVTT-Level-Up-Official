@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Harm",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/skills/wounds/blood-drip-droplet-red.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,12 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "necrotic",
+        "formula": "14d6",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You assail a target with an agonizing disease. The target takes 14d6 necrotic damage. If it fails its saving throw its hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point.</p><p><strong>Cast At Higher Levels.</strong> Increase the damage by 2d6 for each slot level above 6th.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -46,8 +46,8 @@
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "onSave": "Half damage",
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
@@ -56,8 +56,8 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +65,16 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 6,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "necromancy",
       "secondary": [
-        "acid",
-        "arcane"
+        "attack",
+        "divine"
       ]
     }
   },

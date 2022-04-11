@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Blight",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/unholy/hand-claw-fog-green.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,12 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "necrotic",
+        "formula": "8d8",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>Necrotic energies drain moisture and vitality from the target, dealing 8d8 necrotic damage. Undead and constructs are immune to this spell.</p><p>A plant creature or magical plant has disadvantage on its saving throw and takes the maximum damage possible from this spell. A nonmagical plant that isn't a creature receives no saving throw and instead withers until dead.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,23 +41,23 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "short",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "onSave": "Half damage",
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "creatureObject"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
@@ -65,16 +65,18 @@
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 4,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "necromancy",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "nature",
+        "necrotic",
+        "plants"
       ]
     }
   },

@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Feeblemind",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -26,14 +26,9 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You blast the target's mind, attempting to crush its intellect and sense of self. The target takes 4d6 psychic damage.</p><p>On a failed save, until the spell ends the creature's Intelligence and Charisma scores are both reduced to 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way, but it is still able to recognize, follow, and even protect its allies.</p><p>At the end of every 30 days, the creature can repeat its saving throw against this spell, ending it on a success.</p><p><em>Greater restoration</em>, <em>heal</em>, or <em>wish</em> can also be used to end the spell.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,13 +36,13 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "long",
       "custom": ""
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "onSave": "Special",
+      "targetAbility": "int"
     },
     "source": "",
     "target": {
@@ -56,25 +51,26 @@
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
     "concentration": false,
-    "level": 0,
-    "materials": "",
+    "level": 8,
+    "materials": "handful of clay, crystal, glass, or mineral spheres",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "enchantment",
       "secondary": [
-        "acid",
-        "arcane"
+        "affliction",
+        "arcane",
+        "psychic"
       ]
     }
   },

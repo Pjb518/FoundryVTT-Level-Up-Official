@@ -1,13 +1,10 @@
 {
-  "name": "Acid Splash",
+  "name": "Time Stop",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/time/hourglass-brown-orange.webp",
   "data": {
     "ability": "",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
+    "actionOptions": [],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -26,14 +23,9 @@
       "ability": "str"
     },
     "damage": [
-      {
-        "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": ""
-      }
+      {}
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>You stop time, granting yourself extra time to take actions. When you cast the spell, the world is frozen in place while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.</p><p>The spell ends if you move more than 1, 000 feet from where you cast the spell, or if you affect either a creature other than yourself or an object worn or carried by someone else.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -41,47 +33,47 @@
     "healing": [],
     "proficient": true,
     "range": {
-      "category": "medium",
+      "category": "self",
       "custom": ""
     },
     "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "self"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
-      "seen": true,
+      "seen": false,
       "material": false
     },
     "concentration": false,
-    "level": 0,
+    "level": 9,
     "materials": "",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "transmutation",
       "secondary": [
-        "acid",
-        "arcane"
+        "arcane",
+        "time"
       ]
     }
   },
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "lu-a5e",
+      "world": "a5e-compendium-stuff",
       "system": "a5e",
       "coreVersion": "9.266",
       "systemVersion": "0.5.5"

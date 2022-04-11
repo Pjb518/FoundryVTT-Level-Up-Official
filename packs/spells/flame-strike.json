@@ -1,7 +1,7 @@
 {
-  "name": "Acid Splash",
+  "name": "Flame Strike",
   "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
+  "img": "icons/magic/fire/beam-jet-stream-yellow.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -28,12 +28,18 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "acid",
-        "formula": "(floor((@details.level+1)/6)+1)d6",
+        "damageType": "fire",
+        "formula": "4d6",
+        "name": ""
+      },
+      {
+        "canCrit": false,
+        "damageType": "radiant",
+        "formula": "4d6",
         "name": ""
       }
     ],
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -46,35 +52,37 @@
     },
     "save": {
       "dc": "@spellDC",
-      "onSave": "Negates effect",
+      "onSave": "Half damage",
       "targetAbility": "dex"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "creature"
+      "type": "area",
+      "shape": "cylinder",
+      "size": "10 ft. radius,  40 ft. high"
     },
     "uses": {
       "value": null,
-      "max": null,
-      "per": ""
+      "max": "",
+      "per": null
     },
     "components": {
       "vocalized": true,
       "seen": true,
-      "material": false
+      "material": true
     },
     "concentration": false,
-    "level": 0,
-    "materials": "",
+    "level": 5,
+    "materials": "pinch of sulfur",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "evocation",
       "secondary": [
-        "acid",
-        "arcane"
+        "divine",
+        "fire"
       ]
     }
   },

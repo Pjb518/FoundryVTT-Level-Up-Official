@@ -1,0 +1,85 @@
+{
+  "name": "Flesh to Stone",
+  "type": "spell",
+  "img": "icons/magic/defensive/armor-stone-skin.webp",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "savingThrow"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "action",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {}
+    ],
+    "description": "<p>The target becomes restrained as it begins to turn to stone. On a successful saving throw, the target is instead slowed until the end of its next turn and the spell ends.</p><p>A creature restrained by this spell makes a second saving throw at the end of its turn. On a success, the spell ends. On a failure, the target is petrified for the duration. If you maintain concentration for the maximum duration of the spell, this petrification is permanent.</p><p>Any pieces removed from a petrified creature are missing when the petrification ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature when you cast this spell with an 8th-level spell slot.</p>",
+    "duration": {
+      "unit": "minute",
+      "value": "1"
+    },
+    "healing": [],
+    "proficient": true,
+    "range": {
+      "category": "medium",
+      "custom": ""
+    },
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Special",
+      "targetAbility": "con"
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "creature"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 6,
+    "materials": "limestone",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "arcane",
+        "earth",
+        "transformation"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "lu-a5e",
+      "system": "a5e",
+      "coreVersion": "9.266",
+      "systemVersion": "0.5.5"
+    }
+  }
+}
