@@ -1,11 +1,11 @@
 {
-  "name": "Young White Dragon",
+  "name": "Young Amethyst Dragon Spellcaster",
   "type": "npc",
-  "img": "systems/a5e/assets/ice-dragon.webp",
+  "img": "systems/a5e/assets/amethyst-dragon.webp",
   "data": {
     "abilities": {
       "str": {
-        "value": 18,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -17,19 +17,19 @@
         }
       },
       "dex": {
-        "value": 10,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": true,
+          "proficient": false,
           "expertiseDice": 0,
           "bonus": ""
         }
       },
       "con": {
-        "value": 18,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -42,13 +42,13 @@
         }
       },
       "int": {
-        "value": 8,
+        "value": 18,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
         },
         "save": {
-          "proficient": false,
+          "proficient": true,
           "expertiseDice": 0,
           "bonus": ""
         }
@@ -66,7 +66,7 @@
         }
       },
       "cha": {
-        "value": 12,
+        "value": 16,
         "check": {
           "expertiseDice": 0,
           "bonus": ""
@@ -136,7 +136,7 @@
       },
       "dec": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 2,
         "minRoll": 1,
@@ -169,7 +169,7 @@
       },
       "ins": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -180,7 +180,7 @@
       },
       "itm": {
         "value": 0,
-        "proficient": true,
+        "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -226,7 +226,7 @@
         "value": 0,
         "proficient": true,
         "specialties": [],
-        "expertiseDice": 2,
+        "expertiseDice": 0,
         "minRoll": 1,
         "bonuses": {
           "check": "",
@@ -246,9 +246,9 @@
       },
       "per": {
         "value": 0,
-        "proficient": false,
+        "proficient": true,
         "specialties": [],
-        "expertiseDice": 0,
+        "expertiseDice": 2,
         "minRoll": 1,
         "bonuses": {
           "check": "",
@@ -279,7 +279,7 @@
       },
       "ste": {
         "value": 0,
-        "proficient": true,
+        "proficient": false,
         "specialties": [],
         "expertiseDice": 0,
         "minRoll": 1,
@@ -349,14 +349,14 @@
       }
     },
     "attributes": {
-      "ac": 18,
+      "ac": 17,
       "death": {
         "success": 0,
         "failure": 0
       },
       "hp": {
-        "value": 152,
-        "baseMax": 152,
+        "value": 133,
+        "baseMax": 133,
         "temp": "",
         "bonus": null
       },
@@ -370,14 +370,18 @@
           "total": 0
         },
         "d10": {
-          "current": 16,
-          "total": 16
+          "current": 14,
+          "total": 14
         },
         "d12": {
           "current": 0,
           "total": 0
         },
         "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
           "current": 0,
           "total": 0
         }
@@ -389,12 +393,12 @@
       "movement": {
         "burrow": "20",
         "climb": "",
-        "fly": "80",
-        "swim": "40",
+        "fly": "60",
+        "swim": "",
         "walk": "40"
       },
       "senses": {
-        "blindsight": "30",
+        "blindsight": "",
         "darkvision": "120",
         "tremorsense": "",
         "truesight": ""
@@ -402,7 +406,7 @@
       "inspiration": false,
       "fatigue": 0,
       "strife": 0,
-      "spellcasting": "int"
+      "spellcasting": "cha"
     },
     "bonuses": {
       "abilities": {
@@ -413,7 +417,7 @@
       "maneuverDC": "",
       "spell": {
         "attack": "",
-        "dc": "1"
+        "dc": ""
       }
     },
     "currency": {
@@ -424,7 +428,7 @@
       "cp": 0
     },
     "details": {
-      "bio": "<h2>Combat</h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2>White Dragon Lair Features</h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 A dusting of snow conceals an iced-over underground lake. The dragon can use 5 feet of its movement to break a hole in the ice big enough for it to pass through. A creature submerged in the frigid water makes a Constitution saving throw at the end of its turn, taking 10 (3d6) cold damage on a failure.</p><p>2 All floors are slippery ice. Anyone moving more than half their speed in a single turn makes a Dexterity saving throw or falls prone, ending their movement.</p><p>3 Up to three times per day as a legendary action, the dragon slams its tail against the wall, causing slabs of ice (and possibly useful treasure) to rain from the ceiling. Up to 2 creatures the dragon can see make Dexterity saving throws. On a failure, a creature takes 10 (3d6) damage and is knocked prone and restrained beneath an ice slab. A creature can use its action to make an Acrobatics or Athletics check against the lair’s save DC, freeing itself or another creature on a success.</p><p>4 The ceiling is held up by four pillars of ice (objects with AC 16, 15 hit points, immunity to poison and psychic damage, and vulnerability to fire damage). If three pillars are destroyed, the ceiling caves in, dealing 17 (5d6) bludgeoning damage to each creature in the lair and opening a hole in the ceiling large enough for the dragon to fly through.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Frysning, Issedrath, Stillness, Verglas, Vilustiminen, Winterheart</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> White dragons rule the frozen wastelands at the edges of the world.</p><p><strong>DC 15</strong> A white dragon’s lair is often found at the center of a raging winter storm.</p><p><strong>DC 20</strong> Truly ancient white dragons can surround themselves with magical storms of sleet and ice.</p><hr class=\"a5e-rule u-my-md\"><h2>Description</h2><p>Although the smallest of chromatic dragons, white dragons are also the most vicious. They find the presence of other creatures loathsome and slay those who enter their frozen domain.</p><p><strong><em>Frozen Solitude</em>. </strong>White dragons gravitate toward the cold, deserted lands at the edges of the world. They enjoy the solitude and purity of their icy homes. Most white dragons consider any intrusion into their territory an affront. Quick to anger and careless of its own wounds, a white dragon’s fury can drive off even larger dragons.</p><p>While white dragons prefer to be alone, they occasionally tolerate servants who remain quiet and stay out of sight. The dour frost giants and cowed kobolds that serve a white dragon know better than to call attention to themselves, especially when their master is hungry.</p><p><strong><em>Icy Fastness</em>.</strong> A white dragon’s territory slowly transforms into a frozen wasteland and eventually becomes the eye of a permanent winter storm. The largest white dragons have ambitions to extend their realms further, freezing the entire world.</p><hr class=\"a5e-rule u-my-md\"><h2>Behavior</h2><p>1 Lying in wait for a dragon rival</p><p>2 Summoning an ice storm</p><p>3 Camouflaged in a snowbank</p><p>4 Flying overhead, on the hunt</p><p>5 Attacking a tribe of humans or orcs</p><p>6 Preparing for a diplomatic visit from a local frost giant noble; planning treachery</p><p>7 In its lair, asleep under a thin coating of ice and snow</p><p>8 Having a destructive tantrum, cursing some enemy</p><hr class=\"a5e-rule u-my-md\"><h2>Signs</h2><p>1–2 Blinding snow</p><p>3 Frost giant or mammoth encased in ice</p><p>4 A glacier riddled with caverns</p><p>5 Freezing, waist-high fog</p><p>6 Towering ice pillars, each large enough for a dragon to perch on</p><p>7 A dangerous blizzard</p><p>8 A maze made of glittering ice walls</p><hr class=\"a5e-rule u-my-md\"><h2>Encounters</h2><p>White dragons live among snow and constant blizzards.</p><p><strong>CR 3–4</strong> white dragon wyrmling with 3 or 4 kobolds or warriors; 2 white dragon wyrmlings</p><p><strong>Treasure</strong> 300 gp, 1,000 sp, giant polar bear fur (75 gp), <em>potion of greater healing</em>, <em>circlet of blasting</em></p><p><strong>CR 5–10</strong> young white dragon; young white dragon with 2 ice mephits or mountain dwarf soldiers&nbsp;</p><p><strong>Treasure</strong> 1,300 gp, 2 silver ewers (250 gp each), unmelting snowball, <em>potion of greater healing</em>, 3 <em>potions of fire resistance</em>, <em>ring of warmth</em>&nbsp;</p><p><strong>CR 11–16</strong> adult white dragon</p><p><strong>Treasure</strong> 300 pp, 600 gp, 11 amber gemstones (100 gp each), key made of ice, 3 <em>potions of superior healing</em>, <em>feather token </em>(anchor), <em>rod of absorption</em></p><p><strong>CR 17–22</strong> ancient white dragon</p><p><strong>Treasure</strong> 13,000 gp, 30 furs (100 gp each), silver dragontooth necklace (250 gp), 6 <em>+2 crossbow bolts</em>, <em>potion of invisibility</em>, <em>shortsword of sharpness</em></p><p><strong>CR 23–30</strong> ancient white dragon with frost giant, werebear, winter hag, or young white dragon; adult white dragon with cyclops, tundra chimera (see chimera), or young white dragon</p><p><strong>Treasure</strong> 20,000 gp, diamond (5,000 gp), white dragon egg (25,000 gp), 2 <em>potions of supreme healing</em>, <em>arrow of titan slaying</em>, <em>Ioun stone of mastery</em>, <em>adamantine plate armor</em></p><p><strong>CR 31+</strong> white great wyrm; 2 adult white dragons</p><p><strong>Treasure</strong> 5,000 pp, 40,000 gp, 60,000 ep, 5 diamonds (5,000 gp each), mithral warhorn (7,500 gp), ice statue with a huge ruby (25,000 gp) at the heart, <em>4 potions of supreme healing</em>, <em>boots of speed</em>, <em>+2 warhammer</em> (named <em>Tark-Elith</em>; made of unmelting ice; grants its wielder fire resistance), <em>ring of shooting stars.</em></p><hr class=\"a5e-rule u-my-md\"><h2>Monster Type Description</h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p><p></p>",
+      "bio": "<h2><strong>COMBAT</strong></h2><p></p><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>AMETHYST DRAGON LAIR FEATURES</strong></h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 The lair hosts many charmed or willing servants. Once per day when the dragon would use Charm, it can summon 3 cult fanatics instead. Creatures summoned in this way fight until killed or until the dragon dismisses them as a bonus action.&nbsp;</p><p>2 Psionic illusions mask several passages through the lair. Spotting these illusions requires a successful Perception check against the lair’s DC. Physically interacting with an illusion also reveals its nature.</p><p>3 The lair resonates with the dragon’s psionic powers. The range of the dragon’s psionic abilities is doubled.&nbsp;&nbsp;</p><p>4 The dragon’s words seem to ring true amidst the opulence and grandeur of its lair. Insight checks made to determine the dragon’s true intentions have disadvantage.&nbsp;</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Ath Sathna, Berthelos, Emerensa, Pancharatnam, Parana Vol, Skiveneth</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 15</strong> Like all gem dragons, psionic dragons boast powerful psionic abilities. They can communicate telepathically and exhale powerful blasts of telekinetic force.</p><p><strong>DC 20</strong> Ancient amethyst dragons can control the weak-willed using the power of their minds alone.</p><p><strong>DESCRIPTION</strong></p><p>Though still reclusive by draconic standards, amethyst dragons are the most diplomatic of the gem dragons. They favor nonviolent negotiations, but even deals they make in good faith seem to end in their favor. They make their lairs welcoming to humanoid guests and are always eager to resolve a conflict with words before resorting to talons or the earth-shattering force of their breath weapons.</p><p><strong><em>Master Manipulators.</em></strong> To meet an amethyst dragon is to become its puppet. The moment it becomes aware of a creature, the dragon is already plotting to thwart the creature’s plans or claim it as a pawn. An amethyst dragon’s only saving grace is its lack of malice. Rarely does an amethyst dragon kill its foes outright, considering such violence a needless waste of resources. Instead, it seeks to turn each situation to its advantage—and occasionally to the advantage of its allies as well. &nbsp;</p><p><strong>BEHAVIOR</strong></p><p>1 Dormant, telepathically viewing faraway events; angry if interrupted</p><p>2 Telepathically viewing the characters; wakes when they approach, offering knowledge</p><p>3 Allied with the characters’ enemies; attacks or offers false friendship</p><p>4 Gathering allies against a cosmic threat</p><p><strong>SIGNS</strong></p><p>1 A telepathic greeting</p><p>2 Quartz crystals protrude from ground and rock</p><p>3 Local humanoids speak of a mighty friend who protects them</p><p>4 Local humanoids greet travelers by name</p><p><strong>ENCOUNTERS</strong></p><p>Amethyst dragons make their lairs near places where aberrant creatures find their way to the Material Plane.</p><p><strong>CR 3–4</strong> amethyst dragon wyrmling</p><p><strong>Treasure</strong> 100 gp, 300 ep, 10 quartz gemstones (20 gp each), <em>potion of greater healing</em></p><p><strong>CR 5–10</strong> young amethyst dragon; amethyst dragon wyrmling with 1d4 deep dwarf soldiers, dragonbound warriors (see warrior), or grimlock technicals</p><p><strong>Treasure</strong> 500 gp, 6 statues (75 gp each), 3 rare books (250 gp each), lead and quartz crown (250 gp) that prevents the wearer’s thoughts from being read, <em>oil of etherealness</em></p><p><strong>CR 11–16</strong> young amethyst dragon with 2 gargoyles, gibbering mouthers, or spies (see cutthroat)</p><p><strong>Treasure</strong> 1,000 gp, 25 amethysts (100 gp each), adamantine greataxe (500 gp), <em>berserker axe</em></p><p><strong>CR 17–22</strong> adult amethyst dragon</p><p><strong>Treasure</strong> 5,000 gp, 50 amethysts (100 gp each), 40 rare books (250 gp each), 2 <em>potions of invisibility</em>, <em>spell scroll</em> of <em>scrying</em>, <em>robe of the archmagi</em></p><p><strong>CR 23–30</strong> ancient amethyst dragon; adult amethyst dragon with assassin, chuul, xorn, or young amethyst dragon</p><p><strong>Treasure</strong> 10,000 gp, 20 gold place settings (500 gp each), 20 rare books (250 gp each), 3 journals filled with precious secrets (10,000 gp each), 3 brains in vats (each is alive and can communicate telepathically), glowing pool (acts as 3 doses of <em>potion of supreme healing</em>), <em>rod of rulership</em></p><p><strong>CR 31+</strong> ancient amethyst dragon with rakshasa, salamander noble, or vampire mage</p><p><strong>Treasure</strong> 50,000 gp, 3 6-inch-diameter amethysts (10,000 gp each), 10 pieces of royal jewelry (7,500 gp each), maps of 100 royal palaces, <em>potion of supreme healing,</em> <em>helm of teleportation</em>, <em>staff of striking</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p><p><br></p>",
       "creatureTypes": [
         "dragon"
       ],
@@ -435,7 +439,10 @@
       "armor": [],
       "languages": [
         "common",
-        "draconic"
+        "deep",
+        "draconic",
+        "undercommon",
+        "telepathy 120 ft."
       ],
       "tools": [],
       "weapons": []
@@ -462,17 +469,20 @@
     },
     "traits": {
       "size": "lg",
-      "conditionImmunities": [],
-      "damageImmunities": [
-        "cold"
+      "conditionImmunities": [
+        "fatigue"
       ],
-      "damageResistances": [],
+      "damageImmunities": [],
+      "damageResistances": [
+        "force",
+        "psychic"
+      ],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Young White Dragon",
-    "img": "systems/a5e/assets/ice-dragon.webp",
+    "name": "Ancient Amethyst Dragon",
+    "img": "systems/a5e/assets/amethyst-dragon.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
@@ -483,9 +493,9 @@
     "lockRotation": false,
     "rotation": 0,
     "alpha": 1,
-    "vision": true,
-    "dimSight": 120,
-    "brightSight": 30,
+    "vision": false,
+    "dimSight": 0,
+    "brightSight": 0,
     "sightAngle": 0,
     "light": {
       "alpha": 0.5,
@@ -506,8 +516,7 @@
       "darkness": {
         "min": 0,
         "max": 1
-      },
-      "color": null
+      }
     },
     "disposition": -1,
     "displayBars": 0,
@@ -515,16 +524,77 @@
       "attribute": "attributes.hp"
     },
     "bar2": {
-      "attribute": ""
+      "attribute": null
     },
     "flags": {},
-    "randomImg": false,
-    "tint": null
+    "randomImg": false
   },
   "items": [
     {
-      "_id": "4ZXiupEvOZClTDj1",
-      "name": "Multiattack",
+      "_id": "ChR8vtYO8f8ghXay",
+      "name": "Far Thoughts",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The dragon is aware of any creature that uses a psionic ability or communicates telepathically within 100 miles of it. As an action, the dragon can psionically observe a creature, object, or location it is familiar with within 100 miles. While observing a subject in this way, the dragon can see, hear, and communicate telepathically, but it is blind and deaf in regard to its physical senses and does not require food or water. The dragon can psionically observe a subject indefinitely and can end this effect and return to its own senses as an action.</p><p style=\"text-align: start\"></p><p><br></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "100 Miles"
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "Oj6zxC4tK0dfxzsS",
+      "name": "Innate Spellcasting",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
@@ -533,6 +603,66 @@
         "activation": {
           "cost": "",
           "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The dragon’s spellcasting ability is Charisma (save DC 15). It can innately cast the following spells, requiring no material components.&nbsp;</p><p style=\"text-align: start\">&nbsp; &nbsp;3/day each:&nbsp;<em>calm emotions</em>, <em>charm person</em></p><p><br></p><p><br></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "GHtIrR53vfBXo95B",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -575,24 +705,20 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 200000,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "eunZYRLVMq93MkmD": 3
+        "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.ykE7paV0sg2mTjxp"
-        }
-      }
+      "flags": {}
     },
     {
-      "_id": "cMlwbscidnVzT52D",
+      "_id": "E1CsDBNfzRSWvEm0",
       "name": "Bite",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
+        "ability": "str",
         "actionOptions": [
           "attack",
           "damage"
@@ -618,63 +744,59 @@
           {
             "canCrit": true,
             "damageType": "piercing",
-            "formula": "3d10 + @mod",
-            "name": ""
+            "formula": "3d10+@mod",
+            "name": "Bite Piercing Damage"
           },
           {
             "canCrit": true,
-            "damageType": "cold",
+            "damageType": "force",
             "formula": "1d8",
-            "name": ""
+            "name": "Bite Force damage"
           }
         ],
-        "description": "<p>The dragon makes a bite attack.</p>",
+        "description": "<p>On hit, piercing damage and force damage.</p>",
         "duration": {
-          "unit": "instantaneous",
+          "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
         "range": [
-          "Reach: 10ft."
+          "10 ft."
         ],
         "save": {
-          "dc": 23,
-          "onSave": "Escapes grapple",
-          "targetAbility": "str"
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
         },
         "source": "",
         "target": {
-          "quantity": 1,
-          "type": "creature"
+          "quantity": "",
+          "type": ""
         },
         "uses": {
           "value": null,
           "max": "",
           "per": null
         },
-        "featureType": "naturalWeapon"
+        "featureType": ""
       },
       "effects": [],
       "folder": null,
-      "sort": 300000,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "eunZYRLVMq93MkmD": 3
+        "VMSZNizx1N7Lmk0A": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.InKYp8aGuFNL9gdG"
-        }
-      }
+      "flags": {}
     },
     {
-      "_id": "KYmTKwO01H01LCIu",
-      "name": "Claw",
+      "_id": "Gp90IZBbDStviMNW",
+      "name": "Claws",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
+        "ability": "str",
         "actionOptions": [
           "attack",
           "damage"
@@ -700,80 +822,20 @@
           {
             "canCrit": true,
             "damageType": "slashing",
-            "formula": "2d8 + @mod",
-            "name": ""
+            "formula": "2d8+@mod",
+            "name": "Claw Slashing Damage"
           }
         ],
-        "description": "<p>The Dragon makes a claw attack.</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "Reach: 5ft"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "naturalWeapon"
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 500000,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "pg44xsEBEAskdco7",
-      "name": "Innate Spellcasting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The dragon’s spellcasting ability is Charisma (save DC 18). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>:&nbsp;<em>animal friendship,</em> <em>sleet storm</em></p>",
+        "description": "<p>On hit, slashing damage</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft."
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -793,20 +855,20 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 100000,
+      "sort": 0,
       "permission": {
         "default": 0,
-        "eunZYRLVMq93MkmD": 3
+        "VMSZNizx1N7Lmk0A": 3
       },
       "flags": {}
     },
     {
-      "_id": "Dlu4XIb9I6hi5K8I",
-      "name": "Cold Breath (Recharge 5-6)",
+      "_id": "1St3GwbIaGnvDa6Q",
+      "name": "Concussive Breath (Recharge 5-6)",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
-        "ability": "default",
+        "ability": null,
         "actionOptions": [
           "damage",
           "savingThrow"
@@ -823,7 +885,7 @@
         },
         "area": {
           "shape": "cone",
-          "size": "30"
+          "size": "30 ft."
         },
         "check": {
           "ability": "str"
@@ -831,94 +893,30 @@
         "damage": [
           {
             "canCrit": false,
-            "damageType": "cold",
-            "formula": "10d6",
-            "name": ""
+            "damageType": "force",
+            "formula": "8d10",
+            "name": "Force Damage"
           }
         ],
-        "description": "<p>The dragon exhales a 30-foot cone of frost. Each creature in that area makes a DC 15 Constitution saving throw, taking 35 (10d6) cold damage on a failed save or half damage on a success.&nbsp;</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "self"
-        ],
-        "save": {
-          "dc": 15,
-          "onSave": "Half damage.",
-          "targetAbility": "con"
-        },
-        "source": "",
-        "target": {
-          "quantity": null,
-          "type": "creature"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "naturalWeapon"
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 562500,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.bb0pkgfCH8Rr8RIc"
-        }
-      }
-    },
-    {
-      "_id": "r5rDakBZ9XYnoo6t",
-      "name": "Cold Mastery",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The dragon’s movement and vision is not hindered by cold, icy surfaces, snow, wind, or storms. Additionally, the dragon can choose to burrow through snow and ice without leaving a trace.</p>",
+        "description": "<p>The dragon psionically unleashes telekinetic energy in a 30-foot cone. Each creature in that area makes a DC 15 Constitution saving throw, taking force damage on a failed save or half damage on a success.&nbsp;&nbsp;</p>",
         "duration": {
           "unit": "",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "30 ft."
+        ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": 15,
+          "onSave": "Half Damage",
+          "targetAbility": "con"
         },
         "source": "",
         "target": {
           "quantity": "",
-          "type": ""
+          "type": "self"
         },
         "uses": {
           "value": null,
@@ -932,15 +930,15 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "eunZYRLVMq93MkmD": 3
+        "VMSZNizx1N7Lmk0A": 3
       },
       "flags": {}
     },
     {
-      "_id": "IQKrev0P1L0OGhE1",
-      "name": "Animal Friendship",
+      "_id": "bPoJfDBrm61TMGbP",
+      "name": "Calm Emotions",
       "type": "spell",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/magic/holy/meditation-chi-focus-blue.webp",
       "data": {
         "ability": "",
         "actionOptions": [
@@ -966,48 +964,49 @@
         "damage": [
           {}
         ],
-        "description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
+        "description": "<p>Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.</p><ul><li><p>Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).</p></li><li><p>Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The spell area increases by 10 feet for each slot level above 2nd.</p>",
         "duration": {
-          "unit": "hour",
-          "value": "24"
+          "unit": "minute",
+          "value": "1"
         },
         "healing": [],
         "proficient": true,
         "range": [
-          "short"
+          "medium"
         ],
         "save": {
-          "dc": "",
+          "dc": "@spellDC",
           "onSave": "Negates effect",
-          "targetAbility": "wis"
+          "targetAbility": "cha"
         },
         "source": "",
         "target": {
           "quantity": "",
-          "type": "creature"
+          "type": "area",
+          "shape": "sphere",
+          "size": "20 ft."
         },
         "uses": {
-          "value": null,
-          "max": "",
-          "per": null
+          "value": 3,
+          "max": 3,
+          "per": "day"
         },
         "components": {
           "vocalized": true,
           "seen": true,
-          "material": true
+          "material": false
         },
-        "concentration": false,
-        "level": 1,
-        "materials": "red ribbon",
+        "concentration": true,
+        "level": 2,
+        "materials": "",
         "materialsConsumed": false,
         "prepared": false,
         "ritual": false,
         "schools": {
           "primary": "enchantment",
           "secondary": [
-            "beasts",
-            "compulsion",
-            "nature"
+            "divine",
+            "negation"
           ]
         }
       },
@@ -1016,23 +1015,30 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "e27Bay46WUVZ6MlT": 3,
-        "eunZYRLVMq93MkmD": 3
+        "L4gNp7mYB8UoKYzP": 3
       },
       "flags": {
+        "exportSource": {
+          "world": "lu-a5e",
+          "system": "a5e",
+          "coreVersion": "9.266",
+          "systemVersion": "0.5.5"
+        },
         "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.5SgoVStMos5kL14Z"
+          "sourceId": "Compendium.a5e.a5e-spells.r0wqtm9exiohkkhc"
         }
       }
     },
     {
-      "_id": "if4DnCAX2QZ4IKmy",
-      "name": "Sleet Storm",
+      "_id": "mQPSTRJtl7o1jEiF",
+      "name": "Charm Person",
       "type": "spell",
-      "img": "icons/svg/item-bag.svg",
+      "img": "icons/magic/control/control-influence-puppet.webp",
       "data": {
         "ability": "",
-        "actionOptions": [],
+        "actionOptions": [
+          "savingThrow"
+        ],
         "activation": {
           "cost": 1,
           "type": "action",
@@ -1053,51 +1059,47 @@
         "damage": [
           {}
         ],
-        "description": "<p>You conjure a storm of freezing rain and sleet in the area. The ground in the area is covered with slick ice that makes it difficult terrain, exposed flames in the area are doused, and the area is heavily obscured.</p><p>When a creature enters the area for the first time on a turn or starts its turn there, it makes a Dexterity saving throw or falls prone.</p><p>When a creature concentrating on a spell starts its turn in the area or first enters into the area on a turn, it makes a Constitution saving throw or loses concentration.</p>",
+        "description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
         "duration": {
-          "unit": "minute",
+          "unit": "hour",
           "value": "1"
         },
         "healing": [],
         "proficient": true,
         "range": [
-          "long"
+          "short"
         ],
         "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
+          "dc": "@spellDC",
+          "onSave": "Negates effect",
+          "targetAbility": "wis"
         },
         "source": "",
         "target": {
           "quantity": "",
-          "type": "area",
-          "shape": "cylinder",
-          "size": "40 ft. radius,  20 ft. high"
+          "type": "creature"
         },
         "uses": {
-          "value": null,
-          "max": "",
-          "per": null
+          "value": 3,
+          "max": 3,
+          "per": "day"
         },
         "components": {
           "vocalized": true,
           "seen": true,
-          "material": true
+          "material": false
         },
-        "concentration": true,
-        "level": 2,
-        "materials": "few drops of melted snow",
+        "concentration": false,
+        "level": 1,
+        "materials": "",
         "materialsConsumed": false,
         "prepared": false,
         "ritual": false,
         "schools": {
-          "primary": "conjuration",
+          "primary": "enchantment",
           "secondary": [
-            "cold",
-            "nature",
-            "terrain",
-            "weather"
+            "arcane",
+            "compulsion"
           ]
         }
       },
@@ -1106,12 +1108,17 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "e27Bay46WUVZ6MlT": 3,
-        "eunZYRLVMq93MkmD": 3
+        "L4gNp7mYB8UoKYzP": 3
       },
       "flags": {
+        "exportSource": {
+          "world": "lu-a5e",
+          "system": "a5e",
+          "coreVersion": "9.266",
+          "systemVersion": "0.5.5"
+        },
         "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.1gIiJNRWv2JHEXY8"
+          "sourceId": "Compendium.a5e.a5e-spells.vmwiw8vaknau8vqg"
         }
       }
     }
@@ -1119,29 +1126,22 @@
   "effects": [],
   "flags": {
     "core": {
-      "sourceId": "Actor.nuCeGAAwlINzJcaN"
-    },
-    "a5e": {
-      "availableSpellLevels": [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9"
-      ],
-      "showSpellSlots": false,
-      "showSpellPoints": false
+      "sourceId": "Actor.KIcwqYkAIa1tfKfT"
     },
     "exportSource": {
-      "world": "a5e-dev",
+      "world": "lu-a5e",
       "system": "a5e",
-      "coreVersion": "9.251",
+      "coreVersion": "9.266",
       "systemVersion": "0.5.5"
+    },
+    "a5e": {
+      "sheetIsLocked": true,
+      "showSpellSlots": false,
+      "showSpellPoints": false,
+      "availableSpellLevels": [
+        "1",
+        "2"
+      ]
     }
   }
 }

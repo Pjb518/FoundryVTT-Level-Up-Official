@@ -138,4 +138,10 @@ Hooks.once('ready', () => {
   game.a5e.migrations.migrateWorld();
 });
 
+// Hooks.once("ready", () => {
+//   const LATEST_ANNOUNCEMENT_VERSION = "0.6.0";
+
+//   game.settings.set('a5e', 'systemMigrationVersion', game.system.data.version);
+// })
+
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
