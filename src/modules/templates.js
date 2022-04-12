@@ -13,5 +13,8 @@ export default async () => loadTemplates([
   'systems/a5e/templates/chat/item-card.hbs',
 
   // Roll Tooltip
-  'systems/a5e/templates/chat/roll-tooltip.hbs'
+  'systems/a5e/templates/chat/roll-tooltip.hbs',
+
+  // Announcements
+  'systems/a5e/templates/announcements/0.6.0.hbs'
 ]);

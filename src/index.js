@@ -138,10 +138,24 @@ Hooks.once('ready', () => {
   game.a5e.migrations.migrateWorld();
 });
 
-// Hooks.once("ready", () => {
-//   const LATEST_ANNOUNCEMENT_VERSION = "0.6.0";
+Hooks.once('ready', () => {
+  const LATEST_ANNOUNCEMENT_VERSION = '0.6.0';
+  const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
-//   game.settings.set('a5e', 'systemMigrationVersion', game.system.data.version);
-// })
+  const showAnnouncement = !lastAnnouncementShown
+    || isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
+
+  if (!showAnnouncement) return;
+
+  const announcementWindow = new Application({
+    title: 'Test!',
+    template: 'systems/a5e/templates/announcements/0.6.0.hbs',
+    width: 700
+  });
+
+  announcementWindow.render(true);
+
+  game.user.setFlag('a5e', 'latestAnnouncement', game.system.data.version);
+});
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
