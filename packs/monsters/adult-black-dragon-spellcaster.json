@@ -1,7 +1,7 @@
 {
-  "name": "Adult Black Dragon Lich",
+  "name": "Adult Black Dragon Spellcaster",
   "type": "npc",
-  "img": "systems/a5e/assets/dragon-lich.webp",
+  "img": "systems/a5e/assets/black-dragon.webp",
   "data": {
     "abilities": {
       "str": {
@@ -430,8 +430,7 @@
     "details": {
       "bio": "",
       "creatureTypes": [
-        "dragon",
-        "undead"
+        "dragon"
       ],
       "cr": 17,
       "privateNotes": ""
@@ -467,25 +466,17 @@
     },
     "traits": {
       "size": "huge",
-      "conditionImmunities": [
-        "charmed",
-        "fatigue",
-        "frightened",
-        "paralyzed",
-        "poisoned"
-      ],
+      "conditionImmunities": [],
       "damageImmunities": [
-        "acid",
-        "necrotic",
-        "poison"
+        "acid"
       ],
       "damageResistances": [],
       "damageVulnerabilities": []
     }
   },
   "token": {
-    "name": "Adult Black Dragon Lich",
-    "img": "systems/a5e/assets/dragon-lich.webp",
+    "name": "Adult Black Dragon Spellcaster",
+    "img": "systems/a5e/assets/black-dragon.webp",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
@@ -596,66 +587,6 @@
       "flags": {}
     },
     {
-      "_id": "UfHuObyP0kJm0hJ7",
-      "name": "Innate Spellcasting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The dragon’s spellcasting ability is Charisma Save <strong>DC 17</strong>. It can innately cast the<br>following spells, requiring no material components. </p><p><strong>3/day each</strong>: animate dead, fog cloud, legend lore, pass without trace, speak with dead</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 475000,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {}
-    },
-    {
       "_id": "6Y1N4HAnCmpDkl3K",
       "name": "Legendary Resistance (3/Day)",
       "type": "feature",
@@ -681,7 +612,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it loses its Undead Telepathy trait until the end of its next turn. Until the end of its next turn, undead creatures under its control are incapacitated.</p>",
+        "description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it sheds some of its scales, which turn to mud. If it has no more uses of this ability, its Armor Class is reduced to <strong>17</strong> until it finishes a long rest.</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -708,7 +639,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 750000,
+      "sort": 200000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -768,247 +699,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 200000,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "QaUc8fbR62TWxtp1",
-      "name": "Rejuvenation",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>If it has a soul vessel, a destroyed dragon lich gains a new body in 1d10 days, regaining all its hit points. The new body forms within 10 feet of the soul vessel</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 150000,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "QEzKxpIKdLzye2U8",
-      "name": "Turn Resistance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The dragon has advantage on saving throws against any effect that turns undead.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 250000,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "rldc0u6qDNRs122n",
-      "name": "Undead Nature",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The dragon doesn’t require air, sustenance, or sleep.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 700000,
-      "permission": {
-        "default": 0,
-        "eunZYRLVMq93MkmD": 3
-      },
-      "flags": {}
-    },
-    {
-      "_id": "ItA5uRyEH2VTnphr",
-      "name": "Undead Telepathy",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The dragon lich can communicate<br>telepathically with undead creatures within 120 feet.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 712500,
+      "sort": 162500,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1068,7 +759,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 900000,
+      "sort": 400000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1150,7 +841,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1000000,
+      "sort": 500000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1226,7 +917,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1100000,
+      "sort": 600000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1298,7 +989,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1200000,
+      "sort": 700000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1376,7 +1067,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1300000,
+      "sort": 800000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1415,17 +1106,11 @@
           {
             "canCrit": false,
             "damageType": "acid",
-            "formula": "7d8",
-            "name": ""
-          },
-          {
-            "canCrit": false,
-            "damageType": "necrotic",
-            "formula": "7d8",
+            "formula": "14d8",
             "name": ""
           }
         ],
-        "description": "<p>The dragon exhales sizzling acid and necrotic energy in a 60-foot-long, 5-foot-wide line. Each creature in that area makes a DC 19 Dexterity saving throw, taking 31 (7d8) acid damage and 31 (7d8) necrotic damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>",
+        "description": "<p>The dragon exhales sizzling acid in a 60-foot-long, 5-foot-wide line. Each creature<br>in that area makes a DC 19 Dexterity saving throw, taking 63 (14d8) acid damage on a failed save or half damage on a success. A creature that fails the save is blinded until the end of its next turn.</p>",
         "duration": {
           "unit": "instantaneous",
           "value": ""
@@ -1454,7 +1139,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1400000,
+      "sort": 900000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1526,7 +1211,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1450000,
+      "sort": 850000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1596,7 +1281,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1500000,
+      "sort": 1000000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1658,7 +1343,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1600000,
+      "sort": 1100000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1724,7 +1409,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1700000,
+      "sort": 1200000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1736,7 +1421,71 @@
       }
     },
     {
-      "_id": "5uqOQDwcNI7SAbLD",
+      "_id": "fwLCNiRuRlcxyIkR",
+      "name": "Amphibious",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The dragon can breathe air and water.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 150000,
+      "permission": {
+        "default": 0,
+        "eunZYRLVMq93MkmD": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.5PzHOG93icJCOGOb"
+        }
+      }
+    },
+    {
+      "_id": "5NuONJA0c68827tE",
       "name": "Legendary Actions",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -1788,7 +1537,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1475000,
+      "sort": 950000,
       "permission": {
         "default": 0,
         "eunZYRLVMq93MkmD": 3
@@ -1796,7 +1545,7 @@
       "flags": {}
     },
     {
-      "_id": "BL6TNcfkgtaYsDXB",
+      "_id": "byAbBt5VMoYVXYKs",
       "name": "Fog Cloud",
       "type": "spell",
       "img": "icons/magic/air/fog-gas-smoke-blue-gray.webp",
@@ -1890,7 +1639,7 @@
       }
     },
     {
-      "_id": "Vzr1osY9jYmvDREd",
+      "_id": "ShncUVgWYQplXUhO",
       "name": "Pass Without Trace",
       "type": "spell",
       "img": "icons/magic/nature/wolf-paw-glow-orange.webp",
@@ -1984,100 +1733,7 @@
       }
     },
     {
-      "_id": "wKenNB1Z3awJ3ZTj",
-      "name": "Speak with Dead",
-      "type": "spell",
-      "img": "icons/magic/death/skeleton-skull-soul-blue.webp",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {}
-        ],
-        "description": "<p>You call forth the target's memories, animating it enough to answer 5 questions. The corpse's knowledge is limited: it knows only what it knew in life and cannot learn new information or speak about anything that has occurred since its death. It speaks only in the languages it knew, and is under no compulsion to offer a truthful answer if it has reason not to. Answers might be brief, cryptic, or repetitive.</p><p>This spell does not return a departed soul, nor does it have any effect on an undead corpse, or one without a mouth.</p>",
-        "duration": {
-          "unit": "minute",
-          "value": "10"
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "touch"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "other"
-        },
-        "uses": {
-          "value": 3,
-          "max": 3,
-          "per": "day"
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 3,
-        "materials": "burning incense",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "necromancy",
-          "secondary": [
-            "communication",
-            "divine",
-            "knowledge",
-            "utility"
-          ]
-        }
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "L4gNp7mYB8UoKYzP": 3
-      },
-      "flags": {
-        "exportSource": {
-          "world": "lu-a5e",
-          "system": "a5e",
-          "coreVersion": "9.266",
-          "systemVersion": "0.5.5"
-        },
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.ttir2ps48jg7n5x5"
-        }
-      }
-    },
-    {
-      "_id": "n0SB9BVsBFyg7FO0",
+      "_id": "iLSBq8i45G7obLma",
       "name": "Legend Lore",
       "type": "spell",
       "img": "icons/sundries/books/book-open-purple.webp",
@@ -2169,16 +1825,16 @@
       }
     },
     {
-      "_id": "p5CxCr0mRQSBprgw",
-      "name": "Create Undead",
+      "_id": "upqEZkGIyugTchxC",
+      "name": "Speak with Dead",
       "type": "spell",
-      "img": "icons/magic/death/skull-trio-badge-purple.webp",
+      "img": "icons/magic/death/skeleton-skull-soul-blue.webp",
       "data": {
         "ability": "",
         "actionOptions": [],
         "activation": {
           "cost": 1,
-          "type": "minute",
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -2196,15 +1852,15 @@
         "damage": [
           {}
         ],
-        "description": "<p>This spell cannot be cast in sunlight. You reanimate the targets as undead and transform them into ghouls under your control.</p><p>While it is within 120 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours. Casting the spell in this way reasserts control over up to 3 undead you have animated with this spell, rather than animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over one additional ghoul for each slot level above 6th. Alternatively, when using an 8th-level spell slot you create or reassert control over 2 ghasts or wights, or when using a 9th-level spell slot you create or reassert control over 3 ghasts or wights, or 2 mummies. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
+        "description": "<p>You call forth the target's memories, animating it enough to answer 5 questions. The corpse's knowledge is limited: it knows only what it knew in life and cannot learn new information or speak about anything that has occurred since its death. It speaks only in the languages it knew, and is under no compulsion to offer a truthful answer if it has reason not to. Answers might be brief, cryptic, or repetitive.</p><p>This spell does not return a departed soul, nor does it have any effect on an undead corpse, or one without a mouth.</p>",
         "duration": {
-          "unit": "instantaneous",
-          "value": ""
+          "unit": "minute",
+          "value": "10"
         },
         "healing": [],
         "proficient": true,
         "range": [
-          "short"
+          "touch"
         ],
         "save": {
           "dc": "",
@@ -2224,20 +1880,21 @@
         "components": {
           "vocalized": true,
           "seen": true,
-          "material": false
+          "material": true
         },
         "concentration": false,
-        "level": 6,
-        "materials": "each corpse requires a clay pot filled with grave dirt, a clay pot filled with brackish water, and a black onyx stone worth 150 gold",
+        "level": 3,
+        "materials": "burning incense",
         "materialsConsumed": false,
         "prepared": false,
         "ritual": false,
         "schools": {
           "primary": "necromancy",
           "secondary": [
-            "arcane",
+            "communication",
             "divine",
-            "undead"
+            "knowledge",
+            "utility"
           ]
         }
       },
@@ -2256,121 +1913,28 @@
           "systemVersion": "0.5.5"
         },
         "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.6wny8hgihxo1in0o"
-        }
-      }
-    },
-    {
-      "_id": "p6b0WvxwFxb4nU4t",
-      "name": "Animate Dead",
-      "type": "spell",
-      "img": "icons/magic/death/undead-skeleton-energy-green.webp",
-      "data": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "minute",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {}
-        ],
-        "description": "<p>You animate a mortal's remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead's statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.</p><p>Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over 2 additional undead for each slot level above 3rd. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "touch"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "object"
-        },
-        "uses": {
-          "value": 3,
-          "max": 3,
-          "per": "day"
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 3,
-        "materials": "two copper coins",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "necromancy",
-          "secondary": [
-            "necrotic",
-            "summoning",
-            "undead"
-          ]
-        }
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "permission": {
-        "default": 0,
-        "L4gNp7mYB8UoKYzP": 3
-      },
-      "flags": {
-        "exportSource": {
-          "world": "lu-a5e",
-          "system": "a5e",
-          "coreVersion": "9.255",
-          "systemVersion": "0.5.6"
-        },
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.wy7uiys83mllqwdb"
+          "sourceId": "Compendium.a5e.a5e-spells.ttir2ps48jg7n5x5"
         }
       }
     }
   ],
   "effects": [],
   "flags": {
+    "core": {
+      "sourceId": "Actor.nuCeGAAwlINzJcaN"
+    },
     "exportSource": {
       "world": "lu-a5e",
       "system": "a5e",
       "coreVersion": "9.266",
       "systemVersion": "0.6.0"
     },
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.p7lajes14obfzkiz"
-    },
     "a5e": {
       "availableSpellLevels": [
         "1",
         "2",
         "3",
-        "5",
-        "6"
+        "5"
       ],
       "showSpellSlots": false,
       "showSpellPoints": false,
