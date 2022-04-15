@@ -1,7 +1,7 @@
 {
-  "name": "Ice Storm",
+  "name": "Improved Fireball",
   "type": "spell",
-  "img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+  "img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -19,8 +19,8 @@
       "type": ""
     },
     "area": {
-      "shape": "cylinder",
-      "size": "20ft radius, 40ft high."
+      "shape": "",
+      "size": ""
     },
     "check": {
       "ability": "str"
@@ -28,18 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "bludgeoning",
-        "formula": "2d8",
-        "name": ""
-      },
-      {
-        "canCrit": false,
-        "damageType": "cold",
-        "formula": "4d6",
+        "damageType": "fire",
+        "formula": "8d6",
         "name": ""
       }
     ],
-    "description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
+    "description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Improved Fireball.</strong> The fireball deals 8d6 fire damage. </p><p></p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -47,7 +41,7 @@
     "healing": [],
     "proficient": true,
     "range": [
-      "300 feet"
+      "long"
     ],
     "save": {
       "dc": "@spellDC",
@@ -56,10 +50,10 @@
     },
     "source": "",
     "target": {
-      "quantity": null,
-      "type": "",
-      "shape": "cylinder",
-      "size": "20 ft. radius,  40 ft. high"
+      "quantity": "",
+      "type": "area",
+      "shape": "sphere",
+      "size": "20 ft."
     },
     "uses": {
       "value": null,
@@ -72,30 +66,29 @@
       "material": true
     },
     "concentration": false,
-    "level": 4,
-    "materials": "drop of water",
+    "level": 3,
+    "materials": "bat guano and sulfur",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
       "primary": "evocation",
       "secondary": [
-        "cold",
-        "nature",
-        "storm"
+        "arcane",
+        "fire"
       ]
     }
   },
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "a5e-compendium-stuff",
+      "world": "level-up-test",
       "system": "a5e",
       "coreVersion": "9.268",
       "systemVersion": "0.6.0"
     },
     "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.j4r6vv2k78sxrx2g"
+      "sourceId": "Compendium.a5e.a5e-spells.8zv4wn88pcx9eu72"
     }
   }
 }

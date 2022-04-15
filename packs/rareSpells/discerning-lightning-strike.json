@@ -1,7 +1,7 @@
 {
-  "name": "Ice Storm",
+  "name": "Discerning Lightning Strike",
   "type": "spell",
-  "img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+  "img": "icons/magic/fire/beam-jet-stream-yellow.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -19,8 +19,8 @@
       "type": ""
     },
     "area": {
-      "shape": "cylinder",
-      "size": "20ft radius, 40ft high."
+      "shape": "",
+      "size": ""
     },
     "check": {
       "ability": "str"
@@ -28,18 +28,18 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "bludgeoning",
-        "formula": "2d8",
+        "damageType": "lightning",
+        "formula": "4d6",
         "name": ""
       },
       {
         "canCrit": false,
-        "damageType": "cold",
+        "damageType": "radiant",
         "formula": "4d6",
         "name": ""
       }
     ],
-    "description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
+    "description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Discerning Lightning Strike.</strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage. </p><p></p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -47,7 +47,7 @@
     "healing": [],
     "proficient": true,
     "range": [
-      "300 feet"
+      "medium"
     ],
     "save": {
       "dc": "@spellDC",
@@ -56,10 +56,10 @@
     },
     "source": "",
     "target": {
-      "quantity": null,
-      "type": "",
+      "quantity": "",
+      "type": "area",
       "shape": "cylinder",
-      "size": "20 ft. radius,  40 ft. high"
+      "size": "10 ft. radius,  40 ft. high"
     },
     "uses": {
       "value": null,
@@ -72,30 +72,29 @@
       "material": true
     },
     "concentration": false,
-    "level": 4,
-    "materials": "drop of water",
+    "level": 5,
+    "materials": "pinch of sulfur",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "evocation",
+      "primary": "divination",
       "secondary": [
-        "cold",
-        "nature",
-        "storm"
+        "divine",
+        "fire"
       ]
     }
   },
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "a5e-compendium-stuff",
+      "world": "level-up-test",
       "system": "a5e",
       "coreVersion": "9.268",
       "systemVersion": "0.6.0"
     },
     "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.j4r6vv2k78sxrx2g"
+      "sourceId": "Compendium.a5e.a5e-spells.7ldbx84pl6fcbaxz"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "Ice Storm",
+  "name": "Cubed Cone of Cold",
   "type": "spell",
-  "img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+  "img": "icons/magic/water/projectile-beams-salvo-blue.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -19,8 +19,8 @@
       "type": ""
     },
     "area": {
-      "shape": "cylinder",
-      "size": "20ft radius, 40ft high."
+      "shape": "cube",
+      "size": "30ft."
     },
     "check": {
       "ability": "str"
@@ -28,18 +28,12 @@
     "damage": [
       {
         "canCrit": false,
-        "damageType": "bludgeoning",
-        "formula": "2d8",
-        "name": ""
-      },
-      {
-        "canCrit": false,
         "damageType": "cold",
-        "formula": "4d6",
+        "formula": "8d8",
         "name": ""
       }
     ],
-    "description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
+    "description": "<p>Frigid cold blasts from your hands. Each creature in the area takes 8d8 cold damage. Creatures killed by this spell become frozen statues until they thaw.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Cubed Cone of Cold.</strong> The spell’s area becomes a 30-foot cube. Any buildings or structures entirely in the area take double damage.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -47,19 +41,19 @@
     "healing": [],
     "proficient": true,
     "range": [
-      "300 feet"
+      "self"
     ],
     "save": {
       "dc": "@spellDC",
       "onSave": "Half damage",
-      "targetAbility": "dex"
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
       "quantity": null,
       "type": "",
-      "shape": "cylinder",
-      "size": "20 ft. radius,  40 ft. high"
+      "shape": "cone",
+      "size": "60 ft."
     },
     "uses": {
       "value": null,
@@ -72,17 +66,17 @@
       "material": true
     },
     "concentration": false,
-    "level": 4,
-    "materials": "drop of water",
+    "level": 5,
+    "materials": "small glass or crystal snowflake",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
       "primary": "evocation",
       "secondary": [
-        "cold",
-        "nature",
-        "storm"
+        "arcane",
+        "attack",
+        "cold"
       ]
     }
   },
@@ -91,11 +85,11 @@
     "exportSource": {
       "world": "a5e-compendium-stuff",
       "system": "a5e",
-      "coreVersion": "9.268",
+      "coreVersion": "9.266",
       "systemVersion": "0.6.0"
     },
     "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.j4r6vv2k78sxrx2g"
+      "sourceId": "Compendium.a5e.a5e-spells.zjlck73buuul0sdg"
     }
   }
 }

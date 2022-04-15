@@ -1,7 +1,7 @@
 {
-  "name": "Gust of Wind",
+  "name": "Unnerving Bane",
   "type": "spell",
-  "img": "icons/magic/air/wind-swirl-gray-blue.webp",
+  "img": "icons/magic/unholy/hand-light-green.webp",
   "data": {
     "ability": "",
     "actionOptions": [
@@ -18,8 +18,8 @@
       "type": ""
     },
     "area": {
-      "shape": "line",
-      "size": "60ft long, 10ft wide."
+      "shape": "",
+      "size": ""
     },
     "check": {
       "ability": "str"
@@ -27,7 +27,7 @@
     "damage": [
       {}
     ],
-    "description": "<p>A torrent of wind erupts from your hand in a direction you choose. Each creature that starts its turn in the area or moves into the area must succeed on a Strength saving throw or be pushed 15 feet from you in the direction of the line.</p><p>Any creature in the area must spend 2 feet of movement for every foot moved when trying to approach you.</p><p>The blast of wind extinguishes small fires and disperses gas or vapor.</p><p>You can use a bonus action to change the direction of the gust.</p>",
+    "description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p><p></p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional creature for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Unnerving Bane</strong>. Targets affected by this spell are rattled.</p>",
     "duration": {
       "unit": "minute",
       "value": "1"
@@ -35,19 +35,17 @@
     "healing": [],
     "proficient": true,
     "range": [
-      "self"
+      "short"
     ],
     "save": {
       "dc": "@spellDC",
-      "onSave": "Special",
-      "targetAbility": "str"
+      "onSave": "Negates effect",
+      "targetAbility": "cha"
     },
     "source": "",
     "target": {
-      "quantity": null,
-      "type": "",
-      "shape": "line",
-      "size": "60 ft. long and 10 ft. wide"
+      "quantity": "",
+      "type": "creature"
     },
     "uses": {
       "value": null,
@@ -60,16 +58,15 @@
       "material": true
     },
     "concentration": true,
-    "level": 2,
-    "materials": "seed",
+    "level": 1,
+    "materials": "a small straw dolly",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "evocation",
+      "primary": "enchantment",
       "secondary": [
-        "air",
-        "nature"
+        "affliction"
       ]
     }
   },
@@ -78,11 +75,11 @@
     "exportSource": {
       "world": "a5e-compendium-stuff",
       "system": "a5e",
-      "coreVersion": "9.268",
+      "coreVersion": "9.266",
       "systemVersion": "0.6.0"
     },
     "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.5iuxb70rp2ipwltm"
+      "sourceId": "Compendium.a5e.a5e-spells.mxv24w7twkbwrcte"
     }
   }
 }

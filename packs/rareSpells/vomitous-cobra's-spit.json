@@ -1,0 +1,99 @@
+{
+  "name": "Vomitous Cobra's Spit",
+  "type": "spell",
+  "img": "icons/creatures/reptiles/serpent-horned-green.webp",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "attack",
+      "damage",
+      "savingThrow"
+    ],
+    "activation": {
+      "cost": 1,
+      "type": "action",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": "rangedSpellAttack"
+    },
+    "area": {
+      "shape": "cone",
+      "size": "15ft."
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {
+        "canCrit": true,
+        "damageType": "poison",
+        "formula": "4d8",
+        "name": "Default (Or Self Damage)"
+      },
+      {
+        "canCrit": true,
+        "damageType": "poison",
+        "formula": "8d8",
+        "name": "Vomitous Spit"
+      }
+    ],
+    "description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Vomitous Cobra's Spit. </strong>You can use an action to end the spell early, taking 4d8 poison damage and spewing a 15-foot cone that deals 8d8 poison damage. Creatures in the area make a Dexterity saving throw, halving the damage on a success.</p>",
+    "duration": {
+      "unit": "minute",
+      "value": "1"
+    },
+    "healing": [],
+    "proficient": true,
+    "range": [
+      "self"
+    ],
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half Damage.",
+      "targetAbility": "dex"
+    },
+    "source": "",
+    "target": {
+      "quantity": "",
+      "type": "self"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "poisonous snake's fang",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "attack",
+        "poison"
+      ]
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "a5e-compendium-stuff",
+      "system": "a5e",
+      "coreVersion": "9.266",
+      "systemVersion": "0.6.0"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.34okgnib86uh3epz"
+    }
+  }
+}

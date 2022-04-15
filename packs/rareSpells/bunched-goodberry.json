@@ -1,13 +1,13 @@
 {
-  "name": "Heroes' Feast",
+  "name": "Bunched Goodberry",
   "type": "spell",
-  "img": "icons/consumables/food/bowl-stew-tofu-potato-red.webp",
+  "img": "icons/consumables/fruit/berry-leaf-purple-teal.webp",
   "data": {
     "ability": "",
     "actionOptions": [],
     "activation": {
-      "cost": 10,
-      "type": "minute",
+      "cost": 1,
+      "type": "bonusAction",
       "reactionTrigger": ""
     },
     "attack": {
@@ -22,8 +22,10 @@
     "check": {
       "ability": "str"
     },
-    "damage": [],
-    "description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished&mdash;it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast's participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p>",
+    "damage": [
+      {}
+    ],
+    "description": "<p>You transform the components into 2d4 berries.</p><p>For the next 24 hours, any creature that consumes one of these berries regains 1 hit point. Eating or administering a berry is an action. The berries do not provide any nourishment or sate hunger.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create 1d4 additional berries for every 2 slot levels above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Bunched Goodberry.</strong> Eating or administering any number of berries is a bonus action, and a creature regains 1 hit point per berry consumed.</p>",
     "duration": {
       "unit": "instantaneous",
       "value": ""
@@ -31,7 +33,7 @@
     "healing": [],
     "proficient": true,
     "range": [
-      "short"
+      "touch"
     ],
     "save": {
       "dc": "",
@@ -41,7 +43,7 @@
     "source": "",
     "target": {
       "quantity": "",
-      "type": "none"
+      "type": "object"
     },
     "uses": {
       "value": null,
@@ -54,15 +56,17 @@
       "material": true
     },
     "concentration": false,
-    "level": 6,
-    "materials": "beautifully crafted bowl worth at least 1, 000 gold, consumed by the spell",
+    "level": 1,
+    "materials": "mistletoe and a handful of grass",
     "materialsConsumed": false,
     "prepared": false,
     "ritual": false,
     "schools": {
-      "primary": "conjuration",
+      "primary": "transmutation",
       "secondary": [
-        "enhancement"
+        "healing",
+        "nature",
+        "plants"
       ]
     }
   },
@@ -75,7 +79,7 @@
       "systemVersion": "0.6.0"
     },
     "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.joaaxzmkfgb10bq9"
+      "sourceId": "Compendium.a5e.a5e-spells.alllu1myl7il904v"
     }
   }
 }
