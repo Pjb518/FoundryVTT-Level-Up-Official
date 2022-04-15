@@ -3,8 +3,10 @@
   "type": "spell",
   "img": "icons/magic/death/hand-undead-skeleton-fire-green.webp",
   "data": {
-    "ability": "",
-    "actionOptions": [],
+    "ability": null,
+    "actionOptions": [
+      "healing"
+    ],
     "activation": {
       "cost": 1,
       "type": "action",
@@ -30,7 +32,13 @@
       "unit": "hour",
       "value": "1"
     },
-    "healing": [],
+    "healing": [
+      {
+        "formula": "1d4+4",
+        "healingType": "temporaryHealing",
+        "name": "False Life"
+      }
+    ],
     "proficient": true,
     "range": [
       "self"
@@ -72,10 +80,13 @@
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "lu-a5e",
+      "world": "level-up-test",
       "system": "a5e",
-      "coreVersion": "9.266",
-      "systemVersion": "0.5.5"
+      "coreVersion": "9.268",
+      "systemVersion": "0.6.0"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.8h3hg7cgaui8kjhb"
     }
   }
 }
