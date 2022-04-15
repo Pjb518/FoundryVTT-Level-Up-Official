@@ -99,14 +99,14 @@ export default {
     const damageTags = Object.fromEntries(
       damage.map(({ name }, i) => [
         i,
-        name.trim() || `${game.i18n.localize("A5E.Damage")} #${i + 1}`,
+        name?.trim() || `${game.i18n.localize("A5E.Damage")} #${i + 1}`,
       ])
     );
 
     const healingTags = Object.fromEntries(
       healing.map(({ name }, i) => [
         i,
-        name.trim() || `${game.i18n.localize("A5E.Healing")} #${i + 1}`,
+        name?.trim() || `${game.i18n.localize("A5E.Healing")} #${i + 1}`,
       ])
     );
 

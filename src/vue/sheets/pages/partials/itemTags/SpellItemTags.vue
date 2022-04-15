@@ -47,7 +47,10 @@ export default {
         tagList.push(game.i18n.localize("A5E.SpellRitualAbbr"));
       }
 
-      if (itemData.range.filter(Boolean).length) {
+      if (
+        Array.isArray(itemData.range) &&
+        itemData.range.filter(Boolean).length
+      ) {
         const rangeComponents = [game.i18n.localize("A5E.ItemRange"), "-"];
         rangeComponents.push(prepareRangeSummary(itemData.range));
         tagList.push(rangeComponents.join(" "));
