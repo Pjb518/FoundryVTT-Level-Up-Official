@@ -1,0 +1,82 @@
+{
+  "name": "Perfect Storm  (DC blank/with @level)",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "data": {
+    "ability": "",
+    "actionOptions": [
+      "savingThrow",
+      "damage"
+    ],
+    "activation": {
+      "cost": "",
+      "type": "",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "",
+      "critThreshold": 20,
+      "type": ""
+    },
+    "area": {
+      "shape": "sphere",
+      "size": "10 ft."
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {
+        "canCrit": false,
+        "damageType": "lightning",
+        "formula": "@level",
+        "name": "Lightning"
+      },
+      {
+        "canCrit": false,
+        "damageType": "thunder",
+        "formula": "@level",
+        "name": "Thunder"
+      }
+    ],
+    "description": "<p>Starting at 14th level, any hostile creature that begins its turn inside your Whirling Winds aura makes a Constitution saving throw (DC 8 + your proficiency bonus + your Strength modifier). The creature takes thunder or lightning damage (the same type as Touched by Thunder) equal to your berserker level on a failed save, or half as much on a successful save.</p>",
+    "duration": {
+      "unit": "",
+      "value": ""
+    },
+    "healing": [],
+    "proficient": true,
+    "range": [
+      "self"
+    ],
+    "save": {
+      "dc": "8 + @prof + @str.mod",
+      "onSave": "Half damage",
+      "targetAbility": "con"
+    },
+    "source": "",
+    "target": {
+      "quantity": null,
+      "type": "creature"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class"
+  },
+  "effects": [],
+  "flags": {
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.SharedCompendia.a5e-classes.sGR5qdTWC7w3nOUM"
+    },
+    "exportSource": {
+      "world": "kingdoms-a5e",
+      "system": "a5e",
+      "coreVersion": "9.249",
+      "systemVersion": "0.5.5"
+    }
+  }
+}
