@@ -1,13 +1,15 @@
 {
-  "name": "Extra Attack",
+  "name": "Positive Energy Flood",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
-    "ability": "",
-    "actionOptions": [],
+    "ability": "cha",
+    "actionOptions": [
+      "healing"
+    ],
     "activation": {
-      "cost": "",
-      "type": "",
+      "cost": 1,
+      "type": "bonusAction",
       "reactionTrigger": ""
     },
     "attack": {
@@ -16,19 +18,25 @@
       "type": ""
     },
     "area": {
-      "shape": "",
-      "size": ""
+      "shape": "sphere",
+      "size": "30ft"
     },
     "check": {
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>At 5th level, you can attack twice instead of once whenever you take the attack action on your turn.</p>",
+    "description": "<p>As a bonus action, you can use your Channel Divinity to send out a flood of positive energy to heal your allies. Friendly creatures (including yourself) within 30 feet regain hit points equal to your proficiency bonus + your Charisma modifier.</p>",
     "duration": {
-      "unit": "",
+      "unit": "instantaneous",
       "value": ""
     },
-    "healing": [],
+    "healing": [
+      {
+        "formula": "@prof + @mod",
+        "healingType": "healing",
+        "name": "Default"
+      }
+    ],
     "proficient": true,
     "range": [],
     "save": {
@@ -38,10 +46,8 @@
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": "",
-      "shape": "",
-      "size": ""
+      "quantity": null,
+      "type": "creature"
     },
     "uses": {
       "value": null,

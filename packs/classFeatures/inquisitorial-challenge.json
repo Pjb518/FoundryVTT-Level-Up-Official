@@ -1,13 +1,15 @@
 {
-  "name": "Extra Attack",
+  "name": "Inquisitorial Challenge",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "savingThrow"
+    ],
     "activation": {
-      "cost": "",
-      "type": "",
+      "cost": 1,
+      "type": "bonusAction",
       "reactionTrigger": ""
     },
     "attack": {
@@ -16,32 +18,30 @@
       "type": ""
     },
     "area": {
-      "shape": "",
-      "size": ""
+      "shape": "sphere",
+      "size": "30ft"
     },
     "check": {
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>At 5th level, you can attack twice instead of once whenever you take the attack action on your turn.</p>",
+    "description": "<p>You can use a bonus action and your Channel Divinity to issue a challenge of combat to one creature you can see within 30 feet. The creature makes a Wisdom saving throw or it is unable to move more than 30 feet away from you and has disadvantage on attacks against creatures other than you for 1 minute.</p>",
     "duration": {
-      "unit": "",
-      "value": ""
+      "unit": "minute",
+      "value": 1
     },
     "healing": [],
     "proficient": true,
     "range": [],
     "save": {
-      "dc": "",
+      "dc": null,
       "onSave": "",
-      "targetAbility": ""
+      "targetAbility": "wis"
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": "",
-      "shape": "",
-      "size": ""
+      "quantity": null,
+      "type": "creature"
     },
     "uses": {
       "value": null,

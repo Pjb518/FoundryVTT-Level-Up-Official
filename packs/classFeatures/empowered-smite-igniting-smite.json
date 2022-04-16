@@ -1,13 +1,16 @@
 {
-  "name": "Extra Attack",
+  "name": "Empowered Smite: Igniting Smite",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
-    "ability": "",
-    "actionOptions": [],
+    "ability": "default",
+    "actionOptions": [
+      "savingThrow",
+      "damage"
+    ],
     "activation": {
       "cost": "",
-      "type": "",
+      "type": "special",
       "reactionTrigger": ""
     },
     "attack": {
@@ -23,25 +26,25 @@
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>At 5th level, you can attack twice instead of once whenever you take the attack action on your turn.</p>",
+    "description": "<p>Your smite instead deals fire damage, and the target must make a Constitution saving throw at the start of each of its turns or take 1d6 fire damage. On a successful save, it takes no damage and the fire is extinguished. The fire can also be put out as an action or by the environment, and extinguishes itself after 1 minute.</p>",
     "duration": {
-      "unit": "",
-      "value": ""
+      "unit": "minute",
+      "value": 1
     },
     "healing": [],
     "proficient": true,
-    "range": [],
+    "range": [
+      "touch"
+    ],
     "save": {
-      "dc": "",
+      "dc": null,
       "onSave": "",
-      "targetAbility": ""
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": "",
-      "shape": "",
-      "size": ""
+      "quantity": 1,
+      "type": "creature"
     },
     "uses": {
       "value": null,

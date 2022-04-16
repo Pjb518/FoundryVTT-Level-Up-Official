@@ -1,13 +1,15 @@
 {
-  "name": "Extra Attack",
+  "name": "Negative Energy Flood",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "savingThrow"
+    ],
     "activation": {
-      "cost": "",
-      "type": "",
+      "cost": 1,
+      "type": "action",
       "reactionTrigger": ""
     },
     "attack": {
@@ -16,32 +18,30 @@
       "type": ""
     },
     "area": {
-      "shape": "",
-      "size": ""
+      "shape": "sphere",
+      "size": "30ft"
     },
     "check": {
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>At 5th level, you can attack twice instead of once whenever you take the attack action on your turn.</p>",
+    "description": "<p>As an action, you can use your Channel Divinity to unleash a flood of negative energy on your foes. Hostile creatures within 30 feet of you make a Constitution saving throw. On a failed save, a hostile creature takes 2d8 necrotic damage and is pushed back 5 feet, or on a success it takes half damage and is not pushed back.</p>",
     "duration": {
-      "unit": "",
+      "unit": "instantaneous",
       "value": ""
     },
     "healing": [],
     "proficient": true,
     "range": [],
     "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
+      "dc": null,
+      "onSave": "Half damage and not pushed back.",
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": "",
-      "shape": "",
-      "size": ""
+      "quantity": null,
+      "type": "creature"
     },
     "uses": {
       "value": null,

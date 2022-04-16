@@ -1,13 +1,13 @@
 {
-  "name": "Channel Divinity",
+  "name": "Divine Recovery",
   "type": "feature",
-  "img": "systems/dnd5e/icons/skills/yellow_38.jpg",
+  "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
     "actionOptions": [],
     "activation": {
-      "cost": "",
-      "type": "",
+      "cost": 1,
+      "type": "bonusAction",
       "reactionTrigger": ""
     },
     "attack": {
@@ -23,9 +23,9 @@
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>Your oath allows you to channel the divine for more magical effects than just casting spells. Each Channel Divinity option granted by your oath explains how to use it. Whenever you use your Channel Divinity, you choose which option to use. Once you have used this feature you can't do so again until you finish a short or long rest.</p><p>Some Channel Divinity options require saving throws. When using such an effect, the DC for the saving throw equals your herald spell save DC.</p>",
+    "description": "<p>At 12th level, you can transform divine energy into more easily manipulated magics. You can use a bonus action to recite a short prayer or mantra and expend a use of Channel Divinity to regain a spell slot of 3rd-level or less.</p><p>Once you have used this feature three times, you cannot do so again until you finish a long rest.</p>",
     "duration": {
-      "unit": "",
+      "unit": "instantaneous",
       "value": ""
     },
     "healing": [],
@@ -44,9 +44,9 @@
       "size": ""
     },
     "uses": {
-      "value": null,
-      "max": "",
-      "per": null
+      "value": 3,
+      "max": 3,
+      "per": "longRest"
     },
     "featureType": "class"
   },

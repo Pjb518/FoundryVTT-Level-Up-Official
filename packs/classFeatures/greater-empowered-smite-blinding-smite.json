@@ -1,13 +1,15 @@
 {
-  "name": "Channel Divinity",
+  "name": "Greater Empowered Smite: Blinding Smite",
   "type": "feature",
-  "img": "systems/dnd5e/icons/skills/yellow_38.jpg",
+  "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "savingThrow"
+    ],
     "activation": {
       "cost": "",
-      "type": "",
+      "type": "none",
       "reactionTrigger": ""
     },
     "attack": {
@@ -23,25 +25,23 @@
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>Your oath allows you to channel the divine for more magical effects than just casting spells. Each Channel Divinity option granted by your oath explains how to use it. Whenever you use your Channel Divinity, you choose which option to use. Once you have used this feature you can't do so again until you finish a short or long rest.</p><p>Some Channel Divinity options require saving throws. When using such an effect, the DC for the saving throw equals your herald spell save DC.</p>",
+    "description": "<p>The target makes a Constitution saving throw. On a failure, it is blinded for 1 minute. At the end of each of its turns, the target can repeat the saving throw, ending the effect on a success.</p>",
     "duration": {
-      "unit": "",
-      "value": ""
+      "unit": "minute",
+      "value": 1
     },
     "healing": [],
     "proficient": true,
     "range": [],
     "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
+      "dc": null,
+      "onSave": "Ends effect.",
+      "targetAbility": "con"
     },
     "source": "",
     "target": {
       "quantity": "",
-      "type": "",
-      "shape": "",
-      "size": ""
+      "type": ""
     },
     "uses": {
       "value": null,
