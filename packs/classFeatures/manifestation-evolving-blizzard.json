@@ -1,10 +1,12 @@
 {
-  "name": "Honor Bound",
+  "name": "Manifestation: Evolving Blizzard",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "damage"
+    ],
     "activation": {
       "cost": "",
       "type": "",
@@ -22,8 +24,15 @@
     "check": {
       "ability": "str"
     },
-    "damage": [],
-    "description": "<p>Also at 3rd level, you swear yourself either to a code of conduct or to a lord or nation. Choose one of the following:</p><p><strong><em>&nbsp; &nbsp;Loyal to the Crown</em></strong></p><p><strong><em>&nbsp; &nbsp;Loyal to the Code</em></strong></p>",
+    "damage": [
+      {
+        "canCrit": false,
+        "damageType": "cold",
+        "formula": "1d10",
+        "name": "Cold"
+      }
+    ],
+    "description": "<p>When you cast a spell of 1st-level or higher that deals cold damage, you can spend 1 sorcery point to gain 1d6 temporary hit points per level of the spell cast. While you have these temporary hit points and a creature hits you with a melee weapon attack, the attacker takes [[/r 1d10 #cold]] cold damage. These temporary hit points last for 1 hour.</p>",
     "duration": {
       "unit": "",
       "value": ""
@@ -50,14 +59,6 @@
   },
   "effects": [],
   "flags": {
-    "cf": {
-      "id": "temp_kpobcccpfm",
-      "path": "Fighter#/CF_SEP/Fighter Archetypes",
-      "color": "#000000"
-    },
-    "core": {
-      "sourceId": "Compendium.SharedCompendia.a5e-classes.wdqLnwzCmTKEoFgL"
-    },
     "exportSource": {
       "world": "kingdoms-a5e",
       "system": "a5e",

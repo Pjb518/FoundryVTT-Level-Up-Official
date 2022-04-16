@@ -1,13 +1,15 @@
 {
-  "name": "Honor Bound",
+  "name": "Manifestation: Hurricane (1 sorcery point)",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "savingThrow"
+    ],
     "activation": {
       "cost": "",
-      "type": "",
+      "type": "special",
       "reactionTrigger": ""
     },
     "attack": {
@@ -23,23 +25,25 @@
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>Also at 3rd level, you swear yourself either to a code of conduct or to a lord or nation. Choose one of the following:</p><p><strong><em>&nbsp; &nbsp;Loyal to the Crown</em></strong></p><p><strong><em>&nbsp; &nbsp;Loyal to the Code</em></strong></p>",
+    "description": "<p>You can treat both lightning and thunder as your manifestation’s damage types. When you cast a spell that deals lightning or thunder damage, you can spend 1 sorcery point to produce a thunderous blast around you. Large or smaller creatures within 5 feet of you must succeed on a Strength saving throw against your spell save DC or be pushed back 10 feet and knocked prone.</p>",
     "duration": {
       "unit": "",
       "value": ""
     },
     "healing": [],
     "proficient": true,
-    "range": [],
+    "range": [
+      "Sight"
+    ],
     "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
+      "dc": "@spellDC",
+      "onSave": "No effect",
+      "targetAbility": "str"
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": ""
+      "quantity": 1,
+      "type": "creature"
     },
     "uses": {
       "value": null,
@@ -50,14 +54,6 @@
   },
   "effects": [],
   "flags": {
-    "cf": {
-      "id": "temp_kpobcccpfm",
-      "path": "Fighter#/CF_SEP/Fighter Archetypes",
-      "color": "#000000"
-    },
-    "core": {
-      "sourceId": "Compendium.SharedCompendia.a5e-classes.wdqLnwzCmTKEoFgL"
-    },
     "exportSource": {
       "world": "kingdoms-a5e",
       "system": "a5e",

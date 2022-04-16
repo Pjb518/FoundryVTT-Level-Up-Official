@@ -1,13 +1,15 @@
 {
-  "name": "Honor Bound",
+  "name": "Manifestation: Evolving Corrosion",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "damage"
+    ],
     "activation": {
       "cost": "",
-      "type": "",
+      "type": "special",
       "reactionTrigger": ""
     },
     "attack": {
@@ -22,15 +24,24 @@
     "check": {
       "ability": "str"
     },
-    "damage": [],
-    "description": "<p>Also at 3rd level, you swear yourself either to a code of conduct or to a lord or nation. Choose one of the following:</p><p><strong><em>&nbsp; &nbsp;Loyal to the Crown</em></strong></p><p><strong><em>&nbsp; &nbsp;Loyal to the Code</em></strong></p>",
+    "damage": [
+      {
+        "canCrit": false,
+        "damageType": "acid",
+        "formula": "2d8",
+        "name": "Acid"
+      }
+    ],
+    "description": "<p>When you cast a spell of 1st-level or higher that deals acid damage, you can spend 1 sorcery point to create a 10-foot radius pool of acid centered on either the target of the spell or the spell’s point of origin. The area is difficult terrain, and when a creature ends its turn in the area it takes [[/r 2d8 #acid]] acid damage. The pool remains for 1 minute or until you use a bonus action to dismiss it.</p>",
     "duration": {
-      "unit": "",
-      "value": ""
+      "unit": "minute",
+      "value": 1
     },
     "healing": [],
     "proficient": true,
-    "range": [],
+    "range": [
+      "10 ft. radius pool centered on target or spell's point of origin"
+    ],
     "save": {
       "dc": "",
       "onSave": "",
@@ -50,14 +61,6 @@
   },
   "effects": [],
   "flags": {
-    "cf": {
-      "id": "temp_kpobcccpfm",
-      "path": "Fighter#/CF_SEP/Fighter Archetypes",
-      "color": "#000000"
-    },
-    "core": {
-      "sourceId": "Compendium.SharedCompendia.a5e-classes.wdqLnwzCmTKEoFgL"
-    },
     "exportSource": {
       "world": "kingdoms-a5e",
       "system": "a5e",

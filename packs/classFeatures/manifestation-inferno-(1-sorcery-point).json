@@ -1,13 +1,15 @@
 {
-  "name": "Honor Bound",
+  "name": "Manifestation: Inferno (1 sorcery point)",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "damage"
+    ],
     "activation": {
       "cost": "",
-      "type": "",
+      "type": "special",
       "reactionTrigger": ""
     },
     "attack": {
@@ -22,15 +24,24 @@
     "check": {
       "ability": "str"
     },
-    "damage": [],
-    "description": "<p>Also at 3rd level, you swear yourself either to a code of conduct or to a lord or nation. Choose one of the following:</p><p><strong><em>&nbsp; &nbsp;Loyal to the Crown</em></strong></p><p><strong><em>&nbsp; &nbsp;Loyal to the Code</em></strong></p>",
+    "damage": [
+      {
+        "canCrit": false,
+        "damageType": "fire",
+        "formula": "2d4",
+        "name": "Ongoing Fire"
+      }
+    ],
+    "description": "<p>When you cast a spell that deals fire damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes fire damage from the spell, it is also set ablaze, taking 2d4 ongoing fire damage for a number of rounds equal to the spell’s level, or until it uses an action to put itself out.</p>",
     "duration": {
-      "unit": "",
-      "value": ""
+      "unit": "round",
+      "value": 1
     },
     "healing": [],
     "proficient": true,
-    "range": [],
+    "range": [
+      "Sight"
+    ],
     "save": {
       "dc": "",
       "onSave": "",
@@ -38,8 +49,8 @@
     },
     "source": "",
     "target": {
-      "quantity": "",
-      "type": ""
+      "quantity": 1,
+      "type": "creature"
     },
     "uses": {
       "value": null,
@@ -50,14 +61,6 @@
   },
   "effects": [],
   "flags": {
-    "cf": {
-      "id": "temp_kpobcccpfm",
-      "path": "Fighter#/CF_SEP/Fighter Archetypes",
-      "color": "#000000"
-    },
-    "core": {
-      "sourceId": "Compendium.SharedCompendia.a5e-classes.wdqLnwzCmTKEoFgL"
-    },
     "exportSource": {
       "world": "kingdoms-a5e",
       "system": "a5e",
