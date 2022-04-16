@@ -1,13 +1,15 @@
 {
-  "name": "Extra Attack",
+  "name": "Knack: Healing Salves",
   "type": "feature",
   "img": "icons/svg/item-bag.svg",
   "data": {
     "ability": "",
-    "actionOptions": [],
+    "actionOptions": [
+      "healing"
+    ],
     "activation": {
-      "cost": "",
-      "type": "",
+      "cost": 1,
+      "type": "action",
       "reactionTrigger": ""
     },
     "attack": {
@@ -23,12 +25,18 @@
       "ability": "str"
     },
     "damage": [],
-    "description": "<p>At 5th level you can attack twice, instead of once, whenever you take the Attack action on your turn.</p><p><br></p>",
+    "description": "<p>Once between long rests you can spend an hour to collect natural ingredients and concoct an ointment that speeds healing. This salve is potent for 24 hours and has a number of uses equal to 1 + your Wisdom modifier. As an action, you can use the salve to restore 1d4 hit points to a creature within reach.</p><p><br></p>",
     "duration": {
       "unit": "",
-      "value": ""
+      "value": 1
     },
-    "healing": [],
+    "healing": [
+      {
+        "formula": "1d4",
+        "healingType": "healing",
+        "name": "Healing Salve"
+      }
+    ],
     "proficient": true,
     "range": [],
     "save": {
@@ -46,12 +54,12 @@
       "max": "",
       "per": null
     },
-    "featureType": "class"
+    "featureType": "knack"
   },
   "effects": [],
   "flags": {
     "core": {
-      "sourceId": "Item.zbY5ZoZ3yuhxbSuD"
+      "sourceId": "Item.fpY53JgNoHBiHfnH"
     },
     "exportSource": {
       "world": "red-hand",
