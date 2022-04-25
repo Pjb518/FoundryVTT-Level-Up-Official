@@ -380,6 +380,10 @@
         "d4": {
           "current": 0,
           "total": 0
+        },
+        "d20": {
+          "current": 15,
+          "total": 0
         }
       },
       "initiative": {
@@ -516,7 +520,7 @@
   },
   "items": [
     {
-      "_id": "EDqFONyVVVObl9TA",
+      "_id": "cSSiuoWt3EhQtkkw",
       "name": "Tunneler",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -571,12 +575,17 @@
       "sort": 100000,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.EDqFONyVVVObl9TA"
+        }
+      }
     },
     {
-      "_id": "GaTYRMKKcpzyzcuO",
+      "_id": "nqMRuEknKDSaw3Vy",
       "name": "Multiattack",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -584,8 +593,8 @@
         "ability": "",
         "actionOptions": [],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -631,12 +640,185 @@
       "sort": 150000,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.GaTYRMKKcpzyzcuO"
+        }
+      }
     },
     {
-      "_id": "PH7jHnH8uKGM3Aj2",
+      "_id": "mGHZWsr3bcqecCmW",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "damage",
+          "attack",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "3d10+@mod",
+            "name": "Bite Base Damage"
+          },
+          {
+            "canCrit": true,
+            "damageType": "acid",
+            "formula": "7d6",
+            "name": "Swallowed Damage"
+          }
+        ],
+        "description": "<p style=\"text-align: start\">On hit, if the target is a Large or smaller creature, it makes a DC 19 Dexterity saving throw. On a failure, the target is swallowed. A swallowed creature is blinded and restrained, it has total cover from attacks from outside the worm, and it takes 24 (7d6) acid damage at the start of each of the worm’s turns.</p><p><br>If a swallowed creature deals 35 or more damage to the worm in a single turn, or if the worm dies, the worm vomits up all swallowed creatures.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "10 ft."
+        ],
+        "save": {
+          "dc": 19,
+          "onSave": "Avoids Being Swallowed",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.Ojrre9k5X6Z7DMfC"
+        }
+      }
+    },
+    {
+      "_id": "MljaVGdLjaXIpxRR",
+      "name": "Tail Stinger",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "",
+            "formula": "3d6+@mod",
+            "name": "Stinger Base"
+          },
+          {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "12d6",
+            "name": "Poison Damage"
+          }
+        ],
+        "description": "<p>On hit, target makes a DC 19 Constitution saving throw. The target will take half damage from the additional poison damage on success.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "10 ft."
+        ],
+        "save": {
+          "dc": 19,
+          "onSave": "Half Poison Damage",
+          "targetAbility": "con"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "permission": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Item.yHDnzzYvPbfGtm1h"
+        }
+      }
+    },
+    {
+      "_id": "ab3hxTh69qxZ4OHY",
       "name": "Fighting Retreat",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -691,177 +873,12 @@
       "sort": 600000,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
       },
       "flags": {
         "core": {
           "sourceId": "Item.p1mymh7m7v8uwje6"
-        }
-      }
-    },
-    {
-      "_id": "BGH0ZnxLgp5tWMlU",
-      "name": "Bite",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "str",
-        "actionOptions": [
-          "damage",
-          "attack",
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "3d10+@mod",
-            "name": "Bite Base Damage"
-          },
-          {
-            "canCrit": true,
-            "damageType": "acid",
-            "formula": "7d6",
-            "name": "Swallowed Damage"
-          }
-        ],
-        "description": "<p style=\"text-align: start\">On hit, if the target is a Large or smaller creature, it makes a DC 19 Dexterity saving throw. On a failure, the target is swallowed. A swallowed creature is blinded and restrained, it has total cover from attacks from outside the worm, and it takes 24 (7d6) acid damage at the start of each of the worm\u2019s turns.</p><p><br>If a swallowed creature deals 35 or more damage to the worm in a single turn, or if the worm dies, the worm vomits up all swallowed creatures.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "10"
-        ],
-        "save": {
-          "dc": 19,
-          "onSave": "Avoids Being Swallowed",
-          "targetAbility": "dex"
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "naturalWeapon"
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.Ojrre9k5X6Z7DMfC"
-        }
-      }
-    },
-    {
-      "_id": "tGnOh6dZzf8WYpsp",
-      "name": "Tail Stinger",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "data": {
-        "ability": "str",
-        "actionOptions": [
-          "attack",
-          "damage",
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "",
-            "formula": "3d6+@mod",
-            "name": "Stinger Base"
-          },
-          {
-            "canCrit": true,
-            "damageType": "poison",
-            "formula": "12d6",
-            "name": "Poison Damage"
-          }
-        ],
-        "description": "<p>On hit, target makes a DC 19 Constitution saving throw. The target will take half damage from the additional poison damage on success.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "10"
-        ],
-        "save": {
-          "dc": 19,
-          "onSave": "Half Poison Damage",
-          "targetAbility": "con"
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 400000,
-      "permission": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Item.yHDnzzYvPbfGtm1h"
         }
       }
     }
@@ -869,10 +886,13 @@
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "holdencoast",
+      "world": "testworld",
       "system": "a5e",
-      "coreVersion": "9.255",
-      "systemVersion": "0.5.5"
+      "coreVersion": "9.269",
+      "systemVersion": "0.6.2"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.0wp4s5ejwdzoq8dw"
     }
   }
 }

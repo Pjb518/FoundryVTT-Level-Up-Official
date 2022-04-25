@@ -380,6 +380,10 @@
         "d4": {
           "current": 0,
           "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
         }
       },
       "initiative": {
@@ -424,7 +428,7 @@
       "cp": 0
     },
     "details": {
-      "bio": "",
+      "bio": "<h2><strong>COMBAT</strong></h2><p>If a satyr is alone, it rams and fights with its rapier. In a group of satyrs, one uses Lullaby or Dance Tune while the others fight in melee.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Aravale, Bocacchio, Gracchus, Hoddypeak, Rumpus, Windermere</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Satyrs are fey creatures with the torsos of humans and the cloven hooves of goats.</p><p><strong>DC 15</strong> Their fey nature makes satyrs resistant to mortal magic.</p><p><strong>DC 20</strong> If you ever encounter a satyr, cover your ears: their music makes mortals dance uncontrollably or fall into an enchanted slumber.</p><p><strong>DESCRIPTION</strong></p><p>Satyrs are boisterous, forest-dwelling fey that resemble humans with furry lower bodies and the cloven hooves of goats. Rams’ horns sprout from their brows, ranging in size from tiny nubs to impressive spirals.&nbsp;</p><p>Satyrs live in the moment. They relentlessly pursue beauty and pleasure, hosting raucous celebrations that can last for weeks at a time.</p><p><strong><em>Instinctive Musicians.</em> </strong>Musical virtuosos, satyrs are said to be able to play any instrument. Their music, woven with fey magic, incites merriment and other enchantments in anyone who hears it.</p><p><strong><em>Infectious Hedonists.</em> </strong>When a revel of satyrs descends upon a village or town, the inhabitants often find themselves caught up in the wild celebration. Satyrs give no thought to the consequences of their hedonism. A lengthy revel can devastate a community as chores are forgotten and winter stores consumed. When a revel finally ends, it leaves in its wake folk mystified at their own behaviour.</p><p><strong>BEHAVIOR</strong></p><p>1–3 Reveling</p><p>4 Staggering drunk</p><p>5 Planning to steal revelers away to a sinister forest</p><p>6 Arriving for an unannounced visit and with no intention to leave</p><p>7 Sneaking past guards to steal something, kidnap someone, or rescue someone</p><p>8 Broke and willing to rob travelers</p><p><strong>SIGNS</strong></p><p>1–3 Distant music</p><p>4 Cloven hoof print</p><p>5 Empty wine jugs</p><p>6 Drunk or passed-out revelers</p><p><strong>ENCOUNTERS</strong></p><p>Satyrs dwell in woodlands in the Faerie Realm and on the Material Plane.</p><p><strong>CR 0–2</strong> 1 or 2 satyrs</p><p><strong>Treasure</strong> 50 gp, sheet music for a variety of dance tunes (25 gp), 2 <em>potions of healing</em></p><p><strong>CR 3–4</strong> 3 or 4 satyrs; 2 satyrs with 2 dryads, pixies, or sprites; 2 or 3 satyrs with 1d6 + 6 commoners</p><p><strong>Treasure</strong> 6 bottles of excellent wine (25 gp each), <em>potion of growth</em>, <em>pipes of the sewers</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Fey are creatures that are native to Fairyland, also called the Dreaming. These creatures live in a verdant realm of heightened natural beauty and combine grace and danger. Sprites and pixies are fey.</p>",
       "creatureTypes": [
         "fey"
       ],
@@ -705,7 +709,7 @@
       }
     },
     {
-      "_id": "YD02OvbKhIgoUXJ2",
+      "_id": "fmztNg6zxIkHduTN",
       "name": "Ram",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -753,7 +757,9 @@
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "5 ft."
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -776,12 +782,17 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.YD02OvbKhIgoUXJ2"
+        }
+      }
     },
     {
-      "_id": "hhKW35lwIiek8NVc",
+      "_id": "7Hnh0cK9KwJ02zmc",
       "name": "Dance Tune",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -791,8 +802,8 @@
           "savingThrow"
         ],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "action",
           "reactionTrigger": ""
         },
         "attack": {
@@ -802,13 +813,13 @@
         },
         "area": {
           "shape": "sphere",
-          "size": "30 foot radius"
+          "size": "30 ft. radius"
         },
         "check": {
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>Each humanoid, fey, or giant within 30 feet that can hear the satyr makes a DC 13 Wisdom saving throw. On a failure, it is magically charmed and must dance until the beginning of the satyr\u2019s next turn. While dancing, its movement speed is halved, and it has disadvantage on attack rolls. Satyrs don\u2019t suffer the negative consequences of dancing</p>",
+        "description": "<p>Each humanoid, fey, or giant within 30 feet that can hear the satyr makes a DC 13 Wisdom saving throw. On a failure, it is magically charmed and must dance until the beginning of the satyr’s next turn. While dancing, its movement speed is halved, and it has disadvantage on attack rolls. Satyrs don’t suffer the negative consequences of dancing</p>",
         "duration": {
           "unit": "",
           "value": ""
@@ -826,7 +837,7 @@
         "source": "",
         "target": {
           "quantity": "",
-          "type": ""
+          "type": "self"
         },
         "uses": {
           "value": null,
@@ -840,12 +851,17 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.hhKW35lwIiek8NVc"
+        }
+      }
     },
     {
-      "_id": "VIx9reHmkXxJls2W",
+      "_id": "7oSE5u7B5hnY5RlK",
       "name": "Magic Resistance",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -900,18 +916,26 @@
       "sort": 0,
       "permission": {
         "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
       },
-      "flags": {}
+      "flags": {
+        "core": {
+          "sourceId": "Item.VIx9reHmkXxJls2W"
+        }
+      }
     }
   ],
   "effects": [],
   "flags": {
     "exportSource": {
-      "world": "holdencoast",
+      "world": "testworld",
       "system": "a5e",
-      "coreVersion": "9.255",
-      "systemVersion": "0.5.5"
+      "coreVersion": "9.269",
+      "systemVersion": "0.6.2"
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.5av3fs7ro2bp9385"
     }
   }
 }
