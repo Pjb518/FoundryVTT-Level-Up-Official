@@ -14,6 +14,13 @@ import ReactiveDialog from './modules/apps/reactiveDialog';
 import Token5e from './modules/actor/token';
 import TokenDocument5e from './modules/actor/tokenDocument';
 
+import AbilityDialog from './vue/AbilityDialog.vue';
+import DeathSavingThrowDialog from './vue/DeathSavingThrowDialog.vue';
+import InitiativeDialog from './vue/InitiativeDialog.vue';
+import ItemActivationDialog from './vue/ItemActivationDialog.vue';
+import RestDialog from './vue/RestDialog.vue';
+
+import getDialogData from './modules/dice/getDialogData';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
 import preloadHandlebarsTemplates from './modules/templates';
@@ -65,6 +72,16 @@ Hooks.once('init', () => {
       migrateMacroData,
       migrateSceneData,
       migrateCurrentHitPoints
+    },
+    vue: {
+      AbilityDialog,
+      DeathSavingThrowDialog,
+      InitiativeDialog,
+      ItemActivationDialog,
+      RestDialog
+    },
+    utils: {
+      getDialogData
     }
   };
 
