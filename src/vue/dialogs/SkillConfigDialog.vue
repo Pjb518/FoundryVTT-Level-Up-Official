@@ -16,14 +16,17 @@
       </div>
     </form-section>
 
-    <form-section heading="A5E.AbilityScore">
+    <form-section
+      heading="A5E.AbilityScore"
+      hint="This ability will be selected by default when making checks with this skill."
+    >
       <update-wrapper
         :document="actor"
         :updatePath="`data.skills.${skill}.ability`"
         v-slot="slotProps"
       >
         <radio-group
-          listClasses="u-gap-md u-mb-md u-text-sm"
+          listClasses="u-gap-md u-text-sm"
           optionClasses="u-p-md u-text-center u-w-12"
           :options="abilityOptions"
           :selected="data.data.skills[skill].ability"
