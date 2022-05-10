@@ -22,6 +22,7 @@
 
     <ability-score-picker
       :appId="appId"
+      :initialSelection="selectedAbility"
       @update-selected-ability="updateSelectedAbility"
     />
 
@@ -95,7 +96,7 @@ export default {
 
     const errors = ref([]);
     const expertiseDie = ref("");
-    const selectedAbility = ref(null);
+    const selectedAbility = ref(skillData.ability);
     const situationalMods = ref("");
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
@@ -217,6 +218,7 @@ export default {
       rollFormula,
       rollFormulaIsValid,
       rollModeOptions,
+      selectedAbility,
       submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
       updateExpertiseDie,
       updateRollMode,
