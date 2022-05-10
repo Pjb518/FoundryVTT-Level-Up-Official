@@ -16,6 +16,22 @@
       </div>
     </form-section>
 
+    <form-section heading="A5E.AbilityScore">
+      <update-wrapper
+        :document="actor"
+        :updatePath="`data.skills.${skill}.ability`"
+        v-slot="slotProps"
+      >
+        <radio-group
+          listClasses="u-gap-md u-mb-md u-text-sm"
+          optionClasses="u-p-md u-text-center u-w-12"
+          :options="abilityOptions"
+          :selected="data.data.skills[skill].ability"
+          :selectionHandler="slotProps.selectionHandler"
+        />
+      </update-wrapper>
+    </form-section>
+
     <form-section>
       <update-wrapper
         :document="actor"
@@ -120,6 +136,7 @@
 <script>
 import { provide, ref } from "vue";
 
+import prepareAbilityOptions from "../utils/dataPreparationHelpers/prepareAbilityOptions";
 import prepareExpertiseDiceOptions from "../utils/dataPreparationHelpers/prepareExpertiseDiceOptions";
 import registerDialogListeners from "../utils/hookHelpers/registerDialogListeners";
 
@@ -136,6 +153,7 @@ export default {
     const appId = appWindow.id;
     const data = ref(actor.sheet.getData());
 
+    const abilityOptions = prepareAbilityOptions();
     const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
     provide("skill", skill);
@@ -155,6 +173,7 @@ export default {
     });
 
     return {
+      abilityOptions,
       actor,
       appId,
       checkBonusHeading: game.i18n.format("A5E.SkillCheckBonus", {
