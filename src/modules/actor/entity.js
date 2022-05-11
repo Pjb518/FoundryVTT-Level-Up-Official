@@ -944,6 +944,10 @@ export default class Actor5e extends Actor {
     ChatMessage.create(chatData);
   }
 
+  toggleElite() {
+    this.update({ 'data.details.elite': !this.data.data.details.elite });
+  }
+
   toggleInspiration() {
     this.update({ 'data.attributes.inspiration': !this.data.data.attributes.inspiration });
   }

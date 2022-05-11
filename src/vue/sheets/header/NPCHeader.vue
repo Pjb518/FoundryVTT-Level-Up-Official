@@ -52,6 +52,19 @@
       </div>
 
       <div class="a5e-sheet-header__shields">
+        <div
+          class="a5e-header-shield a5e-header-shield--elite"
+          :class="{
+            'a5e-header-shield--active-elite': data.data.details.elite,
+          }"
+          @click="onToggleElite"
+        >
+          <i class="fas fa-skull"></i>
+          <span class="a5e-header-shield__label">
+            {{ localize("A5E.Elite") }}
+          </span>
+        </div>
+
         <div class="a5e-header-shield">
           <input
             class="a5e-input a5e-input--cr"
@@ -172,8 +185,8 @@ export default {
 
     const challengeRating = computed(() => prepareChallengeRating(data));
 
-    function onToggleInspiration() {
-      actor.toggleInspiration();
+    function onToggleElite() {
+      actor.toggleElite();
     }
 
     function onToggleSheetLockedState() {
@@ -185,7 +198,7 @@ export default {
       challengeRating,
       data,
       localize: (key) => game.i18n.localize(key),
-      onToggleInspiration,
+      onToggleElite,
       onToggleSheetLockedState,
       sheetIsLocked,
     };

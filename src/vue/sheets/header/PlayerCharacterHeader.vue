@@ -72,12 +72,10 @@
 
       <div class="a5e-sheet-header__shields">
         <div
-          class="
-            a5e-header-shield a5e-header-shield--inspiration
-            a5e-js-toggle-inspiration
-          "
+          class="a5e-header-shield a5e-header-shield--inspiration"
           :class="{
-            'a5e-header-shield--active': data.data.attributes.inspiration,
+            'a5e-header-shield--active-inspiration':
+              data.data.attributes.inspiration,
           }"
           @click="onToggleInspiration"
         >

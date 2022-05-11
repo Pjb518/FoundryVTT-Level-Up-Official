@@ -5,13 +5,14 @@
   height: 2rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ccc;
+  border: 0.5px solid #ccc;
   border-radius: 50%;
   box-shadow: 0 0 10px #ccc inset;
   font-family: $font-primary;
   font-size: $font-size-lg;
   font-weight: bold;
 
+  &--elite,
   &--inspiration {
     color: #7e7960;
     cursor: pointer;
@@ -22,23 +23,25 @@
     }
   }
 
-  &--active {
+  &--active-elite,
+  &--active-inspiration {
+    &:hover {
+      color: lighten($color-primary, 80%);
+    }
+  }
+
+  &--active-elite {
+    border: 0.5px solid darken($color-secondary, 5%);
+    background: $color-secondary;
+    box-shadow: 0 0 10px lighten($color-secondary, 10%) inset;
+    color: lighten($color-secondary, 80%);
+  }
+
+  &--active-inspiration {
     border: 0.5px solid darken($color-primary, 5%);
     background: $color-primary;
     box-shadow: 0 0 10px lighten($color-primary, 10%) inset;
     color: lighten($color-primary, 80%);
-
-    i {
-      animation: pulse 2s infinite linear;
-
-      @media (prefers-reduced-motion) {
-        animation: none;
-      }
-    }
-
-    &:hover {
-      color: lighten($color-primary, 80%);
-    }
   }
 
   &__label {
