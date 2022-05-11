@@ -56,7 +56,7 @@
             type="checkbox"
             name="flags.a5e.showSpellSlots"
             :id="`${appId}-show-spell-slots`"
-            :checked="data.flags.a5e.showSpellSlots"
+            :checked="data.flags.a5e?.showSpellSlots ?? true"
           />
 
           <label class="u-pointer" :for="`${appId}-show-spell-slots`">
@@ -70,7 +70,7 @@
             type="checkbox"
             name="flags.a5e.showSpellPoints"
             :id="`${appId}-show-spell-points`"
-            :checked="data.flags.a5e.showSpellPoints"
+            :checked="data.flags.a5e?.showSpellPoints ?? true"
           />
 
           <label class="u-pointer" :for="`${appId}-show-spell-points`">
