@@ -204,9 +204,11 @@ export default {
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
     const maneuverDC = computed(() => calculateManeuverDC(data.value));
+
     const passivePerception = computed(() =>
       calculatePassivePerception(data.value)
     );
+
     const senses = computed(() => prepareSenses(data.value));
 
     const features = computed(() =>
@@ -278,9 +280,9 @@ export default {
       damageVulnerabilities,
       features,
       languages,
+      localize: (key) => game.i18n.localize(key),
       maneuverDC,
       passivePerception,
-      localize: (key) => game.i18n.localize(key),
       onClickConfigButton,
       onCreateFeature,
       onCreateWeapon,

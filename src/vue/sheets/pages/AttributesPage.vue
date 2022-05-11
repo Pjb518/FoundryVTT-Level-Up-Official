@@ -92,7 +92,23 @@
   </section>
 
   <tab-footer>
-    <div class="u-align-center u-flex u-gap-md u-ml-auto u-text-md">
+    <div class="u-align-center u-flex u-gap-md u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.SkillPrcPassive") }}
+      </h3>
+
+      <span class="a5e-footer-group__value">{{ passivePerception }}</span>
+    </div>
+
+    <div class="u-align-center u-flex u-gap-md u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.ManeuverDC") }}
+      </h3>
+
+      <span class="a5e-footer-group__value">{{ maneuverDC }}</span>
+    </div>
+
+    <div class="u-align-center u-flex u-gap-md u-text-md">
       <h3 class="u-mb-0">
         {{ localize("A5E.XP") }}
       </h3>
@@ -119,6 +135,8 @@
 import { computed, inject } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
+import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
+import calculatePassivePerception from "../../../modules/utils/calculatePassivePerception";
 import prepareArmorProficiencies from "../../utils/dataPreparationHelpers/prepareArmorProficiencies";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
 import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
@@ -174,6 +192,12 @@ export default {
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
 
+    const maneuverDC = computed(() => calculateManeuverDC(data.value));
+
+    const passivePerception = computed(() =>
+      calculatePassivePerception(data.value)
+    );
+
     const nextXPIncrement = computed(() => {
       let level = data.value.data.details.level;
 
@@ -209,8 +233,10 @@ export default {
       damageVulnerabilities,
       languages,
       localize: (key) => game.i18n.localize(key),
+      maneuverDC,
       nextXPIncrement,
       onClickConfigButton,
+      passivePerception,
       senses,
       toolProficiencies,
       weaponProficiencies,
