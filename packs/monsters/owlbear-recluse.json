@@ -1,5 +1,5 @@
 {
-  "name": "Owlbear",
+  "name": "Owlbear Recluse",
   "type": "npc",
   "img": "systems/a5e/assets/owlbear.webp",
   "data": {
@@ -375,8 +375,8 @@
         "failure": 0
       },
       "hp": {
-        "value": 59,
-        "baseMax": 59,
+        "value": 119,
+        "baseMax": 119,
         "temp": "",
         "bonus": null
       },
@@ -390,8 +390,8 @@
           "total": 0
         },
         "d10": {
-          "current": 7,
-          "total": 7
+          "current": 14,
+          "total": 14
         },
         "d12": {
           "current": 0,
@@ -453,7 +453,7 @@
         "monstrosity"
       ],
       "cr": 3,
-      "elite": false,
+      "elite": true,
       "privateNotes": "<div>\n<h2>COMBAT</h2>\n<p>The owlbear attacks the closest creature. It retreats if it&rsquo;s bloodied and not within 5 feet of an enemy.</p>\n<hr />\n<h2>LEGENDS AND LORE</h2>\n<p>With an Arcana or Nature check, characters can learn the following:</p>\n<p>DC 10 As their name implies, owlbears are beasts that blend the traits of owls and bears. They are as large as grizzly bears but are (thankfully) flightless.</p>\n<p>DC 15 Owlbears possess the keen eyesight of owls and a bear&rsquo;s acute sense of smell.</p>\n<p>DC 20 Fiercely territorial, owlbears grow increasingly aggressive as they age.</p>\n<p>DC 25 While owlbears&nbsp;are commonly known as 'owlbears', the correct term is 'bear-owl'.</p>\n</div>\n<div>\n<p>The unusual (but aptly named) owlbear or bear-owl has the powerful build of a grizzly bear and the sharp, hooked beak of a bird of prey. Though flightless, an owlbear&rsquo;s ground speed is impressive for a creature its size.</p>\n<p>Fiercely Territorial. Owlbear dens are most often found in dense forests or mountainous, rocky regions. While an owlbear&rsquo;s hunting grounds may cover an area several miles in diameter, bloody territorial disputes between rival broods are common. In fact, owlbears challenge anything that enters their territory, accepting only owls as rival predators.&nbsp;</p>\n<p>Hungry Hunters. Owlbears are large, quick, and voracious. They are often the dominant predator in their chosen habitat. Nocturnal omnivores, owlbears can make a meal of nearly any creature unfortunate enough to be in their way. While fresh meat is a staple of their diet, owlbears have been known to snack on nuts, berries, and even pine cones or tree bark during an evening&rsquo;s hunt.</p>\n<p>Untrainable. Owlbears are notoriously ill-tempered, but many people seek to train them nonetheless. A captive owlbear can serve as an effective watchdog, provided its handler doesn&rsquo;t get within its reach. Druids and others steeped in nature lore can sometimes win an owlbear&rsquo;s grudging trust. Such an owlbear will never do tricks or follow commands, but it might tolerate or even defend its humanoid companion.</p>\n</div>"
     },
     "proficiencies": {
@@ -546,6 +546,66 @@
   },
   "items": [
     {
+      "_id": "30DGumefMHmUap4f",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The owlbear attacks with its beak and claws.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "permission": {
+        "default": 0,
+        "axQjTRP7Ewd9xrAh": 3
+      },
+      "flags": {}
+    },
+    {
       "_id": "o4hAxTJ22WDUzb9O",
       "name": "Keen Sight and Smell",
       "type": "feature",
@@ -598,7 +658,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 200000,
       "permission": {
         "default": 0,
         "axQjTRP7Ewd9xrAh": 3
@@ -606,16 +666,16 @@
       "flags": {}
     },
     {
-      "_id": "84xoBvp8WgEoDyX9",
-      "name": "Multiattack",
+      "_id": "x6aHShcIGlPD4yjG",
+      "name": "Elite Recovery (Bloodied)",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
       "data": {
         "ability": "",
         "actionOptions": [],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "bonusAction",
           "reactionTrigger": ""
         },
         "attack": {
@@ -631,14 +691,16 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The owlbear attacks with its beak and claws.</p>",
+        "description": "<p>The owlbear ends one negative effect currently affecting it. It can use this bonus action as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
         "duration": {
-          "unit": "",
+          "unit": "instantaneous",
           "value": ""
         },
         "healing": [],
         "proficient": true,
-        "range": [],
+        "range": [
+          "self"
+        ],
         "save": {
           "dc": "",
           "onSave": "",
@@ -647,31 +709,98 @@
         "source": "",
         "target": {
           "quantity": "",
-          "type": ""
+          "type": "self"
         },
         "uses": {
           "value": null,
           "max": "",
           "per": null
         },
-        "featureType": ""
+        "featureType": "other"
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 300000,
       "permission": {
         "default": 0,
-        "axQjTRP7Ewd9xrAh": 3,
         "BtwuYOcO3SacvRPO": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.30DGumefMHmUap4f"
-        }
-      }
+      "flags": {}
     },
     {
-      "_id": "Jvu9VNMX1gBlRLTl",
+      "_id": "qSifWibeNcjdZmJY",
+      "name": "Flapping Fury (Bloodied)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "default",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d8 + @mod",
+            "name": "Claw Attack (Advantage)"
+          }
+        ],
+        "description": "<p>If it’s not grappling a creature, the owlbear jumps up to half its Speed without provoking opportunity attacks and then makes a claws attack with advantage.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "Half Speed."
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600000,
+      "permission": {
+        "default": 0,
+        "BtwuYOcO3SacvRPO": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "UAM2XxcMyjhy80Ch",
       "name": "Beak",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -735,19 +864,15 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 400000,
       "permission": {
         "default": 0,
         "BtwuYOcO3SacvRPO": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.UAM2XxcMyjhy80Ch"
-        }
-      }
+      "flags": {}
     },
     {
-      "_id": "EsovOtmVwdTnw0vN",
+      "_id": "IlmlQOtwEYRQ1yck",
       "name": "Claws",
       "type": "feature",
       "img": "icons/svg/item-bag.svg",
@@ -811,16 +936,146 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 0,
+      "sort": 500000,
       "permission": {
         "default": 0,
         "BtwuYOcO3SacvRPO": 3
       },
-      "flags": {
-        "core": {
-          "sourceId": "Item.IlmlQOtwEYRQ1yck"
-        }
-      }
+      "flags": {}
+    },
+    {
+      "_id": "4YjPZg5SnDVHWTDj",
+      "name": "Owlbear Hug (Bloodied)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "default",
+        "actionOptions": [
+          "attack",
+          "damage"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d8 + @mod",
+            "name": ""
+          }
+        ],
+        "description": "<p>The owlbear attacks a Medium or smaller creature with its claws. On a hit, the target is grappled (escape DC 14). Until this grapple ends, the target is restrained. The owlbear can grapple one creature at a time.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "5ft."
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700000,
+      "permission": {
+        "default": 0,
+        "BtwuYOcO3SacvRPO": 3
+      },
+      "flags": {}
+    },
+    {
+      "_id": "YQ8N4TIcB3AP8FQr",
+      "name": "Peck (bloodied)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "data": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The owlbear makes two beak attacks against a creature it is grappling.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "5ft."
+        ],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "other"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800000,
+      "permission": {
+        "default": 0,
+        "BtwuYOcO3SacvRPO": 3
+      },
+      "flags": {}
     }
   ],
   "effects": [],
