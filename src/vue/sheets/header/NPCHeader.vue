@@ -53,6 +53,7 @@
 
       <div class="a5e-sheet-header__shields">
         <div
+          v-if="!sheetIsLocked || data.data.details.elite"
           class="a5e-header-shield a5e-header-shield--elite"
           :class="{
             'a5e-header-shield--active-elite': data.data.details.elite,
