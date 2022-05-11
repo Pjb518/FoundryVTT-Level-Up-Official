@@ -5,7 +5,7 @@
     :data-id="item._id"
     :data-item-id="item._id"
     draggable="true"
-    @click.prevent="onToggleDescriptionVisibility"
+    @click.self="onToggleDescriptionVisibility"
   >
     <img
       :src="item.img"
@@ -14,7 +14,10 @@
       @click.stop="onActivateItem"
     />
 
-    <div class="u-flex u-flex-col u-gap-xs u-py-xs">
+    <div
+      class="u-flex u-flex-col u-gap-xs u-py-xs"
+      @click="onToggleDescriptionVisibility"
+    >
       <div class="u-align-center u-flex u-gap-xl u-text-sm">
         <div class="u-align-center u-flex u-gap-md u-text-xs">
           <h3 class="u-align-center u-flex u-h-5 u-text-sm">
@@ -77,9 +80,10 @@
       <hr v-if="item.type === 'spell'" class="a5e-rule" />
 
       <div
-        v-html="item.data.description"
+        v-html="TextEditor.enrichHTML(item.data.description)"
         v-if="item.data.description"
         class="a5e-editor"
+        @click.prevent
       ></div>
 
       <div v-else>
@@ -172,6 +176,7 @@ export default {
       onToggleDescriptionVisibility,
       quantity,
       usesRemaining,
+      TextEditor,
     };
   },
 };
