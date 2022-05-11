@@ -124,7 +124,23 @@
   </section>
 
   <tab-footer>
-    <div class="u-align-center u-flex u-gap-md u-ml-auto u-text-md">
+    <div class="u-align-center u-flex u-gap-md u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.SkillPrcPassive") }}
+      </h3>
+
+      <span class="a5e-footer-group__value">{{ passivePerception }}</span>
+    </div>
+
+    <div class="u-align-center u-flex u-gap-md u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.ManeuverDC") }}
+      </h3>
+
+      <span class="a5e-footer-group__value">{{ maneuverDC }}</span>
+    </div>
+
+    <div class="u-align-center u-flex u-gap-md u-text-md">
       <h3 class="u-mb-0">
         {{ localize("A5E.XP") }}
       </h3>
@@ -139,6 +155,8 @@ import { computed, inject, onMounted } from "vue";
 
 import applyFeatureFilters from "../../utils/filterHelpers/applyFeatureFilters";
 import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
+import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
+import calculatePassivePerception from "../../../modules/utils/calculatePassivePerception";
 import prepareChallengeRating from "../../utils/dataPreparationHelpers/prepareChallengeRating";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
 import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
@@ -185,6 +203,10 @@ export default {
     );
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
+    const maneuverDC = computed(() => calculateManeuverDC(data.value));
+    const passivePerception = computed(() =>
+      calculatePassivePerception(data.value)
+    );
     const senses = computed(() => prepareSenses(data.value));
 
     const features = computed(() =>
@@ -256,6 +278,8 @@ export default {
       damageVulnerabilities,
       features,
       languages,
+      maneuverDC,
+      passivePerception,
       localize: (key) => game.i18n.localize(key),
       onClickConfigButton,
       onCreateFeature,
