@@ -64,7 +64,7 @@ export default {
     RollFormulaPreview,
   },
   setup(_, context) {
-    const { actor, appWindow } = context.attrs;
+    const { actor, appWindow, ...overrides } = context.attrs;
     const actorData = actor.data.data;
     const rollData = actor.getRollData();
     const appId = appWindow.id;
@@ -89,7 +89,7 @@ export default {
     const expertiseDie = ref("");
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
-    const rollMode = ref(CONFIG.A5E.ROLL_MODE.NORMAL);
+    const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
     const situationalMods = ref("");
 
     function updateExpertiseDie(diceQuantity) {
@@ -133,7 +133,7 @@ export default {
 
     return {
       appId,
-      baseExpertiseLevel: 0,
+      baseExpertiseLevel: overrides.expertiseDice ?? 0,
       errors,
       initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
       localize: (key) => game.i18n.localize(key),
