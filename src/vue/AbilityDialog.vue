@@ -81,6 +81,7 @@ export default {
     const {
       actor,
       ability,
+      expertise,
       isConcentrationCheck: defaultToConCheck,
       isSave,
       appWindow,
@@ -224,7 +225,8 @@ export default {
 
     return {
       appId,
-      baseExpertiseLevel: abilityData[isSave ? "save" : "check"].expertiseDice,
+      baseExpertiseLevel:
+        expertise ?? abilityData[isSave ? "save" : "check"].expertiseDice,
       concentrationCheckValues,
       errors,
       initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
