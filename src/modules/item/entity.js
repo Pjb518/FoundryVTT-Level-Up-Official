@@ -15,12 +15,14 @@ export default class Item5e extends Item {
     html.find('.a5e-js-toggle-roll-tooltip-visibility').click(this._onToggleRollTooltipVisibility.bind(this));
   }
 
-  async activate() {
+  async activate(options = {}) {
     const itemData = this.data.data;
     const rollData = this.actor.getRollData();
     let attack;
     let damage;
     let healing;
+
+    console.log(options);
 
     const dialogTitle = game.i18n.format(
       'A5E.ItemActivationPrompt',
@@ -28,7 +30,7 @@ export default class Item5e extends Item {
     );
 
     const dialog = new ReactiveDialog(ItemActivationDialog, {
-      title: dialogTitle, props: { actor: this.actor, item: this }
+      title: dialogTitle, props: { actor: this.actor, item: this, rollMode: options.rollMode }
     });
 
     const data = {

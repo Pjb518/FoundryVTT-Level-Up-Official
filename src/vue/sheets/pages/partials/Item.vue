@@ -12,7 +12,10 @@
       :src="item.img"
       :title="item.name"
       class="a5e-image a5e-image--item-inline"
-      @click.stop="onActivateItem"
+      @click.exact.stop="onActivateItem()"
+      @click.shift.exact.stop="onActivateItem('advantage')"
+      @click.ctrl.exact.stop="onActivateItem('disadvantage')"
+      @click.meta.exact.stop="onActivateItem('disadvantage')"
     />
 
     <div
@@ -159,9 +162,16 @@ export default {
       },
     });
 
-    function onActivateItem() {
+    function onActivateItem(rollMode) {
+      const options = {};
       const item = actor.items.get(props.item._id);
-      item.activate();
+
+      if (rollMode) {
+        console.log(rollMode);
+        options["rollMode"] = CONFIG.A5E.ROLL_MODE[rollMode.toUpperCase()];
+      }
+
+      item.activate(options);
     }
 
     function onEditItem() {
