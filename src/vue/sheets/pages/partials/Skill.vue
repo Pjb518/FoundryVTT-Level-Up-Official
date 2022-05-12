@@ -1,5 +1,11 @@
 <template>
-  <li class="a5e-item a5e-item--skill" @click="onRollSkill(label)">
+  <li
+    class="a5e-item a5e-item--skill"
+    @click.exact="onRollSkill(label)"
+    @click.shift.exact="onRollSkill(label, 'advantage')"
+    @click.ctrl.exact="onRollSkill(label, 'disadvantage')"
+    @click.meta.exact="onRollSkill(label, 'disadvantage')"
+  >
     <span
       class="a5e-skill__value"
       :class="{ 'a5e-skill__value--green': skill.proficient }"
@@ -78,8 +84,14 @@ export default {
       actor.configureSkill(skill);
     }
 
-    function onRollSkill(skill) {
-      actor.rollSkillCheck(skill);
+    function onRollSkill(skill, rollMode) {
+      const options = {};
+
+      if (rollMode) {
+        options["rollMode"] = CONFIG.A5E.ROLL_MODE[rollMode.toUpperCase()];
+      }
+
+      actor.rollSkillCheck(skill, options);
     }
 
     return {

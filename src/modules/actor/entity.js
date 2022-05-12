@@ -909,14 +909,14 @@ export default class Actor5e extends Actor {
    *
    * @returns {Promise<undefined>}
    */
-  async rollSkillCheck(skill) {
+  async rollSkillCheck(skill, options = {}) {
     const dialogTitle = game.i18n.format(
       'A5E.SkillPromptTitle',
       { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
     );
 
     const skillData = await getDialogData(SkillDialog, {
-      title: dialogTitle, props: { actor: this, skill }
+      title: dialogTitle, props: { actor: this, skill, rollMode: options.rollMode }
     });
 
     if (!skillData) return;
