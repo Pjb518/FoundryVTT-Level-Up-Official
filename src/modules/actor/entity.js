@@ -746,14 +746,17 @@ export default class Actor5e extends Actor {
    * @method
    * @param {string} ability A key that can be used to reference a given ability score.
    */
-  async rollAbilityCheck(ability) {
+  async rollAbilityCheck(ability, options = {}) {
     const dialogTitle = game.i18n.format(
       'A5E.AbilityCheckPromptTitle',
       { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
     );
 
     const checkData = await getDialogData(AbilityDialog, {
-      title: dialogTitle, props: { actor: this, ability, isSave: false }
+      title: dialogTitle,
+      props: {
+        actor: this, ability, isSave: false, rollMode: options.rollMode
+      }
     });
 
     if (checkData === null) return;
@@ -860,14 +863,17 @@ export default class Actor5e extends Actor {
     });
   }
 
-  async rollSavingThrow(ability) {
+  async rollSavingThrow(ability, options = {}) {
     const dialogTitle = game.i18n.format(
       'A5E.SavingThrowPromptTitle',
       { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
     );
 
     const checkData = await getDialogData(AbilityDialog, {
-      title: dialogTitle, props: { actor: this, ability, isSave: true }
+      title: dialogTitle,
+      props: {
+        actor: this, ability, isSave: true, rollMode: options.rollMode
+      }
     });
 
     if (checkData === null) return;

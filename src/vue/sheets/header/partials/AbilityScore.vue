@@ -33,7 +33,10 @@
       <div
         class="a5e-ability-score__roll-button"
         :title="localize('A5E.RollAbilityCheck')"
-        @click="onRollAbilityCheck(label)"
+        @click.exact="onRollAbilityCheck(label)"
+        @click.shift.exact="onRollAbilityCheck(label, 'advantage')"
+        @click.ctrl.exact="onRollAbilityCheck(label, 'disadvantage')"
+        @click.meta.exact="onRollAbilityCheck(label, 'disadvantage')"
       >
         {{ ability.check.deterministicBonus }}
 
@@ -52,7 +55,10 @@
       <div
         class="a5e-ability-score__roll-button a5e-js-roll-saving-throw"
         :title="localize('A5E.RollSavingThrow')"
-        @click="onRollSavingThrow(label)"
+        @click.exact="onRollSavingThrow(label)"
+        @click.shift.exact="onRollSavingThrow(label, 'advantage')"
+        @click.ctrl.exact="onRollSavingThrow(label, 'disadvantage')"
+        @click.meta.exact="onRollSavingThrow(label, 'disadvantage')"
       >
         {{ ability.save.deterministicBonus }}
 
@@ -79,12 +85,24 @@ export default {
       actor.configureAbilityScore(ability);
     }
 
-    function onRollAbilityCheck(ability) {
-      actor.rollAbilityCheck(ability);
+    function onRollAbilityCheck(ability, rollMode) {
+      const options = {};
+
+      if (rollMode) {
+        options["rollMode"] = CONFIG.A5E.ROLL_MODE[rollMode.toUpperCase()];
+      }
+
+      actor.rollAbilityCheck(ability, options);
     }
 
-    function onRollSavingThrow(ability) {
-      actor.rollSavingThrow(ability);
+    function onRollSavingThrow(ability, rollMode) {
+      const options = {};
+
+      if (rollMode) {
+        options["rollMode"] = CONFIG.A5E.ROLL_MODE[rollMode.toUpperCase()];
+      }
+
+      actor.rollSavingThrow(ability, options);
     }
 
     return {

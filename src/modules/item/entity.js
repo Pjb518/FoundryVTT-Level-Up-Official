@@ -22,8 +22,6 @@ export default class Item5e extends Item {
     let damage;
     let healing;
 
-    console.log(options);
-
     const dialogTitle = game.i18n.format(
       'A5E.ItemActivationPrompt',
       { name: this.actor.name, itemName: this.name }
