@@ -41,9 +41,10 @@ import { ref, watch } from "vue";
 import A5E from "../../modules/config";
 
 export default {
-  props: { appId: String },
-  setup(_, context) {
+  props: { appId: String, initialSelection: { type: String, default: "none" } },
+  setup(props, context) {
     const heading = game.i18n.localize("A5E.Skill");
+    const selectedSkill = ref(props.initialSelection);
 
     const skills = [
       { name: "none", localized: game.i18n.localize("A5E.None") },
@@ -52,8 +53,6 @@ export default {
         localized: game.i18n.localize(i18nKey),
       })),
     ];
-
-    const selectedSkill = ref("none");
 
     watch(selectedSkill, (curr) => {
       context.emit("update-selected-skill", curr === "none" ? null : curr);

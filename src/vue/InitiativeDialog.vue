@@ -22,11 +22,15 @@
 
     <ability-score-picker
       :appId="appId"
-      initialSelection="dex"
+      :initialSelection="overrides.ability ?? 'dex'"
       @update-selected-ability="updateSelectedAbility"
     />
 
-    <skill-picker :appId="appId" @update-selected-skill="updateSelectedSkill" />
+    <skill-picker
+      :appId="appId"
+      :initialSelection="overrides.skill ?? 'none'"
+      @update-selected-skill="updateSelectedSkill"
+    />
 
     <expertise-die-picker
       :appId="appId"
@@ -76,16 +80,22 @@ export default {
     SkillPicker,
   },
   setup(_, context) {
-    const { actor, appWindow } = context.attrs;
+    const { actor, appWindow, ...overrides } = context.attrs;
     const actorData = actor.data.data;
     const initiativeData = actorData.attributes.initiative;
     const rollData = actor.getRollData();
     const appId = appWindow.id;
 
-    const abilityBonus = ref("");
-    const abilityMod = ref(actorData.abilities.dex.check.mod);
-    const skillBonus = ref(actorData.abilities.dex.check.bonus);
-    const skillMod = ref("");
+    const abilityBonus = ref(
+      actorData.abilities[overrides.ability ?? "dex"]?.check.bonus
+    );
+
+    const abilityMod = ref(
+      actorData.abilities[overrides.ability ?? "dex"]?.check.mod
+    );
+
+    const skillBonus = ref(actorData.skills[overrides.skill]?.bonus ?? "");
+    const skillMod = ref(actorData.skills[overrides.skill]?.mod ?? "");
     const globalCheckBonus = actorData.bonuses.abilities.check;
     const globalSkillBonus = actorData.bonuses.abilities.skill;
 
@@ -221,11 +231,12 @@ export default {
 
     return {
       appId,
-      baseExpertiseDie: initiativeData.expertiseDice,
+      baseExpertiseDie: overrides.expertiseDice ?? initiativeData.expertiseDice,
       errors,
-      initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
+      initialRollMode: overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       localize: (key) => game.i18n.localize(key),
       onSubmit,
+      overrides,
       rollFormula,
       rollFormulaIsValid: true,
       rollModeOptions,
