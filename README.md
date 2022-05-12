@@ -26,6 +26,7 @@ If you've developed a module for the Level Up system and would like it listed he
 
 - [A5E DragRuler Integration](https://github.com/NekroDarkmoon/a5edragruler) - A Level Up integration for the Drag Ruler module, adding support for movement rules specific to Level Up.
 - [A5E Utility Helpers](https://github.com/NekroDarkmoon/a5e-utility-helpers) - A small module to provide helper functions for use in the A5E System.
+- [Concentrator](https://github.com/NekroDarkmoon/a5e-concentrator) - This module adds the concentration condition and automates the application of the effect on the use of a spell that requires concentration. Taking damage prompts the GM or the player to roll for a concentration check and removes the effect if the save isn't successful.
 - [Does it hit!?](https://github.com/NekroDarkmoon/does-it-hit-a5e) - A module to help with hit detection and limited damage automation.
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.
