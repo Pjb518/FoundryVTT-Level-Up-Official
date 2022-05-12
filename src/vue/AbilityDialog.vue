@@ -78,15 +78,7 @@ export default {
     RollFormulaPreview,
   },
   setup(_, context) {
-    const {
-      actor,
-      ability,
-      expertise,
-      isConcentrationCheck: defaultToConCheck,
-      isSave,
-      rollMode: initialRollMode,
-      appWindow,
-    } = context.attrs;
+    const { actor, ability, isSave, appWindow, ...overrides } = context.attrs;
 
     const actorData = actor.data.data;
     const abilityData = actorData.abilities[ability];
@@ -120,12 +112,12 @@ export default {
       })
     );
 
-    const isConcentrationCheck = ref(defaultToConCheck || false);
+    const isConcentrationCheck = ref(overrides.isConcentrationCheck || false);
     const errors = ref([]);
     const expertiseDie = ref("");
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
-    const rollMode = ref(initialRollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
+    const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
     const situationalMods = ref("");
 
     function toggleConcentrationCheck(value) {
@@ -227,7 +219,8 @@ export default {
     return {
       appId,
       baseExpertiseLevel:
-        expertise ?? abilityData[isSave ? "save" : "check"].expertiseDice,
+        overrides.expertiseDice ??
+        abilityData[isSave ? "save" : "check"].expertiseDice,
       concentrationCheckValues,
       errors,
       isConcentrationCheck,
