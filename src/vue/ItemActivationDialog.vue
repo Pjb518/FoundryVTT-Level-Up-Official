@@ -11,7 +11,7 @@
 
         <radio-group
           :baseId="appId"
-          :initialSelection="initialRollMode"
+          :initialSelection="rollMode"
           :values="rollModeOptions"
           :wide="true"
           :wrap="false"
@@ -22,7 +22,7 @@
       <expertise-die-picker
         heading="A5E.ExpertiseDieAttackRoll"
         :appId="appId"
-        :initialSelection="0"
+        :initialSelection="baseExpertiseLevel"
         @updateSelection="updateExpertiseDie"
       />
 
@@ -81,7 +81,7 @@ export default {
     TagGroup,
   },
   setup(_, context) {
-    const { actor, item, appWindow } = context.attrs;
+    const { actor, item, appWindow, ...overrides } = context.attrs;
     const appId = appWindow.id;
     const actorData = actor.data.data;
     const itemData = item.data.data;
@@ -121,7 +121,7 @@ export default {
     const expertiseDie = ref("");
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
-    const rollMode = ref(CONFIG.A5E.ROLL_MODE.NORMAL);
+    const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
     const selectedDamageGroups = ref(Object.keys(damageTags));
     const selectedHealingGroups = ref(Object.keys(healingTags));
     const situationalMods = ref("");
@@ -190,16 +190,17 @@ export default {
 
     return {
       appId,
+      baseExpertiseLevel: overrides.expertiseDice ?? 0,
       damageTags,
       hasAttackRoll,
       hasDamage,
       hasHealing,
       healingTags,
-      initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
       localize: (key) => game.i18n.localize(key),
       onSubmit,
       rollFormula,
       rollFormulaIsValid,
+      rollMode,
       rollModeOptions,
       submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
       updateExpertiseDie,
