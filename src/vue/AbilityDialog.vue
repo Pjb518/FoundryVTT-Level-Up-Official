@@ -33,7 +33,7 @@
 
       <radio-group
         :baseId="appId"
-        :initialSelection="false"
+        :initialSelection="isConcentrationCheck"
         :values="concentrationCheckValues"
         :wide="true"
         @updateSelection="toggleConcentrationCheck"
@@ -78,7 +78,14 @@ export default {
     RollFormulaPreview,
   },
   setup(_, context) {
-    const { actor, ability, isSave, appWindow } = context.attrs;
+    const {
+      actor,
+      ability,
+      isConcentrationCheck: defaultToConCheck,
+      isSave,
+      appWindow,
+    } = context.attrs;
+
     const actorData = actor.data.data;
     const abilityData = actorData.abilities[ability];
     const rollData = actor.getRollData();
@@ -111,7 +118,7 @@ export default {
       })
     );
 
-    const isConcentrationCheck = ref(false);
+    const isConcentrationCheck = ref(defaultToConCheck || false);
     const errors = ref([]);
     const expertiseDie = ref("");
     const rollFormula = ref("");
