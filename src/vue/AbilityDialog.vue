@@ -12,7 +12,7 @@
 
       <radio-group
         :baseId="appId"
-        :initialSelection="initialRollMode"
+        :initialSelection="rollMode"
         :values="rollModeOptions"
         :wide="true"
         :wrap="false"
@@ -84,6 +84,7 @@ export default {
       expertise,
       isConcentrationCheck: defaultToConCheck,
       isSave,
+      rollMode: initialRollMode,
       appWindow,
     } = context.attrs;
 
@@ -124,7 +125,7 @@ export default {
     const expertiseDie = ref("");
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
-    const rollMode = ref(CONFIG.A5E.ROLL_MODE.NORMAL);
+    const rollMode = ref(initialRollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
     const situationalMods = ref("");
 
     function toggleConcentrationCheck(value) {
@@ -229,13 +230,13 @@ export default {
         expertise ?? abilityData[isSave ? "save" : "check"].expertiseDice,
       concentrationCheckValues,
       errors,
-      initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
       isConcentrationCheck,
       isConSave: isSave && ability === "con",
       localize: (key) => game.i18n.localize(key),
       onSubmit,
       rollFormula,
       rollFormulaIsValid,
+      rollMode,
       rollModeOptions,
       submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
       toggleConcentrationCheck,
