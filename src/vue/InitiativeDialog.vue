@@ -83,8 +83,8 @@ export default {
     const appId = appWindow.id;
 
     const abilityBonus = ref("");
-    const abilityMod = ref("");
-    const skillBonus = ref("");
+    const abilityMod = ref(actorData.abilities.dex.check.mod);
+    const skillBonus = ref(actorData.abilities.dex.check.bonus);
     const skillMod = ref("");
     const globalCheckBonus = actorData.bonuses.abilities.check;
     const globalSkillBonus = actorData.bonuses.abilities.skill;
