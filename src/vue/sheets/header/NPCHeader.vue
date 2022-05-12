@@ -57,8 +57,9 @@
           class="a5e-header-shield a5e-header-shield--elite"
           :class="{
             'a5e-header-shield--active-elite': data.data.details.elite,
+            'u-pointer-unset': sheetIsLocked,
           }"
-          @click="onToggleElite"
+          @click="!sheetIsLocked && onToggleElite()"
         >
           <i class="fas fa-skull"></i>
           <span class="a5e-header-shield__label">
