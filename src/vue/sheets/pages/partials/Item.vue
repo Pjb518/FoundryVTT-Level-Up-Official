@@ -5,7 +5,8 @@
     :data-id="item._id"
     :data-item-id="item._id"
     draggable="true"
-    @click.self="onToggleDescriptionVisibility"
+    @click.left.self="onToggleDescriptionVisibility"
+    @click.middle.self="onEditItem"
   >
     <img
       :src="item.img"
@@ -16,7 +17,8 @@
 
     <div
       class="u-flex u-flex-col u-gap-xs u-py-xs"
-      @click="onToggleDescriptionVisibility"
+      @click.left="onToggleDescriptionVisibility"
+      @click.middle="onEditItem"
     >
       <div class="u-align-center u-flex u-gap-xl u-text-sm">
         <div class="u-align-center u-flex u-gap-md u-text-xs">
@@ -162,6 +164,10 @@ export default {
       item.activate();
     }
 
+    function onEditItem() {
+      actor.items.get(props.item._id).sheet.render(true);
+    }
+
     function onToggleDescriptionVisibility() {
       descriptionVisible.value = !descriptionVisible.value;
     }
@@ -173,6 +179,7 @@ export default {
       localize: (key) => game.i18n.localize(key),
       maxUses,
       onActivateItem,
+      onEditItem,
       onToggleDescriptionVisibility,
       quantity,
       usesRemaining,
