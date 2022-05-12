@@ -12,7 +12,7 @@
 
       <radio-group
         :baseId="appId"
-        :initialSelection="initialRollMode"
+        :initialSelection="rollMode"
         :values="rollModeOptions"
         :wide="true"
         :wrap="false"
@@ -72,7 +72,7 @@ export default {
     RollFormulaPreview,
   },
   setup(_, context) {
-    const { actor, skill, appWindow } = context.attrs;
+    const { actor, skill, appWindow, ...overrides } = context.attrs;
     const actorData = actor.data.data;
     const rollData = actor.getRollData();
     const skillData = actorData.skills[skill];
@@ -96,11 +96,11 @@ export default {
 
     const errors = ref([]);
     const expertiseDie = ref("");
-    const selectedAbility = ref(skillData.ability);
+    const selectedAbility = ref(overrides.ability ?? skillData.ability);
     const situationalMods = ref("");
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
-    const rollMode = ref(CONFIG.A5E.ROLL_MODE.NORMAL);
+    const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
 
     function updateExpertiseDie(diceQuantity) {
       expertiseDie.value = getExpertiseDieSize(diceQuantity);
@@ -210,13 +210,13 @@ export default {
 
     return {
       appId,
-      baseExpertiseLevel: skillData.expertiseDice,
+      baseExpertiseLevel: overrides.expertiseDice ?? skillData.expertiseDice,
       errors,
-      initialRollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
       localize: (key) => game.i18n.localize(key),
       onSubmit,
       rollFormula,
       rollFormulaIsValid,
+      rollMode,
       rollModeOptions,
       selectedAbility,
       submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
