@@ -536,7 +536,10 @@ export default class Actor5e extends Actor {
           isCrit: data.isCrit,
           isFumble: data.isFumble
         }
-      )
+      ),
+      flags: {
+        itemId: data.id ?? null
+      }
     };
 
     if (data.attack?.roll) {
