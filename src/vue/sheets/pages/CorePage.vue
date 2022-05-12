@@ -129,7 +129,9 @@
         {{ localize("A5E.SkillPrcPassive") }}
       </h3>
 
-      <span class="a5e-footer-group__value">{{ passivePerception }}</span>
+      <span class="a5e-footer-group__value">{{
+        data.data.skills.prc.passive
+      }}</span>
     </div>
 
     <div class="u-align-center u-flex u-gap-md u-text-md">
@@ -156,7 +158,6 @@ import { computed, inject, onMounted } from "vue";
 import applyFeatureFilters from "../../utils/filterHelpers/applyFeatureFilters";
 import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
 import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
-import calculatePassivePerception from "../../../modules/utils/calculatePassivePerception";
 import prepareChallengeRating from "../../utils/dataPreparationHelpers/prepareChallengeRating";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
 import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
@@ -204,11 +205,6 @@ export default {
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
     const maneuverDC = computed(() => calculateManeuverDC(data.value));
-
-    const passivePerception = computed(() =>
-      calculatePassivePerception(data.value)
-    );
-
     const senses = computed(() => prepareSenses(data.value));
 
     const features = computed(() =>
@@ -282,7 +278,6 @@ export default {
       languages,
       localize: (key) => game.i18n.localize(key),
       maneuverDC,
-      passivePerception,
       onClickConfigButton,
       onCreateFeature,
       onCreateWeapon,

@@ -26,8 +26,9 @@ import SpellTabConfigDialog from '../../vue/dialogs/SpellTabConfigDialog.vue';
 import ToolProficienciesConfigDialog from '../../vue/ToolProficienciesConfigDialog.vue';
 import WeaponProficienciesConfigDialog from '../../vue/WeaponProficienciesConfigDialog.vue';
 
-import calculateSpellDC from '../utils/calculateSpellDC';
 import calculateManeuverDC from '../utils/calculateManeuverDC';
+import calculatePassiveScore from '../utils/calculatePassiveScore';
+import calculateSpellDC from '../utils/calculateSpellDC';
 import getBaseAbilityMod from '../utils/getBaseAbilityMod';
 import getDialogData from '../dice/getDialogData';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
@@ -235,6 +236,7 @@ export default class Actor5e extends Actor {
       );
 
       skill.deterministicBonus = deterministicBonus ?? skill.mod;
+      skill.passive = calculatePassiveScore(skill, this.getRollData());
     });
   }
 

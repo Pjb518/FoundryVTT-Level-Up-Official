@@ -97,7 +97,9 @@
         {{ localize("A5E.SkillPrcPassive") }}
       </h3>
 
-      <span class="a5e-footer-group__value">{{ passivePerception }}</span>
+      <span class="a5e-footer-group__value">{{
+        data.data.skills.prc.passive
+      }}</span>
     </div>
 
     <div class="u-align-center u-flex u-gap-md u-text-md">
@@ -191,12 +193,7 @@ export default {
     );
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
-
     const maneuverDC = computed(() => calculateManeuverDC(data.value));
-
-    const passivePerception = computed(() =>
-      calculatePassivePerception(data.value)
-    );
 
     const nextXPIncrement = computed(() => {
       let level = data.value.data.details.level;
@@ -236,7 +233,6 @@ export default {
       maneuverDC,
       nextXPIncrement,
       onClickConfigButton,
-      passivePerception,
       senses,
       toolProficiencies,
       weaponProficiencies,
