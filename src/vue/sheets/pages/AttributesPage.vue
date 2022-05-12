@@ -138,7 +138,6 @@ import { computed, inject } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
-import calculatePassivePerception from "../../../modules/utils/calculatePassivePerception";
 import prepareArmorProficiencies from "../../utils/dataPreparationHelpers/prepareArmorProficiencies";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
 import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
