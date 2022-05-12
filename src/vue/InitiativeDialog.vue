@@ -22,6 +22,7 @@
 
     <ability-score-picker
       :appId="appId"
+      initialSelection="dex"
       @update-selected-ability="updateSelectedAbility"
     />
 
