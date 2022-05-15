@@ -1,12 +1,12 @@
 {
-  "name": "Bastard Sword +2",
+  "name": "Carbine +2",
   "type": "object",
-  "img": "icons/weapons/swords/greatsword-guard.webp",
+  "img": "icons/weapons/guns/gun-topbarrel.webp",
   "data": {
-    "ability": "default",
+    "ability": "dex",
     "actionOptions": [
-      "damage",
-      "attack"
+      "attack",
+      "damage"
     ],
     "activation": {
       "cost": "",
@@ -16,7 +16,7 @@
     "attack": {
       "bonus": "2",
       "critThreshold": "20",
-      "type": "meleeWeaponAttack"
+      "type": "rangedWeaponAttack"
     },
     "area": {
       "shape": "",
@@ -28,25 +28,22 @@
     "damage": [
       {
         "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1d8 + @mod + 2",
-        "name": "Bastard Sword 1H"
-      },
-      {
-        "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1d10 + @mod + 2",
-        "name": "Bastard Sword 2H"
+        "damageType": "piercing",
+        "formula": "1d12 + @mod + 2",
+        "name": "Carbine"
       }
     ],
-    "description": "<p><em>Parrying, Versatile (1d10)</em></p>",
+    "description": "",
     "duration": {
       "unit": "",
       "value": ""
     },
     "healing": [],
     "proficient": true,
-    "range": [],
+    "range": [
+      "50",
+      "150"
+    ],
     "save": {
       "dc": "",
       "onSave": "",
@@ -55,7 +52,7 @@
     "source": "",
     "target": {
       "quantity": 1,
-      "type": "creatureObject"
+      "type": "creature"
     },
     "uses": {
       "value": null,
@@ -71,26 +68,27 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "35 gp",
+    "price": "150",
     "quantity": 1,
-    "rarity": "rare",
+    "rarity": "common",
     "requiresAttunement": false,
     "weaponProperties": [
-      "parrying",
-      "versatile"
+      "range",
+      "loading",
+      "twoHanded"
     ],
-    "weight": "5 lbs"
+    "weight": "5"
   },
   "effects": [],
   "flags": {
     "core": {
-      "sourceId": "Compendium.world.weapons.0twDPn8P2HA4P33g"
+      "sourceId": "Item.SPQis3Lm9zpcPM3X"
     },
     "exportSource": {
-      "world": "a5e-compendia-work",
+      "world": "lu-a5e",
       "system": "a5e",
       "coreVersion": "9.269",
-      "systemVersion": "0.6.7"
+      "systemVersion": "0.6.3"
     }
   }
 }

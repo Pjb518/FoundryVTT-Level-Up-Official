@@ -1,12 +1,12 @@
 {
-  "name": "Bastard Sword +2",
+  "name": "Geared Slingshot +3",
   "type": "object",
-  "img": "icons/weapons/swords/greatsword-guard.webp",
+  "img": "icons/weapons/slings/slingshot-wood.webp",
   "data": {
-    "ability": "default",
+    "ability": "dex",
     "actionOptions": [
-      "damage",
-      "attack"
+      "attack",
+      "damage"
     ],
     "activation": {
       "cost": "",
@@ -14,9 +14,9 @@
       "reactionTrigger": ""
     },
     "attack": {
-      "bonus": "2",
+      "bonus": "3",
       "critThreshold": "20",
-      "type": "meleeWeaponAttack"
+      "type": "rangedWeaponAttack"
     },
     "area": {
       "shape": "",
@@ -28,25 +28,22 @@
     "damage": [
       {
         "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1d8 + @mod + 2",
-        "name": "Bastard Sword 1H"
-      },
-      {
-        "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1d10 + @mod + 2",
-        "name": "Bastard Sword 2H"
+        "damageType": "bludgeoning",
+        "formula": "1d6 + @mod + 3",
+        "name": "Geared Slingshot"
       }
     ],
-    "description": "<p><em>Parrying, Versatile (1d10)</em></p>",
+    "description": "<p>Constructed much like a crossbow, this shoulder-mounted weapon bears a striking resemblance to a miniature catapult. It is typically used to fire hand-sized rocks but any Tiny object can be used as ammunition instead.</p>",
     "duration": {
       "unit": "",
       "value": ""
     },
     "healing": [],
     "proficient": true,
-    "range": [],
+    "range": [
+      "medium",
+      "180"
+    ],
     "save": {
       "dc": "",
       "onSave": "",
@@ -55,7 +52,7 @@
     "source": "",
     "target": {
       "quantity": 1,
-      "type": "creatureObject"
+      "type": "creature"
     },
     "uses": {
       "value": null,
@@ -66,31 +63,32 @@
     "armorCategory": "",
     "armorProperties": [],
     "attuned": false,
-    "bulky": false,
+    "bulky": true,
     "equipped": false,
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "35 gp",
+    "price": "110",
     "quantity": 1,
     "rarity": "rare",
     "requiresAttunement": false,
     "weaponProperties": [
-      "parrying",
-      "versatile"
+      "heavy",
+      "loading",
+      "twoHanded"
     ],
-    "weight": "5 lbs"
+    "weight": "25"
   },
   "effects": [],
   "flags": {
     "core": {
-      "sourceId": "Compendium.world.weapons.0twDPn8P2HA4P33g"
+      "sourceId": "Item.SPQis3Lm9zpcPM3X"
     },
     "exportSource": {
-      "world": "a5e-compendia-work",
+      "world": "lu-a5e",
       "system": "a5e",
       "coreVersion": "9.269",
-      "systemVersion": "0.6.7"
+      "systemVersion": "0.6.3"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "Bastard Sword +2",
+  "name": "Dagger +2",
   "type": "object",
-  "img": "icons/weapons/swords/greatsword-guard.webp",
+  "img": "icons/weapons/daggers/dagger-double-red.webp",
   "data": {
     "ability": "default",
     "actionOptions": [
@@ -28,18 +28,12 @@
     "damage": [
       {
         "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1d8 + @mod + 2",
-        "name": "Bastard Sword 1H"
-      },
-      {
-        "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1d10 + @mod + 2",
-        "name": "Bastard Sword 2H"
+        "damageType": "piercing",
+        "formula": "1d4 + @mod + 2",
+        "name": "Dagger"
       }
     ],
-    "description": "<p><em>Parrying, Versatile (1d10)</em></p>",
+    "description": "<p><em>Dual-Wielding, Finesse, Simple</em></p>",
     "duration": {
       "unit": "",
       "value": ""
@@ -55,7 +49,7 @@
     "source": "",
     "target": {
       "quantity": 1,
-      "type": "creatureObject"
+      "type": "object"
     },
     "uses": {
       "value": null,
@@ -71,26 +65,27 @@
     "materialProperties": [],
     "objectType": "weapon",
     "plotItem": false,
-    "price": "35 gp",
+    "price": "2 gp",
     "quantity": 1,
-    "rarity": "rare",
+    "rarity": "common",
     "requiresAttunement": false,
     "weaponProperties": [
-      "parrying",
-      "versatile"
+      "dualWielding",
+      "finesse",
+      "simple"
     ],
-    "weight": "5 lbs"
+    "weight": "1 lb"
   },
   "effects": [],
   "flags": {
     "core": {
-      "sourceId": "Compendium.world.weapons.0twDPn8P2HA4P33g"
+      "sourceId": "Compendium.world.weapons.t7RVgLFoz42jGkre"
     },
     "exportSource": {
-      "world": "a5e-compendia-work",
+      "world": "lu-a5e",
       "system": "a5e",
       "coreVersion": "9.269",
-      "systemVersion": "0.6.7"
+      "systemVersion": "0.6.3"
     }
   }
 }
