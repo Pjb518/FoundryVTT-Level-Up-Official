@@ -80,6 +80,7 @@
     },
     "skills": {
       "acr": {
+        "ability": "dex",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -91,6 +92,7 @@
         }
       },
       "ani": {
+        "ability": "wis",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -102,6 +104,7 @@
         }
       },
       "arc": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -113,6 +116,7 @@
         }
       },
       "ath": {
+        "ability": "str",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -124,6 +128,7 @@
         }
       },
       "cul": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -135,6 +140,7 @@
         }
       },
       "dec": {
+        "ability": "cha",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -146,6 +152,7 @@
         }
       },
       "eng": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -157,6 +164,7 @@
         }
       },
       "his": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -168,6 +176,7 @@
         }
       },
       "ins": {
+        "ability": "wis",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -179,6 +188,7 @@
         }
       },
       "itm": {
+        "ability": "cha",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -190,6 +200,7 @@
         }
       },
       "inv": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -201,6 +212,7 @@
         }
       },
       "med": {
+        "ability": "wis",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -212,6 +224,7 @@
         }
       },
       "nat": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -223,6 +236,7 @@
         }
       },
       "prc": {
+        "ability": "wis",
         "value": 0,
         "proficient": true,
         "specialties": [],
@@ -234,6 +248,7 @@
         }
       },
       "prf": {
+        "ability": "cha",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -245,6 +260,7 @@
         }
       },
       "per": {
+        "ability": "cha",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -256,6 +272,7 @@
         }
       },
       "rel": {
+        "ability": "int",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -267,6 +284,7 @@
         }
       },
       "slt": {
+        "ability": "dex",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -278,6 +296,7 @@
         }
       },
       "ste": {
+        "ability": "dex",
         "value": 0,
         "proficient": true,
         "specialties": [],
@@ -289,6 +308,7 @@
         }
       },
       "sur": {
+        "ability": "wis",
         "value": 0,
         "proficient": false,
         "specialties": [],
@@ -378,6 +398,10 @@
           "total": 0
         },
         "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
           "current": 0,
           "total": 0
         }
@@ -616,8 +640,8 @@
         "ability": "",
         "actionOptions": [],
         "activation": {
-          "cost": "",
-          "type": "",
+          "cost": 1,
+          "type": "bonusAction",
           "reactionTrigger": ""
         },
         "attack": {
@@ -635,7 +659,7 @@
         "damage": [],
         "description": "<p>As a bonus action, the pixie can cast dim light for 30 feet, or extinguish its glow.</p>",
         "duration": {
-          "unit": "",
+          "unit": "permanent",
           "value": ""
         },
         "healing": [],
@@ -761,7 +785,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The pixie targets a willing creature within 30 feet. The target gains one of the following abilities for 1 hour:</p><ul><li><p>The target gains truesight out to a range of 120 feet.</p></li><li><p>The target gains the benefit of the pixie\u2019s Magic Resistance trait.</p></li><li><p>The target speaks Sylvan.</p></li></ul>",
+        "description": "<p>The pixie targets a willing creature within 30 feet. The target gains one of the following abilities for 1 hour:</p><ul><li><p>The target gains truesight out to a range of 120 feet.</p></li><li><p>The target gains the benefit of the pixie’s Magic Resistance trait.</p></li><li><p>The target speaks Sylvan.</p></li></ul>",
         "duration": {
           "unit": "hour",
           "value": 1
@@ -825,7 +849,7 @@
           "ability": "str"
         },
         "damage": [],
-        "description": "<p>The pixie targets a creature within 30 feet not already under a Faerie Curse. The target makes a DC 12 Wisdom saving throw. On a failure, the target is subjected to a special magical curse for 1 hour. The curse ends if the pixie dies or is incapacitated, the pixie or one of its allies deals damage to the target, or the pixie spends an action to end the curse. Spells such as remove curse, dispel magic, and lesser restoration also end the curse. If a creature makes its saving throw or the condition ends for it, it is immune to any Faerie Curse for the next 24 hours. </p><p>When the target fails its saving throw against this effect, the pixie chooses one of the following effects to impose on the target.</p><ul><li><p>The target is blinded.</p></li><li><p>The target is charmed by the pixie.</p></li><li><p>If the target is already charmed by the pixie, the</p></li><li><p>target falls asleep. It wakes if it is shaken awake</p></li><li><p>as an action or if it takes damage.</p></li><li><p>The target\u2019s head takes on the appearance of a beast\u2019s</p></li><li><p>head (donkey, wolf, etc). The target\u2019s statistics don\u2019t</p></li><li><p>change, but the target can no longer speak; it can</p></li><li><p>only make animal noises.</p></li></ul>",
+        "description": "<p>The pixie targets a creature within 30 feet not already under a Faerie Curse. The target makes a DC 12 Wisdom saving throw. On a failure, the target is subjected to a special magical curse for 1 hour. The curse ends if the pixie dies or is incapacitated, the pixie or one of its allies deals damage to the target, or the pixie spends an action to end the curse. Spells such as remove curse, dispel magic, and lesser restoration also end the curse. If a creature makes its saving throw or the condition ends for it, it is immune to any Faerie Curse for the next 24 hours. </p><p>When the target fails its saving throw against this effect, the pixie chooses one of the following effects to impose on the target.</p><ul><li><p>The target is blinded.</p></li><li><p>The target is charmed by the pixie.</p></li><li><p>If the target is already charmed by the pixie, the</p></li><li><p>target falls asleep. It wakes if it is shaken awake</p></li><li><p>as an action or if it takes damage.</p></li><li><p>The target’s head takes on the appearance of a beast’s</p></li><li><p>head (donkey, wolf, etc). The target’s statistics don’t</p></li><li><p>change, but the target can no longer speak; it can</p></li><li><p>only make animal noises.</p></li></ul>",
         "duration": {
           "unit": "hour",
           "value": 1
@@ -926,7 +950,12 @@
   "flags": {
     "core": {
       "sourceId": "Actor.A489xaFHRD9yzwfe"
+    },
+    "exportSource": {
+      "world": "lu-a5e",
+      "system": "a5e",
+      "coreVersion": "9.269",
+      "systemVersion": "0.6.7"
     }
-  },
-  "_id": "KHtEXncabeURIvjd"
+  }
 }
