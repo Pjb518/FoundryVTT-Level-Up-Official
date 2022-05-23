@@ -82,6 +82,22 @@
         </div>
       </form-section>
 
+      <form-section v-if="data.data.area.shape">
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="data.area.placeTemplate"
+            :id="`${appId}-place-template`"
+            :checked="data.data.area.placeTemplate"
+          />
+
+          <label class="u-pointer" :for="`${appId}-place-template`">
+            {{ localize("A5E.ItemPlaceTemplate") }}
+          </label>
+        </div>
+      </form-section>
+
       <form-section heading="A5E.ItemTarget">
         <div class="u-align-center u-flex u-gap-lg u-w-full">
           <div v-if="showTargetQuantity" class="u-text-center u-text-sm u-w-20">
