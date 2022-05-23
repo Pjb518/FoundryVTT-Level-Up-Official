@@ -54,9 +54,8 @@
       @updateSelectionList="updateSelectedHealingGroups"
     />
 
-    <!-- TODO: FIX THIS -->
     <section
-      v-if="placeTemplateDefault"
+      v-if="hasTemplate"
       class="a5e-form__section u-align-center u-flex u-gap-md"
     >
       <input
@@ -218,6 +217,7 @@ export default {
       hasAttackRoll,
       hasDamage,
       hasHealing,
+      hasTemplate: itemData.area.shape,
       healingTags,
       localize: (key) => game.i18n.localize(key),
       onSubmit,
