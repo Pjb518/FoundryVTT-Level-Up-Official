@@ -138,10 +138,6 @@ export default {
     const saveDC = computed(() => {
       if (actor === null) return null;
 
-      console.log(
-        getDeterministicBonus(data.value.data.save.dc, actor.getRollData())
-      );
-
       return getDeterministicBonus(
         data.value.data.save.dc,
         actor.getRollData()

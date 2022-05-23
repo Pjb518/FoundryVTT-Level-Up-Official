@@ -78,8 +78,6 @@ export default {
     const skillData = actorData.skills[skill];
     const appId = appWindow.id;
 
-    console.log(overrides);
-
     const abilityBonus = ref("");
     const abilityMod = ref("");
     const globalCheckBonus = actorData.bonuses.abilities.check;

@@ -4,6 +4,7 @@ import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
+import createTemplateDocument from '../utils/templates/createTemplateDocument';
 
 /**
  * Override and extend the basic Item implementation.
@@ -132,7 +133,9 @@ export default class Item5e extends Item {
 
     // Place template if allowed
     if (placeTemplate) {
-      const template = ItemMeasuredTemplate.fromItem(this);
+      const templateDocument = createTemplateDocument(this);
+      const template = new ItemMeasuredTemplate(templateDocument);
+
       if (template) template.drawPreview();
     }
 

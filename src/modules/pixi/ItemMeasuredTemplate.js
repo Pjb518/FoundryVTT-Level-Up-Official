@@ -1,45 +1,4 @@
 export default class ItemMeasuredTemplate extends MeasuredTemplate {
-  static fromItem(item) {
-    const { shape } = item.data.data.area;
-    const size = Number(item.data.data.area.size);
-
-    // TODO: Switch to getting shape from shape classes in the future.
-    const templateShape = CONFIG.A5E.areaTemplates[shape];
-
-    if (!templateShape) return null;
-
-    // Prepare template data
-    const templateData = {
-      t: templateShape,
-      user: game.user.id,
-      distance: size,
-      direction: 0,
-      x: 0,
-      y: 0,
-      fillColor: game.user.color
-    };
-
-    // Morph data based on shape type
-    if (templateShape === 'cone') {
-      templateData.angle = CONFIG.MeasuredTemplate.defaults.angle;
-    } else if (templateShape === 'rect') {
-      templateData.distance = Math.hypot(size, size);
-      templateData.width = size;
-    } else if (templateShape === 'ray') {
-      templateData.width = canvas.dimensions.distance;
-    }
-
-    // Construct template and return
-    const Doc = CONFIG.MeasuredTemplate.documentClass;
-    const templateDocument = new Doc(templateData, { parent: canvas.scene });
-    const template = new this(templateDocument);
-    template.item = item;
-
-    template.actorSheet = item.actor?.sheet || null;
-
-    return template;
-  }
-
   drawPreview() {
     const initLayer = canvas.activeLayer;
 

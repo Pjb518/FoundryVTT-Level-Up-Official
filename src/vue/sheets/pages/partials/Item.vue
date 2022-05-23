@@ -167,7 +167,6 @@ export default {
       const item = actor.items.get(props.item._id);
 
       if (rollMode) {
-        console.log(rollMode);
         options["rollMode"] = CONFIG.A5E.ROLL_MODE[rollMode.toUpperCase()];
       }
 
