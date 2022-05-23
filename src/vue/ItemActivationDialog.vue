@@ -65,7 +65,6 @@
         :id="`${appId}-place-template`"
         ref="inputField"
         v-model="placeTemplate"
-        :checked="placeTemplate"
       />
 
       <label class="u-pointer" :for="`${appId}-place-template`">
