@@ -55,10 +55,14 @@
     />
 
     <!-- TODO: FIX THIS -->
-    <section v-if="placeTemplateDefault" class="u-align-center u-flex u-gap-md">
+    <section
+      v-if="placeTemplateDefault"
+      class="a5e-form__section u-align-center u-flex u-gap-md"
+    >
       <input
         class="u-pointer"
         type="checkbox"
+        style="margin-left: 0"
         :id="`${appId}-place-template`"
         ref="inputField"
         v-model="placeTemplate"
