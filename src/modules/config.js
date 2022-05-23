@@ -143,6 +143,17 @@ A5E.areaTypes = {
 };
 
 /**
+ * Maps the area types to template shapes
+ */
+A5E.areaTemplates = {
+  cone: 'cone',
+  cube: 'rect',
+  cylinder: 'circle',
+  line: 'ray',
+  sphere: 'circle'
+};
+
+/**
  * The set of core armor types in the system.
  * @enum {string}
  */

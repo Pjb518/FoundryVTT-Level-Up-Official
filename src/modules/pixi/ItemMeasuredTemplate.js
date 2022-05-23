@@ -1,20 +1,10 @@
-/* global MeasuredTemplate */
-
-const templateMapping = {
-  cone: 'cone',
-  cube: 'rect',
-  cylinder: 'circle',
-  line: 'ray',
-  sphere: 'circle'
-};
-
 export default class ItemMeasuredTemplate extends MeasuredTemplate {
   static fromItem(item) {
     const { shape } = item.data.data.area;
     const size = Number(item.data.data.area.size);
 
     // TODO: Switch to getting shape from shape classes in the future.
-    const templateShape = templateMapping[shape];
+    const templateShape = CONFIG.A5E.areaTemplates[shape];
 
     if (!templateShape) return null;
 
@@ -30,19 +20,13 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     };
 
     // Morph data based on shape type
-    switch (templateShape) {
-      case 'cone':
-        templateData.angle = CONFIG.MeasuredTemplate.defaults.angle;
-        break;
-      case 'rect':
-        templateData.distance = Math.hypot(size, size);
-        templateData.width = size;
-        break;
-      case 'ray':
-        templateData.width = canvas.dimensions.distance;
-        break;
-      default:
-        break;
+    if (templateShape === 'cone') {
+      templateData.angle = CONFIG.MeasuredTemplate.defaults.angle;
+    } else if (templateShape === 'rect') {
+      templateData.distance = Math.hypot(size, size);
+      templateData.width = size;
+    } else if (templateShape === 'ray') {
+      templateData.width = canvas.dimensions.distance;
     }
 
     // Construct template and return
