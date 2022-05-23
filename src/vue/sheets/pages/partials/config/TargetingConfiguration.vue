@@ -87,9 +87,9 @@
           <input
             class="u-pointer"
             type="checkbox"
-            name="data.area.placeTemplate"
+            name="flags.a5e.placeTemplate"
             :id="`${appId}-place-template`"
-            :checked="data.data.area.placeTemplate"
+            :checked="item.data.flags.a5e?.placeTemplate"
           />
 
           <label class="u-pointer" :for="`${appId}-place-template`">

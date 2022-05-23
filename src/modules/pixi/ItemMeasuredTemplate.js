@@ -60,7 +60,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     const initLayer = canvas.activeLayer;
 
     // Draw template and switch to template layer
-    this.drawPreview();
+    this.draw();
     this.layer.activate();
     this.layer.preview.addChild(this);
 
@@ -126,8 +126,8 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
 
     // Setup Listeners
     canvas.stage.on('mousemove', handlers.move);
-    canvas.stage.on('mousedown', handlers.cancel);
-    canvas.app.view.oncontextmenu = handlers.confirm;
+    canvas.stage.on('mousedown', handlers.confirm);
+    canvas.app.view.oncontextmenu = handlers.cancel;
     canvas.app.view.onwheel = handlers.rotate;
   }
 }
