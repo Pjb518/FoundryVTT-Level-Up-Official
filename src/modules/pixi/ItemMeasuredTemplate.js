@@ -65,6 +65,8 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
 
       this.data.update(destination);
       canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [this.data]);
+
+      Hooks.callAll('a5e.onItemTemplateCreate', this);
     };
 
     // Setup Listeners

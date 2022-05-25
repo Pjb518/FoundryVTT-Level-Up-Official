@@ -139,6 +139,8 @@ export default class Item5e extends Item {
       template.item = this;
       template.actorSheet = this.actor?.sheet || null;
 
+      Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
+
       if (template) template.drawPreview();
     }
 
