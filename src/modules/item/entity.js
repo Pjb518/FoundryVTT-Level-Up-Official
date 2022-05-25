@@ -136,6 +136,9 @@ export default class Item5e extends Item {
       const templateDocument = createTemplateDocument(this);
       const template = new ItemMeasuredTemplate(templateDocument);
 
+      template.item = this;
+      template.actorSheet = this.actor?.sheet || null;
+
       if (template) template.drawPreview();
     }
 

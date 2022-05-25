@@ -2,10 +2,10 @@ export default function getCubeTemplateData(item) {
   const size = Number(item.data.data.area.size);
 
   return {
-    direction: 0,
-    distance: size,
+    direction: 45,
+    distance: Math.hypot(size, size),
     fillColor: game.user.color,
-    t: 'ray',
+    t: 'rect',
     user: game.user.id,
     width: size,
     x: 0,
