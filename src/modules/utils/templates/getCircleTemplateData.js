@@ -1,9 +1,9 @@
 export default function getCircleTemplateData(item) {
-  const size = Number(item.data.data.area.size);
+  const radius = Number(item.data.data.area.radius);
 
   return {
     direction: 0,
-    distance: size,
+    distance: radius,
     fillColor: game.user.color,
     t: 'circle',
     user: game.user.id,
