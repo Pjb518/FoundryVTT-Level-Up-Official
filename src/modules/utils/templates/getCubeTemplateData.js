@@ -1,5 +1,5 @@
 export default function getCubeTemplateData(item) {
-  const size = Number(item.data.data.area.size);
+  const size = Number(item.data.data.area.width);
 
   return {
     direction: 45,
