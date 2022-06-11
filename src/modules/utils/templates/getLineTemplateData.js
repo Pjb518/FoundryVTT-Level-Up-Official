@@ -1,13 +1,14 @@
 export default function getLineTemplateDate(item) {
-  const size = Number(item.data.data.area.size);
+  const length = Number(item.data.data.area?.length);
+  const width = Number(item.data.data.area?.width);
 
   return {
     direction: 0,
-    distance: size,
+    distance: length,
     fillColor: game.user.color,
     t: 'ray',
     user: game.user.id,
-    width: canvas.dimensions.distance,
+    width,
     x: 0,
     y: 0
   };
