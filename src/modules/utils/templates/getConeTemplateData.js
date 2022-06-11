@@ -1,10 +1,10 @@
 export default function getConeTemplateData(item) {
-  const size = Number(item.data.data.area.size);
+  const length = Number(item.data.data.area.length);
 
   return {
     angle: CONFIG.MeasuredTemplate.defaults.angle,
     direction: 0,
-    distance: size,
+    distance: length,
     fillColor: game.user.color,
     t: 'cone',
     user: game.user.id,
