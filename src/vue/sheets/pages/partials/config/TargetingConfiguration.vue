@@ -71,13 +71,142 @@
         </div>
       </form-section>
 
-      <form-section v-if="data.data.area.shape" heading="A5E.ItemAreaSize">
-        <div class="u-w-full">
+      <form-section v-if="data.data.area.shape">
+        <div
+          class="u-flex u-flex-col u-gap-md u-w-full"
+          v-if="data.data.area.shape === 'cone'"
+        >
+          <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+            {{ localize("A5E.ItemAreaConeLength") }} ({{
+              localize("A5E.MeasurementFeetAbbr")
+            }})
+          </h3>
+
           <input
             class="a5e-input"
-            name="data.area.size"
-            type="text"
-            :value="data.data.area.size"
+            name="data.area.length"
+            type="number"
+            min="0"
+            data-dtype="Number"
+            :value="data.data.area?.length"
+          />
+        </div>
+
+        <div
+          class="u-flex u-flex-col u-gap-md u-w-full"
+          v-if="data.data.area.shape === 'cube'"
+        >
+          <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+            {{ localize("A5E.ItemAreaCubeWidth") }} ({{
+              localize("A5E.MeasurementFeetAbbr")
+            }})
+          </h3>
+
+          <input
+            class="a5e-input"
+            name="data.area.width"
+            type="number"
+            min="0"
+            data-dtype="Number"
+            :value="data.data.area?.width"
+          />
+        </div>
+
+        <div
+          class="u-flex u-gap-lg u-w-full"
+          v-if="data.data.area.shape === 'cylinder'"
+        >
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaCylinderRadius") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.radius"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.radius"
+            />
+          </div>
+
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaCylinderHeight") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.height"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.height"
+            />
+          </div>
+        </div>
+
+        <div
+          class="u-flex u-gap-lg u-w-full"
+          v-if="data.data.area.shape === 'line'"
+        >
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaLineLength") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.length"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.length"
+            />
+          </div>
+
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaLineWidth") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.width"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.width"
+            />
+          </div>
+        </div>
+
+        <div
+          class="u-flex u-flex-col u-gap-md u-w-full"
+          v-if="data.data.area.shape === 'sphere'"
+        >
+          <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+            {{ localize("A5E.ItemAreaSphereRadius") }} ({{
+              localize("A5E.MeasurementFeetAbbr")
+            }})
+          </h3>
+
+          <input
+            class="a5e-input"
+            name="data.area.radius"
+            type="number"
+            min="0"
+            data-dtype="Number"
+            :value="data.data.area?.radius"
           />
         </div>
       </form-section>
