@@ -3,6 +3,8 @@ export default function prepareAreaSummary(areaData) {
     height, length, radius, shape, width
   } = areaData;
 
+  console.log(areaData);
+
   if (!shape || !['cone', 'cube', 'cylinder', 'line', 'sphere'].includes(shape)) return null;
 
   let areaDetails;
@@ -15,7 +17,7 @@ export default function prepareAreaSummary(areaData) {
     if (width) areaDetails = `${width} ${unit}`;
   } else if (shape === 'cylinder') {
     if (radius) {
-      if (height) areaDetails = `${radius} ${unit} ${game.i18n.localize('A5E.ItemAreaRadius')}, ${height} ${unit} ${game.i18n.localize('A5E.ItemAreaHeight')}`;
+      if (height) areaDetails = `${radius} ${unit} ${game.i18n.localize('A5E.ItemAreaRadius')}; ${height} ${unit} ${game.i18n.localize('A5E.ItemAreaHeight')}`;
       else areaDetails = `${radius} ${unit} ${game.i18n.localize('A5E.ItemAreaRadius')}`;
     }
   } else if (shape === 'line') {

@@ -268,11 +268,7 @@
           <dt class="u-text-bold">{{ localize("A5E.TargetArea") }}:</dt>
           <dd class="u-m-0 u-p-0">
             <template v-if="data.data.area.shape">
-              {{ localize(config.areaTypes[data.data.area.shape]) }}
-
-              <template v-if="data.data.area.size">
-                ({{ data.data.area.size }})
-              </template>
+              {{ areaSummary }}
             </template>
 
             <template v-else>
@@ -305,6 +301,7 @@
 <script>
 import { computed, inject, ref } from "vue";
 
+import prepareAreaSummary from "../../../../utils/dataPreparationHelpers/prepareAreaSummary";
 import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 import RangeIncrement from "./RangeIncrement.vue";
@@ -318,6 +315,10 @@ export default {
     const item = inject("item");
 
     const editModeActive = ref(false);
+
+    const areaSummary = computed(() =>
+      prepareAreaSummary(data.value.data.area)
+    );
 
     const rangeSummary = computed(() =>
       prepareRangeSummary(data.value.data.range)
@@ -354,6 +355,7 @@ export default {
 
     return {
       appId,
+      areaSummary,
       config: CONFIG.A5E,
       data,
       editModeActive,
