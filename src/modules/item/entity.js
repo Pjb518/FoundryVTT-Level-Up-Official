@@ -3,6 +3,8 @@ import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
 
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
+import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
+import createTemplateDocument from '../utils/templates/createTemplateDocument';
 
 /**
  * Override and extend the basic Item implementation.
@@ -21,6 +23,7 @@ export default class Item5e extends Item {
     let attack;
     let damage;
     let healing;
+    let placeTemplate;
 
     const dialogTitle = game.i18n.format(
       'A5E.ItemActivationPrompt',
@@ -67,6 +70,7 @@ export default class Item5e extends Item {
         attack = configuration.attack;
         damage = configuration.damage;
         healing = configuration.healing;
+        placeTemplate = configuration.placeTemplate;
       } catch {
         return;
       }
@@ -125,6 +129,19 @@ export default class Item5e extends Item {
           healingType, roll, tooltip
         });
       }
+    }
+
+    // Place template if allowed
+    if (placeTemplate) {
+      const templateDocument = createTemplateDocument(this);
+      const template = new ItemMeasuredTemplate(templateDocument);
+
+      template.item = this;
+      template.actorSheet = this.actor?.sheet || null;
+
+      Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
+
+      if (template) template.drawPreview();
     }
 
     this.actor.constructItemCard(data);

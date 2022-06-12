@@ -97,6 +97,8 @@ Hooks.once('init', () => {
   CONFIG.Dice.rolls.push(D20Roll);
   CONFIG.Dice.rolls.push(DamageRoll);
 
+  CONFIG.MeasuredTemplate.defaults.angle = 60;
+
   registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);

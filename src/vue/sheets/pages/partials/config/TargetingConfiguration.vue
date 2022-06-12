@@ -71,14 +71,159 @@
         </div>
       </form-section>
 
-      <form-section v-if="data.data.area.shape" heading="A5E.ItemAreaSize">
-        <div class="u-w-full">
+      <form-section v-if="data.data.area.shape">
+        <div
+          class="u-flex u-flex-col u-gap-md u-w-full"
+          v-if="data.data.area.shape === 'cone'"
+        >
+          <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+            {{ localize("A5E.ItemAreaConeLength") }} ({{
+              localize("A5E.MeasurementFeetAbbr")
+            }})
+          </h3>
+
           <input
             class="a5e-input"
-            name="data.area.size"
-            type="text"
-            :value="data.data.area.size"
+            name="data.area.length"
+            type="number"
+            min="0"
+            data-dtype="Number"
+            :value="data.data.area?.length"
           />
+        </div>
+
+        <div
+          class="u-flex u-flex-col u-gap-md u-w-full"
+          v-if="data.data.area.shape === 'cube'"
+        >
+          <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+            {{ localize("A5E.ItemAreaCubeWidth") }} ({{
+              localize("A5E.MeasurementFeetAbbr")
+            }})
+          </h3>
+
+          <input
+            class="a5e-input"
+            name="data.area.width"
+            type="number"
+            min="0"
+            data-dtype="Number"
+            :value="data.data.area?.width"
+          />
+        </div>
+
+        <div
+          class="u-flex u-gap-lg u-w-full"
+          v-if="data.data.area.shape === 'cylinder'"
+        >
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaCylinderRadius") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.radius"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.radius"
+            />
+          </div>
+
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaCylinderHeight") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.height"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.height"
+            />
+          </div>
+        </div>
+
+        <div
+          class="u-flex u-gap-lg u-w-full"
+          v-if="data.data.area.shape === 'line'"
+        >
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaLineLength") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.length"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.length"
+            />
+          </div>
+
+          <div class="u-flex u-flex-col u-flex-grow u-gap-md">
+            <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+              {{ localize("A5E.ItemAreaLineWidth") }} ({{
+                localize("A5E.MeasurementFeetAbbr")
+              }})
+            </h3>
+
+            <input
+              class="a5e-input"
+              name="data.area.width"
+              type="number"
+              min="0"
+              data-dtype="Number"
+              :value="data.data.area?.width"
+            />
+          </div>
+        </div>
+
+        <div
+          class="u-flex u-flex-col u-gap-md u-w-full"
+          v-if="data.data.area.shape === 'sphere'"
+        >
+          <h3 class="u-flex-shrink-0 u-text-bold u-text-sm">
+            {{ localize("A5E.ItemAreaSphereRadius") }} ({{
+              localize("A5E.MeasurementFeetAbbr")
+            }})
+          </h3>
+
+          <input
+            class="a5e-input"
+            name="data.area.radius"
+            type="number"
+            min="0"
+            data-dtype="Number"
+            :value="data.data.area?.radius"
+          />
+        </div>
+      </form-section>
+
+      <form-section v-if="data.data.area.shape">
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.placeTemplate"
+            :id="`${appId}-place-template`"
+            :checked="item.data.flags.a5e?.placeTemplate"
+          />
+
+          <label class="u-pointer" :for="`${appId}-place-template`">
+            {{ localize("A5E.ItemPlaceTemplate") }}
+          </label>
         </div>
       </form-section>
 
@@ -123,11 +268,7 @@
           <dt class="u-text-bold">{{ localize("A5E.TargetArea") }}:</dt>
           <dd class="u-m-0 u-p-0">
             <template v-if="data.data.area.shape">
-              {{ localize(config.areaTypes[data.data.area.shape]) }}
-
-              <template v-if="data.data.area.size">
-                ({{ data.data.area.size }})
-              </template>
+              {{ areaSummary }}
             </template>
 
             <template v-else>
@@ -160,6 +301,7 @@
 <script>
 import { computed, inject, ref } from "vue";
 
+import prepareAreaSummary from "../../../../utils/dataPreparationHelpers/prepareAreaSummary";
 import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 import RangeIncrement from "./RangeIncrement.vue";
@@ -173,6 +315,10 @@ export default {
     const item = inject("item");
 
     const editModeActive = ref(false);
+
+    const areaSummary = computed(() =>
+      prepareAreaSummary(data.value.data.area)
+    );
 
     const rangeSummary = computed(() =>
       prepareRangeSummary(data.value.data.range)
@@ -209,6 +355,7 @@ export default {
 
     return {
       appId,
+      areaSummary,
       config: CONFIG.A5E,
       data,
       editModeActive,

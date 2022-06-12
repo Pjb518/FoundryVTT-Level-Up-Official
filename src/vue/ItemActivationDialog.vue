@@ -54,6 +54,24 @@
       @updateSelectionList="updateSelectedHealingGroups"
     />
 
+    <section
+      v-if="hasTemplate"
+      class="a5e-form__section u-align-center u-flex u-gap-md"
+    >
+      <input
+        class="u-pointer"
+        type="checkbox"
+        style="margin-left: 0"
+        :id="`${appId}-place-template`"
+        ref="inputField"
+        v-model="placeTemplate"
+      />
+
+      <label class="u-pointer" :for="`${appId}-place-template`">
+        {{ localize("A5E.ItemPlaceTemplate") }}
+      </label>
+    </section>
+
     <button class="a5e-button" type="submit" :disabled="!rollFormulaIsValid">
       <i class="fas fa-dice-d20"></i> {{ submitText }}
     </button>
@@ -119,6 +137,8 @@ export default {
     );
 
     const expertiseDie = ref("");
+    const placeTemplateDefault = ref(item.getFlag("a5e", "placeTemplate"));
+    const placeTemplate = ref(placeTemplateDefault.value);
     const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
     const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
@@ -155,6 +175,7 @@ export default {
         },
         damage: selectedDamageGroups.value.map((index) => damage[index]),
         healing: selectedHealingGroups.value.map((index) => healing[index]),
+        placeTemplate: placeTemplate.value,
       });
     }
 
@@ -195,9 +216,12 @@ export default {
       hasAttackRoll,
       hasDamage,
       hasHealing,
+      hasTemplate: itemData.area.shape,
       healingTags,
       localize: (key) => game.i18n.localize(key),
       onSubmit,
+      placeTemplate,
+      placeTemplateDefault,
       rollFormula,
       rollFormulaIsValid,
       rollMode,

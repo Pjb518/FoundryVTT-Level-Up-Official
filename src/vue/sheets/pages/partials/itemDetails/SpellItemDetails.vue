@@ -48,11 +48,7 @@
       <div v-if="item.data.area.shape" class="u-align-center u-flex u-gap-ch">
         <dt>{{ localize("A5E.TargetArea") }}:</dt>
         <dd class="u-m-0 u-p-0">
-          {{ localize(config.areaTypes[item.data.area.shape]) }}
-
-          <template v-if="item.data.area.size">
-            ({{ item.data.area.size }})
-          </template>
+          {{ areaSummary }}
         </dd>
       </div>
 
@@ -144,11 +140,16 @@
 
 <script>
 import { computed } from "vue";
+import prepareAreaSummary from "../../../../utils/dataPreparationHelpers/prepareAreaSummary";
 import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 export default {
   props: { item: Object },
   setup(props) {
+    const areaSummary = computed(() =>
+      prepareAreaSummary(props.item.data.area)
+    );
+
     const rangeSummary = computed(() =>
       prepareRangeSummary(props.item.data.range)
     );
@@ -211,6 +212,7 @@ export default {
     });
 
     return {
+      areaSummary,
       config: CONFIG.A5E,
       localize: (key) => game.i18n.localize(key),
       rangeSummary,
