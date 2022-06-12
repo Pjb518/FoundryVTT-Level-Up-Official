@@ -3,8 +3,6 @@ export default function prepareAreaSummary(areaData) {
     height, length, radius, shape, width
   } = areaData;
 
-  console.log(areaData);
-
   if (!shape || !['cone', 'cube', 'cylinder', 'line', 'sphere'].includes(shape)) return null;
 
   let areaDetails;
