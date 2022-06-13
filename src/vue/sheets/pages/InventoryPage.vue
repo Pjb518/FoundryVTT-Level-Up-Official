@@ -99,10 +99,45 @@
       <div class="u-flex u-flex-col u-gap-md u-w-full">
         <div
           class="
-            u-border u-border-thin u-border-light-gray u-h-4 u-rounded u-w-full
+            u-bg-gray
+            u-border
+            u-border-thin
+            u-border-light-gray
+            u-h-4
+            u-pos-relative
+            u-rounded
+            u-w-full
           "
         >
-          <div class="u-bg-green u-h-full u-rounded"></div>
+          <div
+            class="u-h-full u-rounded"
+            :style="{
+              'background-color':
+                encumbrancePercentage === 100 ? '#8b2525' : '#0b5a2f',
+              width: `${Math.min(encumbrancePercentage, 100)}%`,
+            }"
+          >
+            <div
+              class="
+                u-flex
+                u-gap-md
+                u-pos-absolute
+                u-pos-center
+                u-text-light
+                u-text-sm
+              "
+            >
+              <span
+                >{{ inventoryWeight }}
+                {{ localize("A5E.MeasurementPoundsAbbr") }}</span
+              >
+              /
+              <span
+                >{{ carryCapacity }}
+                {{ localize("A5E.MeasurementPoundsAbbr") }}</span
+              >
+            </div>
+          </div>
         </div>
 
         <div class="u-flex u-justify-space-between u-w-full">
@@ -204,6 +239,8 @@ import { computed, inject, onMounted } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import applyObjectFilters from "../../utils/filterHelpers/applyObjectFilters";
+import calculateCarryCapacity from "../.../../../utils/dataPreparationHelpers/calculateCarryCapacity";
+import calculateInventoryWeight from "../.../../../utils/dataPreparationHelpers/calculateInventoryWeight";
 
 import FilterBox from "./partials/FilterBox.vue";
 import FilterGroup from "./partials/FilterGroup.vue";
@@ -218,6 +255,16 @@ export default {
     const data = inject("data");
     const sheet = inject("sheet");
     const sheetIsLocked = inject("sheetIsLocked");
+
+    const carryCapacity = computed(() => calculateCarryCapacity(data.value));
+
+    const inventoryWeight = computed(() =>
+      calculateInventoryWeight(data.value)
+    );
+
+    const encumbrancePercentage = computed(() =>
+      Math.min((inventoryWeight.value / carryCapacity.value) * 100, 100)
+    );
 
     const items = computed(() =>
       applyObjectFilters(
@@ -243,6 +290,9 @@ export default {
 
     return {
       actorType: actor.type,
+      carryCapacity,
+      encumbrancePercentage,
+      inventoryWeight,
       config: CONFIG.A5E,
       data,
       items,
