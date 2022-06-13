@@ -89,7 +89,11 @@ function compilePacks() {
 
         if (!json._id) {
           json._id = generateId()
-          // TODO: Edit original file
+
+          // Edit original file with id and cleaned data
+          fs.writeFileSync(
+            file, JSON.stringify(json, null, '\t'), {encoding: 'utf-8'}
+          )
         }
 
         data.push(json)
