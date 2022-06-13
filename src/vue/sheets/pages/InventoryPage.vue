@@ -1,5 +1,5 @@
 <template>
-  <section class="u-flex u-gap-md u-h-full u-pb-xxxl u-pl-lg u-pt-lg">
+  <section class="u-flex u-gap-md u-h-full u-pb-xxxxl u-pl-lg u-pt-lg" style="">
     <filter-box tab="inventory">
       <filter-group
         filterKey="itemActivationCostFilters"
@@ -96,84 +96,104 @@
     </section>
 
     <tab-footer>
-      <div
-        v-if="actorType === 'character'"
-        class="u-align-center u-flex u-gap-md u-text-md"
-      >
-        <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
-          {{ localize("A5E.Attunement") }}
-        </h3>
-
-        <span
-          class="a5e-footer-group__value a5e-footer-group__value--attunement"
+      <div class="u-flex u-flex-col u-gap-md u-w-full">
+        <div
+          class="
+            u-border u-border-thin u-border-light-gray u-h-4 u-rounded u-w-full
+          "
         >
-          {{ data.data.attributes.attunement.current }}
-        </span>
-        /
-        <input
-          class="a5e-footer-group__input a5e-footer-group__input--attunement"
-          type="number"
-          name="data.attributes.attunement.max"
-          :value="data.data.attributes.attunement.max"
-          placeholder="0"
-          min="0"
-          max="9"
-          data-dtype="Number"
-          v-autowidth
-        />
-      </div>
-
-      <div
-        v-if="actorType === 'character'"
-        class="u-align-center u-flex u-gap-md u-text-md"
-      >
-        <div class="u-align-center u-flex u-gap-md u-text-md">
-          <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
-            {{ localize("A5E.Supply") }}
-          </h3>
-
-          <input
-            class="a5e-footer-group__input"
-            type="number"
-            name="data.supply"
-            :value="data.data.supply"
-            placeholder="0"
-            min="0"
-            data-dtype="Number"
-            v-autowidth
-          />
+          <div class="u-bg-green u-h-full u-rounded"></div>
         </div>
-      </div>
 
-      <div
-        class="u-align-center u-flex u-gap-md u-text-md"
-        :class="{ 'u-ml-auto': actorType === 'npc' }"
-      >
-        <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
-          {{ localize("A5E.Currency") }}
-          <i class="fas fa-coins"></i>
-        </h3>
-
-        <ol class="u-flex u-gap-xl u-list-style-none u-m-0 u-ml-xl u-p-0">
-          <li
-            class="u-align-center u-flex u-gap-md u-text-serif"
-            v-for="[label, value] in Object.entries(data.data.currency)"
-            :key="label"
+        <div class="u-flex u-justify-space-between u-w-full">
+          <div
+            v-if="actorType === 'character'"
+            class="u-align-center u-flex u-gap-md u-text-md"
           >
-            <label class="u-flex u-gap-xs u-mb-0 u-text-lg u-text-uppercase">
-              {{ label }}
-            </label>
+            <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
+              {{ localize("A5E.Attunement") }}
+            </h3>
 
+            <span
+              class="
+                a5e-footer-group__value a5e-footer-group__value--attunement
+              "
+            >
+              {{ data.data.attributes.attunement.current }}
+            </span>
+            /
             <input
-              class="a5e-footer-group__input a5e-footer-group__input--currency"
+              class="
+                a5e-footer-group__input a5e-footer-group__input--attunement
+              "
               type="number"
-              :name="`data.currency.${label}`"
-              :value="value"
+              name="data.attributes.attunement.max"
+              :value="data.data.attributes.attunement.max"
+              placeholder="0"
+              min="0"
+              max="9"
               data-dtype="Number"
-              v-autowidth="{ minWidth: '2.5rem' }"
+              v-autowidth
             />
-          </li>
-        </ol>
+          </div>
+
+          <div
+            v-if="actorType === 'character'"
+            class="u-align-center u-flex u-gap-md u-text-md"
+          >
+            <div class="u-align-center u-flex u-gap-md u-text-md">
+              <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
+                {{ localize("A5E.Supply") }}
+              </h3>
+
+              <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="data.supply"
+                :value="data.data.supply"
+                placeholder="0"
+                min="0"
+                data-dtype="Number"
+                v-autowidth
+              />
+            </div>
+          </div>
+
+          <div
+            class="u-align-center u-flex u-gap-md u-text-md"
+            :class="{ 'u-ml-auto': actorType === 'npc' }"
+          >
+            <h3 class="u-flex u-gap-xs u-mb-0 u-text-lg">
+              {{ localize("A5E.Currency") }}
+              <i class="fas fa-coins"></i>
+            </h3>
+
+            <ol class="u-flex u-gap-xl u-list-style-none u-m-0 u-ml-xl u-p-0">
+              <li
+                class="u-align-center u-flex u-gap-md u-text-serif"
+                v-for="[label, value] in Object.entries(data.data.currency)"
+                :key="label"
+              >
+                <label
+                  class="u-flex u-gap-xs u-mb-0 u-text-lg u-text-uppercase"
+                >
+                  {{ label }}
+                </label>
+
+                <input
+                  class="
+                    a5e-footer-group__input a5e-footer-group__input--currency
+                  "
+                  type="number"
+                  :name="`data.currency.${label}`"
+                  :value="value"
+                  data-dtype="Number"
+                  v-autowidth="{ minWidth: '2.5rem' }"
+                />
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </tab-footer>
   </section>
