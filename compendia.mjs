@@ -37,9 +37,11 @@ function cleanDocument(data, { clearSourceId = false } = { }) {
     if (Object.keys(flagData).length === 0) delete data.flags[flag];
   });
 
-  // FIXME: Remove Later
-
-
+  // FIXME: Remove Later - Old area information
+  if (!data?.data.target) data.data.target = {}
+  Object.entries(data.data.target).forEach(([property, value]) => {
+    if (!['quantity', 'type'].includes(property)) delete data.flags[property];
+  });
 
   // Remove Permission information
   // TODO:Deprecated
