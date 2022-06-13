@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "gulp buildCompendia && vite build",
+    "build": "node ./compendia.mjs && vite build",
     "build:system": "vite build",
-    "build:compendia": "gulp buildCompendia"
+    "build:compendia": "node ./compendia.mjs"
   },
   "repository": {
     "type": "git",
@@ -34,14 +34,12 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
-    "gulp": "^4.0.2",
-    "merge-stream": "^2.0.0",
+    "glob": "^8.0.3",
     "node-sass": "^7.0.1",
     "postcss-scss": "^4.0.3",
     "sass": "^1.49.0",
     "stylelint": "^14.9.1",
     "stylelint-config-sass-guidelines": "^9.0.1",
-    "through2": "^4.0.2",
     "vite": "^2.7.13"
   },
   "dependencies": {
