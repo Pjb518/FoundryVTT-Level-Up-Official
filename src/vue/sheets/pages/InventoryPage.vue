@@ -114,6 +114,8 @@
             :style="{
               'background-color':
                 encumbrancePercentage === 100 ? '#8b2525' : '#0b5a2f',
+              'text-stroke':
+                encumbrancePercentage === 100 ? '0' : '0.5px #0b5a2f',
               width: `${Math.min(encumbrancePercentage, 100)}%`,
             }"
           >
@@ -128,7 +130,7 @@
               "
             >
               <span
-                >{{ inventoryWeight }}
+                >{{ inventoryWeight.toFixed(1) }}
                 {{ localize("A5E.MeasurementPoundsAbbr") }}</span
               >
               /
