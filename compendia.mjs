@@ -1,3 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
+
 // Imports
 import * as fs from 'fs';
 import path from 'path';
@@ -6,7 +10,6 @@ import glob from 'glob';
 const PACK_DEST = './public/packs';
 const PACK_SRC = './packs';
 const ids = [];
-
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /**
@@ -31,14 +34,15 @@ function cleanDocument(data, { clearSourceId = false } = { }) {
   if (!data.flags) data.flags = {};
   Object.entries(data.flags).forEach(([flag, flagData]) => {
     if (!['core', 'a5e'].includes(flag)) {
-      delete data.flags[flag]
+      delete data.flags[flag];
       return;
     }
     if (Object.keys(flagData).length === 0) delete data.flags[flag];
   });
 
   // FIXME: Remove Later - Old area information
-  if (!data?.data.target) data.data.target = {}
+  if (!data.data?.target) data.data.target = {};
+  // eslint-disable-next-line no-unused-vars
   Object.entries(data.data.target).forEach(([property, value]) => {
     if (!['quantity', 'type'].includes(property)) delete data.flags[property];
   });
@@ -63,7 +67,6 @@ function generateId() {
   return id;
 }
 
-
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /**
  * Compile json packs into a database entry
@@ -73,31 +76,29 @@ function compilePacks() {
   const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true })
     .filter((f) => f.isDirectory());
 
-  const packs = folders.map((folder) => {
-    const filePath = path.join(PACK_DEST, `${folder.name}.db`)
-    fs.rmSync(filePath, {force: true});
+  folders.forEach((folder) => {
+    const filePath = path.join(PACK_DEST, `${folder.name}.db`);
+    fs.rmSync(filePath, { force: true });
 
-    const db = fs.createWriteStream(filePath, {flags: 'a', mode: 0o664});
+    const db = fs.createWriteStream(filePath, { flags: 'a', mode: 0o664 });
     const data = [];
 
     const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
     filenames.forEach((file) => {
-      try{
-        const json = JSON.parse(fs.readFileSync(file, {encoding:'utf-8'}).toString())
-        cleanDocument(json)
+      try {
+        const json = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }).toString());
+        cleanDocument(json);
 
         if (!json._id) {
-          json._id = generateId()
+          json._id = generateId();
 
           // Edit original file with id and cleaned data
-          fs.writeFileSync(
-            file, JSON.stringify(json, null, '\t'), {encoding: 'utf-8'}
-          )
+          fs.writeFileSync(file, JSON.stringify(json, null, '\t'), { encoding: 'utf-8' });
         }
 
-        data.push(json)
-      } catch (e){
+        data.push(json);
+      } catch (e) {
         console.warn(`${file} failed to parse.`);
       }
     });
@@ -107,9 +108,7 @@ function compilePacks() {
       db.write(`${JSON.stringify(entry)}\n`);
     });
     console.log(`Created ${filePath} with ${data.length} entries.`);
-
   });
 }
 
-
-compilePacks()
+compilePacks();
