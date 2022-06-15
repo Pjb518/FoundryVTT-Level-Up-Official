@@ -138,6 +138,10 @@
                 >{{ carryCapacity }}
                 {{ localize("A5E.MeasurementPoundsAbbr") }}</span
               >
+
+              <span v-if="encumbrancePercentage === 100">
+                ({{ localize("A5E.ConditionEncumbered") }})
+              </span>
             </div>
           </div>
         </div>
