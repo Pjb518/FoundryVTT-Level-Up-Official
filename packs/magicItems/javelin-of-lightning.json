@@ -1,0 +1,92 @@
+{
+	"name": "Javelin of Lightning",
+	"type": "object",
+	"img": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+	"data": {
+		"ability": "",
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "line",
+			"size": "5 ft.  x 120 ft."
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": true,
+				"damageType": "lightning",
+				"formula": "4d6",
+				"name": "Lightning"
+			},
+			{
+				"canCrit": true,
+				"damageType": "piercing",
+				"formula": "1d6 + @mod",
+				"name": "Javelin"
+			}
+		],
+		"description": "<p>Once per dawn, when you throw this magic weapon and speak its command word it transforms into a 5-foot wide line of electricity that is 120 feet long.</p><p>Each creature in the area (excluding you) makes a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, or half damage on a success. The target of your attack takes the javelin’s normal damage plus 4d6 lightning damage.</p>",
+		"duration": {
+			"unit": "instantaneous",
+			"value": ""
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"long"
+		],
+		"save": {
+			"dc": "13",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": null,
+			"type": "creature"
+		},
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "day"
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "500",
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"weaponProperties": [
+			"thrown"
+		],
+		"weight": "2"
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Item.iORFpX41jJijgE1h"
+		}
+	},
+	"_id": "18b8j6yudz5brng0"
+}

@@ -1,0 +1,95 @@
+{
+	"name": "Dagger of Venom",
+	"type": "object",
+	"img": "icons/svg/item-bag.svg",
+	"data": {
+		"ability": "default",
+		"actionOptions": [
+			"attack",
+			"damage",
+			"savingThrow"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "1",
+			"critThreshold": "20",
+			"type": "meleeWeaponAttack"
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": true,
+				"damageType": "piercing",
+				"formula": "1d4 + @mod + 1",
+				"name": "Dagger"
+			},
+			{
+				"canCrit": false,
+				"damageType": "poison",
+				"formula": "2d10",
+				"name": "Poisoned"
+			}
+		],
+		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic blade. In addition, once each dawn you can use an action to poison the dagger’s blade for 1 minute or until it is used to damage a creature. When a creature is damaged by the blade’s poison, it makes a DC 15 Constitution saving throw or takes 2d10 poison damage and becomes poisoned for 1 minute.</p>",
+		"duration": {
+			"unit": "",
+			"value": ""
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"5ft."
+		],
+		"save": {
+			"dc": "15",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		},
+		"source": "",
+		"target": {
+			"quantity": 1,
+			"type": "creature"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "2,500 gp",
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"simple"
+		],
+		"weight": "1 lb."
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.world.magic-items.e3Wqg3KwkrtX7LUb"
+		}
+	},
+	"_id": "9vxz13w3ldvw8ve5"
+}
