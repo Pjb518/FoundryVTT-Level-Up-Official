@@ -45,8 +45,43 @@
             "
           />
 
-          <label class="u-pointer" :for="`${appId}-show-spell-slots`">
-            {{ localize("A5E.IncludeAbilityModifiersForSkills") }}
+          <label
+            class="u-pointer"
+            :for="`${data._id}-include-ability-mods-for-skills`"
+          >
+            {{ localize("A5E.SettingsIncludeAbilityModifiersForSkills") }}
+          </label>
+        </div>
+      </form-section>
+
+      <form-section v-if="data.type === 'character'">
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.showManeuverTab"
+            :id="`${data._id}-show-maneuver-tab`"
+            :checked="data.flags.a5e?.showManeuverTab ?? true"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-show-maneuver-tab`">
+            {{ localize("A5E.SettingsShowManeuverTab") }}
+          </label>
+        </div>
+      </form-section>
+
+      <form-section>
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.showSpellTab"
+            :id="`${data._id}-show-spell-tab`"
+            :checked="data.flags.a5e?.showSpellTab ?? true"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-show-spell-tab`">
+            {{ localize("A5E.SettingsShowSpellTab") }}
           </label>
         </div>
       </form-section>

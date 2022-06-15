@@ -38,17 +38,38 @@ export default {
     const { appId } = sheet;
     const data = ref(sheet.getData());
 
-    const tabs = [
-      { name: "core", label: "A5E.TabCoreFeatures", comp: CorePage },
-      { name: "skills", label: "A5E.TabSkills", comp: SkillsPage },
-      { name: "inventory", label: "A5E.TabInventory", comp: InventoryPage },
-      { name: "features", label: "A5E.TabFeatures", comp: FeaturesPage },
-      { name: "spells", label: "A5E.TabSpells", comp: SpellsPage },
-      { name: "biography", label: "A5E.DetailsNotes", comp: BiographyPage },
-      { name: "settings", label: "A5E.TabSettings", comp: SettingsPage },
-    ];
+    const tabs = computed(() => {
+      const initialTabs = [
+        { name: "core", label: "A5E.TabCoreFeatures", comp: CorePage },
+        { name: "skills", label: "A5E.TabSkills", comp: SkillsPage },
+        { name: "inventory", label: "A5E.TabInventory", comp: InventoryPage },
+        { name: "features", label: "A5E.TabFeatures", comp: FeaturesPage },
+      ];
 
-    const activeTab = shallowRef(tabs[0]);
+      if (data.value.flags.a5e?.showSpellTab ?? true) {
+        initialTabs.push({
+          name: "spells",
+          label: "A5E.TabSpells",
+          comp: SpellsPage,
+        });
+      }
+
+      initialTabs.push({
+        name: "biography",
+        label: "A5E.DetailsNotes",
+        comp: BiographyPage,
+      });
+
+      initialTabs.push({
+        name: "settings",
+        label: "A5E.TabSettings",
+        comp: SettingsPage,
+      });
+
+      return initialTabs;
+    });
+
+    const activeTab = shallowRef(tabs.value[0]);
     const sheetIsLocked = computed(() => data.value.flags?.a5e?.sheetIsLocked);
 
     provide("actor", actor);
