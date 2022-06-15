@@ -147,6 +147,18 @@ export default class Item5e extends Item {
     this.actor.constructItemCard(data);
   }
 
+  get hasValidTemplateDefinition() {
+    const { area } = this.data.data;
+
+    if (!area.shape) return false;
+
+    if (area.shape === 'line' || area.shape === 'cone') return !!area.length;
+    if (area.shape === 'sphere' || area.shape === 'cylinder') return !!area.radius;
+    if (area.shape === 'cube') return !!area.width;
+
+    return false;
+  }
+
   get abilityMod() {
     const itemData = this.data.data;
 
