@@ -1,0 +1,95 @@
+{
+  "name": "Giant Slayer Scimitar",
+  "type": "object",
+  "img": "icons/weapons/swords/scimitar-worn-blue.webp",
+  "data": {
+    "ability": "default",
+    "actionOptions": [
+      "damage",
+      "attack",
+      "savingThrow"
+    ],
+    "activation": {
+      "cost": "",
+      "type": "",
+      "reactionTrigger": ""
+    },
+    "attack": {
+      "bonus": "+1",
+      "critThreshold": "20",
+      "type": "meleeWeaponAttack"
+    },
+    "area": {
+      "shape": "",
+      "size": ""
+    },
+    "check": {
+      "ability": "str"
+    },
+    "damage": [
+      {
+        "canCrit": true,
+        "damageType": "slashing",
+        "formula": "1d6 + @mod + 1",
+        "name": "Scimitar"
+      },
+      {
+        "canCrit": true,
+        "damageType": "slashing",
+        "formula": "2d6",
+        "name": "Dragon Slayer"
+      }
+    ],
+    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
+    "duration": {
+      "unit": "",
+      "value": ""
+    },
+    "healing": [],
+    "proficient": true,
+    "range": [],
+    "save": {
+      "dc": "15",
+      "onSave": "Doesn't fall prone.",
+      "targetAbility": "str"
+    },
+    "source": "",
+    "target": {
+      "quantity": 1,
+      "type": "creatureObject"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "weaponProperties": [
+      "finesse",
+      "defensive",
+      "dualWielding"
+    ],
+    "weight": "3 lbs"
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "a5e-test",
+      "system": "a5e",
+      "coreVersion": "9.269",
+      "systemVersion": "0.6.7"
+    }
+  }
+}
