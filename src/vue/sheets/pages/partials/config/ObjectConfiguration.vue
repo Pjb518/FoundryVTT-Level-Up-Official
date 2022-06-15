@@ -152,6 +152,7 @@
             <input
               type="number"
               data-dtype="Number"
+              min="0"
               name="data.quantity"
               :id="`${appId}-quantity`"
               :value="data.data.quantity"

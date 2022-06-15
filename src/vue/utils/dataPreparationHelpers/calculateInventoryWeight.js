@@ -3,6 +3,7 @@ export default function calculateInventoryWeight(actorData) {
 
   const totalItemWeight = equippedItems.reduce((acc, curr) => {
     let itemWeight;
+    const { quantity } = curr.data;
 
     try {
       itemWeight = Number(curr.data.weight.match(/\d?\.?\d/)[0]);
@@ -10,7 +11,7 @@ export default function calculateInventoryWeight(actorData) {
       return acc;
     }
 
-    return acc + itemWeight;
+    return acc + (quantity ? itemWeight * quantity : itemWeight);
   }, 0);
 
   const coinWeight = Object.values(actorData.data.currency).reduce(
