@@ -23,6 +23,7 @@ import RestDialog from './vue/RestDialog.vue';
 import getDialogData from './modules/dice/getDialogData';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
+import measureDistances from './modules/pixi/measureDistances';
 import preloadHandlebarsTemplates from './modules/templates';
 import registerSystemSettings from './modules/settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
@@ -175,6 +176,11 @@ Hooks.once('ready', () => {
   announcementWindow.render(true);
 
   game.user.setFlag('a5e', 'latestAnnouncement', game.system.data.version);
+});
+
+Hooks.on('canvasInit', () => {
+  canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
+  SquareGrid.prototype.measureDistances = measureDistances;
 });
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
