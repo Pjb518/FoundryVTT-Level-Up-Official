@@ -62,7 +62,10 @@ export default class Item5e extends Item {
       }
     };
 
-    if (['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))) {
+    if (
+      ['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))
+      || this.hasValidTemplateDefinition
+    ) {
       await dialog.render(true);
 
       try {
