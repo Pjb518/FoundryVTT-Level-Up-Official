@@ -10,7 +10,7 @@
       class="a5e-skill__value"
       :class="{ 'a5e-skill__value--green': skill.proficient }"
     >
-      {{ skill.deterministicBonus }}
+      {{ skillBonus }}
     </span>
 
     <i
@@ -72,13 +72,28 @@
 <script>
 import getExpertiseDieSize from "../../../../modules/utils/getExpertiseDieSize";
 
-import { inject } from "vue";
+import { computed, inject, ref } from "vue";
 
 export default {
   props: { label: String, skill: Object },
-  setup() {
+  setup(props) {
     const actor = inject("actor");
+    const data = inject("data");
+    const skill = ref(props.skill);
     const sheetIsLocked = inject("sheetIsLocked");
+
+    const skillBonus = computed(() => {
+      if (!(data.value.flags.a5e?.IncludeAbilityModifiersForSkills ?? false))
+        return skill.value.deterministicBonus;
+
+      const abilityName = skill.value.ability;
+      const ability = data.value.data.abilities[abilityName];
+
+      return (
+        Number(skill.value.deterministicBonus) +
+        Number(ability.check.deterministicBonus)
+      );
+    });
 
     function onClickConfigButton(skill) {
       actor.configureSkill(skill);
@@ -101,6 +116,7 @@ export default {
       onClickConfigButton,
       onRollSkill,
       sheetIsLocked,
+      skillBonus,
     };
   },
 };
