@@ -194,6 +194,16 @@ A5E.attackTypes = {
   unarmed: 'A5E.AttackTypeUnarmed'
 };
 
+A5E.carryCapacityMultiplier = {
+  tiny: 0.5,
+  sm: 1,
+  med: 1,
+  lg: 2,
+  huge: 4,
+  grg: 8,
+  titan: 16
+};
+
 /**
  * The set of core conditions in the system.
  * @enum {string}
