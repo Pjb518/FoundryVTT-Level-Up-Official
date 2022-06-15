@@ -29,6 +29,24 @@
           </div>
         </div>
       </form-section>
+
+      <form-section
+        hint="If selected, 0.02lbs. per coin will be added to the inventory weight."
+      >
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.trackCurrencyWeight"
+            :id="`${data._id}-track-currency-weight`"
+            :checked="data.flags.a5e?.trackCurrencyWeight ?? true"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-track-currency-weight`">
+            {{ localize("A5E.SettingsTrackCurrencyWeight") }}
+          </label>
+        </div>
+      </form-section>
     </div>
 
     <div class="u-flex u-flex-col u-gap-md">
