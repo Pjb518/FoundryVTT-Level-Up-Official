@@ -83,7 +83,12 @@ export default {
     const sheetIsLocked = inject("sheetIsLocked");
 
     const skillBonus = computed(() => {
-      if (!(data.value.flags.a5e?.IncludeAbilityModifiersForSkills ?? false))
+      if (
+        !(
+          data.value.flags.a5e?.IncludeAbilityModifiersForSkills ??
+          data.value.type === "npc"
+        )
+      )
         return skill.value.deterministicBonus;
 
       const abilityName = skill.value.ability;

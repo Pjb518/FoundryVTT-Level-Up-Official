@@ -26,6 +26,7 @@ import BiographyPage from "./pages/BiographyPage.vue";
 import CorePage from "./pages/CorePage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
 import InventoryPage from "./pages/InventoryPage.vue";
+import SettingsPage from "./pages/SettingsPage.vue";
 import SkillsPage from "./pages/SkillsPage.vue";
 import SpellsPage from "./pages/SpellsPage.vue";
 
@@ -44,6 +45,7 @@ export default {
       { name: "features", label: "A5E.TabFeatures", comp: FeaturesPage },
       { name: "spells", label: "A5E.TabSpells", comp: SpellsPage },
       { name: "biography", label: "A5E.DetailsNotes", comp: BiographyPage },
+      { name: "settings", label: "A5E.TabSettings", comp: SettingsPage },
     ];
 
     const activeTab = shallowRef(tabs[0]);

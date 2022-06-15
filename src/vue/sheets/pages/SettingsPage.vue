@@ -39,7 +39,10 @@
             type="checkbox"
             name="flags.a5e.IncludeAbilityModifiersForSkills"
             :id="`${data._id}-include-ability-mods-for-skills`"
-            :checked="data.flags.a5e?.IncludeAbilityModifiersForSkills ?? false"
+            :checked="
+              data.flags.a5e?.IncludeAbilityModifiersForSkills ??
+              data.type === 'npc'
+            "
           />
 
           <label class="u-pointer" :for="`${appId}-show-spell-slots`">
@@ -59,7 +62,6 @@ import FormSection from "../../forms/FormSection.vue";
 export default {
   components: { FormSection },
   setup() {
-    const actor = inject("actor");
     const data = inject("data");
 
     return {
