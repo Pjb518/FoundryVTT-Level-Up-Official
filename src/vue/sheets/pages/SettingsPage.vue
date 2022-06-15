@@ -39,7 +39,10 @@
             type="checkbox"
             name="flags.a5e.trackCurrencyWeight"
             :id="`${data._id}-track-currency-weight`"
-            :checked="data.flags.a5e?.trackCurrencyWeight ?? true"
+            :checked="
+              data.flags.a5e?.trackCurrencyWeight ??
+              globalCurrencyWeightTrackingSelection
+            "
           />
 
           <label class="u-pointer" :for="`${data._id}-track-currency-weight`">
@@ -108,7 +111,7 @@
 </template>
 
 <script>
-import { inject } from "vue";
+import { computed, inject } from "vue";
 
 import FormSection from "../../forms/FormSection.vue";
 
@@ -117,8 +120,13 @@ export default {
   setup() {
     const data = inject("data");
 
+    const globalCurrencyWeightTrackingSelection = computed(() =>
+      game.settings.get("a5e", "currencyWeight")
+    );
+
     return {
       data,
+      globalCurrencyWeightTrackingSelection,
       localize: (key) => game.i18n.localize(key),
     };
   },
