@@ -13,7 +13,7 @@
   >
     <div class="u-flex u-flex-col u-gap-md">
       <form-section
-        heading="A5E.CarryCapacityMultiplier"
+        heading="A5E.SettingsCarryCapacityMultiplier"
         hint="Do not increase this number to account for your size category."
       >
         <div class="u-w-full">

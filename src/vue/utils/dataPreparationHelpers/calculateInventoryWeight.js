@@ -19,6 +19,6 @@ export default function calculateInventoryWeight(actorData) {
   );
 
   const trackCurrencyWeight = actorData.flags?.a5e?.trackCurrencyWeight ?? game.settings.get('a5e', 'currencyWeight');
-  if (trackCurrencyWeight) return totalItemWeight + (coinWeight * 0.02);
-  return totalItemWeight;
+
+  return trackCurrencyWeight ? totalItemWeight + (coinWeight * 0.02) : totalItemWeight;
 }
