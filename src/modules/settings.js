@@ -8,6 +8,16 @@ export default function registerSystemSettings() {
     default: ''
   });
 
+  // Currency Weight
+  game.settings.register('a5e', 'currencyWeight', {
+    name: 'A5E.Settings.CoinWeightName',
+    hint: 'A5E.Settings.CoinWeightHint',
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   // Diagonal Movement Rule
   game.settings.register('a5e', 'diagonalRule', {
     name: 'A5E.Settings.DiagName',
