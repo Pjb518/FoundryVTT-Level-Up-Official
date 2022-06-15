@@ -1,5 +1,5 @@
 export default function calculateInventoryWeight(actorData) {
-  const equippedItems = actorData.items.filter(item => item.data.equipped);
+  const equippedItems = actorData.items.filter((item) => item.data.equipped);
 
   const totalItemWeight = equippedItems.reduce((acc, curr) => {
     let itemWeight;
@@ -13,7 +13,10 @@ export default function calculateInventoryWeight(actorData) {
     return acc + itemWeight;
   }, 0);
 
-  const coinWeight = Object.values(actorData.data.currency).reduce((acc, curr) => acc + Number(curr), 0);
+  const coinWeight = Object.values(actorData.data.currency).reduce(
+    (acc, curr) => acc + Number(curr),
+    0
+  );
 
   return totalItemWeight + (coinWeight * 0.02);
 }

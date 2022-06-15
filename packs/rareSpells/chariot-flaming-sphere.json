@@ -1,98 +1,93 @@
 {
-  "name": "Chariot Flaming Sphere",
-  "type": "spell",
-  "img": "icons/magic/fire/orb-lightning-sun.webp",
-  "data": {
-    "ability": "spellcasting",
-    "actionOptions": [
-      "damage",
-      "savingThrow"
-    ],
-    "activation": {
-      "cost": 1,
-      "type": "action",
-      "reactionTrigger": ""
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": 20,
-      "type": ""
-    },
-    "area": {
-      "shape": "",
-      "size": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [
-      {
-        "canCrit": false,
-        "damageType": "fire",
-        "formula": "2d6",
-        "name": "Standard"
-      },
-      {
-        "canCrit": false,
-        "damageType": "fire",
-        "formula": "1d4",
-        "name": "Rare"
-      }
-    ],
-    "description": "<p>A 5-foot-diameter sphere of fire appears within range, lasting for the duration. It casts bright light in a 20-foot radius and dim light for another 20 feet, and ignites unattended flammable objects it touches.</p><p>You can use a bonus action to move the sphere up to 30 feet. It can jump over pits 10 feet wide or obstacles 5 feet tall. If you move the sphere into a creature, the sphere ends its movement for that turn and the creature makes a Dexterity saving throw, taking 2d6 fire damage on a failed save, or half as much on a successful one. A creature that ends its turn within 5 feet of the sphere makes a Dexterity saving throw against the sphere's damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Chariot Flaming Sphere.</strong> If you are Medium or smaller you can use 5 feet of your movement to enter or exit the sphere. While inside, you can\u2019t be harmed by the sphere, you move with it when it moves, and creatures take 1d4 fire damage when they hit you with a melee attack.</p>",
-    "duration": {
-      "unit": "minute",
-      "value": "1"
-    },
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "medium"
-    ],
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage.",
-      "targetAbility": "dex"
-    },
-    "source": "",
-    "target": {
-      "quantity": "",
-      "type": "none"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "tallow, brimstone, and powdered iron",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "arcane",
-        "fire"
-      ]
-    }
-  },
-  "effects": [],
-  "flags": {
-    "exportSource": {
-      "world": "level-up-test",
-      "system": "a5e",
-      "coreVersion": "9.268",
-      "systemVersion": "0.6.0"
-    },
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.652sd3yr6ldbdtfn"
-    }
-  }
+	"name": "Chariot Flaming Sphere",
+	"type": "spell",
+	"img": "icons/magic/fire/orb-lightning-sun.webp",
+	"data": {
+		"ability": "spellcasting",
+		"actionOptions": [
+			"damage",
+			"savingThrow"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": false,
+				"damageType": "fire",
+				"formula": "2d6",
+				"name": "Standard"
+			},
+			{
+				"canCrit": false,
+				"damageType": "fire",
+				"formula": "1d4",
+				"name": "Rare"
+			}
+		],
+		"description": "<p>A 5-foot-diameter sphere of fire appears within range, lasting for the duration. It casts bright light in a 20-foot radius and dim light for another 20 feet, and ignites unattended flammable objects it touches.</p><p>You can use a bonus action to move the sphere up to 30 feet. It can jump over pits 10 feet wide or obstacles 5 feet tall. If you move the sphere into a creature, the sphere ends its movement for that turn and the creature makes a Dexterity saving throw, taking 2d6 fire damage on a failed save, or half as much on a successful one. A creature that ends its turn within 5 feet of the sphere makes a Dexterity saving throw against the sphere's damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Chariot Flaming Sphere.</strong> If you are Medium or smaller you can use 5 feet of your movement to enter or exit the sphere. While inside, you can’t be harmed by the sphere, you move with it when it moves, and creatures take 1d4 fire damage when they hit you with a melee attack.</p>",
+		"duration": {
+			"unit": "minute",
+			"value": "1"
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"medium"
+		],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage.",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": "none"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "tallow, brimstone, and powdered iron",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"fire"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.652sd3yr6ldbdtfn"
+		}
+	},
+	"_id": "rbkvdk6b9xg0zwm8"
 }
