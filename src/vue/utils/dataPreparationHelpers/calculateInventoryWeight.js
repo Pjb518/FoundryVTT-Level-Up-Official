@@ -6,7 +6,7 @@ export default function calculateInventoryWeight(actorData) {
     const { quantity } = curr.data;
 
     try {
-      itemWeight = Number(curr.data.weight.match(/\d?\.?\d/)[0]);
+      itemWeight = Number(curr.data.weight.match(/\d*\.?\d*/)[0]);
     } catch {
       return acc;
     }
