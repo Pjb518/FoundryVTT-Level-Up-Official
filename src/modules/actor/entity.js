@@ -552,17 +552,15 @@ export default class Actor5e extends Actor {
 
     if (data.damage?.length) {
       data.damage.forEach((damageSource) => {
-        game.dice3d?.showForRoll(
-          damageSource.roll, game.user, false, null, false, null, chatData.speaker
-        );
+        // eslint-disable-next-line max-len
+        game.dice3d?.showForRoll(damageSource.roll, game.user, false, null, false, null, chatData.speaker);
       });
     }
 
     if (data.healing?.length) {
       data.healing.forEach((healingSource) => {
-        game.dice3d?.showForRoll(
-          healingSource.roll, game.user, false, null, false, null, chatData.speaker
-        );
+        // eslint-disable-next-line max-len
+        game.dice3d?.showForRoll(healingSource.roll, game.user, false, null, false, null, chatData.speaker);
       });
     }
   }
@@ -652,14 +650,11 @@ export default class Actor5e extends Actor {
       return acc;
     }, {});
 
-    const expendedHitDiceQuantity = Object.values(expendedHitDice).reduce(
-      (count, curr) => count + curr, 0
-    );
+    // eslint-disable-next-line max-len
+    const expendedHitDiceQuantity = Object.values(expendedHitDice).reduce((count, curr) => count + curr, 0);
 
-    const totalHitDiceQuantity = Object.values(hitDice).reduce(
-      (count, { total: curr }) => count + curr, 0
-    );
-
+    // eslint-disable-next-line max-len
+    const totalHitDiceQuantity = Object.values(hitDice).reduce((count, { total: curr }) => count + curr, 0);
     const quantityToRecover = Math.floor(totalHitDiceQuantity / 2);
 
     if (quantityToRecover >= expendedHitDiceQuantity) {

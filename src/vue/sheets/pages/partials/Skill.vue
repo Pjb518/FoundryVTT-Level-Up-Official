@@ -10,7 +10,23 @@
       class="a5e-skill__value"
       :class="{ 'a5e-skill__value--green': skill.proficient }"
     >
-      {{ skillBonus }}
+      <template
+        v-if="
+          !(
+            data.flags.a5e?.IncludeAbilityModifiersForSkills ??
+            data.type === 'npc'
+          )
+        "
+      >
+        {{ skill.deterministicBonus }}
+      </template>
+
+      <template v-else>
+        {{
+          skill.deterministicBonus +
+          data.data.abilities[skill.ability].check.deterministicBonus
+        }}
+      </template>
     </span>
 
     <i
@@ -72,33 +88,14 @@
 <script>
 import getExpertiseDieSize from "../../../../modules/utils/getExpertiseDieSize";
 
-import { computed, inject, ref } from "vue";
+import { inject } from "vue";
 
 export default {
   props: { label: String, skill: Object },
-  setup(props) {
+  setup() {
     const actor = inject("actor");
     const data = inject("data");
-    const skill = ref(props.skill);
     const sheetIsLocked = inject("sheetIsLocked");
-
-    const skillBonus = computed(() => {
-      if (
-        !(
-          data.value.flags.a5e?.IncludeAbilityModifiersForSkills ??
-          data.value.type === "npc"
-        )
-      )
-        return skill.value.deterministicBonus;
-
-      const abilityName = skill.value.ability;
-      const ability = data.value.data.abilities[abilityName];
-
-      return (
-        Number(skill.value.deterministicBonus) +
-        Number(ability.check.deterministicBonus)
-      );
-    });
 
     function onClickConfigButton(skill) {
       actor.configureSkill(skill);
@@ -116,12 +113,12 @@ export default {
 
     return {
       config: CONFIG.A5E,
+      data,
       getExpertiseDieSize,
       localize: (key) => game.i18n.localize(key),
       onClickConfigButton,
       onRollSkill,
       sheetIsLocked,
-      skillBonus,
     };
   },
 };
