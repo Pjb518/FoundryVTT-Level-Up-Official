@@ -655,7 +655,7 @@ export default class Actor5e extends Actor {
 
     // eslint-disable-next-line max-len
     const totalHitDiceQuantity = Object.values(hitDice).reduce((count, { total: curr }) => count + curr, 0);
-    const quantityToRecover = Math.floor(totalHitDiceQuantity / 2);
+    const quantityToRecover = Math.floor(totalHitDiceQuantity / 2) || 1;
 
     if (quantityToRecover >= expendedHitDiceQuantity) {
       updates['data.attributes.hitDice'] = {
