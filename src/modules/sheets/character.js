@@ -45,6 +45,9 @@ export default class ActorSheet5eCharacter extends ActorSheet {
   }
 
   activateVueListeners(html) {
+    // Remove existing listeners
+    $(this.form).find('.a5e-js-item').off('dragstart');
+
     // Drag and drop handlers
     html.find('.a5e-js-item').on('dragstart', (event) => {
       this._onDragStart.call(this, event.originalEvent);

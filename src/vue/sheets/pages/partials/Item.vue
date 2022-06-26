@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import { computed, inject, ref } from "vue";
+import { computed, inject, onMounted, ref } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import FeatureItemTags from "./itemTags/FeatureItemTags.vue";
@@ -122,6 +122,7 @@ export default {
   props: { item: Object },
   setup(props) {
     const actor = inject("actor");
+    const sheet = inject("sheet");
     const descriptionVisible = ref(false);
 
     const hasUses = computed(() => {
@@ -180,6 +181,10 @@ export default {
     function onToggleDescriptionVisibility() {
       descriptionVisible.value = !descriptionVisible.value;
     }
+
+    onMounted(() => {
+      sheet.activateVueListeners($(sheet.form));
+    });
 
     return {
       config: CONFIG.A5E,
