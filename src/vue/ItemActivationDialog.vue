@@ -39,7 +39,7 @@
     <tag-group
       v-if="hasDamage"
       heading="A5E.DamageOptionsPrompt"
-      :initialSelections="Object.keys(damageTags)"
+      :initialSelections="defaultDamageSelection"
       :sort="false"
       :tags="damageTags"
       @updateSelectionList="updateSelectedDamageGroups"
@@ -120,6 +120,13 @@ export default {
         name?.trim() || `${game.i18n.localize("A5E.Damage")} #${i + 1}`,
       ])
     );
+
+    const defaultDamageSelection = damage.reduce((acc, curr, i) => {
+      if (curr.defaultSelection) acc.push(i.toString());
+      return acc;
+    }, []);
+
+    console.log(defaultDamageSelection);
 
     const healingTags = Object.fromEntries(
       healing.map(({ name }, i) => [
@@ -213,6 +220,7 @@ export default {
       appId,
       baseExpertiseLevel: overrides.expertiseDice ?? 0,
       damageTags,
+      defaultDamageSelection,
       hasAttackRoll,
       hasDamage,
       hasHealing,
