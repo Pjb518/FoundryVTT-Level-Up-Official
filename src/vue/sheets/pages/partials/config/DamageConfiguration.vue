@@ -91,6 +91,7 @@ export default {
         formula: "",
         canCrit: !!data.value.data.actionOptions.includes("attack"),
         damageType: "",
+        defaultSelection: true,
       });
 
       item.update({ "data.damage": damage });

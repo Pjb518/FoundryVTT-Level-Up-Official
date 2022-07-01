@@ -61,6 +61,20 @@
         <input
           class="u-pointer"
           type="checkbox"
+          :name="`data.damage.${index}.defaultSelection`"
+          :id="`${appId}-${index}-default-selection`"
+          :checked="data.data.damage[index].defaultSelection"
+        />
+
+        <label class="u-pointer" :for="`${appId}-${index}-default-selection`">
+          {{ localize("A5E.DamageDefaultSelection") }}
+        </label>
+      </div>
+
+      <div class="u-align-center u-flex u-gap-md u-w-full">
+        <input
+          class="u-pointer"
+          type="checkbox"
           :name="`data.damage.${index}.canCrit`"
           :id="`${appId}-${index}-canCrit`"
           :checked="data.data.damage[index].canCrit"

@@ -48,10 +48,11 @@ export default class ItemSheet5e extends ItemSheet {
     // Handle Damage array
     if (damage) {
       data.data.damage = Object.values(damage || {}).map(({
-        canCrit, damageType, formula, name
+        canCrit, damageType, defaultSelection, formula, name
       }) => ({
         canCrit: canCrit ?? false,
         damageType: damageType || '',
+        defaultSelection: defaultSelection ?? true,
         formula: formula || '',
         name: name || ''
       }));
