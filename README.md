@@ -36,9 +36,11 @@ If you've developed a module for the Level Up system and would like it listed he
 
 - [The Handbook of Heritages](https://www.drivethrurpg.com/product/397662/Handbook-of-Heritages-for-Foundry-VTT) - Includes 10 new heritages, 8 new cultures, and new heritage gifts for gnomes, halflings, and planetouched.
 - [Memories of Holdenshire](https://www.drivethrurpg.com/product/397169/Level-Up-Memories-of-Holdenshire-A5E-Foundry-VTT-Module) - A 1st-level adventure from EN Publishing designed to gently introduce players to the A5e rule set.
+- [MoAR: Wilderness](https://www.drivethrurpg.com/product/398741/Manual-of-Adventurous-Resources-Wilderness-A5E) - New heritages, cultures, archetypes, synergy feats, and spells with a wilderness theme.
 - [The Sugar Crumb Fairy](https://www.drivethrurpg.com/product/378137) - A short adventure for 3rd or 4th-level characters set in the Plane of Faerie. Written by Anthony Alipio.
 - [Thematic Toolkit: Arcane Avenger](https://www.drivethrurpg.com/product/392599/Thematic-Toolkit-Arcane-Avenger-A5E) - New archetypes for the Herald and Sorcerer classes and a new synergy feat tree.
 - [Thematic Toolkit: Cultist](https://www.drivethrurpg.com/product/392588/Thematic-Toolkit-Cultist-A5E) - New archetypes for the Cleric and Warlock classes and a new synergy feat tree.
+- [Thematic Toolkit: Venomous Shadow](https://www.drivethrurpg.com/product/400541/Thematic-Toolkit-Venomous-Shadow-A5E) - New archetypes for the Ranger, Rogue, and Wizard classes, a whole bunch of synergy feats, and a new combat maneuver tradition.
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.
 
