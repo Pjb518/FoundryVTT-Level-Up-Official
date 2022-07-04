@@ -57,6 +57,20 @@
         </div>
       </div>
 
+      <div class="u-align-center u-flex u-gap-md u-w-full">
+        <input
+          class="u-pointer"
+          type="checkbox"
+          :name="`data.healing.${index}.defaultSelection`"
+          :id="`${appId}-${index}-default-selection`"
+          :checked="data.data.healing[index].defaultSelection"
+        />
+
+        <label class="u-pointer" :for="`${appId}-${index}-default-selection`">
+          {{ localize("A5E.HealingDefaultSelection") }}
+        </label>
+      </div>
+
       <i
         class="
           u-hover-scale-120

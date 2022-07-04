@@ -61,8 +61,9 @@ export default class ItemSheet5e extends ItemSheet {
     // Handle Healing Array
     if (healing) {
       data.data.healing = Object.values(healing || {}).map(({
-        formula, healingType, name
+        defaultSelection, formula, healingType, name
       }) => ({
+        defaultSelection: defaultSelection ?? true,
         formula: formula || '',
         healingType: healingType || '',
         name: name || ''

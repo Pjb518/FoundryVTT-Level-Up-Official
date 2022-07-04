@@ -48,7 +48,7 @@
     <tag-group
       v-if="hasHealing"
       heading="A5E.HealingOptionsPrompt"
-      :initialSelections="Object.keys(healingTags)"
+      :initialSelections="defaultHealingSelection"
       :sort="false"
       :tags="healingTags"
       @updateSelectionList="updateSelectedHealingGroups"
@@ -126,14 +126,17 @@ export default {
       return acc;
     }, []);
 
-    console.log(defaultDamageSelection);
-
     const healingTags = Object.fromEntries(
       healing.map(({ name }, i) => [
         i,
         name?.trim() || `${game.i18n.localize("A5E.Healing")} #${i + 1}`,
       ])
     );
+
+    const defaultHealingSelection = healing.reduce((acc, curr, i) => {
+      if (curr.defaultSelection) acc.push(i.toString());
+      return acc;
+    }, []);
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
       ([key, value]) => ({
@@ -221,6 +224,7 @@ export default {
       baseExpertiseLevel: overrides.expertiseDice ?? 0,
       damageTags,
       defaultDamageSelection,
+      defaultHealingSelection,
       hasAttackRoll,
       hasDamage,
       hasHealing,

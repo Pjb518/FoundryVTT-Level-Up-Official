@@ -93,6 +93,7 @@ export default {
         name: "",
         formula: "",
         healingType: "",
+        defaultSelection: true,
       });
 
       item.update({ "data.healing": healing });
