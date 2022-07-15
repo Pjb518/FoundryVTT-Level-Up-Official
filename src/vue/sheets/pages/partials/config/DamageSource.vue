@@ -63,7 +63,7 @@
           type="checkbox"
           :name="`data.damage.${index}.defaultSelection`"
           :id="`${appId}-${index}-default-selection`"
-          :checked="data.data.damage[index].defaultSelection"
+          :checked="data.data.damage[index].defaultSelection ?? true"
         />
 
         <label class="u-pointer" :for="`${appId}-${index}-default-selection`">

@@ -63,7 +63,7 @@
           type="checkbox"
           :name="`data.healing.${index}.defaultSelection`"
           :id="`${appId}-${index}-default-selection`"
-          :checked="data.data.healing[index].defaultSelection"
+          :checked="data.data.healing[index].defaultSelection ?? true"
         />
 
         <label class="u-pointer" :for="`${appId}-${index}-default-selection`">

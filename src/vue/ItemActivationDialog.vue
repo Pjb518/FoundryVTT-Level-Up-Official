@@ -122,7 +122,7 @@ export default {
     );
 
     const defaultDamageSelection = damage.reduce((acc, curr, i) => {
-      if (curr.defaultSelection) acc.push(i.toString());
+      if (curr.defaultSelection ?? true) acc.push(i.toString());
       return acc;
     }, []);
 
@@ -134,7 +134,7 @@ export default {
     );
 
     const defaultHealingSelection = healing.reduce((acc, curr, i) => {
-      if (curr.defaultSelection) acc.push(i.toString());
+      if (curr.defaultSelection ?? true) acc.push(i.toString());
       return acc;
     }, []);
 
