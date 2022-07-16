@@ -133,7 +133,7 @@ export default {
     const maxUses = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
-        return item.data.data.uses.max;
+        return item.system.uses.max;
       },
       set: (value) => {
         const item = actor.items.get(props.item._id);
@@ -144,7 +144,7 @@ export default {
     const quantity = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
-        return item.data.data.quantity;
+        return item.system.quantity;
       },
       set: (value) => {
         const item = actor.items.get(props.item._id);
@@ -155,7 +155,7 @@ export default {
     const usesRemaining = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
-        return item.data.data.uses.value || 0;
+        return item.system.uses.value || 0;
       },
       set: (value) => {
         const item = actor.items.get(props.item._id);

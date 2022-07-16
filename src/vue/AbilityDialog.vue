@@ -80,7 +80,7 @@ export default {
   setup(_, context) {
     const { actor, ability, isSave, appWindow, ...overrides } = context.attrs;
 
-    const actorData = actor.data.data;
+    const actorData = actor.system;
     const abilityData = actorData.abilities[ability];
     const rollData = actor.getRollData();
     const appId = appWindow.id;

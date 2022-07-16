@@ -58,12 +58,12 @@ export default {
 
     function onEquipItem() {
       const item = actor.items.get(props.item._id);
-      item.update({ "data.equipped": !item.data.data.equipped });
+      item.update({ "data.equipped": !item.system.equipped });
     }
 
     function onPrepareSpell() {
       const item = actor.items.get(props.item._id);
-      item.update({ "data.prepared": !item.data.data.prepared });
+      item.update({ "data.prepared": !item.system.prepared });
     }
 
     return {

@@ -48,7 +48,7 @@ export default {
   components: { InputField, TagGroup },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
-    const actorData = actor.data.data;
+    const actorData = actor.system;
 
     const martialWeapons = CONFIG.A5E.weaponsPlural.martial;
     const rareWeapons = CONFIG.A5E.weaponsPlural.rare;

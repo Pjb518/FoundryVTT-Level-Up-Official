@@ -1,7 +1,7 @@
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 export default function calculateManeuverDC(actorData) {
-  const { abilities, attributes, bonuses } = actorData.data;
+  const { abilities, attributes, bonuses } = actorData;
 
   return getDeterministicBonus(
     8

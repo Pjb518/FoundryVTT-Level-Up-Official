@@ -24,7 +24,7 @@ export default {
 
     const tags = computed(() => {
       const item = actor.items.get(props.item._id);
-      const itemData = item.data.data;
+      const itemData = item.system;
 
       const tagList = [];
 

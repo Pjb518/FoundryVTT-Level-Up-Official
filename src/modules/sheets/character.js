@@ -27,17 +27,17 @@ export default class ActorSheet5eCharacter extends ActorSheet {
 
   getData() {
     const data = {};
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     data.name = actorData.name;
     data.img = actorData.img;
     data.type = actorData.type;
 
-    data.data = actorData.data;
+    data.data = actorData.system;
     data.flags = actorData.flags;
     data.items = actorData.items;
 
-    Object.entries(actorData.data.abilities).forEach(([key, ability]) => {
+    Object.entries(actorData.system.abilities).forEach(([key, ability]) => {
       ability.label = game.i18n.localize(CONFIG.A5E.abilityAbbreviations[key]);
     });
 
