@@ -18,7 +18,7 @@ export default class Item5e extends Item {
   }
 
   async activate(options = {}) {
-    const itemData = this.data.data;
+    const itemData = this.system;
     const rollData = this.actor.getRollData();
     let attack;
     let damage;
@@ -151,7 +151,7 @@ export default class Item5e extends Item {
   }
 
   get hasValidTemplateDefinition() {
-    const { area } = this.data.data;
+    const { area } = this.system;
 
     if (!area.shape) return false;
 
@@ -163,12 +163,12 @@ export default class Item5e extends Item {
   }
 
   get abilityMod() {
-    const itemData = this.data.data;
+    const itemData = this.system;
 
     if (!itemData.ability) return null;
 
     if (itemData.ability === 'spellcasting') {
-      return this.actor ? this.actor.data.data.attributes.spellcasting : 'int';
+      return this.actor ? this.actor.system.attributes.spellcasting : 'int';
     }
 
     if (itemData.ability === 'default') {
@@ -178,14 +178,14 @@ export default class Item5e extends Item {
         }
 
         if (this.actor && itemData.weaponProperties.includes('finesse')) {
-          const { str, dex } = this.actor.data.data.abilities;
+          const { str, dex } = this.actor.system.abilities;
 
           return dex.value > str.value ? 'dex' : 'str';
         }
       }
 
       if (this.type === 'spell') {
-        return this.actor ? this.actor.data.data.attributes.spellcasting : 'int';
+        return this.actor ? this.actor.system.attributes.spellcasting : 'int';
       }
 
       return 'str';
