@@ -20,7 +20,7 @@ export default class Token5e extends Token {
    */
   _drawHPBar(number, bar) {
     // Extract health data
-    const { value, max, temp } = this.document.actor.data.data.attributes.hp;
+    const { value, max, temp } = this.document.actor.system.attributes.hp;
 
     // Allocate percentages of the total
     const tempPct = Math.clamped(temp, 0, max) / max;
@@ -48,9 +48,8 @@ export default class Token5e extends Token {
 
     // Temporary hit points
     if (temp > 0) {
-      bar.beginFill(
-        c.temp, 1.0
-      ).lineStyle(0).drawRoundedRect(bs1, bs1, (tempPct * w) - (2 * bs1), h - (2 * bs1), 1);
+      // eslint-disable-next-line max-len
+      bar.beginFill(c.temp, 1.0).lineStyle(0).drawRoundedRect(bs1, bs1, (tempPct * w) - (2 * bs1), h - (2 * bs1), 1);
     }
 
     // Set position
