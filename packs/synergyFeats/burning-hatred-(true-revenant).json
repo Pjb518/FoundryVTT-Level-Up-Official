@@ -1,0 +1,70 @@
+{
+	"name": "Burning Hatred (True Revenant)",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"data": {
+		"ability": null,
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": false,
+				"damageType": "psychic",
+				"defaultSelection": true,
+				"formula": "1d6 * @prof",
+				"name": ""
+			}
+		],
+		"description": "<p>You can use an action to target the focus of your Fearsome Pursuit if it is within 30 feet. The creature makes a Wisdom saving throw (DC 8 + your proficiency bonus + your highest mental ability score modifier). On a failure, it takes psychic damage equal to 1d6 × your proficiency bonus and is stunned until the end of its next turn. On a success, it takes half damage and is rattled until the end of its next turn. Once you have used this feature a number of times equal to your proficiency bonus, you can’t use it again until you finish a long rest.</p><p></p><p><em>(A5E Foundry </em>- Must manually set saving throw highest mental stat.)</p>",
+		"duration": {
+			"unit": "round",
+			"value": 1
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"short"
+		],
+		"save": {
+			"dc": "8 + @prof + @",
+			"onSave": "Half Damage and rattled until end of its next turn.",
+			"targetAbility": "wis"
+		},
+		"source": "",
+		"target": {
+			"quantity": 1,
+			"type": "creature"
+		},
+		"uses": {
+			"value": 2,
+			"max": 2,
+			"per": "longRest"
+		},
+		"featureType": "feat"
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-synergy-feats.6lfmg4bczlho0wly"
+		}
+	},
+	"_id": "s2t8edsjxqd8qif5"
+}

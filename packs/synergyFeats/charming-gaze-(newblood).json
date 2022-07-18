@@ -1,0 +1,61 @@
+{
+	"name": "Charming Gaze (Newblood)",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"data": {
+		"ability": "",
+		"actionOptions": [
+			"savingThrow"
+		],
+		"activation": {
+			"cost": "",
+			"type": "none",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [],
+		"description": "<p>You magically target a creature within 30 feet, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failure, the target is charmed by you for a number of hours equal to your proficiency bonus. While charmed it regards you as a trusted friend and is a willing target for your bite. The target repeats the saving throw each time it takes damage, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to your charm for 24 hours. Once you have used this feature, you can’t do so again until you finish a long rest.</p>",
+		"duration": {
+			"unit": "hour",
+			"value": 2
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"short"
+		],
+		"save": {
+			"dc": "8 + @prof + @cha.mod",
+			"onSave": "Ends  effect and is immune for 24 hours.",
+			"targetAbility": "wis"
+		},
+		"source": "",
+		"target": {
+			"quantity": 1,
+			"type": "creature"
+		},
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "longRest"
+		},
+		"featureType": "feat"
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-synergy-feats.t4u0kh43ytn4srod"
+		}
+	},
+	"_id": "y7f0oierj7py37hp"
+}
