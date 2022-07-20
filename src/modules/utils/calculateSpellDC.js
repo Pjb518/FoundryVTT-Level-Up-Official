@@ -1,7 +1,7 @@
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 export default function calculateSpellDC(actorData) {
-  const { abilities, attributes, bonuses } = actorData.data;
+  const { abilities, attributes, bonuses } = actorData;
   const spellcastingAbility = attributes.spellcasting || 'int';
 
   return getDeterministicBonus(

@@ -62,7 +62,7 @@ export default {
   components: { InputField, TagGroup },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
-    const actorData = actor.data.data;
+    const actorData = actor.system;
 
     const artisansTools = CONFIG.A5E.toolsPlural.artisansTools;
     const gamingSets = CONFIG.A5E.toolsPlural.gamingSets;

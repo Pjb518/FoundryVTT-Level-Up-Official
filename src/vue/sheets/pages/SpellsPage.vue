@@ -216,7 +216,7 @@ export default {
     );
 
     const spellDC = computed(() => {
-      return calculateSpellDC(data.value);
+      return calculateSpellDC(data.value.data);
     });
 
     const showSpellPoints = computed(

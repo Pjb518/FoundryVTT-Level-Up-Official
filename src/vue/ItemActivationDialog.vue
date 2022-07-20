@@ -101,8 +101,8 @@ export default {
   setup(_, context) {
     const { actor, item, appWindow, ...overrides } = context.attrs;
     const appId = appWindow.id;
-    const actorData = actor.data.data;
-    const itemData = item.data.data;
+    const actorData = actor.system;
+    const itemData = item.system;
 
     const rollData = actor.getRollData();
     rollData.mod = actorData.abilities[item.abilityMod]?.check.mod || 0;

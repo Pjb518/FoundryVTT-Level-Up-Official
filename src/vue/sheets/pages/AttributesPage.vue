@@ -192,7 +192,7 @@ export default {
     );
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
-    const maneuverDC = computed(() => calculateManeuverDC(data.value));
+    const maneuverDC = computed(() => calculateManeuverDC(data.value.data));
 
     const nextXPIncrement = computed(() => {
       let level = data.value.data.details.level;

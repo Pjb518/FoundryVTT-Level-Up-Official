@@ -39,7 +39,7 @@ export default class Actor5e extends Actor {
    * @override
    */
   prepareBaseData() {
-    const actorType = this.data.type;
+    const actorType = this.type;
 
     if (actorType === 'character') {
       return this.prepareCharacterData();
@@ -52,7 +52,7 @@ export default class Actor5e extends Actor {
    * @override
    */
   prepareDerivedData() {
-    const actorData = this.data.data;
+    const actorData = this.system;
 
     // Calculate the base ability modifier for each ability score.
     Object.values(actorData.abilities).forEach((ability) => {
@@ -90,7 +90,7 @@ export default class Actor5e extends Actor {
 
     if (this.type === 'character') {
       actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
-        const { requiresAttunement, attuned } = curr.data.data;
+        const { requiresAttunement, attuned } = curr.system;
         return (requiresAttunement && attuned) ? acc + 1 : acc;
       }, 0);
     }
@@ -99,17 +99,13 @@ export default class Actor5e extends Actor {
   }
 
   prepareCharacterData() {
-    const actorData = this.data.data;
-
     // Calculate the proficiency bonus for the character with a minimum value of 2.
-    actorData.attributes.prof = Math.max(2, Math.floor((actorData.details.level + 7) / 4));
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
   }
 
   prepareNPCData() {
-    const actorData = this.data.data;
-
     // Calculate the proficiency bonus for the character with a minimum value of 2.
-    actorData.attributes.prof = Math.max(2, Math.floor((actorData.details.cr + 7) / 4));
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
   }
 
   /** @inheritdoc */
@@ -127,22 +123,22 @@ export default class Actor5e extends Actor {
     await super._preUpdate(changed, options, user);
 
     // If hp drops below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'data.attributes.hp.value') < 0) {
-      foundry.utils.setProperty(changed, 'data.attributes.hp.value', 0);
+    if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') < 0) {
+      foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
     }
 
     // If temp hp drops to or below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'data.attributes.hp.temp') <= 0) {
-      foundry.utils.setProperty(changed, 'data.attributes.hp.temp', '');
+    if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
+      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', '');
     }
 
     // Reset death save counters
-    const isUnconscious = this.data.data.attributes.hp.value === 0;
-    const willRegainConsciousness = foundry.utils.getProperty(changed, 'data.attributes.hp.value') > 0;
+    const isUnconscious = this.system.attributes.hp.value === 0;
+    const willRegainConsciousness = foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
 
     if (isUnconscious && willRegainConsciousness) {
-      foundry.utils.setProperty(changed, 'data.attributes.death.success', 0);
-      foundry.utils.setProperty(changed, 'data.attributes.death.failure', 0);
+      foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
+      foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
     }
   }
 
@@ -172,7 +168,7 @@ export default class Actor5e extends Actor {
    */
   async applyDamage(damage) {
     const updates = {};
-    const { value, temp } = this.data.data.attributes.hp;
+    const { value, temp } = this.system.attributes.hp;
 
     if (temp) {
       updates['data.attributes.hp'] = {
@@ -204,7 +200,7 @@ export default class Actor5e extends Actor {
    */
   async applyHealing(healing, options = { temp: false }) {
     const updates = {};
-    const { value, max, temp } = this.data.data.attributes.hp;
+    const { value, max, temp } = this.system.attributes.hp;
 
     if (options.temp) {
       if (healing <= temp) {
@@ -221,7 +217,7 @@ export default class Actor5e extends Actor {
   }
 
   prepareSkills() {
-    const actorData = this.data.data;
+    const actorData = this.system;
 
     Object.values(actorData.skills).forEach((skill) => {
       skill.mod = skill.proficient ? actorData.attributes.prof : 0;
@@ -243,9 +239,9 @@ export default class Actor5e extends Actor {
   /** @inheritdoc */
   getRollData() {
     const data = super.getRollData();
-    const { abilities } = this.data.data;
+    const { abilities } = this.system;
 
-    data.prof = this.data.data.attributes.prof || 0;
+    data.prof = this.system.attributes.prof || 0;
 
     // Add a shortcut for abilities.<ability>.check.mod.
     data.abilities = Object.entries(abilities).reduce((acc, [key, ability]) => {
@@ -259,10 +255,10 @@ export default class Actor5e extends Actor {
       return acc;
     }, data);
 
-    data.level = this.data.data.details.level;
+    data.level = this.system.details.level;
 
-    data.spellDC = calculateSpellDC(this.data);
-    data.maneuverDC = calculateManeuverDC(this.data);
+    data.spellDC = calculateSpellDC(this.system);
+    data.maneuverDC = calculateManeuverDC(this.system);
 
     return data;
   }
@@ -276,7 +272,7 @@ export default class Actor5e extends Actor {
    */
   async adjustTrackedConditions(haven, supply) {
     const updates = {};
-    const { strife, fatigue } = this.data.data.attributes;
+    const { strife, fatigue } = this.system.attributes;
 
     if (!supply) {
       updates['data.attributes.fatigue'] = fatigue + 1;
@@ -567,7 +563,7 @@ export default class Actor5e extends Actor {
 
   async modifyTokenAttribute(attribute, value, isDelta, isBar) {
     if (attribute === 'attributes.hp') {
-      const hp = getProperty(this.data.data, attribute);
+      const hp = getProperty(this.system, attribute);
       const hpPool = hp.value + hp.temp;
       const delta = hpPool - value;
 
@@ -582,7 +578,7 @@ export default class Actor5e extends Actor {
   }
 
   async resetHitPoints() {
-    const { baseMax } = this.data.data.attributes.hp;
+    const { baseMax } = this.system.attributes.hp;
 
     this.update({
       'data.attributes.hp': {
@@ -632,7 +628,7 @@ export default class Actor5e extends Actor {
   }
 
   async restoreExertion() {
-    const { exertion } = this.data.data.attributes;
+    const { exertion } = this.system.attributes;
 
     if (!exertion?.recoverOnRest) return;
 
@@ -642,7 +638,7 @@ export default class Actor5e extends Actor {
   }
 
   async restoreHitDice() {
-    const { hitDice } = this.data.data.attributes;
+    const { hitDice } = this.system.attributes;
     const updates = {};
 
     const expendedHitDice = Object.entries(hitDice).reduce((acc, [die, { current, total }]) => {
@@ -710,7 +706,7 @@ export default class Actor5e extends Actor {
     const items = Array.from(this.items);
 
     items.forEach(async (item) => {
-      const { uses } = item.data.data;
+      const { uses } = item.system;
 
       if (['shortRest', 'longRest'].includes(uses.per)) {
         if (uses.max) {
@@ -721,7 +717,7 @@ export default class Actor5e extends Actor {
   }
 
   async restoreSpellResources(restType) {
-    const { spellResources } = this.data.data;
+    const { spellResources } = this.system;
 
     const updates = {
       'data.spellResources.points.current': Math.max(spellResources.points.max, 0)
@@ -824,7 +820,7 @@ export default class Actor5e extends Actor {
 
   // TODO: Refactor this to use its own card constructor
   async rollHitDice(dieSize, quantity = 1) {
-    const actorData = this.data.data;
+    const actorData = this.system;
     const { attributes } = actorData;
 
     if (attributes.hitDice[dieSize].current - quantity < 0) return;
@@ -951,11 +947,11 @@ export default class Actor5e extends Actor {
   }
 
   toggleElite() {
-    this.update({ 'data.details.elite': !this.data.data.details.elite });
+    this.update({ 'data.details.elite': !this.system.details.elite });
   }
 
   toggleInspiration() {
-    this.update({ 'data.attributes.inspiration': !this.data.data.attributes.inspiration });
+    this.update({ 'data.attributes.inspiration': !this.system.attributes.inspiration });
   }
 
   async triggerRest() {
@@ -981,7 +977,7 @@ export default class Actor5e extends Actor {
   }
 
   async updateDeathSavingThrowFigures(roll) {
-    const { success, failure } = this.data.data.attributes.death;
+    const { success, failure } = this.system.attributes.death;
     const d20Result = roll.dice[0].total;
 
     const updates = {

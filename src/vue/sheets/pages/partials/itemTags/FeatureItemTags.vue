@@ -25,7 +25,7 @@ export default {
     const tags = computed(() => {
       const config = CONFIG.A5E;
       const item = actor.items.get(props.item._id);
-      const itemData = item.data.data;
+      const itemData = item.system;
 
       const tagList = [];
 

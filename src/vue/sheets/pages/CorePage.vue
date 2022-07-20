@@ -204,7 +204,7 @@ export default {
     );
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
-    const maneuverDC = computed(() => calculateManeuverDC(data.value));
+    const maneuverDC = computed(() => calculateManeuverDC(data.value.data));
     const senses = computed(() => prepareSenses(data.value));
 
     const features = computed(() =>

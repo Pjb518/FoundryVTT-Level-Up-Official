@@ -4,7 +4,9 @@
       v-if="item.type === 'object'"
       class="u-hover-scale-120 u-transition fas fa-shield-alt"
       :class="
-        item.data.equipped ? 'u-text-green' : 'u-hover-text-green u-text-medium'
+        item.system.equipped
+          ? 'u-text-green'
+          : 'u-hover-text-green u-text-medium'
       "
       @click.stop="onEquipItem"
     ></i>
@@ -13,7 +15,9 @@
       v-if="item.type === 'spell'"
       class="u-hover-scale-120 u-transition fas fa-scroll"
       :class="
-        item.data.prepared ? 'u-text-green' : 'u-hover-text-green u-text-medium'
+        item.system.prepared
+          ? 'u-text-green'
+          : 'u-hover-text-green u-text-medium'
       "
       @click.stop="onPrepareSpell"
     ></i>
@@ -58,12 +62,12 @@ export default {
 
     function onEquipItem() {
       const item = actor.items.get(props.item._id);
-      item.update({ "data.equipped": !item.data.data.equipped });
+      item.update({ "system.equipped": !item.system.equipped });
     }
 
     function onPrepareSpell() {
       const item = actor.items.get(props.item._id);
-      item.update({ "data.prepared": !item.data.data.prepared });
+      item.update({ "system.prepared": !item.system.prepared });
     }
 
     return {

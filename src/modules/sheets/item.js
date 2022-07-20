@@ -37,7 +37,7 @@ export default class ItemSheet5e extends ItemSheet {
   _getSubmitData(updateData = {}) {
     // Create the expanded update data object
     const formData = new FormDataExtended(this.form, { editors: this.editors });
-    let data = formData.toObject();
+    let data = formData.object;
 
     if (updateData) data = mergeObject(data, updateData);
     else data = expandObject(data);
@@ -80,7 +80,7 @@ export default class ItemSheet5e extends ItemSheet {
 
     data.name = this.item.name;
     data.img = this.item.img;
-    data.data = itemData.data;
+    data.data = itemData.system;
 
     return data;
   }

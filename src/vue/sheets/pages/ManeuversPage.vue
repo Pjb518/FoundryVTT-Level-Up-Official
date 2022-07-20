@@ -161,7 +161,7 @@ export default {
     );
 
     const maneuverDC = computed(() => {
-      return calculateManeuverDC(data.value);
+      return calculateManeuverDC(data.value.data);
     });
 
     onMounted(() => {

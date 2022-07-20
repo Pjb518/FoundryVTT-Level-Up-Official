@@ -87,7 +87,7 @@ export default {
   components: { NumericField, RadioGroup },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
-    const actorData = actor.data.data;
+    const actorData = actor.system;
     const appId = appWindow.id;
     const { hitDice } = actorData.attributes;
 

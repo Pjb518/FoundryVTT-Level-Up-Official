@@ -1,7 +1,9 @@
 <template>
   <li
     class="a5e-box a5e-item a5e-js-item u-align-center"
-    :class="{ 'u-bg-light-green': item.data.equipped || item.data.prepared }"
+    :class="{
+      'u-bg-light-green': item.system.equipped || item.system.prepared,
+    }"
     :data-id="item._id"
     :data-item-id="item._id"
     draggable="true"
@@ -29,7 +31,7 @@
             {{ item.name }}
           </h3>
 
-          <div v-if="item.data.quantity > 1">
+          <div v-if="item.system.quantity > 1">
             <input
               class="a5e-input a5e-input--inline-item"
               type="number"
@@ -51,10 +53,10 @@
             min="0"
           />
 
-          <span v-if="item.data.uses.max"> / </span>
+          <span v-if="item.system.uses.max"> / </span>
 
           <input
-            v-if="item.data.uses.max"
+            v-if="item.system.uses.max"
             class="a5e-input a5e-input--inline-item"
             type="number"
             @click.stop=""
@@ -63,9 +65,9 @@
             min="0"
           />
 
-          <span v-if="item.data.uses.per">
+          <span v-if="item.system.uses.per">
             Per
-            {{ localize(config.resourceRecoveryOptions[item.data.uses.per]) }}
+            {{ localize(config.resourceRecoveryOptions[item.system.uses.per]) }}
           </span>
         </div>
       </div>
@@ -85,8 +87,10 @@
       <hr v-if="item.type === 'spell'" class="a5e-rule" />
 
       <div
-        v-html="TextEditor.enrichHTML(item.data.description)"
-        v-if="item.data.description"
+        v-html="
+          TextEditor.enrichHTML(item.system.description, { async: false })
+        "
+        v-if="item.system.description"
         class="a5e-editor"
         @click.prevent
       ></div>
@@ -125,41 +129,43 @@ export default {
     const sheet = inject("sheet");
     const descriptionVisible = ref(false);
 
+    console.log(props.item);
+
     const hasUses = computed(() => {
-      const { uses } = props.item.data;
+      const { uses } = props.item.system;
       return uses.value || uses.max;
     });
 
     const maxUses = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
-        return item.data.data.uses.max;
+        return item.system.uses.max;
       },
       set: (value) => {
         const item = actor.items.get(props.item._id);
-        item.update({ "data.uses.max": value });
+        item.update({ "system.uses.max": value });
       },
     });
 
     const quantity = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
-        return item.data.data.quantity;
+        return item.system.quantity;
       },
       set: (value) => {
         const item = actor.items.get(props.item._id);
-        item.update({ "data.quantity": value });
+        item.update({ "system.quantity": value });
       },
     });
 
     const usesRemaining = computed({
       get: () => {
         const item = actor.items.get(props.item._id);
-        return item.data.data.uses.value || 0;
+        return item.system.uses.value || 0;
       },
       set: (value) => {
         const item = actor.items.get(props.item._id);
-        item.update({ "data.uses.value": value });
+        item.update({ "system.uses.value": value });
       },
     });
 

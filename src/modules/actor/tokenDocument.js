@@ -8,8 +8,8 @@ export default class TokenDocument5e extends TokenDocument {
     const data = super.getBarAttribute(barName, { alternative });
 
     if (data && (data.attribute === 'attributes.hp')) {
-      data.value += parseInt(getProperty(this.actor.data, 'data.attributes.hp.temp') || 0, 10);
-      data.max += parseInt(getProperty(this.actor.data, 'data.attributes.hp.temp') || 0, 10);
+      data.value += parseInt(getProperty(this.actor.system, 'attributes.hp.temp') || 0, 10);
+      data.max += parseInt(getProperty(this.actor.system, 'attributes.hp.temp') || 0, 10);
     }
 
     return data;
