@@ -1,4 +1,6 @@
 import vue from '@vitejs/plugin-vue';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import preprocess from 'svelte-preprocess';
 
 const path = require('path');
 
@@ -29,7 +31,7 @@ const config = {
       fileName: () => 'index.js'
     }
   },
-  plugins: [vue()]
+  plugins: [vue(), svelte({ preprocess: preprocess() })]
 };
 
 export default config;

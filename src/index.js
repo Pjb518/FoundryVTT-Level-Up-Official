@@ -3,6 +3,8 @@ import 'remixicon/fonts/remixicon.css';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
 
+import BasicApplication from './BasicApplication.js';
+
 import A5E from './modules/config';
 import Actor5e from './modules/actor/entity';
 import D20Roll from './modules/dice/d20Roll';
@@ -184,3 +186,5 @@ Hooks.on('canvasInit', () => {
 });
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
+
+Hooks.once('ready', () => new BasicApplication().render(true, { focus: true }));
