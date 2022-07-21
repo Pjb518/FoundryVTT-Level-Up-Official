@@ -171,12 +171,12 @@ export default class Actor5e extends Actor {
     const { value, temp } = this.system.attributes.hp;
 
     if (temp) {
-      updates['data.attributes.hp'] = {
+      updates['system.attributes.hp'] = {
         temp: Math.clamped(temp - damage, 0, temp),
         value: Math.clamped(value + temp - damage, 0, value)
       };
     } else {
-      updates['data.attributes.hp.value'] = Math.clamped(value - damage, 0, value);
+      updates['system.attributes.hp.value'] = Math.clamped(value - damage, 0, value);
     }
 
     return this.update(updates);
@@ -208,9 +208,9 @@ export default class Actor5e extends Actor {
         return this;
       }
 
-      updates['data.attributes.hp.temp'] = healing;
+      updates['system.attributes.hp.temp'] = healing;
     } else {
-      updates['data.attributes.hp.value'] = Math.clamped(value + healing, value, max);
+      updates['system.attributes.hp.value'] = Math.clamped(value + healing, value, max);
     }
 
     return this.update(updates);
@@ -275,13 +275,13 @@ export default class Actor5e extends Actor {
     const { strife, fatigue } = this.system.attributes;
 
     if (!supply) {
-      updates['data.attributes.fatigue'] = fatigue + 1;
+      updates['system.attributes.fatigue'] = fatigue + 1;
     } else if (!haven) {
-      updates['data.attributes.strife'] = strife === 1 ? 0 : strife;
-      updates['data.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
+      updates['system.attributes.strife'] = strife === 1 ? 0 : strife;
+      updates['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
     } else {
-      updates['data.attributes.strife'] = Math.max(strife - 1, 0);
-      updates['data.attributes.fatigue'] = Math.max(fatigue - 1, 0);
+      updates['system.attributes.strife'] = Math.max(strife - 1, 0);
+      updates['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
     }
 
     this.update(updates);
@@ -654,7 +654,7 @@ export default class Actor5e extends Actor {
     const quantityToRecover = Math.floor(totalHitDiceQuantity / 2) || 1;
 
     if (quantityToRecover >= expendedHitDiceQuantity) {
-      updates['data.attributes.hitDice'] = {
+      updates['system.attributes.hitDice'] = {
         'd6.current': hitDice.d6.total,
         'd8.current': hitDice.d8.total,
         'd10.current': hitDice.d10.total,
@@ -664,34 +664,34 @@ export default class Actor5e extends Actor {
       // TODO: Clean up this implementation. Ewwww.
       for (let i = 0; i < quantityToRecover; i += 1) {
         if (expendedHitDice.d12 > 0) {
-          if (!updates['data.attributes.hitDice.d12.current']) {
-            updates['data.attributes.hitDice.d12.current'] = 1;
+          if (!updates['system.attributes.hitDice.d12.current']) {
+            updates['system.attributes.hitDice.d12.current'] = 1;
           } else {
-            updates['data.attributes.hitDice.d12.current'] += 1;
+            updates['system.attributes.hitDice.d12.current'] += 1;
           }
 
           expendedHitDice.d12 -= 1;
         } else if (expendedHitDice.d10 > 0) {
-          if (!updates['data.attributes.hitDice.d10.current']) {
-            updates['data.attributes.hitDice.d10.current'] = 1;
+          if (!updates['system.attributes.hitDice.d10.current']) {
+            updates['system.attributes.hitDice.d10.current'] = 1;
           } else {
-            updates['data.attributes.hitDice.d10.current'] += 1;
+            updates['system.attributes.hitDice.d10.current'] += 1;
           }
 
           expendedHitDice.d10 -= 1;
         } else if (expendedHitDice.d8 > 0) {
-          if (!updates['data.attributes.hitDice.d8.current']) {
-            updates['data.attributes.hitDice.d8.current'] = 1;
+          if (!updates['system.attributes.hitDice.d8.current']) {
+            updates['system.attributes.hitDice.d8.current'] = 1;
           } else {
-            updates['data.attributes.hitDice.d8.current'] += 1;
+            updates['system.attributes.hitDice.d8.current'] += 1;
           }
 
           expendedHitDice.d8 -= 1;
         } else {
-          if (!updates['data.attributes.hitDice.d6.current']) {
-            updates['data.attributes.hitDice.d6.current'] = 1;
+          if (!updates['system.attributes.hitDice.d6.current']) {
+            updates['system.attributes.hitDice.d6.current'] = 1;
           } else {
-            updates['data.attributes.hitDice.d6.current'] += 1;
+            updates['system.attributes.hitDice.d6.current'] += 1;
           }
 
           expendedHitDice.d6 -= 1;
@@ -720,12 +720,12 @@ export default class Actor5e extends Actor {
     const { spellResources } = this.system;
 
     const updates = {
-      'data.spellResources.points.current': Math.max(spellResources.points.max, 0)
+      'system.spellResources.points.current': Math.max(spellResources.points.max, 0)
     };
 
     if (restType === 'long') {
       Object.entries(spellResources.slots).forEach(([level, { max }]) => {
-        updates[`data.spellResources.slots.${level}.current`] = Math.max(max, 0);
+        updates[`system.spellResources.slots.${level}.current`] = Math.max(max, 0);
       });
     }
 
@@ -981,13 +981,13 @@ export default class Actor5e extends Actor {
     const d20Result = roll.dice[0].total;
 
     const updates = {
-      'data.attributes.death': { success, failure }
+      'system.attributes.death': { success, failure }
     };
 
-    if (d20Result === 1) updates['data.attributes.death'].failure += 2;
-    else if (d20Result === 20) updates['data.attributes.hp.value'] = 1;
-    else if (d20Result < 10) updates['data.attributes.death'].failure += 1;
-    else updates['data.attributes.death'].success += 1;
+    if (d20Result === 1) updates['system.attributes.death'].failure += 2;
+    else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
+    else if (d20Result < 10) updates['system.attributes.death'].failure += 1;
+    else updates['system.attributes.death'].success += 1;
 
     await this.update(updates);
   }
