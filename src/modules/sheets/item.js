@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 
-import Sheet from '../../vue/sheets/ItemSheet.vue';
+import StandardItemSheet from '../../vue/sheets/ItemSheet.vue';
+import BackgroundSheet from '../../vue/sheets/BackgroundSheet.vue';
 
 /**
  * Override and extend the core ItemSheet implementation to handle specific item types.
@@ -87,6 +88,8 @@ export default class ItemSheet5e extends ItemSheet {
 
   /** @override */
   async render(force = false, options = {}) {
+    let sheetComponent;
+
     if (this.component) {
       const states = Application.RENDER_STATES;
       if (this._state === states.RENDERING || this._state === states.RENDERED) return;
@@ -102,7 +105,14 @@ export default class ItemSheet5e extends ItemSheet {
 
     const componentWrapper = this.element.find('.a5e-js-component-wrapper')[0];
 
-    this.component = createApp(Sheet, { actor: this.item.actor, item: this.item, sheet: this });
+    if (this.item.type === 'background') sheetComponent = BackgroundSheet;
+    else sheetComponent = StandardItemSheet;
+
+    this.component = createApp(
+      sheetComponent,
+      { actor: this.item.actor, item: this.item, sheet: this }
+    );
+
     this.component.mount(componentWrapper);
     this.activateListeners($(this.form));
   }
