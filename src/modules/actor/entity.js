@@ -179,6 +179,7 @@ export default class Actor5e extends Actor {
       updates['system.attributes.hp.value'] = Math.clamped(value - damage, 0, value);
     }
 
+    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage });
     return this.update(updates);
   }
 
@@ -213,6 +214,7 @@ export default class Actor5e extends Actor {
       updates['system.attributes.hp.value'] = Math.clamped(value + healing, value, max);
     }
 
+    Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
     return this.update(updates);
   }
 
@@ -779,6 +781,8 @@ export default class Actor5e extends Actor {
       )
     };
 
+    const hookData = { ability, formula, rollMode: options.rollMode };
+    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
     ChatMessage.create(chatData);
   }
 
@@ -814,6 +818,7 @@ export default class Actor5e extends Actor {
       )
     };
 
+    Hooks.callAll('a5e.rollDeathSavingThrow', this, roll);
     ChatMessage.create(chatData);
     this.updateDeathSavingThrowFigures(roll);
   }
@@ -854,6 +859,14 @@ export default class Actor5e extends Actor {
         [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
         'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
       }
+    });
+
+    Hooks.callAll('a5e.rollHitDice', this, {
+      dieSize,
+      dieCount: (attributes.hitDice[dieSize].current - quantity),
+      formula,
+      newHp: Math.min(attributes.hp.value + hpDelta, maxHp),
+      roll
     });
   }
 
@@ -896,6 +909,8 @@ export default class Actor5e extends Actor {
       )
     };
 
+    const hookData = { ability, formula, rollMode: options.rollMode };
+    Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
     ChatMessage.create(chatData);
   }
 
@@ -943,6 +958,10 @@ export default class Actor5e extends Actor {
       )
     };
 
+    const hookData = {
+      ability, formula, rollMode: options.rollMode, skill
+    };
+    Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
     ChatMessage.create(chatData);
   }
 
@@ -974,6 +993,8 @@ export default class Actor5e extends Actor {
     await this.restoreExertion();
     await this.restoreItemUses();
     await this.restoreSpellResources(restType);
+
+    Hooks.callAll('a5e.triggerRest', this, { haven, restType, supply });
   }
 
   async updateDeathSavingThrowFigures(roll) {
