@@ -129,8 +129,6 @@ export default {
     const sheet = inject("sheet");
     const descriptionVisible = ref(false);
 
-    console.log(props.item);
-
     const hasUses = computed(() => {
       const { uses } = props.item.system;
       return uses.value || uses.max;
