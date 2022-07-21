@@ -947,11 +947,11 @@ export default class Actor5e extends Actor {
   }
 
   toggleElite() {
-    this.update({ 'data.details.elite': !this.system.details.elite });
+    this.update({ 'system.details.elite': !this.system.details.elite });
   }
 
   toggleInspiration() {
-    this.update({ 'data.attributes.inspiration': !this.system.attributes.inspiration });
+    this.update({ 'system.attributes.inspiration': !this.system.attributes.inspiration });
   }
 
   async triggerRest() {
