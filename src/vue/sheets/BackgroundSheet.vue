@@ -26,6 +26,7 @@ import ItemHeader from "./header/ItemHeader.vue";
 import ItemDescriptionPage from "./pages/ItemDescriptionPage.vue";
 import ItemDetailsPage from "./pages/ItemDetailsPage.vue";
 import Navigation from "./navigation/Navigation.vue";
+import BackgroundConfigurationPage from "./pages/BackgroundConfigurationPage.vue";
 
 export default {
   inheritAttrs: false,
@@ -40,6 +41,11 @@ export default {
         name: "description",
         label: "A5E.Description",
         comp: ItemDescriptionPage,
+      },
+      {
+        name: "configuration",
+        label: "A5E.Configuration",
+        comp: BackgroundConfigurationPage,
       },
     ];
 
