@@ -211,7 +211,7 @@ export default {
       applyFeatureFilters(
         actor,
         data.value.items.filter(
-          (x) => x.type === "feature" && x.data.featureType !== "naturalWeapon"
+          (x) => x.type === "feature" && x.featureType !== "naturalWeapon"
         )
       ).sort((a, b) => a.sort - b.sort)
     );
@@ -221,8 +221,8 @@ export default {
         actor,
         data.value.items.filter(
           (x) =>
-            (x.type === "object" && x.data.objectType === "weapon") ||
-            (x.type === "feature" && x.data.featureType === "naturalWeapon")
+            (x.type === "object" && x.objectType === "weapon") ||
+            (x.type === "feature" && x.featureType === "naturalWeapon")
         )
       ).sort((a, b) => a.sort - b.sort)
     );

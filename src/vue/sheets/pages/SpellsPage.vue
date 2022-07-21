@@ -126,7 +126,7 @@
         >
           <item
             v-for="spell in spells.filter(
-              (spell) => spell.data.level.toString() === level
+              (spell) => spell.system.level.toString() === level
             )"
             :key="spell._id"
             :item="spell"
