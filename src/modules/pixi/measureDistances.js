@@ -13,7 +13,7 @@ export default function measureDistances(segments, options = {}) {
   const d = canvas.dimensions;
   const rule = this.parent.diagonalRule;
 
-  const gridDistance = getGridDistance();
+  const gridDistance = canvas.scene.grid.distance;
 
   return segments.map((segment) => {
     const { ray } = segment;
@@ -37,12 +37,4 @@ export default function measureDistances(segments, options = {}) {
 
     return (totalDiagonals + totalStraights) * gridDistance;
   });
-}
-
-/**
- * V9 Fallback
- */
-function getGridDistance() {
-  if (game.release.generation >= 10) return canvas.scene.grid.distance;
-  return canvas.scene.data.gridDistance;
 }
