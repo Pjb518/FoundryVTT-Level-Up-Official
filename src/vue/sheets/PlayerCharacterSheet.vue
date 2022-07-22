@@ -29,6 +29,7 @@ import InventoryPage from "./pages/InventoryPage.vue";
 import JournalPage from "./pages/JournalPage.vue";
 import ManeuversPage from "./pages/ManeuversPage.vue";
 import SettingsPage from "./pages/SettingsPage.vue";
+import SkillsPage from "./pages/SkillsPage.vue";
 import SpellsPage from "./pages/SpellsPage.vue";
 
 export default {
@@ -46,6 +47,7 @@ export default {
           label: "A5E.TabAttributes",
           comp: AttributesPage,
         },
+        { name: "skills", label: "A5E.TabSkills", comp: SkillsPage },
         { name: "inventory", label: "A5E.TabInventory", comp: InventoryPage },
         { name: "features", label: "A5E.TabFeatures", comp: FeaturesPage },
       ];
