@@ -51,7 +51,7 @@
         u-pb-xl
       "
     >
-      <section>
+      <div>
         <header
           class="
             u-border-b
@@ -92,7 +92,7 @@
         >
           <item v-for="item in items" :key="item._id" :item="item" />
         </ul>
-      </section>
+      </div>
     </section>
 
     <tab-footer>

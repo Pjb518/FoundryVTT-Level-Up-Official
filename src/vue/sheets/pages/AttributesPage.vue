@@ -67,28 +67,29 @@
       />
     </div>
 
-    <ul
-      class="
-        u-flex-shrink-0
-        u-gap-xs
-        u-grid
-        u-grid-2
-        u-h-fit
-        u-span-2
-        u-list-style-none
-        u-m-0
-        u-mb-xl
-        u-p-0
-        u-pb-xl
-      "
-    >
-      <skill
-        v-for="[label, skill] in Object.entries(data.data.skills)"
-        :key="label"
-        :label="label"
-        :skill="skill"
-      />
-    </ul>
+    <div class="u-flex-shrink-0 u-h-fit u-span-2">
+      <header class="u-border-b u-border-gray u-mr-xl u-mb-md u-pb-md u-px-md">
+        <h3 class="u-border-none u-font-serif u-text-lg u-w-full u-w-fit">
+          <i class="u-pr-sm u-text-md fas fa-bookmark"></i>
+          {{ localize("A5E.FavoriteItems") }}
+        </h3>
+      </header>
+
+      <ul
+        class="
+          u-flex
+          u-flex-col
+          u-gap-sm
+          u-list-style-none
+          u-m-0
+          u-mb-xl
+          u-p-0
+          u-pb-xl
+        "
+      >
+        <item v-for="item in favoriteItems" :key="item._id" :item="item" />
+      </ul>
+    </div>
   </section>
 
   <tab-footer>
@@ -134,7 +135,7 @@
 </template>
 
 <script>
-import { computed, inject } from "vue";
+import { computed, inject, onMounted } from "vue";
 import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
@@ -149,15 +150,17 @@ import prepareToolProficiencies from "../../utils/dataPreparationHelpers/prepare
 import prepareWeaponProficiencies from "../../utils/dataPreparationHelpers/prepareWeaponProficiencies";
 
 import DetailsCategory from "./partials/DetailsCategory.vue";
+import Item from "./partials/Item.vue";
 import Skill from "./partials/Skill.vue";
 import TabFooter from "./partials/TabFooter.vue";
 
 export default {
-  components: { DetailsCategory, Skill, TabFooter },
+  components: { DetailsCategory, Item, Skill, TabFooter },
   directives: { autowidth: VueInputAutowidth },
   setup() {
     const actor = inject("actor");
     const data = inject("data");
+    const sheet = inject("sheet");
 
     const handlers = {
       armorProficiencies: actor.configureArmorProficiencies.bind(actor),
@@ -191,6 +194,10 @@ export default {
       prepareDamageVulnerabilities(data.value)
     );
 
+    const favoriteItems = computed(() =>
+      data.value.items.filter((item) => item.system.favorite)
+    );
+
     const languages = computed(() => prepareLanguageProficiencies(data.value));
     const maneuverDC = computed(() => calculateManeuverDC(data.value.data));
 
@@ -218,6 +225,10 @@ export default {
       handler();
     }
 
+    onMounted(() => {
+      sheet.activateVueListeners($(sheet.form));
+    });
+
     return {
       actor,
       armorProficiencies,
@@ -227,6 +238,7 @@ export default {
       damageImmunities,
       damageResistances,
       damageVulnerabilities,
+      favoriteItems,
       languages,
       localize: (key) => game.i18n.localize(key),
       maneuverDC,
