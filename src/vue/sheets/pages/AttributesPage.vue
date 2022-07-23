@@ -38,26 +38,28 @@
         @open-config-window="onClickConfigButton"
       />
 
-      <details-category
-        category="armorProficiencies"
-        heading="A5E.ArmorProficiencies"
-        :tags="armorProficiencies"
-        @open-config-window="onClickConfigButton"
-      />
+      <template v-if="data.type === 'character'">
+        <details-category
+          category="armorProficiencies"
+          heading="A5E.ArmorProficiencies"
+          :tags="armorProficiencies"
+          @open-config-window="onClickConfigButton"
+        />
 
-      <details-category
-        category="weaponProficiencies"
-        heading="A5E.WeaponProficiencies"
-        :tags="weaponProficiencies"
-        @open-config-window="onClickConfigButton"
-      />
+        <details-category
+          category="weaponProficiencies"
+          heading="A5E.WeaponProficiencies"
+          :tags="weaponProficiencies"
+          @open-config-window="onClickConfigButton"
+        />
 
-      <details-category
-        category="toolProficiencies"
-        heading="A5E.ToolProficiencies"
-        :tags="toolProficiencies"
-        @open-config-window="onClickConfigButton"
-      />
+        <details-category
+          category="toolProficiencies"
+          heading="A5E.ToolProficiencies"
+          :tags="toolProficiencies"
+          @open-config-window="onClickConfigButton"
+        />
+      </template>
 
       <details-category
         category="languages"
@@ -111,7 +113,10 @@
       <span class="a5e-footer-group__value">{{ maneuverDC }}</span>
     </div>
 
-    <div class="u-align-center u-flex u-gap-md u-text-md">
+    <div
+      v-if="data.type === 'character'"
+      class="u-align-center u-flex u-gap-md u-text-md"
+    >
       <h3 class="u-mb-0">
         {{ localize("A5E.XP") }}
       </h3>
@@ -131,6 +136,14 @@
         {{ nextXPIncrement }}
       </span>
     </div>
+
+    <div v-else class="u-align-center u-flex u-gap-md u-text-md">
+      <h3 class="u-mb-0">
+        {{ localize("A5E.XP") }}
+      </h3>
+
+      <span class="a5e-footer-group__value">{{ xp }}</span>
+    </div>
   </tab-footer>
 </template>
 
@@ -140,6 +153,7 @@ import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import calculateManeuverDC from "../../../modules/utils/calculateManeuverDC";
 import prepareArmorProficiencies from "../../utils/dataPreparationHelpers/prepareArmorProficiencies";
+import prepareChallengeRating from "../../utils/dataPreparationHelpers/prepareChallengeRating";
 import prepareConditionImmunities from "../../utils/dataPreparationHelpers/prepareConditionImmunities";
 import prepareDamageImmunities from "../../utils/dataPreparationHelpers/prepareDamageImmunities";
 import prepareDamageResistances from "../../utils/dataPreparationHelpers/prepareDamageResistances";
@@ -201,7 +215,18 @@ export default {
     const languages = computed(() => prepareLanguageProficiencies(data.value));
     const maneuverDC = computed(() => calculateManeuverDC(data.value.data));
 
+    const xp = computed(() => {
+      if (data.value.type !== "npc") return null;
+
+      const cr = prepareChallengeRating(data);
+      const baseXp = CONFIG.A5E.CR_EXP_LEVELS[parseInt(cr) > 30 ? "30" : cr];
+
+      return data.value.data.details.elite ? baseXp * 2 : baseXp;
+    });
+
     const nextXPIncrement = computed(() => {
+      if (data.value.type === "npc") return null;
+
       let level = data.value.data.details.level;
 
       if (level < 1) level = 1;
@@ -247,6 +272,7 @@ export default {
       senses,
       toolProficiencies,
       weaponProficiencies,
+      xp,
     };
   },
 };

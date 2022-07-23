@@ -75,7 +75,7 @@
         </div>
       </form-section>
 
-      <form-section v-if="data.type === 'character'">
+      <form-section>
         <div class="u-align-center u-flex u-gap-md">
           <input
             class="u-pointer"
