@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 
-import ActorSheetComponent from '../../vue/sheets/PlayerCharacterSheet.vue';
+import ActorSheetComponent from '../../vue/sheets/ActorSheet.vue';
 
 export default class ActorSheet5eCharacter extends ActorSheet {
   /** @override */
