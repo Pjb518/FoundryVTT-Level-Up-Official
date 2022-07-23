@@ -53,6 +53,24 @@
     </div>
 
     <div class="u-flex u-flex-col u-gap-md">
+      <form-section
+        hint="Traits here refers to senses, resistances, vulnerabilities, and immunities"
+      >
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.HideEmptyTraits"
+            :id="`${data._id}-hide-empty-traits`"
+            :checked="data.flags.a5e?.HideEmptyTraits"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-hide-empty-traits`">
+            {{ localize("A5E.SettingsHideEmptyTraits") }}
+          </label>
+        </div>
+      </form-section>
+
       <form-section>
         <div class="u-align-center u-flex u-gap-md">
           <input

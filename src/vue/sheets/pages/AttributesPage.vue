@@ -1,9 +1,12 @@
 <template>
   <section
-    class="u-gap-md u-grid u-grid-3 u-p-lg u-pb-xl u-h-full u-overflow-y-auto"
+    class="u-gap-lg u-grid u-grid-3 u-p-lg u-pb-xl u-h-full u-overflow-y-auto"
   >
     <div class="u-flex u-flex-col u-font-sans-serif u-gap-md u-mb-xl u-pb-xl">
       <details-category
+        v-if="
+          !sheetIsLocked || !(data.flags.a5e?.HideEmptyTraits && !senses.length)
+        "
         category="senses"
         heading="A5E.SensesSpecial"
         :tags="senses"
@@ -11,6 +14,10 @@
       />
 
       <details-category
+        v-if="
+          !sheetIsLocked ||
+          !(data.flags.a5e?.HideEmptyTraits && !damageResistances.length)
+        "
         category="damageResistances"
         heading="A5E.DamageResistances"
         :tags="damageResistances"
@@ -18,6 +25,10 @@
       />
 
       <details-category
+        v-if="
+          !sheetIsLocked ||
+          !(data.flags.a5e?.HideEmptyTraits && !damageImmunities.length)
+        "
         category="damageImmunities"
         heading="A5E.DamageImmunities"
         :tags="damageImmunities"
@@ -25,6 +36,10 @@
       />
 
       <details-category
+        v-if="
+          !sheetIsLocked ||
+          !(data.flags.a5e?.HideEmptyTraits && !damageVulnerabilities.length)
+        "
         category="damageVulnerabilities"
         heading="A5E.DamageVulnerabilities"
         :tags="damageVulnerabilities"
@@ -32,6 +47,10 @@
       />
 
       <details-category
+        v-if="
+          !sheetIsLocked ||
+          !(data.flags.a5e?.HideEmptyTraits && !conditionImmunities.length)
+        "
         category="conditionImmunities"
         heading="A5E.ConditionImmunities"
         :tags="conditionImmunities"
@@ -175,6 +194,7 @@ export default {
     const actor = inject("actor");
     const data = inject("data");
     const sheet = inject("sheet");
+    const sheetIsLocked = inject("sheetIsLocked");
 
     const handlers = {
       armorProficiencies: actor.configureArmorProficiencies.bind(actor),
@@ -270,6 +290,7 @@ export default {
       nextXPIncrement,
       onClickConfigButton,
       senses,
+      sheetIsLocked,
       toolProficiencies,
       weaponProficiencies,
       xp,
