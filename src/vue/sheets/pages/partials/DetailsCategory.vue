@@ -30,7 +30,7 @@
         </li>
       </template>
 
-      <li v-else class="a5e-tag a5e-tag--tight">
+      <li v-else class="u-border u-border-transparent u-py-xxxs u-text-medium">
         {{ localize("A5E.None") }}
       </li>
     </ul>

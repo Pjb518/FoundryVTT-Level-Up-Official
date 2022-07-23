@@ -74,9 +74,7 @@
 
         <li
           v-else
-          class="
-            u-border u-border-transparent u-py-xxxs u-text-italic u-text-medium
-          "
+          class="u-border u-border-transparent u-py-xxxs u-text-medium"
         >
           {{ localize("A5E.SkillNoSpecialties") }}
         </li>
