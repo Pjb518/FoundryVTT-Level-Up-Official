@@ -50,6 +50,22 @@
           </label>
         </div>
       </form-section>
+
+      <form-section v-if="data.type === 'character'">
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.showXP"
+            :id="`${data._id}-show-xp`"
+            :checked="data.flags.a5e?.showXP ?? true"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-show-xp`">
+            {{ localize("A5E.SettingsShowXP") }}
+          </label>
+        </div>
+      </form-section>
     </div>
 
     <div class="u-flex u-flex-col u-gap-md">

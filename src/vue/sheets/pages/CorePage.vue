@@ -133,7 +133,7 @@
     </div>
 
     <div
-      v-if="data.type === 'character'"
+      v-if="data.type === 'character' && (data.flags.a5e?.showXP ?? true)"
       class="u-align-center u-flex u-gap-md u-text-md"
     >
       <h3 class="u-mb-0">
@@ -156,7 +156,10 @@
       </span>
     </div>
 
-    <div v-else class="u-align-center u-flex u-gap-md u-text-md">
+    <div
+      v-else-if="data.type === 'npc'"
+      class="u-align-center u-flex u-gap-md u-text-md"
+    >
       <h3 class="u-mb-0">
         {{ localize("A5E.XP") }}
       </h3>
