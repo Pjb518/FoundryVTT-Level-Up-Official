@@ -1,5 +1,10 @@
 <template>
-  <section class="u-flex u-gap-md u-h-full u-pb-xxxxl u-pl-lg u-pt-lg" style="">
+  <section
+    class="u-flex u-gap-md u-h-full u-pl-lg u-pt-lg"
+    :class="
+      data.flags.a5e?.TrackInventoryWeight ?? true ? 'u-pb-xxxxl' : 'u-pb-xxxl'
+    "
+  >
     <filter-box tab="inventory">
       <filter-group
         filterKey="itemActivationCostFilters"
@@ -98,6 +103,7 @@
     <tab-footer>
       <div class="u-flex u-flex-col u-gap-md u-w-full">
         <div
+          v-if="data.flags.a5e?.TrackInventoryWeight ?? true"
           class="
             u-bg-gray
             u-border
