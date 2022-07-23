@@ -600,7 +600,8 @@ export default class Actor5e extends Actor {
 
   async resetFeatureFilters() {
     await Promise.all([
-      this.setFlag('a5e', 'featureActivationCostFilters', { inclusive: [], exclusive: [] })
+      this.setFlag('a5e', 'featureActivationCostFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'featureTypeFilters', { inclusive: [], exclusive: [] })
     ]);
   }
 
