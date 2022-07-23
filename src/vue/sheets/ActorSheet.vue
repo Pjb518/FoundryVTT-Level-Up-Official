@@ -22,7 +22,7 @@ import registerSheetListeners from "../utils/hookHelpers/registerSheetListeners"
 import Navigation from "./navigation/Navigation.vue";
 import PlayerCharacterHeader from "./header/PlayerCharacterHeader.vue";
 
-import AttributesPage from "./pages/AttributesPage.vue";
+import CorePage from "./pages/CorePage.vue";
 import BiographyPage from "./pages/BiographyPage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
 import InventoryPage from "./pages/InventoryPage.vue";
@@ -43,9 +43,9 @@ export default {
     const tabs = computed(() => {
       const initialTabs = [
         {
-          name: "attributes",
-          label: "A5E.TabAttributes",
-          comp: AttributesPage,
+          name: "core",
+          label: "A5E.TabCore",
+          comp: CorePage,
         },
         { name: "skills", label: "A5E.TabSkills", comp: SkillsPage },
         { name: "inventory", label: "A5E.TabInventory", comp: InventoryPage },

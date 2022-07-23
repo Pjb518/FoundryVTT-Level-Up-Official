@@ -229,7 +229,9 @@ export default {
     );
 
     const favoriteItems = computed(() =>
-      data.value.items.filter((item) => item.system.favorite)
+      data.value.items
+        .filter((item) => item.system.favorite)
+        .sort((a, b) => a.sort - b.sort)
     );
 
     const languages = computed(() => prepareLanguageProficiencies(data.value));
