@@ -1,41 +1,41 @@
 <template>
   <div class="u-flex u-flex-col u-gap-xs u-text-sm">
     <div class="u-flex u-gap-ch u-text-italic">
-      {{ localize(config.spellLevels[item.data.level]) }}
+      {{ localize(config.spellLevels[item.system.level]) }}
 
       <div class="u-flex" v-if="spellSchools.length">({{ spellSchools }})</div>
     </div>
 
     <dl class="u-flex u-flex-col u-gap-xs u-m-0 u-p-0">
       <div
-        v-if="item.data.activation.type"
+        v-if="item.system.activation.type"
         class="u-align-center u-flex u-gap-ch"
       >
         <dt>{{ localize("A5E.SpellCastingTime") }}:</dt>
         <dd class="u-m-0 u-p-0">
-          <template v-if="showActivationCost && item.data.activation.cost">
-            {{ item.data.activation.cost }}
+          <template v-if="showActivationCost && item.system.activation.cost">
+            {{ item.system.activation.cost }}
           </template>
 
           {{
             localize(
-              item.data.activation.type
-                ? config.abilityActivationTypes[item.data.activation.type]
+              item.system.activation.type
+                ? config.abilityActivationTypes[item.system.activation.type]
                 : "A5E.None"
             )
           }}
 
-          <template v-if="item.data.ritual">
+          <template v-if="item.system.ritual">
             ({{ localize("A5E.SpellRitual").toLowerCase() }})
           </template>
 
           <template
             v-if="
-              item.data.activation.type === 'reaction' &&
-              item.data.activation.reactionTrigger
+              item.system.activation.type === 'reaction' &&
+              item.system.activation.reactionTrigger
             "
           >
-            ({{ item.data.activation.reactionTrigger }})
+            ({{ item.system.activation.reactionTrigger }})
           </template>
         </dd>
       </div>
@@ -45,26 +45,26 @@
         <dd class="u-m-0 u-p-0">{{ rangeSummary }}</dd>
       </div>
 
-      <div v-if="item.data.area.shape" class="u-align-center u-flex u-gap-ch">
+      <div v-if="item.system.area.shape" class="u-align-center u-flex u-gap-ch">
         <dt>{{ localize("A5E.TargetArea") }}:</dt>
         <dd class="u-m-0 u-p-0">
           {{ areaSummary }}
         </dd>
       </div>
 
-      <div v-if="item.data.target.type" class="u-flex u-gap-ch">
+      <div v-if="item.system.target.type" class="u-flex u-gap-ch">
         <dt>{{ localize("A5E.ItemTarget") }}:</dt>
         <dd class="u-m-0 u-p-0">
-          <template v-if="showTargetQuantity && item.data.target.quantity">
-            {{ item.data.target.quantity }} &#10761;
+          <template v-if="showTargetQuantity && item.system.target.quantity">
+            {{ item.system.target.quantity }} &#10761;
           </template>
 
-          {{ localize(config.targetTypes[item.data.target.type]) }}
+          {{ localize(config.targetTypes[item.system.target.type]) }}
         </dd>
       </div>
 
       <div
-        v-if="Object.values(item.data.components).some(Boolean)"
+        v-if="Object.values(item.system.components).some(Boolean)"
         class="u-flex u-gap-ch"
       >
         <dt>{{ localize("A5E.SpellComponents") }}:</dt>
@@ -82,9 +82,9 @@
             "
           >
             <li
-              v-for="[component] in Object.entries(item.data.components).filter(
-                ([_, state]) => state
-              )"
+              v-for="[component] in Object.entries(
+                item.system.components
+              ).filter(([_, state]) => state)"
               :key="component"
             >
               {{
@@ -95,22 +95,22 @@
             </li>
           </ul>
 
-          <span v-if="item.data.components.material && item.data.materials">
-            ({{ item.data.materials }})
+          <span v-if="item.system.components.material && item.system.materials">
+            ({{ item.system.materials }})
           </span>
         </dd>
       </div>
 
-      <div v-if="item.data.duration.unit" class="u-flex u-gap-ch">
+      <div v-if="item.system.duration.unit" class="u-flex u-gap-ch">
         <dt>{{ localize("A5E.ItemDuration") }}:</dt>
         <dd class="u-m-0 u-p-0">
-          <template v-if="showDurationValue && item.data.duration.value">
-            {{ item.data.duration.value }}
+          <template v-if="showDurationValue && item.system.duration.value">
+            {{ item.system.duration.value }}
           </template>
 
-          {{ localize(config.timePeriods[item.data.duration.unit]) }}
+          {{ localize(config.timePeriods[item.system.duration.unit]) }}
 
-          <span v-if="item.data.concentration">
+          <span v-if="item.system.concentration">
             ({{ localize("A5E.SpellConcentration").toLowerCase() }})
           </span>
         </dd>
@@ -118,8 +118,8 @@
 
       <div
         v-if="
-          item.data.actionOptions.includes('savingThrow') &&
-          item.data.save.targetAbility
+          item.system.actionOptions.includes('savingThrow') &&
+          item.system.save.targetAbility
         "
         class="u-flex u-gap-ch"
       >
@@ -127,10 +127,10 @@
         <dd class="u-m-0 u-p-0">
           <div class="u-flex u-gap-ch">
             <span>
-              {{ localize(config.abilities[item.data.save.targetAbility]) }}
+              {{ localize(config.abilities[item.system.save.targetAbility]) }}
             </span>
 
-            <span> ({{ item.data.save.onSave }}) </span>
+            <span> ({{ item.system.save.onSave }}) </span>
           </div>
         </dd>
       </div>
@@ -147,15 +147,15 @@ export default {
   props: { item: Object },
   setup(props) {
     const areaSummary = computed(() =>
-      prepareAreaSummary(props.item.data.area)
+      prepareAreaSummary(props.item.system.area)
     );
 
     const rangeSummary = computed(() =>
-      prepareRangeSummary(props.item.data.range)
+      prepareRangeSummary(props.item.system.range)
     );
 
     const showActivationCost = computed(() => {
-      const activationType = props.item.data.activation.type;
+      const activationType = props.item.system.activation.type;
 
       if (!activationType) return false;
 
@@ -167,7 +167,7 @@ export default {
     });
 
     const showDurationValue = computed(() => {
-      const durationUnit = props.item.data.duration.unit;
+      const durationUnit = props.item.system.duration.unit;
 
       if (!durationUnit) return false;
       if (["instantaneous", "permanent", "special"].includes(durationUnit))
@@ -177,7 +177,7 @@ export default {
     });
 
     const showTargetQuantity = computed(() => {
-      const targetType = props.item.data.target.type;
+      const targetType = props.item.system.target.type;
 
       if (!targetType) return false;
       if (["other", "self"].includes(targetType)) return false;
@@ -186,7 +186,7 @@ export default {
     });
 
     const spellSchools = computed(() => {
-      const itemData = props.item.data;
+      const itemData = props.item.system;
       const schools = [];
 
       if (itemData.schools.primary) {
