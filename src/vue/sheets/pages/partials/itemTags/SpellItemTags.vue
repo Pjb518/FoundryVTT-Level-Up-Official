@@ -47,6 +47,16 @@ export default {
         tagList.push(game.i18n.localize("A5E.SpellRitualAbbr"));
       }
 
+      if (itemData.activation.type) {
+        const { cost, type } = itemData.activation;
+
+        const localisedType = game.i18n.localize(
+          config.abilityActivationTypes[type]
+        );
+
+        tagList.push(cost ? `${cost} ${localisedType}` : localisedType);
+      }
+
       if (
         Array.isArray(itemData.range) &&
         itemData.range.filter(Boolean).length
