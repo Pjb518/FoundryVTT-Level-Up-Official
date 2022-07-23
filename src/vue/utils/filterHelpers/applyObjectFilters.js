@@ -4,11 +4,11 @@ import simpleFilter from './simpleFilter';
 export default function filterObjects(actor, items) {
   let filteredItems = items;
 
-  filteredItems = simpleFilter(actor, filteredItems, 'data.activation.type', 'itemActivationCostFilters');
-  filteredItems = simpleFilter(actor, filteredItems, 'data.objectType', 'objectTypeFilters');
-  filteredItems = simpleFilter(actor, filteredItems, 'data.rarity', 'itemRarityFilters');
+  filteredItems = simpleFilter(actor, filteredItems, 'system.activation.type', 'itemActivationCostFilters');
+  filteredItems = simpleFilter(actor, filteredItems, 'system.objectType', 'objectTypeFilters');
+  filteredItems = simpleFilter(actor, filteredItems, 'system.rarity', 'itemRarityFilters');
 
-  filteredItems = dynamicBooleanFilter(actor, filteredItems, 'data', 'miscellaneousItemFilters');
+  filteredItems = dynamicBooleanFilter(actor, filteredItems, 'system', 'miscellaneousItemFilters');
 
   return filteredItems;
 }
