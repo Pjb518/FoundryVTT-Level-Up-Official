@@ -1,9 +1,11 @@
 <template>
   <div class="u-flex u-flex-col u-gap-xs u-text-sm">
     <div class="u-flex u-gap-ch u-text-italic">
-      {{ localize(config.spellLevels[item.system.level]) }}
+      {{ localize(config.maneuverDegrees[item.system.degree]) }}
 
-      <div class="u-flex" v-if="spellSchools.length">({{ spellSchools }})</div>
+      <div class="u-flex" v-if="maneuverTradition">
+        ({{ maneuverTradition }})
+      </div>
     </div>
 
     <dl class="u-flex u-flex-col u-gap-xs u-m-0 u-p-0">
@@ -11,7 +13,7 @@
         v-if="item.system.activation.type"
         class="u-align-center u-flex u-gap-ch"
       >
-        <dt>{{ localize("A5E.SpellCastingTime") }}:</dt>
+        <dt>{{ localize("A5E.ActionActivationCost") }}:</dt>
         <dd class="u-m-0 u-p-0">
           <template v-if="showActivationCost && item.system.activation.cost">
             {{ item.system.activation.cost }}
@@ -24,10 +26,6 @@
                 : "A5E.None"
             )
           }}
-
-          <template v-if="item.system.ritual">
-            ({{ localize("A5E.SpellRitual").toLowerCase() }})
-          </template>
 
           <template
             v-if="
@@ -45,13 +43,6 @@
         <dd class="u-m-0 u-p-0">{{ rangeSummary }}</dd>
       </div>
 
-      <div v-if="item.system.area.shape" class="u-align-center u-flex u-gap-ch">
-        <dt>{{ localize("A5E.TargetArea") }}:</dt>
-        <dd class="u-m-0 u-p-0">
-          {{ areaSummary }}
-        </dd>
-      </div>
-
       <div v-if="item.system.target.type" class="u-flex u-gap-ch">
         <dt>{{ localize("A5E.ItemTarget") }}:</dt>
         <dd class="u-m-0 u-p-0">
@@ -60,44 +51,6 @@
           </template>
 
           {{ localize(config.targetTypes[item.system.target.type]) }}
-        </dd>
-      </div>
-
-      <div
-        v-if="Object.values(item.system.components).some(Boolean)"
-        class="u-flex u-gap-ch"
-      >
-        <dt>{{ localize("A5E.SpellComponents") }}:</dt>
-        <dd class="u-flex u-gap-ch u-m-0 u-p-0">
-          <ul
-            class="
-              u-comma-list
-              u-flex
-              u-flex-shrink-0
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-              u-w-fit
-            "
-          >
-            <li
-              v-for="[component] in Object.entries(
-                item.system.components
-              ).filter(([_, state]) => state)"
-              :key="component"
-            >
-              {{
-                localize(
-                  `${config.spellComponents[component]}Abbr` ?? component
-                )
-              }}
-            </li>
-          </ul>
-
-          <span v-if="item.system.components.material && item.system.materials">
-            ({{ item.system.materials }})
-          </span>
         </dd>
       </div>
 
@@ -140,16 +93,12 @@
 
 <script>
 import { computed } from "vue";
-import prepareAreaSummary from "../../../../utils/dataPreparationHelpers/prepareAreaSummary";
+
 import prepareRangeSummary from "../../../../utils/dataPreparationHelpers/prepareRangeSummary";
 
 export default {
   props: { item: Object },
   setup(props) {
-    const areaSummary = computed(() =>
-      prepareAreaSummary(props.item.system.area)
-    );
-
     const rangeSummary = computed(() =>
       prepareRangeSummary(props.item.system.range)
     );
@@ -185,41 +134,22 @@ export default {
       return true;
     });
 
-    const spellSchools = computed(() => {
-      const itemData = props.item.system;
-      const schools = [];
-
-      if (itemData.schools.primary) {
-        schools.push(
-          game.i18n.localize(
-            CONFIG.A5E.spellSchools.primary[itemData.schools.primary] ??
-              itemData.schools.primary
+    const maneuverTradition = computed(() =>
+      props.item.system.degree > 0 && props.item.system.tradition
+        ? game.i18n.localize(
+            CONFIG.A5E.maneuverTraditions[props.item.system.tradition]
           )
-        );
-      }
-
-      if (itemData.schools.secondary.length) {
-        const secondarySchools = itemData.schools.secondary.map((school) =>
-          game.i18n.localize(
-            CONFIG.A5E.spellSchools.secondary[school] ?? school
-          )
-        );
-
-        schools.push(...secondarySchools);
-      }
-
-      return schools.map((school) => school.toLowerCase()).join(", ");
-    });
+        : null
+    );
 
     return {
-      areaSummary,
       config: CONFIG.A5E,
       localize: (key) => game.i18n.localize(key),
       rangeSummary,
       showActivationCost,
       showDurationValue,
       showTargetQuantity,
-      spellSchools,
+      maneuverTradition,
     };
   },
 };

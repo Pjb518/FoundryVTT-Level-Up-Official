@@ -1,12 +1,12 @@
 export default function calculateInventoryWeight(actorData) {
-  const equippedItems = actorData.items.filter((item) => item.equipped);
+  const equippedItems = actorData.items.filter((item) => item.system.equipped);
 
   const totalItemWeight = equippedItems.reduce((acc, curr) => {
     let itemWeight;
-    const { quantity } = curr.data;
+    const { quantity } = curr.system;
 
     try {
-      itemWeight = Number(curr.data.weight.match(/\d*\.?\d*/)[0]);
+      itemWeight = Number(curr.system.weight.match(/\d*\.?\d*/)[0]);
     } catch {
       return acc;
     }

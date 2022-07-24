@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 
-import PCSheet from '../../vue/sheets/PlayerCharacterSheet.vue';
-import NPCSheet from '../../vue/sheets/NPCSheet.vue';
+import ActorSheetComponent from '../../vue/sheets/ActorSheet.vue';
 
 export default class ActorSheet5eCharacter extends ActorSheet {
   /** @override */
@@ -61,8 +60,6 @@ export default class ActorSheet5eCharacter extends ActorSheet {
       return;
     }
 
-    let sheetComponent;
-
     if (this.component) {
       const states = Application.RENDER_STATES;
       if (this._state === states.RENDERING || this._state === states.RENDERED) return;
@@ -78,10 +75,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
 
     const componentWrapper = this.element.find('.a5e-js-component-wrapper')[0];
 
-    if (this.actor.type === 'character') sheetComponent = PCSheet;
-    else if (this.actor.type === 'npc') sheetComponent = NPCSheet;
-
-    this.component = createApp(sheetComponent, { actor: this.actor, sheet: this });
+    this.component = createApp(ActorSheetComponent, { actor: this.actor, sheet: this });
     this.component.mount(componentWrapper);
     this.activateListeners($(this.form));
     this.activateVueListeners($(this.form));

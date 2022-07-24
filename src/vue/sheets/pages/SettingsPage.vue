@@ -12,7 +12,24 @@
     style="grid-auto-rows: min-content"
   >
     <div class="u-flex u-flex-col u-gap-md">
+      <form-section>
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.TrackInventoryWeight"
+            :id="`${data._id}-track-inventory-weight`"
+            :checked="data.flags.a5e?.TrackInventoryWeight ?? true"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-track-inventory-weight`">
+            {{ localize("A5E.SettingsTrackInventoryWeight") }}
+          </label>
+        </div>
+      </form-section>
+
       <form-section
+        v-if="data.flags.a5e?.TrackInventoryWeight ?? true"
         heading="A5E.SettingsCarryCapacityMultiplier"
         hint="Do not increase this number to account for your size category."
       >
@@ -31,6 +48,7 @@
       </form-section>
 
       <form-section
+        v-if="data.flags.a5e?.TrackInventoryWeight ?? true"
         hint="If selected, 0.02lbs. per coin will be added to the inventory weight."
       >
         <div class="u-align-center u-flex u-gap-md">
@@ -50,9 +68,43 @@
           </label>
         </div>
       </form-section>
+
+      <form-section v-if="data.type === 'character'">
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.showXP"
+            :id="`${data._id}-show-xp`"
+            :checked="data.flags.a5e?.showXP ?? true"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-show-xp`">
+            {{ localize("A5E.SettingsShowXP") }}
+          </label>
+        </div>
+      </form-section>
     </div>
 
     <div class="u-flex u-flex-col u-gap-md">
+      <form-section
+        hint="Traits here refers to senses, resistances, vulnerabilities, and immunities"
+      >
+        <div class="u-align-center u-flex u-gap-md">
+          <input
+            class="u-pointer"
+            type="checkbox"
+            name="flags.a5e.HideEmptyTraits"
+            :id="`${data._id}-hide-empty-traits`"
+            :checked="data.flags.a5e?.HideEmptyTraits"
+          />
+
+          <label class="u-pointer" :for="`${data._id}-hide-empty-traits`">
+            {{ localize("A5E.SettingsHideEmptyTraits") }}
+          </label>
+        </div>
+      </form-section>
+
       <form-section>
         <div class="u-align-center u-flex u-gap-md">
           <input
@@ -75,7 +127,7 @@
         </div>
       </form-section>
 
-      <form-section v-if="data.type === 'character'">
+      <form-section>
         <div class="u-align-center u-flex u-gap-md">
           <input
             class="u-pointer"

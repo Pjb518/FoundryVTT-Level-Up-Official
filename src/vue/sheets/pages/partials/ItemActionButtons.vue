@@ -1,6 +1,16 @@
 <template>
   <div class="u-align-center u-flex u-gap-xl u-ml-auto u-mr-md">
     <i
+      class="u-hover-scale-120 u-transition fas fa-bookmark"
+      :class="
+        item.system.favorite
+          ? 'u-text-green'
+          : 'u-hover-text-green u-text-medium'
+      "
+      @click.stop="onMarkItemAsFavorite"
+    ></i>
+
+    <i
       v-if="item.type === 'object'"
       class="u-hover-scale-120 u-transition fas fa-shield-alt"
       :class="
@@ -65,6 +75,11 @@ export default {
       item.update({ "system.equipped": !item.system.equipped });
     }
 
+    function onMarkItemAsFavorite() {
+      const item = actor.items.get(props.item._id);
+      item.update({ "system.favorite": !item.system.favorite });
+    }
+
     function onPrepareSpell() {
       const item = actor.items.get(props.item._id);
       item.update({ "system.prepared": !item.system.prepared });
@@ -74,6 +89,7 @@ export default {
       onDeleteItem,
       onEditItem,
       onEquipItem,
+      onMarkItemAsFavorite,
       onPrepareSpell,
       sheetIsLocked,
     };

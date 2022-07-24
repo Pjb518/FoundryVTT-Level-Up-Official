@@ -83,8 +83,9 @@
     <div v-if="descriptionVisible" class="a5e-item__details">
       <hr class="a5e-rule" />
 
+      <maneuver-item-details v-if="item.type === 'maneuver'" :item="item" />
       <spell-item-details v-if="item.type === 'spell'" :item="item" />
-      <hr v-if="item.type === 'spell'" class="a5e-rule" />
+      <hr v-if="['maneuver', 'spell'].includes(item.type)" class="a5e-rule" />
 
       <div
         v-html="
@@ -108,6 +109,7 @@ import { directive as VueInputAutowidth } from "vue-input-autowidth";
 
 import FeatureItemTags from "./itemTags/FeatureItemTags.vue";
 import ItemActionButtons from "./ItemActionButtons.vue";
+import ManeuverItemDetails from "./itemDetails/ManeuverItemDetails.vue";
 import ManeuverItemTags from "./itemTags/ManeuverItemTags.vue";
 import ObjectItemTags from "./itemTags/ObjectItemTags.vue";
 import SpellItemDetails from "./itemDetails/SpellItemDetails.vue";
@@ -117,6 +119,7 @@ export default {
   components: {
     FeatureItemTags,
     ItemActionButtons,
+    ManeuverItemDetails,
     ManeuverItemTags,
     ObjectItemTags,
     SpellItemDetails,

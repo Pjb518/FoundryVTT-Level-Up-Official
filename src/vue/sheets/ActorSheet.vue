@@ -22,13 +22,14 @@ import registerSheetListeners from "../utils/hookHelpers/registerSheetListeners"
 import Navigation from "./navigation/Navigation.vue";
 import PlayerCharacterHeader from "./header/PlayerCharacterHeader.vue";
 
-import AttributesPage from "./pages/AttributesPage.vue";
+import CorePage from "./pages/CorePage.vue";
 import BiographyPage from "./pages/BiographyPage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
 import InventoryPage from "./pages/InventoryPage.vue";
 import JournalPage from "./pages/JournalPage.vue";
 import ManeuversPage from "./pages/ManeuversPage.vue";
 import SettingsPage from "./pages/SettingsPage.vue";
+import SkillsPage from "./pages/SkillsPage.vue";
 import SpellsPage from "./pages/SpellsPage.vue";
 
 export default {
@@ -42,10 +43,11 @@ export default {
     const tabs = computed(() => {
       const initialTabs = [
         {
-          name: "attributes",
-          label: "A5E.TabAttributes",
-          comp: AttributesPage,
+          name: "core",
+          label: "A5E.TabCore",
+          comp: CorePage,
         },
+        { name: "skills", label: "A5E.TabSkills", comp: SkillsPage },
         { name: "inventory", label: "A5E.TabInventory", comp: InventoryPage },
         { name: "features", label: "A5E.TabFeatures", comp: FeaturesPage },
       ];

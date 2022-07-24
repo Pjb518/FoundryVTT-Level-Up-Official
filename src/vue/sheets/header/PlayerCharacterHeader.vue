@@ -50,7 +50,7 @@
           placeholder="Name"
         />
 
-        <div class="u-flex u-text-medium">
+        <div v-if="data.type === 'character'" class="u-flex u-text-medium">
           <div
             v-if="sheetIsLocked"
             class="a5e-input--classes u-align-center u-flex"
@@ -72,6 +72,24 @@
 
       <div class="a5e-sheet-header__shields">
         <div
+          v-if="
+            data.type === 'npc' && (!sheetIsLocked || data.data.details.elite)
+          "
+          class="a5e-header-shield a5e-header-shield--elite"
+          :class="{
+            'a5e-header-shield--active-elite': data.data.details.elite,
+            'u-pointer-unset': sheetIsLocked,
+          }"
+          @click="!sheetIsLocked && onToggleElite()"
+        >
+          <i class="fas fa-skull"></i>
+          <span class="a5e-header-shield__label">
+            {{ localize("A5E.Elite") }}
+          </span>
+        </div>
+
+        <div
+          v-if="data.type === 'character'"
           class="a5e-header-shield a5e-header-shield--inspiration"
           :class="{
             'a5e-header-shield--active-inspiration':
@@ -85,7 +103,20 @@
           </span>
         </div>
 
-        <div class="a5e-header-shield">
+        <div v-if="data.type === 'npc'" class="a5e-header-shield">
+          <input
+            class="a5e-input a5e-input--cr"
+            name="data.details.cr"
+            type="text"
+            :value="challengeRating"
+          />
+
+          <span class="a5e-header-shield__label">
+            {{ localize("A5E.ChallengeRatingAbbr") }}
+          </span>
+        </div>
+
+        <div v-if="data.type === 'character'" class="a5e-header-shield">
           <input
             class="a5e-input a5e-input--level"
             name="data.details.level"
@@ -107,7 +138,7 @@
           </span>
         </div>
 
-        <div class="a5e-header-shield">
+        <div v-if="data.type === 'character'" class="a5e-header-shield">
           <input
             class="a5e-input a5e-input--level"
             name="data.details.prestige"
@@ -150,7 +181,7 @@
       </div>
     </div>
 
-    <div class="u-flex u-flex-wrap u-gap-md">
+    <div v-if="data.type === 'character'" class="u-flex u-flex-wrap u-gap-md">
       <creature-types
         :sheetIsLocked="sheetIsLocked"
         :creature-types="
@@ -186,6 +217,29 @@
       />
     </div>
 
+    <template v-else>
+      <div class="u-flex u-flex-wrap u-gap-md">
+        <creature-types
+          :sheetIsLocked="sheetIsLocked"
+          :creature-types="
+            data.data.details.creatureTypes.sort((a, b) =>
+              a.toLowerCase().localeCompare(b.toLowerCase())
+            )
+          "
+        />
+
+        <size-category
+          :sheetIsLocked="sheetIsLocked"
+          :size-category="data.data.traits.size"
+        />
+      </div>
+
+      <movement
+        :sheetIsLocked="sheetIsLocked"
+        :movement="data.data.attributes.movement"
+      />
+    </template>
+
     <div>
       <ul class="u-flex u-font-serif u-gap-md u-list-style-none u-m-0 u-pl-0">
         <armor-class :sheetIsLocked="sheetIsLocked" />
@@ -204,7 +258,9 @@
 </template>
 
 <script>
-import { inject } from "vue";
+import { computed, inject } from "vue";
+
+import prepareChallengeRating from "../../utils/dataPreparationHelpers/prepareChallengeRating";
 
 import AbilityScore from "./partials/AbilityScore.vue";
 import ArmorClass from "./partials/ArmorClass.vue";
@@ -239,6 +295,11 @@ export default {
     const data = inject("data");
     const sheetIsLocked = inject("sheetIsLocked");
 
+    const challengeRating = computed(() => {
+      if (data.value.type !== "npc") return null;
+      return prepareChallengeRating(data);
+    });
+
     function onToggleInspiration() {
       actor.toggleInspiration();
     }
@@ -249,6 +310,7 @@ export default {
     }
 
     return {
+      challengeRating,
       data,
       localize: (key) => game.i18n.localize(key),
       onToggleInspiration,

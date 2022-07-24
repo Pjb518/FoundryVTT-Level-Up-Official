@@ -92,7 +92,10 @@
         <span class="a5e-footer-group__value">{{ maneuverDC }}</span>
       </div>
 
-      <div class="u-align-center u-flex u-gap-md u-text-md">
+      <div
+        v-if="data.type === 'character'"
+        class="u-align-center u-flex u-gap-md u-text-md"
+      >
         <h3 class="u-mb-0">
           {{ localize("A5E.ExertionPool") }}
         </h3>

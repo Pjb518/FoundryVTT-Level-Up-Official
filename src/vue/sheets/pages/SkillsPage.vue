@@ -1,6 +1,6 @@
 <template>
   <section class="u-flex u-flex-col u-p-lg u-h-full u-overflow-y-auto">
-    <section class="u-h-full u-overflow-y-auto u-p-lg">
+    <section class="u-h-full u-overflow-y-auto">
       <ul
         class="
           u-flex-shrink-0 u-gap-xs u-grid u-grid-3 u-list-style-none u-m-0 u-p-0

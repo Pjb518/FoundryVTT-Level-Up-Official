@@ -1,5 +1,10 @@
 <template>
-  <section class="u-flex u-gap-md u-h-full u-pb-xxxxl u-pl-lg u-pt-lg" style="">
+  <section
+    class="u-flex u-gap-md u-h-full u-pl-lg u-pt-lg"
+    :class="
+      data.flags.a5e?.TrackInventoryWeight ?? true ? 'u-pb-xxxxl' : 'u-pb-xxxl'
+    "
+  >
     <filter-box tab="inventory">
       <filter-group
         filterKey="itemActivationCostFilters"
@@ -51,7 +56,7 @@
         u-pb-xl
       "
     >
-      <section>
+      <div>
         <header
           class="
             u-border-b
@@ -92,14 +97,14 @@
         >
           <item v-for="item in items" :key="item._id" :item="item" />
         </ul>
-      </section>
+      </div>
     </section>
 
     <tab-footer>
       <div class="u-flex u-flex-col u-gap-md u-w-full">
         <div
+          v-if="data.flags.a5e?.TrackInventoryWeight ?? true"
           class="
-            u-bg-gray
             u-border
             u-border-thin
             u-border-light-gray
@@ -108,14 +113,14 @@
             u-rounded
             u-w-full
           "
+          style="background: #a9a594"
         >
           <div
             class="u-h-full u-rounded"
+            style="color: #eee; text-shadow: 0 0 2px #000"
             :style="{
               'background-color':
                 encumbrancePercentage === 100 ? '#8b2525' : '#0b5a2f',
-              'text-stroke':
-                encumbrancePercentage === 100 ? '0' : '0.5px #0b5a2f',
               width: `${Math.min(encumbrancePercentage, 100)}%`,
             }"
           >
