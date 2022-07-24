@@ -29,24 +29,10 @@ export default {
 
       const tagList = [];
 
-      if (itemData.degree) {
+      if (itemData.degree > 0 && itemData.exertionCost) {
         tagList.push(
-          game.i18n.localize(config.maneuverDegrees[itemData.degree])
+          `${itemData.exertionCost} ${game.i18n.localize("A5E.Exertion")}`
         );
-      }
-
-      if (itemData.degree > 0) {
-        if (itemData.tradition) {
-          tagList.push(
-            game.i18n.localize(config.maneuverTraditions[itemData.tradition])
-          );
-        }
-
-        if (itemData.exertionCost) {
-          tagList.push(
-            `${itemData.exertionCost} ${game.i18n.localize("A5E.Exertion")}`
-          );
-        }
       }
 
       if (itemData.activation.type) {
