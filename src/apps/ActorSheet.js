@@ -23,8 +23,8 @@ export default class ActorSheet extends SvelteApplication {
       id: this.actorId,
       resizable: true,
       minimizable: true,
-      width: 400,
-      height: 'auto',
+      width: 880,
+      height: 650,
       title: 'Character Sheet Test',
 
       svelte: {

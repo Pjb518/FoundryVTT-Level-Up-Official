@@ -2,7 +2,6 @@
     import rollAbilityCheck from "../handlers/rollAbilityCheck";
     import rollSavingThrow from "../handlers/rollSavingThrow";
 
-    import localize from "../utils/localize";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let ability;
@@ -11,11 +10,11 @@
 </script>
 
 <div>
-    <li
-        class="u-align-center u-bg-gray u-flex u-flex-col u-font-serif u-py-xs u-rounded u-w-full"
-    >
+    <li class="ability-score-container">
+        <h4 class="ability-score-name">{abilityLabel}</h4>
+
         <input
-            class="a5e-ability-score__value"
+            class="ability-score-value"
             name={`system.abilities.${abilityLabel}.value`}
             type="number"
             value={ability.value}
@@ -24,32 +23,93 @@
             placeholder="10"
         />
 
-        <div class="a5e-ability-score__buttons">
+        <div class="ability-score-buttons">
             <div
-                class="a5e-ability-score__roll-button a5e-js-roll-saving-throw"
-                title={localize("A5E.RollSavingThrow")}
+                class="ability-score-roll-button"
                 on:click={(event) =>
                     rollAbilityCheck($actor, abilityLabel, event)}
+                data-tooltip="A5E.RollAbilityCheck"
+                data-tooltip-direction="DOWN"
             >
                 {ability.check.deterministicBonus}
-
-                <div class="a5e-tooltip a5e-tooltip--ability-score">
-                    {localize("A5E.RollSavingThrow")}
-                </div>
             </div>
 
             <div
-                class="a5e-ability-score__roll-button a5e-js-roll-saving-throw"
-                title={localize("A5E.RollSavingThrow")}
+                class="ability-score-roll-button"
                 on:click={(event) =>
                     rollSavingThrow($actor, abilityLabel, event)}
+                data-tooltip="A5E.RollSavingThrow"
+                data-tooltip-direction="DOWN"
             >
                 {ability.save.deterministicBonus}
-
-                <div class="a5e-tooltip a5e-tooltip--ability-score">
-                    {localize("A5E.RollSavingThrow")}
-                </div>
             </div>
         </div>
     </li>
 </div>
+
+<style lang="scss">
+    .ability-score {
+        &-buttons {
+            display: flex;
+            width: 100%;
+            height: 1.5rem;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 1rem;
+        }
+
+        &-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            background: rgba(0, 0, 0, 0.05);
+            font-family: "Modesto Condensed", serif;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        &-name {
+            font-size: 1.2rem;
+        }
+
+        &-roll-button {
+            position: relative;
+            display: flex;
+            width: 1.5rem;
+            height: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            background: #f6f2eb;
+            border-radius: 100px;
+            box-shadow: 0 0 7.5px #ccc inset;
+            cursor: pointer;
+
+            &:hover > .a5e-tooltip {
+                display: block;
+            }
+        }
+
+        &-value {
+            display: flex;
+            align-items: center;
+            height: 26px;
+            border: 0;
+            margin-bottom: 0;
+            background: none;
+            font-size: 1.44rem;
+            font-weight: inherit;
+            text-align: center;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &::placeholder {
+                color: lighten(#191813, 35%);
+            }
+        }
+    }
+</style>
