@@ -2,7 +2,2278 @@
 	"name": "Mummy Lord",
 	"type": "npc",
 	"img": "systems/a5e/assets/mummy.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "SONSZZtvXZEKMQhd",
+			"name": "Flammable",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>After taking fire damage, the mummy catches fire and takes [[/r 1d10 #ongoing fire]] ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can use an action to extinguish this fire.<br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "EDm2Us8BnmKpBonT",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.EKCVHac9409mUm6h"
+				},
+				"cf": {
+					"id": "temp_pzadwdld0sh"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The mummy uses Dreadful Glare and then attacks with its rotting fist <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "n9CNfUuwFPr4Z4nY",
+			"name": "Dreadful Glare (Gaze)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The mummy targets a creature within 60 feet. The target makes a DC 11 Wisdom saving throw. On a failure, it is magically frightened until the end of the mummy’s next turn. If the target fails the save by 5 or more, it is paralyzed for the same duration. A target that succeeds on the saving throw is immune to the Dreadful Glare of mummies (but not mummy lords) for 24 hours. </p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 16,
+					"onSave": "No effect and immune to all mummies and mummy lords Dreadful Glare for 24 hours.",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "s8LXegdv0Z0jFZX1",
+			"name": "Rotting Fist",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "2d6 +@mod",
+						"name": "Bludgeoning"
+					},
+					{
+						"canCrit": true,
+						"damageType": "necrotic",
+						"formula": "3d6",
+						"name": "Necrotic"
+					}
+				],
+				"description": "<p>If the target is a creature, it makes a DC 17 Constitution saving throw on a succesful hit. On a failure, it is cursed with Mummy Rot.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"5 ft."
+				],
+				"save": {
+					"dc": 17,
+					"onSave": "No effect",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": -1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "WnvvdxODJnzKRbP3",
+			"name": "Curse: Mummy Rot",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>A mummy’s touch inflicts a dreadful curse called mummy rot. A cursed creature can’t regain hit points, and its hit point maximum decreases by an amount equal to the creature’s total number of Hit Dice for every 24 hours that elapse. If this curse reduces the target’s hit point maximum to 0, the target dies and crumbles to dust.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "QEnVQ9Ms2kJTYUXN",
+			"name": "Legendary Resistance",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.k4C4VmgAjpWD71wx"
+				},
+				"cf": {
+					"id": "temp_59f3mqke44w"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If the mummy lord fails a saving throw while wearing its scarab amulet, it can choose to succeed instead. When it does so, the scarab amulet shatters. The mummy lord can create a new amulet when it finishes a long rest. <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "CIiJbsZnoLDEbU8M",
+			"name": "Magic Resistance",
+			"type": "feature",
+			"img": "icons/magic/defensive/shield-barrier-blue.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.2ekPdRUbsbAQub8a"
+				},
+				"cf": {
+					"id": "temp_59f3mqke44w"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The creature has advantage on saving throws against spells and magical effects. <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "G6ajzaZSgdp3GGT5",
+			"name": "Rejuvunation",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If its heart is intact, a destroyed mummy lord gains a new body in [[/r 1d4]] days, regaining all its hit points. The new body forms within 10 feet of the heart <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "AQ6ZUaTS83JHI1H0",
+			"name": "Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The mummy lord is an 11th level spellcaster. Its spellcasting ability is Wisdom (spell save DC 17, +9 to hit with spell attacks). The mummy lord has the following cleric spells prepared, which it can cast without material components.<br><strong>Cantrips (at will)</strong>: guidance, thaumaturgy<br><strong>1st-level (4 slots</strong>): create or destroy water, detect magic<br><strong>2nd-level (3 slots)</strong>: augury, gentle repose<br><strong>3rd-level (3 slots)</strong>: animate dead, dispel magic<br><strong>4th-level (3 slots)</strong>: divination, guardian of faith<br><strong>5th-level (2 slots)</strong>: contagion<br><strong>6th-level (1 slot)</strong>: harm <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "dPbrzSYZDN4vp4m8",
+			"name": "Dispel Magic",
+			"type": "spell",
+			"img": "icons/magic/light/orb-container-orange.webp",
+			"effects": [],
+			"folder": "jZeLXggMsbHwTlPu",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.sPzWdNwzGPfhIU4n"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"abilityCheck"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "int"
+				},
+				"damage": [],
+				"description": "<p><span class=\"fontstyle0\">You scour the magic from your target. Any spell cast on the target ends if it was cast with a spell slot of 3rd-level or lower. For spells using a spell slot of 4th-level or higher, make an ability check with a DC equal to 10 + the spell&rsquo;s level for each one, ending<br />the effect on a success. </span></p>\n<p><span class=\"fontstyle2\">&nbsp; &nbsp;<em><strong>Cast at Higher Levels.</strong></em> </span><span class=\"fontstyle0\">You automatically end the effects of a spell on the target if the level of the spell slot used to cast it is equal to or less than the level of the spell slot used to cast </span><span class=\"fontstyle3\">dispel magic</span><span class=\"fontstyle0\">.</span> <br style=\"font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;\" /><br /></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"long"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": "3",
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"negation",
+						"protection",
+						"utility"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "oxwQB5lVBNKYb8Xj",
+			"name": "Guidance",
+			"type": "spell",
+			"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+			"effects": [],
+			"folder": "39tZnS4IvwC2i0xO",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.MGcy3335lkejRbCG"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The target may gain an expertise die to one ability check of its choice, ending the spell. The expertise die can be rolled before or after the ability check is made. <br></p>",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"knowledge"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "vtMb0IyT1WklL66T",
+			"name": "Thaumaturgy",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "XG0hGDcjnGvCoTIf",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.ekLleifWrr2d6vYy"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li><p>Your voice booms up to three times louder than normal.</p></li><li><p>You cause flames to flicker, brighten, dim, or change color.</p></li><li><p>You send harmless tremors throughout the ground.</p></li><li><p>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon’s roar at a point of your choosing within range.</p></li><li><p>You instantaneously cause an unlocked door or window to fly open or slam shut.</p></li><li><p>You alter the appearance of your eyes.</p></li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn. <br></p>",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"divine",
+						"enhancement"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "9ocf9KZyLHJ1ulhT",
+			"name": "Create or Destroy Water",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "o8jE2cDemQdkdd3g",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.2C7BbkYF88glgQuJ"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": null,
+					"size": "30"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Choose one of the following.</p><p><strong><em>   Create Water</em></strong>: You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p><p> <strong><em>  Destroy Water</em></strong>: You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "1",
+				"materials": "drop of water to create water or grains of sand to destroy it",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"divine",
+						"utility",
+						"water"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "b77JaV2FH4g5tY53",
+			"name": "Detect Magic",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "jZeLXggMsbHwTlPu",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Yr9j6qiw8gtx1iqR"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "sphere",
+					"size": "30"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any). </p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the  duration increases to 8 hours. <br></p>",
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": "1",
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"senses"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "pCrYuAFE49lDjlSy",
+			"name": "Augury",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "Q1g0qcDpOmKTa56t",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.JwxKIGBXEV6HUuyQ"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li><p>Fortunate omen (good results)</p></li><li><p>Calamity omen (bad results)</p></li><li><p>Ambivalence omen (both good and bad results)</p></li><li><p>No omen (results that aren’t especially good or bad)</p></li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations. When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting— 25%, third casting—50%, fourth casting—75%, fifth casting—100%. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "2",
+				"materials": "divinatory items worth at least 25 gold",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"communication",
+						"divine",
+						"scrying"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "TLEW4vV69NTKIS6F",
+			"name": "Animate Dead",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "Q1g0qcDpOmKTa56t",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.d4AlbePhgpI64OCl"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You animate a mortal’s remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead’s statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "3",
+				"materials": "two copper coins",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"necrotic",
+						"summoning",
+						"undead"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "vCr60FPYuc4LvxUd",
+			"name": "Gentle Repose",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "39tZnS4IvwC2i0xO",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.3dX5i4jTiFrfEx7R"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The target can’t become undead and doesn’t decay. Days spent under the influence of this spell don’t count towards the time limit of spells which raise the dead.</p><p><strong><em>Cast at Higher Levels. </em></strong>The spell’s duration is 1 year when using a 3rd-level spell slot, or permanent until dispelled when using a 4th-level spell slot. <br></p>",
+				"duration": {
+					"unit": "day",
+					"value": 10
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "2",
+				"materials": "a copper piece placed on each of the corpse’s eyes",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"arcane",
+						"divine"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "26KtYqgoHgtiUUD5",
+			"name": "Divination",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "jZeLXggMsbHwTlPu",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.7W0ZBwSROAwo23QC"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Your offering and magic put you in contact with the higher power you serve or its representatives. </p><p>You ask a single question about something that will (or could) happen in the next 7 days. The Narrator offers a truthful reply, which may be cryptic or even nonverbal as appropriate to the being in question.</p><p>The reply does not account for possible circumstances that could change the outcome, such as making additional precautions. </p><p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "4",
+				"materials": "incense and sacrificial offering worth at least 25 gold appropriate to the higher power, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"communication",
+						"knowledge"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "BY6FTT7cfnY3QGbA",
+			"name": "Guardian of Faith",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "39tZnS4IvwC2i0xO",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.jiC0cQYMULv87hOv"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "20",
+						"name": "Radiant"
+					},
+					{
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "20",
+						"name": "Necrotic"
+					}
+				],
+				"description": "<p>A Large, indistinct spectral guardian appears within an unoccupied space within 30 feet and remains for 8 hours. Creatures of the mummy lord’s choice that move to a space within 10 feet of the guardian for the first time on a turn make a DC 17 Dexterity saving throw, taking 20 radiant or necrotic damage (mummy lord’s choice) on a failed save or half damage on a success. The spell ends when the guardian has dealt 60 total damage.</p>",
+				"duration": {
+					"unit": "hour",
+					"value": 6
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": 17,
+					"onSave": "Half Damage",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": "4",
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"divine"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "05FMjOzNR4ogAySW",
+			"name": "Contagion",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "o8jE2cDemQdkdd3g",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.N7Puw97xdzx2vZKx"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"attack"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeSpellAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Your touch inflicts a hideous disease. Make a melee spell attack. On a hit, you afflict the target with a disease chosen from the list below.</p><p>The target must make a Constitution saving throw at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A greater restoration spell or similar effect also ends the disease.</p><p><strong><em>   Blinding Sickness:</em></strong> The target’s eyes turn milky white. It is blinded and has disadvantage on Wisdom checks and saving throws.</p><p>   <strong><em>Filth Fever:</em></strong> The target is wracked by fever. It has disadvantage when using Strength for an ability check, attack roll, or saving throw.</p><p>   <strong><em>Flesh Rot: </em></strong>The target’s flesh rots. It has disadvantage on Charisma ability checks and becomes vulnerable to all damage.</p><p>   <strong><em>Mindfire:</em></strong> The target hallucinates. During combat it is confused, and it has disadvantage when using Intelligence for an ability check or saving throw.</p><p>   <strong><em>Rattling Cough:</em></strong> The target becomes discombobulated as it hacks with body-wracking coughs. It is rattled and has disadvantage when using Dexterity for an ability check, attack roll, or saving throw.</p><p>   <strong><em>Slimy Doom:</em></strong> The target bleeds uncontrollably. It has disadvantage when using Constitution for an ability check or saving throw. Whenever it takes damage, the target is stunned until the end of its next turn. <br></p>",
+				"duration": {
+					"unit": "day",
+					"value": 7
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": "5",
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"nature"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "9KVX4cvqQduJMt4H",
+			"name": "Harm",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "NJPM8D31Nt5NSe3Y",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.5semGXO3PFagUiJh"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You assail a target with an agonizing disease. The target takes [[/r 14d6 #necrotic]] necrotic damage. If it fails its saving throw its hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point.</p><p><strong><em>Cast At Higher Levels:</em></strong> Increase the damage by 2d6 for each slot level above 6th. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 17,
+					"onSave": "Half damage",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": "6",
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"attack",
+						"divine"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "e6NhH1sCChsC2MRA",
+			"name": "Blasphemous Counterspell",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When the mummy lord is targeted by a spell using a 4th-level or lower spell slot"
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>When the mummy lord is targeted by a spell using a 4th-level or lower spell slot, the attacker makes a DC 16 Constitution saving throw. On a failure, the spell is wasted, and the caster takes [[/r 1d6 #necrotic]] necrotic damage per level of the spell slot. <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 16,
+					"onSave": "The spell is not countered",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "tKgQMmuvRtITAPZj",
+			"name": "Legendary Actions",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Wda8cWMY7Jcy1c55"
+				},
+				"cf": {
+					"id": "temp_59f3mqke44w"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>At the end of another creature’s turn, a creature can use a legendary action. A creature with legendary actions has separate actions it can choose from. Each one costs a different amount of “actions”. Only one legendary action can be used at a time and the creature cannot use legendary actions while incapacitated. The creature regains its legendary actions at the start of its next turn. If a creature is prevented from using actions, it cannot use legendary actions as well. </p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 3,
+					"max": 3,
+					"per": "round"
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "VB5QJq55GepnUsBD",
+			"name": "Legendary Action: Channel Negative Energy",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "sphere",
+					"size": "60"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>A 60-foot-radius aura of magical negative energy surrounds the mummy lord until the end of its next turn, spreading around corners. Creatures in the aura can’t regain hit points .<br></p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": null,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "9TZXDY6b73JPSOYK",
+			"name": "Legendary Action: Whirlwind of Sand",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The mummy lord, along with its equipment, magically transforms into a whirlwind of sand and moves up to 60 feet without provoking opportunity attacks, and then reverts to its normal form.<br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "E1FJtCIx4KVD5XG4",
+			"name": "Legendary Actions: Attack (2 Actions)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 2,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The mummy lord uses Dreadful Glare or attacks with its rotting fist. <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "m52eKhzytn8yIcGo",
+			"name": "Legendary Action: Blasphemous Word (2 Actions)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 2,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "sphere",
+					"size": "10"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p><strong>Each non-undead creature</strong> within 10 feet of the mummy lord that can hear its magical imprecation makes a DC 16 Constitution saving throw. On a failure, a creature is stunned until the end of the mummy lord’s next turn <br></p>",
+				"duration": {
+					"unit": "round",
+					"value": -2
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": 16,
+					"onSave": "Not stunned",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": null,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "QjDfF4W2X7ycgJBz",
+			"name": "Legendary Action: Dispel Magic (2 Actions)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The mummy lord casts dispel magic. <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"pW7cZe0nScLeqmcf": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 18,
@@ -80,6 +2351,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +2363,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +2375,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +2387,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +2399,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +2411,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +2423,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +2435,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -168,6 +2447,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +2459,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +2471,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +2483,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +2495,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +2507,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +2519,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +2531,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +2543,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -267,6 +2555,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +2567,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -289,6 +2579,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -378,6 +2669,10 @@
 					"total": 0
 				},
 				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
 					"current": 0,
 					"total": 0
 				}
@@ -481,30 +2776,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Mummy Lord",
-		"img": "systems/a5e/assets/mummy.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -512,13 +2798,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
 			},
-			"color": null
+			"color": null,
+			"attenuation": 0.5
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -526,2065 +2814,30 @@
 			"attribute": "attributes.hp"
 		},
 		"bar2": {
-			"attribute": ""
+			"attribute": null
 		},
 		"flags": {},
 		"randomImg": false,
-		"tint": null,
-		"x": null,
-		"y": null,
-		"elevation": null
-	},
-	"items": [
-		{
-			"_id": "SONSZZtvXZEKMQhd",
-			"name": "Flammable",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>After taking fire damage, the mummy catches fire and takes [[/r 1d10 #ongoing fire]] ongoing fire damage if it isn’t already suffering ongoing fire damage. A creature can use an action to extinguish this fire.<br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
+		"texture": {
+			"src": "systems/a5e/assets/mummy.webp",
+			"tint": null,
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
 		},
-		{
-			"_id": "EDm2Us8BnmKpBonT",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The mummy uses Dreadful Glare and then attacks with its rotting fist <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.EKCVHac9409mUm6h"
-				},
-				"cf": {
-					"id": "temp_pzadwdld0sh"
-				}
-			}
-		},
-		{
-			"_id": "n9CNfUuwFPr4Z4nY",
-			"name": "Dreadful Glare (Gaze)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The mummy targets a creature within 60 feet. The target makes a DC 11 Wisdom saving throw. On a failure, it is magically frightened until the end of the mummy’s next turn. If the target fails the save by 5 or more, it is paralyzed for the same duration. A target that succeeds on the saving throw is immune to the Dreadful Glare of mummies (but not mummy lords) for 24 hours. </p>",
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 16,
-					"onSave": "No effect and immune to all mummies and mummy lords Dreadful Glare for 24 hours.",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "s8LXegdv0Z0jFZX1",
-			"name": "Rotting Fist",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "2d6 +@mod",
-						"name": "Bludgeoning"
-					},
-					{
-						"canCrit": true,
-						"damageType": "necrotic",
-						"formula": "3d6",
-						"name": "Necrotic"
-					}
-				],
-				"description": "<p>If the target is a creature, it makes a DC 17 Constitution saving throw on a succesful hit. On a failure, it is cursed with Mummy Rot.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": 17,
-					"onSave": "No effect",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": -1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "WnvvdxODJnzKRbP3",
-			"name": "Curse: Mummy Rot",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A mummy’s touch inflicts a dreadful curse called mummy rot. A cursed creature can’t regain hit points, and its hit point maximum decreases by an amount equal to the creature’s total number of Hit Dice for every 24 hours that elapse. If this curse reduces the target’s hit point maximum to 0, the target dies and crumbles to dust.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "QEnVQ9Ms2kJTYUXN",
-			"name": "Legendary Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If the mummy lord fails a saving throw while wearing its scarab amulet, it can choose to succeed instead. When it does so, the scarab amulet shatters. The mummy lord can create a new amulet when it finishes a long rest. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.k4C4VmgAjpWD71wx"
-				},
-				"cf": {
-					"id": "temp_59f3mqke44w"
-				}
-			}
-		},
-		{
-			"_id": "CIiJbsZnoLDEbU8M",
-			"name": "Magic Resistance",
-			"type": "feature",
-			"img": "icons/magic/defensive/shield-barrier-blue.webp",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The creature has advantage on saving throws against spells and magical effects. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.2ekPdRUbsbAQub8a"
-				},
-				"cf": {
-					"id": "temp_59f3mqke44w"
-				}
-			}
-		},
-		{
-			"_id": "G6ajzaZSgdp3GGT5",
-			"name": "Rejuvunation",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If its heart is intact, a destroyed mummy lord gains a new body in [[/r 1d4]] days, regaining all its hit points. The new body forms within 10 feet of the heart <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "AQ6ZUaTS83JHI1H0",
-			"name": "Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The mummy lord is an 11th level spellcaster. Its spellcasting ability is Wisdom (spell save DC 17, +9 to hit with spell attacks). The mummy lord has the following cleric spells prepared, which it can cast without material components.<br><strong>Cantrips (at will)</strong>: guidance, thaumaturgy<br><strong>1st-level (4 slots</strong>): create or destroy water, detect magic<br><strong>2nd-level (3 slots)</strong>: augury, gentle repose<br><strong>3rd-level (3 slots)</strong>: animate dead, dispel magic<br><strong>4th-level (3 slots)</strong>: divination, guardian of faith<br><strong>5th-level (2 slots)</strong>: contagion<br><strong>6th-level (1 slot)</strong>: harm <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "dPbrzSYZDN4vp4m8",
-			"name": "Dispel Magic",
-			"type": "spell",
-			"img": "icons/magic/light/orb-container-orange.webp",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"abilityCheck"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "int"
-				},
-				"damage": [],
-				"description": "<p><span class=\"fontstyle0\">You scour the magic from your target. Any spell cast on the target ends if it was cast with a spell slot of 3rd-level or lower. For spells using a spell slot of 4th-level or higher, make an ability check with a DC equal to 10 + the spell&rsquo;s level for each one, ending<br />the effect on a success. </span></p>\n<p><span class=\"fontstyle2\">&nbsp; &nbsp;<em><strong>Cast at Higher Levels.</strong></em> </span><span class=\"fontstyle0\">You automatically end the effects of a spell on the target if the level of the spell slot used to cast it is equal to or less than the level of the spell slot used to cast </span><span class=\"fontstyle3\">dispel magic</span><span class=\"fontstyle0\">.</span> <br style=\"font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;\" /><br /></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": "3",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"arcane",
-						"negation",
-						"protection",
-						"utility"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "jZeLXggMsbHwTlPu",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.sPzWdNwzGPfhIU4n"
-				}
-			}
-		},
-		{
-			"_id": "oxwQB5lVBNKYb8Xj",
-			"name": "Guidance",
-			"type": "spell",
-			"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The target may gain an expertise die to one ability check of its choice, ending the spell. The expertise die can be rolled before or after the ability check is made. <br></p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"divine",
-						"knowledge"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "39tZnS4IvwC2i0xO",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.MGcy3335lkejRbCG"
-				}
-			}
-		},
-		{
-			"_id": "vtMb0IyT1WklL66T",
-			"name": "Thaumaturgy",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li><p>Your voice booms up to three times louder than normal.</p></li><li><p>You cause flames to flicker, brighten, dim, or change color.</p></li><li><p>You send harmless tremors throughout the ground.</p></li><li><p>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon’s roar at a point of your choosing within range.</p></li><li><p>You instantaneously cause an unlocked door or window to fly open or slam shut.</p></li><li><p>You alter the appearance of your eyes.</p></li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn. <br></p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"divine",
-						"enhancement"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "XG0hGDcjnGvCoTIf",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.ekLleifWrr2d6vYy"
-				}
-			}
-		},
-		{
-			"_id": "9ocf9KZyLHJ1ulhT",
-			"name": "Create or Destroy Water",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": null,
-					"size": "30"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Choose one of the following.</p><p><strong><em>   Create Water</em></strong>: You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p><p> <strong><em>  Destroy Water</em></strong>: You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "1",
-				"materials": "drop of water to create water or grains of sand to destroy it",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"divine",
-						"utility",
-						"water"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "o8jE2cDemQdkdd3g",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.2C7BbkYF88glgQuJ"
-				}
-			}
-		},
-		{
-			"_id": "b77JaV2FH4g5tY53",
-			"name": "Detect Magic",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "30"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any). </p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the  duration increases to 8 hours. <br></p>",
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": "1",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"senses"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "jZeLXggMsbHwTlPu",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.Yr9j6qiw8gtx1iqR"
-				}
-			}
-		},
-		{
-			"_id": "pCrYuAFE49lDjlSy",
-			"name": "Augury",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li><p>Fortunate omen (good results)</p></li><li><p>Calamity omen (bad results)</p></li><li><p>Ambivalence omen (both good and bad results)</p></li><li><p>No omen (results that aren’t especially good or bad)</p></li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations. When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting— 25%, third casting—50%, fourth casting—75%, fifth casting—100%. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "2",
-				"materials": "divinatory items worth at least 25 gold",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"communication",
-						"divine",
-						"scrying"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "Q1g0qcDpOmKTa56t",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.JwxKIGBXEV6HUuyQ"
-				}
-			}
-		},
-		{
-			"_id": "TLEW4vV69NTKIS6F",
-			"name": "Animate Dead",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You animate a mortal’s remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead’s statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "3",
-				"materials": "two copper coins",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"necrotic",
-						"summoning",
-						"undead"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "Q1g0qcDpOmKTa56t",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.d4AlbePhgpI64OCl"
-				}
-			}
-		},
-		{
-			"_id": "vCr60FPYuc4LvxUd",
-			"name": "Gentle Repose",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The target can’t become undead and doesn’t decay. Days spent under the influence of this spell don’t count towards the time limit of spells which raise the dead.</p><p><strong><em>Cast at Higher Levels. </em></strong>The spell’s duration is 1 year when using a 3rd-level spell slot, or permanent until dispelled when using a 4th-level spell slot. <br></p>",
-				"duration": {
-					"unit": "day",
-					"value": 10
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "2",
-				"materials": "a copper piece placed on each of the corpse’s eyes",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": true,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"arcane",
-						"divine"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "39tZnS4IvwC2i0xO",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.3dX5i4jTiFrfEx7R"
-				}
-			}
-		},
-		{
-			"_id": "26KtYqgoHgtiUUD5",
-			"name": "Divination",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Your offering and magic put you in contact with the higher power you serve or its representatives. </p><p>You ask a single question about something that will (or could) happen in the next 7 days. The Narrator offers a truthful reply, which may be cryptic or even nonverbal as appropriate to the being in question.</p><p>The reply does not account for possible circumstances that could change the outcome, such as making additional precautions. </p><p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "4",
-				"materials": "incense and sacrificial offering worth at least 25 gold appropriate to the higher power, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"divine",
-						"communication",
-						"knowledge"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "jZeLXggMsbHwTlPu",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.7W0ZBwSROAwo23QC"
-				}
-			}
-		},
-		{
-			"_id": "BY6FTT7cfnY3QGbA",
-			"name": "Guardian of Faith",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "spellcasting",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "20",
-						"name": "Radiant"
-					},
-					{
-						"canCrit": false,
-						"damageType": "necrotic",
-						"formula": "20",
-						"name": "Necrotic"
-					}
-				],
-				"description": "<p>A Large, indistinct spectral guardian appears within an unoccupied space within 30 feet and remains for 8 hours. Creatures of the mummy lord’s choice that move to a space within 10 feet of the guardian for the first time on a turn make a DC 17 Dexterity saving throw, taking 20 radiant or necrotic damage (mummy lord’s choice) on a failed save or half damage on a success. The spell ends when the guardian has dealt 60 total damage.</p>",
-				"duration": {
-					"unit": "hour",
-					"value": 6
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": 17,
-					"onSave": "Half Damage",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": "4",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"divine"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "39tZnS4IvwC2i0xO",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.jiC0cQYMULv87hOv"
-				}
-			}
-		},
-		{
-			"_id": "05FMjOzNR4ogAySW",
-			"name": "Contagion",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "spellcasting",
-				"actionOptions": [
-					"attack"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeSpellAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Your touch inflicts a hideous disease. Make a melee spell attack. On a hit, you afflict the target with a disease chosen from the list below.</p><p>The target must make a Constitution saving throw at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A greater restoration spell or similar effect also ends the disease.</p><p><strong><em>   Blinding Sickness:</em></strong> The target’s eyes turn milky white. It is blinded and has disadvantage on Wisdom checks and saving throws.</p><p>   <strong><em>Filth Fever:</em></strong> The target is wracked by fever. It has disadvantage when using Strength for an ability check, attack roll, or saving throw.</p><p>   <strong><em>Flesh Rot: </em></strong>The target’s flesh rots. It has disadvantage on Charisma ability checks and becomes vulnerable to all damage.</p><p>   <strong><em>Mindfire:</em></strong> The target hallucinates. During combat it is confused, and it has disadvantage when using Intelligence for an ability check or saving throw.</p><p>   <strong><em>Rattling Cough:</em></strong> The target becomes discombobulated as it hacks with body-wracking coughs. It is rattled and has disadvantage when using Dexterity for an ability check, attack roll, or saving throw.</p><p>   <strong><em>Slimy Doom:</em></strong> The target bleeds uncontrollably. It has disadvantage when using Constitution for an ability check or saving throw. Whenever it takes damage, the target is stunned until the end of its next turn. <br></p>",
-				"duration": {
-					"unit": "day",
-					"value": 7
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"affliction",
-						"arcane",
-						"nature"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "o8jE2cDemQdkdd3g",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.N7Puw97xdzx2vZKx"
-				}
-			}
-		},
-		{
-			"_id": "9KVX4cvqQduJMt4H",
-			"name": "Harm",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You assail a target with an agonizing disease. The target takes [[/r 14d6 #necrotic]] necrotic damage. If it fails its saving throw its hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point.</p><p><strong><em>Cast At Higher Levels:</em></strong> Increase the damage by 2d6 for each slot level above 6th. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 17,
-					"onSave": "Half damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": "6",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"attack",
-						"divine"
-					]
-				}
-			},
-			"effects": [],
-			"folder": "NJPM8D31Nt5NSe3Y",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.5semGXO3PFagUiJh"
-				}
-			}
-		},
-		{
-			"_id": "e6NhH1sCChsC2MRA",
-			"name": "Blasphemous Counterspell",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "When the mummy lord is targeted by a spell using a 4th-level or lower spell slot"
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When the mummy lord is targeted by a spell using a 4th-level or lower spell slot, the attacker makes a DC 16 Constitution saving throw. On a failure, the spell is wasted, and the caster takes [[/r 1d6 #necrotic]] necrotic damage per level of the spell slot. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": 16,
-					"onSave": "The spell is not countered",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "tKgQMmuvRtITAPZj",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>At the end of another creature’s turn, a creature can use a legendary action. A creature with legendary actions has separate actions it can choose from. Each one costs a different amount of “actions”. Only one legendary action can be used at a time and the creature cannot use legendary actions while incapacitated. The creature regains its legendary actions at the start of its next turn. If a creature is prevented from using actions, it cannot use legendary actions as well. </p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "round"
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.Wda8cWMY7Jcy1c55"
-				},
-				"cf": {
-					"id": "temp_59f3mqke44w"
-				}
-			}
-		},
-		{
-			"_id": "VB5QJq55GepnUsBD",
-			"name": "Legendary Action: Channel Negative Energy",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "60"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A 60-foot-radius aura of magical negative energy surrounds the mummy lord until the end of its next turn, spreading around corners. Creatures in the aura can’t regain hit points .<br></p>",
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "9TZXDY6b73JPSOYK",
-			"name": "Legendary Action: Whirlwind of Sand",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The mummy lord, along with its equipment, magically transforms into a whirlwind of sand and moves up to 60 feet without provoking opportunity attacks, and then reverts to its normal form.<br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "E1FJtCIx4KVD5XG4",
-			"name": "Legendary Actions: Attack (2 Actions)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 2,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The mummy lord uses Dreadful Glare or attacks with its rotting fist. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "m52eKhzytn8yIcGo",
-			"name": "Legendary Action: Blasphemous Word (2 Actions)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 2,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "10"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p><strong>Each non-undead creature</strong> within 10 feet of the mummy lord that can hear its magical imprecation makes a DC 16 Constitution saving throw. On a failure, a creature is stunned until the end of the mummy lord’s next turn <br></p>",
-				"duration": {
-					"unit": "round",
-					"value": -2
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": 16,
-					"onSave": "Not stunned",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "QjDfF4W2X7ycgJBz",
-			"name": "Legendary Action: Dispel Magic (2 Actions)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The mummy lord casts dispel magic. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"pW7cZe0nScLeqmcf": 3
-			},
-			"flags": {}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Actor.WkYQDTPkFfSJYsXx"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "uf66iv50rr9qsb46"
+	"_id": "nba4nhdn77qk5lpq"
 }
