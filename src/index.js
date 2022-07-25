@@ -2,6 +2,7 @@ import './scss/main.scss';
 import 'remixicon/fonts/remixicon.css';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
+import ActorSheetComponent from "./apps/ActorSheet";
 
 import A5E from './modules/config';
 import Actor5e from './modules/actor/entity';
@@ -103,7 +104,7 @@ Hooks.once('init', () => {
   registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('a5e', ActorSheet5e, {
+  Actors.registerSheet('a5e', ActorSheetComponent, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'

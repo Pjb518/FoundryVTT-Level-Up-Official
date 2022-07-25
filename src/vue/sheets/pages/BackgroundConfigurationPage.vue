@@ -1,5 +1,5 @@
 <template>
-  <div class="u-flex u-flex-col u-gap-xl">
+  <div class="u-flex u-flex-col u-gap-md">
     <form-section>
       <div class="u-align-center u-flex u-gap-md u-w-full">
         <input
