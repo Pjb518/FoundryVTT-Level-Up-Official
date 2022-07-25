@@ -5,6 +5,8 @@
     import Initiative from "./Initiative.svelte";
     import StatusTrack from "./StatusTrack.svelte";
 
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+
     export let actor;
 </script>
 
@@ -35,6 +37,25 @@
         />
 
         <Health {actor} />
+    </div>
+
+    <div class="u-flex u-gap-xl">
+        <div class="u-flex-grow">
+            <input
+                v-else
+                type="text"
+                name="name"
+                value={$actor.name}
+                class="a5e-input a5e-input--character-name"
+                placeholder="Name"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    )}
+            />
+        </div>
     </div>
 
     <ul class="ability-score-list">
