@@ -11,7 +11,12 @@
 </script>
 
 <div class="health-container">
-    <meter class="health-bar" min="0" :max="hp.max" :value="hp.value">
+    <meter
+        class="health-bar"
+        min="0"
+        max={$actor.system.attributes.hp.max}
+        value={$actor.system.attributes.hp.value}
+    >
         {$actor.system.attributes.hp.value} / {$actor.system.attributes.hp.max}
     </meter>
 
