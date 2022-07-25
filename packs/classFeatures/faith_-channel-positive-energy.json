@@ -1,0 +1,64 @@
+{
+	"name": "Faith: Channel Positive Energy",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": "spellcasting",
+		"actionOptions": [
+			"healing"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [],
+		"description": "<p>You can use an action to evoke energy from the Upper Planes to heal creatures you are able to see. You choose the creatures and divide 200 hit points of healing among them.</p><p>A creature that regains hit points from this feature is also healed of one level of fatigue and one level of strife, and if it is blinded, charmed, confused, deafened, doomed, frightened, paralyzed, petrified, poisoned, rattled, slowed, or stunned those conditions end for it. This feature cannot be used on undead or constructs.</p>",
+		"duration": {
+			"unit": "instantaneous",
+			"value": ""
+		},
+		"healing": [
+			{
+				"formula": "200",
+				"healingType": "healing",
+				"name": "Shared healing pool"
+			}
+		],
+		"proficient": true,
+		"range": [
+			"Within line of sight"
+		],
+		"save": {
+			"dc": "8 + @prof + @wis.mod",
+			"onSave": "Half damage and no afflicted condition",
+			"targetAbility": "cha"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": ""
+		},
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "longRest"
+		},
+		"featureType": "class"
+	},
+	"_id": "rodggck0r4lqfn72"
+}

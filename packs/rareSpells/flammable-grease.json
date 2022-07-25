@@ -1,79 +1,77 @@
 {
-  "name": "Flammable Grease",
-  "type": "spell",
-  "img": "icons/magic/water/vortex-water-whirlpool-blue.webp",
-  "data": {
-    "ability": "spellcasting",
-    "actionOptions": [
-      "savingThrow"
-    ],
-    "activation": {
-      "cost": 1,
-      "type": "action",
-      "reactionTrigger": ""
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": 20,
-      "type": ""
-    },
-    "area": {
-      "shape": "",
-      "size": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [],
-    "description": "<p>Grease erupts from a point that you can see within range and coats the ground in the area, turning it into difficult terrain until the spell ends.</p><p>When the grease appears, each creature within the area must succeed on a Dexterity saving throw or fall prone. A creature that enters or ends its turn in the area must also succeed on a Dexterity saving throw or fall prone.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Flammable Grease.</strong> Until the spell ends, a creature that has made a saving throw against it gets grease on itself and becomes flammable. When the creature takes fire damage, it takes 1d6 ongoing fire damage until it uses an action to douse the flames.</p>",
-    "duration": {
-      "unit": "minute",
-      "value": "1"
-    },
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "medium"
-    ],
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Dexterity negates.",
-      "targetAbility": "dex"
-    },
-    "source": "",
-    "target": {
-      "quantity": "",
-      "type": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "drop of grease",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "arcane",
-        "earth"
-      ]
-    }
-  },
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.sh69jpyfm16zgem5"
-    }
-  },
-  "_id": "z4lz0clok5b3qln1"
+	"name": "Flammable Grease",
+	"type": "spell",
+	"img": "icons/magic/water/vortex-water-whirlpool-blue.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": "spellcasting",
+		"actionOptions": [
+			"savingThrow"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [],
+		"description": "<p>Grease erupts from a point that you can see within range and coats the ground in the area, turning it into difficult terrain until the spell ends.</p><p>When the grease appears, each creature within the area must succeed on a Dexterity saving throw or fall prone. A creature that enters or ends its turn in the area must also succeed on a Dexterity saving throw or fall prone.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Flammable Grease.</strong> Until the spell ends, a creature that has made a saving throw against it gets grease on itself and becomes flammable. When the creature takes fire damage, it takes 1d6 ongoing fire damage until it uses an action to douse the flames.</p>",
+		"duration": {
+			"unit": "minute",
+			"value": "1"
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"medium"
+		],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Dexterity negates.",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": "area",
+			"shape": "cube",
+			"size": "10 ft."
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "drop of grease",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"earth"
+			]
+		}
+	},
+	"_id": "5bg28uuc3nufme7c"
 }

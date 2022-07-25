@@ -1,0 +1,66 @@
+{
+	"name": "Channel Divinity: Radiant Burst (Sun Priest)",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": null,
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "sphere",
+			"size": "30 ft. radius"
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": false,
+				"damageType": "radiant",
+				"formula": "2d10 + @level",
+				"name": "Radiant Burst"
+			}
+		],
+		"description": "<p>Starting at 2nd level, you can use an action to clutch your holy symbol and emit a bright blast. In addition to dispelling any magical darkness within 30 feet, enemy creatures within 30 feet make a Constitution saving throw or are blinded by the light for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>Alternatively, you can choose to make the light more harmful. On a failed saving throw a creature takes radiant damage equal to 2d10 + your cleric level, or half damage on a success.&nbsp;</p>",
+		"duration": {
+			"unit": "instantaneous",
+			"value": ""
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"self"
+		],
+		"save": {
+			"dc": "8 + @prof + @wis.mod",
+			"onSave": "Half damage",
+			"targetAbility": "con"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": "creature"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"featureType": "class"
+	},
+	"_id": "tqnen4fkuw4em2id"
+}

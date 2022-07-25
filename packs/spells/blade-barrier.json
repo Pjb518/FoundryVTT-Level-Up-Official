@@ -1,84 +1,85 @@
 {
-  "name": "Blade Barrier",
-  "type": "spell",
-  "img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
-  "data": {
-    "ability": "spellcasting",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
-    "activation": {
-      "cost": 1,
-      "type": "action",
-      "reactionTrigger": ""
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": 20,
-      "type": ""
-    },
-    "area": {
-      "shape": "",
-      "size": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [
-      {
-        "canCrit": false,
-        "damageType": "slashing",
-        "formula": "6d10",
-        "name": ""
-      }
-    ],
-    "description": "<p>You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.</p><p>When a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 6th.</p>",
-    "duration": {
-      "unit": "minute",
-      "value": "10"
-    },
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "long"
-    ],
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    },
-    "source": "",
-    "target": {
-      "quantity": "",
-      "type": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 6,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "divine",
-        "protection",
-        "weaponry"
-      ]
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "gn6kudkvm0tti3ds"
+	"name": "Blade Barrier",
+	"type": "spell",
+	"img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": "spellcasting",
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": false,
+				"damageType": "slashing",
+				"formula": "6d10",
+				"name": ""
+			}
+		],
+		"description": "<p>You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.</p><p>When a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 6th.</p>",
+		"duration": {
+			"unit": "minute",
+			"value": "10"
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"long"
+		],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": "Area",
+			"size": "Wall, varies"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 6,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"divine",
+				"protection",
+				"weaponry"
+			]
+		}
+	},
+	"_id": "0rp6zbkw29ovxm1w"
 }

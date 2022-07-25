@@ -9,7 +9,7 @@ import glob from 'glob';
 
 const PACK_DEST = './public/packs';
 const PACK_SRC = './packs';
-const ids = [];
+const ids = new Set();
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /**
@@ -30,6 +30,7 @@ function cleanDocument(data, { clearSourceId = false } = { }) {
   if (clearSourceId) delete data.flags?.core?.sourceId;
   delete data.flags?.exportSource;
   delete data.flags?.importSource;
+  delete data?._stats;
 
   if (!data.flags) data.flags = {};
   Object.entries(data.flags).forEach(([flag, flagData]) => {
@@ -40,16 +41,7 @@ function cleanDocument(data, { clearSourceId = false } = { }) {
     if (Object.keys(flagData).length === 0) delete data.flags[flag];
   });
 
-  // FIXME: Remove Later - Old area information
-  if (!data.data?.target) data.data.target = {};
-  // eslint-disable-next-line no-unused-vars
-  Object.entries(data.data.target).forEach(([property, value]) => {
-    if (!['quantity', 'type'].includes(property)) delete data.flags[property];
-  });
-
   // Remove Permission information
-  // TODO:Deprecated
-  if (data.permission) data.permission = { default: 0 };
   if (data.ownership) data.ownership = { default: 0 };
 
   // Recurse for subDocuments
@@ -61,10 +53,21 @@ function cleanDocument(data, { clearSourceId = false } = { }) {
 function generateId() {
   // Generate id
   let id = randomID();
-  while (ids.includes(id)) id = randomID();
-  ids.push(id);
+  while (ids.has(id)) id = randomID();
+  ids.add(id);
 
   return id;
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/**
+ * Populates the internal id records with all existing ids to prevent duplicate ids
+ */
+function getExistingIds(filenames) {
+  filenames.forEach((file) => {
+    const json = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' })).toString();
+    if (json._id) { ids.add(json._id); }
+  });
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -85,13 +88,19 @@ function compilePacks() {
 
     const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
+    getExistingIds(filenames);
+
     filenames.forEach((file) => {
       try {
         const json = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }).toString());
         cleanDocument(json);
 
         if (!json._id) {
-          json._id = generateId();
+          const genId = generateId();
+          json._id = genId;
+
+          // Clear Source ID
+          cleanDocument(json, { clearSourceId: true });
 
           // Edit original file with id and cleaned data
           fs.writeFileSync(file, JSON.stringify(json, null, '\t'), { encoding: 'utf-8' });

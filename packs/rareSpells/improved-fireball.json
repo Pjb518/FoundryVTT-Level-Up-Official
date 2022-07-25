@@ -1,87 +1,85 @@
 {
-  "name": "Improved Fireball",
-  "type": "spell",
-  "img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
-  "data": {
-    "ability": "spellcasting",
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
-    "activation": {
-      "cost": 1,
-      "type": "action",
-      "reactionTrigger": ""
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": 20,
-      "type": ""
-    },
-    "area": {
-      "shape": "",
-      "size": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [
-      {
-        "canCrit": false,
-        "damageType": "fire",
-        "formula": "8d6",
-        "name": ""
-      }
-    ],
-    "description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Improved Fireball.</strong> The fireball deals 8d6 fire damage. </p><p></p>",
-    "duration": {
-      "unit": "instantaneous",
-      "value": ""
-    },
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "long"
-    ],
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    },
-    "source": "",
-    "target": {
-      "quantity": "",
-      "type": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 3,
-    "materials": "bat guano and sulfur",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "fire"
-      ]
-    }
-  },
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.8zv4wn88pcx9eu72"
-    }
-  },
-  "_id": "vvhbn5ioa0q5mavk"
+	"name": "Improved Fireball",
+	"type": "spell",
+	"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": "spellcasting",
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": false,
+				"damageType": "fire",
+				"formula": "8d6",
+				"name": ""
+			}
+		],
+		"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Improved Fireball.</strong> The fireball deals 8d6 fire damage. </p><p></p>",
+		"duration": {
+			"unit": "instantaneous",
+			"value": ""
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"long"
+		],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": "area",
+			"shape": "sphere",
+			"size": "20 ft."
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "bat guano and sulfur",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire"
+			]
+		}
+	},
+	"_id": "fkjaajqn7oae5rx5"
 }
