@@ -86,10 +86,6 @@
             border-radius: 100px;
             box-shadow: 0 0 7.5px #ccc inset;
             cursor: pointer;
-
-            &:hover > .a5e-tooltip {
-                display: block;
-            }
         }
 
         &-value {
