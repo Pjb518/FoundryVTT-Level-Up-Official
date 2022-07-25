@@ -7,10 +7,10 @@
 
     import AbilityScore from "../components/AbilityScore.svelte";
 
-    export let { actorId } = getContext("external").application;
+    export let { actorDocument } = getContext("external").application;
     export let elementRoot;
 
-    const actor = new TJSDocument(game.actors.get(actorId));
+    const actor = new TJSDocument(actorDocument);
 </script>
 
 <ApplicationShell bind:elementRoot>

@@ -6,5 +6,5 @@ export default function rollAbilityCheck(actor, abilityLabel, event) {
 
   if (rollMode) options.rollMode = rollMode;
 
-  actor.rollSavingThrow(abilityLabel, options);
+  actor.rollAbilityCheck(abilityLabel, options);
 }

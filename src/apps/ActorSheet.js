@@ -6,10 +6,19 @@ export default class ActorSheet extends SvelteApplication {
   /**
    * @inheritDoc
    */
-  constructor(options = {}) {
-    super(options);
-
-    this.actorId = options.id;
+  constructor(actor, options = {}) {
+    super(foundry.utils.mergeObject(
+      options,
+      {
+        id: `actor-sheet-${actor.id}`,
+        title: actor.name,
+        svelte: {
+          props: {
+            actorDocument: actor
+          }
+        }
+      }
+    ));
   }
 
   /**
@@ -20,19 +29,14 @@ export default class ActorSheet extends SvelteApplication {
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: this.actorId,
       resizable: true,
       minimizable: true,
       width: 880,
       height: 650,
-      title: 'Character Sheet Test',
 
       svelte: {
         class: ActorSheetComponent,
-        target: document.body,
-        props: function () {
-          return { actorId: this.actorId };
-        }
+        target: document.body
       }
     });
   }
