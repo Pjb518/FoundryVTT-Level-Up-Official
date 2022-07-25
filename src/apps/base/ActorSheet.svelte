@@ -15,7 +15,7 @@
 
 <ApplicationShell bind:elementRoot>
     <main>
-        <ul class="u-flex u-font-serif u-gap-md u-list-style-none u-m-0 u-pl-0">
+        <ul class="ability-score-list">
             {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
                 <AbilityScore {ability} {abilityLabel} {actor} />
             {/each}
@@ -24,4 +24,12 @@
 </ApplicationShell>
 
 <style>
+    .ability-score-list {
+        display: flex;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Modesto Condensed", serif;
+    }
 </style>
