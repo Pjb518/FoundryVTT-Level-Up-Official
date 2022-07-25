@@ -9,43 +9,39 @@
     export let actor;
 </script>
 
-<div>
-    <li class="ability-score-container">
-        <h4 class="ability-score-name">{abilityLabel}</h4>
+<li class="ability-score-container">
+    <h4 class="ability-score-heading">{abilityLabel}</h4>
 
-        <input
-            class="ability-score-value"
-            name={`system.abilities.${abilityLabel}.value`}
-            type="number"
-            value={ability.value}
-            on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
-            placeholder="10"
-        />
+    <input
+        class="ability-score-value"
+        name={`system.abilities.${abilityLabel}.value`}
+        type="number"
+        value={ability.value}
+        on:change={({ target }) =>
+            updateDocumentDataFromField($actor, target.name, target.value)}
+        placeholder="10"
+    />
 
-        <div class="ability-score-buttons">
-            <div
-                class="ability-score-roll-button"
-                on:click={(event) =>
-                    rollAbilityCheck($actor, abilityLabel, event)}
-                data-tooltip="A5E.RollAbilityCheck"
-                data-tooltip-direction="DOWN"
-            >
-                {ability.check.deterministicBonus}
-            </div>
-
-            <div
-                class="ability-score-roll-button"
-                on:click={(event) =>
-                    rollSavingThrow($actor, abilityLabel, event)}
-                data-tooltip="A5E.RollSavingThrow"
-                data-tooltip-direction="DOWN"
-            >
-                {ability.save.deterministicBonus}
-            </div>
+    <div class="ability-score-buttons">
+        <div
+            class="ability-score-roll-button"
+            on:click={(event) => rollAbilityCheck($actor, abilityLabel, event)}
+            data-tooltip="A5E.RollAbilityCheck"
+            data-tooltip-direction="DOWN"
+        >
+            {ability.check.deterministicBonus}
         </div>
-    </li>
-</div>
+
+        <div
+            class="ability-score-roll-button"
+            on:click={(event) => rollSavingThrow($actor, abilityLabel, event)}
+            data-tooltip="A5E.RollSavingThrow"
+            data-tooltip-direction="DOWN"
+        >
+            {ability.save.deterministicBonus}
+        </div>
+    </div>
+</li>
 
 <style lang="scss">
     .ability-score {
@@ -70,7 +66,7 @@
             width: 100%;
         }
 
-        &-name {
+        &-heading {
             font-size: 1.2rem;
         }
 

@@ -1,4 +1,4 @@
-import getRollModeFromEvent from "../utils/getRollModeFromEvent";
+import getRollModeFromEvent from '../utils/getRollModeFromEvent';
 
 export default function rollAbilityCheck(actor, abilityLabel, event) {
   const options = {};

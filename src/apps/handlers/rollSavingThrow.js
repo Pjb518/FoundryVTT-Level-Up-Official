@@ -1,4 +1,4 @@
-import getRollModeFromEvent from "../utils/getRollModeFromEvent";
+import getRollModeFromEvent from '../utils/getRollModeFromEvent';
 
 export default function rollSavingThrow(actor, abilityLabel, event) {
   const options = {};
