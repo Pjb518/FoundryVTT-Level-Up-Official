@@ -56,11 +56,30 @@
                     )}
             />
         </div>
+
+        {#if $actor.type === "character"}
+            <div class="u-flex u-text-medium">
+                <input
+                    class="a5e-input a5e-input--classes"
+                    type="text"
+                    name="system.details.classes"
+                    value={$actor.system.details.classes}
+                    placeholder="Class"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
+            </div>
+        {/if}
     </div>
 
     <ul class="ability-score-list">
         <ArmorClass {actor} />
         <Initiative {actor} />
+
         {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
             <AbilityScore {ability} {abilityLabel} {actor} />
         {/each}
