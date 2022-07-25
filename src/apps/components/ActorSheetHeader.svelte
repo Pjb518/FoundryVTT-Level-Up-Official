@@ -1,6 +1,7 @@
 <script>
     import AbilityScore from "./AbilityScore.svelte";
     import StatusTrack from "./StatusTrack.svelte";
+    import Health from "./Health.svelte";
 
     export let actor;
 </script>
@@ -30,6 +31,8 @@
             trackProperty="strife"
             value={$actor.system.attributes.strife}
         />
+
+        <Health {actor} />
     </div>
 
     <ul class="ability-score-list">
