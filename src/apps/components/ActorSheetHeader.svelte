@@ -1,8 +1,9 @@
 <script>
     import AbilityScore from "./AbilityScore.svelte";
-    import StatusTrack from "./StatusTrack.svelte";
-    import Health from "./Health.svelte";
     import ArmorClass from "./ArmorClass.svelte";
+    import Health from "./Health.svelte";
+    import Initiative from "./Initiative.svelte";
+    import StatusTrack from "./StatusTrack.svelte";
 
     export let actor;
 </script>
@@ -38,6 +39,7 @@
 
     <ul class="ability-score-list">
         <ArmorClass {actor} />
+        <Initiative {actor} />
         {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
             <AbilityScore {ability} {abilityLabel} {actor} />
         {/each}
