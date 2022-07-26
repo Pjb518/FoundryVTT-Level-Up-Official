@@ -30,13 +30,14 @@ jobs:
         key: npm-${{ hashFiles('package-lock.json') }}
 
     # Install npm dependencies
-    - name: Install NPM Dependencies
-      if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
-      run: npm install
+    - name: Install Dependencies
+      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      run: |
+        npm ci
 
     # Builds Packs
     - name: Build System
-      run: npm build
+      run: npm run build
 
     # get part of the tag after the `v`
     - name: Extract tag version number
@@ -69,6 +70,6 @@ jobs:
         name: ${{ github.event.release.name }}
         draft: false
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './dist/system.json, ./dist/pf2e.zip'
+        artifacts: './dist/system.json, ./dist/a5e.zip'
         tag: ${{ github.event.release.tag_name }}
         body: ${{ github.event.release.body }}
