@@ -20,7 +20,7 @@
     <i class="track-icon fas {icon} {`track-icon-level-${value}`}" />
 
     <ul class="track-items">
-        {#each [1, 2, 3, 4, 5, 6, 7] as degree}
+        {#each [0, 1, 2, 3, 4, 5, 6, 7] as degree}
             <li
                 class="track-item a5e-js-track-item {value === degree
                     ? 'track-item-selected'
