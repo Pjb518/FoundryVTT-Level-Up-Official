@@ -1,8 +1,7 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import rollInitiative from "../handlers/rollInitiative";
+    import rollInitiative from "../../handlers/rollInitiative";
 
     const actor = getContext("actor");
 </script>

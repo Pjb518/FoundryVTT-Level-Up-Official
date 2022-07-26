@@ -5,7 +5,7 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
 
-    import ActorSheetHeader from "../components/ActorSheetHeader.svelte";
+    import ActorSheetHeader from "../components/ActorSheetHeader/ActorSheetHeader.svelte";
 
     export let { actorDocument } = getContext("external").application;
     export let elementRoot;

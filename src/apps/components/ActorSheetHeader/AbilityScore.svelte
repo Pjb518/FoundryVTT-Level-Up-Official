@@ -1,10 +1,10 @@
 <script>
     import { getContext } from "svelte";
 
-    import rollAbilityCheck from "../handlers/rollAbilityCheck";
-    import rollSavingThrow from "../handlers/rollSavingThrow";
+    import rollAbilityCheck from "../../handlers/rollAbilityCheck";
+    import rollSavingThrow from "../../handlers/rollSavingThrow";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let ability;
     export let abilityLabel;

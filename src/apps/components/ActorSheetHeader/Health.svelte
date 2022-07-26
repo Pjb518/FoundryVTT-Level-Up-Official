@@ -2,8 +2,10 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import computeTotalAvailableHitDice from "../utils/computeTotalAvailableHitDice";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import HitPointBar from "./HitPointBar.svelte";
+
+    import computeTotalAvailableHitDice from "../../utils/computeTotalAvailableHitDice";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let availableHitDice;
     export let hp;
@@ -15,9 +17,7 @@
 </script>
 
 <div class="health-container">
-    <meter class="health-bar" min="0" max={hp.max} value={hp.value}>
-        {hp.value} / {hp.max}
-    </meter>
+    <HitPointBar {hp} />
 
     <div class="health-bar-values">
         <input
@@ -149,30 +149,6 @@
     }
 
     .health {
-        &-bar {
-            position: absolute;
-            z-index: -1;
-            left: 50%;
-            width: 9rem;
-            height: 1.2rem;
-            appearance: meter;
-            transform: translateX(-50%);
-
-            &::-webkit-meter-bar,
-            &::-webkit-meter-inner-element {
-                width: 100%;
-                height: 1.2rem;
-                border: 0;
-                background: #bbb;
-                outline: none;
-            }
-
-            // Set the bar colour
-            &::-webkit-meter-optimum-value {
-                background: #0b5a2f;
-            }
-        }
-
         &-container {
             position: absolute;
             bottom: 1.25rem;

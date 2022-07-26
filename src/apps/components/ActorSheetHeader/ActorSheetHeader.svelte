@@ -8,7 +8,7 @@
     import Initiative from "./Initiative.svelte";
     import StatusTrack from "./StatusTrack.svelte";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
 </script>
