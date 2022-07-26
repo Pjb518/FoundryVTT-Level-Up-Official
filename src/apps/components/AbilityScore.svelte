@@ -1,4 +1,6 @@
 <script>
+    import { getContext } from "svelte";
+
     import rollAbilityCheck from "../handlers/rollAbilityCheck";
     import rollSavingThrow from "../handlers/rollSavingThrow";
 
@@ -6,7 +8,8 @@
 
     export let ability;
     export let abilityLabel;
-    export let actor;
+
+    const actor = getContext("actor");
 </script>
 
 <li class="ability-score-container">

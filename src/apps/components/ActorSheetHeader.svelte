@@ -1,4 +1,6 @@
 <script>
+    import { getContext } from "svelte";
+
     import AbilityScore from "./AbilityScore.svelte";
     import ArmorClass from "./ArmorClass.svelte";
     import Health from "./Health.svelte";
@@ -7,21 +9,20 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let actor;
+    const actor = getContext("actor");
 </script>
 
 <header class="sheet-header">
     <div class="a5e-sheet-header__left">
         <img
+            class="a5e-image a5e-image--actor-header"
             src={$actor.img}
             alt={$actor.name}
             title={$actor.name}
             data-edit="img"
-            class="a5e-image a5e-image--actor-header"
         />
 
         <StatusTrack
-            {actor}
             icon="fa-running"
             tooltipText="A5E.Fatigue"
             trackProperty="fatigue"
@@ -29,14 +30,13 @@
         />
 
         <StatusTrack
-            {actor}
             icon="fa-brain"
             tooltipText="A5E.Strife"
             trackProperty="strife"
             value={$actor.system.attributes.strife}
         />
 
-        <Health {actor} />
+        <Health />
     </div>
 
     <div class="u-flex u-gap-xl">
@@ -76,14 +76,16 @@
         {/if}
     </div>
 
-    <ul class="ability-score-list">
-        <ArmorClass {actor} />
-        <Initiative {actor} />
+    <div>
+        <ul class="ability-score-list">
+            <ArmorClass />
+            <Initiative />
 
-        {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-            <AbilityScore {ability} {abilityLabel} {actor} />
-        {/each}
-    </ul>
+            {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
+                <AbilityScore {ability} {abilityLabel} />
+            {/each}
+        </ul>
+    </div>
 </header>
 
 <style>

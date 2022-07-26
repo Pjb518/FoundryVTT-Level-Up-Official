@@ -1,9 +1,10 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { getContext } from "svelte";
 
     import rollInitiative from "../handlers/rollInitiative";
 
-    export let actor;
+    const actor = getContext("actor");
 </script>
 
 <li class="initiative-container">
@@ -38,7 +39,6 @@
             font-family: "Modesto Condensed", serif;
             border-radius: 3px;
             width: 100%;
-            height: 100%;
         }
 
         &-heading {

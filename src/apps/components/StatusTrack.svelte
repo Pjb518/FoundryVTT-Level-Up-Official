@@ -1,11 +1,13 @@
 <script>
+    import { getContext } from "svelte";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let actor;
     export let icon;
     export let tooltipText;
     export let trackProperty;
     export let value;
+
+    const actor = getContext("actor");
 </script>
 
 <div

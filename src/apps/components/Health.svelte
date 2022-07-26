@@ -1,23 +1,22 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { getContext } from "svelte";
 
     import computeTotalAvailableHitDice from "../utils/computeTotalAvailableHitDice";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let actor;
     export let availableHitDice;
+    export let hp;
+
+    const actor = getContext("actor");
 
     $: availableHitDice = computeTotalAvailableHitDice($actor);
+    $: hp = $actor.system.attributes.hp;
 </script>
 
 <div class="health-container">
-    <meter
-        class="health-bar"
-        min="0"
-        max={$actor.system.attributes.hp.max}
-        value={$actor.system.attributes.hp.value}
-    >
-        {$actor.system.attributes.hp.value} / {$actor.system.attributes.hp.max}
+    <meter class="health-bar" min="0" max={hp.max} value={hp.value}>
+        {hp.value} / {hp.max}
     </meter>
 
     <div class="health-bar-values">
@@ -25,7 +24,7 @@
             class="current-hp"
             type="number"
             name="system.attributes.hp.value"
-            value={$actor.system.attributes.hp.value}
+            value={hp.value}
             placeholder="0"
             min="0"
             on:change={({ target }) =>
@@ -40,7 +39,7 @@
             class="max-hp"
             type="number"
             name="system.attributes.hp.max"
-            value={$actor.system.attributes.hp.max}
+            value={hp.max}
             placeholder="0"
             min="0"
             disabled
@@ -53,7 +52,7 @@
             type="number"
             name="system.attributes.hp.temp"
             min="0"
-            value={$actor.system.attributes.hp.temp || ""}
+            value={hp.temp || ""}
             placeholder={localize("A5E.HitPointsTemporaryLabel")}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
@@ -68,7 +67,7 @@
             type="number"
             name="data.attributes.hp.bonus"
             data-dtype="Number"
-            value={$actor.system.attributes.hp.bonus || ""}
+            value={hp.bonus || ""}
             placeholder={localize("A5E.HitPointsMaxModifierLabel")}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
