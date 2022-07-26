@@ -88,23 +88,29 @@ function compilePacks() {
 
     const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
+    // Get existing ids
     getExistingIds(filenames);
 
     filenames.forEach((file) => {
       try {
         const json = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }).toString());
-        cleanDocument(json);
 
         if (!json._id) {
-          const genId = generateId();
+          /**
+           * @type {String}
+           */
+          const sourceId = json.flags?.core?.sourceId;
+          const prevId = sourceId ? sourceId.split('.').slice() : null;
+          const genId = ids.has(prevId) ? prevId : generateId();
           json._id = genId;
 
           // Clear Source ID
-          cleanDocument(json, { clearSourceId: true });
+          if (genId === prevId) cleanDocument(json, { clearSourceId: false });
+          else cleanDocument(json, { clearSourceId: true });
 
           // Edit original file with id and cleaned data
           fs.writeFileSync(file, JSON.stringify(json, null, '\t'), { encoding: 'utf-8' });
-        }
+        } else { cleanDocument(json); }
 
         data.push(json);
       } catch (e) {
