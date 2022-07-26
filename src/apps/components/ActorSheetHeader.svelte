@@ -3,6 +3,7 @@
 
     import AbilityScore from "./AbilityScore.svelte";
     import ArmorClass from "./ArmorClass.svelte";
+    import AttributeWrapper from "./AttributeWrapper.svelte";
     import Health from "./Health.svelte";
     import Initiative from "./Initiative.svelte";
     import StatusTrack from "./StatusTrack.svelte";
@@ -78,11 +79,18 @@
 
     <div>
         <ul class="ability-score-list">
-            <ArmorClass />
-            <Initiative />
+            <AttributeWrapper heading="A5E.ArmorClassAbbr">
+                <ArmorClass />
+            </AttributeWrapper>
+
+            <AttributeWrapper heading="A5E.Initiative">
+                <Initiative />
+            </AttributeWrapper>
 
             {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-                <AbilityScore {ability} {abilityLabel} />
+                <AttributeWrapper heading={abilityLabel}>
+                    <AbilityScore {ability} {abilityLabel} />
+                </AttributeWrapper>
             {/each}
         </ul>
     </div>

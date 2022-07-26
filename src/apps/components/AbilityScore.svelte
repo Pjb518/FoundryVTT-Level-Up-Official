@@ -12,39 +12,35 @@
     const actor = getContext("actor");
 </script>
 
-<li class="ability-score-container">
-    <h4 class="ability-score-heading">{abilityLabel}</h4>
+<input
+    class="ability-score-value"
+    name={`system.abilities.${abilityLabel}.value`}
+    type="number"
+    value={ability.value}
+    on:change={({ target }) =>
+        updateDocumentDataFromField($actor, target.name, target.value)}
+    placeholder="10"
+/>
 
-    <input
-        class="ability-score-value"
-        name={`system.abilities.${abilityLabel}.value`}
-        type="number"
-        value={ability.value}
-        on:change={({ target }) =>
-            updateDocumentDataFromField($actor, target.name, target.value)}
-        placeholder="10"
-    />
-
-    <div class="ability-score-buttons">
-        <div
-            class="ability-score-roll-button"
-            on:click={(event) => rollAbilityCheck($actor, abilityLabel, event)}
-            data-tooltip="A5E.RollAbilityCheck"
-            data-tooltip-direction="DOWN"
-        >
-            {ability.check.deterministicBonus}
-        </div>
-
-        <div
-            class="ability-score-roll-button"
-            on:click={(event) => rollSavingThrow($actor, abilityLabel, event)}
-            data-tooltip="A5E.RollSavingThrow"
-            data-tooltip-direction="DOWN"
-        >
-            {ability.save.deterministicBonus}
-        </div>
+<div class="ability-score-buttons">
+    <div
+        class="ability-score-roll-button"
+        on:click={(event) => rollAbilityCheck($actor, abilityLabel, event)}
+        data-tooltip="A5E.RollAbilityCheck"
+        data-tooltip-direction="DOWN"
+    >
+        {ability.check.deterministicBonus}
     </div>
-</li>
+
+    <div
+        class="ability-score-roll-button"
+        on:click={(event) => rollSavingThrow($actor, abilityLabel, event)}
+        data-tooltip="A5E.RollSavingThrow"
+        data-tooltip-direction="DOWN"
+    >
+        {ability.save.deterministicBonus}
+    </div>
+</div>
 
 <style lang="scss">
     .ability-score {
@@ -55,22 +51,6 @@
             align-items: center;
             justify-content: space-around;
             font-size: 1rem;
-        }
-
-        &-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            background: rgba(0, 0, 0, 0.05);
-            font-family: "Modesto Condensed", serif;
-            border-radius: 3px;
-            width: 100%;
-        }
-
-        &-heading {
-            font-size: 1.2rem;
         }
 
         &-roll-button {
