@@ -563,6 +563,11 @@ export default class Actor5e extends Actor {
     }
   }
 
+  get isBloodied() {
+    const { max, value } = this.system.attributes.hp;
+    return (value / max) * 100 <= 50;
+  }
+
   async modifyTokenAttribute(attribute, value, isDelta, isBar) {
     if (attribute === 'attributes.hp') {
       const hp = getProperty(this.system, attribute);

@@ -1,10 +1,14 @@
 <script>
+    import { getContext } from "svelte";
+
     export let primaryBarColor;
     export let hp;
     export let hpPrimaryPercentage;
     export let hpTempPercentage;
 
-    $: primaryBarColor = (hp.value / hp.max) * 100 > 50 ? "#0b5a2f" : "#8b2525";
+    const actor = getContext("actor");
+
+    $: primaryBarColor = $actor.isBloodied ? "#8b2525" : "#0b5a2f";
     $: hpPrimaryPercentage = Math.min((hp.value / hp.max) * 100, 100);
     $: hpTempPercentage = Math.min(((hp.temp || 0) / hp.max) * 100, 100);
 </script>

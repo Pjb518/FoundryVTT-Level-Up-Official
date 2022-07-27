@@ -46,7 +46,7 @@
         />
     </div> -->
 
-    <div class="health-secondary-values">
+    <!-- <div class="health-secondary-values">
         <input
             class="temp-hp"
             type="number"
@@ -92,7 +92,7 @@
         data-tooltip-direction="DOWN"
     >
         {availableHitDice}
-    </div>
+    </div> -->
 
     <!-- <div class="a5e-config-button a5e-config-button--health"         data-tooltip="A5E.HitPointsConfigurationTooltip"
         data-tooltip-direction="DOWN" >
