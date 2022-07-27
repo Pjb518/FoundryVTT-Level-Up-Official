@@ -29,6 +29,7 @@ export default class ActorSheet extends SvelteApplication {
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
+      classes: ['a5e-sheet'],
       resizable: true,
       minimizable: true,
       width: 880,

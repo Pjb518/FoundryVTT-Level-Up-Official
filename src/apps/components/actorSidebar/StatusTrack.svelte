@@ -64,8 +64,8 @@
 
         &-fatigue {
             z-index: 3;
-            top: 0;
-            left: 1rem;
+            top: -0.25rem;
+            left: -0.25rem;
         }
 
         &-icon {
@@ -132,8 +132,8 @@
         }
 
         &-strife {
-            top: 2.5rem;
-            left: -0.75rem;
+            top: -0.25rem;
+            right: -0.25rem;
         }
 
         &:hover {

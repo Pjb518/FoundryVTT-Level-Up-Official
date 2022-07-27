@@ -12,14 +12,14 @@
         z-index: -1;
         left: 50%;
         width: 9rem;
-        height: 1.2rem;
+        height: 1.1rem;
         appearance: meter;
         transform: translateX(-50%);
 
         &::-webkit-meter-bar,
         &::-webkit-meter-inner-element {
             width: 100%;
-            height: 1.2rem;
+            height: 1.1rem;
             border: 0;
             background: #bbb;
             outline: none;

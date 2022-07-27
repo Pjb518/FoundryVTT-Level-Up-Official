@@ -2,7 +2,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import HitPointBar from "./HitPointBar.svelte";
+    import HitPointBar from "./OldHitPointBar.svelte";
 
     import computeTotalAvailableHitDice from "../../utils/computeTotalAvailableHitDice";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -17,9 +17,9 @@
 </script>
 
 <div class="health-container">
-    <HitPointBar {hp} />
+    <!-- <HitPointBar {hp} /> -->
 
-    <div class="health-bar-values">
+    <!-- <div class="health-bar-values">
         <input
             class="current-hp"
             type="number"
@@ -44,7 +44,7 @@
             min="0"
             disabled
         />
-    </div>
+    </div> -->
 
     <div class="health-secondary-values">
         <input
@@ -151,10 +151,10 @@
     .health {
         &-container {
             position: absolute;
-            bottom: 1.25rem;
+            bottom: 0.75rem;
             left: 50%;
             width: 9rem;
-            height: 1.2rem;
+            height: 1.1rem;
             transform: translateX(-50%);
         }
 
@@ -164,7 +164,7 @@
             left: 50%;
             display: flex;
             width: 9rem;
-            height: 1.2rem;
+            height: 1.1rem;
             align-items: center;
             justify-content: center;
             color: lighten(#0b5a2f, 80%);

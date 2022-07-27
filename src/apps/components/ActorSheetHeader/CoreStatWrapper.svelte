@@ -3,14 +3,14 @@
     export let heading;
 </script>
 
-<li class="attribute-container">
-    <h4 class="attribute-heading">{localize(heading)}</h4>
+<li class="container">
+    <h4 class="heading">{localize(heading)}</h4>
 
     <slot />
 </li>
 
 <style lang="scss">
-    .attribute-container {
+    .container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,7 +22,8 @@
         width: 100%;
     }
 
-    .attribute-heading {
+    .heading {
         font-size: 1.2rem;
+        margin-bottom: 0;
     }
 </style>
