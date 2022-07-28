@@ -16,7 +16,6 @@
         type="number"
         name="system.attributes.hp.bonus"
         value={hp.bonus}
-        min="0"
         placeholder="0"
         on:change={({ target }) =>
             updateDocumentDataFromField(

@@ -54,7 +54,7 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        bottom: -2.5rem;
+        bottom: -2.75rem;
         left: 50%;
         width: 3.5rem;
         font-size: 1rem;
