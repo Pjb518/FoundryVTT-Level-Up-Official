@@ -43,6 +43,7 @@
                 name="system.attributes.hp.{key}"
                 {value}
                 min={key !== "bonus" ? 0 : ""}
+                disabled={key === "max"}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,
