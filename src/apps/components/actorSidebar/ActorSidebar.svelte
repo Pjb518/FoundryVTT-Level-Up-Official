@@ -1,11 +1,9 @@
 <script>
     import { getContext } from "svelte";
 
-    import BonusHpDisplay from "./BonusHPDisplay.svelte";
     import HitPointBar from "./HitPointBar.svelte";
-    import PrimaryHPDisplay from "./PrimaryHPDisplay.svelte";
+    import HitPointValues from "./HitPointValues.svelte";
     import StatusTrack from "./StatusTrack.svelte";
-    import TempHPDisplay from "./TempHPDisplay.svelte";
 
     export let hp;
 
@@ -41,11 +39,7 @@
         />
     </div>
 
-    <div style="display: flex; gap: 0.25rem;">
-        <TempHPDisplay {hp} />
-        <PrimaryHPDisplay {hp} />
-        <BonusHpDisplay {hp} />
-    </div>
+    <HitPointValues {hp} />
 </div>
 
 <style lang="scss">
