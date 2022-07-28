@@ -33,9 +33,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        bottom: -1.5rem;
-        right: 0;
         width: 3.5rem;
         font-size: 1rem;
         font-family: "Modesto Condensed", serif;

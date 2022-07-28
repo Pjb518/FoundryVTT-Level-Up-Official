@@ -8,7 +8,7 @@
 </script>
 
 <div class="hit-point-wrapper">
-    <label class="hp-label" for="{$actor.id}-current-hp">Current HP</label>
+    <label class="hp-label" for="{$actor.id}-current-hp">Curr. HP</label>
 
     <input
         id="{$actor.id}-current-hp"
@@ -25,9 +25,9 @@
             )}
         on:click={({ target }) => target.select()}
     />
+</div>
 
-    <hr class="divider" />
-
+<div class="hit-point-wrapper">
     <label class="hp-label" for="{$actor.id}-max-hp">Max HP</label>
 
     <input
@@ -53,9 +53,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        bottom: -2.75rem;
-        left: 50%;
         width: 3.5rem;
         font-size: 1rem;
         font-family: "Modesto Condensed", serif;
@@ -64,7 +61,6 @@
         border-radius: 4px;
         background: #f6f2eb;
         box-shadow: 0 0 10px #ccc inset;
-        transform: translateX(-50%);
         z-index: 4;
     }
 

@@ -49,11 +49,11 @@
             --bar-thickness: 10px;
 
             background: conic-gradient(
-                from 18deg,
+                from 45deg,
                 var(--primary-bar-color)
-                    calc(var(--primary-hp-percentage) * 0.9%),
-                #ccc calc(var(--primary-hp-percentage) * 0.9%),
-                #ccc 324deg,
+                    calc(var(--primary-hp-percentage) * 0.75%),
+                #ccc calc(var(--primary-hp-percentage) * 0.75%),
+                #ccc 270deg,
                 transparent 0
             );
 
@@ -64,9 +64,9 @@
             --bar-thickness: 5px;
 
             background: conic-gradient(
-                from 18deg,
+                from 45deg,
                 var(--secondary-bar-color)
-                    calc(var(--temp-hp-percentage) * 0.9%),
+                    calc(var(--temp-hp-percentage) * 0.75%),
                 transparent 0
             );
 

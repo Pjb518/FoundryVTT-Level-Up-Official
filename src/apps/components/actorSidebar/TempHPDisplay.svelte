@@ -9,7 +9,7 @@
 </script>
 
 <div class="hit-point-wrapper">
-    <label class="hp-label" for="{$actor.id}-temp-hp">Temporary HP</label>
+    <label class="hp-label" for="{$actor.id}-temp-hp">Temp. HP</label>
     <input
         id="{$actor.id}-temp-hp"
         class="temp-hp"
@@ -34,9 +34,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        bottom: -1.5rem;
-        left: 0;
         width: 3.5rem;
         font-size: 1rem;
         font-family: "Modesto Condensed", serif;

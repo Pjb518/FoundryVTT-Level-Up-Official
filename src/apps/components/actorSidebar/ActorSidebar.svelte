@@ -39,12 +39,12 @@
             trackProperty="strife"
             value={$actor.system.attributes.strife}
         />
+    </div>
 
+    <div style="display: flex; gap: 0.25rem;">
         <TempHPDisplay {hp} />
         <PrimaryHPDisplay {hp} />
         <BonusHpDisplay {hp} />
-
-        <!-- <HitPointValues /> -->
     </div>
 </div>
 
@@ -62,7 +62,7 @@
 
     .actor-portrait-wrapper {
         position: relative;
-        padding: 0 1.5rem 1rem 1.5rem;
+        padding: 0 1.5rem 0.125rem 1.5rem;
     }
 
     .actor-image {
