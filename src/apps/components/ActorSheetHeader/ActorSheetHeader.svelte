@@ -27,7 +27,7 @@
             />
         </div>
 
-        <!-- {#if $actor.type === "character"}
+        {#if $actor.type === "character"}
             <div class="u-flex u-text-medium">
                 <input
                     class="a5e-input a5e-input--classes"
@@ -43,7 +43,7 @@
                         )}
                 />
             </div>
-        {/if} -->
+        {/if}
     </div>
 
     <CoreStats />

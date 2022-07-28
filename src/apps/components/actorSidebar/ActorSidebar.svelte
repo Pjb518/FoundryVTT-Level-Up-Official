@@ -14,7 +14,7 @@
 
 <div class="actor-sidebar">
     <div class="actor-portrait-wrapper">
-        <HitPointBar hp={$actor.system.attributes.hp}>
+        <HitPointBar {hp}>
             <img
                 class="actor-image"
                 src={$actor.img}

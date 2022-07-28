@@ -4,8 +4,9 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let hp;
+    export let hpFields;
 
-    const hpFields = [
+    $: hpFields = [
         {
             key: "temp",
             label: "Temp. HP",
@@ -42,6 +43,7 @@
                 type="number"
                 name="system.attributes.hp.{key}"
                 {value}
+                placeholder="0"
                 min={key !== "bonus" ? 0 : ""}
                 disabled={key === "max"}
                 on:change={({ target }) =>
