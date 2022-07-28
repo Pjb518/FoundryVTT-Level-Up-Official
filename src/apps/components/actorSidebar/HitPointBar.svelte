@@ -46,37 +46,34 @@
         place-content: center;
 
         &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 9rem;
-            height: 9rem;
-            transform: rotate(180deg);
-            border-radius: 50%;
-            inset: 0;
+            --bar-thickness: 10px;
+
             background: conic-gradient(
-                from 18deg,
+                from 13.5deg,
                 var(--primary-bar-color)
-                    calc(var(--primary-hp-percentage) * 0.9%),
-                #ccc calc(var(--primary-hp-percentage) * 0.9%),
-                #ccc 324deg,
+                    calc(var(--primary-hp-percentage) * 0.925%),
+                #ccc calc(var(--primary-hp-percentage) * 0.925%),
+                #ccc 333deg,
                 transparent 0
-            );
-            -webkit-mask: radial-gradient(
-                farthest-side,
-                #0000 calc(99% - 10px),
-                #000 calc(100% - 10px)
-            );
-            mask: radial-gradient(
-                farthest-side,
-                #0000 calc(99% - 10px),
-                #000 calc(100% - 10px)
             );
 
             animation: fillPrimaryRing 1s 0.25s both;
         }
 
+        &:after {
+            --bar-thickness: 5px;
+
+            background: conic-gradient(
+                from 13.5deg,
+                var(--secondary-bar-color)
+                    calc(var(--temp-hp-percentage) * 0.925%),
+                transparent 0
+            );
+
+            animation: fillSecondaryRing 1s 0.25s both;
+        }
+
+        &:before,
         &:after {
             content: "";
             position: absolute;
@@ -87,24 +84,18 @@
             transform: rotate(180deg);
             border-radius: 50%;
             inset: 0;
-            background: conic-gradient(
-                from 18deg,
-                var(--secondary-bar-color)
-                    calc(var(--temp-hp-percentage) * 0.9%),
-                transparent 0
-            );
+
             -webkit-mask: radial-gradient(
                 farthest-side,
-                #0000 calc(99% - 5px),
-                #000 calc(100% - 5px)
-            );
-            mask: radial-gradient(
-                farthest-side,
-                #0000 calc(99% - 5px),
-                #000 calc(100% - 5px)
+                #0000 calc(99% - var(--bar-thickness)),
+                #000 calc(100% - var(--bar-thickness))
             );
 
-            animation: fillSecondaryRing 1s 0.25s both;
+            mask: radial-gradient(
+                farthest-side,
+                #0000 calc(99% - var(--bar-thickness)),
+                #000 calc(100% - var(--bar-thickness))
+            );
         }
     }
 
