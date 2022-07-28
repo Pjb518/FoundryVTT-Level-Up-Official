@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
 
     import CoreStats from "./CoreStats.svelte";
+    import Level from "./Level.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -9,8 +10,8 @@
 </script>
 
 <header class="sheet-header">
-    <div class="u-flex u-gap-xl">
-        <div class="u-flex-grow">
+    <section class="sheet-header-top">
+        <section class="sheet-header-top-left">
             <input
                 v-else
                 type="text"
@@ -25,10 +26,8 @@
                         target.value
                     )}
             />
-        </div>
 
-        {#if $actor.type === "character"}
-            <div class="u-flex u-text-medium">
+            <!-- {#if $actor.type === "character"}
                 <input
                     class="a5e-input a5e-input--classes"
                     type="text"
@@ -42,9 +41,13 @@
                             target.value
                         )}
                 />
-            </div>
-        {/if}
-    </div>
+            {/if} -->
+        </section>
+
+        <section>
+            <Level />
+        </section>
+    </section>
 
     <CoreStats />
 </header>
@@ -54,7 +57,20 @@
         display: flex;
         flex-direction: column;
         height: fit-content;
-        gap: 1rem;
+        gap: 0.5rem;
         padding: 0.75rem;
+        padding-bottom: 1.75rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .sheet-header-top {
+        display: flex;
+        width: 100%;
+    }
+
+    .sheet-header-top-left {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
     }
 </style>

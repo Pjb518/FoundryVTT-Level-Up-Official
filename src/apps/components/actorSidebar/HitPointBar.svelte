@@ -52,8 +52,8 @@
                 from 45deg,
                 var(--primary-bar-color)
                     calc(var(--primary-hp-percentage) * 0.75%),
-                #ccc calc(var(--primary-hp-percentage) * 0.75%),
-                #ccc 270deg,
+                rgba(0, 0, 0, 0.05) calc(var(--primary-hp-percentage) * 0.75%),
+                rgba(0, 0, 0, 0.05) 270deg,
                 transparent 0
             );
 

@@ -35,7 +35,7 @@
 <div class="hp-container">
     {#each hpFields as { key, label, value }}
         <div class="hp-box">
-            <label class="hp-label" for="{$actor.id}-current-hp">{label}</label>
+            <label class="hp-label" for="{$actor.id}-hp-{key}">{label}</label>
 
             <input
                 id="{$actor.id}-hp-{key}"
@@ -70,13 +70,13 @@
         align-items: center;
         justify-content: center;
         width: 3.5rem;
-        font-size: 1rem;
+        padding: 0.125rem 0;
         font-family: "Modesto Condensed", serif;
         color: #7e7960;
         border: 1px solid #ccc;
         border-radius: 4px;
         background: #f6f2eb;
-        box-shadow: 0 0 10px #ccc inset;
+        box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }
 
@@ -85,12 +85,13 @@
     }
 
     .hp-input {
+        height: unset;
         text-align: center;
         border: 0;
         background: transparent;
         padding-left: 0.25rem;
         padding-right: 0.25rem;
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         &:active,
         &:focus {

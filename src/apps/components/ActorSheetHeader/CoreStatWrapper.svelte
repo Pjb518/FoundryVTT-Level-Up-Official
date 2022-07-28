@@ -14,7 +14,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 0.25rem;
         padding-bottom: 0.25rem;
         background: rgba(0, 0, 0, 0.05);
         font-family: "Modesto Condensed", serif;
