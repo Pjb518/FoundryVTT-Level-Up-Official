@@ -185,3 +185,11 @@ Hooks.on('canvasInit', () => {
 });
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
+
+Hooks.on('init', () => {
+  class FastTooltipManager extends TooltipManager {
+    static TOOLTIP_ACTIVATION_MS = 100;
+  }
+
+  game.tooltip = new FastTooltipManager();
+});

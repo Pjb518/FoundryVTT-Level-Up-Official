@@ -52,10 +52,9 @@
 <style>
     .sheet-header {
         display: flex;
-        padding: 1rem;
-        padding-bottom: 0.75rem;
-        gap: 1rem;
-        height: fit-content;
         flex-direction: column;
+        height: fit-content;
+        gap: 1rem;
+        padding: 0.75rem;
     }
 </style>

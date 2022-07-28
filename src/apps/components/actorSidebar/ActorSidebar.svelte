@@ -1,11 +1,17 @@
 <script>
     import { getContext } from "svelte";
 
-    import Health from "./Health.svelte";
+    import BonusHpDisplay from "./BonusHPDisplay.svelte";
     import HitPointBar from "./HitPointBar.svelte";
+    import PrimaryHPDisplay from "./PrimaryHPDisplay.svelte";
     import StatusTrack from "./StatusTrack.svelte";
+    import TempHPDisplay from "./TempHPDisplay.svelte";
+
+    export let hp;
 
     const actor = getContext("actor");
+
+    $: hp = $actor.system.attributes.hp;
 </script>
 
 <div class="actor-sidebar">
@@ -34,7 +40,11 @@
             value={$actor.system.attributes.strife}
         />
 
-        <Health />
+        <TempHPDisplay {hp} />
+        <PrimaryHPDisplay {hp} />
+        <BonusHpDisplay {hp} />
+
+        <!-- <HitPointValues /> -->
     </div>
 </div>
 
@@ -42,10 +52,11 @@
     .actor-sidebar {
         display: flex;
         flex-direction: column;
+        flex-grow: 0;
         flex-shrink: 0;
         height: 100%;
-        width: fit-content;
-        padding: 1rem;
+        width: 217px;
+        padding: 0.75rem;
         border-right: 1px solid #ccc;
     }
 
