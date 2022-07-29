@@ -1,6 +1,6 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import ActorSheetComponent from './base/ActorSheet.svelte';
+import ItemSheetComponent from './base/ItemSheet.svelte';
 
 export default class ActorSheet extends SvelteApplication {
   /**
