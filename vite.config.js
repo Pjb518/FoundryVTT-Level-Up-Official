@@ -1,5 +1,4 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import vue from '@vitejs/plugin-vue';
 import preprocess from 'svelte-preprocess';
 
 const path = require('path');
@@ -32,7 +31,6 @@ const config = {
     }
   },
   plugins: [
-    vue(),
     svelte({
       preprocess: preprocess(),
       onwarn: (warning, handler) => {

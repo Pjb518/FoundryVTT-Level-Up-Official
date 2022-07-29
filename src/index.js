@@ -2,26 +2,17 @@ import './scss/main.scss';
 import 'remixicon/fonts/remixicon.css';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
-import ActorSheetComponent from "./apps/ActorSheet";
+import ActorSheet5e from "./apps/ActorSheet";
+import ItemSheet5e from "./apps/ItemSheet";
 
 import A5E from './modules/config';
 import Actor5e from './modules/actor/entity';
 import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
 import Item5e from './modules/item/entity';
-import ActorSheet5e from './modules/sheets/character';
-import ItemSheet5e from './modules/sheets/item';
-import ReactiveDialog from './modules/apps/reactiveDialog';
 import Token5e from './modules/actor/token';
 import TokenDocument5e from './modules/actor/tokenDocument';
 
-import AbilityDialog from './vue/AbilityDialog.vue';
-import DeathSavingThrowDialog from './vue/DeathSavingThrowDialog.vue';
-import InitiativeDialog from './vue/InitiativeDialog.vue';
-import ItemActivationDialog from './vue/ItemActivationDialog.vue';
-import RestDialog from './vue/RestDialog.vue';
-
-import getDialogData from './modules/dice/getDialogData';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
 import measureDistances from './modules/pixi/measureDistances';
@@ -49,7 +40,6 @@ Hooks.once('init', () => {
     applications: {
       ActorSheet5e,
       ItemSheet5e,
-      ReactiveDialog
     },
     config: A5E,
     dice: {
@@ -74,16 +64,6 @@ Hooks.once('init', () => {
       migrateMacroData,
       migrateSceneData,
       migrateCurrentHitPoints
-    },
-    vue: {
-      AbilityDialog,
-      DeathSavingThrowDialog,
-      InitiativeDialog,
-      ItemActivationDialog,
-      RestDialog
-    },
-    utils: {
-      getDialogData
     }
   };
 
@@ -104,7 +84,7 @@ Hooks.once('init', () => {
   registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('a5e', ActorSheetComponent, {
+  Actors.registerSheet('a5e', ActorSheet5e, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'
