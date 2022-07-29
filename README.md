@@ -41,6 +41,7 @@ If you've developed a module for the Level Up system and would like it listed he
 - [The Sugar Crumb Fairy](https://www.drivethrurpg.com/product/378137) - A short adventure for 3rd or 4th-level characters set in the Plane of Faerie. Written by Anthony Alipio.
 - [Thematic Toolkit: Arcane Avenger](https://www.drivethrurpg.com/product/392599/Thematic-Toolkit-Arcane-Avenger-A5E) - New archetypes for the Herald and Sorcerer classes and a new synergy feat tree.
 - [Thematic Toolkit: Cultist](https://www.drivethrurpg.com/product/392588/Thematic-Toolkit-Cultist-A5E) - New archetypes for the Cleric and Warlock classes and a new synergy feat tree.
+- [Thematic Toolkit: Thunder of War](https://www.drivethrurpg.com/product/404207/Thematic-Toolkit-Thunder-of-War-A5E) - New archetypes for the Berserker and Marshal classes and a new synergy feat tree.
 - [Thematic Toolkit: Venomous Shadow](https://www.drivethrurpg.com/product/400541/Thematic-Toolkit-Venomous-Shadow-A5E) - New archetypes for the Ranger, Rogue, and Wizard classes, a whole bunch of synergy feats, and a new combat maneuver tradition.
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.
