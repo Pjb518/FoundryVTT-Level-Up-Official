@@ -3,6 +3,7 @@
 
     import CoreStats from "./CoreStats.svelte";
     import Level from "./Level.svelte";
+    import LockButton from "./LockButton.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -47,6 +48,8 @@
         <section>
             <Level />
         </section>
+
+        <LockButton />
     </section>
 
     <CoreStats />
@@ -66,6 +69,7 @@
     .sheet-header-top {
         display: flex;
         width: 100%;
+        gap: 0.5rem;
     }
 
     .sheet-header-top-left {

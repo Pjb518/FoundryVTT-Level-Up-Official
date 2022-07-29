@@ -32,7 +32,7 @@ export default class ActorSheet extends SvelteApplication {
       classes: ['a5e-sheet'],
       resizable: true,
       minimizable: true,
-      width: 740,
+      width: 752,
       height: 672,
 
       svelte: {
