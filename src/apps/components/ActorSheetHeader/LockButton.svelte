@@ -24,6 +24,12 @@
         font-size: 1.728rem;
         cursor: pointer;
 
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
         &-locked {
             color: #8b2525;
         }
