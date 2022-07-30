@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import CoreStats from "./CoreStats.svelte";
+    import AbilityScores from "./AbilityScores.svelte";
     import Level from "./Level.svelte";
     import LockButton from "./LockButton.svelte";
 
@@ -52,7 +52,7 @@
         <LockButton />
     </section>
 
-    <CoreStats />
+    <AbilityScores />
 </header>
 
 <style>

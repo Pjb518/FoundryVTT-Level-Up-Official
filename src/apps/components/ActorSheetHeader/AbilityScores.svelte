@@ -2,18 +2,16 @@
     import { getContext } from "svelte";
 
     import AbilityScore from "./AbilityScore.svelte";
-    import ArmorClass from "./ArmorClass.svelte";
-    import CoreStatWrapper from "./CoreStatWrapper.svelte";
-    import Initiative from "./Initiative.svelte";
+    import AbilityScoreWrapper from "./AbilityScoreWrapper.svelte";
 
     const actor = getContext("actor");
 </script>
 
 <ul class="core-stat-list">
     {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-        <CoreStatWrapper heading={abilityLabel}>
+        <AbilityScoreWrapper heading={abilityLabel}>
             <AbilityScore {ability} {abilityLabel} />
-        </CoreStatWrapper>
+        </AbilityScoreWrapper>
     {/each}
 </ul>
 
