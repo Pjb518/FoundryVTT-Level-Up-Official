@@ -8,7 +8,7 @@
     import ActorSheetCorePage from "../components/ActorSheetCorePage.svelte";
     import ActorSheetHeader from "../components/actorSheetHeader/actorSheetHeader.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
-    import NavigationBar from "../components/NavigationBar.svelte";
+    import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     export let { actorDocument } = getContext("external").application;
     export let currentTab;
