@@ -40,9 +40,9 @@
         flex-direction: column;
         gap: 0.25rem;
         padding: 0;
-        padding-right: 0.5rem;
+        padding-right: 0.375rem;
         margin: 0;
-        margin-right: -0.5rem;
+        margin-right: -0.375rem;
         list-style: none;
         overflow-y: auto;
     }
