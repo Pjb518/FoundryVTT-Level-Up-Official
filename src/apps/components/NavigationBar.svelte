@@ -22,7 +22,7 @@
 
 <style lang="scss">
     .nav-wrapper {
-        padding: 0.5rem 1.25rem;
+        padding: 0.375rem 1.25rem;
         width: calc(100% - 1.5rem);
         margin: 0 auto;
         background: #0b5a2f;

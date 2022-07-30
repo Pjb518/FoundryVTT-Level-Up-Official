@@ -1,9 +1,13 @@
 <script>
     import { getContext } from "svelte";
 
+    import getRequiredExperiencePoints from "../../utils/getRequiredExperiencePoints";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    export let requiredXP;
+
     const actor = getContext("actor");
+    $: requiredXP = getRequiredExperiencePoints($actor);
 </script>
 
 <div class="level-container">
@@ -58,7 +62,7 @@
             id="{$actor.id}-required-xp"
             class="xp-input"
             type="number"
-            value="1000"
+            value={requiredXP}
             placeholder="0"
             min="0"
             disabled
