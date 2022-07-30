@@ -78,7 +78,11 @@
         <section style="display: flex; flex-direction: column;">
             <ActorSheetHeader />
 
-            <NavigationBar {tabs} on:tab-change={updateCurrentTab} />
+            <NavigationBar
+                {currentTab}
+                {tabs}
+                on:tab-change={updateCurrentTab}
+            />
 
             <svelte:component this={currentTab.component} tab={currentTab} />
         </section>

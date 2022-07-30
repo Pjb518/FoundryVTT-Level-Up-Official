@@ -35,7 +35,7 @@
         }
 
         &-unlocked {
-            color: #0b5a2f;
+            color: #2b6537;
         }
     }
 </style>

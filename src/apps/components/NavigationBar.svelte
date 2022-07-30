@@ -2,6 +2,7 @@
     import { createEventDispatcher } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    export let currentTab;
     export let tabs;
 
     const dispatch = createEventDispatcher();
@@ -11,7 +12,8 @@
     <ul class="nav-list">
         {#each tabs as tab, index}
             <li
-                class="nav-list-item"
+                class="nav-list-item {tab.name === currentTab.name &&
+                    'nav-list-item-active'}"
                 on:click={() => dispatch("tab-change", index)}
             >
                 {localize(tab.label)}
@@ -25,13 +27,13 @@
         padding: 0.375rem 1.25rem;
         width: calc(100% - 1.5rem);
         margin: 0 auto;
-        background: #0b5a2f;
+        background: #2b6537;
         color: #f6f2eb;
         font-family: "Modesto Condensed", serif;
         font-size: 1rem;
         border-radius: 3px;
         text-transform: lowercase;
-        box-shadow: 0 0 10px darken($color: #0b5a2f, $amount: 5) inset;
+        box-shadow: 0 0 10px darken($color: #2b6537, $amount: 10) inset;
     }
 
     .nav-list {
@@ -47,6 +49,28 @@
 
             &:hover {
                 transform: scale(1.1);
+            }
+
+            &-active {
+                color: #fedd9e;
+                position: relative;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: -0.375rem;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-left: 3px solid transparent;
+                    border-right: 3px solid transparent;
+                    border-bottom: 3px solid #fedd9e;
+                    transform: translateX(-50%);
+                }
+
+                &:hover {
+                    transform: none;
+                }
             }
         }
     }
