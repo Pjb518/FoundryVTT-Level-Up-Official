@@ -10,14 +10,6 @@
 </script>
 
 <ul class="core-stat-list">
-    <!-- <CoreStatWrapper heading="A5E.ArmorClassAbbr">
-        <ArmorClass />
-    </CoreStatWrapper>
-
-    <CoreStatWrapper heading="A5E.Initiative">
-        <Initiative />
-    </CoreStatWrapper> -->
-
     {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
         <CoreStatWrapper heading={abilityLabel}>
             <AbilityScore {ability} {abilityLabel} />

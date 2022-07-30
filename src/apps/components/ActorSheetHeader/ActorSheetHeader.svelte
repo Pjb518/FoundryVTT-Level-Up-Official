@@ -61,7 +61,6 @@
         flex-direction: column;
         height: fit-content;
         gap: 0.5rem;
-        padding: 0.75rem;
     }
 
     .sheet-header-top {

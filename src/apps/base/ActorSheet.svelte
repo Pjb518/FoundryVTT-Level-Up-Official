@@ -75,7 +75,7 @@
     <main>
         <ActorSidebar />
 
-        <section style="display: flex; flex-direction: column;">
+        <section class="main-container">
             <ActorSheetHeader />
 
             <NavigationBar
@@ -84,7 +84,7 @@
                 on:tab-change={updateCurrentTab}
             />
 
-            <svelte:component this={currentTab.component} tab={currentTab} />
+            <svelte:component this={currentTab.component} />
         </section>
     </main>
 </ApplicationShell>
@@ -99,6 +99,16 @@
 
     main {
         display: flex;
+        height: 100%;
         background: rgba(246, 242, 235, 0.5);
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: 100%;
+        padding: 0.75rem;
+        overflow: hidden;
     }
 </style>
