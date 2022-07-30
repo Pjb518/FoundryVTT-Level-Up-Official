@@ -62,8 +62,6 @@
         height: fit-content;
         gap: 0.5rem;
         padding: 0.75rem;
-        padding-bottom: 1.75rem;
-        border-bottom: 1px solid #ccc;
     }
 
     .sheet-header-top {
