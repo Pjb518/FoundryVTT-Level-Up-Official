@@ -1,5 +1,4 @@
 import './scss/main.scss';
-import 'remixicon/fonts/remixicon.css';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
 import ActorSheet5e from "./apps/ActorSheet";
