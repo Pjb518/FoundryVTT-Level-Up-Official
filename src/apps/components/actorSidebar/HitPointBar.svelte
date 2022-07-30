@@ -57,7 +57,9 @@
                 transparent 0
             );
 
-            animation: fillPrimaryRing 1s 0.25s both;
+            @media (prefers-reduced-motion: no-preference) {
+                animation: fillPrimaryRing 1s 0.25s both;
+            }
         }
 
         &:after {
@@ -70,7 +72,9 @@
                 transparent 0
             );
 
-            animation: fillSecondaryRing 1s 0.25s both;
+            @media (prefers-reduced-motion: no-preference) {
+                animation: fillSecondaryRing 1s 0.25s both;
+            }
         }
 
         &:before,
