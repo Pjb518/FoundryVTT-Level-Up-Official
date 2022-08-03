@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import rollAbilityCheck from "../../handlers/rollAbilityCheck";
     import rollSavingThrow from "../../handlers/rollSavingThrow";
@@ -12,33 +13,45 @@
     const actor = getContext("actor");
 </script>
 
-<input
-    class="ability-score-value"
-    name={`system.abilities.${abilityLabel}.value`}
-    type="number"
-    value={ability.value}
-    on:change={({ target }) =>
-        updateDocumentDataFromField($actor, target.name, target.value)}
-    placeholder="10"
-/>
+<div class="ability-score">
+    <h3>{localize(abilityLabel)}</h3>
+
+    <input
+        class="ability-score-value"
+        name={`system.abilities.${abilityLabel}.value`}
+        type="number"
+        value={ability.value}
+        on:change={({ target }) =>
+            updateDocumentDataFromField($actor, target.name, target.value)}
+        placeholder="10"
+    />
+</div>
 
 <div class="ability-score-buttons">
     <div
-        class="ability-score-roll-button"
-        on:click={(event) => rollAbilityCheck($actor, abilityLabel, event)}
+        class="roll-button"
         data-tooltip="A5E.RollAbilityCheck"
         data-tooltip-direction="DOWN"
+        on:click={(event) => rollAbilityCheck($actor, abilityLabel, event)}
     >
-        {ability.check.deterministicBonus}
+        <h4 class="roll-button-label">Check</h4>
+
+        <div class="roll-button-value">
+            {ability.check.deterministicBonus}
+        </div>
     </div>
 
     <div
-        class="ability-score-roll-button"
-        on:click={(event) => rollSavingThrow($actor, abilityLabel, event)}
+        class="roll-button"
         data-tooltip="A5E.RollSavingThrow"
         data-tooltip-direction="DOWN"
+        on:click={(event) => rollSavingThrow($actor, abilityLabel, event)}
     >
-        {ability.save.deterministicBonus}
+        <h4 class="roll-button-label">Save</h4>
+
+        <div class="roll-button-value">
+            {ability.save.deterministicBonus}
+        </div>
     </div>
 </div>
 
@@ -47,24 +60,10 @@
         &-buttons {
             display: flex;
             width: 100%;
-            height: 1.5rem;
+            height: fit-content;
             align-items: center;
-            justify-content: space-around;
+            gap: 0.25rem;
             font-size: 1rem;
-        }
-
-        &-roll-button {
-            position: relative;
-            display: flex;
-            width: 1.5rem;
-            height: 1.5rem;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ccc;
-            background: #f6f2eb;
-            border-radius: 100px;
-            box-shadow: 0 0 7.5px #ccc inset;
-            cursor: pointer;
         }
 
         &-value {
@@ -72,6 +71,7 @@
             align-items: center;
             height: 26px;
             border: 0;
+            color: #191813;
             margin-bottom: 0;
             background: none;
             font-size: 1.44rem;
@@ -85,6 +85,34 @@
             &::placeholder {
                 color: lighten(#191813, 35%);
             }
+        }
+    }
+
+    .ability-score,
+    .roll-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        padding: 0.125rem 0;
+        font-family: "Modesto Condensed", serif;
+        color: #7e7960;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #f6f2eb;
+        box-shadow: 0 0 5px #ccc inset;
+    }
+
+    .roll-button {
+        cursor: pointer;
+
+        &-label {
+            font-size: 0.694rem;
+        }
+
+        &-value {
+            color: #191813;
         }
     }
 </style>

@@ -7,16 +7,16 @@
     const actor = getContext("actor");
 </script>
 
-<ul class="core-stat-list">
+<ul class="ability-scores">
     {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-        <AbilityScoreWrapper heading={abilityLabel}>
+        <AbilityScoreWrapper>
             <AbilityScore {ability} {abilityLabel} />
         </AbilityScoreWrapper>
     {/each}
 </ul>
 
 <style lang="scss">
-    .core-stat-list {
+    .ability-scores {
         display: flex;
         gap: 0.5rem;
         margin: 0;
