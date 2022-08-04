@@ -20,6 +20,15 @@
             console.error(err);
         }
     }
+
+    function onDelete() {
+        try {
+            $item.update({ [`system.features.${updatePath}`]: "" });
+            feature.set();
+        } catch (err) {
+            console.error(err);
+        }
+    }
 </script>
 
 <div class="drop-area" on:drop|preventDefault|stopPropagation={onDrop}>
@@ -33,13 +42,28 @@
             />
 
             <h3>{$feature?.name}</h3>
+
+            <i class="delete-button fas fa-trash" on:click={onDelete} />
         </div>
     {/if}
 </div>
 
 <style lang="scss">
+    .delete-button {
+        color: #8b2525;
+        margin-left: auto;
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
     .drop-area {
-        min-height: 3.125rem;
+        min-height: 3.25rem;
         background: #bbb;
         border-radius: 4px;
         border: 1px solid #bbb;
