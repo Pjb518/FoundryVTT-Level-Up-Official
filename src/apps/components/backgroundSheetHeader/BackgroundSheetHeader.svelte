@@ -14,10 +14,18 @@
         title={$item.name}
     />
 
-    <h2>{$item.name}</h2>
+    <input
+        type="text"
+        name="name"
+        value={$item.name}
+        class="item-name"
+        placeholder="Name"
+        on:change={({ target }) =>
+            updateDocumentDataFromField($item, target.name, target.value)}
+    />
 </header>
 
-<style>
+<style lang="scss">
     .sheet-header {
         display: flex;
         padding: 0.5rem;
@@ -29,5 +37,18 @@
         height: 5rem;
         border-radius: 4px;
         cursor: pointer;
+    }
+
+    .item-name,
+    .item-name[type="text"] {
+        font-family: "Modesto Condensed", serif;
+        font-size: 1.728rem;
+        border: 0;
+        background: transparent;
+
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
     }
 </style>

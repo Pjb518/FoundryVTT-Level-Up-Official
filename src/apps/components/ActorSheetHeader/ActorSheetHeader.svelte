@@ -14,7 +14,6 @@
     <section class="sheet-header-top">
         <section class="sheet-header-top-left">
             <input
-                v-else
                 type="text"
                 name="name"
                 value={$actor.name}

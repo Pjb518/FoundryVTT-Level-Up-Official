@@ -1,37 +1,20 @@
 <script>
-    import { getContext } from "svelte";
+    import { createEventDispatcher, getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    export let updatePath;
+    export let uuid;
 
-    const item = getContext("item");
+    const dispatch = createEventDispatcher();
     const feature = new TJSDocument();
-    feature.setFromUUID($item.system.features[updatePath]);
 
-    function onDrop(event) {
-        try {
-            const { uuid } = JSON.parse(
-                event.dataTransfer.getData("text/plain")
-            );
-
-            $item.update({ [`system.features.${updatePath}`]: uuid });
-            feature.setFromUUID(uuid);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    function onDelete() {
-        try {
-            $item.update({ [`system.features.${updatePath}`]: "" });
-            feature.set();
-        } catch (err) {
-            console.error(err);
-        }
-    }
+    feature.setFromUUID(uuid);
 </script>
 
-<div class="drop-area" on:drop|preventDefault|stopPropagation={onDrop}>
+<div
+    class="drop-area"
+    on:drop|preventDefault|stopPropagation={(event) =>
+        dispatch("item-dropped", [event, feature])}
+>
     {#if $feature}
         <div class="feature-wrapper">
             <img
@@ -43,8 +26,13 @@
 
             <h3>{$feature?.name}</h3>
 
-            <i class="delete-button fas fa-trash" on:click={onDelete} />
+            <i
+                class="delete-button fas fa-trash"
+                on:click={(event) => dispatch("item-deleted", [event, feature])}
+            />
         </div>
+    {:else}
+        <i class="drop-icon fa-solid fa-plus" />
     {/if}
 </div>
 
@@ -63,16 +51,25 @@
     }
 
     .drop-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-height: 3.25rem;
-        background: #bbb;
         border-radius: 4px;
-        border: 1px solid #bbb;
-        padding: 0.25rem;
+        border: 2px dashed #bbb;
+        padding: 0.125rem;
+        box-sizing: border-box;
+    }
+
+    .drop-icon {
+        color: #888;
+        font-size: 1.2rem;
     }
 
     .feature-wrapper {
         display: flex;
         align-items: center;
+        width: 100%;
         gap: 0.5rem;
         padding: 0.25rem;
         font-size: 0.833rem;
