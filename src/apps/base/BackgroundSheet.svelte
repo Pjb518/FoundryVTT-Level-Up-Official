@@ -13,7 +13,82 @@
 
     const item = new TJSDocument(itemDocument);
 
-    function onFeatureDrop(event) {
+    function addEquipmentItem(event) {
+        const [dragEvent, _] = event.detail;
+
+        try {
+            const { uuid } = JSON.parse(
+                dragEvent.dataTransfer.getData("text/plain")
+            );
+
+            if ($item.system.equipment.includes(uuid)) {
+                ui.notifications.warn(
+                    "Cannot add two items with the same UUID to a Background document's equipment section."
+                );
+
+                throw "Cannot add two items with the same UUID to the Background document's equipment section.";
+            }
+
+            $item.update({
+                "system.equipment": [...$item.system.equipment, uuid],
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function replaceEquipmentItem(event) {
+        const [dragEvent, feature] = event.detail;
+
+        try {
+            const { uuid } = JSON.parse(
+                dragEvent.dataTransfer.getData("text/plain")
+            );
+
+            if ($item.system.equipment.includes(uuid)) {
+                ui.notifications.warn(
+                    "Cannot add two items with the same UUID to a Background document's equipment section."
+                );
+
+                throw "Cannot add two items with the same UUID to the Background document's equipment section.";
+            }
+
+            $item.system.equipment.splice(
+                $item.system.equipment.findIndex(
+                    (item) => item.uuid === feature.uuid
+                ),
+                1,
+                uuid
+            );
+
+            $item.update({
+                "system.equipment": $item.system.equipment,
+            });
+
+            feature.setFromUUID(uuid);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function deleteEquipmentItem(event) {
+        const [_, feature] = event.detail;
+
+        const index = $item.system.equipment.findIndex((item) => {
+            console.log(item, feature.get().uuid, item === feature.get().uuid);
+            return item === feature.get().uuid;
+        });
+
+        console.log(index);
+
+        $item.system.equipment.splice(index, 1);
+
+        $item.update({
+            "system.equipment": $item.system.equipment,
+        });
+    }
+
+    function updateFeature(event) {
         const [dragEvent, feature] = event.detail;
 
         try {
@@ -28,8 +103,8 @@
         }
     }
 
-    function onFeatureDeleted(event) {
-        const [dragEvent, feature] = event.detail;
+    function deleteFeature(event) {
+        const [_, feature] = event.detail;
 
         try {
             $item.update({ [`system.feature`]: "" });
@@ -51,9 +126,32 @@
                 <h3>Feature</h3>
                 <DropArea
                     uuid={$item.system.feature}
-                    on:item-dropped={onFeatureDrop}
-                    on:item-deleted={onFeatureDeleted}
+                    on:item-dropped={updateFeature}
+                    on:item-deleted={deleteFeature}
                 />
+            </div>
+
+            <div class="drop-area-wrapper">
+                <h3>Starting Equipment</h3>
+
+                <ul class="equipment-list">
+                    {#each [...$item.system.equipment] as uuid (`${uuid}`)}
+                        <li>
+                            <DropArea
+                                uuid={uuid ?? null}
+                                on:item-dropped={replaceEquipmentItem}
+                                on:item-deleted={deleteEquipmentItem}
+                            />
+                        </li>
+                    {/each}
+
+                    <li>
+                        <DropArea
+                            uuid={null}
+                            on:item-dropped={addEquipmentItem}
+                        />
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
