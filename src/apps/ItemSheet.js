@@ -1,8 +1,9 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
+import BackgroundSheetComponent from './base/BackgroundSheet.svelte';
 import ItemSheetComponent from './base/ItemSheet.svelte';
 
-export default class ActorSheet extends SvelteApplication {
+export default class ItemSheet extends SvelteApplication {
   /**
    * @inheritDoc
    */
@@ -13,6 +14,7 @@ export default class ActorSheet extends SvelteApplication {
         id: `item-sheet-${item.id}`,
         title: item.name,
         svelte: {
+          class: item.type === 'background' ? BackgroundSheetComponent : ItemSheetComponent,
           props: {
             itemDocument: item
           }
@@ -32,8 +34,8 @@ export default class ActorSheet extends SvelteApplication {
       classes: ['a5e-sheet'],
       resizable: true,
       minimizable: true,
-      width: 752,
-      height: 672,
+      width: 480,
+      height: 592,
 
       svelte: {
         class: ItemSheetComponent,
