@@ -20,7 +20,6 @@
                 src={$actor.img}
                 alt={$actor.name}
                 title={$actor.name}
-                data-edit="img"
             />
         </HitPointBar>
 

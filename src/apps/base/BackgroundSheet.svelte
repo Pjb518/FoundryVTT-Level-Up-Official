@@ -21,17 +21,32 @@
         <BackgroundSheetHeader />
 
         <section class="main-config-wrapper">
-            <DropArea updatePath="features.base" />
-            <DropArea updatePath="features.advancement" />
+            <div class="drop-area-wrapper">
+                <h3>Base Feature</h3>
+                <DropArea updatePath="base" />
+            </div>
+
+            <div class="drop-area-wrapper">
+                <h3>Advancement Feature</h3>
+                <DropArea updatePath="advancement" />
+            </div>
         </section>
     </main>
 </ApplicationShell>
 
 <style lang="scss">
+    .drop-area-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-family: "Modesto Condensed", serif;
+        font-size: 1rem;
+    }
+
     .main-config-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
         padding: 0.75rem;
     }
 </style>

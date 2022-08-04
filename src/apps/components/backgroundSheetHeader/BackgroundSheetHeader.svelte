@@ -12,8 +12,9 @@
         src={$item.img}
         alt={$item.name}
         title={$item.name}
-        data-edit="img"
     />
+
+    <h2>{$item.name}</h2>
 </header>
 
 <style>
