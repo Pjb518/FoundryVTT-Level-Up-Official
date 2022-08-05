@@ -8,6 +8,9 @@
     import BackgroundSheetHeader from "../components/backgroundSheetHeader/BackgroundSheetHeader.svelte";
     import DropArea from "../components/DropArea.svelte";
 
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import ActorSheet from "./ActorSheet.svelte";
+
     export let { itemDocument } = getContext("external").application;
     export let elementRoot;
 
@@ -122,6 +125,26 @@
         <BackgroundSheetHeader />
 
         <section class="main-config-wrapper">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
+                    name="system.includesASI"
+                    id={`${$item.id}-includesASI`}
+                    checked={$item.system.includesASI}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.checked
+                        )}
+                />
+
+                <label class="u-pointer" for={`${$item.id}-includesASI`}>
+                    Includes ASI
+                </label>
+            </div>
+
             <div class="drop-area-wrapper">
                 <h3>Feature</h3>
                 <DropArea
@@ -132,7 +155,7 @@
             </div>
 
             <div class="drop-area-wrapper">
-                <h3>Starting Equipment</h3>
+                <h3>Suggested Starting Equipment</h3>
 
                 <ul class="equipment-list">
                     {#each [...$item.system.equipment] as uuid (`${uuid}`)}
