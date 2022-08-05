@@ -9,7 +9,6 @@
     import DropArea from "../components/DropArea.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
-    import ActorSheet from "./ActorSheet.svelte";
 
     export let { itemDocument } = getContext("external").application;
     export let elementRoot;
@@ -153,7 +152,7 @@
                                 class="u-pointer"
                                 type="radio"
                                 name="system.defaultASI"
-                                id={`${$item.id}-defaultASI`}
+                                id={`${$item.id}-defaultASI-${ability}`}
                                 value={ability}
                                 checked={$item.system.defaultASI === ability}
                                 on:change={({ target }) =>
@@ -166,7 +165,7 @@
 
                             <label
                                 class="u-pointer"
-                                for={`${$item.id}-includesASI`}
+                                for={`${$item.id}-defaultASI-${ability}`}
                             >
                                 {ability}
                             </label>
