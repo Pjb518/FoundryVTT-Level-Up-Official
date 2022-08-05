@@ -145,6 +145,36 @@
                 </label>
             </div>
 
+            {#if $item.system.includesASI}
+                <div style="display: flex; gap: 0.5rem">
+                    {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
+                        <div>
+                            <input
+                                class="u-pointer"
+                                type="radio"
+                                name="system.defaultASI"
+                                id={`${$item.id}-defaultASI`}
+                                value={ability}
+                                checked={$item.system.defaultASI === ability}
+                                on:change={({ target }) =>
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        target.name,
+                                        target.value
+                                    )}
+                            />
+
+                            <label
+                                class="u-pointer"
+                                for={`${$item.id}-includesASI`}
+                            >
+                                {ability}
+                            </label>
+                        </div>
+                    {/each}
+                </div>
+            {/if}
+
             <div class="drop-area-wrapper">
                 <h3>Feature</h3>
                 <DropArea
