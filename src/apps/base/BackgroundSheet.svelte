@@ -2,6 +2,7 @@
 
 <script>
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
 
@@ -14,6 +15,7 @@
     export let elementRoot;
 
     const item = new TJSDocument(itemDocument);
+    const config = CONFIG.A5E;
 
     function addEquipmentItem(event) {
         const [dragEvent, _] = event.detail;
@@ -167,7 +169,7 @@
                                 class="u-pointer"
                                 for={`${$item.id}-defaultASI-${ability}`}
                             >
-                                {ability}
+                                {localize(config.abilities[ability])}
                             </label>
                         </div>
                     {/each}
