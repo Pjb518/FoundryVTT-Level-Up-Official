@@ -19,6 +19,9 @@ export default class ActorSheet extends SvelteApplication {
         }
       }
     ));
+
+    this.actor = actor;
+    this.options.svelte.props.sheet = this;
   }
 
   /**
@@ -40,5 +43,18 @@ export default class ActorSheet extends SvelteApplication {
         target: document.body
       }
     });
+  }
+
+  async _onDropBackground(item) {
+    const backgroundFeature = await fromUuid(item.system.feature);
+    const startingEquipment = await Promise.all(item.system.equipment.map(
+      (equipmentItem) => fromUuid(equipmentItem)
+    ));
+
+    await this.actor.createEmbeddedDocuments('Item', [
+      item,
+      backgroundFeature,
+      ...startingEquipment
+    ]);
   }
 }

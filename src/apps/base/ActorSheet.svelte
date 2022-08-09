@@ -10,12 +10,21 @@
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { actorDocument } = getContext("external").application;
+    export let { actorDocument, sheet } = getContext("external").application;
     export let currentTab;
     export let elementRoot;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
+    }
+
+    async function onDrop(event) {
+        const { uuid } = JSON.parse(event.dataTransfer.getData("text/plain"));
+        const item = await fromUuid(uuid);
+
+        if (item.type === "background") {
+            sheet._onDropBackground(item);
+        }
     }
 
     const tabs = [
@@ -72,7 +81,7 @@
 </script>
 
 <ApplicationShell bind:elementRoot>
-    <main>
+    <main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
         <ActorSidebar />
 
         <section class="main-container">
