@@ -147,11 +147,13 @@
             </div>
 
             {#if $item.system.includesASI}
-                <div style="display: flex; gap: 0.5rem">
-                    {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
-                        <div>
+                <div class="ability-score-wrapper">
+                    <h3>Default ASI</h3>
+
+                    <div style="display: flex; gap: 0.5rem">
+                        {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
                             <input
-                                class="u-pointer"
+                                class="ability-score-input"
                                 type="radio"
                                 name="system.defaultASI"
                                 id={`${$item.id}-defaultASI-${ability}`}
@@ -166,13 +168,13 @@
                             />
 
                             <label
-                                class="u-pointer"
+                                class="ability-score-label"
                                 for={`${$item.id}-defaultASI-${ability}`}
                             >
                                 {localize(config.abilities[ability])}
                             </label>
-                        </div>
-                    {/each}
+                        {/each}
+                    </div>
                 </div>
             {/if}
 
@@ -212,6 +214,41 @@
 </ApplicationShell>
 
 <style lang="scss">
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .ability-score {
+        &-input {
+            display: none;
+
+            &:checked + .ability-score-label {
+                background: #2b6537;
+                border-color: darken($color: #2b6537, $amount: 5);
+                color: #f6f2eb;
+            }
+        }
+
+        &-label {
+            border-radius: 3px;
+            border: 1px solid #bbb;
+            font-size: 1rem;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            font-family: "Modesto Condensed", serif;
+            font-size: 1rem;
+        }
+    }
+
     .drop-area-wrapper {
         display: flex;
         flex-direction: column;
@@ -234,5 +271,6 @@
         flex-direction: column;
         gap: 1rem;
         padding: 0.75rem;
+        overflow-y: auto;
     }
 </style>
