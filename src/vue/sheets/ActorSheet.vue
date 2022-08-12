@@ -83,7 +83,7 @@ export default {
 
       initialTabs.push({
         name: "effects",
-        label: "Active Effects",
+        label: "Effects",
         comp: ActiveEffectsPage,
       });
 

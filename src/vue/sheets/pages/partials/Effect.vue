@@ -20,7 +20,7 @@ export default {
 
     function onClickConfigButton(effect) {
       console.log(effect);
-      new Active();
+      effect.sheet.render(true);
     }
 
     return {

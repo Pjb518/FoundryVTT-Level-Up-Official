@@ -31,7 +31,7 @@
         "
       >
         <effect
-          v-for="[label, effect] in Object.entries(effects)"
+          v-for="[label, effect] in effects"
           :key="label"
           :label="label"
           :effect="effect"
@@ -43,7 +43,7 @@
 
 
 <script>
-import { computed, inject, ref, watch } from "vue";
+import { computed, inject } from "vue";
 
 import Effect from "./partials/Effect.vue";
 
@@ -56,12 +56,19 @@ export default {
     const sheetIsLocked = inject("sheetIsLocked");
 
     const effects = computed(() =>
-      actor.effects.map((e) => {
-        const temp = {};
-        temp[e.label] = e;
-        return temp;
+      Array.from(actor.effects.entries()).map((elem) => {
+        elem[0] = elem[1].label;
+        return elem;
       })
     );
+
+    // const effects = computed(() =>
+    //   actor.effects.map((e) => {
+    //     const temp = {};
+    //     temp[e.label] = e;
+    //     return temp;
+    //   })
+    // );
 
     console.log(effects);
 
