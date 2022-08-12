@@ -13,11 +13,15 @@
 */
 export default class ActiveEffect5e extends ActiveEffect {
   /**
-   * Transfer the affect to another actor.
+   * Transfer the affect to another token.
    */
-  transferEffect(actor) {
-    console.log(this);
-    console.log(actor);
-    console.log('Test log. Added effect to actor.');
+  transferEffect(token) {
+    const data = [{
+      label: this.label,
+      origin: this.parent.uuid,
+      changes: this.changes
+    }];
+
+    token.actor.createEmbeddedDocuments('ActiveEffect', data);
   }
 }
