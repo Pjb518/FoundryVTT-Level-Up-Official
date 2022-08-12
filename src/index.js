@@ -9,6 +9,7 @@ import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
 import Item5e from './modules/item/entity';
 import ActorSheet5e from './modules/sheets/character';
+import ActiveEffect5e from './modules/activeEffects/entity';
 import ItemSheet5e from './modules/sheets/item';
 import ReactiveDialog from './modules/apps/reactiveDialog';
 import Token5e from './modules/actor/token';
@@ -87,6 +88,7 @@ Hooks.once('init', () => {
   };
 
   CONFIG.A5E = A5E;
+  CONFIG.ActiveEffect.documentClass = ActiveEffect5e;
   CONFIG.Actor.documentClass = Actor5e;
   CONFIG.Item.documentClass = Item5e;
   CONFIG.Token.documentClass = TokenDocument5e;

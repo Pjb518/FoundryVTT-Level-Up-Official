@@ -43,7 +43,7 @@
 
 
 <script>
-import { computed, inject } from "vue";
+import { computed, inject, onMounted } from "vue";
 
 import Effect from "./partials/Effect.vue";
 
@@ -62,26 +62,20 @@ export default {
       })
     );
 
-    // const effects = computed(() =>
-    //   actor.effects.map((e) => {
-    //     const temp = {};
-    //     temp[e.label] = e;
-    //     return temp;
-    //   })
-    // );
-
-    console.log(effects);
-
     async function onCreateItem() {
       const newItems = await actor.createEmbeddedDocuments("ActiveEffect", [
         {
-          label: game.i18n.localize("A5e.ItemNew"),
+          label: game.i18n.localize("A5E.ItemNew"),
           origin: actor.uuid,
         },
       ]);
 
       newItems[0].sheet.render(true);
     }
+
+    onMounted(() => {
+      sheet.activateVueListeners($(sheet.form));
+    });
 
     return {
       config: CONFIG.A5E,
