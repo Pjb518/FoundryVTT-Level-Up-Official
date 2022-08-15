@@ -26,7 +26,7 @@ export default class ItemSheet5e extends ItemSheet {
    * @returns {object}
    */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-sheet--item'],
       height: 500,
       width: 540,
@@ -40,7 +40,7 @@ export default class ItemSheet5e extends ItemSheet {
     const formData = new FormDataExtended(this.form, { editors: this.editors });
     let data = formData.object;
 
-    if (updateData) data = mergeObject(data, updateData);
+    if (updateData) data = foundry.utils.mergeObject(data, updateData);
     else data = expandObject(data);
 
     const damage = data.data?.damage;

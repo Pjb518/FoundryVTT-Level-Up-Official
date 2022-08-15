@@ -38,7 +38,7 @@ export default class ReactiveDialog extends FormApplication {
    * @returns {object}
    */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-dialog'],
       width: 416,
       height: 500
