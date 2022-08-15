@@ -102,6 +102,8 @@ Hooks.once('init', () => {
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
+  CONFIG.statusEffects = A5E.statusEffects;
+
   registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);

@@ -744,6 +744,197 @@ A5E.skillSpecialties = {
   }
 };
 
+A5E.statusEffects = [
+  // Blinded
+  {
+    id: 'blinded',
+    label: 'A5E.ConditionBlinded',
+    icon: 'icons/svg/blind.svg',
+    changes: [],
+    duration: {}
+  },
+  // Bloodied
+  {
+    id: 'bloodied',
+    label: 'A5E.ConditionBloodied',
+    icon: 'icons/svg/blood.svg',
+    changes: [],
+    duration: {}
+  },
+  // Charmed
+  {
+    id: 'charmed',
+    label: 'A5E.ConditionCharmed',
+    icon: 'icons/magic/symbols/arrowhead-green.webp',
+    changes: [],
+    duration: {}
+  },
+  // Concentration
+  {
+    id: 'concentration',
+    label: 'A5E.ConditionConcentration',
+    icon: 'icons/magic/symbols/runes-star-blue .webp',
+    changes: [],
+    duration: {}
+  },
+  // Confused
+  {
+    id: 'confused',
+    label: 'A5E.ConditionConfused',
+    icon: 'icons/svg/stoned.svg',
+    changes: [],
+    duration: {}
+  },
+  // Deafened
+  {
+    id: 'deafened',
+    label: 'A5E.ConditionDeafened',
+    icon: 'icons/svg/deaf.svg',
+    changes: [],
+    duration: {}
+  },
+  // Doomed
+  {
+    id: 'doomed',
+    label: 'A5E.ConditionDoomed',
+    icon: 'icons/svg/skull.svg',
+    changes: [],
+    duration: {}
+  },
+  // Encumbered
+  {
+    id: 'encumbered',
+    label: 'A5E.ConditionEncumbered',
+    icon: 'icons/svg/downgrade.svg',
+    changes: [],
+    duration: {}
+  },
+  // Fatigue
+  {
+    id: 'fatigue',
+    label: 'A5E.ConditionFatigue',
+    icon: 'icons/magic/symbols/circle-ouroboros.webp',
+    flags: {},
+    changes: [],
+    duration: {}
+  },
+  // Frightened
+  {
+    id: 'frightened',
+    label: 'A5E.ConditionFrightened',
+    icon: 'icons/svg/terror.svg',
+    changes: [],
+    duration: {}
+  },
+  // Grappled
+  {
+    id: 'grappled',
+    label: 'A5E.ConditionGrappled',
+    icon: 'icons/magic/symbols/clover-luck-white-green.webp',
+    changes: [],
+    duration: {}
+  },
+  // Incapacitated
+  {
+    id: 'incapacitated',
+    label: 'A5E.ConditionIncapacitated',
+    icon: 'icons/magic/symbols/cog-orange-red.webp',
+    changes: [],
+    duration: {}
+  },
+  // Invisible
+  {
+    id: 'invisible',
+    label: 'A5E.ConditionInvisible',
+    icon: 'icons/svg/invisible.svg',
+    changes: [],
+    duration: {}
+  },
+  // Paralyzed
+  {
+    id: 'paralyzed',
+    label: 'A5E.ConditionParalyzed',
+    icon: 'icons/svg/paralysis.svg',
+    changes: [],
+    duration: {}
+  },
+  // Petrified
+  {
+    id: 'petrified',
+    label: 'A5E.ConditionPetrified',
+    icon: 'icons/skills/wounds/injury-body-pain-gray.webp',
+    changes: [],
+    duration: {}
+  },
+  // Poisoned
+  {
+    id: 'poisoned',
+    label: 'A5E.ConditionPoisoned',
+    icon: 'icons/svg/poison.svg',
+    changes: [],
+    duration: {}
+  },
+  // Prone
+  {
+    id: 'prone',
+    label: 'A5E.ConditionProne',
+    icon: 'icons/svg/falling.svg',
+    changes: [],
+    duration: {}
+  },
+  // Rattled
+  {
+    id: 'rattled',
+    label: 'A5E.ConditionRattled',
+    icon: 'icons/skills/wounds/injury-face-impact-orange.webp',
+    flags: {},
+    changes: [],
+    duration: {}
+  },
+  // Restrained
+  {
+    id: 'restrained',
+    label: 'A5E.ConditionRestrained',
+    icon: 'icons/svg/net.svg',
+    changes: [],
+    duration: {}
+  },
+  // Slowed
+  {
+    id: 'slowed',
+    label: 'A5E.ConditionSlowed',
+    icon: 'icons/magic/symbols/cog-shield-white-blue.webp',
+    changes: [],
+    duration: {}
+  },
+
+  // Strife
+  {
+    id: 'strife',
+    label: 'A5E.ConditionStrife',
+    icon: 'icons/magic/symbols/cog-glowing-green.webp',
+    flags: {},
+    changes: [],
+    duration: {}
+  },
+  // Stunned
+  {
+    id: 'stunned',
+    label: 'A5E.ConditionStunned',
+    icon: 'icons/svg/daze.svg',
+    changes: [],
+    duration: {}
+  },
+  // Unconscious
+  {
+    id: 'unconscious',
+    label: 'A5E.ConditionUnconscious',
+    icon: 'icons/svg/unconscious.svg',
+    changes: [],
+    duration: {}
+  }
+];
+
 A5E.targetTypes = {
   self: 'A5E.TargetSelf',
   creature: 'A5E.TargetCreature',
