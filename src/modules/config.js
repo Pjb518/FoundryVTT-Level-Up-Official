@@ -1,3 +1,5 @@
+import { changes } from './activeEffects/statusEffects';
+
 const A5E = {};
 
 A5E.ROLL_MODE = {
@@ -750,6 +752,7 @@ A5E.statusEffects = [
     id: 'blinded',
     label: 'A5E.ConditionBlinded',
     icon: 'icons/svg/blind.svg',
+    // TODO: Impose adv and disadv on attacks.
     changes: [],
     duration: {}
   },
@@ -806,7 +809,7 @@ A5E.statusEffects = [
     id: 'encumbered',
     label: 'A5E.ConditionEncumbered',
     icon: 'icons/svg/downgrade.svg',
-    changes: [],
+    changes: changes.encumbered,
     duration: {}
   },
   // Fatigue
@@ -831,7 +834,7 @@ A5E.statusEffects = [
     id: 'grappled',
     label: 'A5E.ConditionGrappled',
     icon: 'icons/magic/symbols/clover-luck-white-green.webp',
-    changes: [],
+    changes: changes.grappled,
     duration: {}
   },
   // Incapacitated
@@ -847,6 +850,7 @@ A5E.statusEffects = [
     id: 'invisible',
     label: 'A5E.ConditionInvisible',
     icon: 'icons/svg/invisible.svg',
+    // TODO: Attack modifications
     changes: [],
     duration: {}
   },
@@ -856,6 +860,7 @@ A5E.statusEffects = [
     label: 'A5E.ConditionParalyzed',
     icon: 'icons/svg/paralysis.svg',
     changes: [],
+    conditions: ['incapacitated'],
     duration: {}
   },
   // Petrified
@@ -863,7 +868,8 @@ A5E.statusEffects = [
     id: 'petrified',
     label: 'A5E.ConditionPetrified',
     icon: 'icons/skills/wounds/injury-body-pain-gray.webp',
-    changes: [],
+    changes: changes.petrified,
+    conditions: ['incapacitated'],
     duration: {}
   },
   // Poisoned
@@ -896,7 +902,7 @@ A5E.statusEffects = [
     id: 'restrained',
     label: 'A5E.ConditionRestrained',
     icon: 'icons/svg/net.svg',
-    changes: [],
+    changes: changes.restrained,
     duration: {}
   },
   // Slowed
@@ -904,7 +910,7 @@ A5E.statusEffects = [
     id: 'slowed',
     label: 'A5E.ConditionSlowed',
     icon: 'icons/magic/symbols/cog-shield-white-blue.webp',
-    changes: [],
+    changes: changes.slowed,
     duration: {}
   },
 
