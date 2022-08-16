@@ -28,11 +28,12 @@
 <style lang="scss">
     .sheet-header {
         display: flex;
+        align-items: center;
     }
 
     .item-image {
-        width: 5rem;
-        height: 5rem;
+        width: 3rem;
+        height: 3rem;
         border-radius: 4px;
         cursor: pointer;
     }
