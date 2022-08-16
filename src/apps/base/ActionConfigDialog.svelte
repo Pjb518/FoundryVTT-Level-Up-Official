@@ -21,12 +21,35 @@
         });
     }
 
+    function addRoll() {
+        const newRoll = {
+            type: "attack",
+        };
+
+        $item.update({
+            [`system.actions.${actionId}.rolls`]: {
+                ...action.rolls,
+                [foundry.utils.randomID()]: newRoll,
+            },
+        });
+    }
+
     function deleteRangeIncrement(event) {
         const { rangeId } = event.target.closest(".range-increment").dataset;
 
         item.get("document").update({
             [`system.actions.${actionId}.ranges`]: {
                 [`-=${rangeId}`]: null,
+            },
+        });
+    }
+
+    function deleteRoll(event) {
+        const { rollId } = event.target.closest(".roll").dataset;
+
+        item.get("document").update({
+            [`system.actions.${actionId}.rolls`]: {
+                [`-=${rollId}`]: null,
             },
         });
     }
@@ -76,7 +99,26 @@
         </section>
 
         <section class="form-section">
-            <h2>Rolls</h2>
+            <header class="form-section-header">
+                <h2>Rolls</h2>
+
+                <a on:click={addRoll}>+ Add Roll</a>
+            </header>
+
+            <ul class="section-list">
+                {#each Object.entries(action.rolls ?? {}) as [id, roll] (id)}
+                    <li class="roll" data-roll-id={id}>
+                        {roll.type}
+
+                        <i
+                            class="delete-button fas fa-trash"
+                            on:click={deleteRoll}
+                        />
+                    </li>
+                {:else}
+                    <li>None</li>
+                {/each}
+            </ul>
         </section>
 
         <section class="form-section">
@@ -130,7 +172,8 @@
         }
     }
 
-    .range-increment {
+    .range-increment,
+    .roll {
         display: flex;
         align-items: center;
         justify-content: space-between;
