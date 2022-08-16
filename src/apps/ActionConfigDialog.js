@@ -7,14 +7,14 @@ import ActionConfigDialogComponent from './base/ActionConfigDialog.svelte';
 export default class ActionConfigDialog extends TJSDialog {
   constructor(
     item,
-    action
+    actionId
   ) {
     super({
       title: 'Test',
       content: {
         class: ActionConfigDialogComponent,
-        props: { item, action }
+        props: { actionId, item }
       }
-    }, { width: 320, height: 200 });
+    }, { width: 410, height: 400 });
   }
 }
