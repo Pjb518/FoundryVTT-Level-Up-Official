@@ -170,6 +170,17 @@
 </main>
 
 <style lang="scss">
+    :global {
+        .a5e-sheet .dialog-content {
+            height: 100%;
+        }
+    }
+
+    main {
+        height: 100%;
+        overflow: auto;
+    }
+
     .action {
         &-form {
             display: flex;
