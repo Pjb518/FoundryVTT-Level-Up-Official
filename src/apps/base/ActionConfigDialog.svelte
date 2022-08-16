@@ -8,6 +8,19 @@
     export let action;
     export let { actionId, item } = getContext("external").application;
 
+    function addPrompt() {
+        const newPrompt = {
+            type: "save",
+        };
+
+        $item.update({
+            [`system.actions.${actionId}.prompts`]: {
+                ...action.prompts,
+                [foundry.utils.randomID()]: newPrompt,
+            },
+        });
+    }
+
     function addRangeIncrement() {
         const newRange = {
             range: "short",
@@ -30,6 +43,16 @@
             [`system.actions.${actionId}.rolls`]: {
                 ...action.rolls,
                 [foundry.utils.randomID()]: newRoll,
+            },
+        });
+    }
+
+    function deletePrompt(event) {
+        const { promptId } = event.target.closest(".prompt").dataset;
+
+        item.get("document").update({
+            [`system.actions.${actionId}.prompts`]: {
+                [`-=${promptId}`]: null,
             },
         });
     }
@@ -122,7 +145,26 @@
         </section>
 
         <section class="form-section">
-            <h2>Prompts</h2>
+            <header class="form-section-header">
+                <h2>Prompts</h2>
+
+                <a on:click={addPrompt}>+ Add Prompt</a>
+            </header>
+
+            <ul class="section-list">
+                {#each Object.entries(action.prompts ?? {}) as [id, prompt] (id)}
+                    <li class="prompt" data-prompt-id={id}>
+                        {prompt.type}
+
+                        <i
+                            class="delete-button fas fa-trash"
+                            on:click={deletePrompt}
+                        />
+                    </li>
+                {:else}
+                    <li>None</li>
+                {/each}
+            </ul>
         </section>
     </section>
 </main>
@@ -172,6 +214,7 @@
         }
     }
 
+    .prompt,
     .range-increment,
     .roll {
         display: flex;
