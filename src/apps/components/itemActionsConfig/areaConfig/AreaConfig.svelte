@@ -96,6 +96,23 @@
             />
         </div>
     {/if}
+
+    {#if ["cube", "line"].includes(action.area?.shape)}
+        <div>
+            <label for={`${actionId}-area-width`}>Width</label>
+            <input
+                id={`${actionId}-area-width`}
+                type="number"
+                value={action.area?.width ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.area.width`,
+                        target.value
+                    )}
+            />
+        </div>
+    {/if}
 </section>
 
 <style lang="scss">
