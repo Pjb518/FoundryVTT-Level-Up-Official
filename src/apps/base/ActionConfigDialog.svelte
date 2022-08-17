@@ -3,9 +3,9 @@
 <script>
     import { getContext } from "svelte";
 
-    import ActionPromptsConfig from "../components/itemActionsConfig/ActionPromptsConfig.svelte";
-    import ActionRollsConfig from "../components/itemActionsConfig/ActionRollsConfig.svelte";
-    import ActionTargetingConfig from "../components/itemActionsConfig/ActionTargetingConfig.svelte";
+    import PromptsConfig from "../components/itemActionsConfig/PromptsConfig.svelte";
+    import RollsConfig from "../components/itemActionsConfig/RollsConfig.svelte";
+    import TargetingConfig from "../components/itemActionsConfig/TargetingConfig.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
@@ -20,17 +20,17 @@
         {
             name: "targeting",
             label: "Targeting",
-            component: ActionTargetingConfig,
+            component: TargetingConfig,
         },
         {
             name: "rolls",
             label: "Rolls",
-            component: ActionRollsConfig,
+            component: RollsConfig,
         },
         {
             name: "prompts",
             label: "Prompts",
-            component: ActionPromptsConfig,
+            component: PromptsConfig,
         },
     ];
 

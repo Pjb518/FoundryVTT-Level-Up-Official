@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import ActionAreaCongig from "./ActionAreaCongig.svelte";
+    import AreaConfig from "./areaConfig/AreaConfig.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -76,7 +76,7 @@
         </ul>
     </section>
 
-    <ActionAreaCongig {action} {actionId} {item} />
+    <AreaConfig {action} {actionId} {item} />
 
     <section class="form-section">
         <header class="section-header">
@@ -108,7 +108,9 @@
                 <option
                     value={null}
                     selected={foundry.utils.isEmpty(action?.target)}
-                />
+                >
+                    {localize("A5E.None")}
+                </option>
 
                 {#each Object.entries(CONFIG.A5E.targetTypes) as [key, name] (key)}
                     <option value={key} selected={action?.target?.type === key}>

@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import AreaShape from "./AreaShape.svelte";
 
     export let action;
     export let actionId;
@@ -41,28 +41,7 @@
         </label>
 
         {#each Object.entries(CONFIG.A5E.areaTypes) as [key, name] (key)}
-            <input
-                class="area-shape-input"
-                id={`area-${actionId}-${key}`}
-                name={`${actionId}-area-shape`}
-                value={key}
-                type="radio"
-                checked={action?.area?.shape === key}
-                on:click={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.area.shape`,
-                        target.value
-                    )}
-            />
-
-            <label class="area-shape-label" for={`area-${actionId}-${key}`}>
-                <span class="u-text-sm">
-                    {@html CONFIG.A5E.areaIcons[key]}
-                </span>
-
-                {localize(name)}
-            </label>
+            <AreaShape {action} {actionId} {item} {key} {name} />
         {/each}
     </div>
 </section>
