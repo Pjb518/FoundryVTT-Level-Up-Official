@@ -30,6 +30,24 @@
         });
     }
 
+    function selectTarget(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+
+        if (selectedOption === "null") {
+            $item.update({
+                [`system.actions.${actionId}`]: {
+                    "-=target": null,
+                },
+            });
+        } else {
+            $item.update({
+                [`system.actions.${actionId}.target`]: {
+                    type: selectedOption,
+                },
+            });
+        }
+    }
+
     function removeArea() {
         $item.update({
             [`system.actions.${actionId}`]: {
@@ -120,6 +138,27 @@
         <header class="section-header">
             <h2>Target</h2>
         </header>
+
+        <div class="u-flex u-gap-md">
+            <input type="number" />
+
+            <select
+                class="u-w-fit"
+                name="data.target.type"
+                on:change={selectTarget}
+            >
+                <option
+                    value={null}
+                    selected={foundry.utils.isEmpty(action?.target)}
+                />
+
+                {#each Object.entries(CONFIG.A5E.targetTypes) as [key, name] (key)}
+                    <option value={key} selected={action?.target?.type === key}>
+                        {localize(name)}
+                    </option>
+                {/each}
+            </select>
+        </div>
     </section>
 </section>
 
@@ -186,7 +225,7 @@
         }
 
         &-wrapper {
-            gap: 0.75rem;
+            gap: 1rem;
         }
     }
 
@@ -205,7 +244,6 @@
         border-bottom: 1px solid #ccc;
     }
 
-    .area,
     .range-increment {
         display: flex;
         align-items: center;

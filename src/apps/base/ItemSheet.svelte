@@ -24,6 +24,11 @@
             component: ItemDescriptionTab,
         },
         {
+            name: "properties",
+            label: "Properties",
+            component: ItemActionsTab,
+        },
+        {
             name: "actions",
             label: "Actions",
             component: ItemActionsTab,
