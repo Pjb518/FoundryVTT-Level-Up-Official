@@ -1,6 +1,12 @@
 <script>
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
     export let actionId;
     export let item;
+
+    function addArea() {
+        $item.update({ [`system.actions.${actionId}.area`]: { type: "cone" } });
+    }
 
     function addRangeIncrement() {
         const newRange = {
@@ -18,9 +24,17 @@
     function deleteRangeIncrement(event) {
         const { rangeId } = event.target.closest(".range-increment").dataset;
 
-        item.get("document").update({
+        $item.update({
             [`system.actions.${actionId}.ranges`]: {
                 [`-=${rangeId}`]: null,
+            },
+        });
+    }
+
+    function removeArea() {
+        $item.update({
+            [`system.actions.${actionId}`]: {
+                "-=area": null,
             },
         });
     }
@@ -49,7 +63,82 @@
     {/each}
 </ul>
 
+<header class="section-header">
+    <h2>Area</h2>
+</header>
+
+<div class="area-shape-list">
+    <input
+        class="area-shape-input"
+        id={`area-${actionId}-none}`}
+        name={`${actionId}-area-shape`}
+        value={null}
+        type="radio"
+    />
+    <label class="area-shape-label" for={`area-${actionId}-none}`}>
+        <span class="u-text-sm">
+            <i class="fas fa-times-circle" />
+        </span>
+
+        {localize("A5E.None")}
+    </label>
+
+    {#each Object.entries(CONFIG.A5E.areaTypes) as [key, name] (key)}
+        <input
+            class="area-shape-input"
+            id={`area-${actionId}-${key}`}
+            name={`${actionId}-area-shape`}
+            value={key}
+            type="radio"
+        />
+        <label class="area-shape-label" for={`area-${actionId}-${key}`}>
+            <span class="u-text-sm">
+                {@html CONFIG.A5E.areaIcons[key]}
+            </span>
+
+            {localize(name)}
+        </label>
+    {/each}
+</div>
+
 <style lang="scss">
+    .area-shape {
+        &-input {
+            display: none;
+
+            &:checked + .area-shape-label {
+                background: #2b6537;
+                border-color: darken($color: #2b6537, $amount: 5);
+                box-shadow: 0 0 10px darken($color: #2b6537, $amount: 10) inset;
+                color: #f6f2eb;
+            }
+        }
+
+        &-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            gap: 0.375rem;
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #bbb;
+            font-size: 1rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+
+        &-list {
+            display: flex;
+            width: 100%;
+            gap: 0.25rem;
+            margin: 0;
+            padding: 0;
+            font-family: "Modesto Condensed", serif;
+        }
+    }
+
     .delete-button {
         color: #8b2525;
         margin-left: auto;
@@ -75,10 +164,10 @@
         justify-content: space-between;
         padding: 0 0.25rem 0.25rem 0.25rem;
         font-family: "Modesto Condensed", serif;
-        font-size: 1rem;
         border-bottom: 1px solid #ccc;
     }
 
+    .area,
     .range-increment {
         display: flex;
         align-items: center;
