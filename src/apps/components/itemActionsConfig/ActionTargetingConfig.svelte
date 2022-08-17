@@ -1,6 +1,5 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { object_without_properties } from "svelte/internal";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -140,7 +139,19 @@
         </header>
 
         <div class="u-flex u-gap-md">
-            <input type="number" />
+            {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
+                <input
+                    type="number"
+                    name="targetQuantity"
+                    value={action.target?.quantity}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.target.quantity`,
+                            target.value
+                        )}
+                />
+            {/if}
 
             <select
                 class="u-w-fit"
