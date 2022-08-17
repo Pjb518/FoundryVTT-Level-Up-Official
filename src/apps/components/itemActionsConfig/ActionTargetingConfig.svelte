@@ -1,5 +1,8 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { object_without_properties } from "svelte/internal";
+
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let actionId;
     export let item;
@@ -74,7 +77,10 @@
         name={`${actionId}-area-shape`}
         value={null}
         type="radio"
+        checked={foundry.utils.isEmpty(action.area)}
+        on:change={removeArea}
     />
+
     <label class="area-shape-label" for={`area-${actionId}-none}`}>
         <span class="u-text-sm">
             <i class="fas fa-times-circle" />
@@ -90,7 +96,15 @@
             name={`${actionId}-area-shape`}
             value={key}
             type="radio"
+            checked={action?.area?.shape === key}
+            on:click={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.area.shape`,
+                    target.value
+                )}
         />
+
         <label class="area-shape-label" for={`area-${actionId}-${key}`}>
             <span class="u-text-sm">
                 {@html CONFIG.A5E.areaIcons[key]}
@@ -132,7 +146,7 @@
         &-list {
             display: flex;
             width: 100%;
-            gap: 0.25rem;
+            gap: 0.375rem;
             margin: 0;
             padding: 0;
             font-family: "Modesto Condensed", serif;
