@@ -1,5 +1,6 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import AreaShape from "./AreaShape.svelte";
 
@@ -44,6 +45,23 @@
             <AreaShape {action} {actionId} {item} {key} {name} />
         {/each}
     </div>
+
+    {#if action.area?.shape}
+        <div>
+            <label for={`${actionId}-area-quantity`}>Quantity</label>
+            <input
+                id={`${actionId}-area-quantity`}
+                type="number"
+                value={action.area?.quantity ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.area.quantity`,
+                        target.value
+                    )}
+            />
+        </div>
+    {/if}
 </section>
 
 <style lang="scss">
