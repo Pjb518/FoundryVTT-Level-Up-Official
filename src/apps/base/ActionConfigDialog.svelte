@@ -4,7 +4,7 @@
     import { getContext } from "svelte";
 
     import PromptsConfig from "../components/itemActionsConfig/PromptsConfig.svelte";
-    import RollsConfig from "../components/itemActionsConfig/RollsConfig.svelte";
+    import RollsConfig from "../components/itemActionsConfig/rollsConfig/RollsConfig.svelte";
     import TargetingConfig from "../components/itemActionsConfig/TargetingConfig.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 

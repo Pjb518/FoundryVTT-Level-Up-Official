@@ -459,6 +459,16 @@ A5E.rollModes = {
   disadvantage: 'A5E.RollModeDisadvantage'
 };
 
+A5E.rollTypes = {
+  abilityCheck: 'Ability Check',
+  attack: 'Attack',
+  damage: 'Damage',
+  healing: 'Healing',
+  generic: 'Generic',
+  savingThrow: 'Saving Throw',
+  skillCheck: 'Skill Check'
+};
+
 /**
  * The set of core special sense types in the system.
  * @enum {string}
