@@ -62,6 +62,23 @@
             />
         </div>
     {/if}
+
+    {#if ["cylinder", "sphere"].includes(action.area?.shape)}
+        <div>
+            <label for={`${actionId}-area-radius`}>Radius</label>
+            <input
+                id={`${actionId}-area-radius`}
+                type="number"
+                value={action.area?.radius ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.area.radius`,
+                        target.value
+                    )}
+            />
+        </div>
+    {/if}
 </section>
 
 <style lang="scss">
