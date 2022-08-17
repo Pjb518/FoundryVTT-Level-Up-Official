@@ -5,9 +5,6 @@ import { changes, flags } from './conditionsConfig';
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export default function setupConditions() {
   const conditions = Object.keys(CONFIG.A5E.conditions);
-  const settings = conditions.map((c) => game.settings.get('a5e', `enableCondition${c.capitalize()}`));
-
-  console.log(settings);
 
   // Replace default conditions with system specific conditions.
   CONFIG.statusEffects = getConditions();
@@ -37,6 +34,7 @@ export default function setupConditions() {
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function getConditions() {
+  const enabledConditions = game.settings.get('a5e', 'automatedConditions');
   return [
   // Blinded
     {
@@ -44,9 +42,9 @@ function getConditions() {
       label: 'A5E.ConditionBlinded',
       icon: 'icons/svg/blind.svg',
       // TODO: Impose adv and disadv on attacks.
-      changes: game.settings.get('a5e', 'enableConditionBlinded') ? changes.blinded : [],
+      changes: changes.blinded,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionBlinded') ? flags.blinded : {}
+      flags: { a5e: flags.blinded }
     },
     // Bloodied
     {
@@ -54,7 +52,8 @@ function getConditions() {
       label: 'A5E.ConditionBloodied',
       icon: 'icons/svg/blood.svg',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Charmed
     {
@@ -62,7 +61,8 @@ function getConditions() {
       label: 'A5E.ConditionCharmed',
       icon: 'icons/magic/symbols/arrowhead-green.webp',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Concentration
     {
@@ -70,7 +70,8 @@ function getConditions() {
       label: 'A5E.ConditionConcentration',
       icon: 'icons/magic/symbols/runes-star-blue .webp',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Confused
     {
@@ -78,7 +79,8 @@ function getConditions() {
       label: 'A5E.ConditionConfused',
       icon: 'icons/svg/stoned.svg',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Deafened
     {
@@ -86,7 +88,8 @@ function getConditions() {
       label: 'A5E.ConditionDeafened',
       icon: 'icons/svg/deaf.svg',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Doomed
     {
@@ -94,43 +97,44 @@ function getConditions() {
       label: 'A5E.ConditionDoomed',
       icon: 'icons/svg/skull.svg',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Encumbered
     {
       id: 'encumbered',
       label: 'A5E.ConditionEncumbered',
       icon: 'icons/svg/downgrade.svg',
-      changes: game.settings.get('a5e', 'enableConditionEncumbered') ? changes.encumbered : [],
+      changes: changes.encumbered,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionEncumbered') ? flags.encumbered : {}
+      flags: { a5e: flags.encumbered }
     },
     // Fatigue
     {
       id: 'fatigue',
       label: 'A5E.ConditionFatigue',
       icon: 'icons/magic/symbols/circle-ouroboros.webp',
-      changes: game.settings.get('a5e', 'enableConditionFatigue') ? changes.fatigue : [],
+      changes: changes.fatigue,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionFatigue') ? flags.fatigue : {}
+      flags: { a5e: flags.fatigue }
     },
     // Frightened
     {
       id: 'frightened',
       label: 'A5E.ConditionFrightened',
       icon: 'icons/svg/terror.svg',
-      changes: game.settings.get('a5e', 'enableConditionFrightened') ? changes.frightened : [],
+      changes: changes.frightened,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionFrightened') ? flags.frightened : {}
+      flags: { a5e: flags.frightened }
     },
     // Grappled
     {
       id: 'grappled',
       label: 'A5E.ConditionGrappled',
       icon: 'icons/magic/symbols/clover-luck-white-green.webp',
-      changes: game.settings.get('a5e', 'enableConditionGrappled') ? changes.grappled : [],
+      changes: changes.grappled,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionGrappled') ? flags.grappled : {}
+      flags: { a5e: flags.grappled }
     },
     // Incapacitated
     {
@@ -138,79 +142,80 @@ function getConditions() {
       label: 'A5E.ConditionIncapacitated',
       icon: 'icons/magic/symbols/cog-orange-red.webp',
       changes: [],
-      duration: {}
+      duration: {},
+      flags: { a5e: {} }
     },
     // Invisible
     {
       id: 'invisible',
       label: 'A5E.ConditionInvisible',
       icon: 'icons/svg/invisible.svg',
-      changes: game.settings.get('a5e', 'enableConditionInvisible') ? changes.invisible : [],
+      changes: changes.invisible,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionInvisible') ? flags.invisible : {}
+      flags: { a5e: flags.invisible }
     },
     // Paralyzed
     {
       id: 'paralyzed',
       label: 'A5E.ConditionParalyzed',
       icon: 'icons/svg/paralysis.svg',
-      changes: game.settings.get('a5e', 'enableConditionParalyzed') ? changes.paralyzed : [],
+      changes: changes.paralyzed,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionParalyzed') ? flags.paralyzed : {}
+      flags: { a5e: flags.paralyzed }
     },
     // Petrified
     {
       id: 'petrified',
       label: 'A5E.ConditionPetrified',
       icon: 'icons/skills/wounds/injury-body-pain-gray.webp',
-      changes: game.settings.get('a5e', 'enableConditionPetrified') ? changes.petrified : [],
+      changes: changes.petrified,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionPetrified') ? flags.petrified : {}
+      flags: { a5e: flags.petrified }
     },
     // Poisoned
     {
       id: 'poisoned',
       label: 'A5E.ConditionPoisoned',
       icon: 'icons/svg/poison.svg',
-      changes: game.settings.get('a5e', 'enableConditionPoisoned') ? changes.poisoned : [],
+      changes: changes.poisoned,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionPoisoned') ? flags.poisoned : {}
+      flags: { a5e: flags.poisoned }
     },
     // Prone
     {
       id: 'prone',
       label: 'A5E.ConditionProne',
       icon: 'icons/svg/falling.svg',
-      changes: game.settings.get('a5e', 'enableConditionProne') ? changes.prone : [],
+      changes: changes.prone,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionProne') ? flags.prone : {}
+      flags: { a5e: flags.prone }
     },
     // Rattled
     {
       id: 'rattled',
       label: 'A5E.ConditionRattled',
       icon: 'icons/skills/wounds/injury-face-impact-orange.webp',
-      changes: game.settings.get('a5e', 'enableConditionRattled') ? changes.rattled : [],
+      changes: changes.rattled,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionRattled') ? flags.rattled : {}
+      flags: { a5e: flags.rattled }
     },
     // Restrained
     {
       id: 'restrained',
       label: 'A5E.ConditionRestrained',
       icon: 'icons/svg/net.svg',
-      changes: game.settings.get('a5e', 'enableConditionRestrained') ? changes.restrained : [],
+      changes: changes.restrained,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionRestrained') ? flags.restrained : {}
+      flags: { a5e: flags.restrained }
     },
     // Slowed
     {
       id: 'slowed',
       label: 'A5E.ConditionSlowed',
       icon: 'icons/magic/symbols/cog-shield-white-blue.webp',
-      changes: game.settings.get('a5e', 'enableConditionSlowed') ? changes.slowed : [],
+      changes: changes.slowed,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionSlowed') ? flags.slowed : {}
+      flags: { a5e: flags.slowed }
     },
 
     // Strife
@@ -218,27 +223,34 @@ function getConditions() {
       id: 'strife',
       label: 'A5E.ConditionStrife',
       icon: 'icons/magic/symbols/cog-glowing-green.webp',
-      changes: game.settings.get('a5e', 'enableConditionStrife') ? changes.strife : [],
+      changes: changes.strife,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionStrife') ? flags.strife : {}
+      flags: { a5e: flags.strife }
     },
     // Stunned
     {
       id: 'stunned',
       label: 'A5E.ConditionStunned',
       icon: 'icons/svg/daze.svg',
-      changes: game.settings.get('a5e', 'enableConditionStunned') ? changes.stunned : [],
+      changes: changes.stunned,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionStunned') ? flags.stunned : {}
+      flags: { a5e: flags.stunned }
     },
     // Unconscious
     {
       id: 'unconscious',
       label: 'A5E.ConditionUnconscious',
       icon: 'icons/svg/unconscious.svg',
-      changes: game.settings.get('a5e', 'enableConditionUnconscious') ? changes.unconscious : [],
+      changes: changes.unconscious,
       duration: {},
-      flags: game.settings.get('a5e', 'enableConditionUnconscious') ? flags.unconscious : {}
+      flags: { a5e: flags.unconscious }
     }
-  ];
+  ].map((c) => {
+    if (!enabledConditions.includes(c.id)) {
+      c.changes = [];
+      c.flags.a5e.rollModifiers = {};
+    }
+
+    return c;
+  });
 }
