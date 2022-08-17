@@ -1,4 +1,9 @@
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                         Changes
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export const changes = {
+  blinded: [],
+
   encumbered: [{
     key: 'system.attributes.movement.walk',
     value: '5',
@@ -6,12 +11,20 @@ export const changes = {
     label: 'A5E.ConditionEncumbered'
   }],
 
+  fatigue: [],
+
+  frightened: [],
+
   grappled: [{
     key: 'system.attributes.movement.walk',
     value: '0',
     mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
     label: 'A5E.ConditionGrappled'
   }],
+
+  invisible: [],
+
+  paralyzed: [],
 
   // FIXME: Dynamically generate the resistance to all damage.
   petrified: [{
@@ -99,6 +112,12 @@ export const changes = {
     label: 'A5E.ConditionPetrified'
   }],
 
+  poisoned: [],
+
+  prone: [],
+
+  rattled: [],
+
   restrained: [{
     key: 'system.attributes.movement.walk',
     value: '0',
@@ -117,7 +136,97 @@ export const changes = {
     value: '-2',
     mode: CONST.ACTIVE_EFFECT_MODES.ADD,
     label: 'A5E.ConditionSlowed'
-  }]
+  }],
+
+  strife: [],
+
+  stunned: [],
+
+  unconscious: []
+
 };
 
-export const flags = [];
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                        Flags
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export const flags = {
+  blinded: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  encumbered: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  fatigue: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  frightened: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  grappled: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  invisible: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  paralyzed: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  petrified: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  poisoned: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  prone: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  rattled: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  restrained: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  slowed: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  strife: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  stunned: {
+    conditions: [],
+    rollModifiers: {}
+  },
+
+  unconscious: {
+    conditions: [],
+    rollModifiers: {}
+  }
+};

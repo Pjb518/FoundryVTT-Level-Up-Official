@@ -30,6 +30,8 @@ import registerSystemSettings from './modules/settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
 
+import getConditions from './modules/activeEffects/conditions';
+
 // Macros
 import activateItemMacro from './modules/macros/activateItemMacro';
 import createMacro from './modules/macros/createMacro';
@@ -102,8 +104,6 @@ Hooks.once('init', () => {
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
-  CONFIG.statusEffects = A5E.statusEffects;
-
   registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);
@@ -136,6 +136,13 @@ Hooks.once('init', () => {
   Combat.prototype.rollInitiative = rollInitiative;
 
   return preloadHandlebarsTemplates();
+});
+
+/**
+ * Once game object is ready initialize anything that requires the game object
+ */
+Hooks.once('setup', () => {
+  CONFIG.statusEffects = getConditions();
 });
 
 /**
