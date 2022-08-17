@@ -20,6 +20,21 @@
         });
     }
 
+    function duplicateAction(event) {
+        const actions = $item.system.actions;
+        const { actionId } = event.target.closest(".action").dataset;
+
+        const newAction = foundry.utils.duplicate(actions[actionId]);
+        newAction.name = `${newAction.name} (Copy)`;
+
+        $item.update({
+            "system.actions": {
+                ...actions,
+                [foundry.utils.randomID()]: newAction,
+            },
+        });
+    }
+
     function configureAction(event) {
         const { actionId } = event.target.closest(".action").dataset;
 
@@ -31,7 +46,7 @@
     function deleteAction(event) {
         const { actionId } = event.target.closest(".action").dataset;
 
-        item.get("document").update({
+        $item.update({
             "system.actions": {
                 [`-=${actionId}`]: null,
             },
@@ -56,6 +71,11 @@
                 />
 
                 <i
+                    class="action-button fa-solid fa-clone"
+                    on:click={duplicateAction}
+                />
+
+                <i
                     class="action-button delete-button fas fa-trash"
                     on:click={deleteAction}
                 />
@@ -76,12 +96,12 @@
 
         &-button {
             margin-left: auto;
-            margin-right: 0.5rem;
             padding: 0.25rem;
             cursor: pointer;
             transition: all 0.15s ease-in-out;
 
             &:hover {
+                color: #555;
                 transform: scale(1.2);
             }
         }
@@ -89,8 +109,8 @@
         &-buttons {
             display: flex;
             align-items: center;
-            gap: 0.25rem;
-            color: #555;
+            gap: 0.75rem;
+            color: #999;
         }
 
         &-list {
@@ -112,7 +132,7 @@
         padding: 0 0.25rem 0.25rem 0.25rem;
     }
 
-    .delete-button {
+    .delete-button:hover {
         color: #8b2525;
     }
 
