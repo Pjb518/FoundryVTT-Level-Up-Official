@@ -1,0 +1,24 @@
+<form>
+  <h3> {{ localize "A5E.Settings.EnableConditionsName" }}</h3>
+  <p> {{ localize "A5E.Settings.EnableConditionsHint" }}</p>
+  {{#each this}}
+    <div>
+      <input
+        type="checkbox"
+        id="{{ @key }}"
+        name="conditions"
+        value="{{ @key }}"
+        {{checked
+        this.checked}}
+      >
+      <label for="{{ @key }}">{{this.label}}</label>
+    </div>
+  {{/each}}
+
+  <button
+    type="submit"
+    name="submit"
+  >
+    <i class="far fa-save"></i> Save
+  </button>
+</form>

@@ -1,3 +1,62 @@
+class ConditionAutomationSettings extends FormApplication {
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      title: 'Condition Automation Settings',
+      id: 'condition-automation-settings',
+      template: 'systems/a5e/templates/conditionAutomationMenu.hbs',
+      width: '600',
+      height: 'auto',
+      closeOnSubmit: true,
+      resizable: true
+
+    });
+  }
+
+  getData(options = {}) {
+    this.conditions = [
+      'blinded',
+      'encumbered',
+      'fatigue',
+      'frightened',
+      'grappled',
+      'invisible',
+      'paralyzed',
+      'petrified',
+      'poisoned',
+      'prone',
+      'rattled',
+      'restrained',
+      'slowed',
+      'strife',
+      'stunned',
+      'unconscious'
+    ];
+
+    const enabledConditions = game.settings.get('a5e', 'automatedConditions');
+
+    const data = {};
+    this.conditions.forEach((c) => {
+      data[c] = {
+        label: game.i18n.localize(`A5E.Condition${c.capitalize()}`),
+        checked: enabledConditions.includes(c)
+      };
+    });
+
+    return data;
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+  }
+
+  async _updateObject(event, formData) {
+    const updatedConditions = this.conditions.filter((c, i) => formData.conditions[i] === true);
+    await game.settings.set('a5e', 'automatedConditions', updatedConditions);
+
+    this.render();
+  }
+}
+
 export default function registerSystemSettings() {
   const reload = foundry.utils.debounce(() => window.location.reload(), 250);
 
@@ -46,40 +105,20 @@ export default function registerSystemSettings() {
   });
 
   // Enable settings for condition automation
-  const conditions = [
-    'blinded',
-    'encumbered',
-    'fatigue',
-    'frightened',
-    'grappled',
-    'invisible',
-    'paralyzed',
-    'petrified',
-    'poisoned',
-    'prone',
-    'rattled',
-    'restrained',
-    'slowed',
-    'strife',
-    'stunned',
-    'unconscious'
-  ];
+  game.settings.register('a5e', 'automatedConditions', {
+    name: 'Enable Condition Automation',
+    scope: 'world',
+    config: false,
+    type: Array,
+    default: ['petrified'],
+    onChange: reload
+  });
 
-  conditions.forEach((c) => {
-    game.settings.register('a5e', `enableCondition${c.capitalize()}`, {
-      name: game.i18n.format(
-        'A5E.Settings.EnableConditionsName',
-        { condition: game.i18n.localize(`A5E.Condition${c.capitalize()}`) }
-      ),
-      hint: game.i18n.format(
-        'A5E.Settings.EnableConditionsHint',
-        { condition: game.i18n.localize(`A5E.Condition${c.capitalize()}`) }
-      ),
-      scope: 'world',
-      config: true,
-      type: Boolean,
-      default: false,
-      onChange: reload
-    });
+  game.settings.registerMenu('a5e', 'ConditionAutomationMenu', {
+    name: 'Condition Automation Menu',
+    label: 'Configure Condition Automation',
+    icon: 'fas fa bars',
+    type: ConditionAutomationSettings,
+    restricted: true
   });
 }

@@ -3,7 +3,40 @@ import { changes, flags } from './conditionsConfig';
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export default function getConditions() {
+export default function setupConditions() {
+  const conditions = Object.keys(CONFIG.A5E.conditions);
+  const settings = conditions.map((c) => game.settings.get('a5e', `enableCondition${c.capitalize()}`));
+
+  console.log(settings);
+
+  // Replace default conditions with system specific conditions.
+  CONFIG.statusEffects = getConditions();
+
+  // Setup Hook to apply sub-conditions
+  Hooks.on('preCreateActiveEffect', (conditionData) => {
+    const token = conditionData?.parent;
+
+    console.log(conditionData);
+
+    // Guards
+    if (!token) return;
+    if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+    if (!conditionData.flags?.a5e?.conditions) return;
+
+    // Set other conditions
+    conditionData.flags.a5e.conditions.forEach((c) => {
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      console.log(effect);
+
+      token.toggleActiveEffect(effect, { active: true });
+    });
+  });
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                     Conditions Object
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function getConditions() {
   return [
   // Blinded
     {

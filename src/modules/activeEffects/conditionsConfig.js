@@ -181,7 +181,7 @@ export const flags = {
   },
 
   paralyzed: {
-    conditions: [],
+    conditions: ['incapacitated'],
     rollModifiers: {}
   },
 
