@@ -113,6 +113,23 @@
             />
         </div>
     {/if}
+
+    {#if action.area?.shape === "cylinder"}
+        <div>
+            <label for={`${actionId}-area-height`}>Height</label>
+            <input
+                id={`${actionId}-area-height`}
+                type="number"
+                value={action.area?.height ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.area.height`,
+                        target.value
+                    )}
+            />
+        </div>
+    {/if}
 </section>
 
 <style lang="scss">
