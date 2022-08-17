@@ -7,10 +7,6 @@
     export let actionId;
     export let item;
 
-    function addArea() {
-        $item.update({ [`system.actions.${actionId}.area`]: { type: "cone" } });
-    }
-
     function addRangeIncrement() {
         const newRange = {
             range: "short",
