@@ -860,7 +860,6 @@ A5E.statusEffects = [
     label: 'A5E.ConditionParalyzed',
     icon: 'icons/svg/paralysis.svg',
     changes: [],
-    conditions: ['incapacitated'],
     duration: {}
   },
   // Petrified
@@ -869,7 +868,6 @@ A5E.statusEffects = [
     label: 'A5E.ConditionPetrified',
     icon: 'icons/skills/wounds/injury-body-pain-gray.webp',
     changes: changes.petrified,
-    conditions: ['incapacitated'],
     duration: {}
   },
   // Poisoned

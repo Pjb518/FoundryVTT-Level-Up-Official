@@ -5,7 +5,6 @@
  * - Enable active effects on item equip/unequip.
  * - Allow references to core actor data.
  * - Allow arithmetic in data definitions.
- * - Allow application of effects to other tokens.
  * - Priority of effects.
  * - Allow macros to be executed.
  *

@@ -120,4 +120,4 @@ export const changes = {
   }]
 };
 
-export const other = [];
+export const flags = [];
