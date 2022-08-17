@@ -41,75 +41,87 @@
     $: action = $item.system.actions[actionId];
 </script>
 
-<header class="section-header">
-    <h2>Range</h2>
+<section class="form-wrapper">
+    <section class="form-section">
+        <header class="section-header">
+            <h2>Range</h2>
 
-    <a on:click={addRangeIncrement}>+ Add Range Increment</a>
-</header>
+            <a on:click={addRangeIncrement}>+ Add Range Increment</a>
+        </header>
 
-<ul class="section-list">
-    {#each Object.entries(action.ranges ?? {}) as [id, { range }] (id)}
-        <li class="range-increment" data-range-id={id}>
-            {range}
+        <ul class="section-list">
+            {#each Object.entries(action.ranges ?? {}) as [id, { range }] (id)}
+                <li class="range-increment" data-range-id={id}>
+                    {range}
 
-            <i
-                class="delete-button fas fa-trash"
-                on:click={deleteRangeIncrement}
+                    <i
+                        class="delete-button fas fa-trash"
+                        on:click={deleteRangeIncrement}
+                    />
+                </li>
+            {:else}
+                <li class="none">None</li>
+            {/each}
+        </ul>
+    </section>
+
+    <section class="form-section">
+        <header class="section-header">
+            <h2>Area</h2>
+        </header>
+
+        <div class="area-shape-list">
+            <input
+                class="area-shape-input"
+                id={`area-${actionId}-none}`}
+                name={`${actionId}-area-shape`}
+                value={null}
+                type="radio"
+                checked={foundry.utils.isEmpty(action.area)}
+                on:change={removeArea}
             />
-        </li>
-    {:else}
-        <li class="none">None</li>
-    {/each}
-</ul>
 
-<header class="section-header">
-    <h2>Area</h2>
-</header>
+            <label class="area-shape-label" for={`area-${actionId}-none}`}>
+                <span class="u-text-sm">
+                    <i class="fas fa-times-circle" />
+                </span>
 
-<div class="area-shape-list">
-    <input
-        class="area-shape-input"
-        id={`area-${actionId}-none}`}
-        name={`${actionId}-area-shape`}
-        value={null}
-        type="radio"
-        checked={foundry.utils.isEmpty(action.area)}
-        on:change={removeArea}
-    />
+                {localize("A5E.None")}
+            </label>
 
-    <label class="area-shape-label" for={`area-${actionId}-none}`}>
-        <span class="u-text-sm">
-            <i class="fas fa-times-circle" />
-        </span>
+            {#each Object.entries(CONFIG.A5E.areaTypes) as [key, name] (key)}
+                <input
+                    class="area-shape-input"
+                    id={`area-${actionId}-${key}`}
+                    name={`${actionId}-area-shape`}
+                    value={key}
+                    type="radio"
+                    checked={action?.area?.shape === key}
+                    on:click={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.area.shape`,
+                            target.value
+                        )}
+                />
 
-        {localize("A5E.None")}
-    </label>
+                <label class="area-shape-label" for={`area-${actionId}-${key}`}>
+                    <span class="u-text-sm">
+                        {@html CONFIG.A5E.areaIcons[key]}
+                    </span>
 
-    {#each Object.entries(CONFIG.A5E.areaTypes) as [key, name] (key)}
-        <input
-            class="area-shape-input"
-            id={`area-${actionId}-${key}`}
-            name={`${actionId}-area-shape`}
-            value={key}
-            type="radio"
-            checked={action?.area?.shape === key}
-            on:click={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.area.shape`,
-                    target.value
-                )}
-        />
+                    {localize(name)}
+                </label>
+            {/each}
+        </div>
+    </section>
 
-        <label class="area-shape-label" for={`area-${actionId}-${key}`}>
-            <span class="u-text-sm">
-                {@html CONFIG.A5E.areaIcons[key]}
-            </span>
-
-            {localize(name)}
-        </label>
-    {/each}
-</div>
+    <section class="form-section">
+        <header class="section-header">
+            <h2>Target</h2>
+        </header>
+    </section>
+</section>
 
 <style lang="scss">
     .area-shape {
@@ -159,6 +171,22 @@
 
         &:hover {
             transform: scale(1.2);
+        }
+    }
+
+    .form {
+        &-section {
+            gap: 0.5rem;
+        }
+
+        &-section,
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-wrapper {
+            gap: 0.75rem;
         }
     }
 
