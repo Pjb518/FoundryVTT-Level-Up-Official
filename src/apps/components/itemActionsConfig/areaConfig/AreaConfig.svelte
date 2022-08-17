@@ -79,6 +79,23 @@
             />
         </div>
     {/if}
+
+    {#if ["cone", "line"].includes(action.area?.shape)}
+        <div>
+            <label for={`${actionId}-area-length`}>Length</label>
+            <input
+                id={`${actionId}-area-length`}
+                type="number"
+                value={action.area?.length ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.area.length`,
+                        target.value
+                    )}
+            />
+        </div>
+    {/if}
 </section>
 
 <style lang="scss">
