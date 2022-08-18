@@ -138,7 +138,7 @@ function getConditions() {
     {
       id: 'charmed',
       label: 'A5E.ConditionCharmed',
-      icon: 'icons/magic/symbols/arrowhead-green.webp',
+      icon: 'systems/a5e/assets/icons/charmed.svg',
       changes: [],
       duration: {},
       flags: { a5e: {} }
@@ -147,7 +147,7 @@ function getConditions() {
     {
       id: 'concentration',
       label: 'A5E.ConditionConcentration',
-      icon: 'icons/magic/symbols/runes-star-blue .webp',
+      icon: 'systems/a5e/assets/icons/concentration.svg',
       changes: [],
       duration: {},
       flags: { a5e: {} }
@@ -156,7 +156,7 @@ function getConditions() {
     {
       id: 'confused',
       label: 'A5E.ConditionConfused',
-      icon: 'icons/svg/stoned.svg',
+      icon: 'systems/a5e/assets/icons/confused.svg',
       changes: [],
       duration: {},
       flags: { a5e: {} }
@@ -174,7 +174,7 @@ function getConditions() {
     {
       id: 'doomed',
       label: 'A5E.ConditionDoomed',
-      icon: 'icons/svg/skull.svg',
+      icon: 'systems/a5e/assets/icons/doomed.svg',
       changes: [],
       duration: {},
       flags: { a5e: {} }
@@ -183,7 +183,7 @@ function getConditions() {
     {
       id: 'encumbered',
       label: 'A5E.ConditionEncumbered',
-      icon: 'icons/svg/downgrade.svg',
+      icon: 'systems/a5e/assets/icons/encumbered.svg',
       changes: changes.encumbered,
       duration: {},
       flags: { a5e: flags.encumbered }
@@ -192,7 +192,7 @@ function getConditions() {
     {
       id: 'fatigue',
       label: 'A5E.ConditionFatigue',
-      icon: 'icons/magic/symbols/circle-ouroboros.webp',
+      icon: 'systems/a5e/assets/icons/fatigue.svg',
       changes: changes.fatigue,
       duration: {},
       flags: { a5e: flags.fatigue }
@@ -210,7 +210,7 @@ function getConditions() {
     {
       id: 'grappled',
       label: 'A5E.ConditionGrappled',
-      icon: 'icons/magic/symbols/clover-luck-white-green.webp',
+      icon: 'systems/a5e/assets/icons/grappled.svg',
       changes: changes.grappled,
       duration: {},
       flags: { a5e: flags.grappled }
@@ -219,7 +219,7 @@ function getConditions() {
     {
       id: 'incapacitated',
       label: 'A5E.ConditionIncapacitated',
-      icon: 'icons/magic/symbols/cog-orange-red.webp',
+      icon: 'systems/a5e/assets/icons/incapacitated.svg',
       changes: [],
       duration: {},
       flags: { a5e: {} }
@@ -246,7 +246,7 @@ function getConditions() {
     {
       id: 'petrified',
       label: 'A5E.ConditionPetrified',
-      icon: 'icons/skills/wounds/injury-body-pain-gray.webp',
+      icon: 'systems/a5e/assets/icons/petrified.svg',
       changes: changes.petrified,
       duration: {},
       flags: { a5e: flags.petrified }
@@ -273,7 +273,7 @@ function getConditions() {
     {
       id: 'rattled',
       label: 'A5E.ConditionRattled',
-      icon: 'icons/skills/wounds/injury-face-impact-orange.webp',
+      icon: 'systems/a5e/assets/icons/rattled.svg',
       changes: changes.rattled,
       duration: {},
       flags: { a5e: flags.rattled }
@@ -291,7 +291,7 @@ function getConditions() {
     {
       id: 'slowed',
       label: 'A5E.ConditionSlowed',
-      icon: 'icons/magic/symbols/cog-shield-white-blue.webp',
+      icon: 'systems/a5e/assets/icons/slowed.svg',
       changes: changes.slowed,
       duration: {},
       flags: { a5e: flags.slowed }
@@ -301,7 +301,7 @@ function getConditions() {
     {
       id: 'strife',
       label: 'A5E.ConditionStrife',
-      icon: 'icons/magic/symbols/cog-glowing-green.webp',
+      icon: 'systems/a5e/assets/icons/strife.svg',
       changes: changes.strife,
       duration: {},
       flags: { a5e: flags.strife }
