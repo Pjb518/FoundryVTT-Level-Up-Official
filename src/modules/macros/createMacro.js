@@ -7,11 +7,14 @@
  *
  * @returns {Promise}
  */
-export default async function createMacro(data, slot) {
-  if (data.type !== 'Item') return null;
-  if (!('data' in data)) return ui.notifications.warn('A5E.ActionWarningNoMacrosForUnownedItems');
+export default async function createMacro({ type, uuid }, slot) {
+  if (type !== 'Item') return null;
 
-  const item = data.data;
+  const item = await fromUuid(uuid);
+
+  if (foundry.utils.isEmpty(item) || item.parent === null) {
+    return ui.notifications.warn(game.i18n.localize('A5E.ActionWarningNoMacrosForUnownedItems'));
+  }
 
   // Create the macro command
   const command = `game.a5e.macros.activateItemMacro("${item.name}");`;
