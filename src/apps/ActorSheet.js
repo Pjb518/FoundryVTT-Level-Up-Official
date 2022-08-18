@@ -60,7 +60,14 @@ export default class ActorSheet extends SvelteApplication {
     const dialog = new BackgroundDropDialog(item);
     dialog.render(true);
 
-    const { selectedAbilityScores, selectedEquipment } = await dialog.promise;
+    let selectedAbilityScores;
+    let selectedEquipment;
+
+    try {
+      ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
+    } catch (error) {
+      return;
+    }
 
     const backgroundFeature = await fromUuid(item.system.feature);
     const startingEquipment = await Promise.all(selectedEquipment.map(

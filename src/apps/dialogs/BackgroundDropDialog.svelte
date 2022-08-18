@@ -86,7 +86,6 @@
     </section>
 
     <div class="button-container">
-        <button on:click|preventDefault={application.close}>Cancel</button>
         <button on:click|preventDefault={submitForm}>Submit</button>
     </div>
 </form>
