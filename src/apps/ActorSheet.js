@@ -1,6 +1,7 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import ActorSheetComponent from './base/ActorSheet.svelte';
+import ActorSheetComponent from './sheets/ActorSheet.svelte';
+import BackgroundDropDialog from './BackgroundDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -46,8 +47,23 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   async _onDropBackground(item) {
+    if (item?.type !== 'background') {
+      ui.notifications.warn('The item provided to _onDropBackground must be of type "background".');
+      return;
+    }
+
+    if (this.actor.type !== 'character') {
+      ui.notifications.warn('Background documents cannot be added to NPCs.');
+      return;
+    }
+
+    const dialog = new BackgroundDropDialog(item);
+    dialog.render(true);
+
+    const { selectedAbilityScores, selectedEquipment } = await dialog.promise;
+
     const backgroundFeature = await fromUuid(item.system.feature);
-    const startingEquipment = await Promise.all(item.system.equipment.map(
+    const startingEquipment = await Promise.all(selectedEquipment.map(
       (equipmentItem) => fromUuid(equipmentItem)
     ));
 

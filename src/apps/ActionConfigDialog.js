@@ -1,5 +1,5 @@
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
-import ActionConfigDialogComponent from './base/ActionConfigDialog.svelte';
+import ActionConfigDialogComponent from './dialogs/ActionConfigDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.

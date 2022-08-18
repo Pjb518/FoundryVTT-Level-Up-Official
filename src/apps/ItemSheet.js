@@ -1,7 +1,7 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import BackgroundSheetComponent from './base/BackgroundSheet.svelte';
-import ItemSheetComponent from './base/ItemSheet.svelte';
+import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
+import ItemSheetComponent from './sheets/ItemSheet.svelte';
 
 export default class ItemSheet extends SvelteApplication {
   /**

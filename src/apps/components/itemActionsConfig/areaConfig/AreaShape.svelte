@@ -60,14 +60,5 @@
             cursor: pointer;
             transition: all 0.15s ease-in-out;
         }
-
-        &-list {
-            display: flex;
-            width: 100%;
-            gap: 0.375rem;
-            margin: 0;
-            padding: 0;
-            font-family: "Modesto Condensed", serif;
-        }
     }
 </style>
