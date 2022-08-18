@@ -10,10 +10,8 @@ export default function setupConditions() {
   CONFIG.statusEffects = getConditions();
 
   // Setup Hook to apply sub-conditions
-  Hooks.on('preCreateActiveEffect', (conditionData) => {
-    const token = conditionData?.parent;
-
-    console.log(conditionData);
+  Hooks.on('createActiveEffect', (conditionData) => {
+    const token = conditionData?.parent?.parent;
 
     // Guards
     if (!token) return;
@@ -23,9 +21,23 @@ export default function setupConditions() {
     // Set other conditions
     conditionData.flags.a5e.conditions.forEach((c) => {
       const effect = CONFIG.statusEffects.find((e) => e.id === c);
-      console.log(effect);
-
       token.toggleActiveEffect(effect, { active: true });
+    });
+  });
+
+  // Setup Hook to remove sub-conditions
+  Hooks.on('deleteActiveEffect', (conditionData) => {
+    const token = conditionData?.parent?.parent;
+
+    // Guards
+    if (!token) return;
+    if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+    if (!conditionData.flags?.a5e?.conditions) return;
+
+    // Set other conditions
+    conditionData.flags.a5e.conditions.forEach((c) => {
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      token.toggleActiveEffect(effect, { active: false });
     });
   });
 }
@@ -247,8 +259,8 @@ function getConditions() {
     }
   ].map((c) => {
     if (!enabledConditions.includes(c.id)) {
-      c.changes = [];
-      c.flags.a5e.rollModifiers = {};
+      if (c.changes.length !== 0) { c.changes = []; }
+      if (c.flags.a5e.rollModifiers) { c.flags.a5e.rollModifiers = {}; }
     }
 
     return c;
