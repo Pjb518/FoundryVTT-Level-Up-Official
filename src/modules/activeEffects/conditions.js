@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -40,6 +41,72 @@ export default function setupConditions() {
       token.toggleActiveEffect(effect, { active: false });
     });
   });
+
+  // Change Default Conditions Interface
+  const HUDRender = function (wrapped, ...args) {
+    return wrapped(...args).then(() => {
+      alterConditionInterface.call(this, this.element);
+    });
+  };
+
+  // TODO: Optionally use libWrapper
+  // libWrapper.register('a5e', 'TokenHUD.prototype._render', HUDRender, 'WRAPPER');
+  const defaultRender = TokenHUD.prototype._render;
+  // eslint-disable-next-line func-names
+  TokenHUD.prototype._render = function () {
+    // eslint-disable-next-line prefer-rest-params
+    return HUDRender.call(this, defaultRender.bind(this), ...arguments);
+  };
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Conditions Interface
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+async function alterConditionInterface($html) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const img of $('.status-effects > img')) {
+    const src = $(img).attr('src');
+    if (src === '') {
+      $(img).css({ visibility: 'hidden' });
+    } else {
+      const title = $(img).attr('title') || $(img).attr('data-condition');
+      $('<div>')
+        .addClass('condition-container')
+        .attr('title', title)
+        .insertAfter(img)
+        .append(img)
+        .append($('<div>')
+          .addClass('condition-name')
+          .html(title));
+    }
+  }
+
+  $('.status-effects', $html).append(
+    $('<div>')
+      .addClass('clear-all-conditions')
+      .html(`<i class="fa-solid fa-octagon-xmark"></i> ${game.i18n.localize('A5E.UIClearAll')}`)
+      .click($.proxy(clearAllConditions, this))
+  );
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                     Clear All Conditions
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function clearAllConditions() {
+  const conditions = this._getStatusEffectChoices();
+  // eslint-disable-next-line no-restricted-syntax
+  for (const condition of Object.values(conditions)) {
+    if (condition.isActive) {
+      this.object.toggleEffect({ id: condition.id, icon: condition.src });
+    }
+  }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                     Sort Conditions
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function sortConditions() {
+
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
