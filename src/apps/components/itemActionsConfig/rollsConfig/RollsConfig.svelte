@@ -41,12 +41,12 @@
     {#each Object.entries(action.rolls ?? {}) as [id, roll] (id)}
         <li class="roll" data-roll-id={id}>
             <div>
-                <label for={`${actionId}-roll-type`}>Roll Type</label>
+                <label for={`${actionId}-${id}-roll-type`}>Roll Type</label>
 
                 <select
-                    id={`${actionId}-roll-type`}
+                    id={`${actionId}-${id}-roll-type`}
                     class="u-w-fit"
-                    name="data.target.type"
+                    name={`${actionId}-${id}-roll-type`}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
@@ -61,6 +61,63 @@
                     {/each}
                 </select>
             </div>
+
+            {#if roll.type === "attack"}
+                <div>
+                    <label for={`${actionId}-${id}-proficient`}>
+                        Add Proficiency Bonus
+                    </label>
+
+                    <input
+                        id={`${actionId}-${id}-proficient`}
+                        name={`${actionId}-${id}-proficient`}
+                        type="checkbox"
+                        checked={roll.proficient ?? true}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.rolls.${id}.proficient`,
+                                target.checked
+                            )}
+                    />
+                </div>
+
+                <div>
+                    <label for={`${actionId}-${id}-attack-bonus`}
+                        >Attack Bonus</label
+                    >
+
+                    <input
+                        id={`${actionId}-${id}-attack-bonus`}
+                        name={`${actionId}-${id}-attack-bonus`}
+                        type="text"
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.rolls.${id}.bonus`,
+                                target.value
+                            )}
+                    />
+                </div>
+
+                <div>
+                    <label for={`${actionId}-${id}-crit-threshold`}>
+                        Critical Hit Threshold
+                    </label>
+
+                    <input
+                        id={`${actionId}-${id}-crit-threshold`}
+                        name={`${actionId}-${id}-crit-threshold`}
+                        type="number"
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.rolls.${id}.critThreshold`,
+                                Number(target.value)
+                            )}
+                    />
+                </div>
+            {/if}
 
             <i class="delete-button fas fa-trash" on:click={deleteRoll} />
         </li>
