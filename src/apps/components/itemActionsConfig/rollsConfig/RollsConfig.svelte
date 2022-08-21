@@ -1,5 +1,6 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import actionHasAttackRoll from "../../../utils/actionHasAttackRoll";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     export let actionId;
@@ -7,7 +8,7 @@
 
     function addRoll() {
         const newRoll = {
-            type: "attack",
+            type: actionHasAttackRoll(action) ? "damage" : "attack",
         };
 
         $item.update({
@@ -55,7 +56,12 @@
                         )}
                 >
                     {#each Object.entries(CONFIG.A5E.rollTypes) as [key, name] (key)}
-                        <option value={key} selected={roll.type === key}>
+                        <option
+                            value={key}
+                            selected={roll.type === key}
+                            disabled={key === "attack" &&
+                                actionHasAttackRoll(action)}
+                        >
                             {localize(name)}
                         </option>
                     {/each}
@@ -91,6 +97,7 @@
                         id={`${actionId}-${id}-attack-bonus`}
                         name={`${actionId}-${id}-attack-bonus`}
                         type="text"
+                        value={roll.bonus}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $item,
@@ -109,6 +116,7 @@
                         id={`${actionId}-${id}-crit-threshold`}
                         name={`${actionId}-${id}-crit-threshold`}
                         type="number"
+                        value={roll.critThreshold}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $item,

@@ -466,7 +466,8 @@ A5E.rollTypes = {
   healing: 'Healing',
   generic: 'Generic',
   savingThrow: 'Saving Throw',
-  skillCheck: 'Skill Check'
+  skillCheck: 'Skill Check',
+  toolCheck: 'ToolCheck'
 };
 
 /**
