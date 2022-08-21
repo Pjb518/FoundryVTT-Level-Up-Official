@@ -10,6 +10,7 @@
     }
 
     export let actionId;
+    export let item;
     export let rollId;
 </script>
 

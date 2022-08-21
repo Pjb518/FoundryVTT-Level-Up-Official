@@ -49,7 +49,7 @@
 
 <ul class="section-list">
     {#each Object.entries(action.rolls ?? {}) as [rollId, roll] (rollId)}
-        <RollConfigWrapper {actionId} {rollId}>
+        <RollConfigWrapper {actionId} {item} {rollId}>
             <svelte:component
                 this={configurationComponents[roll.type]}
                 {action}
