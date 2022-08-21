@@ -1,7 +1,15 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import actionHasAttackRoll from "../../../utils/actionHasAttackRoll";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    import AbilityCheckConfig from "./AbilityCheckConfig.svelte";
+    import AttackRollConfig from "./AttackRollConfig.svelte";
+    import DamageRollConfig from "./DamageRollConfig.svelte";
+    import GenericRollConfig from "./GenericRollConfig.svelte";
+    import HealingRollConfig from "./HealingRollConfig.svelte";
+    import RollConfigWrapper from "./RollConfigWrapper.svelte";
+    import SavingThrowConfig from "./SavingThrowConfig.svelte";
+    import SkillCheckConfig from "./SkillCheckConfig.svelte";
+    import ToolCheckConfig from "./ToolCheckConfig.svelte";
 
     export let actionId;
     export let item;
@@ -19,15 +27,16 @@
         });
     }
 
-    function deleteRoll(event) {
-        const { rollId } = event.target.closest(".roll").dataset;
-
-        item.get("document").update({
-            [`system.actions.${actionId}.rolls`]: {
-                [`-=${rollId}`]: null,
-            },
-        });
-    }
+    const configurationComponents = {
+        abilityCheck: AbilityCheckConfig,
+        attack: AttackRollConfig,
+        damage: DamageRollConfig,
+        healing: HealingRollConfig,
+        generic: GenericRollConfig,
+        savingThrow: SavingThrowConfig,
+        skillCheck: SkillCheckConfig,
+        toolCheck: ToolCheckConfig,
+    };
 
     $: action = $item.system.actions[actionId];
 </script>
@@ -39,115 +48,23 @@
 </header>
 
 <ul class="section-list">
-    {#each Object.entries(action.rolls ?? {}) as [id, roll] (id)}
-        <li class="roll" data-roll-id={id}>
-            <div>
-                <label for={`${actionId}-${id}-roll-type`}>Roll Type</label>
-
-                <select
-                    id={`${actionId}-${id}-roll-type`}
-                    class="u-w-fit"
-                    name={`${actionId}-${id}-roll-type`}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.rolls.${id}.type`,
-                            target.value
-                        )}
-                >
-                    {#each Object.entries(CONFIG.A5E.rollTypes) as [key, name] (key)}
-                        <option
-                            value={key}
-                            selected={roll.type === key}
-                            disabled={key === "attack" &&
-                                actionHasAttackRoll(action)}
-                        >
-                            {localize(name)}
-                        </option>
-                    {/each}
-                </select>
-            </div>
-
-            {#if roll.type === "attack"}
-                <div>
-                    <label for={`${actionId}-${id}-proficient`}>
-                        Add Proficiency Bonus
-                    </label>
-
-                    <input
-                        id={`${actionId}-${id}-proficient`}
-                        name={`${actionId}-${id}-proficient`}
-                        type="checkbox"
-                        checked={roll.proficient ?? true}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.rolls.${id}.proficient`,
-                                target.checked
-                            )}
-                    />
-                </div>
-
-                <div>
-                    <label for={`${actionId}-${id}-attack-bonus`}
-                        >Attack Bonus</label
-                    >
-
-                    <input
-                        id={`${actionId}-${id}-attack-bonus`}
-                        name={`${actionId}-${id}-attack-bonus`}
-                        type="text"
-                        value={roll.bonus}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.rolls.${id}.bonus`,
-                                target.value
-                            )}
-                    />
-                </div>
-
-                <div>
-                    <label for={`${actionId}-${id}-crit-threshold`}>
-                        Critical Hit Threshold
-                    </label>
-
-                    <input
-                        id={`${actionId}-${id}-crit-threshold`}
-                        name={`${actionId}-${id}-crit-threshold`}
-                        type="number"
-                        value={roll.critThreshold}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.rolls.${id}.critThreshold`,
-                                Number(target.value)
-                            )}
-                    />
-                </div>
-            {/if}
-
-            <i class="delete-button fas fa-trash" on:click={deleteRoll} />
-        </li>
+    {#each Object.entries(action.rolls ?? {}) as [rollId, roll] (rollId)}
+        <RollConfigWrapper {actionId} {rollId}>
+            <svelte:component
+                this={configurationComponents[roll.type]}
+                {action}
+                {actionId}
+                {item}
+                {roll}
+                {rollId}
+            />
+        </RollConfigWrapper>
     {:else}
         <li class="none">None</li>
     {/each}
 </ul>
 
 <style lang="scss">
-    .delete-button {
-        color: #8b2525;
-        margin-left: auto;
-        margin-right: 0.5rem;
-        padding: 0.25rem;
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            transform: scale(1.2);
-        }
-    }
-
     .none {
         color: #555;
         text-align: center;
@@ -162,16 +79,6 @@
         font-family: "Modesto Condensed", serif;
         font-size: 1rem;
         border-bottom: 1px solid #ccc;
-    }
-
-    .roll {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
-        border: 1px solid #bbb;
-        border-radius: 3px;
-        font-size: 1rem;
     }
 
     .section-list {
