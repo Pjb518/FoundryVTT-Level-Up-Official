@@ -14,22 +14,22 @@ class ConditionAutomationSettings extends FormApplication {
 
   getData(options = {}) {
     this.conditions = [
-      'blinded',
+      // 'blinded',
       'encumbered',
-      'fatigue',
-      'frightened',
+      // 'fatigue',
+      // 'frightened',
       'grappled',
-      'invisible',
-      'paralyzed',
+      // 'invisible',
+      // 'paralyzed',
       'petrified',
-      'poisoned',
-      'prone',
-      'rattled',
+      // 'poisoned',
+      // 'prone',
+      // 'rattled',
       'restrained',
-      'slowed',
-      'strife',
-      'stunned',
-      'unconscious'
+      'slowed'
+      // 'strife',
+      // 'stunned',
+      // 'unconscious'
     ];
 
     const enabledConditions = game.settings.get('a5e', 'automatedConditions');
