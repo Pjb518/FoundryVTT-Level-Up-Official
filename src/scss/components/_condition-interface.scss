@@ -1,0 +1,73 @@
+/* stylelint-disable selector-max-compound-selectors */
+/* stylelint-disable selector-max-id */
+#token-hud .status-effects {
+  width: max-content;
+  grid-template-columns: repeat(3, minmax(8em, 1fr));
+  gap: 0.5em;
+  padding: 0.5em;
+  font-size: $font-size-lg;
+  line-height: 1.2rem;
+  text-align: left;
+
+
+  .condition-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-block: 0.1em;
+    color: rgb(204 204 204);
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+
+    // Generate filter
+    // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
+    .effect-control {
+      width: 100%;
+      padding-inline-end: calc(100% - 24px);
+      opacity: 1;
+
+      &.active {
+        filter: invert(37%) sepia(74%) saturate(606%) hue-rotate(97deg) brightness(92%) contrast(87%);
+      }
+
+      &.active + .condition-name {
+        color: $color-primary-light;
+      }
+
+      &:hover {
+        filter: invert(37%) sepia(74%) saturate(606%) hue-rotate(97deg) brightness(92%) contrast(87%);
+      }
+    }
+
+    .condition-name {
+      position: absolute;
+      padding-left: 0.25em;
+      left: 24px;
+      max-width: calc(100% - 24px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+
+  }
+
+  .clear-all-conditions {
+    position: absolute;
+    bottom: 100%;
+    right: -1px;
+    padding: 0.25em;
+    color: rgb(204 204 204);
+    border-radius: 4px 4px 0 0;
+    background-color: rgba(51 51 51 / 0.6);
+    cursor: pointer;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}
