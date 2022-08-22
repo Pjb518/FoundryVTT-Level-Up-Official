@@ -23,7 +23,7 @@ import Navigation from "./navigation/Navigation.vue";
 import PlayerCharacterHeader from "./header/PlayerCharacterHeader.vue";
 
 import CorePage from "./pages/CorePage.vue";
-import ActiveEffectsPage from "./pages/ActiveEffectsPage.vue";
+// import ActiveEffectsPage from "./pages/ActiveEffectsPage.vue";
 import BiographyPage from "./pages/BiographyPage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
 import InventoryPage from "./pages/InventoryPage.vue";
@@ -81,11 +81,11 @@ export default {
         comp: JournalPage,
       });
 
-      initialTabs.push({
-        name: "effects",
-        label: "Effects",
-        comp: ActiveEffectsPage,
-      });
+      // initialTabs.push({
+      //   name: "effects",
+      //   label: "Effects",
+      //   comp: ActiveEffectsPage,
+      // });
 
       initialTabs.push({
         name: "settings",
