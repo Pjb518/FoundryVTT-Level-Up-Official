@@ -127,7 +127,8 @@ async function alterConditionInterface($html) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Clear All Conditions
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-async function clearAllConditions() {
+async function clearAllConditions(event) {
+  event.stopPropagation();
   const conditions = this._getStatusEffectChoices();
   for (const condition of Object.values(conditions)) {
     if (condition.isActive) {
