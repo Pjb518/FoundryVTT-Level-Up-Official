@@ -9,6 +9,7 @@ import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
 import Item5e from './modules/item/entity';
 import ActorSheet5e from './modules/sheets/character';
+import ActiveEffect5e from './modules/activeEffects/entity';
 import ItemSheet5e from './modules/sheets/item';
 import ReactiveDialog from './modules/apps/reactiveDialog';
 import Token5e from './modules/actor/token';
@@ -28,6 +29,8 @@ import preloadHandlebarsTemplates from './modules/templates';
 import registerSystemSettings from './modules/settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
+
+import setupConditions from './modules/activeEffects/conditions';
 
 // Macros
 import activateItemMacro from './modules/macros/activateItemMacro';
@@ -87,6 +90,7 @@ Hooks.once('init', () => {
   };
 
   CONFIG.A5E = A5E;
+  CONFIG.ActiveEffect.documentClass = ActiveEffect5e;
   CONFIG.Actor.documentClass = Actor5e;
   CONFIG.Item.documentClass = Item5e;
   CONFIG.Token.documentClass = TokenDocument5e;
@@ -99,8 +103,6 @@ Hooks.once('init', () => {
   CONFIG.Dice.rolls.push(DamageRoll);
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
-
-  registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('a5e', ActorSheet5e, {
@@ -132,6 +134,14 @@ Hooks.once('init', () => {
   Combat.prototype.rollInitiative = rollInitiative;
 
   return preloadHandlebarsTemplates();
+});
+
+/**
+ * Once game object is ready initialize anything that requires the game object
+ */
+Hooks.once('setup', () => {
+  registerSystemSettings();
+  setupConditions();
 });
 
 /**

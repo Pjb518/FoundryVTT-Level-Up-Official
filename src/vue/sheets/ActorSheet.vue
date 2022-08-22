@@ -23,6 +23,7 @@ import Navigation from "./navigation/Navigation.vue";
 import PlayerCharacterHeader from "./header/PlayerCharacterHeader.vue";
 
 import CorePage from "./pages/CorePage.vue";
+import ActiveEffectsPage from "./pages/ActiveEffectsPage.vue";
 import BiographyPage from "./pages/BiographyPage.vue";
 import FeaturesPage from "./pages/FeaturesPage.vue";
 import InventoryPage from "./pages/InventoryPage.vue";
@@ -78,6 +79,12 @@ export default {
         name: "journal",
         label: "A5E.TabJournal",
         comp: JournalPage,
+      });
+
+      initialTabs.push({
+        name: "effects",
+        label: "Effects",
+        comp: ActiveEffectsPage,
       });
 
       initialTabs.push({
