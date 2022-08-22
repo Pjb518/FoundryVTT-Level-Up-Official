@@ -1,3 +1,8 @@
+/* eslint-disable prefer-rest-params */
+/* eslint-disable func-names */
+/* eslint-disable no-undef */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
 
@@ -5,42 +10,14 @@ import { changes, flags } from './conditionsConfig';
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export default function setupConditions() {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
-
   // Replace default conditions with system specific conditions.
   CONFIG.statusEffects = getConditions();
 
   // Setup Hook to apply sub-conditions
-  Hooks.on('createActiveEffect', (conditionData) => {
-    const token = conditionData?.parent?.parent;
-
-    // Guards
-    if (!token) return;
-    if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
-    if (!conditionData.flags?.a5e?.conditions) return;
-
-    // Set other conditions
-    conditionData.flags.a5e.conditions.forEach((c) => {
-      const effect = CONFIG.statusEffects.find((e) => e.id === c);
-      token.toggleActiveEffect(effect, { active: true });
-    });
-  });
+  Hooks.on('createActiveEffect', addSubConditions);
 
   // Setup Hook to remove sub-conditions
-  Hooks.on('deleteActiveEffect', (conditionData) => {
-    const token = conditionData?.parent?.parent;
-
-    // Guards
-    if (!token) return;
-    if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
-    if (!conditionData.flags?.a5e?.conditions) return;
-
-    // Set other conditions
-    conditionData.flags.a5e.conditions.forEach((c) => {
-      const effect = CONFIG.statusEffects.find((e) => e.id === c);
-      token.toggleActiveEffect(effect, { active: false });
-    });
-  });
+  Hooks.on('deleteActiveEffect', removeSubConditions);
 
   // Change Default Conditions Interface
   const HUDRender = function (wrapped, ...args) {
@@ -49,21 +26,79 @@ export default function setupConditions() {
     });
   };
 
-  // TODO: Optionally use libWrapper
-  // libWrapper.register('a5e', 'TokenHUD.prototype._render', HUDRender, 'WRAPPER');
-  const defaultRender = TokenHUD.prototype._render;
-  // eslint-disable-next-line func-names
-  TokenHUD.prototype._render = function () {
-    // eslint-disable-next-line prefer-rest-params
-    return HUDRender.call(this, defaultRender.bind(this), ...arguments);
-  };
+  // Optionally use libWrapper
+  if (game.modules.get('lib-wrapper')?.active) {
+    libWrapper.register('a5e', 'TokenHUD.prototype._render', HUDRender, 'WRAPPER');
+    libWrapper.register('a5e', 'TokenHUD.prototype._getStatusEffectChoices', sortConditions, 'WRAPPER');
+  } else {
+    const defaultRender = TokenHUD.prototype._render;
+    TokenHUD.prototype._render = function () {
+      return HUDRender.call(this, defaultRender.bind(this), ...arguments);
+    };
+
+    const defaultChoices = TokenHUD.prototype._getStatusEffectChoices;
+    TokenHUD.prototype._getStatusEffectChoices = function () {
+      return sortConditions.call(this, defaultChoices.bind(this), ...arguments);
+    };
+  }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Create Active Effect
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+async function addSubConditions(conditionData) {
+  const conditions = Object.keys(CONFIG.A5E.conditions);
+  const token = conditionData?.parent?.parent;
+
+  // Guards
+  if (!token) return;
+  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+  if (!conditionData.flags?.a5e?.conditions) return;
+
+  // Set other conditions
+  for (const c of conditionData.flags.a5e.conditions) {
+    const effect = CONFIG.statusEffects.find((e) => e.id === c);
+    await token.toggleActiveEffect(effect, { active: true });
+  }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Delete Active Effect
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+async function removeSubConditions(conditionData) {
+  const conditions = Object.keys(CONFIG.A5E.conditions);
+  const token = conditionData?.parent?.parent;
+
+  // Guards
+  if (!token) return;
+  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+  if (!conditionData.flags?.a5e?.conditions) return;
+
+  // Set other conditions
+  for (const c of conditionData.flags.a5e.conditions) {
+    const effect = CONFIG.statusEffects.find((e) => e.id === c);
+    await token.toggleActiveEffect(effect, { active: false });
+  }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Sort Conditions
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function sortConditions(wrapped, ...args) {
+  CONFIG.statusEffects = CONFIG.statusEffects.sort((a, b) => {
+    const aid = (a.label !== undefined ? game.i18n.localize(a.label) : a.id || a);
+    const bid = (b.label !== undefined ? game.i18n.localize(b.label) : b.id || b);
+    // eslint-disable-next-line no-nested-ternary
+    return (aid > bid ? 1 : (aid < bid ? -1 : 0));
+  });
+
+  return wrapped(...args);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                    Conditions Interface
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 async function alterConditionInterface($html) {
-  // eslint-disable-next-line no-restricted-syntax
   for (const img of $('.status-effects > img')) {
     const src = $(img).attr('src');
     if (src === '') {
@@ -92,21 +127,13 @@ async function alterConditionInterface($html) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Clear All Conditions
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function clearAllConditions() {
+async function clearAllConditions() {
   const conditions = this._getStatusEffectChoices();
-  // eslint-disable-next-line no-restricted-syntax
   for (const condition of Object.values(conditions)) {
     if (condition.isActive) {
-      this.object.toggleEffect({ id: condition.id, icon: condition.src });
+      await this.object.toggleEffect({ id: condition.id, icon: condition.src });
     }
   }
-}
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                     Sort Conditions
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function sortConditions() {
-
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
