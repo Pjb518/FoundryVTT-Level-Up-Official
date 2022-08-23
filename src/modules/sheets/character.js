@@ -12,7 +12,7 @@ export default class ActorSheet5eCharacter extends ActorSheet {
   }
 
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-sheet--actor'],
       width: 880,
       height: 700

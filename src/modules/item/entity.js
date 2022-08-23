@@ -1,6 +1,3 @@
-import ReactiveDialog from '../apps/reactiveDialog';
-import ItemActivationDialog from '../../vue/ItemActivationDialog.vue';
-
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
@@ -30,9 +27,9 @@ export default class Item5e extends Item {
       { name: this.actor.name, itemName: this.name }
     );
 
-    const dialog = new ReactiveDialog(ItemActivationDialog, {
-      title: dialogTitle, props: { actor: this.actor, item: this, rollMode: options.rollMode }
-    });
+    // const dialog = new ReactiveDialog(ItemActivationDialog, {
+    //   title: dialogTitle, props: { actor: this.actor, item: this, rollMode: options.rollMode }
+    // });
 
     const data = {
       id: this.id,
@@ -66,17 +63,17 @@ export default class Item5e extends Item {
       ['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))
       || this.hasValidTemplateDefinition
     ) {
-      await dialog.render(true);
+      // await dialog.render(true);
 
-      try {
-        const configuration = await dialog.promise;
-        attack = configuration.attack;
-        damage = configuration.damage;
-        healing = configuration.healing;
-        placeTemplate = configuration.placeTemplate;
-      } catch {
-        return;
-      }
+      // try {
+      //   const configuration = await dialog.promise;
+      //   attack = configuration.attack;
+      //   damage = configuration.damage;
+      //   healing = configuration.healing;
+      //   placeTemplate = configuration.placeTemplate;
+      // } catch {
+      //   return;
+      // }
     }
 
     if (itemData.actionOptions.includes('attack')) {

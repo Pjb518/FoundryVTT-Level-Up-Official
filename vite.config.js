@@ -1,4 +1,5 @@
-import vue from '@vitejs/plugin-vue';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import preprocess from 'svelte-preprocess';
 
 const path = require('path');
 
@@ -29,7 +30,19 @@ const config = {
       fileName: () => 'index.js'
     }
   },
-  plugins: [vue()]
+  plugins: [
+    svelte({
+      preprocess: preprocess(),
+      onwarn: (warning, handler) => {
+        // Suppress `a11y-missing-attribute` for missing href in <a> links.
+        // Foundry doesn't follow accessibility rules.
+        if (warning.message.includes('<a> element should have an href attribute')) { return; }
+
+        // Let Rollup handle all other warnings normally.
+        handler(warning);
+      }
+    })
+  ]
 };
 
 export default config;

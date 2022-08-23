@@ -1,36 +1,10 @@
 import A5E from '../config';
 import Item5e from '../item/entity';
-import ReactiveDialog from '../apps/reactiveDialog';
-
-import AbilityDialog from '../../vue/AbilityDialog.vue';
-import AbilityScoreConfigDialog from '../../vue/dialogs/AbilityScoreConfigDialog.vue';
-import ArmorProficienciesConfigDialog from '../../vue/dialogs/ArmorProficienciesConfigDialog.vue';
-import BackgroundConfigDialog from '../../vue/dialogs/BackgroundConfigDialog.vue';
-import ConditionImmunitiesConfigDialog from '../../vue/dialogs/ConditionImmunitiesConfigDialog.vue';
-import CreatureTypesConfigDialog from '../../vue/dialogs/CreatureTypesConfigDialog.vue';
-import CultureConfigDialog from '../../vue/dialogs/CultureConfigDialog.vue';
-import DamageIRVConfigDialog from '../../vue/dialogs/DamageIRVConfigDialog.vue';
-import DeathSavingThrowDialog from '../../vue/DeathSavingThrowDialog.vue';
-import HeritageConfigDialog from '../../vue/dialogs/HeritageConfigDialog.vue';
-import HitPointConfigDialog from '../../vue/dialogs/HitPointConfigDialog.vue';
-import InitiativeConfigDialog from '../../vue/dialogs/InitiativeConfigDialog.vue';
-import LanguagesConfigDialog from '../../vue/dialogs/LanguagesConfigDialog.vue';
-import ManeuverTabConfigDialog from '../../vue/dialogs/ManeuverTabConfigDialog.vue';
-import MovementConfigDialog from '../../vue/dialogs/MovementConfigDialog.vue';
-import RestDialog from '../../vue/RestDialog.vue';
-import SensesConfigDialog from '../../vue/dialogs/SensesConfigDialog.vue';
-import SizeCategoryConfigDialog from '../../vue/dialogs/SizeCategoryConfigDialog.vue';
-import SkillDialog from '../../vue/SkillDialog.vue';
-import SkillConfigDialog from '../../vue/dialogs/SkillConfigDialog.vue';
-import SpellTabConfigDialog from '../../vue/dialogs/SpellTabConfigDialog.vue';
-import ToolProficienciesConfigDialog from '../../vue/ToolProficienciesConfigDialog.vue';
-import WeaponProficienciesConfigDialog from '../../vue/WeaponProficienciesConfigDialog.vue';
 
 import calculateManeuverDC from '../utils/calculateManeuverDC';
 import calculatePassiveScore from '../utils/calculatePassiveScore';
 import calculateSpellDC from '../utils/calculateSpellDC';
 import getBaseAbilityMod from '../utils/getBaseAbilityMod';
-import getDialogData from '../dice/getDialogData';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import toggleFilter from '../utils/toggleFilter';
 
@@ -295,171 +269,171 @@ export default class Actor5e extends Actor {
       { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
     );
 
-    const dialog = new ReactiveDialog(AbilityScoreConfigDialog, {
-      title: dialogTitle, props: { actor: this, ability, isSave: false }
-    });
+    // const dialog = new ReactiveDialog(AbilityScoreConfigDialog, {
+    //   title: dialogTitle, props: { actor: this, ability, isSave: false }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureArmorProficiencies() {
     const dialogTitle = game.i18n.format('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(ArmorProficienciesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(ArmorProficienciesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureBackground() {
     const dialogTitle = game.i18n.format('A5E.BackgroundConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(BackgroundConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(BackgroundConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureConditionImmunities() {
     const dialogTitle = game.i18n.format('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(ConditionImmunitiesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(ConditionImmunitiesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureCreatureTypes() {
     const dialogTitle = game.i18n.format('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(CreatureTypesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(CreatureTypesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureCulture() {
     const dialogTitle = game.i18n.format('A5E.CultureConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(CultureConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(CultureConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureDamageImmunities() {
     const dialogTitle = game.i18n.format('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
-      title: dialogTitle, props: { actor: this, updatePath: 'damageImmunities' }
-    });
+    // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
+    //   title: dialogTitle, props: { actor: this, updatePath: 'damageImmunities' }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureDamageResistances() {
     const dialogTitle = game.i18n.format('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
-      title: dialogTitle, props: { actor: this, updatePath: 'damageResistances' }
-    });
+    // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
+    //   title: dialogTitle, props: { actor: this, updatePath: 'damageResistances' }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureDamageVulnerabilities() {
     const dialogTitle = game.i18n.format('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
-      title: dialogTitle, props: { actor: this, updatePath: 'damageVulnerabilities' }
-    });
+    // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
+    //   title: dialogTitle, props: { actor: this, updatePath: 'damageVulnerabilities' }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureHealth() {
     const dialogTitle = game.i18n.format('A5E.HitPointsConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(HitPointConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(HitPointConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureHeritage() {
     const dialogTitle = game.i18n.format('A5E.HeritageConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(HeritageConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(HeritageConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureInitiative() {
     const dialogTitle = game.i18n.format('A5E.InitiativeConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(InitiativeConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(InitiativeConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureLanguages() {
     const dialogTitle = game.i18n.format('A5E.LanguagesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(LanguagesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(LanguagesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureManeuvers() {
     const dialogTitle = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(ManeuverTabConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(ManeuverTabConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureMovement() {
     const dialogTitle = game.i18n.format('A5E.MovementConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(MovementConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(MovementConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureSenses() {
     const dialogTitle = game.i18n.format('A5E.SensesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(SensesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(SensesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureSizeCategory() {
     const dialogTitle = game.i18n.format('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(SizeCategoryConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(SizeCategoryConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureSkill(skill) {
@@ -468,11 +442,11 @@ export default class Actor5e extends Actor {
       { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
     );
 
-    const dialog = new ReactiveDialog(SkillConfigDialog, {
-      title: dialogTitle, props: { actor: this, skill }
-    });
+    // const dialog = new ReactiveDialog(SkillConfigDialog, {
+    //   title: dialogTitle, props: { actor: this, skill }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureSpellTab() {
@@ -481,31 +455,31 @@ export default class Actor5e extends Actor {
       { name: this.name }
     );
 
-    const dialog = new ReactiveDialog(SpellTabConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(SpellTabConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureToolProficiencies() {
     const dialogTitle = game.i18n.format('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(ToolProficienciesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(ToolProficienciesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   configureWeaponProficiencies() {
     const dialogTitle = game.i18n.format('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
 
-    const dialog = new ReactiveDialog(WeaponProficienciesConfigDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const dialog = new ReactiveDialog(WeaponProficienciesConfigDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
 
-    dialog.render(true);
+    // dialog.render(true);
   }
 
   async constructItemCard(data) {
@@ -561,6 +535,11 @@ export default class Actor5e extends Actor {
         game.dice3d?.showForRoll(healingSource.roll, game.user, false, null, false, null, chatData.speaker);
       });
     }
+  }
+
+  get isBloodied() {
+    const { max, value } = this.system.attributes.hp;
+    return (value / max) * 100 <= 50;
   }
 
   async modifyTokenAttribute(attribute, value, isDelta, isBar) {
@@ -749,12 +728,14 @@ export default class Actor5e extends Actor {
       { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
     );
 
-    const checkData = await getDialogData(AbilityDialog, {
-      title: dialogTitle,
-      props: {
-        actor: this, ability, isSave: false, rollMode: options.rollMode
-      }
-    });
+    // const checkData = await getDialogData(AbilityDialog, {
+    //   title: dialogTitle,
+    //   props: {
+    //     actor: this, ability, isSave: false, rollMode: options.rollMode
+    //   }
+    // });
+
+    const checkData = null;
 
     if (checkData === null) return;
 
@@ -793,9 +774,11 @@ export default class Actor5e extends Actor {
       { name: this.name }
     );
 
-    const saveData = await getDialogData(DeathSavingThrowDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const saveData = await getDialogData(DeathSavingThrowDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
+
+    const saveData = null;
 
     if (saveData === null) return;
 
@@ -877,12 +860,14 @@ export default class Actor5e extends Actor {
       { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
     );
 
-    const checkData = await getDialogData(AbilityDialog, {
-      title: dialogTitle,
-      props: {
-        actor: this, ability, isSave: true, rollMode: options.rollMode
-      }
-    });
+    // const checkData = await getDialogData(AbilityDialog, {
+    //   title: dialogTitle,
+    //   props: {
+    //     actor: this, ability, isSave: true, rollMode: options.rollMode
+    //   }
+    // });
+
+    const checkData = null;
 
     if (checkData === null) return;
 
@@ -931,9 +916,11 @@ export default class Actor5e extends Actor {
       { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
     );
 
-    const skillData = await getDialogData(SkillDialog, {
-      title: dialogTitle, props: { actor: this, skill, rollMode: options.rollMode }
-    });
+    // const skillData = await getDialogData(SkillDialog, {
+    //   title: dialogTitle, props: { actor: this, skill, rollMode: options.rollMode }
+    // });
+
+    const skillData = null;
 
     if (!skillData) return;
 
@@ -977,9 +964,11 @@ export default class Actor5e extends Actor {
   async triggerRest() {
     const dialogTitle = game.i18n.format('A5E.RestConfigurationPrompt', { name: this.name });
 
-    const restData = await getDialogData(RestDialog, {
-      title: dialogTitle, props: { actor: this }
-    });
+    // const restData = await getDialogData(RestDialog, {
+    //   title: dialogTitle, props: { actor: this }
+    // });
+
+    const restData = null;
 
     if (!restData) return;
 
