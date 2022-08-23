@@ -11,83 +11,85 @@
     export let rollId;
 </script>
 
-<RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+    <RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
 
-<div class="ability-score-wrapper">
-    <h3>Ability Check Type</h3>
+    <div class="option-wrapper">
+        <h3>Ability Check Type</h3>
 
-    <div style="display: flex; gap: 0.5rem">
-        <input
-            class="ability-score-input"
-            type="radio"
-            name={`${actionId}-${rollId}-ability`}
-            id={`${actionId}-${rollId}-ability-none`}
-            value=""
-            checked={(roll.ability ?? true) || roll.ability === ""}
-            on:change={() =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}`,
-                    { "-=ability": null }
-                )}
-        />
-
-        <label
-            class="ability-score-label"
-            for={`${actionId}-${rollId}-ability-none`}
-        >
-            {localize("A5E.None")}
-        </label>
-
-        {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
+        <div class="option-list">
             <input
-                class="ability-score-input"
+                class="option-input"
                 type="radio"
                 name={`${actionId}-${rollId}-ability`}
-                id={`${actionId}-${rollId}-ability-${ability}`}
-                value={ability}
-                checked={roll.ability === ability}
-                on:change={({ target }) =>
+                id={`${actionId}-${rollId}-ability-none`}
+                value=""
+                checked={(roll.ability ?? true) || roll.ability === ""}
+                on:change={() =>
                     updateDocumentDataFromField(
                         $item,
-                        `system.actions.${actionId}.rolls.${rollId}.ability`,
-                        target.value
+                        `system.actions.${actionId}.rolls.${rollId}`,
+                        { "-=ability": null }
                     )}
             />
 
             <label
-                class="ability-score-label"
-                for={`${actionId}-${rollId}-ability-${ability}`}
+                class="option-label"
+                for={`${actionId}-${rollId}-ability-none`}
             >
-                {localize(CONFIG.A5E.abilities[ability])}
+                {localize("A5E.None")}
             </label>
-        {/each}
+
+            {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
+                <input
+                    class="option-input"
+                    type="radio"
+                    name={`${actionId}-${rollId}-ability`}
+                    id={`${actionId}-${rollId}-ability-${ability}`}
+                    value={ability}
+                    checked={roll.ability === ability}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.rolls.${rollId}.ability`,
+                            target.value
+                        )}
+                />
+
+                <label
+                    class="option-label"
+                    for={`${actionId}-${rollId}-ability-${ability}`}
+                >
+                    {localize(CONFIG.A5E.abilities[ability])}
+                </label>
+            {/each}
+        </div>
+    </div>
+
+    <div>
+        <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
+
+        <input
+            id={`${actionId}-${rollId}-bonus`}
+            name={`${actionId}-${rollId}-bonus`}
+            type="text"
+            value={roll.bonus ?? ""}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.bonus`,
+                    target.value
+                )}
+        />
     </div>
 </div>
 
-<div>
-    <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
-
-    <input
-        id={`${actionId}-${rollId}-bonus`}
-        name={`${actionId}-${rollId}-bonus`}
-        type="text"
-        value={roll.bonus ?? ""}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                target.value
-            )}
-    />
-</div>
-
 <style lang="scss">
-    .ability-score {
+    .option {
         &-input {
             display: none;
 
-            &:checked + .ability-score-label {
+            &:checked + .option-label {
                 background: #2b6537;
                 border-color: darken($color: #2b6537, $amount: 5);
                 color: #f6f2eb;
@@ -97,18 +99,23 @@
         &-label {
             border-radius: 3px;
             border: 1px solid #bbb;
-            font-size: 1rem;
-            padding: 0.25rem 0.5rem;
+            padding: 0.125rem 0.25rem;
             cursor: pointer;
             transition: all 0.15s ease-in-out;
+        }
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
         }
 
         &-wrapper {
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
-            font-family: "Modesto Condensed", serif;
-            font-size: 1rem;
+            font-size: 0.694rem;
+            font-family: "Signika", sans-serif;
         }
     }
 </style>
