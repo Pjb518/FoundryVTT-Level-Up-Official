@@ -56,22 +56,26 @@
     </select>
 </div>
 
-<div>
-    <label for={`${actionId}-${rollId}-crit-bonus`}>Critical Hit Bonus</label>
+{#if roll.canCrit ?? true}
+    <div>
+        <label for={`${actionId}-${rollId}-crit-bonus`}
+            >Critical Hit Bonus</label
+        >
 
-    <input
-        id={`${actionId}-${rollId}-crit-bonus`}
-        name={`${actionId}-${rollId}-crit-bonus`}
-        type="text"
-        value={roll.critBonus ?? ""}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.critBonus`,
-                target.value
-            )}
-    />
-</div>
+        <input
+            id={`${actionId}-${rollId}-crit-bonus`}
+            name={`${actionId}-${rollId}-crit-bonus`}
+            type="text"
+            value={roll.critBonus ?? ""}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.critBonus`,
+                    target.value
+                )}
+        />
+    </div>
+{/if}
 
 <div>
     <label for={`${actionId}-${rollId}-can-crit`}
