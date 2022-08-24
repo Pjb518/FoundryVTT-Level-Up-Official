@@ -2,8 +2,8 @@
 
 <script>
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
+    import ActorDocument from "../ActorDocument";
 
     import ActorCorePage from "../components/ActorCorePage.svelte";
     import ActorSkillsPage from "../components/ActorSkillsPage.svelte";
@@ -83,7 +83,7 @@
 
     $: currentTab = tabs[0];
 
-    setContext("actor", new TJSDocument(actorDocument));
+    setContext("actor", new ActorDocument(actorDocument));
 </script>
 
 <ApplicationShell bind:elementRoot>

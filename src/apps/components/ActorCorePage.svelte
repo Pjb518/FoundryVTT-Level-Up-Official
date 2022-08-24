@@ -16,7 +16,7 @@
 </header>
 
 <ul class="items-container">
-    {#each Array.from($actor.items) as item}
+    {#each [...actor.favorites] as item}
         <ItemWrapper>
             <img class="item-image" src={item.img} alt={item.name} />
             {item.name}
