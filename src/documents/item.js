@@ -1,7 +1,7 @@
-import getChatCardTargets from '../utils/getChatCardTargets';
-import getDeterministicBonus from '../dice/getDeterministicBonus';
-import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
-import createTemplateDocument from '../utils/templates/createTemplateDocument';
+import getChatCardTargets from '../modules/utils/getChatCardTargets';
+import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
+import ItemMeasuredTemplate from '../modules/pixi/ItemMeasuredTemplate';
+import createTemplateDocument from '../modules/utils/templates/createTemplateDocument';
 
 /**
  * Override and extend the basic Item implementation.

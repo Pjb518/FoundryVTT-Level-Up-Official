@@ -1,12 +1,12 @@
-import A5E from '../config';
-import Item5e from '../item/entity';
+import A5E from '../modules/config';
+import Item5e from './item';
 
-import calculateManeuverDC from '../utils/calculateManeuverDC';
-import calculatePassiveScore from '../utils/calculatePassiveScore';
-import calculateSpellDC from '../utils/calculateSpellDC';
-import getBaseAbilityMod from '../utils/getBaseAbilityMod';
-import getDeterministicBonus from '../dice/getDeterministicBonus';
-import toggleFilter from '../utils/toggleFilter';
+import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
+import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
+import calculateSpellDC from '../modules/utils/calculateSpellDC';
+import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
+import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
+import toggleFilter from '../modules/utils/toggleFilter';
 
 export default class Actor5e extends Actor {
   /**
