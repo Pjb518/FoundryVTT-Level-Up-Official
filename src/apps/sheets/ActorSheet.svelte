@@ -5,7 +5,8 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
 
-    import ActorSheetCorePage from "../components/ActorSheetCorePage.svelte";
+    import ActorCorePage from "../components/ActorCorePage.svelte";
+    import ActorSkillsPage from "../components/ActorSkillsPage.svelte";
     import ActorSheetHeader from "../components/actorSheetHeader/actorSheetHeader.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -31,47 +32,47 @@
         {
             name: "core",
             label: "A5E.TabCore",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "skills",
             label: "A5E.TabSkills",
-            component: ActorSheetCorePage,
+            component: ActorSkillsPage,
         },
         {
             name: "inventory",
             label: "A5E.TabInventory",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "features",
             label: "A5E.TabFeatures",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "maneuvers",
             label: "A5E.TabManeuvers",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "spells",
             label: "A5E.TabSpells",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "biography",
             label: "A5E.TabBiography",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "journal",
             label: "A5E.TabJournal",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "settings",
             label: "A5E.TabSettings",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
     ];
 
