@@ -6,6 +6,7 @@
     import ActorDocument from "../ActorDocument";
 
     import ActorCorePage from "../components/ActorCorePage.svelte";
+    import ActorEffectsPage from "../components/ActorEffectsPage.svelte";
     import ActorFeaturesPage from "../components/ActorFeaturesPage.svelte";
     import ActorInventoryPage from "../components/ActorInventoryPage.svelte";
     import ActorManeuversPage from "../components/ActorManeuversPage.svelte";
@@ -76,7 +77,7 @@
         {
             name: "effects",
             label: "A5E.TabEffects",
-            component: ActorCorePage,
+            component: ActorEffectsPage,
         },
         {
             name: "settings",
