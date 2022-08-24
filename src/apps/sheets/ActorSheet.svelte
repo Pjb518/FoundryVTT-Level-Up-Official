@@ -6,9 +6,13 @@
     import ActorDocument from "../ActorDocument";
 
     import ActorCorePage from "../components/ActorCorePage.svelte";
-    import ActorSkillsPage from "../components/ActorSkillsPage.svelte";
+    import ActorFeaturesPage from "../components/ActorFeaturesPage.svelte";
+    import ActorInventoryPage from "../components/ActorInventoryPage.svelte";
+    import ActorManeuversPage from "../components/ActorManeuversPage.svelte";
     import ActorSheetHeader from "../components/actorSheetHeader/actorSheetHeader.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
+    import ActorSkillsPage from "../components/ActorSkillsPage.svelte";
+    import ActorSpellsPage from "../components/ActorSpellsPage.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     export let { actorDocument, sheet } = getContext("external").application;
@@ -42,22 +46,22 @@
         {
             name: "inventory",
             label: "A5E.TabInventory",
-            component: ActorCorePage,
+            component: ActorInventoryPage,
         },
         {
             name: "features",
             label: "A5E.TabFeatures",
-            component: ActorCorePage,
+            component: ActorFeaturesPage,
         },
         {
             name: "maneuvers",
             label: "A5E.TabManeuvers",
-            component: ActorCorePage,
+            component: ActorManeuversPage,
         },
         {
             name: "spells",
             label: "A5E.TabSpells",
-            component: ActorCorePage,
+            component: ActorSpellsPage,
         },
         {
             name: "biography",

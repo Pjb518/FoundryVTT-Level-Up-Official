@@ -5,19 +5,17 @@
     import ItemWrapper from "./item/ItemWrapper.svelte";
 
     const actor = getContext("actor");
-    const { favorites } = actor;
+    const { objects } = actor;
 </script>
 
 <header class="section-header">
-    <i class="fas fa-star heading-icon" />
-
     <h3>
-        {localize("A5E.FavoriteItems")}
+        {localize("A5E.TabInventory")}
     </h3>
 </header>
 
 <ul class="items-container">
-    {#each [...$favorites] as item}
+    {#each [...$objects] as item}
         <ItemWrapper>
             <img class="item-image" src={item.img} alt={item.name} />
             {item.name}
@@ -26,10 +24,6 @@
 </ul>
 
 <style lang="scss">
-    .heading-icon {
-        font-size: 0.833rem;
-    }
-
     .item-image {
         height: 1.75rem;
         width: 1.75rem;
