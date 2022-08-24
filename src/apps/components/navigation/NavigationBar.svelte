@@ -16,7 +16,7 @@
 <style lang="scss">
     .nav-wrapper {
         margin: 0.25rem 0;
-        padding: 0.375rem 1.25rem;
+        padding: 0.375rem 0.75rem;
         background: #2b6537;
         color: #f6f2eb;
         font-family: "Modesto Condensed", serif;

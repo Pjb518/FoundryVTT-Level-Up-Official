@@ -70,6 +70,11 @@
             component: ActorCorePage,
         },
         {
+            name: "effects",
+            label: "A5E.TabEffects",
+            component: ActorCorePage,
+        },
+        {
             name: "settings",
             label: "A5E.TabSettings",
             component: ActorCorePage,

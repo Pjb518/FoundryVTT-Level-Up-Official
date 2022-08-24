@@ -2,8 +2,6 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import ItemWrapper from "./item/ItemWrapper.svelte";
-
     const actor = getContext("actor");
 </script>
 
