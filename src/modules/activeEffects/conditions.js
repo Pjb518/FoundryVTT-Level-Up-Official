@@ -4,6 +4,7 @@
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
 import alterConditionInterface from './utils.js/alterConditionInterface';
+import automateBloodied from './utils.js/bloodied';
 import sortConditions from './utils.js/sortConditions';
 import { addSubConditions, removeSubConditions } from './utils.js/subConditions';
 
@@ -42,6 +43,9 @@ export default function setupConditions() {
       return sortConditions.call(this, defaultChoices.bind(this), ...arguments);
     };
   }
+
+  // Apply Bloodied Condition.
+  Hooks.on('updateActor', automateBloodied);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
