@@ -28,7 +28,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
       const center = e.data.getLocalPosition(this.layer);
       const snapped = canvas.grid.getSnappedPosition(center.x, center.y, 2);
 
-      this.data.update({ x: snapped.x, y: snapped.y });
+      this.document.updateSource({ x: snapped.x, y: snapped.y });
       this.refresh();
       moveTime = now;
     };
@@ -39,9 +39,11 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
       e.stopPropagation();
 
       const delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
-      const snap = e.shiftKey ? delta : 0;
+      const snap = e.shiftKey ? delta : 5;
 
-      this.data.update({ direction: this.data.direction + snap * Math.sign(e.deltaY) });
+      this.document.updateSource({
+        direction: this.document.direction + (snap * Math.sign(e.deltaY))
+      });
       this.refresh();
     };
 
@@ -61,10 +63,10 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     // Confirm
     handlers.confirm = (e) => {
       handlers.cancel(e);
-      const destination = canvas.grid.getSnappedPosition(this.data.x, this.data.y, 2);
+      const destination = canvas.grid.getSnappedPosition(this.document.x, this.document.y, 2);
 
-      this.data.update(destination);
-      canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [this.data]);
+      this.document.updateSource(destination);
+      canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [this.document.toObject()]);
 
       Hooks.callAll('a5e.onItemTemplateCreate', this);
     };

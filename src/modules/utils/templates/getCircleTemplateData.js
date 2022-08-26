@@ -1,5 +1,5 @@
 export default function getCircleTemplateData(item) {
-  const radius = Number(item.data.data.area.radius);
+  const radius = Number(item.system.area.radius);
 
   return {
     direction: 0,

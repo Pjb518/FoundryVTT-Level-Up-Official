@@ -1,5 +1,5 @@
 export default function getConeTemplateData(item) {
-  const length = Number(item.data.data.area.length);
+  const length = Number(item.system.area.length);
 
   return {
     angle: CONFIG.MeasuredTemplate.defaults.angle,
