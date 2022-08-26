@@ -3,10 +3,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
-import alterConditionInterface from './utils.js/alterConditionInterface';
-import automateBloodied from './utils.js/bloodied';
-import sortConditions from './utils.js/sortConditions';
-import { addSubConditions, removeSubConditions } from './utils.js/subConditions';
+import alterConditionInterface from './utils/alterConditionInterface';
+import automateBloodied from './utils/bloodied';
+import sortConditions from './utils/sortConditions';
+import { addSubConditions, removeSubConditions } from './utils/subConditions';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Conditions Object
@@ -54,7 +54,7 @@ export default function setupConditions() {
 function getConditions() {
   const enabledConditions = game.settings.get('a5e', 'automatedConditions');
   return [
-  // Blinded
+    // Blinded
     {
       id: 'blinded',
       label: 'A5E.ConditionBlinded',
