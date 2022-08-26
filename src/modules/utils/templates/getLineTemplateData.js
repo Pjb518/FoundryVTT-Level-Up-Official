@@ -1,6 +1,6 @@
 export default function getLineTemplateDate(item) {
-  const length = Number(item.data.data.area?.length);
-  const width = Number(item.data.data.area?.width);
+  const length = Number(item.system.area?.length);
+  const width = Number(item.system.area?.width);
 
   return {
     direction: 0,

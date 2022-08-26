@@ -12,7 +12,7 @@ const TEMPLATE_FUNCTION_MAP = {
 };
 
 export default function createTemplateDocument(item) {
-  const { shape } = item.data.data.area;
+  const { shape } = item.system.area;
   const templateConfigFunction = TEMPLATE_FUNCTION_MAP[shape];
 
   if (!templateConfigFunction) return null;

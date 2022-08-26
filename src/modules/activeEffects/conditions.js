@@ -1,10 +1,12 @@
 /* eslint-disable prefer-rest-params */
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
+import alterConditionInterface from './utils/alterConditionInterface';
+import automateBloodied from './utils/bloodied';
+import sortConditions from './utils/sortConditions';
+import { addSubConditions, removeSubConditions } from './utils/subConditions';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Conditions Object
@@ -41,100 +43,9 @@ export default function setupConditions() {
       return sortConditions.call(this, defaultChoices.bind(this), ...arguments);
     };
   }
-}
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                    Create Active Effect
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-async function addSubConditions(conditionData) {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
-  const token = conditionData?.parent?.parent;
-
-  // Guards
-  if (!token) return;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
-  if (!conditionData.flags?.a5e?.conditions) return;
-
-  // Set other conditions
-  for (const c of conditionData.flags.a5e.conditions) {
-    const effect = CONFIG.statusEffects.find((e) => e.id === c);
-    await token.toggleActiveEffect(effect, { active: true });
-  }
-}
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                    Delete Active Effect
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-async function removeSubConditions(conditionData) {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
-  const token = conditionData?.parent?.parent;
-
-  // Guards
-  if (!token) return;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
-  if (!conditionData.flags?.a5e?.conditions) return;
-
-  // Set other conditions
-  for (const c of conditionData.flags.a5e.conditions) {
-    const effect = CONFIG.statusEffects.find((e) => e.id === c);
-    await token.toggleActiveEffect(effect, { active: false });
-  }
-}
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                    Sort Conditions
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function sortConditions(wrapped, ...args) {
-  CONFIG.statusEffects = CONFIG.statusEffects.sort((a, b) => {
-    const aid = (a.label !== undefined ? game.i18n.localize(a.label) : a.id || a);
-    const bid = (b.label !== undefined ? game.i18n.localize(b.label) : b.id || b);
-    // eslint-disable-next-line no-nested-ternary
-    return (aid > bid ? 1 : (aid < bid ? -1 : 0));
-  });
-
-  return wrapped(...args);
-}
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                    Conditions Interface
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-async function alterConditionInterface($html) {
-  for (const img of $('.status-effects > img')) {
-    const src = $(img).attr('src');
-    if (src === '') {
-      $(img).css({ visibility: 'hidden' });
-    } else {
-      const title = $(img).attr('title') || $(img).attr('data-condition');
-      $('<div>')
-        .addClass('condition-container')
-        .attr('title', title)
-        .insertAfter(img)
-        .append(img)
-        .append($('<div>')
-          .addClass('condition-name')
-          .html(title));
-    }
-  }
-
-  $('.status-effects', $html).append(
-    $('<div>')
-      .addClass('clear-all-conditions')
-      .html(`<i class="fa-solid fa-octagon-xmark"></i> ${game.i18n.localize('A5E.UIClearAll')}`)
-      .click($.proxy(clearAllConditions, this))
-  );
-}
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                     Clear All Conditions
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-async function clearAllConditions(event) {
-  event.stopPropagation();
-  const conditions = this._getStatusEffectChoices();
-  for (const condition of Object.values(conditions)) {
-    if (condition.isActive) {
-      await this.object.toggleEffect({ id: condition.id, icon: condition.src });
-    }
-  }
+  // Apply Bloodied Condition.
+  Hooks.on('updateActor', automateBloodied);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -143,7 +54,7 @@ async function clearAllConditions(event) {
 function getConditions() {
   const enabledConditions = game.settings.get('a5e', 'automatedConditions');
   return [
-  // Blinded
+    // Blinded
     {
       id: 'blinded',
       label: 'A5E.ConditionBlinded',
