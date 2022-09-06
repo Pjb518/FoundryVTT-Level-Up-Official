@@ -2,28 +2,60 @@
     function deleteRoll(event) {
         const { rollId } = event.target.closest(".roll").dataset;
 
-        item.get("document").update({
+        $item.update({
             [`system.actions.${actionId}.rolls`]: {
                 [`-=${rollId}`]: null,
             },
         });
     }
 
+    function duplicateRoll() {
+        const newRoll = foundry.utils.duplicate(roll);
+
+        $item.update({
+            [`system.actions.${actionId}.rolls`]: {
+                [foundry.utils.randomID()]: newRoll,
+            },
+        });
+    }
+
     export let actionId;
     export let item;
+    export let roll;
     export let rollId;
 </script>
 
 <li class="roll" data-roll-id={rollId}>
-    <slot />
-    <i class="delete-button fas fa-trash" on:click={deleteRoll} />
+    <div class="config-wrapper">
+        <slot />
+    </div>
+
+    <div class="button-wrapper">
+        {#if roll.type !== "attack"}
+            <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
+        {/if}
+
+        <i class="button delete-button fas fa-trash" on:click={deleteRoll} />
+    </div>
 </li>
 
 <style lang="scss">
-    .delete-button {
-        color: #8b2525;
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         margin-left: auto;
-        margin-right: 0.5rem;
+        padding: 0.125rem 0.5rem;
+        background: #ccc;
+    }
+
+    .config-wrapper {
+        padding: 0.5rem;
+        background: #ccc;
+    }
+
+    .button {
+        margin: 0;
         padding: 0.25rem;
         cursor: pointer;
         transition: all 0.15s ease-in-out;
@@ -33,13 +65,12 @@
         }
     }
 
+    .delete-button {
+        color: #8b2525;
+    }
+
     .roll {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
-        border: 1px solid #bbb;
-        border-radius: 3px;
-        font-size: 1rem;
+        flex-direction: column;
     }
 </style>

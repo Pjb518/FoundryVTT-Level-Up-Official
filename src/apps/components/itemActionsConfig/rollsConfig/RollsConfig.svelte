@@ -49,7 +49,7 @@
 
 <ul class="section-list">
     {#each Object.entries(action.rolls ?? {}) as [rollId, roll] (rollId)}
-        <RollConfigWrapper {actionId} {item} {rollId}>
+        <RollConfigWrapper {actionId} {item} {roll} {rollId}>
             <svelte:component
                 this={configurationComponents[roll.type]}
                 {action}
@@ -68,7 +68,7 @@
     .none {
         color: #555;
         text-align: center;
-        font-size: 1rem;
+        font-size: 0.833rem;
     }
 
     .section-header {
@@ -76,8 +76,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 0.25rem 0.25rem 0.25rem;
-        font-family: "Modesto Condensed", serif;
-        font-size: 1rem;
+        font-size: 0.833rem;
         border-bottom: 1px solid #ccc;
     }
 
@@ -88,6 +87,5 @@
         padding: 0;
         gap: 0.25rem;
         list-style: none;
-        font-family: "Modesto Condensed", serif;
     }
 </style>

@@ -10,7 +10,7 @@
     export let rollId;
 </script>
 
-<div>
+<div class="roll-type-wrapper">
     <label for={`${actionId}-${rollId}-roll-type`}>Roll Type</label>
 
     <select
@@ -35,3 +35,11 @@
         {/each}
     </select>
 </div>
+
+<style lang="scss">
+    .roll-type-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+</style>
