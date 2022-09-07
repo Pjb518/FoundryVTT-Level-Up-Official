@@ -11,7 +11,24 @@
     export let rollId;
 </script>
 
-<RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
+<!-- <RollTypeConfig {action} {actionId} {item} {roll} {rollId} />-->
+
+<div class="field-group field-group--label">
+    <label for={`${actionId}-${rollId}-label`}>Label</label>
+
+    <input
+        id={`${actionId}-${rollId}-label`}
+        name={`${actionId}-${rollId}-label`}
+        type="text"
+        value={roll.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.label`,
+                target.value
+            )}
+    />
+</div>
 
 <section class="row">
     <div class="field-group field-group--formula">
@@ -144,6 +161,10 @@
 
         &--formula {
             flex-grow: 1;
+        }
+
+        &--label {
+            margin-right: 5rem;
         }
     }
 

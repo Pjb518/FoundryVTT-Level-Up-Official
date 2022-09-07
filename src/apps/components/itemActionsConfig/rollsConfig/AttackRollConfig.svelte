@@ -10,31 +10,27 @@
     export let rollId;
 </script>
 
-<div class="attack-roll-config-wrapper">
-    <div class="row">
-        <RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
+<!-- <RollTypeConfig {action} {actionId} {item} {roll} {rollId} /> -->
 
-        <div class="field-wrapper">
-            <label for={`${actionId}-${rollId}-crit-threshold`}>
-                Critical Hit Threshold
-            </label>
+<div class="field-group field-group--label">
+    <label for={`${actionId}-${rollId}-label`}>Label</label>
 
-            <input
-                id={`${actionId}-${rollId}-crit-threshold`}
-                name={`${actionId}-${rollId}-crit-threshold`}
-                type="number"
-                value={roll.critThreshold ?? 20}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.critThreshold`,
-                        Number(target.value)
-                    )}
-            />
-        </div>
-    </div>
+    <input
+        id={`${actionId}-${rollId}-label`}
+        name={`${actionId}-${rollId}-label`}
+        type="text"
+        value={roll.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.label`,
+                target.value
+            )}
+    />
+</div>
 
-    <div>
+<div class="row">
+    <div class="field-group field-group--formula">
         <label for={`${actionId}-${rollId}-attack-bonus`}>Attack Bonus</label>
 
         <input
@@ -51,53 +47,74 @@
         />
     </div>
 
-    <div class="check-box-wrapper">
+    <div class="field-group">
+        <label for={`${actionId}-${rollId}-crit-threshold`}>
+            Critical Hit Threshold
+        </label>
+
         <input
-            id={`${actionId}-${rollId}-proficient`}
-            name={`${actionId}-${rollId}-proficient`}
-            type="checkbox"
-            checked={roll.proficient ?? true}
+            id={`${actionId}-${rollId}-crit-threshold`}
+            name={`${actionId}-${rollId}-crit-threshold`}
+            type="number"
+            value={roll.critThreshold ?? 20}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${rollId}.proficient`,
-                    target.checked
+                    `system.actions.${actionId}.rolls.${rollId}.critThreshold`,
+                    Number(target.value)
                 )}
         />
-
-        <label for={`${actionId}-${rollId}-proficient`}>
-            Add Proficiency Bonus
-        </label>
     </div>
 </div>
 
+<div class="field-group field-group--checkbox">
+    <input
+        id={`${actionId}-${rollId}-proficient`}
+        class="checkbox"
+        name={`${actionId}-${rollId}-proficient`}
+        type="checkbox"
+        checked={roll.proficient ?? true}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.proficient`,
+                target.checked
+            )}
+    />
+
+    <label for={`${actionId}-${rollId}-proficient`}>
+        Add Proficiency Bonus to Attack Roll
+    </label>
+</div>
+
 <style lang="scss">
-    .attack-roll-config-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        font-size: 0.833rem;
+    .checkbox {
+        margin: 0;
     }
 
-    .check-box-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        input[type="checkbox"] {
-            margin: 0;
-        }
-    }
-
-    .field-wrapper {
+    .field-group {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+
+        &--checkbox {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        &--formula {
+            flex-grow: 1;
+        }
+
+        &--label {
+            margin-right: 5rem;
+        }
     }
 
     .row {
         display: flex;
         gap: 0.5rem;
-        align-items: center;
+        width: 100%;
     }
 </style>
