@@ -2,16 +2,13 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import RollTypeConfig from "./RollTypeConfig.svelte";
+    const { healingTypes } = CONFIG.A5E;
 
-    export let action;
     export let actionId;
     export let item;
     export let roll;
     export let rollId;
 </script>
-
-<RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
 
 <div>
     <label for={`${actionId}-${rollId}-healing-formula`}>
@@ -46,7 +43,7 @@
                 target.value
             )}
     >
-        {#each Object.entries(CONFIG.A5E.healingTypes) as [key, name] (key)}
+        {#each Object.entries(healingTypes) as [key, name] (key)}
             <option value={key} selected={roll.healingTypes === key}>
                 {localize(name)}
             </option>

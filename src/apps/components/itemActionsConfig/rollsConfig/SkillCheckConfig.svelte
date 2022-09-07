@@ -2,9 +2,8 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import RollTypeConfig from "./RollTypeConfig.svelte";
+    const { abilities, skills } = CONFIG.A5E;
 
-    export let action;
     export let actionId;
     export let item;
     export let roll;
@@ -12,13 +11,11 @@
 </script>
 
 <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-    <RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
-
     <div class="option-wrapper">
         <h3>Skill</h3>
 
         <div class="option-list">
-            {#each Object.entries(CONFIG.A5E.skills) as [skill, label] (skill)}
+            {#each Object.entries(skills) as [skill, label] (skill)}
                 <input
                     class="option-input"
                     type="radio"
@@ -70,7 +67,7 @@
                 {localize("A5E.None")}
             </label>
 
-            {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
+            {#each Object.entries(abilities) as [ability, label]}
                 <input
                     class="option-input"
                     type="radio"
@@ -90,7 +87,7 @@
                     class="option-label"
                     for={`${actionId}-${rollId}-ability-${ability}`}
                 >
-                    {localize(CONFIG.A5E.abilities[ability])}
+                    {localize(label)}
                 </label>
             {/each}
         </div>

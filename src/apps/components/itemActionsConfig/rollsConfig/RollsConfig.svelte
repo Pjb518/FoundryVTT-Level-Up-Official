@@ -52,7 +52,6 @@
         <RollConfigWrapper {actionId} {item} {roll} {rollId}>
             <svelte:component
                 this={configurationComponents[roll.type]}
-                {action}
                 {actionId}
                 {item}
                 {roll}

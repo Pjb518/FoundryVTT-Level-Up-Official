@@ -1,18 +1,30 @@
 <script>
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import RollTypeConfig from "./RollTypeConfig.svelte";
-
-    export let action;
     export let actionId;
     export let item;
     export let roll;
     export let rollId;
 </script>
 
-<RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
+<div class="field-group field-group--label">
+    <label for={`${actionId}-${rollId}-label`}>Label</label>
 
-<div>
+    <input
+        id={`${actionId}-${rollId}-label`}
+        name={`${actionId}-${rollId}-label`}
+        type="text"
+        value={roll.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.label`,
+                target.value
+            )}
+    />
+</div>
+
+<div class="field-group field-group--formula">
     <label for={`${actionId}-${rollId}-roll-formula`}> Roll Formula </label>
 
     <input

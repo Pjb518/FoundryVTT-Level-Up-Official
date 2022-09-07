@@ -2,16 +2,13 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import RollTypeConfig from "./RollTypeConfig.svelte";
+    const { damageTypes } = CONFIG.A5E;
 
-    export let action;
     export let actionId;
     export let item;
     export let roll;
     export let rollId;
 </script>
-
-<!-- <RollTypeConfig {action} {actionId} {item} {roll} {rollId} />-->
 
 <div class="field-group field-group--label">
     <label for={`${actionId}-${rollId}-label`}>Label</label>
@@ -68,7 +65,7 @@
                 {localize("A5E.None")}
             </option>
 
-            {#each Object.entries(CONFIG.A5E.damageTypes) as [key, name] (key)}
+            {#each Object.entries(damageTypes) as [key, name] (key)}
                 <option value={key} selected={roll.damageType === key}>
                     {localize(name)}
                 </option>
