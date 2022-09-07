@@ -13,53 +13,77 @@
 
 <RollTypeConfig {action} {actionId} {item} {roll} {rollId} />
 
-<div>
-    <label for={`${actionId}-${rollId}-damage-formula`}> Damage Formula </label>
+<section class="row">
+    <div class="field-group field-group--formula">
+        <label for={`${actionId}-${rollId}-damage-formula`}>
+            Damage Formula
+        </label>
 
+        <input
+            id={`${actionId}-${rollId}-damage-formula`}
+            name={`${actionId}-${rollId}-damage-formula`}
+            type="text"
+            value={roll.formula ?? ""}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.formula`,
+                    target.value
+                )}
+        />
+    </div>
+
+    <div class="field-group">
+        <label for={`${actionId}-${rollId}-damage-type`}>Damage Type</label>
+
+        <select
+            id={`${actionId}-${rollId}-damage-type`}
+            class="u-w-fit"
+            name={`${actionId}-${rollId}-damage-type`}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.damageType`,
+                    target.value
+                )}
+        >
+            <option value={null} selected={roll.damageType === "null"}>
+                {localize("A5E.None")}
+            </option>
+
+            {#each Object.entries(CONFIG.A5E.damageTypes) as [key, name] (key)}
+                <option value={key} selected={roll.damageType === key}>
+                    {localize(name)}
+                </option>
+            {/each}
+        </select>
+    </div>
+</section>
+
+<div class="field-group field-group--checkbox">
     <input
-        id={`${actionId}-${rollId}-damage-formula`}
-        name={`${actionId}-${rollId}-damage-formula`}
-        type="text"
-        value={roll.formula ?? ""}
+        id={`${actionId}-${rollId}-can-crit`}
+        class="checkbox"
+        name={`${actionId}-${rollId}-can-crit`}
+        type="checkbox"
+        checked={roll.canCrit ?? true}
         on:change={({ target }) =>
             updateDocumentDataFromField(
                 $item,
-                `system.actions.${actionId}.rolls.${rollId}.formula`,
-                target.value
+                `system.actions.${actionId}.rolls.${rollId}.canCrit`,
+                target.checked
             )}
     />
-</div>
 
-<div>
-    <label for={`${actionId}-${rollId}-damage-type`}>Damage Type</label>
-
-    <select
-        id={`${actionId}-${rollId}-damage-type`}
-        class="u-w-fit"
-        name={`${actionId}-${rollId}-damage-type`}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.damageType`,
-                target.value
-            )}
+    <label for={`${actionId}-${rollId}-can-crit`}
+        >Double Damage on Critical Hit</label
     >
-        <option value={null} selected={roll.damageType === "null"}>
-            {localize("A5E.None")}
-        </option>
-
-        {#each Object.entries(CONFIG.A5E.damageTypes) as [key, name] (key)}
-            <option value={key} selected={roll.damageType === key}>
-                {localize(name)}
-            </option>
-        {/each}
-    </select>
 </div>
 
 {#if roll.canCrit ?? true}
-    <div>
+    <div class="field-group">
         <label for={`${actionId}-${rollId}-crit-bonus`}
-            >Critical Hit Bonus</label
+            >Bonus Critical Damage</label
         >
 
         <input
@@ -74,35 +98,18 @@
                     target.value
                 )}
         />
+
+        <p class="hint">
+            When you score a critical hit, this damage is added after doubling
+            the attack's damage.
+        </p>
     </div>
 {/if}
 
-<div>
-    <label for={`${actionId}-${rollId}-can-crit`}
-        >Double Damage on Critical Hit</label
-    >
-
-    <input
-        id={`${actionId}-${rollId}-can-crit`}
-        name={`${actionId}-${rollId}-can-crit`}
-        type="checkbox"
-        checked={roll.canCrit ?? true}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.canCrit`,
-                target.checked
-            )}
-    />
-</div>
-
-<div>
-    <label for={`${actionId}-${rollId}-default`}
-        >{localize("A5E.DamageDefaultSelection")}</label
-    >
-
+<div class="field-group field-group--checkbox">
     <input
         id={`${actionId}-${rollId}-default`}
+        class="checkbox"
         name={`${actionId}-${rollId}-default`}
         type="checkbox"
         checked={roll.default ?? true}
@@ -113,4 +120,40 @@
                 target.checked
             )}
     />
+
+    <label for={`${actionId}-${rollId}-default`}
+        >{localize("A5E.DamageDefaultSelection")}</label
+    >
 </div>
+
+<style lang="scss">
+    .checkbox {
+        margin: 0;
+    }
+
+    .field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        &--checkbox {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        &--formula {
+            flex-grow: 1;
+        }
+    }
+
+    .hint {
+        font-size: 0.694rem;
+    }
+
+    .row {
+        display: flex;
+        gap: 0.5rem;
+        width: 100%;
+    }
+</style>

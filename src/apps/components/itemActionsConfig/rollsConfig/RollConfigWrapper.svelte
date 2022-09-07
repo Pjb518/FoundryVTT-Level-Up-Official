@@ -26,17 +26,20 @@
 </script>
 
 <li class="roll" data-roll-id={rollId}>
-    <div class="config-wrapper">
+    <article class="config-wrapper">
+        <div class="button-wrapper">
+            {#if roll.type !== "attack"}
+                <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
+            {/if}
+
+            <i
+                class="button delete-button fas fa-trash"
+                on:click={deleteRoll}
+            />
+        </div>
+
         <slot />
-    </div>
-
-    <div class="button-wrapper">
-        {#if roll.type !== "attack"}
-            <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
-        {/if}
-
-        <i class="button delete-button fas fa-trash" on:click={deleteRoll} />
-    </div>
+    </article>
 </li>
 
 <style lang="scss">
@@ -44,14 +47,21 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        margin-left: auto;
-        padding: 0.125rem 0.5rem;
-        background: #ccc;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
     }
 
     .config-wrapper {
-        padding: 0.5rem;
-        background: #ccc;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        position: relative;
+        padding: 0.75rem;
+        font-size: 0.833rem;
+        background: rgba(246, 242, 235, 0.4);
+        border: 1px solid #b2b0ae;
+        border-radius: 4px;
     }
 
     .button {
