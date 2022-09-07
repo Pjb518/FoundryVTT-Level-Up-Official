@@ -14,52 +14,69 @@
     export let actionId;
     export let item;
 
-    function addRoll() {
-        const newRoll = {
-            type: actionHasAttackRoll(action) ? "damage" : "attack",
-        };
-
+    function addRoll(type) {
         $item.update({
             [`system.actions.${actionId}.rolls`]: {
                 ...action.rolls,
-                [foundry.utils.randomID()]: newRoll,
+                [foundry.utils.randomID()]: { type },
             },
         });
     }
 
-    const configurationComponents = {
-        abilityCheck: AbilityCheckConfig,
-        attack: AttackRollConfig,
-        damage: DamageRollConfig,
-        healing: HealingRollConfig,
-        generic: GenericRollConfig,
-        savingThrow: SavingThrowConfig,
-        skillCheck: SkillCheckConfig,
-        toolCheck: ToolCheckConfig,
+    const rollTypes = {
+        attack: { heading: "Attack Rolls", component: AttackRollConfig },
+        damage: { heading: "Damage Rolls", component: DamageRollConfig },
+        healing: { heading: "Healing Rolls", component: HealingRollConfig },
+        abilityCheck: {
+            heading: "Ability Checks",
+            component: AbilityCheckConfig,
+        },
+        skillCheck: { heading: "Skill Checks", component: SkillCheckConfig },
+        toolCheck: { heading: "Tool Checks", component: ToolCheckConfig },
+        savingThrow: { heading: "Saving Throws", componen: SavingThrowConfig },
+        generic: { heading: "Other", component: GenericRollConfig },
     };
 
     $: action = $item.system.actions[actionId];
+
+    $: abilityChecks = Object.entries(action.rolls ?? {}).filter(
+        ([_, roll]) => roll.type === "abilityCheck"
+    );
+
+    $: attackRolls = Object.entries(action.rolls ?? {}).filter(
+        ([_, roll]) => roll.type === "attack"
+    );
+
+    $: damageRolls = Object.entries(action.rolls ?? {}).filter(
+        ([_, roll]) => roll.type === "damage"
+    );
 </script>
 
-<header class="section-header">
-    <h2>Rolls</h2>
+<ul class="roll-config-list">
+    {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
+        <li class="roll-config-list__item">
+            <header class="section-header">
+                <h2 class="section-heading">{heading}</h2>
 
-    <a on:click={addRoll}>+ Add Roll</a>
-</header>
+                <a on:click={() => addRoll(rollType)}>+ Add Roll</a>
+            </header>
 
-<ul class="section-list">
-    {#each Object.entries(action.rolls ?? {}) as [rollId, roll] (rollId)}
-        <RollConfigWrapper {actionId} {item} {roll} {rollId}>
-            <svelte:component
-                this={configurationComponents[roll.type]}
-                {actionId}
-                {item}
-                {roll}
-                {rollId}
-            />
-        </RollConfigWrapper>
-    {:else}
-        <li class="none">None</li>
+            <ul class="roll-list">
+                {#each Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
+                    <RollConfigWrapper {actionId} {item} {roll} {rollId}>
+                        <svelte:component
+                            this={component}
+                            {actionId}
+                            {item}
+                            {roll}
+                            {rollId}
+                        />
+                    </RollConfigWrapper>
+                {:else}
+                    <li class="none">None</li>
+                {/each}
+            </ul>
+        </li>
     {/each}
 </ul>
 
@@ -79,12 +96,31 @@
         border-bottom: 1px solid #ccc;
     }
 
-    .section-list {
+    .section-heading {
+        font-size: 1rem;
+    }
+
+    .roll-list {
         display: flex;
         flex-direction: column;
         margin: 0;
         padding: 0;
         gap: 0.25rem;
         list-style: none;
+    }
+
+    .roll-config-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     }
 </style>

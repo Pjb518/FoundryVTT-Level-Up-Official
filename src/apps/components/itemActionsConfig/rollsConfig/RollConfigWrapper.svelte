@@ -33,7 +33,7 @@
             {/if}
 
             <i
-                class="button delete-button fas fa-trash"
+                class="button button--delete fas fa-trash"
                 on:click={deleteRoll}
             />
         </div>
@@ -50,6 +50,8 @@
         position: absolute;
         top: 0.75rem;
         right: 0.75rem;
+        color: #999;
+        font-size: 1rem;
     }
 
     .config-wrapper {
@@ -75,8 +77,20 @@
         }
     }
 
-    .delete-button {
-        color: #8b2525;
+    .button {
+        margin: 0;
+        padding: 0.25rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &--delete:hover {
+            color: #8b2525;
+        }
     }
 
     .roll {
