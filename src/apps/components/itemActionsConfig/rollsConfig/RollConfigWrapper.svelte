@@ -28,9 +28,7 @@
 <li class="roll" data-roll-id={rollId}>
     <article class="config-wrapper">
         <div class="button-wrapper">
-            {#if roll.type !== "attack"}
-                <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
-            {/if}
+            <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
 
             <i
                 class="button button--delete fas fa-trash"
@@ -57,7 +55,7 @@
     .config-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.625rem;
         position: relative;
         padding: 0.75rem;
         font-size: 0.833rem;

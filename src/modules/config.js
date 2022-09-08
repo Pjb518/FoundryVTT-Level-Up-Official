@@ -190,8 +190,7 @@ A5E.attackTypes = {
   meleeWeaponAttack: 'A5E.AttackTypeMeleeWeapon',
   rangedWeaponAttack: 'A5E.AttackTypeRangedWeapon',
   meleeSpellAttack: 'A5E.AttackTypeMeleeSpell',
-  rangedSpellAttack: 'A5E.AttackTypeRangedSpell',
-  unarmed: 'A5E.AttackTypeUnarmed'
+  rangedSpellAttack: 'A5E.AttackTypeRangedSpell'
 };
 
 A5E.carryCapacityMultiplier = {

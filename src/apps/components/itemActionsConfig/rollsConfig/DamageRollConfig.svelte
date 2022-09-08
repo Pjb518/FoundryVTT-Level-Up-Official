@@ -100,6 +100,11 @@
             >Bonus Critical Damage</label
         >
 
+        <p class="hint">
+            When you score a critical hit, this damage is added after doubling
+            the attack's damage.
+        </p>
+
         <input
             id={`${actionId}-${rollId}-crit-bonus`}
             name={`${actionId}-${rollId}-crit-bonus`}
@@ -112,11 +117,6 @@
                     target.value
                 )}
         />
-
-        <p class="hint">
-            When you score a critical hit, this damage is added after doubling
-            the attack's damage.
-        </p>
     </div>
 {/if}
 
@@ -161,7 +161,11 @@
         }
 
         &--label {
-            margin-right: 5rem;
+            margin-right: 4.5rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
         }
     }
 

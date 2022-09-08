@@ -100,11 +100,16 @@
         gap: 0.25rem;
 
         &--label {
-            margin-right: 5rem;
+            margin-right: 4.5rem;
         }
 
         &__heading {
             font-size: 0.833rem;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
         }
     }
 
