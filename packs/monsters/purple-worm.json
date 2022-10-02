@@ -1,965 +1,988 @@
 {
-	"name": "Purple Worm",
-	"type": "npc",
-	"img": "systems/a5e/assets/purple-worm.webp",
-	"items": [
-		{
-			"_id": "cSSiuoWt3EhQtkkw",
-			"name": "Tunneler",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.EDqFONyVVVObl9TA"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The worm can tunnel through earth and solid rock, leaving behind a 10-foot-diameter tunnel.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
-				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
-			}
-		},
-		{
-			"_id": "nqMRuEknKDSaw3Vy",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 150000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.GaTYRMKKcpzyzcuO"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The worm attacks two different targets with its bite and its tail stinger.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
-				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
-			}
-		},
-		{
-			"_id": "mGHZWsr3bcqecCmW",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Ojrre9k5X6Z7DMfC"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"damage",
-					"attack",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "3d10+@mod",
-						"name": "Bite Base Damage"
-					},
-					{
-						"canCrit": true,
-						"damageType": "acid",
-						"formula": "7d6",
-						"name": "Swallowed Damage"
-					}
-				],
-				"description": "<p style=\"text-align: start\">On hit, if the target is a Large or smaller creature, it makes a DC 19 Dexterity saving throw. On a failure, the target is swallowed. A swallowed creature is blinded and restrained, it has total cover from attacks from outside the worm, and it takes 24 (7d6) acid damage at the start of each of the worm’s turns.</p><p><br>If a swallowed creature deals 35 or more damage to the worm in a single turn, or if the worm dies, the worm vomits up all swallowed creatures.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft."
-				],
-				"save": {
-					"dc": 19,
-					"onSave": "Avoids Being Swallowed",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
-				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
-			}
-		},
-		{
-			"_id": "MljaVGdLjaXIpxRR",
-			"name": "Tail Stinger",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.yHDnzzYvPbfGtm1h"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "",
-						"formula": "3d6+@mod",
-						"name": "Stinger Base"
-					},
-					{
-						"canCrit": true,
-						"damageType": "poison",
-						"formula": "12d6",
-						"name": "Poison Damage"
-					}
-				],
-				"description": "<p>On hit, target makes a DC 19 Constitution saving throw. The target will take half damage from the additional poison damage on success.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft."
-				],
-				"save": {
-					"dc": 19,
-					"onSave": "Half Poison Damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
-				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
-			}
-		},
-		{
-			"_id": "ab3hxTh69qxZ4OHY",
-			"name": "Fighting Retreat",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 600000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.p1mymh7m7v8uwje6"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When a creature makes an opportunity attack on the worm, the worm attacks with either its bite or its tail stinger.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
-				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
-			}
-		}
-	],
-	"effects": [],
-	"flags": {},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 28,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 8,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 22,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 2,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 4,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 18,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 247,
-				"baseMax": 247,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 15,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": 0,
-				"climb": 0,
-				"fly": 0,
-				"swim": 0,
-				"walk": 30
-			},
-			"senses": {
-				"blindsight": "30",
-				"darkvision": "",
-				"tremorsense": "60",
-				"truesight": ""
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int"
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"spell": {
-				"attack": "",
-				"dc": ""
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "",
-			"creatureTypes": [
-				"monstrosity"
-			],
-			"cr": 15,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			}
-		},
-		"traits": {
-			"size": "grg",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Purple Worm",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 4,
-		"height": 4,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/purple-worm.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		}
-	},
-	"_id": "66533hqereuhz4jq"
+  "name": "Purple Worm",
+  "type": "npc",
+  "img": "systems/a5e/assets/purple-worm.webp",
+  "items": [
+    {
+      "_id": "cSSiuoWt3EhQtkkw",
+      "name": "Tunneler",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.EDqFONyVVVObl9TA"
+        }
+      },
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The worm can tunnel through earth and solid rock, leaving behind a 10-foot-diameter tunnel.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "ownership": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "nqMRuEknKDSaw3Vy",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 150000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.GaTYRMKKcpzyzcuO"
+        }
+      },
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The worm attacks two different targets with its bite and its tail stinger.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "ownership": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "mGHZWsr3bcqecCmW",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Ojrre9k5X6Z7DMfC"
+        }
+      },
+      "system": {
+        "ability": "str",
+        "actionOptions": [
+          "damage",
+          "attack",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "3d10+@mod",
+            "name": "Bite Base Damage"
+          },
+          {
+            "canCrit": true,
+            "damageType": "acid",
+            "formula": "7d6",
+            "name": "Swallowed Damage"
+          }
+        ],
+        "description": "<p style=\"text-align: start\">On hit, if the target is a Large or smaller creature, it makes a DC 19 Dexterity saving throw. On a failure, the target is swallowed. A swallowed creature is blinded and restrained, it has total cover from attacks from outside the worm, and it takes 24 (7d6) acid damage at the start of each of the worm’s turns.</p><p><br>If a swallowed creature deals 35 or more damage to the worm in a single turn, or if the worm dies, the worm vomits up all swallowed creatures.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "10 ft."
+        ],
+        "save": {
+          "dc": 19,
+          "onSave": "Avoids Being Swallowed",
+          "targetAbility": "dex"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "ownership": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "MljaVGdLjaXIpxRR",
+      "name": "Tail Stinger",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.yHDnzzYvPbfGtm1h"
+        }
+      },
+      "system": {
+        "ability": "str",
+        "actionOptions": [
+          "attack",
+          "damage",
+          "savingThrow"
+        ],
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": "20",
+          "type": "meleeWeaponAttack"
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [
+          {
+            "canCrit": true,
+            "damageType": "",
+            "formula": "3d6+@mod",
+            "name": "Stinger Base"
+          },
+          {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "12d6",
+            "name": "Poison Damage"
+          }
+        ],
+        "description": "<p>On hit, target makes a DC 19 Constitution saving throw. The target will take half damage from the additional poison damage on success.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [
+          "10 ft."
+        ],
+        "save": {
+          "dc": 19,
+          "onSave": "Half Poison Damage",
+          "targetAbility": "con"
+        },
+        "source": "",
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "ownership": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "ab3hxTh69qxZ4OHY",
+      "name": "Fighting Retreat",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 600000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.p1mymh7m7v8uwje6"
+        }
+      },
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>When a creature makes an opportunity attack on the worm, the worm attacks with either its bite or its tail stinger.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": ""
+      },
+      "ownership": {
+        "default": 0,
+        "VMSZNizx1N7Lmk0A": 3,
+        "L6ChzHJ4OwXgnG2z": 3
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.66533hqereuhz4jq"
+    },
+    "exportSource": {
+      "world": "testworld",
+      "system": "a5e",
+      "coreVersion": "10.285",
+      "systemVersion": "0.8.5"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 28,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 8,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 22,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 2,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 4,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 18,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 247,
+        "baseMax": 247,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 15,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": 0,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "walk": 30
+      },
+      "senses": {
+        "blindsight": "30",
+        "darkvision": "",
+        "tremorsense": "60",
+        "truesight": ""
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int"
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "spell": {
+        "attack": "",
+        "dc": ""
+      }
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2>Combat</h2><p>The purple worm usually attacks the foe that makes the most noise, though it may also try to swallow a creature that badly injures it. If attacked from one end while in one of its narrow tunnels, it burrows in a tight circle so it can attack with both its bite and stinger. In melee, it retreats and advances in order to get both its attacks in play and to make use of its Fighting Retreat reaction.</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10:</strong> Purple worms are massive, always hungry, and very fast, but also stupid. To escape a purple worm, your best bet is to outsmart it.</p><p><strong>DC 15:</strong> Purple worm tunnels are usually safe, as the worms seldom return to their old tunnels.</p><p><strong>DC 20:</strong> Purple worms can be directed, and some underground societies do so for a variety of purposes. Some creatures even hunt purple worms for the gemstones in their gullets.</p><p>Description</p><p>Purple worms are massive, burrowing, subterranean predators. Possessed of limited intelligence but nearly boundless appetites, they subsist on a diet of minerals, as well as any organic material unfortunate enough to stumble into their path.</p><p><strong><em>Underground Predators.</em></strong> Purple worms spend their lives burrowing through earth and stone. Tremors attract them; when they feel vibrations or hear loud noises nearby, they burst from the ground and consume any creatures they can catch.</p><p><strong><em>Tunnel Makers.</em></strong> Over its lifetime, every purple worm leaves in its wake hundreds of miles of labyrinthine tunnels. The vast network of interconnected caverns under the earth may be as much a product of purple worms as of geological forces. A purple worm can chew through even the hardest natural rock, although some gemstones—such as emeralds, rubies, and diamonds—are indigestible and get stuck in its gullet.</p><p>Sometimes denizens of the Underland use magic or other means to control purple worms, using them as living construction equipment, mounts, or siege engines. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1665\">Grimlocks</a> in particular have mastered the art of directing the path of the worms, employing special machinery that produces vibrations similar to those made by the worms’ prey.</p><p>Behavior</p><p>1 About to burst through the wall or ground to attack</p><p>2 Excavating a nearby tunnel</p><p>3 Crawling through existing corridors and wide caverns, or along the surface of the earth, occasionally rearing up to look for prey</p><p>4 Motionless, listening for prey</p><p>Signs</p><p>1 A smooth-walled circular tunnel, 10 feet wide</p><p>2 The vibration of grinding stone, getting louder</p><p>3 A path of disturbed ground, as if something was tunneling underneath</p><p>4 A sinkhole that drops into a purple worm tunnel</p><p>Encounters</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1766\">Purple worms</a> are a danger to creatures in underground caverns, and occasionally emerge above ground in rocky areas. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1767\">Ice worms</a> traverse the tundra and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1768\">sand worms</a> lurk under dunes.</p><p><strong>CR 11–16</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1766\">Purple worm</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1767\">ice worm</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1768\">sand worm</a></p><p><strong>Treasure</strong> diamond (5,000 gp)</p><p><strong>CR 23–30</strong> 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1766\">purple worms</a> , <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1767\">ice worms</a> , or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1768\">sand worms</a></p><p><strong>Treasure</strong> 2 emeralds (5,000 gp each), 3 rubies (5,000 gp each)</p><p>Monster Type Description</p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1448\">centaurs</a> . Others have bizarre or unnatural appearances, like many-tentacled <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> . Monstrosities could only arise in a world suffused with magic.</p>",
+      "creatureTypes": [
+        "monstrosity"
+      ],
+      "cr": 15,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": ""
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": ""
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": ""
+      }
+    },
+    "traits": {
+      "size": "grg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Purple Worm",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 4,
+    "height": 4,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/purple-worm.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.5",
+    "coreVersion": "10.285",
+    "createdTime": 1663688971887,
+    "modifiedTime": 1663688975485,
+    "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
+  }
 }
