@@ -1,0 +1,90 @@
+{
+	"name": "Alchemical Grenade (Acid Core)",
+	"type": "object",
+	"img": "icons/weapons/thrown/grenade-round.webp",
+	"system": {
+		"ability": "int",
+		"actionOptions": [
+			"attack",
+			"damage",
+			"savingThrow"
+		],
+		"activation": {
+			"cost": "",
+			"type": "",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": "20",
+			"type": "rangedWeaponAttack"
+		},
+		"area": {
+			"shape": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": true,
+				"damageType": "force",
+				"defaultSelection": true,
+				"formula": "(floor((@details.level+1)/6)+1)d6",
+				"name": "Force"
+			},
+			{
+				"canCrit": true,
+				"damageType": "acid",
+				"defaultSelection": true,
+				"formula": "(floor((@details.level+1)/6)+1)d4",
+				"name": "Ongoing Acid "
+			}
+		],
+		"description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Acid Core</strong></h3><p>A target hit by this grenade takes an additional ongoing acid damage that persists until it submerges itself in water or uses an action to wipe the acid off. </p>",
+		"duration": {
+			"unit": "",
+			"value": ""
+		},
+		"favorite": false,
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"20 ft.",
+			"medium"
+		],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "0",
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": false,
+		"weaponProperties": [],
+		"weight": "0"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "m39iu7vdled4o3k4"
+}
