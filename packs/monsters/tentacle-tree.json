@@ -1,1043 +1,1026 @@
 {
-  "name": "Tentacle Tree",
-  "type": "npc",
-  "img": "systems/a5e/assets/fungus.webp",
-  "items": [
-    {
-      "_id": "l3iWn0Ii1ebQ2bpH",
-      "name": "False Appearance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": -100000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.QV7ShNeknzRMenLn"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>While motionless, the tree is indistinguishable from a normal willow tree</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "1Mtq9I8btAVC50YC",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 150000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.XF5oeIOvGFBvDj4T"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The tentacle tree makes up to four tendril attacks, then uses Reel, then attacks with its bite.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": null,
-        "modifiedTime": 1663689518122,
-        "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-      }
-    },
-    {
-      "_id": "vnd2Q4UT1ePpJPhw",
-      "name": "Tendril (attack)",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.LbOVGdIJelW5zrZW"
-        }
-      },
-      "system": {
-        "ability": "str",
-        "actionOptions": [
-          "attack"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>On hit, the target is grappled (escape DC 15). Until this grapple ends, the target is restrained and the tentacle tree can’t use this tendril on another target</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "50 ft."
-        ],
-        "save": {
-          "dc": null,
-          "onSave": "",
-          "targetAbility": "dex"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": null,
-        "modifiedTime": 1663689471939,
-        "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-      }
-    },
-    {
-      "_id": "gKy1KSqoN9kAoHgj",
-      "name": "Reel",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 400000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.RLcl6R1MNbxc37AT"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The tentacle tree pulls each creature it is grappling up to 25 feet straight towards it.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": null,
-        "modifiedTime": 1663689509319,
-        "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-      }
-    },
-    {
-      "_id": "JdMhs5wrHN3UB7rb",
-      "name": "Bite",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 500000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.mnnZvxWweUahaYvO"
-        }
-      },
-      "system": {
-        "ability": "str",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "2d8+@mod",
-            "name": "Piercing"
-          },
-          {
-            "canCrit": true,
-            "damageType": "acid",
-            "formula": "2d8",
-            "name": "Acid Damage"
-          }
-        ],
-        "description": "<p>Piercing + acid damage</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "naturalWeapon"
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "9YZn51j2a9PTs8eN",
-      "name": "Flammable",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [
-          "damage"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "1d10",
-            "name": "Self-Fire Damage"
-          }
-        ],
-        "description": "<p>The tree’s tendrils are vulnerable to fire damage. After taking fire damage, the tree catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. At the end of each of its turns, it makes a DC 15 Constitution saving throw, ending the ongoing damage on a success.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.nh8m0xsrhrf9tetn"
-    },
-    "exportSource": {
-      "world": "testworld",
-      "system": "a5e",
-      "coreVersion": "10.285",
-      "systemVersion": "0.8.5"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 18,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 8,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 6,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 4,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 20,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 93,
-        "baseMax": 93,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 0,
-          "total": 0
-        },
-        "d10": {
-          "current": 11,
-          "total": 11
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": "",
-        "climb": "",
-        "fly": "",
-        "swim": "",
-        "walk": "0"
-      },
-      "senses": {
-        "blindsight": "30",
-        "darkvision": "60",
-        "tremorsense": "",
-        "truesight": ""
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "spell": {
-        "attack": "",
-        "dc": ""
-      }
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<p>Behavior</p><p>1–2 Immobile on the ceiling: any treasure is on the floor as bait</p><p>3–4 Immobile on the floor: possibly near a hazard such as a pit</p><p>5 Reeling in prey</p><p>6 Immobile on a wall</p><p>Signs</p><p>1 DC 15 Perception checks: grooves in the floor, as if something was dragged</p><p>2 A <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1650\">goblin</a> or other humanoid with a smashed head</p><p>3 Dried blood on the ground</p><p>4 A distant clatter like a stone being thrown</p><p>Encounters</p><p>Ropers cling to cavern ceilings and floors.</p><p><strong>CR 0–2</strong> 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a></p><p><strong>Treasure</strong> 30 gp, 80 sp, bloodstained cavern map</p><p><strong>CR 3–4</strong> 1d4 + 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> ; 1d6 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> and 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1998\">swarms of bats</a></p><p><strong>Treasure</strong> 60 gp, greatsword, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/armor\">half plate armor</a> with no helm,<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1050\"><em>oil of slipperiness</em></a></p><p><strong>CR 5–10</strong> 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">roper</a> and 1d8 + 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">roper</a> and 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a></p><p><strong>Treasure</strong> 4 amethysts (100 gp each),<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1224\"><em>wand of fear</em></a></p><p>Monster Type Description</p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1448\">centaurs</a> . Others have bizarre or unnatural appearances, like many-tentacled <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> . Monstrosities could only arise in a world suffused with magic.</p>",
-      "creatureTypes": [
-        "plant"
-      ],
-      "cr": 5,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      }
-    },
-    "traits": {
-      "size": "lg",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    },
-    "target": {}
-  },
-  "prototypeToken": {
-    "name": "Tentacle Tree",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 2,
-    "height": 2,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/fungus.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.5",
-    "coreVersion": "10.285",
-    "createdTime": 1663689458392,
-    "modifiedTime": 1663689527171,
-    "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-  }
+	"name": "Tentacle Tree",
+	"type": "npc",
+	"img": "systems/a5e/assets/fungus.webp",
+	"items": [
+		{
+			"_id": "l3iWn0Ii1ebQ2bpH",
+			"name": "False Appearance",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": -100000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.QV7ShNeknzRMenLn"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>While motionless, the tree is indistinguishable from a normal willow tree</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "1Mtq9I8btAVC50YC",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 150000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.XF5oeIOvGFBvDj4T"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The tentacle tree makes up to four tendril attacks, then uses Reel, then attacks with its bite.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": null,
+				"modifiedTime": 1663689518122,
+				"lastModifiedBy": "L6ChzHJ4OwXgnG2z"
+			}
+		},
+		{
+			"_id": "vnd2Q4UT1ePpJPhw",
+			"name": "Tendril (attack)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.LbOVGdIJelW5zrZW"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>On hit, the target is grappled (escape DC 15). Until this grapple ends, the target is restrained and the tentacle tree can’t use this tendril on another target</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"50 ft."
+				],
+				"save": {
+					"dc": null,
+					"onSave": "",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": null,
+				"modifiedTime": 1663689471939,
+				"lastModifiedBy": "L6ChzHJ4OwXgnG2z"
+			}
+		},
+		{
+			"_id": "gKy1KSqoN9kAoHgj",
+			"name": "Reel",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 400000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.RLcl6R1MNbxc37AT"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The tentacle tree pulls each creature it is grappling up to 25 feet straight towards it.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": null,
+				"modifiedTime": 1663689509319,
+				"lastModifiedBy": "L6ChzHJ4OwXgnG2z"
+			}
+		},
+		{
+			"_id": "JdMhs5wrHN3UB7rb",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 500000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.mnnZvxWweUahaYvO"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "2d8+@mod",
+						"name": "Piercing"
+					},
+					{
+						"canCrit": true,
+						"damageType": "acid",
+						"formula": "2d8",
+						"name": "Acid Damage"
+					}
+				],
+				"description": "<p>Piercing + acid damage</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "naturalWeapon"
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "9YZn51j2a9PTs8eN",
+			"name": "Flammable",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"damage"
+				],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "1d10",
+						"name": "Self-Fire Damage"
+					}
+				],
+				"description": "<p>The tree’s tendrils are vulnerable to fire damage. After taking fire damage, the tree catches fire and takes ongoing fire damage if it isn’t already suffering ongoing fire damage. At the end of each of its turns, it makes a DC 15 Constitution saving throw, ending the ongoing damage on a success.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 8,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 6,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 4,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 20,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 93,
+				"baseMax": 93,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 11,
+					"total": 11
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": "",
+				"climb": "",
+				"fly": "",
+				"swim": "",
+				"walk": "0"
+			},
+			"senses": {
+				"blindsight": "30",
+				"darkvision": "60",
+				"tremorsense": "",
+				"truesight": ""
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"spell": {
+				"attack": "",
+				"dc": ""
+			}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<p>Behavior</p><p>1–2 Immobile on the ceiling: any treasure is on the floor as bait</p><p>3–4 Immobile on the floor: possibly near a hazard such as a pit</p><p>5 Reeling in prey</p><p>6 Immobile on a wall</p><p>Signs</p><p>1 DC 15 Perception checks: grooves in the floor, as if something was dragged</p><p>2 A <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1650\">goblin</a> or other humanoid with a smashed head</p><p>3 Dried blood on the ground</p><p>4 A distant clatter like a stone being thrown</p><p>Encounters</p><p>Ropers cling to cavern ceilings and floors.</p><p><strong>CR 0–2</strong> 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a></p><p><strong>Treasure</strong> 30 gp, 80 sp, bloodstained cavern map</p><p><strong>CR 3–4</strong> 1d4 + 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> ; 1d6 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> and 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1998\">swarms of bats</a></p><p><strong>Treasure</strong> 60 gp, greatsword, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/armor\">half plate armor</a> with no helm,<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1050\"><em>oil of slipperiness</em></a></p><p><strong>CR 5–10</strong> 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">roper</a> and 1d8 + 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1773\">piercers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">roper</a> and 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1476\">darkmantles</a></p><p><strong>Treasure</strong> 4 amethysts (100 gp each),<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1224\"><em>wand of fear</em></a></p><p>Monster Type Description</p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1448\">centaurs</a> . Others have bizarre or unnatural appearances, like many-tentacled <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1774\">ropers</a> . Monstrosities could only arise in a world suffused with magic.</p>",
+			"creatureTypes": [
+				"plant"
+			],
+			"cr": 5,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			}
+		},
+		"traits": {
+			"size": "lg",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"target": {}
+	},
+	"prototypeToken": {
+		"name": "Tentacle Tree",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 2,
+		"height": 2,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/fungus.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "axrh48wc3boo3xqo"
 }

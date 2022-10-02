@@ -1,874 +1,857 @@
 {
-  "name": "Pseudodragon",
-  "type": "npc",
-  "img": "systems/a5e/assets/pseudodragon.webp",
-  "items": [
-    {
-      "_id": "nEibl1b30T8u4X47",
-      "name": "Limited Telepathy",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The pseudodragon can magically communicate simple ideas, emotions, and images telepathically to any creature within 10 feet of it.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "hhqERHFch1BzjrEb",
-      "name": "Magic Resistance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The pseudodragon has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "ACC9WW9nyEbTubOr",
-      "name": "Sting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "dex",
-        "actionOptions": [
-          "attack",
-          "damage",
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4+@mod",
-            "name": "Sting"
-          }
-        ],
-        "description": "<p>On hit, target must succeed on DC 11 Constitution saving throw or become poisoned. If it fails, at the end of its next turn, it repeats the saving throw. On a success, the effect ends. On a failure, it falls unconscious for 1 hour. If it takes damage, or a creature uses an action to shake it awake, it wakes up, and the effect ends.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 11,
-          "onSave": "Not Poisoned",
-          "targetAbility": "con"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "afTgFRmPnOFe7ryL",
-      "name": "Telepathic Static",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p> (3/Day)</p><p>The pseudodragon targets one creature it can see within 10 feet, forcing it to make a DC 11 Charisma saving throw. On a failure, it’s stunned until the end of its next turn as it suffers a barrage of telepathic imagery</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "10"
-        ],
-        "save": {
-          "dc": 11,
-          "onSave": "Not stunned",
-          "targetAbility": "cha"
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "uses": {
-          "value": 3,
-          "max": 3,
-          "per": "day"
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "VMSZNizx1N7Lmk0A": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.o991rpnmv944z7hl"
-    },
-    "exportSource": {
-      "world": "testworld",
-      "system": "a5e",
-      "coreVersion": "10.285",
-      "systemVersion": "0.8.5"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 6,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 2,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 2,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 13,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 7,
-        "baseMax": 7,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 0,
-          "total": 0
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": "",
-        "climb": "",
-        "fly": "60",
-        "swim": "",
-        "walk": "15"
-      },
-      "senses": {
-        "blindsight": "10",
-        "darkvision": "60",
-        "tremorsense": "",
-        "truesight": ""
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "spell": {
-        "attack": "",
-        "dc": ""
-      }
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2>Combat</h2><p>When alone, the pseudodragon uses Telepathic Static and then flees, stinging only if cornered. When fighting alongside allies, the pseudodragon uses Telepathic Static and its sting on an enemy that is engaged in melee with an ally.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Acorn, Glitterling, Havoc, Lithilis, Terrorwing, Windsong</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or Culture check, characters can learn the following:</p><p><strong>DC 10</strong> Pseudodragons are much smaller than actual dragons and have poisonous stingers on their tails. They make excellent companions and familiars.</p><p><strong>DC 15</strong> Though they can’t speak, pseudodragons are intelligent and can communicate their emotions via a form of telepathy.</p><p><strong>DC 20</strong> When angered or frightened, pseudodragons stun their foes with a barrage of telepathic images.</p><p>Description</p><p>Pseudodragons are distant relatives of the true dragons, and bear a striking resemblance to <em>draco nobilis</em>, save that they rarely grow larger than a house cat. Countless breeds of pseudodragons exist, most of which mirror the colors of their larger counterparts. In fact, pseudodragons would be indistinguishable from miniature dragons if it weren’t for their tail stingers filled with sleeping poison.&nbsp;&nbsp;&nbsp;</p><p><strong><em>Shoulder Dragons</em>.</strong> In many social circles, it is considered the height of fashion to keep a pseudodragon. It’s common to see socialites with colorful pseudodragons flamboyantly draped across their shoulders. These pseudodragons live a life halfway between that of a servant and a fashion accessory, but many tolerate such indignities in return for lives of luxury.&nbsp;</p><p>Mages seek out pseudodragons as familiars. Pseudodragons who value excitement and discovery over comfort often relish such a calling.</p><p><strong><em>The Silent Flight</em></strong><em>.</em> Pseudodragons are telepathic, a fact they reveal only to those they trust. The tiny dragons eavesdrop on their masters’ thoughts, then gather on high rooftops to share what they’ve learned. The Silent Flight, as the pseudodragons call themselves, know the secrets of archmages and monarchs alike. Together, they quietly hatch schemes even greater than those of the most ancient wyrms.&nbsp;</p><p>Behavior</p><p>1 Hisses at those who approach</p><p>2 Watching from hiding, judging travelers’ worthiness and potential amusement value</p><p>3 Hunting small birds or rodents</p><p>4 Sleeping</p><p>Signs</p><p>1 A pseudodragon foe, such as a goblin or wolf, asleep</p><p>2 DC 14 Perception check: tiny lizard-like footprints</p><p>3 DC 14 Perception check: a miniscule glittering scale</p><p>4 DC 14 Perception check: a high-pitched roar or hiss</p><p>Encounters</p><p>Pseudodragons are most often seen in fashionable neighborhoods and arcane colleges. In the wild, they’re found in the same habitats as the dragons they resemble.</p><p><strong>CR 0–2</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragon</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragon</a> with 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1608\">pixies</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragon</a> with 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1933\">flying snakes</a></p><p><strong>Treasure</strong> 3 quartz gemstones (10 gp each), <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/830\"><em>bag of beans</em></a></p><p>Monster Type Description</p><p></p><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1547\">white dragons</a> , which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragons</a> .&nbsp;</p>",
-      "creatureTypes": [
-        "dragon"
-      ],
-      "cr": 0.25,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "common",
-        "draconic"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      }
-    },
-    "traits": {
-      "size": "tiny",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    },
-    "target": {}
-  },
-  "prototypeToken": {
-    "name": "Pseudodragon",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 0.5,
-    "height": 0.5,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/pseudodragon.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.5",
-    "coreVersion": "10.285",
-    "createdTime": 1663689228512,
-    "modifiedTime": 1663689252564,
-    "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-  }
+	"name": "Pseudodragon",
+	"type": "npc",
+	"img": "systems/a5e/assets/pseudodragon.webp",
+	"items": [
+		{
+			"_id": "nEibl1b30T8u4X47",
+			"name": "Limited Telepathy",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The pseudodragon can magically communicate simple ideas, emotions, and images telepathically to any creature within 10 feet of it.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "hhqERHFch1BzjrEb",
+			"name": "Magic Resistance",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The pseudodragon has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "ACC9WW9nyEbTubOr",
+			"name": "Sting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "dex",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4+@mod",
+						"name": "Sting"
+					}
+				],
+				"description": "<p>On hit, target must succeed on DC 11 Constitution saving throw or become poisoned. If it fails, at the end of its next turn, it repeats the saving throw. On a success, the effect ends. On a failure, it falls unconscious for 1 hour. If it takes damage, or a creature uses an action to shake it awake, it wakes up, and the effect ends.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 11,
+					"onSave": "Not Poisoned",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "afTgFRmPnOFe7ryL",
+			"name": "Telepathic Static",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p> (3/Day)</p><p>The pseudodragon targets one creature it can see within 10 feet, forcing it to make a DC 11 Charisma saving throw. On a failure, it’s stunned until the end of its next turn as it suffers a barrage of telepathic imagery</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"10"
+				],
+				"save": {
+					"dc": 11,
+					"onSave": "Not stunned",
+					"targetAbility": "cha"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 3,
+					"max": 3,
+					"per": "day"
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 6,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 2,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 2,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 13,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 7,
+				"baseMax": 7,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": "",
+				"climb": "",
+				"fly": "60",
+				"swim": "",
+				"walk": "15"
+			},
+			"senses": {
+				"blindsight": "10",
+				"darkvision": "60",
+				"tremorsense": "",
+				"truesight": ""
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"spell": {
+				"attack": "",
+				"dc": ""
+			}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2>Combat</h2><p>When alone, the pseudodragon uses Telepathic Static and then flees, stinging only if cornered. When fighting alongside allies, the pseudodragon uses Telepathic Static and its sting on an enemy that is engaged in melee with an ally.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Acorn, Glitterling, Havoc, Lithilis, Terrorwing, Windsong</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or Culture check, characters can learn the following:</p><p><strong>DC 10</strong> Pseudodragons are much smaller than actual dragons and have poisonous stingers on their tails. They make excellent companions and familiars.</p><p><strong>DC 15</strong> Though they can’t speak, pseudodragons are intelligent and can communicate their emotions via a form of telepathy.</p><p><strong>DC 20</strong> When angered or frightened, pseudodragons stun their foes with a barrage of telepathic images.</p><p>Description</p><p>Pseudodragons are distant relatives of the true dragons, and bear a striking resemblance to <em>draco nobilis</em>, save that they rarely grow larger than a house cat. Countless breeds of pseudodragons exist, most of which mirror the colors of their larger counterparts. In fact, pseudodragons would be indistinguishable from miniature dragons if it weren’t for their tail stingers filled with sleeping poison.&nbsp;&nbsp;&nbsp;</p><p><strong><em>Shoulder Dragons</em>.</strong> In many social circles, it is considered the height of fashion to keep a pseudodragon. It’s common to see socialites with colorful pseudodragons flamboyantly draped across their shoulders. These pseudodragons live a life halfway between that of a servant and a fashion accessory, but many tolerate such indignities in return for lives of luxury.&nbsp;</p><p>Mages seek out pseudodragons as familiars. Pseudodragons who value excitement and discovery over comfort often relish such a calling.</p><p><strong><em>The Silent Flight</em></strong><em>.</em> Pseudodragons are telepathic, a fact they reveal only to those they trust. The tiny dragons eavesdrop on their masters’ thoughts, then gather on high rooftops to share what they’ve learned. The Silent Flight, as the pseudodragons call themselves, know the secrets of archmages and monarchs alike. Together, they quietly hatch schemes even greater than those of the most ancient wyrms.&nbsp;</p><p>Behavior</p><p>1 Hisses at those who approach</p><p>2 Watching from hiding, judging travelers’ worthiness and potential amusement value</p><p>3 Hunting small birds or rodents</p><p>4 Sleeping</p><p>Signs</p><p>1 A pseudodragon foe, such as a goblin or wolf, asleep</p><p>2 DC 14 Perception check: tiny lizard-like footprints</p><p>3 DC 14 Perception check: a miniscule glittering scale</p><p>4 DC 14 Perception check: a high-pitched roar or hiss</p><p>Encounters</p><p>Pseudodragons are most often seen in fashionable neighborhoods and arcane colleges. In the wild, they’re found in the same habitats as the dragons they resemble.</p><p><strong>CR 0–2</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragon</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragon</a> with 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1608\">pixies</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragon</a> with 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1933\">flying snakes</a></p><p><strong>Treasure</strong> 3 quartz gemstones (10 gp each), <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/830\"><em>bag of beans</em></a></p><p>Monster Type Description</p><p></p><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1547\">white dragons</a> , which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1764\">pseudodragons</a> .&nbsp;</p>",
+			"creatureTypes": [
+				"dragon"
+			],
+			"cr": 0.25,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"common",
+				"draconic"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			}
+		},
+		"traits": {
+			"size": "tiny",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"target": {}
+	},
+	"prototypeToken": {
+		"name": "Pseudodragon",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 0.5,
+		"height": 0.5,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/pseudodragon.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "vm2azqewlrzgcd9g"
 }

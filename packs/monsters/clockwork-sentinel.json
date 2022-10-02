@@ -1,910 +1,893 @@
 {
-  "name": "Clockwork Sentinel",
-  "type": "npc",
-  "img": "systems/a5e/assets/clockwork.webp",
-  "items": [
-    {
-      "_id": "BHiCvSvD5zg4qqdQ",
-      "name": "Halberd",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d10 + @mod",
-            "name": "Slashing"
-          }
-        ],
-        "description": "",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "touch"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "25gp",
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "weaponProperties": [
-          "heavy",
-          "reach",
-          "trip",
-          "twoHanded"
-        ],
-        "weight": "7lbs"
-      },
-      "ownership": {
-        "default": 0,
-        "OyZX2TIRwvIZU83t": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "hgwrIVy8wSw1Cymw",
-      "name": "Calculated Sweep",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "default",
-        "actionOptions": [
-          "attack",
-          "damage",
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d10 + @mod",
-            "name": "Attack"
-          }
-        ],
-        "description": "<p> The sentinel makes a melee attack against each creature of its choice within 10 feet. On a critical hit, the target makes a DC 13 Strength saving throw, falling prone on a failure.</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "10ft"
-        ],
-        "save": {
-          "dc": 13,
-          "onSave": "Avoids falling prone.",
-          "targetAbility": "str"
-        },
-        "source": "",
-        "target": {
-          "quantity": null,
-          "type": "creature"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "OyZX2TIRwvIZU83t": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "RWxDAkv4rMj5zphE",
-      "name": "Overclock",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The sentinel takes the Dash action.</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": 6,
-          "max": 6,
-          "per": "day"
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "OyZX2TIRwvIZU83t": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "3EvFUPyh5z1fwWMp",
-      "name": "Parry",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "reaction",
-          "reactionTrigger": "When one melee attack would hit it."
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The sentinel adds 2 to its AC against one melee attack that would hit it.</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "OyZX2TIRwvIZU83t": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.hmfu4a7w0q8h7d1o"
-    },
-    "exportSource": {
-      "world": "testworld",
-      "system": "a5e",
-      "coreVersion": "10.285",
-      "systemVersion": "0.8.5"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 1,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 6,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 1,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 18,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 60,
-        "baseMax": 60,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 8,
-          "total": 8
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": "",
-        "climb": "",
-        "fly": "",
-        "swim": "",
-        "walk": "35"
-      },
-      "senses": {
-        "blindsight": "120",
-        "darkvision": "",
-        "tremorsense": "",
-        "truesight": ""
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "spell": {
-        "attack": "",
-        "dc": ""
-      }
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2>Combat</h2><p>The clockwork sentinel attacks unauthorized creatures, pursuing them for up to 1 mile if they flee the area the sentinel has been programmed to guard.</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Engineering or History check, characters can learn the following:</p><p><strong>DC 15</strong> Engineers and artificers can build metal spiders, suits of armor, and larger constructs out of nothing but gears and springs.</p><p><strong>DC 20</strong> Clockworks are not magical and don’t think or learn. Given the same situation, they will always act the same way.</p><p>Description</p><p>A luxury only the truly wealthy can afford, clockwork sentinels are among the most complicated clockworks in existence. They can take years or even decades to build, but once complete they are exceptionally durable. A clockwork sentinel can remain functional for hundreds of years, faithfully watching over their owners—or the halls of their long-abandoned estates—for generations.</p><p>Behavior</p><p>1 Patrolling: attacks intruders on sight</p><p>2 Stationary: attacks if intruders take certain forbidden actions&nbsp;</p><p>3 Malfunctioning: emitting sparks as it walks in a circle or performs some useless activity. Attacks if interacted with</p><p>4 Follows a list of preprogrammed instructions</p><p>Signs</p><p>1 Ruts worn into stone floors</p><p>2 Distant clanks, clicks, and hisses</p><p>3 Workbenches containing artisan tools, gears, springs, and the like</p><p>4 Inert and half-assembled engineering projects</p><p>Encounters</p><p>Clockworks guard palaces, fortresses, and ancient tombs.</p><p><strong>CR 0–2</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-thrower</a> ; 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1454\">gear spiders</a></p><p><strong>CR 3–4</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1453\">clockwork sentinel</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-throwers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-thrower</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1428\">animated armor</a></p><p><strong>CR 5–10</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1455\">crusher</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1453\">clockwork sentinel</a> with 1 to 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-throwers</a></p><p>Monster Type Description</p><p></p><p>Constructs are beings that were built or made. Some are mindless machines, while others have some form of intelligence. Guardians are constructs.</p>",
-      "creatureTypes": [
-        "construct"
-      ],
-      "cr": 4,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      }
-    },
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "charmed",
-        "deafened",
-        "fatigue",
-        "frightened",
-        "paralyzed",
-        "petrified",
-        "poisoned"
-      ],
-      "damageImmunities": [
-        "poison",
-        "psychic"
-      ],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Clockwork Sentinel",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "color": null,
-      "attenuation": 0.5
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/clockwork.webp",
-      "tint": null,
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.5",
-    "coreVersion": "10.285",
-    "createdTime": 1663686093295,
-    "modifiedTime": 1663686106586,
-    "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-  }
+	"name": "Clockwork Sentinel",
+	"type": "npc",
+	"img": "systems/a5e/assets/clockwork.webp",
+	"items": [
+		{
+			"_id": "BHiCvSvD5zg4qqdQ",
+			"name": "Halberd",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @mod",
+						"name": "Slashing"
+					}
+				],
+				"description": "",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "25gp",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [
+					"heavy",
+					"reach",
+					"trip",
+					"twoHanded"
+				],
+				"weight": "7lbs"
+			},
+			"ownership": {
+				"default": 0,
+				"OyZX2TIRwvIZU83t": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "hgwrIVy8wSw1Cymw",
+			"name": "Calculated Sweep",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @mod",
+						"name": "Attack"
+					}
+				],
+				"description": "<p> The sentinel makes a melee attack against each creature of its choice within 10 feet. On a critical hit, the target makes a DC 13 Strength saving throw, falling prone on a failure.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"10ft"
+				],
+				"save": {
+					"dc": 13,
+					"onSave": "Avoids falling prone.",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": null,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"OyZX2TIRwvIZU83t": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "RWxDAkv4rMj5zphE",
+			"name": "Overclock",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The sentinel takes the Dash action.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 6,
+					"max": 6,
+					"per": "day"
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"OyZX2TIRwvIZU83t": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "3EvFUPyh5z1fwWMp",
+			"name": "Parry",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When one melee attack would hit it."
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The sentinel adds 2 to its AC against one melee attack that would hit it.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"OyZX2TIRwvIZU83t": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 1,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 6,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 1,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 18,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 60,
+				"baseMax": 60,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 8,
+					"total": 8
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": "",
+				"climb": "",
+				"fly": "",
+				"swim": "",
+				"walk": "35"
+			},
+			"senses": {
+				"blindsight": "120",
+				"darkvision": "",
+				"tremorsense": "",
+				"truesight": ""
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"spell": {
+				"attack": "",
+				"dc": ""
+			}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2>Combat</h2><p>The clockwork sentinel attacks unauthorized creatures, pursuing them for up to 1 mile if they flee the area the sentinel has been programmed to guard.</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Engineering or History check, characters can learn the following:</p><p><strong>DC 15</strong> Engineers and artificers can build metal spiders, suits of armor, and larger constructs out of nothing but gears and springs.</p><p><strong>DC 20</strong> Clockworks are not magical and don’t think or learn. Given the same situation, they will always act the same way.</p><p>Description</p><p>A luxury only the truly wealthy can afford, clockwork sentinels are among the most complicated clockworks in existence. They can take years or even decades to build, but once complete they are exceptionally durable. A clockwork sentinel can remain functional for hundreds of years, faithfully watching over their owners—or the halls of their long-abandoned estates—for generations.</p><p>Behavior</p><p>1 Patrolling: attacks intruders on sight</p><p>2 Stationary: attacks if intruders take certain forbidden actions&nbsp;</p><p>3 Malfunctioning: emitting sparks as it walks in a circle or performs some useless activity. Attacks if interacted with</p><p>4 Follows a list of preprogrammed instructions</p><p>Signs</p><p>1 Ruts worn into stone floors</p><p>2 Distant clanks, clicks, and hisses</p><p>3 Workbenches containing artisan tools, gears, springs, and the like</p><p>4 Inert and half-assembled engineering projects</p><p>Encounters</p><p>Clockworks guard palaces, fortresses, and ancient tombs.</p><p><strong>CR 0–2</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-thrower</a> ; 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1454\">gear spiders</a></p><p><strong>CR 3–4</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1453\">clockwork sentinel</a> ; 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-throwers</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-thrower</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1428\">animated armor</a></p><p><strong>CR 5–10</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1455\">crusher</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1453\">clockwork sentinel</a> with 1 to 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1452\">bolt-throwers</a></p><p>Monster Type Description</p><p></p><p>Constructs are beings that were built or made. Some are mindless machines, while others have some form of intelligence. Guardians are constructs.</p>",
+			"creatureTypes": [
+				"construct"
+			],
+			"cr": 4,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			}
+		},
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [
+				"charmed",
+				"deafened",
+				"fatigue",
+				"frightened",
+				"paralyzed",
+				"petrified",
+				"poisoned"
+			],
+			"damageImmunities": [
+				"poison",
+				"psychic"
+			],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		}
+	},
+	"prototypeToken": {
+		"name": "Clockwork Sentinel",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"color": null,
+			"attenuation": 0.5
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/clockwork.webp",
+			"tint": null,
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "74wip7ox5m4sfib3"
 }

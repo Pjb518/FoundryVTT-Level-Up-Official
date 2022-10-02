@@ -1,111 +1,97 @@
 {
-  "name": "Alchemical Grenade (Combustible)",
-  "type": "object",
-  "img": "icons/weapons/thrown/grenade-round.webp",
-  "system": {
-    "ability": "int",
-    "actionOptions": [
-      "attack",
-      "damage",
-      "savingThrow"
-    ],
-    "activation": {
-      "cost": "",
-      "type": "",
-      "reactionTrigger": ""
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": "20",
-      "type": "rangedWeaponAttack"
-    },
-    "area": {
-      "shape": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [
-      {
-        "canCrit": true,
-        "damageType": "force",
-        "defaultSelection": true,
-        "formula": "(floor((@details.level+1)/6)+1)d6",
-        "name": "Force"
-      },
-      {
-        "canCrit": true,
-        "damageType": "fire",
-        "defaultSelection": true,
-        "formula": "(floor((@details.level+1)/6)+1)d12",
-        "name": "Additional Fire"
-      },
-      {
-        "canCrit": false,
-        "damageType": "fire",
-        "defaultSelection": true,
-        "formula": "1d6",
-        "name": "Ongoing Fire"
-      }
-    ],
-    "description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Combustible </strong></h3><p>A target hit by this grenade takes additional fire damage.  Flammable objects within 5 feet of the target that aren’t being worn or carried ignite, taking [[/r 1d6 #ongoing fire damage]] ongoing fire damage until a creature uses an action to smother the flames. <br></p>",
-    "duration": {
-      "unit": "",
-      "value": ""
-    },
-    "favorite": false,
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "20 ft.",
-      "medium"
-    ],
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    },
-    "source": "",
-    "target": {
-      "quantity": "",
-      "type": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "0",
-    "quantity": 1,
-    "rarity": "common",
-    "requiresAttunement": false,
-    "weaponProperties": [],
-    "weight": "0"
-  },
-  "effects": [],
-  "flags": {
-    "exportSource": {
-      "world": "sandboxa5e",
-      "system": "a5e",
-      "coreVersion": "10.285",
-      "systemVersion": "0.8.5"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.5",
-    "coreVersion": "10.285",
-    "createdTime": 1663938279730,
-    "modifiedTime": 1663951556332,
-    "lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
-  }
+	"name": "Alchemical Grenade (Combustible)",
+	"type": "object",
+	"img": "icons/weapons/thrown/grenade-round.webp",
+	"system": {
+		"ability": "int",
+		"actionOptions": [
+			"attack",
+			"damage",
+			"savingThrow"
+		],
+		"activation": {
+			"cost": "",
+			"type": "",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": "20",
+			"type": "rangedWeaponAttack"
+		},
+		"area": {
+			"shape": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": true,
+				"damageType": "force",
+				"defaultSelection": true,
+				"formula": "(floor((@details.level+1)/6)+1)d6",
+				"name": "Force"
+			},
+			{
+				"canCrit": true,
+				"damageType": "fire",
+				"defaultSelection": true,
+				"formula": "(floor((@details.level+1)/6)+1)d12",
+				"name": "Additional Fire"
+			},
+			{
+				"canCrit": false,
+				"damageType": "fire",
+				"defaultSelection": true,
+				"formula": "1d6",
+				"name": "Ongoing Fire"
+			}
+		],
+		"description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Combustible </strong></h3><p>A target hit by this grenade takes additional fire damage.  Flammable objects within 5 feet of the target that aren’t being worn or carried ignite, taking [[/r 1d6 #ongoing fire damage]] ongoing fire damage until a creature uses an action to smother the flames. <br></p>",
+		"duration": {
+			"unit": "",
+			"value": ""
+		},
+		"favorite": false,
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"20 ft.",
+			"medium"
+		],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"source": "",
+		"target": {
+			"quantity": "",
+			"type": ""
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "0",
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": false,
+		"weaponProperties": [],
+		"weight": "0"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "awda8j2hq3mq6c2z"
 }

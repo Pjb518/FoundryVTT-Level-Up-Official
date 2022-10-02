@@ -1,883 +1,866 @@
 {
-  "name": "Spell Automaton",
-  "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 1,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 6,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 1,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 10,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 90,
-        "baseMax": 90,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 12,
-          "total": 12
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": "",
-        "climb": "",
-        "fly": "",
-        "swim": "",
-        "walk": "40"
-      },
-      "senses": {
-        "blindsight": 0,
-        "darkvision": 0,
-        "tremorsense": 0,
-        "truesight": 0
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "spell": {
-        "attack": "",
-        "dc": ""
-      }
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "",
-      "creatureTypes": [
-        "construct"
-      ],
-      "cr": "0",
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "Understands any known by its creator but cannot speak"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      }
-    },
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "blinded",
-        "charmed",
-        "deafened",
-        "frightened",
-        "fatigue",
-        "paralyzed",
-        "petrified",
-        "poisoned",
-        "Exhaustion"
-      ],
-      "damageImmunities": [
-        "poison",
-        "psychic"
-      ],
-      "damageResistances": [
-        "Nonmagical weapons"
-      ],
-      "damageVulnerabilities": []
-    }
-  },
-  "prototypeToken": {
-    "name": "Spell Automaton",
-    "displayName": 0,
-    "actorLink": false,
-    "texture": {
-      "src": "icons/svg/mystery-man.svg",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "attenuation": 0.5,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "type": null,
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      }
-    },
-    "sight": {
-      "enabled": false,
-      "range": null,
-      "angle": 360,
-      "visionMode": "basic",
-      "color": null,
-      "attenuation": 0.1,
-      "brightness": 0,
-      "saturation": 0,
-      "contrast": 0
-    },
-    "detectionModes": [],
-    "flags": {},
-    "randomImg": false
-  },
-  "items": [
-    {
-      "name": "Multiattack",
-      "type": "feature",
-      "_id": "UGU6aNWKh0YOrHuv",
-      "img": "icons/skills/melee/strikes-sword-scimitar.webp",
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The automaton attacks twice with its slams or once with its integrated spell.<br></p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "IT1r8Ztx8Vo4EKRr": 3
-      },
-      "flags": {},
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": 1663931419876,
-        "modifiedTime": 1663931489901,
-        "lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
-      }
-    },
-    {
-      "name": "Slam",
-      "type": "feature",
-      "_id": "FQwEOqsuquj9YP2Q",
-      "img": "icons/equipment/hand/gauntlet-cuffed-steel-grey.webp",
-      "system": {
-        "ability": null,
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "defaultSelection": true,
-            "formula": "2d10+4",
-            "name": "Bludgeoning"
-          }
-        ],
-        "description": "<p><strong>Melee Weapon Attac</strong>k: its creator’s spell attack modifier to hit, reach 5 ft., one target. </p><p><strong>Hit</strong>: [[/r 2d10 + 4]] + your Intelligence modifier bludgeoning damage. <br></p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "touch"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "IT1r8Ztx8Vo4EKRr": 3
-      },
-      "flags": {},
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": 1663931424505,
-        "modifiedTime": 1663931765030,
-        "lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
-      }
-    },
-    {
-      "name": "Integrated Spell",
-      "type": "feature",
-      "_id": "CO4YPqAJEDc0z26s",
-      "img": "icons/magic/symbols/cog-glowing-green.webp",
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The automaton uses the spell invention integrated into it to cast a spell, using your spell attack bonus and spell save DC. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 30 damage instead. <br></p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "IT1r8Ztx8Vo4EKRr": 3
-      },
-      "flags": {},
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": 1663931680497,
-        "modifiedTime": 1663931741343,
-        "lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
-      }
-    },
-    {
-      "name": "Overclock (Recharge 5–6)",
-      "type": "feature",
-      "_id": "ae3ZXRDNKEgPtDNG",
-      "img": "icons/magic/time/clock-spinning-gold-pink.webp",
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The automaton takes the Dash action. <br></p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "self"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "IT1r8Ztx8Vo4EKRr": 3
-      },
-      "flags": {},
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.285",
-        "createdTime": 1663931770601,
-        "modifiedTime": 1663931837353,
-        "lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Actor.1FiHWhXtujKziegG"
-    },
-    "exportSource": {
-      "world": "sandboxa5e",
-      "system": "a5e",
-      "coreVersion": "10.285",
-      "systemVersion": "0.8.5"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.5",
-    "coreVersion": "10.285",
-    "createdTime": 1663931129018,
-    "modifiedTime": 1663931865538,
-    "lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
-  }
+	"name": "Spell Automaton",
+	"type": "npc",
+	"img": "icons/svg/mystery-man.svg",
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 1,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 6,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 1,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 10,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 90,
+				"baseMax": 90,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 12,
+					"total": 12
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": "",
+				"climb": "",
+				"fly": "",
+				"swim": "",
+				"walk": "40"
+			},
+			"senses": {
+				"blindsight": 0,
+				"darkvision": 0,
+				"tremorsense": 0,
+				"truesight": 0
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"spell": {
+				"attack": "",
+				"dc": ""
+			}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "",
+			"creatureTypes": [
+				"construct"
+			],
+			"cr": "0",
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"Understands any known by its creator but cannot speak"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			}
+		},
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"frightened",
+				"fatigue",
+				"paralyzed",
+				"petrified",
+				"poisoned",
+				"Exhaustion"
+			],
+			"damageImmunities": [
+				"poison",
+				"psychic"
+			],
+			"damageResistances": [
+				"Nonmagical weapons"
+			],
+			"damageVulnerabilities": []
+		}
+	},
+	"prototypeToken": {
+		"name": "Spell Automaton",
+		"displayName": 0,
+		"actorLink": false,
+		"texture": {
+			"src": "icons/svg/mystery-man.svg",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"attenuation": 0.5,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"type": null,
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			}
+		},
+		"sight": {
+			"enabled": false,
+			"range": null,
+			"angle": 360,
+			"visionMode": "basic",
+			"color": null,
+			"attenuation": 0.1,
+			"brightness": 0,
+			"saturation": 0,
+			"contrast": 0
+		},
+		"detectionModes": [],
+		"flags": {},
+		"randomImg": false
+	},
+	"items": [
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"_id": "UGU6aNWKh0YOrHuv",
+			"img": "icons/skills/melee/strikes-sword-scimitar.webp",
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The automaton attacks twice with its slams or once with its integrated spell.<br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"IT1r8Ztx8Vo4EKRr": 3
+			},
+			"flags": {},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": 1663931419876,
+				"modifiedTime": 1663931489901,
+				"lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
+			}
+		},
+		{
+			"name": "Slam",
+			"type": "feature",
+			"_id": "FQwEOqsuquj9YP2Q",
+			"img": "icons/equipment/hand/gauntlet-cuffed-steel-grey.webp",
+			"system": {
+				"ability": null,
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"defaultSelection": true,
+						"formula": "2d10+4",
+						"name": "Bludgeoning"
+					}
+				],
+				"description": "<p><strong>Melee Weapon Attac</strong>k: its creator’s spell attack modifier to hit, reach 5 ft., one target. </p><p><strong>Hit</strong>: [[/r 2d10 + 4]] + your Intelligence modifier bludgeoning damage. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"IT1r8Ztx8Vo4EKRr": 3
+			},
+			"flags": {},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": 1663931424505,
+				"modifiedTime": 1663931765030,
+				"lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
+			}
+		},
+		{
+			"name": "Integrated Spell",
+			"type": "feature",
+			"_id": "CO4YPqAJEDc0z26s",
+			"img": "icons/magic/symbols/cog-glowing-green.webp",
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The automaton uses the spell invention integrated into it to cast a spell, using your spell attack bonus and spell save DC. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 30 damage instead. <br></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"IT1r8Ztx8Vo4EKRr": 3
+			},
+			"flags": {},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": 1663931680497,
+				"modifiedTime": 1663931741343,
+				"lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
+			}
+		},
+		{
+			"name": "Overclock (Recharge 5–6)",
+			"type": "feature",
+			"_id": "ae3ZXRDNKEgPtDNG",
+			"img": "icons/magic/time/clock-spinning-gold-pink.webp",
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The automaton takes the Dash action. <br></p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"IT1r8Ztx8Vo4EKRr": 3
+			},
+			"flags": {},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.285",
+				"createdTime": 1663931770601,
+				"modifiedTime": 1663931837353,
+				"lastModifiedBy": "IT1r8Ztx8Vo4EKRr"
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"_id": "31jeijnejbiyf7er"
 }

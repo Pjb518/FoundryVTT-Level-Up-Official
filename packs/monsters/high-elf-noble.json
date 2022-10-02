@@ -1,950 +1,934 @@
 {
-  "name": "High Elf Noble",
-  "type": "npc",
-  "img": "icons/equipment/neck/collar-rounded-gold-purple.webp",
-  "items": [
-    {
-      "_id": "0RwD4LHy660eY8PB",
-      "name": "Rapier",
-      "type": "object",
-      "img": "icons/weapons/swords/swords-sharp-worn.webp",
-      "effects": [],
-      "folder": "scTHNERGpFOFnSlD",
-      "sort": 0,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Z7DK7DV7qYtnvV45"
-        }
-      },
-      "system": {
-        "ability": "default",
-        "actionOptions": [
-          "damage",
-          "attack"
-        ],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d8 + @mod",
-            "name": "Rapier"
-          }
-        ],
-        "description": "<p><em>Defensive (Light), Finesse</em></p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "equipped": true,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "25 gp",
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "weaponProperties": [
-          "defensive",
-          "finesse"
-        ],
-        "weight": "2 lbs"
-      },
-      "ownership": {
-        "default": 0,
-        "gC8xZboiXNWVf5Ei": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "VHpKLID9EDlwuq90",
-      "name": "Breastplate/Cuirass (Steel)",
-      "type": "object",
-      "img": "icons/equipment/chest/breastplate-gorget-steel-white.webp",
-      "effects": [],
-      "folder": "lga2GVh1Wd1dY3KJ",
-      "sort": 0,
-      "flags": {
-        "core": {
-          "sourceId": "Item.4BPIJ5HtH8pRPcAf"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p><em>Low-Maintenance (Expertise Die)</em></p><p><strong>AC 14 (DEX +2 max)</strong></p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "medium",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "equipped": true,
-        "materialProperties": [
-          "lowMaintenance"
-        ],
-        "objectType": "armor",
-        "plotItem": false,
-        "price": "400 gp",
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "weaponProperties": [],
-        "weight": "20 lbs"
-      },
-      "ownership": {
-        "default": 0,
-        "gC8xZboiXNWVf5Ei": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "XObXXY4HuTye49Bf",
-      "name": "Parry",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "reaction",
-          "reactionTrigger": "Can see their attacker"
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>If the noble is wielding a melee weapon and can see their attacker, they add 2 to their AC against one melee attack that would hit them.</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "gC8xZboiXNWVf5Ei": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "name": "Ray of Frost",
-      "type": "spell",
-      "img": "icons/magic/water/projectile-icecicle-glowing.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.9ot2c39ypiu4l8ws"
-        }
-      },
-      "system": {
-        "ability": "spellcasting",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": "rangedSpellAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "cold",
-            "formula": "(floor((@details.level+1)/6)+1)d8",
-            "name": ""
-          }
-        ],
-        "description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "medium"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 0,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": true,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "arcane",
-            "cold",
-            "movement"
-          ]
-        }
-      },
-      "_id": "benADLEheMXtpcuF",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "L6ChzHJ4OwXgnG2z": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.5",
-        "coreVersion": "10.286",
-        "createdTime": 1664315037694,
-        "modifiedTime": 1664315068267,
-        "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "availableSpellLevels": [
-        "0"
-      ],
-      "showSpellSlots": true,
-      "showSpellPoints": false
-    },
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.hlt917k09anrmyhs"
-    },
-    "exportSource": {
-      "world": "testworld",
-      "system": "a5e",
-      "coreVersion": "10.286",
-      "systemVersion": "0.8.5"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 1,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 15,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 13,
-        "baseMax": 13,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 3,
-          "total": 3
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0,
-        "walk": 30
-      },
-      "senses": {
-        "blindsight": 0,
-        "darkvision": 0,
-        "tremorsense": 0,
-        "truesight": 0
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "cha"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "spell": {
-        "attack": "",
-        "dc": ""
-      }
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2><strong>DESCRIPTION</strong></h2><p>High elf nobles pride themselves on the cultural accomplishments of their waning or extinct empires. Highly educated, many high elf nobles see themselves as peacemakers, leaders, or preservers of ancient traditions.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p><em>Grassland, Hills, Settlement</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 0–2</strong> noble with soldier, thug, animated armor, or 1d6 guards; high elf noble with 2 elf scouts</p><p><strong>Treasure</strong> 35 gp, silver hatpin (25 gp), signet ring (50 gp), gold bracelet (75 gp)</p><p></p><p><strong>CR 3–4</strong> 1 or 2 nobles or high elf nobles with doppelganger, knight, veteran, or 3 soldiers</p><p><strong>Treasure</strong> 10 pp, 20 gp, gold-hilted rapier (250 gp), silver and moonstone necklace (75 gp), deed to property, <em>potion of healing</em></p><p></p><p><strong>CR 5–10</strong> 1d4 nobles with knight, pugilist, or veteran and 1d6 soldiers; 1d4 nobles with assassin, gladiator, pugilist, or mage; 1d4 nobles with 2d6 guards and 2d6 commoners, all mounted on riding horses</p><p><strong>Treasure</strong> 200 gp, 3x spinel gemstones (100 gp each), silver jewelry box (250 gp), pearl earrings (250 gp), fine clothing (300 gp), 3x gold rings (75 gp each), pair of platinum dice (75 gp), silver snuff box (75 gp) containing <em>dust of sneezing and choking</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-      "creatureTypes": [
-        "humanoid"
-      ],
-      "cr": 0.25,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "Any Two"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      }
-    },
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    },
-    "target": {}
-  },
-  "prototypeToken": {
-    "name": "Noble",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "icons/equipment/neck/collar-rounded-gold-purple.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.5",
-    "coreVersion": "10.286",
-    "createdTime": 1664314741049,
-    "modifiedTime": 1664315166616,
-    "lastModifiedBy": "L6ChzHJ4OwXgnG2z"
-  }
+	"name": "High Elf Noble",
+	"type": "npc",
+	"img": "icons/equipment/neck/collar-rounded-gold-purple.webp",
+	"items": [
+		{
+			"_id": "0RwD4LHy660eY8PB",
+			"name": "Rapier",
+			"type": "object",
+			"img": "icons/weapons/swords/swords-sharp-worn.webp",
+			"effects": [],
+			"folder": "scTHNERGpFOFnSlD",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Z7DK7DV7qYtnvV45"
+				}
+			},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"damage",
+					"attack"
+				],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @mod",
+						"name": "Rapier"
+					}
+				],
+				"description": "<p><em>Defensive (Light), Finesse</em></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "25 gp",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [
+					"defensive",
+					"finesse"
+				],
+				"weight": "2 lbs"
+			},
+			"ownership": {
+				"default": 0,
+				"gC8xZboiXNWVf5Ei": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "VHpKLID9EDlwuq90",
+			"name": "Breastplate/Cuirass (Steel)",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-gorget-steel-white.webp",
+			"effects": [],
+			"folder": "lga2GVh1Wd1dY3KJ",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.4BPIJ5HtH8pRPcAf"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p><em>Low-Maintenance (Expertise Die)</em></p><p><strong>AC 14 (DEX +2 max)</strong></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "400 gp",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [],
+				"weight": "20 lbs"
+			},
+			"ownership": {
+				"default": 0,
+				"gC8xZboiXNWVf5Ei": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "XObXXY4HuTye49Bf",
+			"name": "Parry",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Can see their attacker"
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If the noble is wielding a melee weapon and can see their attacker, they add 2 to their AC against one melee attack that would hit them.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"gC8xZboiXNWVf5Ei": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"name": "Ray of Frost",
+			"type": "spell",
+			"img": "icons/magic/water/projectile-icecicle-glowing.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.9ot2c39ypiu4l8ws"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": "rangedSpellAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "cold",
+						"formula": "(floor((@details.level+1)/6)+1)d8",
+						"name": ""
+					}
+				],
+				"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"cold",
+						"movement"
+					]
+				}
+			},
+			"_id": "benADLEheMXtpcuF",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"L6ChzHJ4OwXgnG2z": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.5",
+				"coreVersion": "10.286",
+				"createdTime": 1664315037694,
+				"modifiedTime": 1664315068267,
+				"lastModifiedBy": "L6ChzHJ4OwXgnG2z"
+			}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"availableSpellLevels": [
+				"0"
+			],
+			"showSpellSlots": true,
+			"showSpellPoints": false
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 1,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 15,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 13,
+				"baseMax": 13,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 3,
+					"total": 3
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": 0,
+				"climb": 0,
+				"fly": 0,
+				"swim": 0,
+				"walk": 30
+			},
+			"senses": {
+				"blindsight": 0,
+				"darkvision": 0,
+				"tremorsense": 0,
+				"truesight": 0
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "cha"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"spell": {
+				"attack": "",
+				"dc": ""
+			}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2><strong>DESCRIPTION</strong></h2><p>High elf nobles pride themselves on the cultural accomplishments of their waning or extinct empires. Highly educated, many high elf nobles see themselves as peacemakers, leaders, or preservers of ancient traditions.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p><em>Grassland, Hills, Settlement</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 0–2</strong> noble with soldier, thug, animated armor, or 1d6 guards; high elf noble with 2 elf scouts</p><p><strong>Treasure</strong> 35 gp, silver hatpin (25 gp), signet ring (50 gp), gold bracelet (75 gp)</p><p></p><p><strong>CR 3–4</strong> 1 or 2 nobles or high elf nobles with doppelganger, knight, veteran, or 3 soldiers</p><p><strong>Treasure</strong> 10 pp, 20 gp, gold-hilted rapier (250 gp), silver and moonstone necklace (75 gp), deed to property, <em>potion of healing</em></p><p></p><p><strong>CR 5–10</strong> 1d4 nobles with knight, pugilist, or veteran and 1d6 soldiers; 1d4 nobles with assassin, gladiator, pugilist, or mage; 1d4 nobles with 2d6 guards and 2d6 commoners, all mounted on riding horses</p><p><strong>Treasure</strong> 200 gp, 3x spinel gemstones (100 gp each), silver jewelry box (250 gp), pearl earrings (250 gp), fine clothing (300 gp), 3x gold rings (75 gp each), pair of platinum dice (75 gp), silver snuff box (75 gp) containing <em>dust of sneezing and choking</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"cr": 0.25,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"Any Two"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			}
+		},
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"target": {}
+	},
+	"prototypeToken": {
+		"name": "Noble",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "icons/equipment/neck/collar-rounded-gold-purple.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "d44vlvm8g0am22wv"
 }
