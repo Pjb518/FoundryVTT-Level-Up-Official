@@ -359,7 +359,8 @@ A5E.maneuverTraditions = {
   spiritedSteed: 'A5E.ManeuverTraditionSpiritedSteed',
   temperedIron: 'A5E.ManeuverTraditionTemperedIron',
   toothAndClaw: 'A5E.ManeuverTraditionToothAndClaw',
-  unendingWheel: 'A5E.ManeuverTraditionUnendingWheel'
+  unendingWheel: 'A5E.ManeuverTraditionUnendingWheel',
+  vipersFangs: 'A5E.ManeuverTraditionVipersFangs'
 };
 
 A5E.materialProperties = {
