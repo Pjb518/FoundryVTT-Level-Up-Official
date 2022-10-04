@@ -1,85 +1,68 @@
 {
-  "name": "Paralyzing Strike",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.world.venomous-shadow-maneuvers.DvifhOve1qMjTKl7"
-    },
-    "exportSource": {
-      "world": "compendium-fixes",
-      "system": "a5e",
-      "coreVersion": "10.286",
-      "systemVersion": "0.8.8"
-    }
-  },
-  "system": {
-    "ability": null,
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
-    "activation": {
-      "cost": 1,
-      "type": "action",
-      "reactionTrigger": ""
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": 20,
-      "type": ""
-    },
-    "area": {
-      "shape": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [
-      {
-        "canCrit": true,
-        "damageType": "poison",
-        "formula": "2d6",
-        "name": "On Hit"
-      }
-    ],
-    "description": " Expend a dose of curare as part of a melee weapon attack. On a hit, the target takes an additional 2d6 poison damage and must make a Constitution saving throw. On a failed save, the target is paralyzed for one minute. On a successful save it is slowed instead. In either case, the target may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
-    "duration": {
-      "unit": "minute",
-      "value": 1
-    },
-    "favorite": false,
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "5ft"
-    ],
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Target is slowed instead.",
-      "targetAbility": "con"
-    },
-    "source": "",
-    "target": {
-      "quantity": 1,
-      "type": "creature"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "degree": 5,
-    "exertionCost": 2,
-    "tradition": "vipersFangs"
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.8",
-    "coreVersion": "10.286",
-    "createdTime": 1664917870457,
-    "modifiedTime": 1664917962596,
-    "lastModifiedBy": "ALAB2noFgzaxG4aE"
-  }
+	"name": "Paralyzing Strike",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": null,
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "action",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": true,
+				"damageType": "poison",
+				"formula": "2d6",
+				"name": "On Hit"
+			}
+		],
+		"description": " Expend a dose of curare as part of a melee weapon attack. On a hit, the target takes an additional 2d6 poison damage and must make a Constitution saving throw. On a failed save, the target is paralyzed for one minute. On a successful save it is slowed instead. In either case, the target may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
+		"duration": {
+			"unit": "minute",
+			"value": 1
+		},
+		"favorite": false,
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"5ft"
+		],
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Target is slowed instead.",
+			"targetAbility": "con"
+		},
+		"source": "",
+		"target": {
+			"quantity": 1,
+			"type": "creature"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"degree": 5,
+		"exertionCost": 2,
+		"tradition": "vipersFangs"
+	},
+	"_id": "w5wz14keatvv0eqs"
 }

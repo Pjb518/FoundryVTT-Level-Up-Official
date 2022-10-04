@@ -1,85 +1,68 @@
 {
-  "name": "Hampering Riposte",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.world.venomous-shadow-maneuvers.OspJ0VEF8FYFn8Vx"
-    },
-    "exportSource": {
-      "world": "compendium-fixes",
-      "system": "a5e",
-      "coreVersion": "10.286",
-      "systemVersion": "0.8.8"
-    }
-  },
-  "system": {
-    "ability": null,
-    "actionOptions": [
-      "savingThrow",
-      "damage"
-    ],
-    "activation": {
-      "cost": 1,
-      "type": "reaction",
-      "reactionTrigger": "When attacked."
-    },
-    "attack": {
-      "bonus": "",
-      "critThreshold": 20,
-      "type": ""
-    },
-    "area": {
-      "shape": ""
-    },
-    "check": {
-      "ability": "str"
-    },
-    "damage": [
-      {
-        "canCrit": true,
-        "damageType": "slashing",
-        "formula": "1",
-        "name": ""
-      }
-    ],
-    "description": " In response to an attack, you lash out with a blade poisoned with a toxin that makes your enemy sluggish. Make a melee weapon attack with advantage and expend a dose of basic poison. On a hit, the target takes 1 point of slashing damage and must make a Constitution save against your maneuver DC. A creature that fails is slowed for one minute. A creature that succeeds is poisoned and rattled until the end of your next turn instead. A slowed creature may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
-    "duration": {
-      "unit": "round",
-      "value": 1
-    },
-    "favorite": false,
-    "healing": [],
-    "proficient": true,
-    "range": [
-      "5ft"
-    ],
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Creature is poisoned and rattled until the end of your next turn.",
-      "targetAbility": "con"
-    },
-    "source": "",
-    "target": {
-      "quantity": 1,
-      "type": "creature"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "degree": 2,
-    "exertionCost": 1,
-    "tradition": "vipersFangs"
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.8",
-    "coreVersion": "10.286",
-    "createdTime": 1664917870458,
-    "modifiedTime": 1664917926541,
-    "lastModifiedBy": "ALAB2noFgzaxG4aE"
-  }
+	"name": "Hampering Riposte",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ability": null,
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
+		"activation": {
+			"cost": 1,
+			"type": "reaction",
+			"reactionTrigger": "When attacked."
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [
+			{
+				"canCrit": true,
+				"damageType": "slashing",
+				"formula": "1",
+				"name": ""
+			}
+		],
+		"description": " In response to an attack, you lash out with a blade poisoned with a toxin that makes your enemy sluggish. Make a melee weapon attack with advantage and expend a dose of basic poison. On a hit, the target takes 1 point of slashing damage and must make a Constitution save against your maneuver DC. A creature that fails is slowed for one minute. A creature that succeeds is poisoned and rattled until the end of your next turn instead. A slowed creature may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
+		"duration": {
+			"unit": "round",
+			"value": 1
+		},
+		"favorite": false,
+		"healing": [],
+		"proficient": true,
+		"range": [
+			"5ft"
+		],
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Creature is poisoned and rattled until the end of your next turn.",
+			"targetAbility": "con"
+		},
+		"source": "",
+		"target": {
+			"quantity": 1,
+			"type": "creature"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"degree": 2,
+		"exertionCost": 1,
+		"tradition": "vipersFangs"
+	},
+	"_id": "orf17xlh97ivx3qi"
 }
