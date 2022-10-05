@@ -350,6 +350,7 @@ A5E.maneuverDegrees = {
 
 A5E.maneuverTraditions = {
   adamantMountain: 'A5E.ManeuverTraditionAdamantMountain',
+  beastUnity: 'A5E.ManeuverTraditionBeastUnity',
   bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
   mirrorsGlint: 'A5E.ManeuverTraditionMirrorsGlint',
   mistAndShade: 'A5E.ManeuverTraditionMistAndShade',
@@ -359,7 +360,8 @@ A5E.maneuverTraditions = {
   spiritedSteed: 'A5E.ManeuverTraditionSpiritedSteed',
   temperedIron: 'A5E.ManeuverTraditionTemperedIron',
   toothAndClaw: 'A5E.ManeuverTraditionToothAndClaw',
-  unendingWheel: 'A5E.ManeuverTraditionUnendingWheel'
+  unendingWheel: 'A5E.ManeuverTraditionUnendingWheel',
+  vipersFangs: 'A5E.ManeuverTraditionVipersFangs'
 };
 
 A5E.materialProperties = {
