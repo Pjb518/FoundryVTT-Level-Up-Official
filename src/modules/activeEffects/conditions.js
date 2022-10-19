@@ -265,6 +265,46 @@ function getConditions() {
         core: { overlay: true },
         a5e: flags.unconscious
       }
+    },
+    {
+      id: 'generic1',
+      label: 'A5E.ConditionGeneric1',
+      icon: 'icons/magic/light/explosion-star-small-blue-yellow.webp',
+      changes: [],
+      duration: {},
+      flags: { a5e: {} }
+    },
+    {
+      id: 'generic2',
+      label: 'A5E.ConditionGeneric2',
+      icon: 'icons/magic/light/explosion-star-small-orange.webp',
+      changes: [],
+      duration: {},
+      flags: { a5e: {} }
+    },
+    {
+      id: 'generic3',
+      label: 'A5E.ConditionGeneric3',
+      icon: 'icons/magic/light/explosion-star-small-pink.webp',
+      changes: [],
+      duration: {},
+      flags: { a5e: {} }
+    },
+    {
+      id: 'generic4',
+      label: 'A5E.ConditionGeneric4',
+      icon: 'icons/magic/light/explosion-star-small-teal.webp',
+      changes: [],
+      duration: {},
+      flags: { a5e: {} }
+    },
+    {
+      id: 'generic2',
+      label: 'A5E.ConditionGeneric5',
+      icon: 'icons/magic/light/explosion-star-small-teal-purple.webp',
+      changes: [],
+      duration: {},
+      flags: { a5e: {} }
     }
   ].map((c) => {
     if (!enabledConditions.includes(c.id)) {
