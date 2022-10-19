@@ -261,7 +261,10 @@ function getConditions() {
       icon: 'icons/svg/unconscious.svg',
       changes: changes.unconscious,
       duration: {},
-      flags: { a5e: flags.unconscious }
+      flags: {
+        core: { overlay: true },
+        a5e: flags.unconscious
+      }
     }
   ].map((c) => {
     if (!enabledConditions.includes(c.id)) {
