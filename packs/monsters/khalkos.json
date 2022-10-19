@@ -1,1591 +1,1575 @@
 {
-  "name": "Khalkos",
-  "type": "npc",
-  "img": "systems/a5e/assets/khalkoi.webp",
-  "items": [
-    {
-      "_id": "eL1bhhnFZrETE7l1",
-      "name": "Detect Alignment",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The khalkos can detect the presence of creatures within 30 feet that have an alignment trait, and knows the alignment of such creatures.&nbsp;</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963876705,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "_id": "snJ0quxl3iNGfp5C",
-      "name": "Magic Resistance",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 262500,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "sphere",
-          "size": "10"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The khalkos has advantage on saving throws against spells and magical effects.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 12,
-          "onSave": "",
-          "targetAbility": "int"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963873909,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "_id": "oEdC7dlnTS6aY4V7",
-      "name": "Claw",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 268750,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ability": "dex",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4+@dex.mod",
-            "name": "Sting"
-          },
-          {
-            "canCrit": true,
-            "damageType": "poison",
-            "formula": "3d6",
-            "name": "Poison"
-          }
-        ],
-        "description": "<p></p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "naturalWeapon"
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "NU20Prm11ekmeqbr",
-      "name": "Psionic Spellcasting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 250000,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The khalkos’s spellcasting ability is Intelligence (spell save DC 16). It can innately cast the following spells, requiring no components:</p><p style=\"text-align: start\">1/day each: <em>alter self</em>,<em> plane shift </em>(self only),<em> telekinesis</em>,<em> teleportation circle</em></p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963869968,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "_id": "KldeQpu8dVhLy7Wm",
-      "name": "Chaos Pheromones",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 275000,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [
-          "savingThrow"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The khalkos emits a cloud of pheromones in a 20-foot radius. The cloud spreads around corners. Each non-khalkos creature in the area makes a DC 14 Intelligence saving throw. Creatures with an alignment trait make this save with disadvantage. On a failure, the creature is confused for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If the creature makes its saving throw or the condition ends for it, it is immune to Chaos Pheromones for the next 24 hours.&nbsp;</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 14,
-          "onSave": "",
-          "targetAbility": "int"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963731061,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "_id": "2trCZDo5szH9xJrL",
-      "name": "Psionic Sting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 357813,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [
-          "savingThrow",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "psychic",
-            "formula": "8d6",
-            "name": "Psionic Sting"
-          }
-        ],
-        "description": "<p>The khalkos targets a creature within 30 feet, forcing it to make a DC 16 Intelligence saving throw. On a failure, the target takes 28 (8d6) psychic damage and is stunned until the end of its next turn.&nbsp;</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": 16,
-          "onSave": "",
-          "targetAbility": "int"
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963731793,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "_id": "54hc5koOMdrlqhKp",
-      "name": "Brain Jab",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 359375,
-      "flags": {
-        "core": {
-          "sourceId": "Item.i2cfGU9ofnKwr9OF"
-        }
-      },
-      "system": {
-        "ability": "dex",
-        "actionOptions": [
-          "attack",
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": "20",
-          "type": "meleeWeaponAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4+@dex.mod",
-            "name": "Brain Jab"
-          }
-        ],
-        "description": "<p>Requires one incapacitated creature with a brain and an Intelligence of 6 or higher. The target becomes diseased with brain larvae. Once the khalkos has used this attack successfully, it can’t use it again for 24 hours.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963733392,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "_id": "TQ7cZZtrsDLF9V9v",
-      "name": "Telekinetic Shield",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": "yKYZJ2BF51Rij43x",
-      "sort": 400000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.p3kcGJ0xWBkkHahl"
-        }
-      },
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "reaction",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>When the khalkos is hit by an attack made by a creature that it can see or sense with its Detect Alignment trait, it gains a +4 bonus to AC against the triggering attack.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": ""
-      },
-      "ownership": {
-        "default": 0,
-        "L6CZ1nwwmPZYVdIN": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": null,
-        "modifiedTime": 1665963734124,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "name": "Alter Self",
-      "type": "spell",
-      "img": "icons/magic/nature/wolf-paw-glow-orange.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.yav7747ibqje7nzm"
-        }
-      },
-      "system": {
-        "ability": "spellcasting",
-        "actionOptions": [
-          "damage"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>You use magic to mold yourself into a new form. Choose one of the options below. Until the spell ends, you can use an action to choose a different option.</p><ul><li><p><strong>Amphibian:</strong> Your body takes on aquatic adaptations. You can breathe underwater normally and gain a swimming speed equal to your base Speed.</p></li><li><p><strong>Altered State:</strong> You decide what you look like.<br><br>None of your gameplay statistics change but you can alter anything about your body's appearance, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, sound of your voice, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot become a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to become a quadruped. Until the spell ends, you can use an action to change your appearance.</p></li><li><p><strong>Red in Tooth and Claw:</strong> You grow magical natural weapons of your choice with a +1 bonus to attack and damage. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage of a type determined by the natural weapon you chose; for example a tentacle deals bludgeoning, a horn deals piercing, and claws deal slashing.</p></li></ul><p></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 5th-level, add the following to the list of forms you can adopt.</p><ul><li><p><strong>Greater Natural Weapons:</strong> The damage dealt by your natural weapon increases to 2d6, and you gain a +2 bonus to attack and damage rolls with your natural weapons.</p></li><li><p><strong>Mask of the Grave:</strong> You adopt the appearance of a skeleton or zombie (your choice). Your type changes to undead, and mindless undead creatures ignore your presence, treating you as one of their own. You don't need to breathe and you become immune to poison.</p></li><li><p><strong>Wings:</strong> A pair of wings sprouts from your back. The wings can appear bird-like, leathery like a bat or dragon's wings, or like the wings of an insect. You gain a fly speed equal to your base Speed.</p><p></p></li></ul>",
-        "duration": {
-          "unit": "hour",
-          "value": "1"
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "self"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": true,
-        "level": 2,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "transmutation",
-          "secondary": [
-            "arcane",
-            "movement",
-            "shapechanging",
-            "weaponry"
-          ]
-        }
-      },
-      "_id": "4gUw1kOWjl2CCqqZ",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "GbCj9fvwB7n9aJxQ": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": 1665963781019,
-        "modifiedTime": 1665963880951,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "name": "Plane Shift",
-      "type": "spell",
-      "img": "icons/skills/movement/ball-spinning-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.l3lr6rwvw7csn6on"
-        }
-      },
-      "system": {
-        "ability": "spellcasting",
-        "actionOptions": [
-          "attack"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": "meleeSpellAttack"
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see teleportation circle), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).</p><p>Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p>",
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "touch"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 7,
-        "materials": "metal rod attuned to a particular plane of existence worth 250 gold",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "conjuration",
-          "secondary": [
-            "arcane",
-            "divine",
-            "nature",
-            "planar",
-            "teleportation",
-            "utility"
-          ]
-        }
-      },
-      "_id": "U1slQEDY34r97KuQ",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "GbCj9fvwB7n9aJxQ": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": 1665963804028,
-        "modifiedTime": 1665963882898,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "name": "Telekinesis",
-      "type": "spell",
-      "img": "icons/magic/control/energy-stream-link-white.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.0xo9oc6s6mrh77ci"
-        }
-      },
-      "system": {
-        "ability": "spellcasting",
-        "actionOptions": [
-          "abilityCheck"
-        ],
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>You move the target with the power of your mind.</p><p>Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects: Creature: The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p>Object: You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself&mdash;you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using an 8th-level spell slot, this spell does not require your concentration.</p>",
-        "duration": {
-          "unit": "minute",
-          "value": "10"
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "medium"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": "creatureObject"
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": true,
-        "level": 5,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "transmutation",
-          "secondary": [
-            "arcane",
-            "movement"
-          ]
-        }
-      },
-      "_id": "2xtuJsZBetHCyIJc",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "GbCj9fvwB7n9aJxQ": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": 1665963812931,
-        "modifiedTime": 1665963881675,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    },
-    {
-      "name": "Teleportation Circle",
-      "type": "spell",
-      "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.xy18ntmvnsrgsor4"
-        }
-      },
-      "system": {
-        "ability": "spellcasting",
-        "actionOptions": [],
-        "activation": {
-          "cost": 1,
-          "type": "minute",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "cylinder",
-          "radius": "5"
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>You draw a 10-foot diameter circle on the ground and open within it a shimmering portal to a permanent teleportation circle elsewhere in the world. The portal remains open until the end of your next turn. Any creature that enters the portal instantly travels to the destination circle.</p><p>Permanent teleportation circles are commonly found within major temples, guilds, and other important locations. Each circle has a unique sequence of magical runes inscribed in a certain pattern called a sigil sequence.</p><p>When you cast teleportation circle, you inscribe runes that match the sigil sequence of a teleportation circle you know. When you first gain the ability to cast this spell, you learn the sigil sequences for 2 destinations on the Material Plane, determined by the Narrator. You can learn a new sigil sequence with 1 minute of observation and study.</p><p>Casting the spell in the same location every day for a year creates a permanent teleportation circle with its own unique sigil sequence. You do not need to teleport when casting the spell to make a permanent destination.</p>",
-        "duration": {
-          "unit": "round",
-          "value": "1"
-        },
-        "favorite": true,
-        "healing": [],
-        "proficient": true,
-        "range": [
-          "touch"
-        ],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": 1,
-          "max": 1,
-          "per": "day"
-        },
-        "components": {
-          "vocalized": true,
-          "seen": false,
-          "material": true
-        },
-        "concentration": false,
-        "level": 5,
-        "materials": "rare chalks and inks worth 50 gold, consumed by the spell",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "conjuration",
-          "secondary": [
-            "arcane",
-            "teleportation"
-          ]
-        }
-      },
-      "_id": "rsA20RIZvuukj7Of",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "GbCj9fvwB7n9aJxQ": 3
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.8",
-        "coreVersion": "10.288",
-        "createdTime": 1665963814339,
-        "modifiedTime": 1665963882229,
-        "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "sheetIsLocked": true,
-      "availableSpellLevels": [
-        "2",
-        "5",
-        "7"
-      ],
-      "showSpellSlots": false,
-      "showSpellPoints": false
-    },
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.d5e0hjhcrvefu1yv"
-    },
-    "exportSource": {
-      "world": "storyteller",
-      "system": "a5e",
-      "coreVersion": "10.288",
-      "systemVersion": "0.8.8"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 18,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 16,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 130,
-        "baseMax": 130,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 20,
-          "total": 20
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": "",
-        "climb": "",
-        "fly": "30",
-        "swim": "",
-        "walk": "30"
-      },
-      "senses": {
-        "blindsight": "",
-        "darkvision": "60",
-        "tremorsense": "",
-        "truesight": ""
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "spell": {
-        "attack": "",
-        "dc": ""
-      }
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2><strong>COMBAT</strong></h2><p>The khalkos starts combat by using Chaos Pheromones on clusters of enemies, and then uses Psionic Sting on either a creature with an alignment or a creature likely to fail an Intelligence saving throw. Once an enemy is stunned, the khalkos uses Brain Jab. The khalkos retreats once it has infected a target with brain larvae (possibly using <em>plane shift</em> if it hasn’t already today).</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DISEASE: BRAIN LARVAE</strong></h2><p>A khalkos can infect an intelligent creature with a horrifying disease, injecting khalkos larvae directly into the creature’s skull. While infected with this disease, the host undergoes the following changes:</p><p><strong><em>Telepathy.</em></strong> The host gains telepathy out to a radius of 120 feet. Additionally, the host can telepathically communicate with the khalkos that infected it over any distance, as long as they are on the same plane.</p><p><strong><em>Trust.</em></strong> Whenever a khalkos makes a Charisma check to convince the host of its good intentions, it does so with advantage. If it succeeds, the host becomes friendly to it no matter its previous attitude.&nbsp;</p><p>After 10 (3d6) days, the host develops a splitting headache and is incapacitated for 24 hours. At the end of this time, the host dies. If the host has an alignment trait, 2 or 3 khalkos spawn burst out of the host’s skull after 1 round.</p><p><em>Greater restoration</em> or a similar spell cast with at least a 5th-level spell slot is required to kill the brain larvae and remove the disease.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 15</strong> An ancient book, purportedly written by a refugee from another reality, describes a species of intelligent, wasp-like creatures that parasitically prey on angels and other planar beings.</p><p><strong>DC 20</strong> A khalkos is a wasp-like aberration. It exudes a cloud of pheromones that maddens everyone nearby, and it implants creatures with skull-exploding larvae.</p><p><strong>DESCRIPTION</strong></p><p>Khalkoi, more commonly known as mind wasps, are parasitic predators that feed on the cosmic principles of good and evil, law and chaos. They conquer reality after reality, leaving behind deserted heavens and dead gods as they rob worlds of divine magic.</p><p>A khalkos is humanoid in shape with an inexpressive wasp face. It is able to disguise itself psionically in order to infiltrate sacred or profane places, dooming them to destruction.&nbsp;</p><p><strong><em>Parasitic Life Cycle.</em></strong> Adult khalkoi implant their larvae into the brains of intelligent creatures. A parasitized victim comes to see every khalkos as an ally to be trusted, and may even help a khalkos implant its eggs in other victims. When khalkos larvae are ready to be born, they burst from the skull of their host. As the headless victim collapses to the ground, the khalkos larvae—now independent khalkos spawn—fly away to search for new victims.</p><p>&nbsp;Although khalkos larvae can infect any intelligent creature, they prefer hosts that are cosmically aligned: archpriests and saints, angels and devils, and even gods. Only in such hosts can khalkos larvae consume the divine magic they need to perpetuate their horrific life cycle. Khalkos spawned from an aligned creature begin growing into adult khalkoi immediately, reaching maturity in a few days. Khalkos that hatch from unaligned creatures must consume many humanoid creatures, over a period of months or years, before they mature.</p><p><strong><em>Existential Threat.</em></strong> A khalkos can sense cosmic power as a spider senses a tremor in its webs. The battles of warring pantheons, or mighty deeds performed by celestial or fiendish champions, can attract their attention to a heretofore-overlooked planar realm.</p><p>Usually, only a single khalkos travels to a newly discovered world. With mastermind intelligence and mind-clouding psionic powers, it infiltrates a temple or cult. Finally, it targets a divinely-empowered priest or minor fiend, hijacking its body to serve as the breeding ground for its eggs. Soon, one khalkos becomes a swarm of khalkoi that immediately set their sights on bigger game.</p><p><strong><em>Fight or Flight.</em></strong> A few worlds have successfully fought off a khalkos invasion. To win such a war, powerful cosmic entities must be aided by unaligned heroes: warriors, spellcasters, and other adventurers who don’t inherit their power from cosmic principles but who are willing to fight for them nonetheless.&nbsp;</p><p>Other worlds have survived the khalkos threat by avoiding detection. Some dimensions have constructed vast psychic barriers or concluded divine treaties to limit the power of deities and fiends. If these magical protections are violated, such worlds risk unwelcome attention.</p><p><strong>BEHAVIOR</strong></p><p>1 Using <em>alter self</em> to infiltrate a group as a low-ranking member</p><p>2 Using <em>alter self</em> to infiltrate a group, taking the form of a high-ranking member that it has killed</p><p>3 Attacking, determined to infect a certain person with khalkos larvae</p><p>4 Using <em>alter self</em> and asking questions about local groups</p><p>5 Ritually casting <em>teleportation circle</em> as part of a year-long effort to make a permanent circle</p><p>6 Scouting for a larger group; has big plans and wants to eliminate anyone who could upset them</p><p><strong>SIGNS</strong></p><p>1-2 A corpse in a pool of blood, its head exploded</p><p>3-4 People acting strangely, insisting that you visit a friend of theirs who will make everything clear</p><p>5 What appears to be a dead, foot-long wasp</p><p>6 A faint, intoxicating scent in the air</p><p><strong>ENCOUNTERS</strong></p><p>Khalkoi haven’t discovered our reality yet. If they do, they will probably target Hell, the Abyss, or the planar realm of a god, or perhaps infiltrate a religious organization on the Material Plane.</p><p><strong>CR 5–10</strong> khalkos; 3 to 5 khalkos spawn; 2 swarms of khalkos spawn</p><p><strong>CR 11–16</strong> khalkos with parasitized cambion, couatl, high priest, or unicorn; khalkos with 2 parasitized bearded devils or priests</p><p><strong>Treasure</strong> 6 <em>beads of force</em></p><p><strong>CR 17–22</strong> 2 khalkoi; khalkos with 4 to 6 khalkos spawn</p><p><strong>Treasure</strong> strangely proportioned black metal helm (acts as <em>crystal ball</em> when worn), <em>cubic gate</em></p>",
-      "creatureTypes": [
-        "aberration"
-      ],
-      "cr": 9,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "abyssal",
-        "celestial",
-        "infernal",
-        "Telepathy 120 ft"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": ""
-      }
-    },
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [
-        "charmed"
-      ],
-      "damageImmunities": [],
-      "damageResistances": [
-        "fire",
-        "psychic",
-        "radiant"
-      ],
-      "damageVulnerabilities": []
-    },
-    "target": {}
-  },
-  "prototypeToken": {
-    "name": "Khalkos",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/khalkoi.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.8",
-    "coreVersion": "10.288",
-    "createdTime": 1665963699557,
-    "modifiedTime": 1665964836266,
-    "lastModifiedBy": "GbCj9fvwB7n9aJxQ"
-  }
+	"name": "Khalkos",
+	"type": "npc",
+	"img": "systems/a5e/assets/khalkoi.webp",
+	"items": [
+		{
+			"_id": "eL1bhhnFZrETE7l1",
+			"name": "Detect Alignment",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The khalkos can detect the presence of creatures within 30 feet that have an alignment trait, and knows the alignment of such creatures.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963876705,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"_id": "snJ0quxl3iNGfp5C",
+			"name": "Magic Resistance",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 262500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "sphere",
+					"size": "10"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The khalkos has advantage on saving throws against spells and magical effects.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 12,
+					"onSave": "",
+					"targetAbility": "int"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963873909,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"_id": "oEdC7dlnTS6aY4V7",
+			"name": "Claw",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 268750,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ability": "dex",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4+@dex.mod",
+						"name": "Sting"
+					},
+					{
+						"canCrit": true,
+						"damageType": "poison",
+						"formula": "3d6",
+						"name": "Poison"
+					}
+				],
+				"description": "<p></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "naturalWeapon"
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "NU20Prm11ekmeqbr",
+			"name": "Psionic Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 250000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The khalkos’s spellcasting ability is Intelligence (spell save DC 16). It can innately cast the following spells, requiring no components:</p><p style=\"text-align: start\">1/day each: <em>alter self</em>,<em> plane shift </em>(self only),<em> telekinesis</em>,<em> teleportation circle</em></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963869968,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"_id": "KldeQpu8dVhLy7Wm",
+			"name": "Chaos Pheromones",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 275000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The khalkos emits a cloud of pheromones in a 20-foot radius. The cloud spreads around corners. Each non-khalkos creature in the area makes a DC 14 Intelligence saving throw. Creatures with an alignment trait make this save with disadvantage. On a failure, the creature is confused for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If the creature makes its saving throw or the condition ends for it, it is immune to Chaos Pheromones for the next 24 hours.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 14,
+					"onSave": "",
+					"targetAbility": "int"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963731061,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"_id": "2trCZDo5szH9xJrL",
+			"name": "Psionic Sting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 357813,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "8d6",
+						"name": "Psionic Sting"
+					}
+				],
+				"description": "<p>The khalkos targets a creature within 30 feet, forcing it to make a DC 16 Intelligence saving throw. On a failure, the target takes 28 (8d6) psychic damage and is stunned until the end of its next turn.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 16,
+					"onSave": "",
+					"targetAbility": "int"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963731793,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"_id": "54hc5koOMdrlqhKp",
+			"name": "Brain Jab",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 359375,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
+			"system": {
+				"ability": "dex",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4+@dex.mod",
+						"name": "Brain Jab"
+					}
+				],
+				"description": "<p>Requires one incapacitated creature with a brain and an Intelligence of 6 or higher. The target becomes diseased with brain larvae. Once the khalkos has used this attack successfully, it can’t use it again for 24 hours.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963733392,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"_id": "TQ7cZZtrsDLF9V9v",
+			"name": "Telekinetic Shield",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "yKYZJ2BF51Rij43x",
+			"sort": 400000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.p3kcGJ0xWBkkHahl"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>When the khalkos is hit by an attack made by a creature that it can see or sense with its Detect Alignment trait, it gains a +4 bonus to AC against the triggering attack.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": null,
+				"modifiedTime": 1665963734124,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"name": "Alter Self",
+			"type": "spell",
+			"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.yav7747ibqje7nzm"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You use magic to mold yourself into a new form. Choose one of the options below. Until the spell ends, you can use an action to choose a different option.</p><ul><li><p><strong>Amphibian:</strong> Your body takes on aquatic adaptations. You can breathe underwater normally and gain a swimming speed equal to your base Speed.</p></li><li><p><strong>Altered State:</strong> You decide what you look like.<br><br>None of your gameplay statistics change but you can alter anything about your body's appearance, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, sound of your voice, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot become a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to become a quadruped. Until the spell ends, you can use an action to change your appearance.</p></li><li><p><strong>Red in Tooth and Claw:</strong> You grow magical natural weapons of your choice with a +1 bonus to attack and damage. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage of a type determined by the natural weapon you chose; for example a tentacle deals bludgeoning, a horn deals piercing, and claws deal slashing.</p></li></ul><p></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 5th-level, add the following to the list of forms you can adopt.</p><ul><li><p><strong>Greater Natural Weapons:</strong> The damage dealt by your natural weapon increases to 2d6, and you gain a +2 bonus to attack and damage rolls with your natural weapons.</p></li><li><p><strong>Mask of the Grave:</strong> You adopt the appearance of a skeleton or zombie (your choice). Your type changes to undead, and mindless undead creatures ignore your presence, treating you as one of their own. You don't need to breathe and you become immune to poison.</p></li><li><p><strong>Wings:</strong> A pair of wings sprouts from your back. The wings can appear bird-like, leathery like a bat or dragon's wings, or like the wings of an insect. You gain a fly speed equal to your base Speed.</p><p></p></li></ul>",
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement",
+						"shapechanging",
+						"weaponry"
+					]
+				}
+			},
+			"_id": "4gUw1kOWjl2CCqqZ",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"GbCj9fvwB7n9aJxQ": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": 1665963781019,
+				"modifiedTime": 1665963880951,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"name": "Plane Shift",
+			"type": "spell",
+			"img": "icons/skills/movement/ball-spinning-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.l3lr6rwvw7csn6on"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"attack"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": "meleeSpellAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see teleportation circle), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).</p><p>Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p>",
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 7,
+				"materials": "metal rod attuned to a particular plane of existence worth 250 gold",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"planar",
+						"teleportation",
+						"utility"
+					]
+				}
+			},
+			"_id": "U1slQEDY34r97KuQ",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"GbCj9fvwB7n9aJxQ": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": 1665963804028,
+				"modifiedTime": 1665963882898,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"name": "Telekinesis",
+			"type": "spell",
+			"img": "icons/magic/control/energy-stream-link-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0xo9oc6s6mrh77ci"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"abilityCheck"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You move the target with the power of your mind.</p><p>Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects: Creature: The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p>Object: You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself&mdash;you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using an 8th-level spell slot, this spell does not require your concentration.</p>",
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement"
+					]
+				}
+			},
+			"_id": "2xtuJsZBetHCyIJc",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"GbCj9fvwB7n9aJxQ": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": 1665963812931,
+				"modifiedTime": 1665963881675,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		},
+		{
+			"name": "Teleportation Circle",
+			"type": "spell",
+			"img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.xy18ntmvnsrgsor4"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "5"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You draw a 10-foot diameter circle on the ground and open within it a shimmering portal to a permanent teleportation circle elsewhere in the world. The portal remains open until the end of your next turn. Any creature that enters the portal instantly travels to the destination circle.</p><p>Permanent teleportation circles are commonly found within major temples, guilds, and other important locations. Each circle has a unique sequence of magical runes inscribed in a certain pattern called a sigil sequence.</p><p>When you cast teleportation circle, you inscribe runes that match the sigil sequence of a teleportation circle you know. When you first gain the ability to cast this spell, you learn the sigil sequences for 2 destinations on the Material Plane, determined by the Narrator. You can learn a new sigil sequence with 1 minute of observation and study.</p><p>Casting the spell in the same location every day for a year creates a permanent teleportation circle with its own unique sigil sequence. You do not need to teleport when casting the spell to make a permanent destination.</p>",
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "rare chalks and inks worth 50 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"teleportation"
+					]
+				}
+			},
+			"_id": "rsA20RIZvuukj7Of",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"GbCj9fvwB7n9aJxQ": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.8",
+				"coreVersion": "10.288",
+				"createdTime": 1665963814339,
+				"modifiedTime": 1665963882229,
+				"lastModifiedBy": "GbCj9fvwB7n9aJxQ"
+			}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true,
+			"availableSpellLevels": [
+				"2",
+				"5",
+				"7"
+			],
+			"showSpellSlots": false,
+			"showSpellPoints": false
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 16,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 130,
+				"baseMax": 130,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 20,
+					"total": 20
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": "",
+				"climb": "",
+				"fly": "30",
+				"swim": "",
+				"walk": "30"
+			},
+			"senses": {
+				"blindsight": "",
+				"darkvision": "60",
+				"tremorsense": "",
+				"truesight": ""
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"spell": {
+				"attack": "",
+				"dc": ""
+			}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2><strong>COMBAT</strong></h2><p>The khalkos starts combat by using Chaos Pheromones on clusters of enemies, and then uses Psionic Sting on either a creature with an alignment or a creature likely to fail an Intelligence saving throw. Once an enemy is stunned, the khalkos uses Brain Jab. The khalkos retreats once it has infected a target with brain larvae (possibly using <em>plane shift</em> if it hasn’t already today).</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DISEASE: BRAIN LARVAE</strong></h2><p>A khalkos can infect an intelligent creature with a horrifying disease, injecting khalkos larvae directly into the creature’s skull. While infected with this disease, the host undergoes the following changes:</p><p><strong><em>Telepathy.</em></strong> The host gains telepathy out to a radius of 120 feet. Additionally, the host can telepathically communicate with the khalkos that infected it over any distance, as long as they are on the same plane.</p><p><strong><em>Trust.</em></strong> Whenever a khalkos makes a Charisma check to convince the host of its good intentions, it does so with advantage. If it succeeds, the host becomes friendly to it no matter its previous attitude.&nbsp;</p><p>After 10 (3d6) days, the host develops a splitting headache and is incapacitated for 24 hours. At the end of this time, the host dies. If the host has an alignment trait, 2 or 3 khalkos spawn burst out of the host’s skull after 1 round.</p><p><em>Greater restoration</em> or a similar spell cast with at least a 5th-level spell slot is required to kill the brain larvae and remove the disease.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 15</strong> An ancient book, purportedly written by a refugee from another reality, describes a species of intelligent, wasp-like creatures that parasitically prey on angels and other planar beings.</p><p><strong>DC 20</strong> A khalkos is a wasp-like aberration. It exudes a cloud of pheromones that maddens everyone nearby, and it implants creatures with skull-exploding larvae.</p><p><strong>DESCRIPTION</strong></p><p>Khalkoi, more commonly known as mind wasps, are parasitic predators that feed on the cosmic principles of good and evil, law and chaos. They conquer reality after reality, leaving behind deserted heavens and dead gods as they rob worlds of divine magic.</p><p>A khalkos is humanoid in shape with an inexpressive wasp face. It is able to disguise itself psionically in order to infiltrate sacred or profane places, dooming them to destruction.&nbsp;</p><p><strong><em>Parasitic Life Cycle.</em></strong> Adult khalkoi implant their larvae into the brains of intelligent creatures. A parasitized victim comes to see every khalkos as an ally to be trusted, and may even help a khalkos implant its eggs in other victims. When khalkos larvae are ready to be born, they burst from the skull of their host. As the headless victim collapses to the ground, the khalkos larvae—now independent khalkos spawn—fly away to search for new victims.</p><p>&nbsp;Although khalkos larvae can infect any intelligent creature, they prefer hosts that are cosmically aligned: archpriests and saints, angels and devils, and even gods. Only in such hosts can khalkos larvae consume the divine magic they need to perpetuate their horrific life cycle. Khalkos spawned from an aligned creature begin growing into adult khalkoi immediately, reaching maturity in a few days. Khalkos that hatch from unaligned creatures must consume many humanoid creatures, over a period of months or years, before they mature.</p><p><strong><em>Existential Threat.</em></strong> A khalkos can sense cosmic power as a spider senses a tremor in its webs. The battles of warring pantheons, or mighty deeds performed by celestial or fiendish champions, can attract their attention to a heretofore-overlooked planar realm.</p><p>Usually, only a single khalkos travels to a newly discovered world. With mastermind intelligence and mind-clouding psionic powers, it infiltrates a temple or cult. Finally, it targets a divinely-empowered priest or minor fiend, hijacking its body to serve as the breeding ground for its eggs. Soon, one khalkos becomes a swarm of khalkoi that immediately set their sights on bigger game.</p><p><strong><em>Fight or Flight.</em></strong> A few worlds have successfully fought off a khalkos invasion. To win such a war, powerful cosmic entities must be aided by unaligned heroes: warriors, spellcasters, and other adventurers who don’t inherit their power from cosmic principles but who are willing to fight for them nonetheless.&nbsp;</p><p>Other worlds have survived the khalkos threat by avoiding detection. Some dimensions have constructed vast psychic barriers or concluded divine treaties to limit the power of deities and fiends. If these magical protections are violated, such worlds risk unwelcome attention.</p><p><strong>BEHAVIOR</strong></p><p>1 Using <em>alter self</em> to infiltrate a group as a low-ranking member</p><p>2 Using <em>alter self</em> to infiltrate a group, taking the form of a high-ranking member that it has killed</p><p>3 Attacking, determined to infect a certain person with khalkos larvae</p><p>4 Using <em>alter self</em> and asking questions about local groups</p><p>5 Ritually casting <em>teleportation circle</em> as part of a year-long effort to make a permanent circle</p><p>6 Scouting for a larger group; has big plans and wants to eliminate anyone who could upset them</p><p><strong>SIGNS</strong></p><p>1-2 A corpse in a pool of blood, its head exploded</p><p>3-4 People acting strangely, insisting that you visit a friend of theirs who will make everything clear</p><p>5 What appears to be a dead, foot-long wasp</p><p>6 A faint, intoxicating scent in the air</p><p><strong>ENCOUNTERS</strong></p><p>Khalkoi haven’t discovered our reality yet. If they do, they will probably target Hell, the Abyss, or the planar realm of a god, or perhaps infiltrate a religious organization on the Material Plane.</p><p><strong>CR 5–10</strong> khalkos; 3 to 5 khalkos spawn; 2 swarms of khalkos spawn</p><p><strong>CR 11–16</strong> khalkos with parasitized cambion, couatl, high priest, or unicorn; khalkos with 2 parasitized bearded devils or priests</p><p><strong>Treasure</strong> 6 <em>beads of force</em></p><p><strong>CR 17–22</strong> 2 khalkoi; khalkos with 4 to 6 khalkos spawn</p><p><strong>Treasure</strong> strangely proportioned black metal helm (acts as <em>crystal ball</em> when worn), <em>cubic gate</em></p>",
+			"creatureTypes": [
+				"aberration"
+			],
+			"cr": 9,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"abyssal",
+				"celestial",
+				"infernal",
+				"Telepathy 120 ft"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": ""
+			}
+		},
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [
+				"charmed"
+			],
+			"damageImmunities": [],
+			"damageResistances": [
+				"fire",
+				"psychic",
+				"radiant"
+			],
+			"damageVulnerabilities": []
+		},
+		"target": {}
+	},
+	"prototypeToken": {
+		"name": "Khalkos",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/khalkoi.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "3xuvsytr9ii3g519"
 }
