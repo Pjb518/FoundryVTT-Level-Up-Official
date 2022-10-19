@@ -2,6 +2,9 @@
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export default async function automateBloodied(actor, changes) {
+  // Guard for non-gm users
+  if (!game.user.isGM) return;
+
   // Guard for non hp changes.
   if (!changes?.system?.attributes?.hp) return;
 
