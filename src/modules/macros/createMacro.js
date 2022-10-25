@@ -25,6 +25,7 @@ export default async function createMacro({ type, uuid }, slot) {
     macro = await Macro.create({
       name: item.name,
       type: 'script',
+      scope: 'actor',
       img: item.img,
       command,
       flags: { 'a5e.itemMacro': true }
