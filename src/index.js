@@ -148,9 +148,12 @@ Hooks.once('setup', () => {
  * Once the entire VTT framework is initialized, check to see if we should perform a data migration
  */
 Hooks.once('ready', () => {
+  // eslint-disable-next-line consistent-return
   Hooks.on('hotbarDrop', (_, data, slot) => {
-    game.a5e.macros.createMacro(data, slot);
-    return false;
+    if (data.type === 'Item') {
+      game.a5e.macros.createMacro(data, slot);
+      return false;
+    }
   });
 
   // Determine whether a system migration is required
