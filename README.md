@@ -17,7 +17,7 @@ If you want to keep up to date with the system's development and influence its f
 
 If you'd like to support the development of the Level Up: Advanced 5th Edition system for Foundry VTT, please consider donating to my Ko-Fi page:
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S76EJJP)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nekrodarkmoon)
 
 ## Modules
 

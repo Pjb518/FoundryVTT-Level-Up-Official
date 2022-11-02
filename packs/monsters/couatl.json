@@ -44,6 +44,7 @@
 					"unit": "minute",
 					"value": "10"
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": {
@@ -139,6 +140,7 @@
 					"unit": "minute",
 					"value": "10"
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": {
@@ -236,6 +238,7 @@
 					"unit": "instantaneous",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [
@@ -332,6 +335,7 @@
 					"unit": "minute",
 					"value": "1"
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": {
@@ -428,6 +432,7 @@
 					"unit": "instantaneous",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [
@@ -523,6 +528,7 @@
 					"unit": "hour",
 					"value": "8"
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": {
@@ -618,6 +624,7 @@
 					"unit": "instantaneous",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [
@@ -714,6 +721,7 @@
 					"unit": "minute",
 					"value": "10"
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [
@@ -804,6 +812,7 @@
 					"unit": "",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -872,6 +881,7 @@
 					"unit": "",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -940,6 +950,7 @@
 					"unit": "",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -1010,6 +1021,7 @@
 					"unit": "instantaneous",
 					"value": ""
 				},
+				"favorite": true,
 				"healing": [
 					{
 						"formula": "20",
@@ -1043,12 +1055,12 @@
 				"L4gNp7mYB8UoKYzP": 3
 			},
 			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
 				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
+				"modifiedTime": 1665476966334,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
 			}
 		},
 		{
@@ -1086,6 +1098,7 @@
 					"unit": "",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -1165,6 +1178,7 @@
 					"unit": "",
 					"value": ""
 				},
+				"favorite": true,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -1190,12 +1204,12 @@
 				"L4gNp7mYB8UoKYzP": 3
 			},
 			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
 				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
+				"modifiedTime": 1665476966334,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
 			}
 		},
 		{
@@ -1243,6 +1257,7 @@
 					"unit": "instantaneous",
 					"value": ""
 				},
+				"favorite": true,
 				"healing": [],
 				"proficient": true,
 				"range": [
@@ -1270,12 +1285,12 @@
 				"L4gNp7mYB8UoKYzP": 3
 			},
 			"_stats": {
-				"systemId": null,
-				"systemVersion": null,
-				"coreVersion": null,
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
 				"createdTime": null,
-				"modifiedTime": null,
-				"lastModifiedBy": null
+				"modifiedTime": 1665476966334,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
 			}
 		},
 		{
@@ -1313,6 +1328,7 @@
 					"unit": "",
 					"value": ""
 				},
+				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -1359,6 +1375,508 @@
 				"modifiedTime": null,
 				"lastModifiedBy": null
 			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "1 + @mod",
+						"name": "Default"
+					}
+				],
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"5ft"
+				],
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": null,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0,
+				"K6fpW6cCRPrCvnBw": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
+				"createdTime": 1665477240169,
+				"modifiedTime": 1665477552334,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "69TLevL0JvVyezAM"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "",
+						"formula": "1 + @mod",
+						"name": ""
+					}
+				],
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0,
+				"K6fpW6cCRPrCvnBw": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
+				"createdTime": 1665477316217,
+				"modifiedTime": 1665477552335,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "X9RqE1TPaQNg3PwG"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0,
+				"K6fpW6cCRPrCvnBw": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
+				"createdTime": 1665477321382,
+				"modifiedTime": 1665477552335,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "LDL7eyLxg6GymCmB"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0,
+				"K6fpW6cCRPrCvnBw": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
+				"createdTime": 1665477329861,
+				"modifiedTime": 1665477552335,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "VbQY60awERFWBR30"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0,
+				"K6fpW6cCRPrCvnBw": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
+				"createdTime": 1665477341644,
+				"modifiedTime": 1665477552335,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "PrOava80lezx06ht"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "special",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0,
+				"K6fpW6cCRPrCvnBw": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.9",
+				"coreVersion": "10.285",
+				"createdTime": 1665477350348,
+				"modifiedTime": 1665477552336,
+				"lastModifiedBy": "K6fpW6cCRPrCvnBw"
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "jqycOOa3YNusd6U0"
 		}
 	],
 	"effects": [],
@@ -1372,7 +1890,7 @@
 			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
-			"sheetIsLocked": true
+			"sheetIsLocked": false
 		}
 	},
 	"system": {
@@ -1821,7 +2339,7 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "",
+			"bio": "<h2>Combat</h2><p>The couatl constricts its most dangerous or wicked foe and then bites it with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/130\">advantage</a> . It uses Shielding Wing to protect allies first, itself second. It retreats only if the stakes are minor.</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore&nbsp;</h2><p>With a Nature or Religion check, characters can learn the following:</p><p><strong>DC 15</strong> Legends tell of flying snakes that inhabit holy places.</p><p><strong>DC 20</strong> Couatls are wise, celestial beings that guard holy places and possess lost knowledge. They can cast spells and adopt the forms of humanoids or beasts.</p><p>Description</p><p>The couatl is breathtaking in its beauty and benevolent in its demeanor. A solitary being of wisdom and insight, the couatl is rarely seen outside its lair. Most civilizations consider couatls the stuff of legends.</p><p><strong><em>Solitary Guardians</em>.</strong> The gods created couatls to guard places of power or to carry out a single task of divine importance. Some couatls have completed their tasks and are free to wander the planes—these couatls are drawn to buried libraries, ruins of forgotten civilizations, and other sources of lost knowledge. If another couatl already guards its destination, the couatl continues on; otherwise, it remains in that location as its de facto protector until it feels it is no longer needed, or until another call lures it away.</p><p><strong><em>Knowledge Seekers</em>.</strong> Occasionally, a couatl is drawn to a populated settlement. In these cases, the couatl disguises its appearance and walks among the people, learning what it can from the living, teeming civilization around them.</p><p>Behavior</p><p>1 In its lair, guarding a jewel-like egg or holy treasure</p><p>2 In human form, with a treasure, message, or request for help</p><p>3 Waiting to fulfill its part in an ancient prophecy</p><p>4 With a mystical sense it will die soon; in the meantime, willing to enter into any dangerous scheme that advances the cause of good</p><p>Signs</p><p>1 Flying snakes fluttering peacefully nearby</p><p>2 Brilliant foliage and jewel-like flowers</p><p>3 A shrine heaped with offerings</p><p>4 Dragonflies buzzing around bright flowers; DC 13 Perception or Nature check reveals that the dragonflies are actually tiny winged snakes</p><p>Encounters</p><p>Couatls most often inhabit forests and jungles but can be found guarding any holy place.</p><p><strong>CR 3–4</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1457\">couatl</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1457\">couatl</a> with 1d4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1933\">winged snakes</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1457\">couatl</a> with 1 or 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1871\">acolytes</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1457\">couatl</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1610\">faerie dragon</a></p><p><strong>Treasure</strong> broken sword (if reforged under certain circumstances it may become a magical weapon), <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1043\"><em>necklace of prayer beads</em></a></p><p>Monster Type Description</p><p></p><p>Celestials are creatures native to divine realms or heavens. Celestials have alignments, such as Lawful Good. Most celestials are good, although the servants of evil deities can be evil. Angels are celestials.</p>",
 			"creatureTypes": [
 				"celestial"
 			],
@@ -1931,7 +2449,8 @@
 			"saturation": 0,
 			"contrast": 0,
 			"visionMode": "basic"
-		}
+		},
+		"detectionModes": []
 	},
-	"_id": "c42uoov5tokk5zgw"
+	"_id": "rtbzyr5nwpzxmrn9"
 }

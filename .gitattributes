@@ -1,0 +1,141 @@
+## GITATTRIBUTES FOR WEB PROJECTS
+#
+# These settings are for any web project.
+#
+# Details per file setting:
+#   text    These files should be normalized (i.e. convert CRLF to LF).
+#   binary  These files are binary and should be left untouched.
+#
+# Note that binary is a macro for -text -diff.
+######################################################################
+
+# Auto detect
+##   Handle line endings automatically for files detected as
+##   text and leave all files detected as binary untouched.
+##   This will handle all files NOT defined below.
+*                 text=auto
+
+# Source code
+*.css             text diff=css eol=lf
+*.htm             text diff=html eol=lf
+*.html            text diff=html eol=lf
+*.js              text eol=lf
+*.json            text eol=lf
+*.mjs             text eol=lf
+*.scss            text diff=css eol=lf
+*.sql             text eol=lf
+*.xml             text eol=lf
+*.xhtml           text diff=html eol=lf
+
+# Documentation
+*.markdown        text diff=markdown eol=lf
+*.md              text diff=markdown eol=lf
+*.mdwn            text diff=markdown eol=lf
+*.mdown           text diff=markdown eol=lf
+*.mkd             text diff=markdown eol=lf
+*.mkdn            text diff=markdown eol=lf
+*.mdtxt           text eol=lf
+*.mdtext          text eol=lf
+*.txt             text eol=lf
+AUTHORS           text eol=lf
+CHANGELOG         text eol=lf
+CHANGES           text eol=lf
+CONTRIBUTING      text eol=lf
+COPYING           text eol=lf
+copyright         text eol=lf
+*COPYRIGHT*       text eol=lf
+INSTALL           text eol=lf
+license           text eol=lf
+LICENSE           text eol=lf
+NEWS              text eol=lf
+readme            text eol=lf
+*README*          text eol=lf
+TODO              text eol=lf
+
+# Templates
+*.handlebars      text eol=lf
+*.hbs             text eol=lf
+*.svelte          text eol=lf
+*.vue             text eol=lf
+
+# Configs
+*.cnf             text eol=lf
+*.conf            text eol=lf
+*.config          text eol=lf
+.editorconfig     text eol=lf
+.env              text eol=lf
+.gitattributes    text eol=lf
+.gitconfig        text eol=lf
+.htaccess         text eol=lf
+*.lock            text -diff
+package.json      text eol=lf eol=lf
+package-lock.json text eol=lf -diff
+pnpm-lock.yaml    text eol=lf -diff
+*.yaml            text eol=lf
+*.yml             text eol=lf
+Makefile          text eol=lf
+makefile          text eol=lf
+
+# Graphics
+*.jpg             binary
+*.jpeg            binary
+*.pdf             binary
+*.png             binary
+# SVG treated as an asset (binary) by default.
+# *.svg             text
+# If you want to treat it as binary,
+# use the following line instead.
+*.svg           binary
+*.svgz            binary
+*.wbmp            binary
+*.webp            binary
+
+# Audio
+*.kar             binary
+*.m4a             binary
+*.mid             binary
+*.midi            binary
+*.mp3             binary
+*.ogg             binary
+*.ra              binary
+
+# Video
+*.3gpp            binary
+*.3gp             binary
+*.as              binary
+*.asf             binary
+*.asx             binary
+*.avi             binary
+*.fla             binary
+*.flv             binary
+*.m4v             binary
+*.mng             binary
+*.mov             binary
+*.mp4             binary
+*.mpeg            binary
+*.mpg             binary
+*.ogv             binary
+*.swc             binary
+*.swf             binary
+*.webm            binary
+
+# Archives
+*.7z              binary
+*.gz              binary
+*.jar             binary
+*.rar             binary
+*.tar             binary
+*.zip             binary
+
+# Fonts
+*.ttf             binary
+*.eot             binary
+*.otf             binary
+*.woff            binary
+*.woff2           binary
+
+# RC files (like .babelrc or .eslintrc)
+*.*rc             text
+
+# Ignore files (like .npmignore or .gitignore)
+*.*ignore         text
