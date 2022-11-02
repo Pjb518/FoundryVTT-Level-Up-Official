@@ -2,7 +2,387 @@
 	"name": "Fomorian",
 	"type": "npc",
 	"img": "systems/a5e/assets/fomorian.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "YPZo2msFYEbs0lFW",
+			"name": "Warhammer",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"damage",
+					"attack"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "3d8+@mod",
+						"name": "Warhammer (Fomorian Special)"
+					}
+				],
+				"description": "",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"10 ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [
+					"reach"
+				],
+				"weight": "0"
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "5qT7NniijT7vgSKA",
+			"name": "Charming Gaze",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>A creature within 60 feet makes a DC 15 Wisdom saving throw. On a failure, the creature is magically charmed by the fomorian. The creature repeats the saving throw every 24 hours and whenever it takes damage. On a successful saving throw or if the effect ends for it, the creature is immune to any fomorian’s Charming Gaze for the next 24 hours.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 15,
+					"onSave": "Immune to Charming Gaze for 24 Hours",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "zxaVVwzYAtL6AWVD",
+			"name": "Mesmerizing Gaze",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>(True Form Only<strong><em>)</em></strong></p><p>A creature within 60 feet makes a DC 15 Wisdom saving throw. On a failure, the creature is magically restrained. The creature repeats the saving throw at the end of its next turn, ending the effect on itself on a success and becoming paralyzed on a failure. While the fomorian is not in line of sight, a paralyzed creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. On a successful saving throw or if the effect ends for it, the creature is immune to any fomorian’s Mesmerizing Gaze for 24 hours.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 15,
+					"onSave": "Immune to mesmerizing gaze for 24 hours",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "L5TEaeOf6IHJUwGc",
+			"name": "Immortal Form",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": -100000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>While in its lair, the fomorian magically changes into a specific Medium humanoid resembling a human or back to its true form. Apart from its size, its statistics are unchanged. The fomorian reverts to its true form when it dies, is incapacitated, or leaves its lair.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "N8rxYJSp267Bfy86",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": -200000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The fomorian attacks twice with its warhammer.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 20,
@@ -80,6 +460,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +472,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +484,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +496,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +508,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +520,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +532,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +544,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +556,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +568,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +580,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +592,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +604,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +616,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +628,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +640,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +652,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +664,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +676,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -289,6 +688,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -378,6 +778,10 @@
 					"total": 12
 				},
 				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
 					"current": 0,
 					"total": 0
 				}
@@ -470,30 +874,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Fomorian",
-		"img": "systems/a5e/assets/fomorian.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -501,12 +896,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -517,351 +915,27 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
-	},
-	"items": [
-		{
-			"_id": "YPZo2msFYEbs0lFW",
-			"name": "Warhammer",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"damage",
-					"attack"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "3d8+@mod",
-						"name": "Warhammer (Fomorian Special)"
-					}
-				],
-				"description": "",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [
-					"reach"
-				],
-				"weight": "0"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/fomorian.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
 		},
-		{
-			"_id": "5qT7NniijT7vgSKA",
-			"name": "Charming Gaze",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A creature within 60 feet makes a DC 15 Wisdom saving throw. On a failure, the creature is magically charmed by the fomorian. The creature repeats the saving throw every 24 hours and whenever it takes damage. On a successful saving throw or if the effect ends for it, the creature is immune to any fomorian’s Charming Gaze for the next 24 hours.&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 15,
-					"onSave": "Immune to Charming Gaze for 24 Hours",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "zxaVVwzYAtL6AWVD",
-			"name": "Mesmerizing Gaze",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>(True Form Only<strong><em>)</em></strong></p><p>A creature within 60 feet makes a DC 15 Wisdom saving throw. On a failure, the creature is magically restrained. The creature repeats the saving throw at the end of its next turn, ending the effect on itself on a success and becoming paralyzed on a failure. While the fomorian is not in line of sight, a paralyzed creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. On a successful saving throw or if the effect ends for it, the creature is immune to any fomorian’s Mesmerizing Gaze for 24 hours.&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 15,
-					"onSave": "Immune to mesmerizing gaze for 24 hours",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "L5TEaeOf6IHJUwGc",
-			"name": "Immortal Form",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While in its lair, the fomorian magically changes into a specific Medium humanoid resembling a human or back to its true form. Apart from its size, its statistics are unchanged. The fomorian reverts to its true form when it dies, is incapacitated, or leaves its lair.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": -100000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "N8rxYJSp267Bfy86",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The fomorian attacks twice with its warhammer.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": -200000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Actor.AsXF6jsx6My66mLA"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "mf7j1hb37m8bkh88"
+	"_id": "skn32idbspr5ubxm"
 }

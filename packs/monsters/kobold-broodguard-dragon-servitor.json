@@ -2,7 +2,752 @@
 	"name": "Kobold Broodguard Dragon Servitor",
 	"type": "npc",
 	"img": "systems/a5e/assets/kobold.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "E5YVpTSBFKZkftfU",
+			"name": "Hide Armor",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "fHkEIRFnPJG6jPb5",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.jO8slRjdYmZy1zzG"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>DC 10 sewing kit to repair</p>\n<p>&nbsp;</p>\n<p>AC 13 + Dexterity modifier (maximum 2)</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [
+					"comfortable",
+					"wild"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "10",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [],
+				"weight": "15"
+			},
+			"ownership": {
+				"default": 0,
+				"axQjTRP7Ewd9xrAh": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "lamHdl8MfdVOSKFV",
+			"name": "Multiattack (action)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The kobold makes a bill hook attack and a spiked shield attack.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"axQjTRP7Ewd9xrAh": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "87I7xTxBL91C0fVU",
+			"name": "Sling",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "fHkEIRFnPJG6jPb5",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.6zl8tnWEj9SJu8td"
+				}
+			},
+			"system": {
+				"ability": "dex",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "rangedWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4+@dex.mod",
+						"name": "Sling bullet"
+					}
+				],
+				"description": "",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"long"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": null,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0.2",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [
+					"range",
+					"simple"
+				],
+				"weight": "0"
+			},
+			"ownership": {
+				"default": 0,
+				"axQjTRP7Ewd9xrAh": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "bZbaeeDlkByaKq4j",
+			"name": "Reaction:  Rally! (1/Day, While Bloodied)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>When the kobold takes damage, it shouts a rallying cry. All kobolds within 30 feet that can hear it gain immunity to the frightened condition for 1 minute, and their next attack roll made before this effect ends deals an extra 1d4 damage.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"axQjTRP7Ewd9xrAh": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "dMoyKVN6VXWGQx7Y",
+			"name": "Spiked Shield",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "fHkEIRFnPJG6jPb5",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.qJGJxCsgNRzQOyav"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6+@str.mod",
+						"name": "Spikes"
+					}
+				],
+				"description": "<p>AC+2</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "medium",
+				"armorProperties": [
+					"spiked"
+				],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [],
+				"weight": "8"
+			},
+			"ownership": {
+				"default": 0,
+				"axQjTRP7Ewd9xrAh": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "3XjTuSrzptJ8NbpI",
+			"name": "Bill Hook",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": "fHkEIRFnPJG6jPb5",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.E64vgFrOkloNuq5j"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"savingThrow",
+					"damage",
+					"attack"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6+@str.mod",
+						"name": "Hook"
+					}
+				],
+				"description": "<p>if the target is a Medium or smaller creature, it makes a DC 12 Strength saving throw, falling prone on a failure.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": 12,
+					"onSave": "negates",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [],
+				"weight": "1"
+			},
+			"ownership": {
+				"default": 0,
+				"axQjTRP7Ewd9xrAh": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "3qbeTvj2FEviSEUC",
+			"name": "Ominous Shadow",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.hH6RAJvxnAPLxdKJ"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The kobold loses its Sunlight Sensitivity trait while within 60 feet of its master.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"eunZYRLVMq93MkmD": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "FL9tkl9hrKpQBbwJ",
+			"name": "Dragon Blood",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.aiZOxTtC8ZGMXYzn"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The kobold gains resistance to the damage type of its master’s breath weapon.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"eunZYRLVMq93MkmD": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "3yLHJGz1ds2I4PVm",
+			"name": "Draconic Smite",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If the broodguard has advantage on a melee weapon attack, the attack deals an extra 1d4 damage. This bonus damage is the same type as its master’s breath weapon.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other"
+			},
+			"ownership": {
+				"default": 0,
+				"eunZYRLVMq93MkmD": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 14,
@@ -80,6 +825,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +837,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +849,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +861,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +873,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +885,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +897,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +909,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +921,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +933,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +945,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +957,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +969,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +981,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +993,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +1005,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +1017,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +1029,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +1041,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -289,6 +1053,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -474,31 +1239,22 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Kobold Broodguard Dragon Servitor",
-		"img": "systems/a5e/assets/kobold.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
-		"scale": 0.5,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"color": null,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -506,12 +1262,14 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -519,691 +1277,30 @@
 			"attribute": "attributes.hp"
 		},
 		"bar2": {
-			"attribute": ""
+			"attribute": null
 		},
 		"flags": {},
 		"randomImg": false,
-		"tint": null,
-		"x": null,
-		"y": null,
-		"elevation": null
-	},
-	"items": [
-		{
-			"_id": "E5YVpTSBFKZkftfU",
-			"name": "Hide Armor",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>DC 10 sewing kit to repair</p>\n<p>&nbsp;</p>\n<p>AC 13 + Dexterity modifier (maximum 2)</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "medium",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [
-					"comfortable",
-					"wild"
-				],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "10",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [],
-				"weight": "15"
-			},
-			"effects": [],
-			"folder": "fHkEIRFnPJG6jPb5",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"axQjTRP7Ewd9xrAh": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.jO8slRjdYmZy1zzG"
-				}
-			}
+		"texture": {
+			"src": "systems/a5e/assets/kobold.webp",
+			"tint": null,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
 		},
-		{
-			"_id": "lamHdl8MfdVOSKFV",
-			"name": "Multiattack (action)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The kobold makes a bill hook attack and a spiked shield attack.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"axQjTRP7Ewd9xrAh": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "87I7xTxBL91C0fVU",
-			"name": "Sling",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "dex",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "rangedWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d4+@dex.mod",
-						"name": "Sling bullet"
-					}
-				],
-				"description": "",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0.2",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [
-					"range",
-					"simple"
-				],
-				"weight": "0"
-			},
-			"effects": [],
-			"folder": "fHkEIRFnPJG6jPb5",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"axQjTRP7Ewd9xrAh": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.6zl8tnWEj9SJu8td"
-				}
-			}
-		},
-		{
-			"_id": "bZbaeeDlkByaKq4j",
-			"name": "Reaction:  Rally! (1/Day, While Bloodied)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When the kobold takes damage, it shouts a rallying cry. All kobolds within 30 feet that can hear it gain immunity to the frightened condition for 1 minute, and their next attack roll made before this effect ends deals an extra 1d4 damage.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"axQjTRP7Ewd9xrAh": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "dMoyKVN6VXWGQx7Y",
-			"name": "Spiked Shield",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6+@str.mod",
-						"name": "Spikes"
-					}
-				],
-				"description": "<p>AC+2</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "medium",
-				"armorProperties": [
-					"spiked"
-				],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [
-					"lowMaintenance"
-				],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "20",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [],
-				"weight": "8"
-			},
-			"effects": [],
-			"folder": "fHkEIRFnPJG6jPb5",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"axQjTRP7Ewd9xrAh": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.qJGJxCsgNRzQOyav"
-				}
-			}
-		},
-		{
-			"_id": "3XjTuSrzptJ8NbpI",
-			"name": "Bill Hook",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage",
-					"attack"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "1d6+@str.mod",
-						"name": "Hook"
-					}
-				],
-				"description": "<p>if the target is a Medium or smaller creature, it makes a DC 12 Strength saving throw, falling prone on a failure.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": 12,
-					"onSave": "negates",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [
-					"lowMaintenance"
-				],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [],
-				"weight": "1"
-			},
-			"effects": [],
-			"folder": "fHkEIRFnPJG6jPb5",
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"axQjTRP7Ewd9xrAh": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.E64vgFrOkloNuq5j"
-				}
-			}
-		},
-		{
-			"_id": "3qbeTvj2FEviSEUC",
-			"name": "Ominous Shadow",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The kobold loses its Sunlight Sensitivity trait while within 60 feet of its master.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"eunZYRLVMq93MkmD": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.hH6RAJvxnAPLxdKJ"
-				}
-			}
-		},
-		{
-			"_id": "FL9tkl9hrKpQBbwJ",
-			"name": "Dragon Blood",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The kobold gains resistance to the damage type of its master’s breath weapon.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"eunZYRLVMq93MkmD": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.aiZOxTtC8ZGMXYzn"
-				}
-			}
-		},
-		{
-			"_id": "3yLHJGz1ds2I4PVm",
-			"name": "Draconic Smite",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If the broodguard has advantage on a melee weapon attack, the attack deals an extra 1d4 damage. This bonus damage is the same type as its master’s breath weapon.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"eunZYRLVMq93MkmD": 3
-			},
-			"flags": {}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Actor.CELLiQZXj8TKDsR4"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "3j6oa5h8asxqbayw"
+	"_id": "l5ip0zykdlatzstn"
 }

@@ -2,7 +2,126 @@
 	"name": "Warrior",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
-	"data": {
+	"items": [
+		{
+			"_id": "dolcNLGcGrCWrylv",
+			"name": "Spear",
+			"type": "object",
+			"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.world.weapons.150o7HTVSkYf2pCJ"
+				}
+			},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"damage",
+					"attack"
+				],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d6 + @mod",
+						"name": "Spear - 1H"
+					},
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d8 + @mod",
+						"name": "Spear - 2H"
+					}
+				],
+				"description": "<p><em>Defensive (Heavy), Simple, Thrown (20/60), Versatile (1d8)</em></p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"20 ft",
+					"medium"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "1 gp",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [
+					"thrown",
+					"simple",
+					"versatile",
+					"defensive"
+				],
+				"weight": "3 lbs"
+			},
+			"ownership": {
+				"default": 0,
+				"gC8xZboiXNWVf5Ei": 3,
+				"4r2Z3f5lPaHyEoLZ": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true
+		}
+	},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 12,
@@ -80,6 +199,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +211,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +223,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +235,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -124,6 +247,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +259,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +271,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +283,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +295,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +307,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +319,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +331,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +343,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +355,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -234,6 +367,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +379,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +391,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +403,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +415,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -289,6 +427,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -473,30 +612,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Warrior",
-		"img": "icons/svg/mystery-man.svg",
 		"displayName": 30,
 		"actorLink": false,
 		"width": 1,
 		"height": 1,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -504,12 +634,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -520,118 +653,27 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
-	},
-	"items": [
-		{
-			"_id": "dolcNLGcGrCWrylv",
-			"name": "Spear",
-			"type": "object",
-			"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
-			"data": {
-				"ability": "default",
-				"actionOptions": [
-					"damage",
-					"attack"
-				],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6 + @mod",
-						"name": "Spear - 1H"
-					},
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d8 + @mod",
-						"name": "Spear - 2H"
-					}
-				],
-				"description": "<p><em>Defensive (Heavy), Simple, Thrown (20/60), Versatile (1d8)</em></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"20 ft",
-					"medium"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "1 gp",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [
-					"thrown",
-					"simple",
-					"versatile",
-					"defensive"
-				],
-				"weight": "3 lbs"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"gC8xZboiXNWVf5Ei": 3,
-				"4r2Z3f5lPaHyEoLZ": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.world.weapons.150o7HTVSkYf2pCJ"
-				}
-			}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": true
+		"randomImg": false,
+		"texture": {
+			"src": "icons/svg/mystery-man.svg",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "4lqn5t15gyon4i2l"
+	"_id": "c94bxn0llgj7cm9b"
 }

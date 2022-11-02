@@ -13,37 +13,47 @@
     class="nav-item {tab.name === currentTab.name && 'nav-item-active'}"
     on:click={() => dispatch("tab-change", index)}
 >
-    {localize(tab.label)}
+    {#if tab.icon}
+        <i class="nav-icon {tab.icon}" />
+    {/if}
+
+    {#if tab.label}{localize(tab.label)}{/if}
 </li>
 
 <style lang="scss">
-    .nav-item {
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            transform: scale(1.1);
+    .nav {
+        &-icon {
+            font-size: 0.833rem;
         }
 
-        &-active {
-            color: #fedd9e;
-            position: relative;
-
-            &:after {
-                content: "";
-                position: absolute;
-                bottom: -0.375rem;
-                left: 50%;
-                width: 0;
-                height: 0;
-                border-left: 3px solid transparent;
-                border-right: 3px solid transparent;
-                border-bottom: 3px solid #fedd9e;
-                transform: translateX(-50%);
-            }
+        &-item {
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
 
             &:hover {
-                transform: none;
+                transform: scale(1.1);
+            }
+
+            &-active {
+                color: #fedd9e;
+                position: relative;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: -0.375rem;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-left: 3px solid transparent;
+                    border-right: 3px solid transparent;
+                    border-bottom: 3px solid #fedd9e;
+                    transform: translateX(-50%);
+                }
+
+                &:hover {
+                    transform: none;
+                }
             }
         }
     }

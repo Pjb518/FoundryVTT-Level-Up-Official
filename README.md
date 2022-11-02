@@ -34,13 +34,17 @@ If you've developed a module for the Level Up system and would like it listed he
 
 ### Premium Modules
 
+- [Arcane Sniper](https://www.drivethrurpg.com/product/405664/Arcane-Sniper-A5E) - Includes a brand new ranger archetype that allows you to combine magic and marksmanship.
+- [Confidence Mage](https://www.drivethrurpg.com/product/403897/Confidence-Mage-A5E) - Includes a brand new wizard archetype for playing a magical con artist and criminal.
 - [The Handbook of Heritages](https://www.drivethrurpg.com/product/397662/Handbook-of-Heritages-for-Foundry-VTT) - Includes 10 new heritages, 8 new cultures, and new heritage gifts for gnomes, halflings, and planetouched.
 - [Memories of Holdenshire](https://www.drivethrurpg.com/product/397169/Level-Up-Memories-of-Holdenshire-A5E-Foundry-VTT-Module) - A 1st-level adventure from EN Publishing designed to gently introduce players to the A5e rule set.
 - [MoAR: Intrigue](https://www.drivethrurpg.com/product/402697/Manual-of-Adventurous-Resources-Intrigue-A5E) - A large number of new player options largely focused around intrigue and clandestine activities.
 - [MoAR: Wilderness](https://www.drivethrurpg.com/product/398741/Manual-of-Adventurous-Resources-Wilderness-A5E) - New heritages, cultures, archetypes, synergy feats, and spells with a wilderness theme.
+- [Mortalist](https://www.drivethrurpg.com/product/407260/Mortalist-A5E) - Includes a brand new warlock archetype focused around a death pact. A Mortalist walks a thin line between the living and the dead.
 - [The Sugar Crumb Fairy](https://www.drivethrurpg.com/product/378137) - A short adventure for 3rd or 4th-level characters set in the Plane of Faerie. Written by Anthony Alipio.
 - [Thematic Toolkit: Arcane Avenger](https://www.drivethrurpg.com/product/392599/Thematic-Toolkit-Arcane-Avenger-A5E) - New archetypes for the Herald and Sorcerer classes and a new synergy feat tree.
 - [Thematic Toolkit: Cultist](https://www.drivethrurpg.com/product/392588/Thematic-Toolkit-Cultist-A5E) - New archetypes for the Cleric and Warlock classes and a new synergy feat tree.
+- [Thematic Toolkit: Thunder of War](https://www.drivethrurpg.com/product/404207/Thematic-Toolkit-Thunder-of-War-A5E) - New archetypes for the Berserker and Marshal classes and a new synergy feat tree.
 - [Thematic Toolkit: Venomous Shadow](https://www.drivethrurpg.com/product/400541/Thematic-Toolkit-Venomous-Shadow-A5E) - New archetypes for the Ranger, Rogue, and Wizard classes, a whole bunch of synergy feats, and a new combat maneuver tradition.
 
 **Compatibility Note:** Level Up is not based on the 5e system implementation in Foundry and 5e-specific modules should not be expected to work.

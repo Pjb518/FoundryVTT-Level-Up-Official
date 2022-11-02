@@ -2,7 +2,327 @@
 	"name": "Giant Grick",
 	"type": "npc",
 	"img": "systems/a5e/assets/grick.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "uTAUzdKoNhuFzsF5",
+			"name": "Camoflage",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 100000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.62mhfJV6YmlElCNp"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3,
+				"L6ChzHJ4OwXgnG2z": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "i1fbqhuOtybfU03O",
+			"name": "Spider Climb",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.02m5KZu5iJuEc7hp"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3,
+				"L6ChzHJ4OwXgnG2z": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "6A6242vPBU1bDt2f",
+			"name": "Tentacles",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.E4qP4ZWeueK1gapu"
+				}
+			},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "2d6+@mod",
+						"name": "Tentacle Attack"
+					}
+				],
+				"description": "<p>On a hit, the target has to make DC 16 saving throw. On failure, target is pulled to within 5 feet of the grick and grappled (escape DC 16).  Until the grapple ends, the creature is restrained. The grick can grapple up to two Medium or smaller creatures or one Large creature</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"20 ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3,
+				"L6ChzHJ4OwXgnG2z": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "cKZhZzzUsjohfLfF",
+			"name": "Beak",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 400000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.4J8E4wV0EGR3qaSK"
+				}
+			},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "2d6+@mod",
+						"name": ""
+					}
+				],
+				"description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"5 ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3,
+				"L6ChzHJ4OwXgnG2z": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 20,
@@ -80,6 +400,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +412,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +424,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +436,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +448,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +460,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +472,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +484,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +496,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +508,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +520,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +532,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +544,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +556,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +568,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +580,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +592,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +604,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +616,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -289,6 +628,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -473,30 +813,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Giant Grick",
-		"img": "systems/a5e/assets/grick.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -504,12 +835,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -520,299 +854,27 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
-	},
-	"items": [
-		{
-			"_id": "uTAUzdKoNhuFzsF5",
-			"name": "Camoflage",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p> The grick has advantage on Stealth checks made to hide in rocky terrain.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.62mhfJV6YmlElCNp"
-				}
-			}
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/grick.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
 		},
-		{
-			"_id": "i1fbqhuOtybfU03O",
-			"name": "Spider Climb",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The grick can use its climb speed even on difficult surfaces and upside down on ceilings</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.02m5KZu5iJuEc7hp"
-				}
-			}
-		},
-		{
-			"_id": "6A6242vPBU1bDt2f",
-			"name": "Tentacles",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "2d6+@mod",
-						"name": "Tentacle Attack"
-					}
-				],
-				"description": "<p>On a hit, the target has to make DC 16 saving throw. On failure, target is pulled to within 5 feet of the grick and grappled (escape DC 16).  Until the grapple ends, the creature is restrained. The grick can grapple up to two Medium or smaller creatures or one Large creature</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"20 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.E4qP4ZWeueK1gapu"
-				}
-			}
-		},
-		{
-			"_id": "cKZhZzzUsjohfLfF",
-			"name": "Beak",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "2d6+@mod",
-						"name": ""
-					}
-				],
-				"description": "<p>Can only attack a creature the grick has grappled with its tentacles.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3,
-				"L6ChzHJ4OwXgnG2z": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.4J8E4wV0EGR3qaSK"
-				}
-			}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.zyvx6qagoaujvwmt"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "sm9x78j7wgqjcjfh"
+	"_id": "o3sdzhvtsojv5w25"
 }

@@ -22,7 +22,7 @@ export default async function rollInitiative(
 ) {
   // Structure input data
   const ids = typeof _ids === 'string' ? [_ids] : _ids;
-  const currentId = this.combatant.id;
+  const currentId = this.combatant?.id;
   const rollMode = messageOptions.rollMode || game.settings.get('core', 'rollMode');
 
   // Iterate over Combatants, performing an initiative roll for each

@@ -12,6 +12,6 @@ export default class ActionConfigDialog extends TJSDialog {
         class: ActionConfigDialogComponent,
         props: { actionId, item }
       }
-    }, { classes: ['a5e-sheet'], width: 480, height: 540 });
+    }, { classes: ['a5e-sheet'], width: 512, height: 540 });
   }
 }

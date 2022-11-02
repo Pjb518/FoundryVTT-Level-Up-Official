@@ -2,7 +2,640 @@
 	"name": "Ogre Flesh Heap",
 	"type": "npc",
 	"img": "systems/a5e/assets/ogre.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "atMg40IDSHC3H8xU",
+			"name": "Undead Fortitude (1/Day)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "special",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "1KOhuCWhN8KIdgTS",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "7hY9t8zY6JiIJSWt",
+			"name": "Grab",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "2d6+@str.mod",
+						"name": "Grab"
+					}
+				],
+				"description": "<p>The target is grappled if it’s Medium or smaller (escape DC 14), and until the grapple ends, the zombie can’t grab another target.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 14,
+					"onSave": "",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "1CpKLuZ9u0zgaV22",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d10+@str.mod",
+						"name": "Bite"
+					}
+				],
+				"description": "<p>Against one grappled target. The zombie regains hit points equal to the damage dealt.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "naturalWeapon"
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "B3nlw65kzREpEW6c",
+			"name": "Sweeping Strike",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.tP3Vjxv3Ca0EtlfI"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"savingThrow",
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d8+@str.mod",
+						"name": "Sweeping Strike"
+					}
+				],
+				"description": "<p>Targets all creatures within 5 feet, dealing damage. If the target is a Medium or smaller creature, it makes a DC 14 Strength saving throw. On a failure, it is pushed 10 feet away from the ogre.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 14,
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "iHvSk0317dPoqVVb",
+			"name": "Greatclub",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "2d8+@str.mod",
+						"name": "Greatclub"
+					}
+				],
+				"description": "",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 14,
+					"onSave": "Not prone",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "esATnTiqA8yDJVCi",
+			"name": "Bodyblock",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If the ogre flesh heap is grappling a creature when it is hit with a weapon attack by a creature it can see, it uses the creature as a shield, adding 2 to its AC against the attack. If this causes the attack to miss, the attack hits the grappled creature instead.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "oxfn1CvpaFAIyiO1",
+			"name": "Corpulent Expulsion (Recharge 6, Bloodied)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "cone",
+					"size": "30"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "acid",
+						"formula": "4d6",
+						"name": "Caustic Gore"
+					},
+					{
+						"canCrit": false,
+						"damageType": "acid",
+						"formula": "3d6",
+						"name": "Damage to itself"
+					}
+				],
+				"description": "<p>Can only be used while Bloodied.</p><p>When it takes damage, the ogre flesh heap’s belly splits and releases a torrent of caustic gore in a 30-foot cone. Creatures in this area make a DC 14 Dexterity saving throw, taking 14 (4d6) acid damage on a failure and half damage on a success. The flesh heap then takes 10 (3d6) acid damage.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": 14,
+					"onSave": "Half damage",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"L6CZ1nwwmPZYVdIN": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true
+		}
+	},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 18,
@@ -80,6 +713,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +725,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +737,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +749,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +761,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +773,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +785,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +797,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +809,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +821,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +833,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +845,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +857,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +869,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +881,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +893,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +905,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +917,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +929,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -289,6 +941,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -378,6 +1031,10 @@
 					"total": 0
 				},
 				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
 					"current": 0,
 					"total": 0
 				}
@@ -474,30 +1131,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Ogre Flesh Heap",
-		"img": "systems/a5e/assets/ogre.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -505,12 +1153,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -521,576 +1172,27 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
-	},
-	"items": [
-		{
-			"_id": "atMg40IDSHC3H8xU",
-			"name": "Undead Fortitude (1/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {}
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/ogre.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
 		},
-		{
-			"_id": "1KOhuCWhN8KIdgTS",
-			"name": "Undead Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "7hY9t8zY6JiIJSWt",
-			"name": "Grab",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "2d6+@str.mod",
-						"name": "Grab"
-					}
-				],
-				"description": "<p>The target is grappled if it’s Medium or smaller (escape DC 14), and until the grapple ends, the zombie can’t grab another target.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": 14,
-					"onSave": "",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "1CpKLuZ9u0zgaV22",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d10+@str.mod",
-						"name": "Bite"
-					}
-				],
-				"description": "<p>Against one grappled target. The zombie regains hit points equal to the damage dealt.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			}
-		},
-		{
-			"_id": "B3nlw65kzREpEW6c",
-			"name": "Sweeping Strike",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d8+@str.mod",
-						"name": "Sweeping Strike"
-					}
-				],
-				"description": "<p>Targets all creatures within 5 feet, dealing damage. If the target is a Medium or smaller creature, it makes a DC 14 Strength saving throw. On a failure, it is pushed 10 feet away from the ogre.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": 14,
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.tP3Vjxv3Ca0EtlfI"
-				}
-			}
-		},
-		{
-			"_id": "iHvSk0317dPoqVVb",
-			"name": "Greatclub",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "2d8+@str.mod",
-						"name": "Greatclub"
-					}
-				],
-				"description": "",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": 14,
-					"onSave": "Not prone",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [],
-				"weight": 0
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "esATnTiqA8yDJVCi",
-			"name": "Bodyblock",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If the ogre flesh heap is grappling a creature when it is hit with a weapon attack by a creature it can see, it uses the creature as a shield, adding 2 to its AC against the attack. If this causes the attack to miss, the attack hits the grappled creature instead.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "oxfn1CvpaFAIyiO1",
-			"name": "Corpulent Expulsion (Recharge 6, Bloodied)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "cone",
-					"size": "30"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "acid",
-						"formula": "4d6",
-						"name": "Caustic Gore"
-					},
-					{
-						"canCrit": false,
-						"damageType": "acid",
-						"formula": "3d6",
-						"name": "Damage to itself"
-					}
-				],
-				"description": "<p>Can only be used while Bloodied.</p><p>When it takes damage, the ogre flesh heap’s belly splits and releases a torrent of caustic gore in a 30-foot cone. Creatures in this area make a DC 14 Dexterity saving throw, taking 14 (4d6) acid damage on a failure and half damage on a success. The flesh heap then takes 10 (3d6) acid damage.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": 14,
-					"onSave": "Half damage",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"L6CZ1nwwmPZYVdIN": 3
-			},
-			"flags": {}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": true
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "odlnakfen853gj4t"
+	"_id": "lilzla1nfbl6r2nl"
 }

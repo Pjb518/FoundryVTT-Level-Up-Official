@@ -2,7 +2,544 @@
 	"name": "Murmuring Worm",
 	"type": "npc",
 	"img": "systems/a5e/assets/purple-worm.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "EAo71n9HuDcTE67a",
+			"name": "Amphibious",
+			"type": "feature",
+			"img": "icons/magic/water/bubbles-air-water-light.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 100000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.u5l8Ij71XdSKJTd6"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "none",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The aboleth can breathe air and water.</p>",
+				"duration": {
+					"unit": "permanent",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"af4lzpCYrZNHadpC": 3,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "LeY4SVMp3O0JjDzj",
+			"name": "Locate Mind",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The worm is aware of the location and relative intelligence of all creatures with Intelligence scores greater than 3 within 500 feet.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"500 ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other"
+			},
+			"ownership": {
+				"default": 0,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "fNDq58P7PqTNnvil",
+			"name": "Maddening Murmurs",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": null,
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "3d6",
+						"name": ""
+					}
+				],
+				"description": "<p>A non-aberrant creature that starts its turn within 30 feet and can hear its murmurs makes DC14 Intelligence saving throw. On a failure, the creature takes 10 (3d6) psychic damage and is confused until the start of its next turn.</p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": "14",
+					"onSave": "Negates effects.",
+					"targetAbility": "int"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other"
+			},
+			"ownership": {
+				"default": 0,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "kiAoyyLos5Ns97JD",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 700000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.sH6by1Vc0j6fjE62"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The worm constricts once and attacks once with its bite.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"af4lzpCYrZNHadpC": 3,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "NEjgiyTK0KNHhUwG",
+			"name": "Constrict",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "3d10 + @mod",
+						"name": ""
+					}
+				],
+				"description": "<p>The target is grappled (escape DC 17) and restrained while grappled.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"5ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "naturalWeapon"
+			},
+			"ownership": {
+				"default": 0,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "BtFnSlIgjgOGCyPv",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "3d10 + @mod",
+						"name": ""
+					}
+				],
+				"description": "<p>If the target is killed by this attack, the worm eats its head.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"5ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "naturalWeapon"
+			},
+			"ownership": {
+				"default": 0,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "wTP9GCfmNFyA10k6",
+			"name": "Mental Summons",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>One creature with an Intelligence score greater than 3 within 120 feet makes a DC 16 Wisdom saving throw. On a failure, it uses its reaction to move up to its Speed towards the worm by the shortest route possible, avoiding hazards but not opportunity attacks. This is a magical charm effect.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"long"
+				],
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effects.",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other"
+			},
+			"ownership": {
+				"default": 0,
+				"BtwuYOcO3SacvRPO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"availableSpellLevels": [],
+			"showSpellSlots": false,
+			"showSpellPoints": false,
+			"carryCapacityMultiplier": 1,
+			"trackCurrencyWeight": true,
+			"IncludeAbilityModifiersForSkills": false,
+			"showSpellTab": false
+		}
+	},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 20,
@@ -495,30 +1032,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Murmuring Worm",
-		"img": "systems/a5e/assets/purple-worm.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 3,
 		"height": 3,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -526,13 +1054,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
 			},
-			"color": null
+			"color": null,
+			"attenuation": 0.5
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -540,495 +1070,30 @@
 			"attribute": "attributes.hp"
 		},
 		"bar2": {
-			"attribute": ""
+			"attribute": null
 		},
 		"flags": {},
 		"randomImg": false,
-		"tint": null
-	},
-	"items": [
-		{
-			"_id": "EAo71n9HuDcTE67a",
-			"name": "Amphibious",
-			"type": "feature",
-			"img": "icons/magic/water/bubbles-air-water-light.webp",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "none",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The aboleth can breathe air and water.</p>",
-				"duration": {
-					"unit": "permanent",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"permission": {
-				"default": 0,
-				"af4lzpCYrZNHadpC": 3,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.u5l8Ij71XdSKJTd6"
-				}
-			}
+		"texture": {
+			"src": "systems/a5e/assets/purple-worm.webp",
+			"tint": null,
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
 		},
-		{
-			"_id": "LeY4SVMp3O0JjDzj",
-			"name": "Locate Mind",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The worm is aware of the location and relative intelligence of all creatures with Intelligence scores greater than 3 within 500 feet.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"500 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "fNDq58P7PqTNnvil",
-			"name": "Maddening Murmurs",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": null,
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": "",
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "psychic",
-						"formula": "3d6",
-						"name": ""
-					}
-				],
-				"description": "<p>A non-aberrant creature that starts its turn within 30 feet and can hear its murmurs makes DC14 Intelligence saving throw. On a failure, the creature takes 10 (3d6) psychic damage and is confused until the start of its next turn.</p>",
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "14",
-					"onSave": "Negates effects.",
-					"targetAbility": "int"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "kiAoyyLos5Ns97JD",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The worm constricts once and attacks once with its bite.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 700000,
-			"permission": {
-				"default": 0,
-				"af4lzpCYrZNHadpC": 3,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.sH6by1Vc0j6fjE62"
-				}
-			}
-		},
-		{
-			"_id": "NEjgiyTK0KNHhUwG",
-			"name": "Constrict",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "3d10 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>The target is grappled (escape DC 17) and restrained while grappled.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "BtFnSlIgjgOGCyPv",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "3d10 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>If the target is killed by this attack, the worm eats its head.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "wTP9GCfmNFyA10k6",
-			"name": "Mental Summons",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>One creature with an Intelligence score greater than 3 within 120 feet makes a DC 16 Wisdom saving throw. On a failure, it uses its reaction to move up to its Speed towards the worm by the shortest route possible, avoiding hazards but not opportunity attacks. This is a magical charm effect.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effects.",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"BtwuYOcO3SacvRPO": 3
-			},
-			"flags": {}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"availableSpellLevels": [],
-			"showSpellSlots": false,
-			"showSpellPoints": false,
-			"carryCapacityMultiplier": 1,
-			"trackCurrencyWeight": true,
-			"IncludeAbilityModifiersForSkills": false,
-			"showSpellTab": false
-		},
-		"core": {
-			"sourceId": "Actor.Cds9Y1uie6HNHiNa"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "j0juqykuxwdbk708"
+	"_id": "b4f5zzkwyy17lkyd"
 }

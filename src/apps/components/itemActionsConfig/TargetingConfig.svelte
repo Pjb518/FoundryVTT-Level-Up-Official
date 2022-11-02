@@ -124,7 +124,7 @@
 
 <style lang="scss">
     .delete-button {
-        color: #8b2525;
+        color: #999;
         margin-left: auto;
         margin-right: 0.5rem;
         padding: 0.25rem;
@@ -133,6 +133,7 @@
 
         &:hover {
             transform: scale(1.2);
+            color: #8b2525;
         }
     }
 

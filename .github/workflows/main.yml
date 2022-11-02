@@ -1,0 +1,75 @@
+name: A5E System Version Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Node
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    # Cache npm dependencies
+    - name: Cache NPM Dependencies
+      id: cache-npm
+      uses: actions/cache@v3
+      with:
+        path: node_modules/
+        key: npm-${{ hashFiles('package-lock.json') }}
+
+    # Install npm dependencies
+    - name: Install Dependencies
+      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      run: |
+        npm ci
+
+    # Builds Packs
+    - name: Build System
+      run: npm run build
+
+    # get part of the tag after the `v`
+    - name: Extract tag version number
+      id: get_version
+      uses: battila7/get-version-action@v2
+
+    # Substitute the Manifest and Download URLs in the system.json
+    - name: Substitute Manifest and Download Links For Versioned Ones
+      id: sub_manifest_link_version
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: './dist/system.json'
+      env:
+        version: ${{steps.get_version.outputs.version-without-v}}
+        url: https://github.com/${{github.repository}}
+        manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
+        download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/a5e.zip
+
+    # Create a zip file with all files required by the system to add to the release
+    - name: Zip Files
+      working-directory: ./dist
+      run: zip -r ./a5e.zip ./*
+
+    # Create a release for this specific version
+    - name: Update Release with Files
+      id: create_version_release
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: true # Set this to false if you want to prevent updating existing releases
+        name: ${{ github.event.release.name }}
+        draft: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: './dist/system.json, ./dist/a5e.zip'
+        tag: ${{ github.event.release.tag_name }}
+        body: ${{ github.event.release.body }}

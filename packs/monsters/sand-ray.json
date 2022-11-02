@@ -2,7 +2,628 @@
 	"name": "Sand Ray",
 	"type": "npc",
 	"img": "systems/a5e/assets/cloaker.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "yhBGrNAgxbdElJyC",
+			"name": "False Appearance",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>When motionless, the ray is indistinguishable from a patch of sand.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "Hr8xgcO3ZhFNVEIZ",
+			"name": "Light Sensitivity",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The cloaker has disadvantage on attack rolls and Perception checks while in bright light.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "mBNpmFfpAS8XQvdD",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "2d6+@mod",
+						"name": "Bite Base"
+					}
+				],
+				"description": "<p>On Hit: 11 (2d6 + 4) piercing damage, and the target is grappled (escape DC 15). If the cloaker has advantage against the target, the cloaker attaches to the target’s head, and the target is blinded and suffocating. Until this grapple ends, the cloaker automatically hits the grappled creature with this attack. When the cloaker is dealt damage while grappling, it takes half the damage (rounded down) and the other half is dealt to the grappled target. The cloaker can have only one creature grappled at once.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"5 ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "naturalWeapon"
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "0Q59jx5mWjUpjfAy",
+			"name": "Tail",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6+@mod",
+						"name": "Tail Base"
+					},
+					{
+						"canCrit": true,
+						"damageType": "poison",
+						"formula": "1d6",
+						"name": "Poison Damage"
+					}
+				],
+				"description": "<p>Hit: 7 (1d6 + 4) slashing damage plus 3 (1d6) poison damage, and the creature makes a DC 13 Constitution saving throw. On a failure, it is poisoned until the end of the cloaker’s next turn.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"10 ft."
+				],
+				"save": {
+					"dc": 13,
+					"onSave": "Does not get Poisoned",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": -1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "4LsLFrDBBjIqdveE",
+			"name": "Moan",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "sphere",
+					"size": "60 ft."
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p> The cloaker emits a bone-chilling moan. Each non-aberration creature within 60 feet that can hear its moan makes a DC 13 Wisdom saving throw. On a failure, it is frightened until the end of the cloaker’s next turn. When a creature succeeds on this saving throw, it becomes immune to the cloaker’s Moan for 24 hours.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": 13,
+					"onSave": "Not Frightened",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "5HkfTJwmxPIzM0WF",
+			"name": "Phantasms",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The cloaker magically creates flickering illusions of itself in its space. Attacks on it have disadvantage. This effect ends after 1 minute, when the cloaker enters an area of bright light, or when it successfully grapples a creature.</p>",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "ophNlFjk998rYJEF",
+			"name": "Reactive Tail",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When hit or missed with a melee attack"
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>When hit or missed with a melee attack, the cloaker makes a tail attack against the attacker.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "a3oPYiDX0YjIky1N",
+			"name": "Angry Moan",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"scene-packer": {
+					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When the cloaker takes damage"
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>When the cloaker takes damage, it uses Moan.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"zyXzgFcq4jpAf0pO": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true
+		}
+	},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 18,
@@ -80,6 +701,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +713,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +725,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +737,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +749,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +761,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +773,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +785,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +797,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +809,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +821,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +833,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +845,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +857,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +869,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +881,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +893,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +905,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +917,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": true,
 				"specialties": [],
@@ -289,6 +929,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -378,6 +1019,10 @@
 					"total": 0
 				},
 				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
 					"current": 0,
 					"total": 0
 				}
@@ -475,31 +1120,22 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Sand Ray",
-		"img": "systems/a5e/assets/cloaker.webp",
 		"displayName": 30,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"color": null,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -507,584 +1143,45 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5
 		},
 		"disposition": -1,
 		"displayBars": 0,
 		"bar1": {
-			"attribute": ""
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
-			"attribute": ""
+			"attribute": null
 		},
 		"flags": {},
 		"randomImg": false,
-		"tint": null
-	},
-	"items": [
-		{
-			"_id": "yhBGrNAgxbdElJyC",
-			"name": "False Appearance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When motionless, the ray is indistinguishable from a patch of sand.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
+		"texture": {
+			"src": "systems/a5e/assets/cloaker.webp",
+			"tint": null,
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0
 		},
-		{
-			"_id": "Hr8xgcO3ZhFNVEIZ",
-			"name": "Light Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The cloaker has disadvantage on attack rolls and Perception checks while in bright light.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		},
-		{
-			"_id": "mBNpmFfpAS8XQvdD",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "2d6+@mod",
-						"name": "Bite Base"
-					}
-				],
-				"description": "<p>On Hit: 11 (2d6 + 4) piercing damage, and the target is grappled (escape DC 15). If the cloaker has advantage against the target, the cloaker attaches to the target’s head, and the target is blinded and suffocating. Until this grapple ends, the cloaker automatically hits the grappled creature with this attack. When the cloaker is dealt damage while grappling, it takes half the damage (rounded down) and the other half is dealt to the grappled target. The cloaker can have only one creature grappled at once.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon"
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		},
-		{
-			"_id": "0Q59jx5mWjUpjfAy",
-			"name": "Tail",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "1d6+@mod",
-						"name": "Tail Base"
-					},
-					{
-						"canCrit": true,
-						"damageType": "poison",
-						"formula": "1d6",
-						"name": "Poison Damage"
-					}
-				],
-				"description": "<p>Hit: 7 (1d6 + 4) slashing damage plus 3 (1d6) poison damage, and the creature makes a DC 13 Constitution saving throw. On a failure, it is poisoned until the end of the cloaker’s next turn.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft."
-				],
-				"save": {
-					"dc": 13,
-					"onSave": "Does not get Poisoned",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": -1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		},
-		{
-			"_id": "4LsLFrDBBjIqdveE",
-			"name": "Moan",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "60 ft."
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p> The cloaker emits a bone-chilling moan. Each non-aberration creature within 60 feet that can hear its moan makes a DC 13 Wisdom saving throw. On a failure, it is frightened until the end of the cloaker’s next turn. When a creature succeeds on this saving throw, it becomes immune to the cloaker’s Moan for 24 hours.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": 13,
-					"onSave": "Not Frightened",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		},
-		{
-			"_id": "5HkfTJwmxPIzM0WF",
-			"name": "Phantasms",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The cloaker magically creates flickering illusions of itself in its space. Attacks on it have disadvantage. This effect ends after 1 minute, when the cloaker enters an area of bright light, or when it successfully grapples a creature.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		},
-		{
-			"_id": "ophNlFjk998rYJEF",
-			"name": "Reactive Tail",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "When hit or missed with a melee attack"
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When hit or missed with a melee attack, the cloaker makes a tail attack against the attacker.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		},
-		{
-			"_id": "a3oPYiDX0YjIky1N",
-			"name": "Angry Moan",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "When the cloaker takes damage"
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When the cloaker takes damage, it uses Moan.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"zyXzgFcq4jpAf0pO": 3
-			},
-			"flags": {
-				"scene-packer": {
-					"hash": "11e795de7337c7ac6b111dde4a15a0edf8372db7"
-				}
-			}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Actor.tVlofW82SgAnDdr4"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "1rb2txki5umik687"
+	"_id": "nq9qoxfwqg9u8lv2"
 }

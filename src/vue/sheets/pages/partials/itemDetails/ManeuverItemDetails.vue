@@ -3,9 +3,7 @@
     <div class="u-flex u-gap-ch u-text-italic">
       {{ localize(config.maneuverDegrees[item.system.degree]) }}
 
-      <div class="u-flex" v-if="maneuverTradition">
-        ({{ maneuverTradition }})
-      </div>
+      <div v-if="maneuverTradition">({{ maneuverTradition }})</div>
     </div>
 
     <dl class="u-flex u-flex-col u-gap-xs u-m-0 u-p-0">
@@ -35,6 +33,13 @@
           >
             ({{ item.system.activation.reactionTrigger }})
           </template>
+        </dd>
+      </div>
+
+      <div v-if="item.system.exertionCost" class="u-flex u-gap-ch">
+        <dt>{{ localize("A5E.ExertionCost") }}:</dt>
+        <dd class="u-m-0 u-p-0">
+          {{ item.system.exertionCost }} {{ localize("A5E.Exertion") }}
         </dd>
       </div>
 

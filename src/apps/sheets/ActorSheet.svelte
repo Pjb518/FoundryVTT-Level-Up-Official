@@ -2,12 +2,18 @@
 
 <script>
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
+    import ActorDocument from "../ActorDocument";
 
-    import ActorSheetCorePage from "../components/ActorSheetCorePage.svelte";
+    import ActorCorePage from "../components/ActorCorePage.svelte";
+    import ActorEffectsPage from "../components/ActorEffectsPage.svelte";
+    import ActorFeaturesPage from "../components/ActorFeaturesPage.svelte";
+    import ActorInventoryPage from "../components/ActorInventoryPage.svelte";
+    import ActorManeuversPage from "../components/ActorManeuversPage.svelte";
     import ActorSheetHeader from "../components/actorSheetHeader/actorSheetHeader.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
+    import ActorSkillsPage from "../components/ActorSkillsPage.svelte";
+    import ActorSpellsPage from "../components/ActorSpellsPage.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     export let { actorDocument, sheet } = getContext("external").application;
@@ -31,53 +37,58 @@
         {
             name: "core",
             label: "A5E.TabCore",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "skills",
             label: "A5E.TabSkills",
-            component: ActorSheetCorePage,
+            component: ActorSkillsPage,
         },
         {
             name: "inventory",
             label: "A5E.TabInventory",
-            component: ActorSheetCorePage,
+            component: ActorInventoryPage,
         },
         {
             name: "features",
             label: "A5E.TabFeatures",
-            component: ActorSheetCorePage,
+            component: ActorFeaturesPage,
         },
         {
             name: "maneuvers",
             label: "A5E.TabManeuvers",
-            component: ActorSheetCorePage,
+            component: ActorManeuversPage,
         },
         {
             name: "spells",
             label: "A5E.TabSpells",
-            component: ActorSheetCorePage,
+            component: ActorSpellsPage,
         },
         {
             name: "biography",
             label: "A5E.TabBiography",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
         {
             name: "journal",
             label: "A5E.TabJournal",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
+        },
+        {
+            name: "effects",
+            label: "A5E.TabEffects",
+            component: ActorEffectsPage,
         },
         {
             name: "settings",
             label: "A5E.TabSettings",
-            component: ActorSheetCorePage,
+            component: ActorCorePage,
         },
     ];
 
     $: currentTab = tabs[0];
 
-    setContext("actor", new TJSDocument(actorDocument));
+    setContext("actor", new ActorDocument(actorDocument));
 </script>
 
 <ApplicationShell bind:elementRoot>

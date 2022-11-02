@@ -2,7 +2,1919 @@
 	"name": "Aklea",
 	"type": "npc",
 	"img": "systems/a5e/assets/empyrean.webp",
-	"data": {
+	"items": [
+		{
+			"_id": "U5GeGYLG1hYGuW95",
+			"name": "Divine Grace",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 100000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>If the empyrean makes a saving throw against an effect that deals half damage on a success, it takes no damage on a success and half damage on a failure. Furthermore, while wearing medium armor, the empyrean adds its full Dexterity bonus to its Armor Class (already included).</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "BXqAf14zcaxcIepa",
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The empyrean’s innate spellcasting ability is Charisma (spell save DC 23). It can innately cast the following spells, requiring no material components:</p><p></p><p>At will: <em>charm person</em>, <em>command</em>,<em> telekinesis</em></p><p style=\"text-align: start\">3/day:<em> flame strike</em>,<em> hold monster</em>,<em> lightning bolt</em></p><p style=\"text-align: start\">1/day: <em>commune</em>, <em>greater restoration</em>, <em>heroes’ feast</em>,<em> plane shift</em> (self only, can’t travel to or from the Material Plane)</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">(these spells can be found in the spells section)</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "MJx3wizsSAbde3T2",
+			"name": "Charm Person",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.SRO0l2YbvBXJ9yZa"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.&nbsp;</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": 23,
+					"onSave": "No effect on successful save",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": null,
+					"per": ""
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "K2R80Z5AJkKiHe8f",
+			"name": "Magic Resistance",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The empyrean has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "OI4SgqMXxXBOgaTp",
+			"name": "Regeneration",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 400000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The empyrean regains 10 hit points at the beginning of its turn as long as it has at least 1 hit point.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "DSxEKkIpbzcl1s69",
+			"name": "Immortal Nature",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 500000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>A titan doesn’t require air, sustenance, or sleep.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "cHfDEsyv6ak6m1JO",
+			"name": "Maul",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 600000,
+			"flags": {},
+			"system": {
+				"ability": "str",
+				"actionOptions": [
+					"attack",
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "8d6+@mod",
+						"name": "Maul Bludgeoning"
+					},
+					{
+						"canCrit": true,
+						"damageType": "radiant",
+						"formula": "4d6",
+						"name": "Maul Radiant"
+					}
+				],
+				"description": "<p>On hit, target takes bludgeoning damage plus radiant damage, and the target makes a DC 25 Strength saving throw. On a failure, the target is pushed up to 30 feet away and knocked prone.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"10 ft"
+				],
+				"save": {
+					"dc": 25,
+					"onSave": "Avoid falling prone",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "Zho7eOA9cnHPI8We",
+			"name": "Command",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator’s discretion you may give any one-word command.&nbsp;</p><p><strong><em>Approach | Come | Here:</em></strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p><p><strong><em>Bow | Grovel | Kneel: </em></strong>The target falls prone and ends its turn.</p><p><strong><em>Drop: </em></strong>The target drops anything it is holding and ends its turn.</p><p><strong><em>Flee | Run: </em></strong>The target uses its action to Dash and moves away from you as far as it can.</p><p><strong><em>Halt: </em></strong>The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p><p><br></p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 23,
+					"onSave": "Negates",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"compulsion",
+						"divine"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "Q9H2opi9clK9wqBO",
+			"name": "Telekinesis",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You move the target with the power of your mind. Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p><p><strong><em>Creature: </em></strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p><strong><em>Object:</em></strong> You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself—you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong>Cast at Higher Levels</strong></p><p>When using an 8th-level spell slot, this spell does not require your concentration</p>",
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 23,
+					"onSave": "not moved, or keeps the object being held",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "R7mnXTXmn6XpWuOF",
+			"name": "Flame Strike",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": null,
+				"actionOptions": [
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "rangedSpellAttack"
+				},
+				"area": {
+					"shape": "cylinder",
+					"size": "10 ft radius, 40 ft high"
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "4d6",
+						"name": "Fire Damage"
+					},
+					{
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "4d6",
+						"name": "Radiant Damage"
+					}
+				],
+				"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong>Area: </strong>10-foot radius, 40-foot high cylinder</p><p><strong>Cast at Higher Levels</strong></p><p>Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><p><strong>Rare Versions</strong></p><p><strong><em>Kreven’s Discerning Lightning Strike.</em></strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 23,
+					"onSave": "Halves",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 3,
+					"max": 3,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "5",
+				"materials": "pinch of sulfur",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"fire",
+						"divine"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "BJOV7yMs1Vnf1IfW",
+			"name": "Hold Monster",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell’s effects on it on a successful save.</p><p><strong>Cast at Higher Levels</strong></p><p>Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": 23,
+					"onSave": "Negates",
+					"targetAbility": "wis"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 3,
+					"max": 3,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": "5",
+				"materials": "piece of iron",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "eiZj4jijBUpUfi7d",
+			"name": "Commune",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p style=\"text-align: start\">When you cast this spell again before finishing a long rest, the chance of getting a no answer increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%.</p>",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "5",
+				"materials": "incense and vial of holy or unholy water",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"knowledge",
+						"planar",
+						"divine"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "WgxH5ByoD5QFwCwi",
+			"name": "Greater Restoration",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 100000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li><p>a level of fatigue.</p></li><li><p>a level of strife.</p></li><li><p>a charm or petrification effect.</p></li><li><p>a curse or cursed item attunement.</p></li><li><p>any reduction to a single ability score.</p></li><li><p>an effect that has reduced the target’s hit point maximum.</p></li></ul>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": "5",
+				"materials": "100 gold of diamond dust, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "Uedw5bJIRCQomPdz",
+			"name": "Attack (Legendary)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 800000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Empyrean makes a weapon attack (see: Maul)</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "J1miuWSK6yAsdDBy",
+			"name": "Cast Spell (Legendary)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 900000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>(Legendary Action)</p><p></p><p>The empyrean casts a spell. The empyrean can’t use this option if it has cast a spell since the start of its last turn</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "aaBPFABQKmnR8bVu",
+			"name": "Fly (Legendary)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 1000000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>(Legendary Action)</p><p>The empyrean flies up to half its fly speed.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "7BofWww6JrM4ENom",
+			"name": "Shout (Recharge 5-6)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 1100000,
+			"flags": {},
+			"system": {
+				"ability": null,
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "7d6",
+						"name": ""
+					}
+				],
+				"description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"long"
+				],
+				"save": {
+					"dc": 25,
+					"onSave": "Half Damage",
+					"targetAbility": "con"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": null,
+					"per": ""
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "mT9XdAZ67aL9nFiH",
+			"name": "Immortal Form",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 700000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The empyrean magically changes its size between Gargantuan and Medium. While Medium, the empyrean has disadvantage on Strength checks. Its statistics are otherwise unchanged</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "dAERhJJhPrLC8L6w",
+			"name": "Legendary Actions",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 750000,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The empyrean can take 1 legendary action, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p></p><ul><li><p>Attack</p></li><li><p>Cast Spell</p></li><li><p>Fly</p></li><li><p>Shout</p></li></ul>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "round"
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "uREDyIXhx4JaMbWr",
+			"name": "Blind Rage",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>While bloodied, Aklea can take 3 legendary actions instead of 1. While bloodied and in line of sight of other creatures, she must use each of her actions and legendary actions to either make a weapon attack against a creature she can see within range or fly towards the closest creature she can see.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "JPz4Mx1uDu4fVoSQ",
+			"name": "Elite Recovery",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>At the end of her turn, Aklea ends one negative effect currently affecting her. She can do so as long as she has at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "79CpveR9G9sbuWQJ",
+			"name": "Heroes' Feast",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.rk2oUmIZQuHQXa37"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished—it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast’s participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanav’s Final Heroes’ Feast.</em></strong> Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you take 8d10 necrotic damage.</p><p><strong><em>Sidoneth’s Fantabulous Heroes’ Feast. </em></strong>For 24 hours afterward, you gain advantage on Charisma checks made against creatures that participate in the feast.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"short"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "beautifully crafted bowl worth at least 1,000 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"enhancement"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "T0cjnsYtS9OEGLjU",
+			"name": "Lightning Bolt",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.8Mh4DD0kaCSaxeUB"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"damage",
+					"savingThrow"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "line",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "lightning",
+						"formula": "8d6",
+						"name": "Lightning damage"
+					}
+				],
+				"description": "<p>A bolt of lightning arcs out from you in a direction you choose in a line 100 feet long and 5 feet wide.&nbsp;Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren’t worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong>Cast at Higher Levels</strong></p><p>Damage increases by 1d6 for every slot level above 3rd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Gabal’s Conductive Lightning Bolt.</em></strong><em> </em>Metallic creatures and creatures wearing metal armor make their saving throw with disadvantage.</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"100 ft."
+				],
+				"save": {
+					"dc": 23,
+					"onSave": "Halves",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 3,
+					"max": 3,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "small metal rod and rain water",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"lightning",
+						"nature"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"_id": "qpY4Tk0ersEcYztC",
+			"name": "Plane Shift",
+			"type": "spell",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.fKfsH4qOzXwMi3Jb"
+				}
+			},
+			"system": {
+				"ability": "cha",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeSpellAttack"
+				},
+				"area": {
+					"shape": null,
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle, you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).&nbsp;</p><p style=\"text-align: start\">Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">Empyreans can only use it on themselves, and can’t travel to or from the Material Plane</p><p style=\"text-align: start\"><strong>Duration:</strong> Instantaneous or Concentration (1 minute)</p>",
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "day"
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": "7",
+				"materials": "metal rod attuned to a particular plane of existence worth 250 gold",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"planar",
+						"teleportation",
+						"utility"
+					]
+				}
+			},
+			"ownership": {
+				"default": 0,
+				"VMSZNizx1N7Lmk0A": 3
+			},
+			"_stats": {
+				"systemId": null,
+				"systemVersion": null,
+				"coreVersion": null,
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		}
+	],
+	"effects": [],
+	"flags": {},
+	"system": {
 		"abilities": {
 			"str": {
 				"value": 30,
@@ -80,6 +1992,7 @@
 		},
 		"skills": {
 			"acr": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -91,6 +2004,7 @@
 				}
 			},
 			"ani": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -102,6 +2016,7 @@
 				}
 			},
 			"arc": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -113,6 +2028,7 @@
 				}
 			},
 			"ath": {
+				"ability": "str",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -124,6 +2040,7 @@
 				}
 			},
 			"cul": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -135,6 +2052,7 @@
 				}
 			},
 			"dec": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -146,6 +2064,7 @@
 				}
 			},
 			"eng": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -157,6 +2076,7 @@
 				}
 			},
 			"his": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -168,6 +2088,7 @@
 				}
 			},
 			"ins": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -179,6 +2100,7 @@
 				}
 			},
 			"itm": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -190,6 +2112,7 @@
 				}
 			},
 			"inv": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -201,6 +2124,7 @@
 				}
 			},
 			"med": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -212,6 +2136,7 @@
 				}
 			},
 			"nat": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -223,6 +2148,7 @@
 				}
 			},
 			"prc": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -234,6 +2160,7 @@
 				}
 			},
 			"prf": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -245,6 +2172,7 @@
 				}
 			},
 			"per": {
+				"ability": "cha",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -256,6 +2184,7 @@
 				}
 			},
 			"rel": {
+				"ability": "int",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -267,6 +2196,7 @@
 				}
 			},
 			"slt": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -278,6 +2208,7 @@
 				}
 			},
 			"ste": {
+				"ability": "dex",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -289,6 +2220,7 @@
 				}
 			},
 			"sur": {
+				"ability": "wis",
 				"value": 0,
 				"proficient": false,
 				"specialties": [],
@@ -378,6 +2310,10 @@
 					"total": 0
 				},
 				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
 					"current": 0,
 					"total": 0
 				}
@@ -474,30 +2410,21 @@
 		},
 		"target": {}
 	},
-	"token": {
+	"prototypeToken": {
 		"name": "Empyrean",
-		"img": "systems/a5e/assets/empyrean.webp",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 4,
 		"height": 4,
-		"scale": 1,
-		"mirrorX": false,
-		"mirrorY": false,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
-		"vision": false,
-		"dimSight": 0,
-		"brightSight": 0,
-		"sightAngle": 0,
 		"light": {
 			"alpha": 0.5,
-			"angle": 0,
+			"angle": 360,
 			"bright": 0,
 			"coloration": 1,
 			"dim": 0,
-			"gradual": true,
 			"luminosity": 0.5,
 			"saturation": 0,
 			"contrast": 0,
@@ -505,12 +2432,15 @@
 			"animation": {
 				"speed": 5,
 				"intensity": 5,
-				"reverse": false
+				"reverse": false,
+				"type": null
 			},
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -521,1731 +2451,27 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
-	},
-	"items": [
-		{
-			"_id": "U5GeGYLG1hYGuW95",
-			"name": "Divine Grace",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If the empyrean makes a saving throw against an effect that deals half damage on a success, it takes no damage on a success and half damage on a failure. Furthermore, while wearing medium armor, the empyrean adds its full Dexterity bonus to its Armor Class (already included).</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/empyrean.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
 		},
-		{
-			"_id": "BXqAf14zcaxcIepa",
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean’s innate spellcasting ability is Charisma (spell save DC 23). It can innately cast the following spells, requiring no material components:</p><p></p><p>At will: <em>charm person</em>, <em>command</em>,<em> telekinesis</em></p><p style=\"text-align: start\">3/day:<em> flame strike</em>,<em> hold monster</em>,<em> lightning bolt</em></p><p style=\"text-align: start\">1/day: <em>commune</em>, <em>greater restoration</em>, <em>heroes’ feast</em>,<em> plane shift</em> (self only, can’t travel to or from the Material Plane)</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">(these spells can be found in the spells section)</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "MJx3wizsSAbde3T2",
-			"name": "Charm Person",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.&nbsp;</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
-				"duration": {
-					"unit": "hour",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "No effect on successful save",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.SRO0l2YbvBXJ9yZa"
-				}
-			}
-		},
-		{
-			"_id": "K2R80Z5AJkKiHe8f",
-			"name": "Magic Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "OI4SgqMXxXBOgaTp",
-			"name": "Regeneration",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean regains 10 hit points at the beginning of its turn as long as it has at least 1 hit point.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "DSxEKkIpbzcl1s69",
-			"name": "Immortal Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A titan doesn’t require air, sustenance, or sleep.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 500000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "cHfDEsyv6ak6m1JO",
-			"name": "Maul",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "8d6+@mod",
-						"name": "Maul Bludgeoning"
-					},
-					{
-						"canCrit": true,
-						"damageType": "radiant",
-						"formula": "4d6",
-						"name": "Maul Radiant"
-					}
-				],
-				"description": "<p>On hit, target takes bludgeoning damage plus radiant damage, and the target makes a DC 25 Strength saving throw. On a failure, the target is pushed up to 30 feet away and knocked prone.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft"
-				],
-				"save": {
-					"dc": 25,
-					"onSave": "Avoid falling prone",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 600000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "Zho7eOA9cnHPI8We",
-			"name": "Command",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator’s discretion you may give any one-word command.&nbsp;</p><p><strong><em>Approach | Come | Here:</em></strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p><p><strong><em>Bow | Grovel | Kneel: </em></strong>The target falls prone and ends its turn.</p><p><strong><em>Drop: </em></strong>The target drops anything it is holding and ends its turn.</p><p><strong><em>Flee | Run: </em></strong>The target uses its action to Dash and moves away from you as far as it can.</p><p><strong><em>Halt: </em></strong>The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p><p><br></p>",
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Negates",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"compulsion",
-						"divine"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "Q9H2opi9clK9wqBO",
-			"name": "Telekinesis",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You move the target with the power of your mind. Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p><p><strong><em>Creature: </em></strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p><strong><em>Object:</em></strong> You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself—you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong>Cast at Higher Levels</strong></p><p>When using an 8th-level spell slot, this spell does not require your concentration</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "not moved, or keeps the object being held",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"movement"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "R7mnXTXmn6XpWuOF",
-			"name": "Flame Strike",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "rangedSpellAttack"
-				},
-				"area": {
-					"shape": "cylinder",
-					"size": "10 ft radius, 40 ft high"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "4d6",
-						"name": "Fire Damage"
-					},
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "4d6",
-						"name": "Radiant Damage"
-					}
-				],
-				"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong>Area: </strong>10-foot radius, 40-foot high cylinder</p><p><strong>Cast at Higher Levels</strong></p><p>Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><p><strong>Rare Versions</strong></p><p><strong><em>Kreven’s Discerning Lightning Strike.</em></strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Halves",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "pinch of sulfur",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"fire",
-						"divine"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "BJOV7yMs1Vnf1IfW",
-			"name": "Hold Monster",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell’s effects on it on a successful save.</p><p><strong>Cast at Higher Levels</strong></p><p>Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Negates",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "5",
-				"materials": "piece of iron",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"affliction",
-						"arcane"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "eiZj4jijBUpUfi7d",
-			"name": "Commune",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p style=\"text-align: start\">When you cast this spell again before finishing a long rest, the chance of getting a no answer increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "incense and vial of holy or unholy water",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"knowledge",
-						"planar",
-						"divine"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "WgxH5ByoD5QFwCwi",
-			"name": "Greater Restoration",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li><p>a level of fatigue.</p></li><li><p>a level of strife.</p></li><li><p>a charm or petrification effect.</p></li><li><p>a curse or cursed item attunement.</p></li><li><p>any reduction to a single ability score.</p></li><li><p>an effect that has reduced the target’s hit point maximum.</p></li></ul>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "100 gold of diamond dust, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "Uedw5bJIRCQomPdz",
-			"name": "Attack (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Empyrean makes a weapon attack (see: Maul)</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 800000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "J1miuWSK6yAsdDBy",
-			"name": "Cast Spell (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>(Legendary Action)</p><p></p><p>The empyrean casts a spell. The empyrean can’t use this option if it has cast a spell since the start of its last turn</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 900000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "aaBPFABQKmnR8bVu",
-			"name": "Fly (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>(Legendary Action)</p><p>The empyrean flies up to half its fly speed.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 1000000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "7BofWww6JrM4ENom",
-			"name": "Shout (Recharge 5-6)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": null,
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "thunder",
-						"formula": "7d6",
-						"name": ""
-					}
-				],
-				"description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": 25,
-					"onSave": "Half Damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 1100000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "mT9XdAZ67aL9nFiH",
-			"name": "Immortal Form",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean magically changes its size between Gargantuan and Medium. While Medium, the empyrean has disadvantage on Strength checks. Its statistics are otherwise unchanged</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 700000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "dAERhJJhPrLC8L6w",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean can take 1 legendary action, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p></p><ul><li><p>Attack</p></li><li><p>Cast Spell</p></li><li><p>Fly</p></li><li><p>Shout</p></li></ul>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "round"
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 750000,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "uREDyIXhx4JaMbWr",
-			"name": "Blind Rage",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While bloodied, Aklea can take 3 legendary actions instead of 1. While bloodied and in line of sight of other creatures, she must use each of her actions and legendary actions to either make a weapon attack against a creature she can see within range or fly towards the closest creature she can see.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "JPz4Mx1uDu4fVoSQ",
-			"name": "Elite Recovery",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>At the end of her turn, Aklea ends one negative effect currently affecting her. She can do so as long as she has at least 1 hit point, even while unconscious or incapacitated.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {}
-		},
-		{
-			"_id": "79CpveR9G9sbuWQJ",
-			"name": "Heroes' Feast",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 10,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished—it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast’s participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanav’s Final Heroes’ Feast.</em></strong> Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you take 8d10 necrotic damage.</p><p><strong><em>Sidoneth’s Fantabulous Heroes’ Feast. </em></strong>For 24 hours afterward, you gain advantage on Charisma checks made against creatures that participate in the feast.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "beautifully crafted bowl worth at least 1,000 gold, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"enhancement"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.rk2oUmIZQuHQXa37"
-				}
-			}
-		},
-		{
-			"_id": "T0cjnsYtS9OEGLjU",
-			"name": "Lightning Bolt",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "",
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "line",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "lightning",
-						"formula": "8d6",
-						"name": "Lightning damage"
-					}
-				],
-				"description": "<p>A bolt of lightning arcs out from you in a direction you choose in a line 100 feet long and 5 feet wide.&nbsp;Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren’t worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong>Cast at Higher Levels</strong></p><p>Damage increases by 1d6 for every slot level above 3rd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Gabal’s Conductive Lightning Bolt.</em></strong><em> </em>Metallic creatures and creatures wearing metal armor make their saving throw with disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"100 ft."
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Halves",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "small metal rod and rain water",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"lightning",
-						"nature"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.8Mh4DD0kaCSaxeUB"
-				}
-			}
-		},
-		{
-			"_id": "qpY4Tk0ersEcYztC",
-			"name": "Plane Shift",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"data": {
-				"ability": "cha",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeSpellAttack"
-				},
-				"area": {
-					"shape": null,
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle, you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).&nbsp;</p><p style=\"text-align: start\">Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">Empyreans can only use it on themselves, and can’t travel to or from the Material Plane</p><p style=\"text-align: start\"><strong>Duration:</strong> Instantaneous or Concentration (1 minute)</p>",
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "7",
-				"materials": "metal rod attuned to a particular plane of existence worth 250 gold",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"planar",
-						"teleportation",
-						"utility"
-					]
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"permission": {
-				"default": 0,
-				"VMSZNizx1N7Lmk0A": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Item.fKfsH4qOzXwMi3Jb"
-				}
-			}
-		}
-	],
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Actor.diFUj9xVQ4cKzo5h"
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
 		}
 	},
-	"_id": "3glueq78vny7lpmn"
+	"_id": "736ix0zaqbm9nqs1"
 }

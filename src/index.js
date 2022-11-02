@@ -5,12 +5,13 @@ import ActorSheet5e from "./apps/ActorSheet";
 import ItemSheet5e from "./apps/ItemSheet";
 
 import A5E from './modules/config';
-import Actor5e from './modules/actor/entity';
+import ActiveEffect5e from "./documents/activeEffects";
+import Actor5e from './documents/actor';
 import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
-import Item5e from './modules/item/entity';
-import Token5e from './modules/actor/token';
-import TokenDocument5e from './modules/actor/tokenDocument';
+import Item5e from './documents/item';
+import Token5e from './documents/token';
+import TokenDocument5e from './documents/tokenDocument';
 
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
@@ -19,6 +20,8 @@ import preloadHandlebarsTemplates from './modules/templates';
 import registerSystemSettings from './modules/settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
+
+import setupConditions from './modules/activeEffects/conditions';
 
 // Macros
 import activateItemMacro from './modules/macros/activateItemMacro';
@@ -67,6 +70,7 @@ Hooks.once('init', () => {
   };
 
   CONFIG.A5E = A5E;
+  CONFIG.ActiveEffect.documentClass = ActiveEffect5e;
   CONFIG.Actor.documentClass = Actor5e;
   CONFIG.Item.documentClass = Item5e;
   CONFIG.Token.documentClass = TokenDocument5e;
@@ -79,8 +83,6 @@ Hooks.once('init', () => {
   CONFIG.Dice.rolls.push(DamageRoll);
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
-
-  registerSystemSettings();
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('a5e', ActorSheet5e, {
@@ -112,6 +114,14 @@ Hooks.once('init', () => {
   Combat.prototype.rollInitiative = rollInitiative;
 
   return preloadHandlebarsTemplates();
+});
+
+/**
+ * Once game object is ready initialize anything that requires the game object
+ */
+Hooks.once('setup', () => {
+  registerSystemSettings();
+  setupConditions();
 });
 
 /**
