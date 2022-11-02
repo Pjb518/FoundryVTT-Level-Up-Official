@@ -7,6 +7,8 @@
 	export let source;
 
 	const actor = getContext('actor');
+
+	$: sheetIsLocked = $actor.flags?.a5e.sheetIsLocked ?? true;
 </script>
 
 <div class="resource resource-{source}">
@@ -41,14 +43,17 @@
 			value={resource.max}
 			class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
 			placeholder="0"
+			disabled={sheetIsLocked}
 			on:change={({ target }) =>
 				updateDocumentDataFromField($actor, target.name, target.value)}
 		/>
 	</div>
 
-	<div class="resource-setting">
-		<i class="fas fa-gear" />
-	</div>
+	{#if !sheetIsLocked}
+		<div class="resource-setting">
+			<i class="fas fa-gear a5e-config-button" />
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -57,7 +62,6 @@
 		padding: 0.125rem;
 		border: 1px solid #ccc;
 		border-radius: 2px;
-		height: 4.5rem;
 	}
 
 	.resource-label {
@@ -82,8 +86,8 @@
 
 	.resource-setting {
 		position: absolute;
-		bottom: 0.125rem;
-		right: 0.125rem;
+		top: 0.25rem;
+		right: 0.25rem;
 		cursor: pointer;
 	}
 </style>

@@ -85,5 +85,7 @@
 		gap: 0.5rem;
 		width: 100%;
 		align-items: center;
+		margin: 0;
+		padding: 0;
 	}
 </style>
