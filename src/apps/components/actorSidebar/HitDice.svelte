@@ -20,11 +20,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: absolute;
-		top: 2.25rem;
-		right: -0.25rem;
-		width: 2rem;
-		height: 2rem;
+		position: relative;
+		width: 2.125rem;
+		height: 2.125rem;
 		font-size: 1.2rem;
 		font-family: 'Modesto Condensed', serif;
 		color: #7e7960;
@@ -33,6 +31,5 @@
 		background: #f6f2eb;
 		box-shadow: 0 0 10px #ccc inset;
 		z-index: 4;
-		cursor: pointer;
 	}
 </style>

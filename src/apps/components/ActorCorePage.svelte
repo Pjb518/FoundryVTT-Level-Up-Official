@@ -13,19 +13,11 @@
 	$: resources = $actor.system.resources;
 </script>
 
-<header class="section-header">
-	<i class="fas fa-star heading-icon" />
-
-	<h3>
-		{localize('A5E.Resources')}
-	</h3>
-</header>
-
-<ul class="resources-container">
+<ol class="resources-container">
 	{#each Object.entries(resources) as [source, resource]}
 		<ResourceTrack {resource} {source} />
 	{/each}
-</ul>
+</ol>
 
 <header class="section-header">
 	<i class="fas fa-star heading-icon" />

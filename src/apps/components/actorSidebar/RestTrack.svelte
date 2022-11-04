@@ -11,27 +11,43 @@
 <style lang="scss">
 	.rest {
 		position: absolute;
-		align-items: center;
+		z-index: 4;
+		display: flex;
 		overflow: hidden;
-		bottom: 2.25rem;
-		right: -0.25rem;
 		width: 2rem;
 		height: 2rem;
+		align-items: center;
 		border-radius: 50%;
-		z-index: 5;
+
+		top: 39%;
+		right: 0.5rem;
 
 		&-icon {
+			z-index: 1;
 			display: flex;
 			width: 2rem;
 			height: 2rem;
+			flex-shrink: 0;
 			align-items: center;
 			justify-content: center;
-			background-color: #f6f2eb;
 			border: 1px solid #ccc;
+			background-color: #f6f2eb;
+			border-radius: 50%;
 			box-shadow: 0 0 10px #ccc inset;
 			color: rgba(0 0 0 / 0.2);
-			font-size: 1.2rem;
 			cursor: pointer;
+			font-size: 1.2rem;
+			transform: translateX(-1px);
+
+			transition: all 0.15s ease-in-out;
+		}
+
+		&:hover {
+			background-color: darken(#dddace, 2.5%);
+
+			.rest-icon {
+				color: lighten(#191813, 35%);
+			}
 		}
 	}
 </style>

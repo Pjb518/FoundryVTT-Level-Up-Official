@@ -1,9 +1,11 @@
 <script>
 	import { getContext } from 'svelte';
 
-	import HitDiceTrack from './HitDiceTrack.svelte';
+	import ArmorClass from './ArmorClass.svelte';
+	import HitDice from './HitDice.svelte';
 	import HitPointBar from './HitPointBar.svelte';
 	import HitPointValues from './HitPointValues.svelte';
+	import Initiative from './Initiative.svelte';
 	import RestTrack from './RestTrack.svelte';
 	import StatusTrack from './StatusTrack.svelte';
 
@@ -15,7 +17,7 @@
 </script>
 
 <div class="actor-sidebar">
-	<div class="actor-portrait-wrapper">
+	<section class="actor-portrait-wrapper">
 		<HitPointBar {hp}>
 			<img
 				class="actor-image"
@@ -32,21 +34,28 @@
 			value={$actor.system.attributes.fatigue}
 		/>
 
-		<!-- Hit Die Stuff -->
-		<HitDiceTrack />
-
-		<!-- Rest Stuff -->
-		<RestTrack />
-
 		<StatusTrack
 			icon="fa-brain"
 			tooltipText="A5E.Strife"
 			trackProperty="strife"
 			value={$actor.system.attributes.strife}
 		/>
-	</div>
+
+		<RestTrack />
+	</section>
 
 	<HitPointValues {hp} />
+
+	<ul class="actor-glance-trackers">
+		<!-- AC -->
+		<ArmorClass />
+
+		<!-- Initiative -->
+		<Initiative />
+
+		<!-- Hit die -->
+		<HitDice />
+	</ul>
 </div>
 
 <style lang="scss">
@@ -73,5 +82,13 @@
 		width: 8rem;
 		height: 8rem;
 		z-index: 1;
+	}
+
+	.actor-glance-trackers {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin: 1rem;
 	}
 </style>
