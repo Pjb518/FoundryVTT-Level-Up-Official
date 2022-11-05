@@ -98,19 +98,18 @@
 		justify-content: center;
 		align-items: center;
 		gap: 0.5rem;
-		margin-block: 1rem;
+		margin-block: 0.75rem;
 		padding: 0;
 		list-style: none;
 	}
 
 	.actor-details {
-		border: 1px solid #ccc;
-		box-shadow: 0 0 5px #ccc inset;
 		overflow-y: auto;
+		margin-bottom: 0.75rem;
 	}
 
 	.actor-sidebar-footer {
 		margin-top: auto;
-		padding-bottom: 00.125rem;
+		padding-bottom: 0.125rem;
 	}
 </style>
