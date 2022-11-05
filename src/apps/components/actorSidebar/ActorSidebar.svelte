@@ -9,6 +9,7 @@
 	import Passives from './Passives.svelte';
 	import RestTrack from './RestTrack.svelte';
 	import StatusTrack from './StatusTrack.svelte';
+	import Details from './Details.svelte';
 
 	export let hp;
 
@@ -56,12 +57,11 @@
 	</ul>
 
 	<!--  -->
-	<div class="actor-dense-info">
-		<!--  -->
+	<div class="actor-details">
+		<Details />
 	</div>
 
 	<footer class="actor-sidebar-footer">
-		<!--  -->
 		<Passives />
 	</footer>
 </div>
@@ -103,8 +103,14 @@
 		list-style: none;
 	}
 
+	.actor-details {
+		border: 1px solid #ccc;
+		box-shadow: 0 0 5px #ccc inset;
+		overflow-y: auto;
+	}
+
 	.actor-sidebar-footer {
-		position: fixed;
-		bottom: 0.5rem;
+		margin-top: auto;
+		padding-bottom: 00.125rem;
 	}
 </style>
