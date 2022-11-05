@@ -6,6 +6,7 @@
 	import HitPointBar from './HitPointBar.svelte';
 	import HitPointValues from './HitPointValues.svelte';
 	import Initiative from './Initiative.svelte';
+	import Passives from './Passives.svelte';
 	import RestTrack from './RestTrack.svelte';
 	import StatusTrack from './StatusTrack.svelte';
 
@@ -58,6 +59,11 @@
 	<div class="actor-dense-info">
 		<!--  -->
 	</div>
+
+	<footer class="actor-sidebar-footer">
+		<!--  -->
+		<Passives />
+	</footer>
 </div>
 
 <style lang="scss">
@@ -95,5 +101,10 @@
 		margin-block: 1rem;
 		padding: 0;
 		list-style: none;
+	}
+
+	.actor-sidebar-footer {
+		position: fixed;
+		bottom: 0.5rem;
 	}
 </style>
