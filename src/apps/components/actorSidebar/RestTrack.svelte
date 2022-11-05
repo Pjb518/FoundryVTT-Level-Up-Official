@@ -19,7 +19,7 @@
 		align-items: center;
 		border-radius: 50%;
 
-		top: 39%;
+		bottom: 1rem;
 		right: 0.5rem;
 
 		&-icon {

@@ -25,6 +25,12 @@
 	</header>
 
 	<div class="resource-value-container">
+		{#if resource.max === 0 && sheetIsLocked}
+			<button type="button" class="a5e-button resource-btn">
+				<i class="fas fa-minus" />
+			</button>
+		{/if}
+
 		<input
 			type="number"
 			name="system.resources.{source}.value"
@@ -36,18 +42,9 @@
 		/>
 
 		{#if resource.max === 0 && sheetIsLocked}
-			<span class="resource-btn-container">
-				<button
-					type="button"
-					class="a5e-button a5e-button--add-item resource-btn"
-				>
-					<i class="fas fa-plus" />
-				</button>
-
-				<button type="button" class="a5e-button a5e-button--red resource-btn">
-					<i class="fas fa-minus" />
-				</button>
-			</span>
+			<button type="button" class="a5e-button resource-btn">
+				<i class="fas fa-plus" />
+			</button>
 		{:else}
 			<span class="resource-seperator"> / </span>
 
@@ -96,11 +93,6 @@
 		padding-inline: 0.25rem;
 	}
 
-	.resource-btn-container {
-		display: flex;
-		margin-left: auto;
-	}
-
 	.resource-setting {
 		position: absolute;
 		top: 0.25rem;
@@ -115,6 +107,7 @@
 		align-items: center;
 		width: 1.25rem;
 		height: 1.25rem;
+		background-color: rgba(0 0 0 / 0.1);
 
 		& > i {
 			margin: 0;
