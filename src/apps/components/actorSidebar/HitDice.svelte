@@ -7,13 +7,16 @@
 	$: availableHitDice = computeTotalAvailableHitDice($actor);
 </script>
 
-<div
-	class="hit-dice"
-	data-tooltip="A5E.HitDiceRemaining"
-	data-tooltip-direction="DOWN"
->
-	{availableHitDice}
-</div>
+<li>
+	<h4 class="hit-die-label">Hit Die</h4>
+	<div
+		class="hit-dice"
+		data-tooltip="A5E.HitDiceRemaining"
+		data-tooltip-direction="DOWN"
+	>
+		{availableHitDice}
+	</div>
+</li>
 
 <style lang="scss">
 	.hit-dice {
@@ -21,9 +24,9 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
-		width: 2.125rem;
-		height: 2.125rem;
-		font-size: 1.2rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		font-size: 1.44rem;
 		font-family: 'Modesto Condensed', serif;
 		color: #7e7960;
 		border: 1px solid #ccc;
@@ -31,5 +34,12 @@
 		background: #f6f2eb;
 		box-shadow: 0 0 10px #ccc inset;
 		z-index: 4;
+		margin: auto;
+	}
+
+	.hit-die-label {
+		font-size: 0.694rem;
+		text-align: center;
+		padding-bottom: 0.125rem;
 	}
 </style>

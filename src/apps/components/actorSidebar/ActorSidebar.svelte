@@ -44,18 +44,20 @@
 		<RestTrack />
 	</section>
 
+	<!--  -->
 	<HitPointValues {hp} />
 
+	<!--  -->
 	<ul class="actor-glance-trackers">
-		<!-- AC -->
 		<ArmorClass />
-
-		<!-- Initiative -->
-		<Initiative />
-
-		<!-- Hit die -->
 		<HitDice />
+		<Initiative />
 	</ul>
+
+	<!--  -->
+	<div class="actor-dense-info">
+		<!--  -->
+	</div>
 </div>
 
 <style lang="scss">
@@ -65,7 +67,7 @@
 		flex-grow: 0;
 		flex-shrink: 0;
 		height: 100%;
-		width: 217px;
+		width: 200px;
 		padding: 0.75rem;
 		border-right: 1px solid #ccc;
 	}
@@ -85,10 +87,13 @@
 	}
 
 	.actor-glance-trackers {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
 		justify-content: center;
 		align-items: center;
-		gap: 1rem;
-		margin: 1rem;
+		gap: 0.5rem;
+		margin-block: 1rem;
+		padding: 0;
+		list-style: none;
 	}
 </style>

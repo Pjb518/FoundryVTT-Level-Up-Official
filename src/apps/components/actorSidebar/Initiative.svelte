@@ -6,10 +6,13 @@
 	const actor = getContext('actor');
 </script>
 
-<i
-	class="initiative-roll-button fas fa-dice-d20"
-	on:click={() => rollInitiative($actor)}
-/>
+<li>
+	<h4 class="initiative-label">Initiative</h4>
+	<i
+		class="initiative-roll-button fas fa-dice-d20"
+		on:click={() => rollInitiative($actor)}
+	/>
+</li>
 
 <!-- <div
         v-if="!sheetIsLocked"
@@ -29,6 +32,9 @@
 		flex-grow: 1;
 		color: #7e7960;
 		font-size: 1.44rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		margin: auto;
 		cursor: pointer;
 
 		transition: all 0.15s ease-in-out;
@@ -37,5 +43,11 @@
 			transform: scale(1.2);
 			color: inherit;
 		}
+	}
+
+	.initiative-label {
+		font-size: 0.694rem;
+		text-align: center;
+		padding-bottom: 0.125rem;
 	}
 </style>
