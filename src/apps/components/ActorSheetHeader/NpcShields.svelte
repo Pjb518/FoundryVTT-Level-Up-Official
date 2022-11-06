@@ -46,7 +46,7 @@
 			placeholder="0"
 			min="0"
 			on:change={({ target }) =>
-				updateDocumentDataFromField($actor, target.name, target.value)}
+				updateDocumentDataFromField($actor, target.name, Number(target.value))}
 			on:click={({ target }) => target.select()}
 		/>
 	</div>

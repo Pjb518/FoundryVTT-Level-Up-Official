@@ -56,7 +56,11 @@
 				placeholder="0"
 				disabled={sheetIsLocked}
 				on:change={({ target }) =>
-					updateDocumentDataFromField($actor, target.name, target.value)}
+					updateDocumentDataFromField(
+						$actor,
+						target.name,
+						Number(target.value)
+					)}
 			/>
 		{/if}
 	</div>
