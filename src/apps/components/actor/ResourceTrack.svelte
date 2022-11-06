@@ -25,7 +25,7 @@
 	</header>
 
 	<div class="resource-value-container">
-		{#if resource.max === 0 && sheetIsLocked}
+		{#if resource.hideMax}
 			<button type="button" class="a5e-button resource-btn">
 				<i class="fas fa-minus" />
 			</button>
@@ -41,7 +41,7 @@
 				updateDocumentDataFromField($actor, target.name, target.value)}
 		/>
 
-		{#if resource.max === 0 && sheetIsLocked}
+		{#if resource.hideMax}
 			<button type="button" class="a5e-button resource-btn">
 				<i class="fas fa-plus" />
 			</button>
