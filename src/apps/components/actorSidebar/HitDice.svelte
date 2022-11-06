@@ -8,7 +8,7 @@
 </script>
 
 <li>
-	<h4 class="hit-die-label">Hit Die</h4>
+	<h4 class="hit-die-label">Hit Dice</h4>
 	<div
 		class="hit-dice"
 		data-tooltip="A5E.HitDiceRemaining"
@@ -33,12 +33,11 @@
 		border-radius: 50%;
 		background: #f6f2eb;
 		box-shadow: 0 0 10px #ccc inset;
-		z-index: 4;
 		margin: auto;
 	}
 
 	.hit-die-label {
-		font-size: 0.694rem;
+		font-size: 1rem;
 		text-align: center;
 		padding-bottom: 0.125rem;
 	}

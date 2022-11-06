@@ -46,24 +46,23 @@
 		<RestTrack />
 	</section>
 
-	<!--  -->
-	<HitPointValues {hp} />
+	<section class="actor-sidebar-lower">
+		<HitPointValues {hp} />
 
-	<!--  -->
-	<ul class="actor-glance-trackers">
-		<ArmorClass />
-		<HitDice />
-		<Initiative />
-	</ul>
+		<ul class="actor-glance-trackers">
+			<ArmorClass />
+			<HitDice />
+			<Initiative />
+		</ul>
 
-	<!--  -->
-	<div class="actor-details">
-		<Details />
-	</div>
+		<div class="actor-details">
+			<Details />
+		</div>
 
-	<footer class="actor-sidebar-footer">
-		<Passives />
-	</footer>
+		<footer class="actor-sidebar-footer">
+			<Passives />
+		</footer>
+	</section>
 </div>
 
 <style lang="scss">
@@ -92,24 +91,35 @@
 		z-index: 1;
 	}
 
+	.actor-sidebar-lower {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		gap: 0.5rem;
+		height: 100%;
+		overflow: hidden;
+	}
+
 	.actor-glance-trackers {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		justify-content: center;
+		display: flex;
+		justify-content: space-evenly;
 		align-items: center;
 		gap: 0.5rem;
-		margin-block: 0.75rem;
+		font-family: 'Modesto Condensed', serif;
 		padding: 0;
 		list-style: none;
 	}
 
 	.actor-details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		flex-grow: 1;
 		overflow-y: auto;
-		margin-bottom: 0.75rem;
 	}
 
 	.actor-sidebar-footer {
-		margin-top: auto;
-		padding-bottom: 0.125rem;
+		display: flex;
+		gap: 0.25rem;
 	}
 </style>

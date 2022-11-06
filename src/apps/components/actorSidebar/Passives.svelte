@@ -21,30 +21,22 @@
 	];
 </script>
 
-<div class="passives-container">
-	{#each passiveFields as { label, value }}
-		<div class="passive-box">
-			<h4 class="passive-label">{label}</h4>
+{#each passiveFields as { label, value }}
+	<div class="passive-box">
+		<h4 class="passive-label">{label}</h4>
 
-			<div class="passive-value">
-				{value}
-			</div>
+		<div class="passive-value">
+			{value}
 		</div>
-	{/each}
-</div>
+	</div>
+{/each}
 
 <style lang="scss">
-	.passives-container {
-		display: flex;
-		gap: 0.25rem;
-	}
-
 	.passive-box {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		width: 3.5rem;
+		flex: 1;
 		padding: 0.125rem 0;
 		font-family: 'Modesto Condensed', serif;
 		color: #7e7960;
@@ -52,7 +44,6 @@
 		border-radius: 4px;
 		background-color: #f6f2eb;
 		box-shadow: 0 0 5px #ccc inset;
-		z-index: 4;
 	}
 
 	.passive-label {

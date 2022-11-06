@@ -9,8 +9,9 @@
 	import prepareDamageVulnerabilities from '../../handlers/prepareDamageVulnerabilities';
 	import prepareLanguageProficiencies from '../../handlers/prepareLanguageProficiencies';
 	import prepareSenses from '../../handlers/prepareSenses';
+	import prepareMovementData from '../../handlers/prepareMovementData';
 	import prepareToolProficiencies from '../../handlers/prepareToolProficiencies';
-	// import prepareWeaponProficiencies from '../../handlers/prepareWeaponProficiencies';
+	import prepareWeaponProficiencies from '../../handlers/prepareWeaponProficiencies';
 
 	const actor = getContext('actor');
 
@@ -40,14 +41,15 @@
 			values: prepareLanguageProficiencies($actor),
 		},
 		{ label: localize('A5E.SensesSpecial'), values: prepareSenses($actor) },
+		{ label: localize('A5E.Movement'), values: prepareMovementData($actor) },
 		{
 			label: localize('A5E.ToolProficiencies'),
 			values: prepareToolProficiencies($actor),
 		},
-		// {
-		// 	label: localize('weaponProf'),
-		// 	values: prepareWeaponProficiencies($actor),
-		// },
+		{
+			label: localize('weaponProf'),
+			values: prepareWeaponProficiencies($actor),
+		},
 	];
 
 	$: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -64,16 +66,7 @@
 				<i class="fas fa-gear a5e-config-button details-config" />
 			{/if}
 
-			<ul
-				class=" u-flex
-        u-flex-wrap
-        u-font-san-serif
-        u-gap-xs
-        u-list-style-none
-        u-m-0
-        u-p-0
-        u-text-xxs"
-			>
+			<ul class="details-list">
 				{#each values as tag}
 					<li class="a5e-tag a5e-tag--tight details-tag">
 						{tag}
@@ -87,13 +80,12 @@
 <style lang="scss">
 	.details-section {
 		position: relative;
-		margin-block-end: 0.5rem;
 	}
 
 	.details-header {
 		font-family: 'Modesto Condensed', serif;
 		font-size: 1rem;
-		margin-bottom: 0.125rem;
+		margin-bottom: 0.25rem;
 		border-bottom: 1px solid #ccc;
 	}
 
@@ -101,6 +93,16 @@
 		position: absolute;
 		top: 0.125rem;
 		right: 0.125rem;
+	}
+
+	.details-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem;
+		font-size: 0.579rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	.details-tag {

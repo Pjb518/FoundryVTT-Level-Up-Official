@@ -1,7 +1,7 @@
-import arraysAreEqual from '../../../modules/utils/arraysAreEqual';
+import arraysAreEqual from '../../modules/utils/arraysAreEqual';
 
 export default function getWeaponProficiencies(data) {
-  const weaponProficienciesByGroup = data.data.proficiencies.weapons.reduce(
+  const weaponProficienciesByGroup = data.system.proficiencies.weapons.reduce(
     (acc, curr) => {
       if (Object.keys(CONFIG.A5E.weaponsPlural.martial).includes(curr)) {
         acc.martial.push(curr);
