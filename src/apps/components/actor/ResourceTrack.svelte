@@ -70,11 +70,11 @@
 
 <style lang="scss">
 	.resource {
-		list-style-type: none;
 		position: relative;
 		padding: 0.125rem;
 		border: 1px solid #ccc;
 		border-radius: 3px;
+		min-width: 7rem;
 	}
 
 	.resource-label {
@@ -91,6 +91,10 @@
 		margin-bottom: 0.5rem;
 		gap: 0.25rem;
 		padding-inline: 0.25rem;
+	}
+
+	.resource-number-input {
+		flex-grow: 1;
 	}
 
 	.resource-setting {

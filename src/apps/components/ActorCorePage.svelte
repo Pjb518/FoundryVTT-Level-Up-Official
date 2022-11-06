@@ -72,12 +72,12 @@
 	}
 
 	.resources-container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+		display: flex;
 		gap: 0.5rem;
 		width: 100%;
 		align-items: center;
 		margin: 0;
 		padding: 0;
+		list-style: none;
 	}
 </style>
