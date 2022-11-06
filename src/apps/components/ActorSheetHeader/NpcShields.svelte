@@ -2,11 +2,38 @@
 	import { getContext } from 'svelte';
 
 	import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+	import Details from '../actorSidebar/Details.svelte';
+
+	export let isElite;
+	export let sheetIsLocked;
 
 	const actor = getContext('actor');
+
+	function updateEliteStatus() {
+		if (sheetIsLocked) return;
+
+		updateDocumentDataFromField($actor, 'system.details.elite', !isElite);
+	}
+
+	$: isElite = $actor.system.details.elite;
+	$: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="level-container">
+	{#if isElite || !sheetIsLocked}
+		<div class="level-box">
+			<label class="xp-label" for="{$actor.id}-elite">Elite</label>
+
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<i
+				class="fas fa-skull shield-elite"
+				class:shield-elite--active={isElite}
+				class:shield-elite--editable={!sheetIsLocked}
+				on:click={updateEliteStatus}
+			/>
+		</div>
+	{/if}
+
 	<div class="level-box">
 		<label class="xp-label" for="{$actor.id}-cr">CR</label>
 
@@ -87,5 +114,19 @@
 
 	.xp-label {
 		font-size: 0.694rem;
+	}
+
+	.shield-elite {
+		font-size: 1rem;
+		border: 0;
+		padding: 0.125rem;
+
+		&--active {
+			color: #772020;
+		}
+
+		&--editable {
+			cursor: pointer;
+		}
 	}
 </style>

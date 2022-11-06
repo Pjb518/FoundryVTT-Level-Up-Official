@@ -95,8 +95,7 @@
 		text-align: center;
 		border: 0;
 		background: transparent;
-		padding-left: 0.125rem;
-		padding-right: 0.125rem;
+		padding-inline: 0.125rem;
 		font-size: 1rem;
 
 		&:active,

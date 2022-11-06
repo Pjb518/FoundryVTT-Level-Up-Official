@@ -4,7 +4,7 @@
 	import AbilityScores from './AbilityScores.svelte';
 	import Level from './Level.svelte';
 	import LockButton from './LockButton.svelte';
-	import NpcLevel from './NpcLevel.svelte';
+	import NpcShields from './NpcShields.svelte';
 
 	import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
@@ -31,7 +31,7 @@
 			</section>
 		{:else}
 			<section>
-				<NpcLevel />
+				<NpcShields />
 			</section>
 		{/if}
 
