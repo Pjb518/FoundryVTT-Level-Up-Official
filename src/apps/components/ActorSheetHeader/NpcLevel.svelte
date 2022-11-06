@@ -1,58 +1,37 @@
 <script>
 	import { getContext } from 'svelte';
 
-	import getRequiredExperiencePoints from '../../utils/getRequiredExperiencePoints';
 	import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-	export let requiredXP;
-
 	const actor = getContext('actor');
-	$: requiredXP = getRequiredExperiencePoints($actor);
 </script>
 
 <div class="level-container">
 	<div class="level-box">
-		<label class="xp-label" for="{$actor.id}-level">Level</label>
+		<label class="xp-label" for="{$actor.id}-cr">CR</label>
 
 		<input
-			id="{$actor.id}-level"
+			id="{$actor.id}-cr"
 			class="xp-input"
 			type="number"
-			name="system.details.level"
-			value={$actor.system.details.level}
+			name="system.details.cr"
+			value={$actor.system.details.cr}
 			placeholder="0"
 			min="0"
 			on:change={({ target }) =>
-				updateDocumentDataFromField($actor, target.name, Number(target.value))}
+				updateDocumentDataFromField($actor, target.name, target.value)}
 			on:click={({ target }) => target.select()}
 		/>
 	</div>
 
-	<div class="xp-box">
-		<label class="xp-label" for="{$actor.id}-current-xp">Current XP</label>
+	<div class="level-box">
+		<label class="xp-label" for="{$actor.id}-prof"> Prof. </label>
 
 		<input
-			id="{$actor.id}-current-xp"
+			id="{$actor.id}-prof"
 			class="xp-input"
 			type="number"
-			name="system.details.xp"
-			value={$actor.system.details.xp}
-			placeholder="0"
-			min="0"
-			on:change={({ target }) =>
-				updateDocumentDataFromField($actor, target.name, Number(target.value))}
-			on:click={({ target }) => target.select()}
-		/>
-	</div>
-
-	<div class="xp-box">
-		<label class="xp-label" for="{$actor.id}-required-xp"> Required XP </label>
-
-		<input
-			id="{$actor.id}-required-xp"
-			class="xp-input"
-			type="number"
-			value={requiredXP}
+			value={$actor.system.prof}
 			placeholder="0"
 			min="0"
 			disabled

@@ -4,6 +4,7 @@
 	import AbilityScores from './AbilityScores.svelte';
 	import Level from './Level.svelte';
 	import LockButton from './LockButton.svelte';
+	import NpcLevel from './NpcLevel.svelte';
 
 	import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
@@ -22,27 +23,17 @@
 				on:change={({ target }) =>
 					updateDocumentDataFromField($actor, target.name, target.value)}
 			/>
-
-			<!-- {#if $actor.type === "character"}
-                <input
-                    class="a5e-input a5e-input--classes"
-                    type="text"
-                    name="system.details.classes"
-                    value={$actor.system.details.classes}
-                    placeholder="Class"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value
-                        )}
-                />
-            {/if} -->
 		</section>
 
-		<section>
-			<Level />
-		</section>
+		{#if $actor.type === 'character'}
+			<section>
+				<Level />
+			</section>
+		{:else}
+			<section>
+				<NpcLevel />
+			</section>
+		{/if}
 
 		<LockButton />
 	</section>
