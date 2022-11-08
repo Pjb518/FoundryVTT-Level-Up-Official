@@ -1,17 +1,18 @@
 import './scss/main.scss';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
-import ActorSheet5e from "./apps/ActorSheet";
-import ItemSheet5e from "./apps/ItemSheet";
+import ActorSheet5e from './apps/ActorSheet';
+import ItemSheet5e from './apps/ItemSheet';
 
 import A5E from './modules/config';
-import ActiveEffect5e from "./documents/activeEffects";
+import ActiveEffect5e from './documents/activeEffects';
 import Actor5e from './documents/actor';
 import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
 import Item5e from './documents/item';
 import Token5e from './documents/token';
 import TokenDocument5e from './documents/tokenDocument';
+import TokenHUD5e from './documents/tokenHUD';
 
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
@@ -41,7 +42,7 @@ Hooks.once('init', () => {
   game.a5e = {
     applications: {
       ActorSheet5e,
-      ItemSheet5e,
+      ItemSheet5e
     },
     config: A5E,
     dice: {
@@ -174,6 +175,7 @@ Hooks.once('ready', () => {
 Hooks.on('canvasInit', () => {
   canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
   SquareGrid.prototype.measureDistances = measureDistances;
+  game.canvas.hud.token = new TokenHUD5e();
 });
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));

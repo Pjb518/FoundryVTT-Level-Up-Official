@@ -3,9 +3,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
-import alterConditionInterface from './utils/alterConditionInterface';
 import automateBloodied from './utils/bloodied';
-import sortConditions from './utils/sortConditions';
 import { addSubConditions, removeSubConditions } from './utils/subConditions';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -20,29 +18,6 @@ export default function setupConditions() {
 
   // Setup Hook to remove sub-conditions
   Hooks.on('deleteActiveEffect', removeSubConditions);
-
-  // Change Default Conditions Interface
-  const HUDRender = function (wrapped, ...args) {
-    return wrapped(...args).then(() => {
-      alterConditionInterface.call(this, this.element);
-    });
-  };
-
-  // Optionally use libWrapper
-  if (game.modules.get('lib-wrapper')?.active) {
-    libWrapper.register('a5e', 'TokenHUD.prototype._render', HUDRender, 'WRAPPER');
-    libWrapper.register('a5e', 'TokenHUD.prototype._getStatusEffectChoices', sortConditions, 'WRAPPER');
-  } else {
-    const defaultRender = TokenHUD.prototype._render;
-    TokenHUD.prototype._render = function () {
-      return HUDRender.call(this, defaultRender.bind(this), ...arguments);
-    };
-
-    const defaultChoices = TokenHUD.prototype._getStatusEffectChoices;
-    TokenHUD.prototype._getStatusEffectChoices = function () {
-      return sortConditions.call(this, defaultChoices.bind(this), ...arguments);
-    };
-  }
 
   // Apply Bloodied Condition.
   Hooks.on('updateActor', automateBloodied);
@@ -299,7 +274,7 @@ function getConditions() {
       flags: { a5e: {} }
     },
     {
-      id: 'generic2',
+      id: 'generic5',
       label: 'A5E.ConditionGeneric5',
       icon: 'icons/magic/light/explosion-star-small-teal-purple.webp',
       changes: [],

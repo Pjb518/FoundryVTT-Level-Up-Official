@@ -19,5 +19,8 @@ export default async () => loadTemplates([
   'systems/a5e/templates/announcements/0.6.0.hbs',
 
   // Settings
-  'systems/a5e/templates/conditionAutomationMenu.hbs'
+  'systems/a5e/templates/conditionAutomationMenu.hbs',
+
+  // Hud
+  'systems/a5e/templates/hud/token-hud.hbs'
 ]);
