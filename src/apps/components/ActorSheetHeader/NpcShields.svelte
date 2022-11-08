@@ -2,8 +2,9 @@
 	import { getContext } from 'svelte';
 
 	import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
-	import Details from '../actorSidebar/Details.svelte';
+	import prepareXP from '../../handlers/prepareXP';
 
+	export let xp;
 	export let isElite;
 	export let sheetIsLocked;
 
@@ -15,6 +16,7 @@
 		updateDocumentDataFromField($actor, 'system.details.elite', !isElite);
 	}
 
+	$: xp = prepareXP($actor);
 	$: isElite = $actor.system.details.elite;
 	$: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
@@ -48,6 +50,20 @@
 			on:change={({ target }) =>
 				updateDocumentDataFromField($actor, target.name, Number(target.value))}
 			on:click={({ target }) => target.select()}
+		/>
+	</div>
+
+	<div class="level-box">
+		<label class="xp-label" for="{$actor.id}-xp"> XP </label>
+
+		<input
+			id="{$actor.id}-xp"
+			class="xp-input"
+			type="number"
+			value={xp}
+			placeholder="0"
+			min="0"
+			disabled
 		/>
 	</div>
 
