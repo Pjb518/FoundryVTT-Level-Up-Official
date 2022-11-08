@@ -4,6 +4,8 @@
 
 	import prepareArmorProficiencies from '../../handlers/prepareArmorProficiencies';
 	import prepareConditionImmunities from '../../handlers/prepareConditionImmunities';
+	import prepareCreatureTypes from '../../handlers/prepareCreatureTypes';
+	import prepareCreatureSize from '../../handlers/prepareCreatureSize';
 	import prepareDamageImmunities from '../../handlers/prepareDamageImmunities';
 	import prepareDamageResistances from '../../handlers/prepareDamageResistances';
 	import prepareDamageVulnerabilities from '../../handlers/prepareDamageVulnerabilities';
@@ -16,9 +18,11 @@
 	const actor = getContext('actor');
 
 	$: details = [
+		{ label: localize('A5E.Movement'), values: prepareMovementData($actor) },
+		{ label: localize('A5E.SensesSpecial'), values: prepareSenses($actor) },
 		{
-			label: localize('A5E.ArmorProficiencies'),
-			values: prepareArmorProficiencies($actor),
+			label: localize('A5E.Languages'),
+			values: prepareLanguageProficiencies($actor),
 		},
 		{
 			label: localize('A5E.ConditionImmunities'),
@@ -37,18 +41,24 @@
 			values: prepareDamageVulnerabilities($actor),
 		},
 		{
-			label: localize('A5E.Languages'),
-			values: prepareLanguageProficiencies($actor),
+			label: localize('A5E.WeaponProficiencies'),
+			values: prepareWeaponProficiencies($actor),
 		},
-		{ label: localize('A5E.SensesSpecial'), values: prepareSenses($actor) },
-		{ label: localize('A5E.Movement'), values: prepareMovementData($actor) },
+		{
+			label: localize('A5E.ArmorProficiencies'),
+			values: prepareArmorProficiencies($actor),
+		},
 		{
 			label: localize('A5E.ToolProficiencies'),
 			values: prepareToolProficiencies($actor),
 		},
 		{
-			label: localize('weaponProf'),
-			values: prepareWeaponProficiencies($actor),
+			label: localize('A5E.Size'),
+			values: prepareCreatureSize($actor),
+		},
+		{
+			label: localize('A5E.CreatureTypesLabel'),
+			values: prepareCreatureTypes($actor),
 		},
 	];
 
