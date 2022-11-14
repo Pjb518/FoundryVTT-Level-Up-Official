@@ -1,56 +1,73 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { getContext } from "svelte";
+	import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+	import { getContext } from 'svelte';
+	import Search from 'svelte-search';
 
-    import ItemWrapper from "./item/ItemWrapper.svelte";
+	import ItemWrapper from './item/ItemWrapper.svelte';
 
-    const actor = getContext("actor");
-    const { objects } = actor;
+	const actor = getContext('actor');
+	const { objects } = actor;
+
+	let searchTerm = '';
 </script>
 
-<header class="section-header">
-    <h3>
-        {localize("A5E.TabInventory")}
-    </h3>
+<header class="search-container">
+	<Search
+		bind:searchTerm
+		hideLabel
+		placeholder="Search..."
+		on:type={e => {
+			console.log(e.detail);
+		}}
+	/>
+
+	<i class="fas fa-sort" />
+	<i class="fas fa-filter" />
 </header>
 
 <ul class="items-container">
-    {#each [...$objects] as item}
-        <ItemWrapper>
-            <img class="item-image" src={item.img} alt={item.name} />
-            {item.name}
-        </ItemWrapper>
-    {/each}
+	{#each [...$objects] as item}
+		<ItemWrapper>
+			<img class="item-image" src={item.img} alt={item.name} />
+			{item.name}
+		</ItemWrapper>
+	{/each}
 </ul>
 
 <style lang="scss">
-    .item-image {
-        height: 1.75rem;
-        width: 1.75rem;
-        border-radius: 3px;
-    }
+	.search-container {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
 
-    .items-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        padding: 0;
-        padding-right: 0.375rem;
-        margin: 0;
-        margin-right: -0.375rem;
-        list-style: none;
-        overflow-y: auto;
-    }
+	// TODO: Move this to global styles
+	:global([data-svelte-search]) {
+		flex-grow: 1;
+	}
 
-    .section-header {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 0.25rem;
-        padding-top: 0;
-        border-bottom: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: "Modesto Condensed", serif;
-    }
+	:global([data-svelte-search] input) {
+		background-color: #f6f2eb;
+		color: #7e7960;
+		box-shadow: 0 0 5px #ccc inset;
+		border-radius: 4px;
+	}
+
+	.item-image {
+		height: 1.75rem;
+		width: 1.75rem;
+		border-radius: 3px;
+	}
+
+	.items-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0;
+		padding-right: 0.375rem;
+		margin: 0;
+		margin-right: -0.375rem;
+		list-style: none;
+		overflow-y: auto;
+	}
 </style>
