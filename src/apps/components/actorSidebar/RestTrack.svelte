@@ -20,7 +20,7 @@
         border-radius: 50%;
 
         bottom: 1rem;
-        right: 0.5rem;
+        right: 0.625rem;
 
         &-icon {
             z-index: 1;

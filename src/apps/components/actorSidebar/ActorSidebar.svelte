@@ -73,7 +73,7 @@
         flex-shrink: 0;
         height: 100%;
         width: 200px;
-        padding: 0.75rem;
+        padding: 0.5rem;
         border-right: 1px solid #ccc;
     }
 
