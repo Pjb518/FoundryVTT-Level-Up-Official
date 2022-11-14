@@ -21,19 +21,21 @@
 
     <ul class="track-items">
         {#each [0, 1, 2, 3, 4, 5, 6, 7] as degree}
-            <li
-                class="track-item a5e-js-track-item {value === degree
-                    ? 'track-item-selected'
-                    : ''}"
-                data-degree={degree}
-                on:click={() =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.attributes.${trackProperty}`,
-                        degree
-                    )}
-            >
-                {degree}
+            <li>
+                <button
+                    class="track-item a5e-js-track-item {value === degree
+                        ? 'track-item-selected'
+                        : ''}"
+                    data-degree={degree}
+                    on:click={() =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.attributes.${trackProperty}`,
+                            degree
+                        )}
+                >
+                    {degree}
+                </button>
             </li>
         {/each}
     </ul>
@@ -102,11 +104,17 @@
             align-items: center;
             padding: 0 0.5rem;
             cursor: pointer;
+            background: transparent;
+            font-size: inherit;
+            font-family: inherit;
+            border-radius: 0;
 
             transition: all 0.15s ease-in-out;
 
+            &:focus,
             &:hover {
                 background: darken(#dddace, 2.5%);
+                box-shadow: none;
             }
 
             &-selected {
