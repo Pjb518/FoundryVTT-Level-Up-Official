@@ -49,8 +49,7 @@
 <style lang="scss">
     .delete-button {
         color: #8b2525;
-        margin-left: auto;
-        margin-right: 0.5rem;
+        margin-inline: auto 0.5rem;
         padding: 0.25rem;
         cursor: pointer;
         transition: all 0.15s ease-in-out;

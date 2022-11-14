@@ -53,8 +53,7 @@ $margin-sizes: (
   &x {
     @each $label, $size in $margin-sizes {
       &-#{$label} {
-        margin-right: $size;
-        margin-left: $size;
+        margin-inline: $size;
       }
     }
   }
@@ -62,8 +61,7 @@ $margin-sizes: (
   &y {
     @each $label, $size in $margin-sizes {
       &-#{$label} {
-        margin-top: $size;
-        margin-bottom: $size;
+        margin-block: $size;
       }
     }
   }
