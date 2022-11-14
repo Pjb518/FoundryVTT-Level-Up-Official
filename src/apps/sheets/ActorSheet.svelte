@@ -65,13 +65,8 @@
             component: ActorSpellsPage,
         },
         {
-            name: "biography",
-            label: "A5E.TabBiography",
-            component: ActorCorePage,
-        },
-        {
-            name: "journal",
-            label: "A5E.TabJournal",
+            name: "notes",
+            label: "A5E.TabNotes",
             component: ActorCorePage,
         },
         {
@@ -85,6 +80,14 @@
             component: ActorCorePage,
         },
     ];
+
+    if (actorDocument.type === "character") {
+        tabs.splice(6, 0, {
+            name: "biography",
+            label: "A5E.TabBiography",
+            component: ActorCorePage,
+        });
+    }
 
     $: currentTab = tabs[0];
 
