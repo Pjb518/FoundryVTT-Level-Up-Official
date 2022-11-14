@@ -46,6 +46,7 @@
                         class="ability-score-label"
                         for={`${$item.id}-ASI-${ability}`}
                     >
+                        <!-- svelte-ignore missing-declaration (CONFIG) -->
                         {localize(CONFIG.A5E.abilities[ability])}
                     </label>
                 {/each}
@@ -63,6 +64,7 @@
         <h3>Select Starting Equipment</h3>
 
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+            <!-- svelte-ignore missing-declaration (fromUuid) -->
             {#each $item.system?.equipment.map( (uuid) => fromUuid(uuid) ) as promise}
                 {#await promise then equipment}
                     <input

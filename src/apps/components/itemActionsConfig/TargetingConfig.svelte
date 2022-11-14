@@ -105,6 +105,7 @@
                 name="data.target.type"
                 on:change={selectTarget}
             >
+                <!-- svelte-ignore missing-declaration (foundry) -->
                 <option
                     value={null}
                     selected={foundry.utils.isEmpty(action?.target)}
@@ -112,6 +113,7 @@
                     {localize("A5E.None")}
                 </option>
 
+                <!-- svelte-ignore missing-declaration (CONFIG)-->
                 {#each Object.entries(CONFIG.A5E.targetTypes) as [key, name] (key)}
                     <option value={key} selected={action?.target?.type === key}>
                         {localize(name)}

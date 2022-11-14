@@ -6,6 +6,7 @@
 </script>
 
 <ul class="skills-container">
+    <!-- svelte-ignore missing-declaration (CONFIG)-->
     {#each Object.entries(CONFIG.A5E.skills) as [skill, label]}
         <li class="skill" data-skill={skill}>
             {localize(label)}

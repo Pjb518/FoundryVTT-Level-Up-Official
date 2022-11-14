@@ -107,8 +107,7 @@
             font-size: 0.833rem;
         }
 
-        input[type="text"],
-        input[type="number"] {
+        input[type="text"] {
             width: 100%;
         }
     }

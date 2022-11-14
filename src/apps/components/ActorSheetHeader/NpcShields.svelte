@@ -96,8 +96,7 @@
         font-family: "Modesto Condensed", serif;
     }
 
-    .level-box,
-    .xp-box {
+    .level-box {
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -23,6 +23,7 @@
     </header>
 
     <div class="area-shape-list">
+        <!-- svelte-ignore missing-declaration (foundry)-->
         <input
             class="area-shape-input"
             id={`area-${actionId}-none}`}
@@ -41,6 +42,7 @@
             {localize("A5E.None")}
         </label>
 
+        <!-- svelte-ignore missing-declaration  (CONFIG)-->
         {#each Object.entries(CONFIG.A5E.areaTypes) as [key, name] (key)}
             <AreaShape {action} {actionId} {item} {key} {name} />
         {/each}

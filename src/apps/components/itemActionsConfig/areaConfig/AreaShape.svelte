@@ -26,6 +26,7 @@
 />
 
 <label class="area-shape-label" for={`area-${actionId}-${key}`}>
+    <!-- svelte-ignore missing-declaration (CONFIG) -->
     <span class="u-text-sm">
         {@html CONFIG.A5E.areaIcons[key]}
     </span>

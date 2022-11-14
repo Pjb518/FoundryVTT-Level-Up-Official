@@ -36,7 +36,10 @@ const config = {
       onwarn: (warning, handler) => {
         // Suppress `a11y-missing-attribute` for missing href in <a> links.
         // Foundry doesn't follow accessibility rules.
-        if (warning.message.includes('<a> element should have an href attribute')) { return; }
+        if (warning.message.includes('<a> element should have an href attribute')) return;
+        if (warning.code === 'a11y-click-events-have-key-events') return;
+
+        console.log(warning);
 
         // Let Rollup handle all other warnings normally.
         handler(warning);
