@@ -22,7 +22,6 @@
             async: false,
         })}
         on:editor:save={(event) => updateDescription(event)}
-        on:editor:start={() => console.log("! event - editor:start")}
     />
 </div>
 
