@@ -31,7 +31,7 @@ export default class ItemSheet extends SvelteApplication {
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['a5e-sheet'],
+      classes: ['a5e-sheet', 'a5e-item-sheet'],
       resizable: true,
       minimizable: true,
       width: 512,

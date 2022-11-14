@@ -89,8 +89,7 @@
         text-align: center;
         border: 0;
         background: transparent;
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
+        padding-inline: 0.25rem;
         font-size: 1rem;
 
         &:active,
