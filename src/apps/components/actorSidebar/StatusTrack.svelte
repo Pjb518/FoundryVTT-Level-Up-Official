@@ -100,13 +100,10 @@
 
         &-item {
             display: flex;
-            height: 100%;
             align-items: center;
+            height: 100%;
             padding: 0 0.5rem;
-            cursor: pointer;
             background: transparent;
-            font-size: inherit;
-            font-family: inherit;
             border-radius: 0;
 
             transition: all 0.15s ease-in-out;
