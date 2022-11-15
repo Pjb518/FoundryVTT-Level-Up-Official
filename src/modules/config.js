@@ -421,6 +421,23 @@ A5E.objectTypes = {
 };
 
 /**
+ * The set of object subtypes available within the system.
+ * @enum {string}
+ */
+A5E.objectTypesPlural = {
+  armors: 'A5E.ObjectTypeArmorPlural',
+  ammunition: 'A5E.ObjectTypeAmmunition',
+  clothing: 'A5E.ObjectTypeClothing',
+  consumables: 'A5E.ObjectTypeConsumablePlural',
+  containers: 'A5E.ObjectTypeContainerPlural',
+  jewelry: 'A5E.ObjectTypeJewelry',
+  miscellaneous: 'A5E.ObjectTypeMiscellaneous',
+  shields: 'A5E.ObjectTypeShieldPlural',
+  tools: 'A5E.ObjectTypeToolPlural',
+  weapons: 'A5E.ObjectTypeWeaponPlural'
+};
+
+/**
  * The set of core range types in the system.
  * @enum {string}
  */

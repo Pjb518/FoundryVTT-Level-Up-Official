@@ -5,11 +5,14 @@
 
 	export let label;
 	export let items;
+	export let type;
 </script>
 
 <section class="category-container">
 	<!-- svelte-ignore missing-declaration -->
-	<h3 class="category-header">{localize(CONFIG.A5E.objectTypes[label])}</h3>
+	<h3 class="category-header">
+		{localize(CONFIG.A5E[type][label])}
+	</h3>
 
 	<ul class="items-container">
 		{#each [...items] as item}
