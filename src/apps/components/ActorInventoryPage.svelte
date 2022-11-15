@@ -7,6 +7,7 @@
 
 	const actor = getContext('actor');
 	const { objects } = actor;
+	const { weapons } = objects._types;
 
 	let searchTerm = '';
 </script>
