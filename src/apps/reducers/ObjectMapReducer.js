@@ -93,35 +93,35 @@ export default class ObjectMapReducer extends DynMapReducer {
 
     this._types = {
       ammunition: this.derived.create(AmmunitionMapReducer),
-      armors: this.derived.create(ArmorMapReducer),
+      armor: this.derived.create(ArmorMapReducer),
       clothing: this.derived.create(ClothingMapReducer),
-      consumables: this.derived.create(ConsumableMapReducer),
-      containers: this.derived.create(ContainerMapReducer),
+      consumable: this.derived.create(ConsumableMapReducer),
+      container: this.derived.create(ContainerMapReducer),
       jewelry: this.derived.create(JewelryMapReducer),
       miscellaneous: this.derived.create(MiscellaneousMapReducer),
-      shields: this.derived.create(ShieldMapReducer),
-      tools: this.derived.create(ToolMapReducer),
-      weapons: this.derived.create(WeaponsMapReducer)
+      shield: this.derived.create(ShieldMapReducer),
+      tool: this.derived.create(ToolMapReducer),
+      weapon: this.derived.create(WeaponsMapReducer)
     };
   }
 
   get ammunition() { return this._types.ammunition; }
 
-  get armors() { return this._types.armors; }
+  get armor() { return this._types.armor; }
 
   get clothing() { return this._types.clothing; }
 
-  get consumables() { return this._types.consumables; }
+  get consumable() { return this._types.consumable; }
 
-  get containers() { return this._types.containers; }
+  get container() { return this._types.container; }
 
   get jewelry() { return this._types.jewelry; }
 
   get miscellaneous() { return this._types.miscellaneous; }
 
-  get shields() { return this._types.shields; }
+  get shield() { return this._types.shield; }
 
-  get tools() { return this._types.tools; }
+  get tool() { return this._types.tool; }
 
-  get weapons() { return this._types.weapons; }
+  get weapon() { return this._types.weapon; }
 }
