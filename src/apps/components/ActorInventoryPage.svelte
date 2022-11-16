@@ -27,11 +27,15 @@
 	<i class="fas fa-filter" />
 </header>
 
-{#each Object.entries($objects._types) as [label, items]}
-	{#if items.length}
-		<ItemCategory {label} {items} type="objectTypesPlural" />
-	{/if}
-{/each}
+<section class="inventory-main-container">
+	{#each Object.entries($objects._types) as [label, items]}
+		{#if items.length}
+			<ItemCategory {label} {items} type="objectTypesPlural" />
+		{/if}
+	{/each}
+</section>
+
+<footer class="inventory-footer" />
 
 <style lang="scss">
 	.search-container {
