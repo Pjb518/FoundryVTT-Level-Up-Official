@@ -10,7 +10,7 @@
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
   import { localizeLanguage } from "../../utils/languageHelpers";
 
-  import LanguageSelectDialog from "../../LanguageSelectDialog";
+  import LanguageSelectDialog from "../../dialogs/LanguageSelect/LanguageSelectDialog";
 
   const item = getContext("item");
 
