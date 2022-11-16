@@ -1,18 +1,28 @@
 <script>
 	import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+	import { getContext } from 'svelte';
 
 	import ItemWrapper from './ItemWrapper.svelte';
 
 	export let label;
 	export let items;
 	export let type;
+
+	const actor = getContext('actor');
+	$: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <section class="category-container">
 	<!-- svelte-ignore missing-declaration -->
-	<h3 class="category-header">
-		{localize(CONFIG.A5E[type][label])}
-	</h3>
+	<span class="category-header">
+		<h3>
+			{localize(CONFIG.A5E[type][label])}
+		</h3>
+
+		{#if !sheetIsLocked}
+			<i class="fas fa-plus inventory-add-icon a5e-config-button" />
+		{/if}
+	</span>
 
 	<ul class="items-container">
 		{#each [...items] as item}
@@ -25,6 +35,22 @@
 </section>
 
 <style lang="scss">
+	.category-header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0.25rem;
+		border-bottom: 1px solid #ccc;
+
+		h3 {
+			font-family: 'Modesto Condensed', serif;
+			font-size: 1.3rem;
+		}
+
+		.inventory-add-icon {
+			padding-inline: 0.25rem;
+		}
+	}
+
 	.item-image {
 		height: 1.75rem;
 		width: 1.75rem;
