@@ -94,12 +94,12 @@
     <h3>{localize("A5E.Languages")}</h3>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <i
-      class="config-button fa fa-cog"
+      class="a5e-config-button config-button fa fa-cog"
       on:click|preventDefault|stopPropagation={openLanguage}
     />
-    <ul>
+    <ul class="tag-list">
       {#each $item.system.languages.learn as lang}
-        <li>{localizeLanguage(lang)}</li>
+        <li class="a5e-tag">{localizeLanguage(lang)}</li>
       {/each}
     </ul>
   </div>
@@ -107,6 +107,7 @@
   <div class="config-wrapper">
     <h3>{localize("A5E.AdditionalLanguages")}</h3>
     <input
+      class="a5e-input"
       type="number"
       value={$item.system.languages.additional}
       on:change={({ target }) =>
@@ -128,6 +129,13 @@
     overflow-y: auto;
   }
 
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
   .config-wrapper {
     position: relative;
     h3 {
@@ -140,15 +148,6 @@
     position: absolute;
     top: 0rem;
     right: 1rem;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.15s ease-in-out;
-  }
-
-  .config-button:hover {
-    font-size: 1.4rem;
-    transition: all 0.15s ease-in-out;
   }
 
   .drop-area-wrapper {

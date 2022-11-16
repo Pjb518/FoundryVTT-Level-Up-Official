@@ -22,7 +22,7 @@
   const tabs = [
     {
       name: "description",
-      label: localize("A5E.TabDescription"),
+      label: localize("A5E.Description"),
       component: ItemDescriptionTab,
     },
     {

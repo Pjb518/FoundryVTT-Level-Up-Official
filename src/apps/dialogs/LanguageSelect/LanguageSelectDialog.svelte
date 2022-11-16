@@ -33,6 +33,7 @@
   </section>
 
   <input
+    class="a5e-input"
     type="text"
     name="custom-languages"
     value={languages.custom}
@@ -94,10 +95,5 @@
 
   .button-container {
     display: flex;
-  }
-
-  .hint {
-    font-family: "Signika", sans-serif;
-    font-size: 0.694rem;
   }
 </style>
