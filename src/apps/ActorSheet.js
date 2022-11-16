@@ -3,6 +3,8 @@ import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import BackgroundDropDialog from './BackgroundDropDialog';
 
+import LanguageSelectDialog from './dialogs/LanguageSelect/LanguageSelectDialog';
+
 export default class ActorSheet extends SvelteApplication {
   /**
    * @inheritDoc
@@ -78,6 +80,46 @@ export default class ActorSheet extends SvelteApplication {
       item,
       backgroundFeature,
       ...startingEquipment
+    ]);
+  }
+
+  async _onDropCulture(item) {
+    if (item?.type !== 'culture') throw Error('_onDropCulture() must be called with a culture type item.');
+
+    if (this.actor.type !== 'character') {
+      ui.notifications.warn('Background documents cannot be added to NPCs.');
+      return;
+    }
+
+    // Concat known languages with newly learned, removing duplicates.
+    let known = this.actor.system.proficiencies.languages;
+    known = known.concat(item.system.languages.learn);
+
+    const addLangugaes = item.system.languages.additional;
+    if (addLangugaes > 0) {
+      const dialog = new LanguageSelectDialog({
+        languages: known,
+        disabled: known,
+        /* TODO: Add selectionCount to the LanguageSelect Dialog.
+        This can be done after languages get delocalized. */
+        selectionCount: addLangugaes
+      });
+      dialog.render(true);
+      known = await dialog.promise;
+    }
+
+    this.actor.update({
+      'system.proficiencies.languages': [...new Set(known)] // Keep only unique values
+    });
+
+    const features = await Promise.all(
+      Object.values(item.system.features)
+        .map((f) => fromUuid(f.uuid))
+    );
+
+    this.actor.createEmbeddedDocuments('Item', [
+      item,
+      ...features
     ]);
   }
 }

@@ -63,7 +63,6 @@
     });
     dialog.render(true);
     dialog.promise.then((langs) => {
-      console.log(langs);
       if (langs) $item.update({ "system.languages.learn": langs });
     });
   }
