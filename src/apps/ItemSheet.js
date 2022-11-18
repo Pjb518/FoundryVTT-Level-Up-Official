@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
+import CultureSheetComponent from './sheets/CultureSheet/CultureSheet.svelte';
 import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
 import ItemSheetComponent from './sheets/ItemSheet.svelte';
 
@@ -14,7 +16,7 @@ export default class ItemSheet extends SvelteApplication {
         id: `item-sheet-${item.id}`,
         title: item.name,
         svelte: {
-          class: item.type === 'background' ? BackgroundSheetComponent : ItemSheetComponent,
+          class: ItemSheet.getSheetComponent(item.type),
           props: {
             itemDocument: item
           }
@@ -42,5 +44,11 @@ export default class ItemSheet extends SvelteApplication {
         target: document.body
       }
     });
+  }
+
+  static getSheetComponent(type) {
+    if (type === 'background') return BackgroundSheetComponent;
+    if (type === 'culture') return CultureSheetComponent;
+    return ItemSheetComponent;
   }
 }

@@ -30,6 +30,8 @@
 
         if (item.type === "background") {
             sheet._onDropBackground(item);
+        } else if (item.type === "culture") {
+            sheet._onDropCulture(item);
         }
     }
 
