@@ -47,10 +47,8 @@ export default class ItemSheet extends SvelteApplication {
   }
 
   static getSheetComponent(type) {
-    switch (type) {
-      case 'background': return BackgroundSheetComponent;
-      case 'culture': return CultureSheetComponent;
-      default: return ItemSheetComponent;
-    }
+    if (type === 'background') return BackgroundSheetComponent;
+    if (type === 'culture') return CultureSheetComponent;
+    return ItemSheetComponent;
   }
 }

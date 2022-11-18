@@ -135,7 +135,7 @@ export default class LinkedDocumentsHelper {
     }
 
     // Generate an key if one isn't specified.
-    const key = replacementTarget || foundry.utils.randomID();
+    const key = replacementTarget ?? foundry.utils.randomID();
 
     this.#container.update({
       [`system.${this.#propertyName}.${key}`]: linkedDocument
