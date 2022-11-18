@@ -1,5 +1,4 @@
 <script>
-	import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 	import { getContext } from 'svelte';
 	import { TJSInput } from '@typhonjs-fvtt/svelte-standard/component';
 	import { createFilterQuery } from '@typhonjs-fvtt/svelte-standard/store';
@@ -23,7 +22,6 @@
 	};
 
 	addReducerFilter(objects, { id: 'searchFilter', filter: filterSearch });
-	console.log(objects);
 </script>
 
 <div class="inventory-page">
@@ -61,6 +59,7 @@
 		flex-direction: column;
 		flex: 1;
 		gap: 0.5rem;
+		overflow: hidden;
 	}
 	.search-container {
 		display: flex;
@@ -84,5 +83,6 @@
 		flex-grow: 1;
 		flex-direction: column;
 		gap: 0.25rem;
+		overflow-y: auto;
 	}
 </style>
