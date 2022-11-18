@@ -5,6 +5,8 @@
 	import { createFilterQuery } from '@typhonjs-fvtt/svelte-standard/store';
 	import { rippleFocus } from '@typhonjs-fvtt/svelte-standard/action';
 
+	import addReducerFilter from '../utils/addReducerFilter';
+
 	import InventorySheilds from './item/InventorySheilds.svelte';
 	import ItemCategory from './item/ItemCategory.svelte';
 	import WeightTrack from './item/WeightTrack.svelte';
@@ -12,7 +14,6 @@
 	const actor = getContext('actor');
 	const { objects } = actor;
 
-	// FIXME: Multiple filters being added
 	const filterSearch = createFilterQuery('name');
 	const input = {
 		store: filterSearch,
@@ -20,8 +21,8 @@
 		placeholder: 'Search...',
 		type: 'search',
 	};
-	objects.filters.add(filterSearch);
 
+	addReducerFilter(objects, { id: 'searchFilter', filter: filterSearch });
 	console.log(objects);
 </script>
 
