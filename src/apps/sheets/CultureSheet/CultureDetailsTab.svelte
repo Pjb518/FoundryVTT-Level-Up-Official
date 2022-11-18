@@ -8,7 +8,7 @@
 
     import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import { localizeLanguage } from "../../utils/languageHelpers";
+    import localizeLanguage from "../../utils/localizeLanguage";
 
     import LanguageSelectDialog from "../../dialogs/LanguageSelect/LanguageSelectDialog";
 
@@ -62,7 +62,7 @@
     }
 
     function openLanguage() {
-        let dialog = new LanguageSelectDialog({
+        const dialog = new LanguageSelectDialog({
             languages: $item.system.languages.base,
         });
         dialog.render(true);

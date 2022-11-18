@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import { isCustomLanguage } from '../../utils/languageHelpers';
+import isCustomLanguage from '../../utils/isCustomLanguage';
 import LanguageSelectDialogComponent from './LanguageSelectDialog.svelte';
 
 /**
