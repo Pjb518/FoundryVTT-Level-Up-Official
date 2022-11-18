@@ -93,7 +93,7 @@ export default class ActorSheet extends SvelteApplication {
 
     // Concat known languages with newly learned, removing duplicates.
     let known = this.actor.system.proficiencies.languages;
-    known = known.concat(item.system.languages.learn);
+    known = known.concat(item.system.languages.base);
 
     const addLangugaes = item.system.languages.additional;
     if (addLangugaes > 0) {

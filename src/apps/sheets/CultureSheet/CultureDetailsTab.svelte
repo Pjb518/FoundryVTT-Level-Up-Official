@@ -63,11 +63,11 @@
 
     function openLanguage() {
         let dialog = new LanguageSelectDialog({
-            languages: $item.system.languages.learn,
+            languages: $item.system.languages.base,
         });
         dialog.render(true);
         dialog.promise.then((langs) => {
-            if (langs) $item.update({ "system.languages.learn": langs });
+            if (langs) $item.update({ "system.languages.base": langs });
         });
     }
 </script>
@@ -101,7 +101,7 @@
             on:click|preventDefault|stopPropagation={openLanguage}
         />
         <ul class="tag-list">
-            {#each $item.system.languages.learn as lang}
+            {#each $item.system.languages.base as lang}
                 <li class="a5e-tag">{localizeLanguage(lang)}</li>
             {/each}
         </ul>
