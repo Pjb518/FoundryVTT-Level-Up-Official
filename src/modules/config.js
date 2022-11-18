@@ -522,6 +522,19 @@ A5E.spellLevels = {
   9: 'A5E.SpellLevel9'
 };
 
+A5E.spellLevelHeadings = {
+  zero: 'A5E.SpellLevel0',
+  one: 'A5E.SpellLevel1',
+  two: 'A5E.SpellLevel2',
+  three: 'A5E.SpellLevel3',
+  four: 'A5E.SpellLevel4',
+  five: 'A5E.SpellLevel5',
+  six: 'A5E.SpellLevel6',
+  seven: 'A5E.SpellLevel7',
+  eight: 'A5E.SpellLevel8',
+  nine: 'A5E.SpellLevel9'
+};
+
 A5E.spellSchools = {
   primary: {
     abjuration: 'A5E.SpellSchoolAbjuration',

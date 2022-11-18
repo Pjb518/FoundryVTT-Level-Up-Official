@@ -6,7 +6,7 @@ export default class SpellMapReducer extends DynMapReducer {
     this.sort.set((a, b) => a.sort - b.sort);
 
     this._levels = {
-      cantrip: this.derived.create('cantrip'),
+      zero: this.derived.create('zero'),
       one: this.derived.create('one'),
       two: this.derived.create('two'),
       three: this.derived.create('three'),
@@ -23,7 +23,7 @@ export default class SpellMapReducer extends DynMapReducer {
     });
   }
 
-  get cantrip() { return this._levels.cantrip; }
+  get zero() { return this._levels.zero; }
 
   get one() { return this._levels.one; }
 
