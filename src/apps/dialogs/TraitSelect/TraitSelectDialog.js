@@ -69,14 +69,12 @@ export default class TraitSelectDialog extends TJSDialog {
    * @returns
    */
   submit(results) {
-    console.log(results);
     this.#resolvePromise(results);
     return super.close();
   }
 
   #resolvePromise(data) {
     if (this.resolve) {
-      console.log(data);
       this.resolve(data);
     }
   }
