@@ -122,11 +122,7 @@
             }
         }
 
-        if (selectionLimit && selected.length !== selectionLimit) {
-            _disableSubmit = true;
-        } else {
-            _disableSubmit = false;
-        }
+        _disableSubmit = selectionLimit && selected.length !== selectionLimit;
     }
     updateDisabledStatus();
 </script>
