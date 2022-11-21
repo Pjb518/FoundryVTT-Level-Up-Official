@@ -6,7 +6,7 @@
 
 	import addReducerFilter from '../utils/addReducerFilter';
 
-	import InventorySheilds from './item/InventorySheilds.svelte';
+	import InventoryShields from './item/InventoryShields.svelte';
 	import ItemCategory from './item/ItemCategory.svelte';
 	import WeightTrack from './item/WeightTrack.svelte';
 
@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="u-flex u-justify-space-between u-w-full">
-			<InventorySheilds />
+			<InventoryShields />
 
 			<!-- Currency -->
 		</div>

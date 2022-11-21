@@ -72,7 +72,7 @@
 								.localeCompare(b.toLowerCase())) as speciality}
 							<li class="a5e-tag a5e-tag--tight" data-speciality={speciality}>
 								{localize(
-									CONFIG.A5E.skillSpecialites[label][speciality] ?? speciality
+									CONFIG.A5E.skillSpecialties[skill][speciality] ?? speciality
 								)}
 							</li>
 						{/each}
