@@ -21,7 +21,7 @@
     // elements we can add to selected. This simplifies the logic of deselecting an element and
     // adding a different element. Since now all we have to test for is
     // that selected.length == selectionLimit.
-    if (selectionLimit) {
+    if (typeof selectionLimit === "number") {
         selectionLimit += selected.length;
     }
 
