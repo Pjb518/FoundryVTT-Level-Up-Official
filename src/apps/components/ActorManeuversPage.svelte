@@ -7,6 +7,8 @@
 	import addReducerFilter from '../utils/addReducerFilter';
 
 	import ItemCategory from './item/ItemCategory.svelte';
+	import TabFooter from './actor/TabFooter.svelte';
+	import updateDocumentDataFromField from '../utils/updateDocumentDataFromField';
 
 	const actor = getContext('actor');
 	const { maneuvers } = actor;
@@ -19,6 +21,9 @@
 	};
 
 	addReducerFilter(maneuvers, { id: 'searchFilter', filter: filterSearch });
+
+	$: exertion = $actor.system.attributes.exertion;
+	$: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="maneuvers-page">
@@ -37,7 +42,50 @@
 		{/each}
 	</section>
 
-	<footer class="maneuvers-footer" />
+	<TabFooter>
+		{#if $actor.type === 'character'}
+			<div class="u-flex u-align-center u-gap-md u-text-sm">
+				<h3 class="u-mb-0">{localize('A5E.ExertionPool')}</h3>
+
+				<input
+					class="a5e-footer-group__input"
+					type="number"
+					name="system.attributes.exertion.current"
+					value={exertion.current}
+					placeholder="0"
+					min="0"
+					on:change={({ target }) =>
+						updateDocumentDataFromField(
+							$actor,
+							target.name,
+							Number(target.value)
+						)}
+				/>
+				/
+				<input
+					class="a5e-footer-group__input"
+					type="number"
+					name="system.attributes.exertion.max"
+					value={exertion.value}
+					placeholder="0"
+					min="0"
+					on:change={({ target }) =>
+						updateDocumentDataFromField(
+							$actor,
+							target.name,
+							Number(target.value)
+						)}
+				/>
+			</div>
+		{/if}
+		{#if !sheetIsLocked}
+			<div class="u-flex u-align-center u-gap-md u-text-sm">
+				<h3 class="u-mb-0">{localize('A5E.ConfigureManeuvers')}</h3>
+
+				<i class="fas fa-gear a5e-config-button" />
+			</div>
+		{/if}
+	</TabFooter>
 </div>
 
 <style lang="scss">
