@@ -5,8 +5,10 @@
 	import { createFilterQuery } from '@typhonjs-fvtt/svelte-standard/store';
 
 	import addReducerFilter from '../utils/addReducerFilter';
+	import updateDocumentDataFromField from '../utils/updateDocumentDataFromField';
 
 	import ItemCategory from './item/ItemCategory.svelte';
+	import TabFooter from './actor/TabFooter.svelte';
 
 	const actor = getContext('actor');
 	const { spells } = actor;
@@ -19,6 +21,9 @@
 	};
 
 	addReducerFilter(spells, { id: 'searchFilter', filter: filterSearch });
+
+	$: spellResources = $actor.system.spellResources;
+	$: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="spells-page">
@@ -37,7 +42,52 @@
 		{/each}
 	</section>
 
-	<footer class="spells-footer" />
+	<TabFooter>
+		<!-- Spell Points -->
+		<div class="u-flex u-align-center u-gap-md u-text-sm">
+			<h3 class="u-mb-0">
+				{localize('A5E.SpellPoints')}
+			</h3>
+
+			<input
+				class="a5e-footer-group__input"
+				type="number"
+				name="system.spellResources.points.current"
+				value={spellResources.points.current}
+				placeholder="0"
+				min="0"
+				on:change={({ target }) =>
+					updateDocumentDataFromField(
+						$actor,
+						target.name,
+						Number(target.value)
+					)}
+			/>
+			/
+			<input
+				class="a5e-footer-group__input"
+				type="number"
+				name="system.spellResources.points.max"
+				value={spellResources.points.max}
+				placeholder="0"
+				min="0"
+				on:change={({ target }) =>
+					updateDocumentDataFromField(
+						$actor,
+						target.name,
+						Number(target.value)
+					)}
+			/>
+		</div>
+
+		{#if !sheetIsLocked}
+			<div class="u-align-center u-flex u-gap-md u-h-6 u-text-sm">
+				<h3 class="u-mb-0">{localize('A5E.ConfigureSpells')}</h3>
+
+				<i class="fas fa-gear a5e-config-button u-text-sm" />
+			</div>
+		{/if}
+	</TabFooter>
 </div>
 
 <style lang="scss">
@@ -60,5 +110,6 @@
 		flex-direction: column;
 		gap: 0.25rem;
 		overflow-y: auto;
+		overflow-x: hidden;
 	}
 </style>

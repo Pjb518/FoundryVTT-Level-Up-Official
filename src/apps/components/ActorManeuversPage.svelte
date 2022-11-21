@@ -60,5 +60,6 @@
 		flex-direction: column;
 		gap: 0.25rem;
 		overflow-y: auto;
+		overflow-x: hidden;
 	}
 </style>
