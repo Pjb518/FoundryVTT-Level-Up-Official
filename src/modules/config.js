@@ -425,16 +425,16 @@ A5E.objectTypes = {
  * @enum {string}
  */
 A5E.objectTypesPlural = {
-  armors: 'A5E.ObjectTypeArmorPlural',
+  armor: 'A5E.ObjectTypeArmorPlural',
   ammunition: 'A5E.ObjectTypeAmmunition',
   clothing: 'A5E.ObjectTypeClothing',
-  consumables: 'A5E.ObjectTypeConsumablePlural',
-  containers: 'A5E.ObjectTypeContainerPlural',
+  consumable: 'A5E.ObjectTypeConsumablePlural',
+  container: 'A5E.ObjectTypeContainerPlural',
   jewelry: 'A5E.ObjectTypeJewelry',
   miscellaneous: 'A5E.ObjectTypeMiscellaneous',
-  shields: 'A5E.ObjectTypeShieldPlural',
-  tools: 'A5E.ObjectTypeToolPlural',
-  weapons: 'A5E.ObjectTypeWeaponPlural'
+  shield: 'A5E.ObjectTypeShieldPlural',
+  tool: 'A5E.ObjectTypeToolPlural',
+  weapon: 'A5E.ObjectTypeWeaponPlural'
 };
 
 /**
@@ -520,19 +520,6 @@ A5E.spellLevels = {
   7: 'A5E.SpellLevel7',
   8: 'A5E.SpellLevel8',
   9: 'A5E.SpellLevel9'
-};
-
-A5E.spellLevelHeadings = {
-  zero: 'A5E.SpellLevel0',
-  one: 'A5E.SpellLevel1',
-  two: 'A5E.SpellLevel2',
-  three: 'A5E.SpellLevel3',
-  four: 'A5E.SpellLevel4',
-  five: 'A5E.SpellLevel5',
-  six: 'A5E.SpellLevel6',
-  seven: 'A5E.SpellLevel7',
-  eight: 'A5E.SpellLevel8',
-  nine: 'A5E.SpellLevel9'
 };
 
 A5E.spellSchools = {

@@ -32,7 +32,7 @@
 	<section class="spells-main-container">
 		{#each Object.entries($spells._levels) as [label, items]}
 			{#if items.length}
-				<ItemCategory {label} {items} type="spellLevelHeadings" />
+				<ItemCategory {label} {items} type="spellLevels" />
 			{/if}
 		{/each}
 	</section>
