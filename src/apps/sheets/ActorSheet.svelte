@@ -11,6 +11,7 @@
 	import ActorFeaturesPage from '../components/ActorFeaturesPage.svelte';
 	import ActorInventoryPage from '../components/ActorInventoryPage.svelte';
 	import ActorManeuversPage from '../components/ActorManeuversPage.svelte';
+	import ActorNotesPage from '../components/ActorNotesPage.svelte';
 	import ActorSheetHeader from '../components/actorSheetHeader/actorSheetHeader.svelte';
 	import ActorSidebar from '../components/actorSidebar/ActorSidebar.svelte';
 	import ActorSkillsPage from '../components/ActorSkillsPage.svelte';
@@ -68,7 +69,7 @@
 		{
 			name: 'notes',
 			label: 'A5E.TabNotes',
-			component: ActorCorePage,
+			component: ActorNotesPage,
 		},
 		{
 			name: 'effects',
