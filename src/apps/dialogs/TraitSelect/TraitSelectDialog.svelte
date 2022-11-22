@@ -13,8 +13,8 @@
 
     // We generate a list of disabled selected traits, since we remove disabled traits from the
     // custom input box, we must keep track them seperately.
-    let _disabledCustomSelectedTraits = selected.filter((trait) =>
-        isCustomTrait(trait) && disabled.includes(trait)
+    let _disabledCustomSelectedTraits = selected.filter(
+        (trait) => isCustomTrait(trait) && disabled.includes(trait)
     );
 
     // We add selected length to the selectionLimit, since selectionLimit limits how many more
@@ -66,8 +66,7 @@
 
     function getCustomTrait() {
         const custom = selected.filter(
-            (trait) =>
-                isCustomTrait(trait) && !disabled.includes(trait)
+            (trait) => isCustomTrait(trait) && !disabled.includes(trait)
         );
 
         return custom.join(";");
@@ -115,8 +114,8 @@
     // Due to the selectionLimit, we must maintain the list of _disabled elemets seperately so that
     // Svelte knows to update those elements.
     function updateDisabledStatus() {
-        for (let group of traitGroups) {
-            for (let trait in group.traits ?? {}) {
+        for (const group of traitGroups) {
+            for (const trait in group.traits ?? {}) {
                 _disabledTags[trait] = isDisabled(trait);
             }
         }
