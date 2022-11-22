@@ -9,34 +9,34 @@
     export let disabled;
     export let selectionLimit;
 
-    // We generate a list of disabled custom traits in order to remove them from the custom
-    // text box. This ensures these traits can not be edited. However we must still check that
-    // they won't be added either.
-    let _disabledCustom = disabled.filter((trait) => isCustomTrait(trait));
-    let _disabledSelected = selected.filter((trait) =>
-        _disabledCustom.includes(trait)
+    const { application } = getContext("external");
+
+    // We generate a list of disabled selected traits, since we remove disabled traits from the
+    // custom input box, we must keep track them seperately.
+    let _disabledCustomSelectedTraits = selected.filter((trait) =>
+        isCustomTrait(trait) && disabled.includes(trait)
     );
 
     // We add selected length to the selectionLimit, since selectionLimit limits how many more
     // elements we can add to selected. This simplifies the logic of deselecting an element and
-    // adding a different element. Since now all we have to test for is
-    // that selected.length == selectionLimit.
-    if (typeof selectionLimit === "number") {
+    // adding a different element. Since now all we can just compare selected.length to
+    // selectionLimit.
+    if (Number.isInteger(selectionLimit)) {
         selectionLimit += selected.length;
     }
 
-    const application = getContext("external").application;
+    // We track disabledTags and disabledSumbit with variables so svelte can detect changes
+    // updateDisabledStatus()
+    let _disabledTags = {};
+    let _disableSubmit = false;
+
+    // Sets the initial disable status
+    updateDisabledStatus();
 
     function isCustomTrait(trait) {
-        for (let group of traitGroups) {
-            if (!group.traits) continue;
-
-            for (let definedTrait in group.traits) {
-                if (definedTrait === trait) return false;
-            }
-        }
-
-        return true;
+        return !traitGroups
+            .flatMap(({ traits }) => Object.keys(traits ?? {}))
+            .includes(trait);
     }
 
     function isDisabled(trait) {
@@ -64,26 +64,27 @@
         updateDisabledStatus();
     }
 
-    function getCustom() {
+    function getCustomTrait() {
         const custom = selected.filter(
-            (trait) => isCustomTrait(trait) && !_disabledCustom.includes(trait)
+            (trait) =>
+                isCustomTrait(trait) && !disabled.includes(trait)
         );
 
         return custom.join(";");
     }
 
-    function setCustom(element) {
+    function setCustomTrait(element) {
         // Split, trim, remove empty & disabled
         const customList = element.value
             .split(";")
             .map((i) => i.trim())
-            .filter((i) => i && !_disabledCustom.includes(i));
+            .filter((i) => i && !disabled.includes(i));
 
         selected = selected
             // Remove all custom from selected
             .filter((trait) => !isCustomTrait(trait))
             // Add back disabled selected (our input box doesn't control these)
-            .concat(_disabledSelected);
+            .concat(_disabledCustomSelectedTraits);
 
         // Test to ensure that the custom added selection isn't going to exceed the limit.
         if (selectionLimit) {
@@ -102,7 +103,7 @@
 
         // Add the custom traits to the selected and update
         selected = [...selected, ...customList];
-        element.value = getCustom();
+        element.value = getCustomTrait();
         updateDisabledStatus();
     }
 
@@ -113,18 +114,15 @@
     // Updates the disabled/checked values. Since any checkbox can modifiy the disabled state of any
     // Due to the selectionLimit, we must maintain the list of _disabled elemets seperately so that
     // Svelte knows to update those elements.
-    let _disabled = {};
-    let _disableSubmit = false;
     function updateDisabledStatus() {
         for (let group of traitGroups) {
             for (let trait in group.traits ?? {}) {
-                _disabled[trait] = isDisabled(trait);
+                _disabledTags[trait] = isDisabled(trait);
             }
         }
 
         _disableSubmit = selectionLimit && selected.length !== selectionLimit;
     }
-    updateDisabledStatus();
 </script>
 
 <form>
@@ -138,7 +136,7 @@
                             type="checkbox"
                             id="trait-{trait}"
                             checked={selected.includes(trait)}
-                            disabled={_disabled[trait]}
+                            disabled={_disabledTags[trait]}
                             value={trait}
                             on:change={({ target }) => {
                                 setTrait(trait, target.checked);
@@ -157,8 +155,8 @@
                 class="a5e-input"
                 type="text"
                 name="custom-traits"
-                value={getCustom()}
-                on:change={({ target }) => setCustom(target)}
+                value={getCustomTrait()}
+                on:change={({ target }) => setCustomTrait(target)}
             />
 
             <p class="hint">{localize("A5E.HintSeparateBySemiColon")}</p>
