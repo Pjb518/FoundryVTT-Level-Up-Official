@@ -17,6 +17,7 @@
 
 <div
 	class="
+		track-container
 		u-border
         u-border-thin
         u-border-light-gray
@@ -64,3 +65,9 @@
 		</div>
 	</div>
 </div>
+
+<style lang="scss">
+	.track-container {
+		flex: 0 0 100%;
+	}
+</style>

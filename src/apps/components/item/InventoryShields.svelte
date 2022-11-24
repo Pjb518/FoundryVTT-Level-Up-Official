@@ -61,7 +61,7 @@
 <!-- Currencies -->
 <div
 	class="
-		u-align-center u-flex u-gap-sm u-text-sm
+		u-flex u-gap-sm u-text-sm
 		shield-container
 		shield-container--currency
 	"
@@ -71,10 +71,10 @@
 		{localize('A5E.Currency')}
 	</h3>
 
-	<ol class="u-flex u-gap-md u-list-style-none u-m-0 u-ml-md u-p-0">
+	<ol class="currency-list">
 		{#each Object.entries(currency) as [label, value]}
 			<li class="" data-type={label}>
-				<label for="currency-{label}">
+				<label class="currency-label" for="currency-{label}">
 					{label}
 				</label>
 
@@ -98,14 +98,34 @@
 <style lang="scss">
 	.shield-container {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.5rem;
+		justify-content: center;
+		gap: 0.25rem;
+
+		&--currency {
+			flex: 0 0 33%;
+		}
 	}
 
 	.footer-shield-header {
+		flex: 0 0 100%;
+		text-align: center;
 		font-size: 1rem;
 	}
 
-	.shield-input {
+	.currency-list {
+		display: flex;
+		gap: 0.25rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		.currency-label {
+			width: 100%;
+			text-transform: uppercase;
+			text-align: center;
+			margin-bottom: 0;
+		}
 	}
 </style>

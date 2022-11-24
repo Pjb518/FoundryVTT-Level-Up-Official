@@ -9,6 +9,7 @@
 	import InventoryShields from './item/InventoryShields.svelte';
 	import ItemCategory from './item/ItemCategory.svelte';
 	import WeightTrack from './item/WeightTrack.svelte';
+	import TabFooter from './actor/TabFooter.svelte';
 
 	const actor = getContext('actor');
 	const { objects } = actor;
@@ -40,17 +41,11 @@
 		{/each}
 	</section>
 
-	<footer class="inventory-footer">
-		<div class="u-flex u-flex-col u-gap-md u-w-full">
-			<WeightTrack />
-		</div>
+	<TabFooter>
+		<WeightTrack />
 
-		<div class="u-flex u-justify-space-between u-w-full">
-			<InventoryShields />
-
-			<!-- Currency -->
-		</div>
-	</footer>
+		<InventoryShields />
+	</TabFooter>
 </div>
 
 <style lang="scss">
