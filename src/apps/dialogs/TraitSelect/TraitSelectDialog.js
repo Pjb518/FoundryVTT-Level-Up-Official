@@ -22,9 +22,8 @@ export default class TraitSelectDialog extends TJSDialog {
    * @param {[string]?} [options.selected] An array containing preselected traits
    * @param {[string]?} [options.disabled] When a trait name is included in the disabled array,
    * users will not be able to change the selection status.
-   * @param {Number?} [options.selectionLimit] When provided, the dialog will prevent users from
-   * selecting more than `options.selected` plus `options.selectionLimit`. If you wish to prevent
-   * users from deselecting currently selected elements, include them in the `options.disabled`.
+   * @param {Integer?} [options.selectionLimit] When provided, the dialog will require the user to
+   * select exactly the integer provided, and won't allow them to submit otherwise.
    */
   constructor(title, traitGroups, options) {
     if (!Array.isArray(traitGroups)) throw Error('TraitSelectDialog: traitGroups must be an array!');

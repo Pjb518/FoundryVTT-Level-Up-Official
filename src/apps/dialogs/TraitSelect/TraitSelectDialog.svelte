@@ -17,14 +17,6 @@
         (trait) => isCustomTrait(trait) && disabled.includes(trait)
     );
 
-    // We add selected length to the selectionLimit, since selectionLimit limits how many more
-    // elements we can add to selected. This simplifies the logic of deselecting an element and
-    // adding a different element. Since now all we can just compare selected.length to
-    // selectionLimit.
-    if (Number.isInteger(selectionLimit)) {
-        selectionLimit += selected.length;
-    }
-
     // We track disabledTags and disabledSumbit with variables so svelte can detect changes
     // updateDisabledStatus()
     let _disabledTags = {};
