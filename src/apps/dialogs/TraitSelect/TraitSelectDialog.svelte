@@ -114,6 +114,27 @@
 
         _disableSubmit = selectionLimit && selected.length !== selectionLimit;
     }
+
+    function hasSelectedDisabled() {
+        return (
+            disabled.find((disabledTrait) =>
+                selected.includes(disabledTrait)
+            ) !== undefined
+        );
+    }
+
+    function getSelectedDisabledNames() {
+        const selectedDisabledGroupTraits = disabled
+            .filter((disabledTrait) => selected.includes(disabledTrait))
+            .map((trait) => {
+                const group = traitGroups.find((group) =>
+                    group.traits?.hasOwnProperty(trait)
+                );
+                return localize(group ? group.traits[trait] : trait);
+            });
+
+        return selectedDisabledGroupTraits.join(", ");
+    }
 </script>
 
 <form>
@@ -154,11 +175,33 @@
         {/if}
     {/each}
 
+    {#if hasSelectedDisabled()}
+        <p>
+            {localize("A5E.HintAdditionalTraits", {
+                traits: getSelectedDisabledNames(),
+            })}
+        </p>
+    {/if}
+
     <div class="button-container">
-        <button disabled={_disableSubmit} on:click|preventDefault={submitForm}
-            >Submit</button
-        >
+        <button disabled={_disableSubmit} on:click|preventDefault={submitForm}>
+            Submit
+        </button>
     </div>
+
+    {#if selectionLimit && selected.length < selectionLimit}
+        <p class="hint">
+            {localize("A5E.HintAddNumberOfTraits", {
+                number: selectionLimit - selected.length,
+            })}
+        </p>
+    {:else if selectionLimit && selected.length > selectionLimit}
+        <p class="hint">
+            {localize("A5E.HintRemoveNumberOfTraits", {
+                number: -(selectionLimit - selected.length),
+            })}
+        </p>
+    {/if}
 </form>
 
 <style lang="scss">
@@ -196,12 +239,17 @@
             &:disabled + label {
                 color: #999;
             }
+
+            // When checked and disabled, hide since we will show these items in a text list
+            &:checked:disabled + label {
+                display: none;
+            }
         }
 
         label {
             border-radius: 3px;
             border: 1px solid #bbb;
-            font-size: 1rem;
+            font-size: 0.8rem;
             padding: 0.25rem 0.5rem;
             cursor: pointer;
             transition: all 0.15s ease-in-out;
