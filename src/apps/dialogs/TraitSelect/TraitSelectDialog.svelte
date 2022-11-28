@@ -135,6 +135,15 @@
 
         return selectedDisabledGroupTraits.join(", ");
     }
+
+    function getSelectionRemainingHint(number) {
+        const RemainingRemove = number > 0 ? "Remaining" : "Remove";
+        const SingularPlural = Math.abs(number) === 1 ? "" : "Plural";
+        return localize(
+            `A5E.HintNumberSelection${RemainingRemove}${SingularPlural}`,
+            { number: Math.abs(number) }
+        );
+    }
 </script>
 
 <form>
@@ -189,17 +198,9 @@
         </button>
     </div>
 
-    {#if selectionLimit && selected.length < selectionLimit}
+    {#if selectionLimit && selected.length !== selectionLimit}
         <p class="hint">
-            {localize("A5E.HintAddNumberOfTraits", {
-                number: selectionLimit - selected.length,
-            })}
-        </p>
-    {:else if selectionLimit && selected.length > selectionLimit}
-        <p class="hint">
-            {localize("A5E.HintRemoveNumberOfTraits", {
-                number: -(selectionLimit - selected.length),
-            })}
+            {getSelectionRemainingHint(selectionLimit - selected.length)}
         </p>
     {/if}
 </form>
