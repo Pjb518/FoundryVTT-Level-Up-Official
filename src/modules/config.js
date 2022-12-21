@@ -352,6 +352,7 @@ A5E.maneuverTraditions = {
   adamantMountain: 'A5E.ManeuverTraditionAdamantMountain',
   beastUnity: 'A5E.ManeuverTraditionBeastUnity',
   bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
+  cuttingOmen: 'A5E.ManeuverTraditionCuttingOmen',
   mirrorsGlint: 'A5E.ManeuverTraditionMirrorsGlint',
   mistAndShade: 'A5E.ManeuverTraditionMistAndShade',
   rapidCurrent: 'A5E.ManeuverTraditionRapidCurrent',
