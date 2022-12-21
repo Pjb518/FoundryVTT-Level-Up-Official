@@ -350,6 +350,7 @@ A5E.maneuverDegrees = {
 
 A5E.maneuverTraditions = {
   adamantMountain: 'A5E.ManeuverTraditionAdamantMountain',
+  arcaneKnight: 'A5E.ManeuverTraditionArcaneKnight',
   beastUnity: 'A5E.ManeuverTraditionBeastUnity',
   bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
   cuttingOmen: 'A5E.ManeuverTraditionCuttingOmen',
