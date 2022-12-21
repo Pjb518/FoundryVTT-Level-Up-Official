@@ -531,6 +531,7 @@ A5E.spellSchools = {
     law: 'A5E.SpellSchoolLaw',
     lightning: 'A5E.SpellSchoolLightning',
     movement: 'A5E.SpellSchoolMovement',
+    multiclass: 'A5E.SpellSchoolMovement',
     nature: 'A5E.SpellSchoolNature',
     necrotic: 'A5E.SpellSchoolNecrotic',
     negation: 'A5E.SpellSchoolNegation',
