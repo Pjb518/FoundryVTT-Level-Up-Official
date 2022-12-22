@@ -2,6 +2,8 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+  import AmmunitionConfiguration from "./itemPropertiesConfig/AmmunitionConfiguration.svelte";
+  import ArmorConfiguration from "./itemPropertiesConfig/ArmorConfiguration.svelte";
   import FeatureConfiguration from "./itemPropertiesConfig/FeatureConfiguration.svelte";
   import ManeuverConfiguration from "./itemPropertiesConfig/ManeuverConfiguration.svelte";
   import MaterialConfiguration from "./itemPropertiesConfig/MaterialConfiguration.svelte";
@@ -20,7 +22,11 @@
   {:else if $item.type === "object"}
     <ObjectConfiguration />
     <MaterialConfiguration />
-    {#if $item.system.objectType === "weapon"}
+    {#if $item.system.objectType === "ammunition"}
+      <AmmunitionConfiguration />
+    {:else if $item.system.objectType === "armor"}
+      <ArmorConfiguration />
+    {:else if $item.system.objectType === "weapon"}
       <WeaponConfiguration />
     {/if}
   {/if}
