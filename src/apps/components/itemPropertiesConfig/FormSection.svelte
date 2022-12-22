@@ -14,11 +14,11 @@
     <h3 class="u-flex-shrink-0 u-text-bold u-text-sm" class:u-w-30={inline}>
       {localize(heading)}
     </h3>
+  {/if}
 
-    <slot />
+  <slot />
 
-    {#if hint}
-      <small>{localize(hint)}</small>
-    {/if}
+  {#if hint}
+    <small>{localize(hint)}</small>
   {/if}
 </div>
