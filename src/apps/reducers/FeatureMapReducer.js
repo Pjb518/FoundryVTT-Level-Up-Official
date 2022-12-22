@@ -4,5 +4,14 @@ export default class FeatureMapReducer extends DynMapReducer {
   initialize() {
     this.filters.add((item) => item.type === 'feature');
     this.sort.set((a, b) => a.sort - b.sort);
+
+    this._types = {};
+    Object.keys(CONFIG.A5E.featureTypes).forEach((key) => {
+      this._types[key] = this.derived.create(key);
+    });
+
+    Object.entries(this._types).forEach(([key, reducer]) => {
+      reducer.filters.add((item) => item.system.featureType === key);
+    });
   }
 }
