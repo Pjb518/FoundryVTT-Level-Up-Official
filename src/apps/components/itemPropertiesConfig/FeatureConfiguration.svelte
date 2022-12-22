@@ -9,7 +9,7 @@
 
   let editMode = false;
 
-  function changeEditMode() {
+  function toggleEditMode() {
     editMode = !editMode;
   }
 
@@ -30,7 +30,7 @@
             u-text-lg
             u-w-fit
         "
-    on:click={changeEditMode}
+    on:click={toggleEditMode}
   >
     <h3>Feature Properties</h3>
     <i
