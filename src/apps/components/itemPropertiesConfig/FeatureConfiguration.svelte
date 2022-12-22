@@ -12,6 +12,8 @@
   function changeEditMode() {
     editMode = !editMode;
   }
+
+  const featureTypes = CONFIG.A5E.featureTypes;
 </script>
 
 <section>
@@ -43,11 +45,20 @@
       <FormSection heading="A5E.FeatureTypePrompt">
         <!-- svelte-ignore missing-declaration -->
         <RadioGroup
-          options={Object.entries(CONFIG.A5E.featureTypes)}
+          options={Object.entries(featureTypes)}
           selected={$item.system.featureType}
           name="system.featureType"
         />
       </FormSection>
     </div>
+  {:else}
+    <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
+      <div class="u-flex u-gap-md">
+        <dt class="u-text-bold">{localize("A5E.FeatureTypePrompt")}:</dt>
+        <dd class="u-m-0 u-p-0">
+          {localize(featureTypes[$item.system.featureType] ?? "A5E.None")}
+        </dd>
+      </div>
+    </dl>
   {/if}
 </section>
