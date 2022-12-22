@@ -14,8 +14,6 @@
   function toggleEditMode() {
     editMode = !editMode;
   }
-
-  const featureTypes = CONFIG.A5E.featureTypes;
 </script>
 
 <section>
