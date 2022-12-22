@@ -8,8 +8,6 @@
   export let selected = [];
   export let name;
 
-  console.log(selected);
-
   const item = getContext("item");
 
   function update(value) {
