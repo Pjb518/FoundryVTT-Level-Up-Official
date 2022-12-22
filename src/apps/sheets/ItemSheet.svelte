@@ -11,7 +11,7 @@
   import ItemSheetHeader from "../components/itemSheetHeader/ItemSheetHeader.svelte";
   import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-  export let { itemDocument } = getContext("external").application;
+  export let { appId, itemDocument } = getContext("external").application;
   export let elementRoot;
 
   function updateCurrentTab(event) {
@@ -39,6 +39,7 @@
   $: currentTab = tabs[0];
 
   setContext("item", new TJSDocument(itemDocument));
+  setContext("appId", appId);
 </script>
 
 <ApplicationShell bind:elementRoot>
