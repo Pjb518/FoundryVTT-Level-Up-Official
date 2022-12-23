@@ -12,7 +12,7 @@
 
   function addRangeIncrement() {
     const newRange = {
-      range: "short",
+      range: "",
     };
 
     $item.update({
@@ -67,8 +67,7 @@
     <ul class="section-list">
       {#each Object.entries(action.ranges ?? {}) as [id, { range }], index (id)}
         <li class="range-increment" data-range-id={id}>
-          <!-- {range} -->
-          <RangeIncrement {index} {range} />
+          <RangeIncrement {index} {id} {range} />
 
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <i
