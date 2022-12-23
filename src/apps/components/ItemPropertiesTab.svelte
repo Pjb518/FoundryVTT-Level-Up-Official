@@ -8,6 +8,7 @@
   import ManeuverConfiguration from "./itemPropertiesConfig/ManeuverConfiguration.svelte";
   import MaterialConfiguration from "./itemPropertiesConfig/MaterialConfiguration.svelte";
   import ObjectConfiguration from "./itemPropertiesConfig/ObjectConfiguration.svelte";
+  import ResourceConfiguration from "./itemPropertiesConfig/ResourceConfiguration.svelte";
   import SpellConfiguration from "./itemPropertiesConfig/SpellConfiguration.svelte";
   import WeaponConfiguration from "./itemPropertiesConfig/WeaponConfiguration.svelte";
 
@@ -32,6 +33,10 @@
   {:else if $item.type === "spell"}
     <SpellConfiguration />
   {/if}
+
+  <hr class="a5e-rule" />
+
+  <ResourceConfiguration />
 </div>
 
 <style lang="scss">
