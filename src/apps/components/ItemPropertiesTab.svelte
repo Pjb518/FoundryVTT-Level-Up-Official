@@ -29,6 +29,8 @@
     {:else if $item.system.objectType === "weapon"}
       <WeaponConfiguration />
     {/if}
+  {:else if $item.type === "spell"}
+    <SpellConfiguration />
   {/if}
 </div>
 
