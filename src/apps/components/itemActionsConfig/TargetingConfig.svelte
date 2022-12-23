@@ -57,7 +57,7 @@
 <section class="form-wrapper">
   <section class="form-section">
     <header class="section-header">
-      <h2>Range</h2>
+      <h2>Ranges</h2>
 
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-missing-attribute -->
@@ -65,10 +65,10 @@
     </header>
 
     <ul class="section-list">
-      {#each Object.entries(action.ranges ?? {}) as [id, { range }] (id)}
+      {#each Object.entries(action.ranges ?? {}) as [id, { range }], index (id)}
         <li class="range-increment" data-range-id={id}>
           <!-- {range} -->
-          <RangeIncrement />
+          <RangeIncrement {index} {range} />
 
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <i
