@@ -443,6 +443,7 @@ A5E.objectTypesPlural = {
  */
 A5E.rangeDescriptors = {
   self: 'A5E.RangeSelf',
+  fiveFeet: 'A5E.RangeFiveFeet',
   touch: 'A5E.RangeTouch',
   short: 'A5E.RangeShort',
   medium: 'A5E.RangeMedium',
