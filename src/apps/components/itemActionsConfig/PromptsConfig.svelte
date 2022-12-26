@@ -20,16 +20,6 @@
     });
   }
 
-  function deletePrompt(event) {
-    const { promptId } = event.target.closest(".prompt").dataset;
-
-    $item.update({
-      [`system.actions.${actionId}.prompts`]: {
-        [`-=${promptId}`]: null,
-      },
-    });
-  }
-
   $: action = $item.system.actions[actionId];
 </script>
 

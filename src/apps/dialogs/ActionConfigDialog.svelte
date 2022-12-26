@@ -4,6 +4,7 @@
   import { getContext, setContext } from "svelte";
 
   import PromptsConfig from "../components/itemActionsConfig/PromptsConfig.svelte";
+  import ResourceConfig from "../components/itemActionsConfig/ResourceConfig.svelte";
   import RollsConfig from "../components/itemActionsConfig/rollsConfig/RollsConfig.svelte";
   import TargetingConfig from "../components/itemActionsConfig/TargetingConfig.svelte";
   import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -35,7 +36,7 @@
     {
       name: "resources",
       label: "Resources",
-      component: PromptsConfig,
+      component: ResourceConfig,
     },
   ];
 
