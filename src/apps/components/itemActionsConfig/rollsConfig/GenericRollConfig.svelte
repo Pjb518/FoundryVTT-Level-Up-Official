@@ -1,5 +1,6 @@
 <script>
   import { getContext } from "svelte";
+
   import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
@@ -42,3 +43,19 @@
       )}
   />
 </div>
+
+<style lang="scss">
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &--label {
+      margin-right: 4.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+</style>
