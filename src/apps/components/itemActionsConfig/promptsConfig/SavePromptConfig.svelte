@@ -83,7 +83,7 @@
   </div>
 </div>
 
-<div class="field-group">
+<div class="field-group field-group--formula">
   <label for={`${actionId}-${promptId}-dc`}>
     {localize("A5E.ItemSavingThrowDC")}
   </label>
@@ -102,7 +102,7 @@
   />
 </div>
 
-<div class="field-group">
+<div class="field-group ">
   <label for={`${actionId}-${promptId}-save-effect`}>
     {localize("A5E.ItemEffectOnSave")}
   </label>
@@ -122,20 +122,10 @@
 </div>
 
 <style lang="scss">
-  .checkbox {
-    margin: 0;
-  }
-
   .field-group {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-
-    &--checkbox {
-      flex-direction: row;
-      align-items: center;
-      gap: 0.5rem;
-    }
 
     &--formula {
       flex-grow: 1;
@@ -149,15 +139,14 @@
       font-size: 0.833rem;
     }
 
-    input[type="text"],
-    input[type="number"] {
+    input[type="text"] {
       width: 100%;
     }
   }
 
-  .hint {
-    font-size: 0.694rem;
-  }
+  //   .hint {
+  //     font-size: 0.694rem;
+  //   }
 
   .option {
     &-input {
@@ -184,11 +173,5 @@
       gap: 0.25rem;
       font-size: 0.694rem;
     }
-  }
-
-  .row {
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
   }
 </style>
