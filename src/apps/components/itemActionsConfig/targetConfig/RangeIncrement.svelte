@@ -24,6 +24,16 @@
     );
   }
 
+  function deleteRangeIncrement(event) {
+    const { rangeId } = event.target.closest(".range-increment").dataset;
+
+    $item.update({
+      [`system.actions.${actionId}.ranges`]: {
+        [`-=${rangeId}`]: null,
+      },
+    });
+  }
+
   const heading = game.i18n.format("A5E.ItemRangeIncrement", {
     increment: getOrdinalNumber(index + 1),
   });
@@ -72,4 +82,24 @@
       </div>
     {/if}
   </div>
+
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <i class="delete-button fas fa-trash" on:click={deleteRangeIncrement} />
 </FormSection>
+
+<style lang="scss">
+  .delete-button {
+    position: absolute;
+    top: 0.275rem;
+    right: 0.275rem;
+    color: #999;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+      color: #8b2525;
+    }
+  }
+</style>

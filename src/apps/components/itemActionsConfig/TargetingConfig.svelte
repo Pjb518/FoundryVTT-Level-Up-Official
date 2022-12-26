@@ -23,16 +23,6 @@
     });
   }
 
-  function deleteRangeIncrement(event) {
-    const { rangeId } = event.target.closest(".range-increment").dataset;
-
-    $item.update({
-      [`system.actions.${actionId}.ranges`]: {
-        [`-=${rangeId}`]: null,
-      },
-    });
-  }
-
   function selectTarget(event) {
     const selectedOption = event.target?.selectedOptions[0]?.value;
 
@@ -68,12 +58,6 @@
       {#each Object.entries(action.ranges ?? {}) as [id, { range }], index (id)}
         <li class="range-increment" data-range-id={id}>
           <RangeIncrement {index} {id} {range} />
-
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          <i
-            class="delete-button fas fa-trash"
-            on:click={deleteRangeIncrement}
-          />
         </li>
       {:else}
         <li class="none">None</li>
@@ -172,9 +156,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem;
-    border: 1px solid #bbb;
-    border-radius: 3px;
+    // padding: 0.5rem;
+    // border: 1px solid #bbb;
+    // border-radius: 3px;
     font-size: 1rem;
   }
 
