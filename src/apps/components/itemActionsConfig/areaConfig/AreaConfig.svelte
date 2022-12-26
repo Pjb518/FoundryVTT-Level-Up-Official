@@ -48,90 +48,92 @@
     {/each}
   </div>
 
-  {#if action.area?.shape}
-    <div>
-      <label for={`${actionId}-area-quantity`}>Quantity</label>
-      <input
-        id={`${actionId}-area-quantity`}
-        type="number"
-        value={action.area?.quantity ?? 1}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.area.quantity`,
-            Number(target.value)
-          )}
-      />
-    </div>
-  {/if}
+  <div class="u-flex u-gap-lg u-w-full">
+    {#if action.area?.shape}
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <label for={`${actionId}-area-quantity`}>Quantity</label>
+        <input
+          id={`${actionId}-area-quantity`}
+          type="number"
+          value={action.area?.quantity ?? 1}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.area.quantity`,
+              Number(target.value)
+            )}
+        />
+      </div>
+    {/if}
 
-  {#if ["cylinder", "sphere"].includes(action.area?.shape)}
-    <div>
-      <label for={`${actionId}-area-radius`}>Radius</label>
-      <input
-        id={`${actionId}-area-radius`}
-        type="number"
-        value={action.area?.radius ?? 0}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.area.radius`,
-            Number(target.value)
-          )}
-      />
-    </div>
-  {/if}
+    {#if ["cylinder", "sphere"].includes(action.area?.shape)}
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <label for={`${actionId}-area-radius`}>Radius</label>
+        <input
+          id={`${actionId}-area-radius`}
+          type="number"
+          value={action.area?.radius ?? 0}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.area.radius`,
+              Number(target.value)
+            )}
+        />
+      </div>
+    {/if}
 
-  {#if ["cone", "line"].includes(action.area?.shape)}
-    <div>
-      <label for={`${actionId}-area-length`}>Length</label>
-      <input
-        id={`${actionId}-area-length`}
-        type="number"
-        value={action.area?.length ?? 0}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.area.length`,
-            Number(target.value)
-          )}
-      />
-    </div>
-  {/if}
+    {#if ["cone", "line"].includes(action.area?.shape)}
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <label for={`${actionId}-area-length`}>Length</label>
+        <input
+          id={`${actionId}-area-length`}
+          type="number"
+          value={action.area?.length ?? 0}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.area.length`,
+              Number(target.value)
+            )}
+        />
+      </div>
+    {/if}
 
-  {#if ["cube", "line"].includes(action.area?.shape)}
-    <div>
-      <label for={`${actionId}-area-width`}>Width</label>
-      <input
-        id={`${actionId}-area-width`}
-        type="number"
-        value={action.area?.width ?? 0}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.area.width`,
-            Number(target.value)
-          )}
-      />
-    </div>
-  {/if}
+    {#if ["cube", "line"].includes(action.area?.shape)}
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <label for={`${actionId}-area-width`}>Width</label>
+        <input
+          id={`${actionId}-area-width`}
+          type="number"
+          value={action.area?.width ?? 0}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.area.width`,
+              Number(target.value)
+            )}
+        />
+      </div>
+    {/if}
 
-  {#if action.area?.shape === "cylinder"}
-    <div>
-      <label for={`${actionId}-area-height`}>Height</label>
-      <input
-        id={`${actionId}-area-height`}
-        type="number"
-        value={action.area?.height ?? 0}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.area.height`,
-            Number(target.value)
-          )}
-      />
-    </div>
-  {/if}
+    {#if action.area?.shape === "cylinder"}
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <label for={`${actionId}-area-height`}>Height</label>
+        <input
+          id={`${actionId}-area-height`}
+          type="number"
+          value={action.area?.height ?? 0}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.area.height`,
+              Number(target.value)
+            )}
+        />
+      </div>
+    {/if}
+  </div>
 </section>
 
 <style lang="scss">
