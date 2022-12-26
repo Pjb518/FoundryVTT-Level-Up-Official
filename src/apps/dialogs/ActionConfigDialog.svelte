@@ -3,8 +3,8 @@
 <script>
   import { getContext, setContext } from "svelte";
 
+  import ActionOptionsConfig from "../components/itemActionsConfig/ActionOptionsConfig.svelte";
   import PromptsConfig from "../components/itemActionsConfig/PromptsConfig.svelte";
-  import ResourceConfig from "../components/itemActionsConfig/ResourceConfig.svelte";
   import RollsConfig from "../components/itemActionsConfig/rollsConfig/RollsConfig.svelte";
   import TargetingConfig from "../components/itemActionsConfig/TargetingConfig.svelte";
   import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -19,6 +19,11 @@
 
   const tabs = [
     {
+      name: "main",
+      label: "Main",
+      component: ActionOptionsConfig,
+    },
+    {
       name: "targeting",
       label: "Targeting",
       component: TargetingConfig,
@@ -32,11 +37,6 @@
       name: "prompts",
       label: "Prompts",
       component: PromptsConfig,
-    },
-    {
-      name: "resources",
-      label: "Resources",
-      component: ResourceConfig,
     },
   ];
 
