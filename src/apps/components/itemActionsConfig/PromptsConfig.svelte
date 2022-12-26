@@ -2,7 +2,8 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import PromptsConfigWrapper from "./PromptsConfigWrapper.svelte";
+  import PromptsConfigWrapper from "./promptsConfig/PromptsConfigWrapper.svelte";
+  import SavePromptConfig from "./promptsConfig/SavePromptConfig.svelte";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
@@ -20,6 +21,10 @@
     });
   }
 
+  const promptTypes = {
+    save: SavePromptConfig,
+  };
+
   $: action = $item.system.actions[actionId];
 </script>
 
@@ -35,7 +40,11 @@
   {#each Object.entries(action.prompts ?? {}) as [promptId, prompt] (promptId)}
     <li class="prompt" data-prompt-id={promptId}>
       <PromptsConfigWrapper {prompt}>
-        {prompt.type}
+        <svelte:component
+          this={promptTypes[prompt?.type]}
+          {prompt}
+          {promptId}
+        />
       </PromptsConfigWrapper>
     </li>
   {:else}

@@ -15,7 +15,7 @@
   }
 
   function duplicatePrompt() {
-    const newPrompt = foundry.utils.duplicatePrompt(prompt);
+    const newPrompt = foundry.utils.duplicate(prompt);
 
     $item.update({
       [`system.actions.${actionId}.prompts`]: {
