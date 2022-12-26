@@ -107,20 +107,6 @@
 </section>
 
 <style lang="scss">
-  .delete-button {
-    color: #999;
-    margin-left: auto;
-    margin-right: 0.5rem;
-    padding: 0.25rem;
-    cursor: pointer;
-    transition: all 0.15s ease-in-out;
-
-    &:hover {
-      transform: scale(1.2);
-      color: #8b2525;
-    }
-  }
-
   .form {
     &-section {
       gap: 0.5rem;
@@ -153,12 +139,9 @@
   }
 
   .range-increment {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     // padding: 0.5rem;
-    // border: 1px solid #bbb;
-    // border-radius: 3px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
     font-size: 1rem;
   }
 
