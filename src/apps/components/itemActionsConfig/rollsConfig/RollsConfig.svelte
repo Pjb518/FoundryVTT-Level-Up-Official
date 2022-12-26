@@ -68,13 +68,7 @@
       <ul class="roll-list">
         {#each Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
           <RollConfigWrapper {roll} {rollId}>
-            <svelte:component
-              this={component}
-              {actionId}
-              {item}
-              {roll}
-              {rollId}
-            />
+            <svelte:component this={component} {roll} {rollId} />
           </RollConfigWrapper>
         {:else}
           <li class="none">None</li>

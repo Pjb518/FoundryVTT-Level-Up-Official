@@ -1,174 +1,172 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import { getContext } from "svelte";
+  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    const { abilities, skills } = CONFIG.A5E;
+  const item = getContext("item");
+  const actionId = getContext("actionId");
+  const { abilities, skills } = CONFIG.A5E;
 
-    export let actionId;
-    export let item;
-    export let roll;
-    export let rollId;
+  export let roll;
+  export let rollId;
 </script>
 
 <div class="field-group field-group--label">
-    <label for={`${actionId}-${rollId}-label`}>Label</label>
+  <label for={`${actionId}-${rollId}-label`}>Label</label>
 
-    <input
-        id={`${actionId}-${rollId}-label`}
-        name={`${actionId}-${rollId}-label`}
-        type="text"
-        value={roll.label ?? ""}
+  <input
+    id={`${actionId}-${rollId}-label`}
+    name={`${actionId}-${rollId}-label`}
+    type="text"
+    value={roll.label ?? ""}
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.rolls.${rollId}.label`,
+        target.value
+      )}
+  />
+</div>
+
+<div class="option-wrapper">
+  <h3>Skill</h3>
+
+  <div class="option-list">
+    {#each Object.entries(skills) as [skill, label] (skill)}
+      <input
+        class="option-input"
+        type="radio"
+        name={`${actionId}-${rollId}-skill`}
+        id={`${actionId}-${rollId}-skill-${skill}`}
+        value={skill}
+        checked={roll.skill === skill}
         on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.label`,
-                target.value
-            )}
+          updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.skill`,
+            target.value
+          )}
+      />
+
+      <label class="option-label" for={`${actionId}-${rollId}-skill-${skill}`}>
+        {localize(label)}
+      </label>
+    {/each}
+  </div>
+</div>
+
+<div class="option-wrapper">
+  <h3>Default Ability Score</h3>
+
+  <div class="option-list">
+    <input
+      class="option-input"
+      type="radio"
+      name={`${actionId}-${rollId}-ability`}
+      id={`${actionId}-${rollId}-ability-none`}
+      value=""
+      checked={(roll.ability ?? true) || roll.ability === ""}
+      on:change={() =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.rolls.${rollId}`,
+          { "-=ability": null }
+        )}
     />
-</div>
 
-<div class="option-wrapper">
-    <h3>Skill</h3>
+    <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
+      {localize("A5E.None")}
+    </label>
 
-    <div class="option-list">
-        {#each Object.entries(skills) as [skill, label] (skill)}
-            <input
-                class="option-input"
-                type="radio"
-                name={`${actionId}-${rollId}-skill`}
-                id={`${actionId}-${rollId}-skill-${skill}`}
-                value={skill}
-                checked={roll.skill === skill}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.skill`,
-                        target.value
-                    )}
-            />
+    {#each Object.entries(abilities) as [ability, label]}
+      <input
+        class="option-input"
+        type="radio"
+        name={`${actionId}-${rollId}-ability`}
+        id={`${actionId}-${rollId}-ability-${ability}`}
+        value={ability}
+        checked={roll.ability === ability}
+        on:change={({ target }) =>
+          updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            target.value
+          )}
+      />
 
-            <label
-                class="option-label"
-                for={`${actionId}-${rollId}-skill-${skill}`}
-            >
-                {localize(label)}
-            </label>
-        {/each}
-    </div>
-</div>
-
-<div class="option-wrapper">
-    <h3>Default Ability Score</h3>
-
-    <div class="option-list">
-        <input
-            class="option-input"
-            type="radio"
-            name={`${actionId}-${rollId}-ability`}
-            id={`${actionId}-${rollId}-ability-none`}
-            value=""
-            checked={(roll.ability ?? true) || roll.ability === ""}
-            on:change={() =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}`,
-                    { "-=ability": null }
-                )}
-        />
-
-        <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
-            {localize("A5E.None")}
-        </label>
-
-        {#each Object.entries(abilities) as [ability, label]}
-            <input
-                class="option-input"
-                type="radio"
-                name={`${actionId}-${rollId}-ability`}
-                id={`${actionId}-${rollId}-ability-${ability}`}
-                value={ability}
-                checked={roll.ability === ability}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.ability`,
-                        target.value
-                    )}
-            />
-
-            <label
-                class="option-label"
-                for={`${actionId}-${rollId}-ability-${ability}`}
-            >
-                {localize(label)}
-            </label>
-        {/each}
-    </div>
+      <label
+        class="option-label"
+        for={`${actionId}-${rollId}-ability-${ability}`}
+      >
+        {localize(label)}
+      </label>
+    {/each}
+  </div>
 </div>
 
 <div class="field-group">
-    <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
+  <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
 
-    <input
-        id={`${actionId}-${rollId}-bonus`}
-        name={`${actionId}-${rollId}-bonus`}
-        type="text"
-        value={roll.bonus ?? ""}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                target.value
-            )}
-    />
+  <input
+    id={`${actionId}-${rollId}-bonus`}
+    name={`${actionId}-${rollId}-bonus`}
+    type="text"
+    value={roll.bonus ?? ""}
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.rolls.${rollId}.bonus`,
+        target.value
+      )}
+  />
 </div>
 
 <style lang="scss">
-    .field-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 
-        &--label {
-            margin-right: 4.5rem;
-        }
-
-        input[type="text"] {
-            width: 100%;
-        }
+    &--label {
+      margin-right: 4.5rem;
     }
 
-    .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-        }
-
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-            font-family: "Signika", sans-serif;
-        }
+    input[type="text"] {
+      width: 100%;
     }
+  }
+
+  .option {
+    &-input {
+      display: none;
+
+      &:checked + .option-label {
+        background: #2b6537;
+        border-color: darken($color: #2b6537, $amount: 5);
+        color: #f6f2eb;
+      }
+    }
+
+    &-label {
+      border-radius: 3px;
+      border: 1px solid #bbb;
+      padding: 0.125rem 0.25rem;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+    }
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.694rem;
+      font-family: "Signika", sans-serif;
+    }
+  }
 </style>
