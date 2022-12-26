@@ -60,12 +60,14 @@
       <header class="section-header">
         <h2 class="section-heading">{heading}</h2>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-missing-attribute -->
         <a on:click={() => addRoll(rollType)}>+ Add Roll</a>
       </header>
 
       <ul class="roll-list">
         {#each Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
-          <RollConfigWrapper {actionId} {item} {roll} {rollId}>
+          <RollConfigWrapper {roll} {rollId}>
             <svelte:component
               this={component}
               {actionId}
