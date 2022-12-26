@@ -101,6 +101,7 @@
   .roll-list {
     display: flex;
     flex-direction: column;
+    position: relative;
     margin: 0;
     padding: 0;
     gap: 0.25rem;
