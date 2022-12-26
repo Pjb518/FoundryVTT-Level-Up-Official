@@ -35,7 +35,7 @@
     },
     skillCheck: { heading: "Skill Checks", component: SkillCheckConfig },
     toolCheck: { heading: "Tool Checks", component: ToolCheckConfig },
-    savingThrow: { heading: "Saving Throws", componen: SavingThrowConfig },
+    savingThrow: { heading: "Saving Throws", component: SavingThrowConfig },
     generic: { heading: "Other", component: GenericRollConfig },
   };
 

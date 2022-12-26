@@ -1,6 +1,7 @@
 <script>
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
   import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
