@@ -1,5 +1,8 @@
 <script>
   import { getContext } from "svelte";
+  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
+  import PromptsConfigWrapper from "./PromptsConfigWrapper.svelte";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
@@ -20,7 +23,7 @@
   function deletePrompt(event) {
     const { promptId } = event.target.closest(".prompt").dataset;
 
-    item.get("document").update({
+    $item.update({
       [`system.actions.${actionId}.prompts`]: {
         [`-=${promptId}`]: null,
       },
@@ -33,34 +36,24 @@
 <header class="section-header">
   <h2>Prompts</h2>
 
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-missing-attribute -->
   <a on:click={addPrompt}>+ Add Prompt</a>
 </header>
 
-<ul class="section-list">
-  {#each Object.entries(action.prompts ?? {}) as [id, prompt] (id)}
-    <li class="prompt" data-prompt-id={id}>
-      {prompt.type}
-
-      <i class="delete-button fas fa-trash" on:click={deletePrompt} />
+<ul class="prompt-config-list">
+  {#each Object.entries(action.prompts ?? {}) as [promptId, prompt] (promptId)}
+    <li class="prompt" data-prompt-id={promptId}>
+      <PromptsConfigWrapper {prompt}>
+        {prompt.type}
+      </PromptsConfigWrapper>
     </li>
   {:else}
-    <li class="none">None</li>
+    <li class="none">{localize("A5E.None")}</li>
   {/each}
 </ul>
 
 <style lang="scss">
-  .delete-button {
-    color: #8b2525;
-    margin-inline: auto 0.5rem;
-    padding: 0.25rem;
-    cursor: pointer;
-    transition: all 0.15s ease-in-out;
-
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-
   .none {
     color: #555;
     text-align: center;
@@ -79,17 +72,19 @@
 
   .prompt {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem;
-    border: 1px solid #bbb;
-    border-radius: 3px;
+    flex-direction: column;
+    // align-items: center;
+    // justify-content: space-between;
+    // padding: 0.5rem;
+    // border: 1px solid #bbb;
+    // border-radius: 3px;
     font-size: 1rem;
   }
 
-  .section-list {
+  .prompt-config-list {
     display: flex;
     flex-direction: column;
+    position: relative;
     margin: 0;
     padding: 0;
     gap: 0.25rem;
