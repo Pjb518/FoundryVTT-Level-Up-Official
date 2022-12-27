@@ -41,17 +41,17 @@
 
   $: action = $item.system.actions[actionId];
 
-  $: abilityChecks = Object.entries(action.rolls ?? {}).filter(
-    ([_, roll]) => roll.type === "abilityCheck"
-  );
+  //   $: abilityChecks = Object.entries(action.rolls ?? {}).filter(
+  //     ([_, roll]) => roll.type === "abilityCheck"
+  //   );
 
-  $: attackRolls = Object.entries(action.rolls ?? {}).filter(
-    ([_, roll]) => roll.type === "attack"
-  );
+  //   $: attackRolls = Object.entries(action.rolls ?? {}).filter(
+  //     ([_, roll]) => roll.type === "attack"
+  //   );
 
-  $: damageRolls = Object.entries(action.rolls ?? {}).filter(
-    ([_, roll]) => roll.type === "damage"
-  );
+  //   $: damageRolls = Object.entries(action.rolls ?? {}).filter(
+  //     ([_, roll]) => roll.type === "damage"
+  //   );
 </script>
 
 <ul class="roll-config-list">

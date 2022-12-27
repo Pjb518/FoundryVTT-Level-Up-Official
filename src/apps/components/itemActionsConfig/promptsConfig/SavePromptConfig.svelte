@@ -13,10 +13,6 @@
   export let promptId;
 </script>
 
-<header class="u-font-serif u-mb-sm u-text-sm u-w-fit">
-  <h3>Saving Throw Prompt</h3>
-</header>
-
 <div class="field-group field-group--label">
   <label for={`${actionId}-${promptId}-label`}>Label</label>
 

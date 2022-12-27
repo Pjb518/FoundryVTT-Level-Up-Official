@@ -25,18 +25,21 @@
   }
 
   export let prompt;
+  export let promptId;
 </script>
 
-<article class="prompt-wrapper">
-  <div class="button-wrapper">
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <i class="button fa-solid fa-clone" on:click={duplicatePrompt} />
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <i class="button button--delete fas fa-trash" on:click={deletePrompt} />
-  </div>
+<li class="prompt" data-prompt-id={promptId}>
+  <article class="prompt-wrapper">
+    <div class="button-wrapper">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <i class="button fa-solid fa-clone" on:click={duplicatePrompt} />
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <i class="button button--delete fas fa-trash" on:click={deletePrompt} />
+    </div>
 
-  <slot />
-</article>
+    <slot />
+  </article>
+</li>
 
 <style lang="scss">
   .button-wrapper {
@@ -88,5 +91,10 @@
     &--delete:hover {
       color: #8b2525;
     }
+  }
+
+  .prompt {
+    display: flex;
+    flex-direction: column;
   }
 </style>
