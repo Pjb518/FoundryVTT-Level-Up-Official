@@ -6,24 +6,25 @@
 
   const item = getContext("item");
   const actionId = getContext("actionId");
+
   const { abilities } = CONFIG.A5E;
 
-  export let roll;
-  export let rollId;
+  export let prompt;
+  export let promptId;
 </script>
 
 <div class="field-group field-group--label">
-  <label for={`${actionId}-${rollId}-label`}>Label</label>
+  <label for={`${actionId}-${promptId}-label`}>Label</label>
 
   <input
-    id={`${actionId}-${rollId}-label`}
-    name={`${actionId}-${rollId}-label`}
+    id={`${actionId}-${promptId}-label`}
+    name={`${actionId}-${promptId}-label`}
     type="text"
-    value={roll.label ?? ""}
+    value={prompt.label ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${rollId}.label`,
+        `system.actions.${actionId}.prompts.${promptId}.label`,
         target.value
       )}
   />
@@ -36,19 +37,19 @@
     <input
       class="option-input"
       type="radio"
-      name={`${actionId}-${rollId}-ability`}
-      id={`${actionId}-${rollId}-ability-none`}
+      name={`${actionId}-${promptId}-ability`}
+      id={`${actionId}-${promptId}-ability-none`}
       value=""
-      checked={(roll.ability ?? true) || roll.ability === ""}
+      checked={(prompt.ability ?? true) || prompt.ability === ""}
       on:change={() =>
         updateDocumentDataFromField(
           $item,
-          `system.actions.${actionId}.rolls.${rollId}`,
+          `system.actions.${actionId}.prompts.${promptId}`,
           { "-=ability": null }
         )}
     />
 
-    <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
+    <label class="option-label" for={`${actionId}-${promptId}-ability-none`}>
       {localize("A5E.None")}
     </label>
 
@@ -56,21 +57,21 @@
       <input
         class="option-input"
         type="radio"
-        name={`${actionId}-${rollId}-ability`}
-        id={`${actionId}-${rollId}-ability-${ability}`}
+        name={`${actionId}-${promptId}-ability`}
+        id={`${actionId}-${promptId}-ability-${ability}`}
         value={ability}
-        checked={roll.ability === ability}
+        checked={prompt.ability === ability}
         on:change={({ target }) =>
           updateDocumentDataFromField(
             $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
             target.value
           )}
       />
 
       <label
         class="option-label"
-        for={`${actionId}-${rollId}-ability-${ability}`}
+        for={`${actionId}-${promptId}-ability-${ability}`}
       >
         {localize(label)}
       </label>
@@ -78,18 +79,39 @@
   </div>
 </div>
 
-<div class="field-group">
-  <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
+<div class="field-group field-group--formula">
+  <label for={`${actionId}-${promptId}-dc`}>
+    {localize("A5E.ItemAbilityCheckDC")}
+  </label>
 
   <input
-    id={`${actionId}-${rollId}-bonus`}
-    name={`${actionId}-${rollId}-bonus`}
+    id={`${actionId}-${promptId}-dc`}
+    name={`${actionId}-${promptId}-dc`}
     type="text"
-    value={roll.bonus ?? ""}
+    value={prompt.abilityDC ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${rollId}.bonus`,
+        `system.actions.${actionId}.prompts.${promptId}.abilityDC`,
+        target.value
+      )}
+  />
+</div>
+
+<div class="field-group ">
+  <label for={`${actionId}-${promptId}-save-effect`}>
+    {localize("A5E.ItemEffectOnCheck")}
+  </label>
+
+  <input
+    id={`${actionId}-${promptId}-save-effect`}
+    name={`${actionId}-${promptId}-save-effect`}
+    type="text"
+    value={prompt.onSave ?? ""}
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.prompts.${promptId}.onSave`,
         target.value
       )}
   />
@@ -100,6 +122,10 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+
+    &--formula {
+      flex-grow: 1;
+    }
 
     &--label {
       margin-right: 4.5rem;
@@ -113,6 +139,10 @@
       width: 100%;
     }
   }
+
+  //   .hint {
+  //     font-size: 0.694rem;
+  //   }
 
   .option {
     &-input {

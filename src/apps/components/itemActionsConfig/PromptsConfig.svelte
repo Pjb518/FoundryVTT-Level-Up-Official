@@ -2,6 +2,7 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+  import AbilityCheckPromptConfig from "./promptsConfig/AbilityCheckPromptConfig.svelte";
   import PromptsConfigWrapper from "./promptsConfig/PromptsConfigWrapper.svelte";
   import SavePromptConfig from "./promptsConfig/SavePromptConfig.svelte";
 
@@ -18,6 +19,10 @@
   }
 
   const promptTypes = {
+    abilityCheck: {
+      heading: "Ability Check Prompt",
+      component: AbilityCheckPromptConfig,
+    },
     save: { heading: "Saving Throw Prompt", component: SavePromptConfig },
   };
 
