@@ -19,8 +19,8 @@
 
   const tabs = [
     {
-      name: "main",
-      label: "Main",
+      name: "activation",
+      label: "Activation",
       component: ActionOptionsConfig,
     },
     {

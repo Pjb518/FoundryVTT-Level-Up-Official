@@ -63,7 +63,6 @@
     font-size: 0.833rem;
     // background: rgba(246, 242, 235, 0.4);
     background-color: rgba(0, 0, 0, 0.05);
-    border: 1px solid #b2b0ae;
     border-radius: 4px;
   }
 

@@ -139,8 +139,6 @@
   }
 
   .range-increment {
-    // padding: 0.5rem;
-    border: 1px solid #bbb;
     border-radius: 4px;
     font-size: 1rem;
   }
