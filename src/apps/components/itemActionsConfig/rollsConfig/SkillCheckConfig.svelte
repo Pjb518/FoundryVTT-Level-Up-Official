@@ -10,6 +10,8 @@
 
   export let roll;
   export let rollId;
+
+  $: roll = $item.system.actions[actionId]?.rolls[rollId];
 </script>
 
 <div class="field-group field-group--label">
@@ -32,28 +34,28 @@
 <div class="option-wrapper">
   <h3>Skill</h3>
 
-  <div class="option-list">
-    {#each Object.entries(skills) as [skill, label] (skill)}
-      <input
-        class="option-input"
-        type="radio"
-        name={`${actionId}-${rollId}-skill`}
-        id={`${actionId}-${rollId}-skill-${skill}`}
-        value={skill}
-        checked={roll.skill === skill}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.rolls.${rollId}.skill`,
-            target.value
-          )}
-      />
+  <select
+    name={`${actionId}-${rollId}-skill`}
+    id={`${actionId}-${rollId}-skill`}
+    class="u-w-fit"
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.rolls.${rollId}.skill`,
+        target.value
+      )}
+  >
+    <!-- svelte-ignore missing-declaration -->
+    <option value="" selected={foundry.utils.isEmpty(roll?.skill)}>
+      {localize("A5E.None")}
+    </option>
 
-      <label class="option-label" for={`${actionId}-${rollId}-skill-${skill}`}>
+    {#each Object.entries(skills) as [skill, label]}
+      <option value={skill} selected={roll?.skill === skill}>
         {localize(label)}
-      </label>
+      </option>
     {/each}
-  </div>
+  </select>
 </div>
 
 <div class="option-wrapper">

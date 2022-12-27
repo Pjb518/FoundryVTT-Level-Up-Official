@@ -15,6 +15,8 @@
 
   export let roll;
   export let rollId;
+
+  $: roll = $item.system.actions[actionId]?.rolls[rollId];
 </script>
 
 <div class="field-group field-group--label">
@@ -37,28 +39,28 @@
 <div class="option-wrapper">
   <h3>Tool</h3>
 
-  <div class="option-list">
-    {#each tools as [tool, label] (tool)}
-      <input
-        class="option-input"
-        type="radio"
-        name={`${actionId}-${rollId}-tool`}
-        id={`${actionId}-${rollId}-tool-${tool}`}
-        value={tool}
-        checked={roll.tool === tool}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.rolls.${rollId}.tool`,
-            target.value
-          )}
-      />
+  <select
+    name={`${actionId}-${rollId}-tool`}
+    id={`${actionId}-${rollId}-tool`}
+    class="u-w-fit"
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.rolls.${rollId}.tool`,
+        target.value
+      )}
+  >
+    <!-- svelte-ignore missing-declaration -->
+    <option value="" selected={foundry.utils.isEmpty(roll?.tool)}>
+      {localize("A5E.None")}
+    </option>
 
-      <label for={`${actionId}-${rollId}-tool-${tool}`} class="option-label">
+    {#each tools as [tool, label]}
+      <option value={tool} selected={roll?.tool === tool}>
         {localize(label)}
-      </label>
+      </option>
     {/each}
-  </div>
+  </select>
 </div>
 
 <div class="option-wrapper">
