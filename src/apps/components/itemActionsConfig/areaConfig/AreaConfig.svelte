@@ -134,6 +134,28 @@
       </div>
     {/if}
   </div>
+
+  {#if action.area?.shape}
+    <div class="u-flex u-gap-lg u-w-full u-mt-xs">
+      <div class="u-flex u-gap-md u-align-center">
+        <input
+          id={`${actionId}-place-template`}
+          type="checkbox"
+          checked={action.area?.placeTemplate ?? false}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.area.placeTemplate`,
+              target.checked
+            )}
+        />
+
+        <label class="u-pointer" for={`${actionId}-place-template`}>
+          {localize("A5E.ItemPlaceTemplate")}
+        </label>
+      </div>
+    </div>
+  {/if}
 </section>
 
 <style lang="scss">
