@@ -1,97 +1,113 @@
 <script>
-    export let actionId;
-    export let item;
+  import { getContext } from "svelte";
+  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    function addPrompt() {
-        const newPrompt = {
-            type: "save",
-        };
+  import AbilityCheckPromptConfig from "./promptsConfig/AbilityCheckPromptConfig.svelte";
+  import GenericPromptConfig from "./promptsConfig/GenericPromptConfig.svelte";
+  import PromptsConfigWrapper from "./promptsConfig/PromptsConfigWrapper.svelte";
+  import SavePromptConfig from "./promptsConfig/SavePromptConfig.svelte";
+  import SkillCheckPromptConfig from "./promptsConfig/SkillCheckPromptConfig.svelte";
 
-        $item.update({
-            [`system.actions.${actionId}.prompts`]: {
-                ...action.prompts,
-                [foundry.utils.randomID()]: newPrompt,
-            },
-        });
-    }
+  const item = getContext("item");
+  const actionId = getContext("actionId");
 
-    function deletePrompt(event) {
-        const { promptId } = event.target.closest(".prompt").dataset;
+  function addPrompt(type) {
+    $item.update({
+      [`system.actions.${actionId}.prompts`]: {
+        ...action.prompts,
+        [foundry.utils.randomID()]: { type },
+      },
+    });
+  }
 
-        item.get("document").update({
-            [`system.actions.${actionId}.prompts`]: {
-                [`-=${promptId}`]: null,
-            },
-        });
-    }
+  const promptTypes = {
+    savingThrow: {
+      heading: "A5E.ActionConfigSavingThrowPrompt",
+      component: SavePromptConfig,
+    },
+    abilityCheck: {
+      heading: "A5E.ActionConfigAbilityCheckPrompt",
+      component: AbilityCheckPromptConfig,
+    },
+    skillCheck: {
+      heading: "A5E.ActionConfigSkillCheckPrompt",
+      component: SkillCheckPromptConfig,
+    },
+    generic: {
+      heading: "A5E.Other",
+      component: GenericPromptConfig,
+    },
+  };
 
-    $: action = $item.system.actions[actionId];
+  $: action = $item.system.actions[actionId];
 </script>
 
-<header class="section-header">
-    <h2>Prompts</h2>
+<ul class="prompts-config-list">
+  {#each Object.entries(promptTypes) as [promptType, { heading, component }] (promptType)}
+    <li class="prompts-config-list__item">
+      <header class="section-header">
+        <h2 class="section-heading">{localize(heading)}</h2>
 
-    <a on:click={addPrompt}>+ Add Prompt</a>
-</header>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a on:click={() => addPrompt(promptType)}>+ Add Prompt</a>
+      </header>
 
-<ul class="section-list">
-    {#each Object.entries(action.prompts ?? {}) as [id, prompt] (id)}
-        <li class="prompt" data-prompt-id={id}>
-            {prompt.type}
-
-            <i class="delete-button fas fa-trash" on:click={deletePrompt} />
-        </li>
-    {:else}
-        <li class="none">None</li>
-    {/each}
+      <ul class="prompts-list">
+        {#each Object.entries(action.prompts ?? {}).filter(([_, prompt]) => prompt.type === promptType) as [promptId, prompt] (promptId)}
+          <PromptsConfigWrapper {prompt} {promptId}>
+            <svelte:component this={component} {prompt} {promptId} />
+          </PromptsConfigWrapper>
+        {:else}
+          <li class="none">{localize("A5E.None")}</li>
+        {/each}
+      </ul>
+    </li>
+  {/each}
 </ul>
 
 <style lang="scss">
-    .delete-button {
-        color: #8b2525;
-        margin-inline: auto 0.5rem;
-        padding: 0.25rem;
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
+  .none {
+    color: #555;
+    text-align: center;
+    font-size: 0.833rem;
+  }
 
-        &:hover {
-            transform: scale(1.2);
-        }
-    }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.25rem 0.25rem 0.25rem;
+    font-size: 0.833rem;
+    border-bottom: 1px solid #ccc;
+  }
 
-    .none {
-        color: #555;
-        text-align: center;
-        font-size: 1rem;
-    }
+  .section-heading {
+    font-size: 1rem;
+  }
 
-    .section-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.25rem 0.25rem 0.25rem;
-        font-family: "Modesto Condensed", serif;
-        font-size: 1rem;
-        border-bottom: 1px solid #ccc;
-    }
+  .prompts-list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    gap: 0.25rem;
+    list-style: none;
+  }
 
-    .prompt {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
-        border: 1px solid #bbb;
-        border-radius: 3px;
-        font-size: 1rem;
-    }
+  .prompts-config-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-    .section-list {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-        font-family: "Modesto Condensed", serif;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
+  }
 </style>

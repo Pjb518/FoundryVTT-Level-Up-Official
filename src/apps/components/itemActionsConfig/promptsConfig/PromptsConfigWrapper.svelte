@@ -4,38 +4,37 @@
   const item = getContext("item");
   const actionId = getContext("actionId");
 
-  function deleteRoll(event) {
-    const { rollId } = event.target.closest(".roll").dataset;
+  function deletePrompt(event) {
+    const { promptId } = event.target.closest(".prompt").dataset;
 
     $item.update({
-      [`system.actions.${actionId}.rolls`]: {
-        [`-=${rollId}`]: null,
+      [`system.actions.${actionId}.prompts`]: {
+        [`-=${promptId}`]: null,
       },
     });
   }
 
-  function duplicateRoll() {
-    const newRoll = foundry.utils.duplicate(roll);
+  function duplicatePrompt() {
+    const newPrompt = foundry.utils.duplicate(prompt);
 
     $item.update({
-      [`system.actions.${actionId}.rolls`]: {
-        [foundry.utils.randomID()]: newRoll,
+      [`system.actions.${actionId}.prompts`]: {
+        [foundry.utils.randomID()]: newPrompt,
       },
     });
   }
 
-  export let roll;
-  export let rollId;
+  export let prompt;
+  export let promptId;
 </script>
 
-<li class="roll" data-roll-id={rollId}>
-  <article class="config-wrapper">
+<li class="prompt" data-prompt-id={promptId}>
+  <article class="prompt-wrapper">
     <div class="button-wrapper">
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
-
+      <i class="button fa-solid fa-clone" on:click={duplicatePrompt} />
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <i class="button button--delete fas fa-trash" on:click={deleteRoll} />
+      <i class="button button--delete fas fa-trash" on:click={deletePrompt} />
     </div>
 
     <slot />
@@ -48,20 +47,19 @@
     align-items: center;
     gap: 0.5rem;
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
+    top: 0.5rem;
+    right: 0.5rem;
     color: #999;
     font-size: 1rem;
   }
 
-  .config-wrapper {
+  .prompt-wrapper {
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
     position: relative;
     padding: 0.75rem;
     font-size: 0.833rem;
-    // background: rgba(246, 242, 235, 0.4);
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
   }
@@ -93,7 +91,7 @@
     }
   }
 
-  .roll {
+  .prompt {
     display: flex;
     flex-direction: column;
   }

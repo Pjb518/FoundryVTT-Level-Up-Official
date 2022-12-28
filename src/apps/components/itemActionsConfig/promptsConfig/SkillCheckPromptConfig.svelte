@@ -6,78 +6,77 @@
 
   const item = getContext("item");
   const actionId = getContext("actionId");
+
   const { abilities, skills } = CONFIG.A5E;
 
-  export let roll;
-  export let rollId;
-
-  $: roll = $item.system.actions[actionId]?.rolls[rollId];
+  export let prompt;
+  export let promptId;
 </script>
 
 <div class="field-group field-group--label">
-  <label for={`${actionId}-${rollId}-label`}>Label</label>
+  <label for={`${actionId}-${promptId}-label`}>Label</label>
 
   <input
-    id={`${actionId}-${rollId}-label`}
-    name={`${actionId}-${rollId}-label`}
+    id={`${actionId}-${promptId}-label`}
+    name={`${actionId}-${promptId}-label`}
     type="text"
-    value={roll.label ?? ""}
+    value={prompt.label ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${rollId}.label`,
+        `system.actions.${actionId}.prompts.${promptId}.label`,
         target.value
       )}
   />
 </div>
 
 <div class="option-wrapper">
-  <h3>Skill</h3>
+  <h3 class="field-group__heading">{localize("A5E.Skill")}</h3>
 
   <select
-    name={`${actionId}-${rollId}-skill`}
-    id={`${actionId}-${rollId}-skill`}
+    name={`${actionId}-${promptId}-skill`}
+    id={`${actionId}-${promptId}-skill`}
     class="u-w-fit"
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${rollId}.skill`,
+        `system.actions.${actionId}.rolls.${promptId}.skill`,
         target.value
       )}
   >
     <!-- svelte-ignore missing-declaration -->
-    <option value="" selected={foundry.utils.isEmpty(roll?.skill)}>
+    <option value="" selected={foundry.utils.isEmpty(prompt?.skill)}>
       {localize("A5E.None")}
     </option>
 
     {#each Object.entries(skills) as [skill, label]}
-      <option value={skill} selected={roll?.skill === skill}>
+      <option value={skill} selected={prompt?.skill === skill}>
         {localize(label)}
       </option>
     {/each}
   </select>
 </div>
 
-<div class="option-wrapper">
-  <h3>Default Ability Score</h3>
+<div class="field-group">
+  <h3 class="field-group__heading">{localize("A5E.ItemAbilityCheckType")}</h3>
 
   <div class="option-list">
     <input
       class="option-input"
       type="radio"
-      name={`${actionId}-${rollId}-ability`}
-      id={`${actionId}-${rollId}-ability-none`}
+      name={`${actionId}-${promptId}-ability`}
+      id={`${actionId}-${promptId}-ability-none`}
       value=""
-      checked={(roll.ability ?? true) || roll.ability === ""}
+      checked={(prompt.ability ?? true) || prompt.ability === ""}
       on:change={() =>
         updateDocumentDataFromField(
           $item,
-          `system.actions.${actionId}.rolls.${rollId}`,
+          `system.actions.${actionId}.prompts.${promptId}`,
           { "-=ability": null }
         )}
     />
 
-    <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
+    <label class="option-label" for={`${actionId}-${promptId}-ability-none`}>
       {localize("A5E.None")}
     </label>
 
@@ -85,21 +84,21 @@
       <input
         class="option-input"
         type="radio"
-        name={`${actionId}-${rollId}-ability`}
-        id={`${actionId}-${rollId}-ability-${ability}`}
+        name={`${actionId}-${promptId}-ability`}
+        id={`${actionId}-${promptId}-ability-${ability}`}
         value={ability}
-        checked={roll.ability === ability}
+        checked={prompt.ability === ability}
         on:change={({ target }) =>
           updateDocumentDataFromField(
             $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
             target.value
           )}
       />
 
       <label
         class="option-label"
-        for={`${actionId}-${rollId}-ability-${ability}`}
+        for={`${actionId}-${promptId}-ability-${ability}`}
       >
         {localize(label)}
       </label>
@@ -107,18 +106,39 @@
   </div>
 </div>
 
-<div class="field-group">
-  <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
+<div class="field-group field-group--formula">
+  <label for={`${actionId}-${promptId}-dc`}>
+    {localize("A5E.ItemSkillCheckDC")}
+  </label>
 
   <input
-    id={`${actionId}-${rollId}-bonus`}
-    name={`${actionId}-${rollId}-bonus`}
+    id={`${actionId}-${promptId}-dc`}
+    name={`${actionId}-${promptId}-dc`}
     type="text"
-    value={roll.bonus ?? ""}
+    value={prompt.skillDC ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${rollId}.bonus`,
+        `system.actions.${actionId}.prompts.${promptId}.skillDC`,
+        target.value
+      )}
+  />
+</div>
+
+<div class="field-group ">
+  <label for={`${actionId}-${promptId}-save-effect`}>
+    {localize("A5E.ItemEffectOnCheck")}
+  </label>
+
+  <input
+    id={`${actionId}-${promptId}-save-effect`}
+    name={`${actionId}-${promptId}-save-effect`}
+    type="text"
+    value={prompt.onSave ?? ""}
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.prompts.${promptId}.onSave`,
         target.value
       )}
   />
@@ -130,14 +150,26 @@
     flex-direction: column;
     gap: 0.25rem;
 
+    &--formula {
+      flex-grow: 1;
+    }
+
     &--label {
       margin-right: 4.5rem;
+    }
+
+    &__heading {
+      font-size: 0.833rem;
     }
 
     input[type="text"] {
       width: 100%;
     }
   }
+
+  //   .hint {
+  //     font-size: 0.694rem;
+  //   }
 
   .option {
     &-input {
@@ -162,14 +194,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.25rem;
-    }
-
-    &-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
       font-size: 0.694rem;
-      font-family: "Signika", sans-serif;
     }
   }
 </style>

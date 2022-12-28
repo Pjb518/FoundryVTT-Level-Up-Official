@@ -5,9 +5,9 @@ import ActionConfigDialogComponent from './dialogs/ActionConfigDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class ActionConfigDialog extends TJSDialog {
-  constructor(item, actionId) {
+  constructor(item, actionId, actionName) {
     super({
-      title: 'Test',
+      title: actionName,
       content: {
         class: ActionConfigDialogComponent,
         props: { actionId, item }

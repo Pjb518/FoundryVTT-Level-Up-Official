@@ -1,197 +1,160 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+  import { getContext } from "svelte";
+  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import AreaConfig from "./areaConfig/AreaConfig.svelte";
+  import AreaConfig from "./areaConfig/AreaConfig.svelte";
+  import RangeIncrement from "./targetConfig/RangeIncrement.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let actionId;
-    export let item;
+  const item = getContext("item");
+  const actionId = getContext("actionId");
 
-    function addRangeIncrement() {
-        const newRange = {
-            range: "short",
-        };
+  function addRangeIncrement() {
+    const newRange = {
+      range: "",
+    };
 
-        $item.update({
-            [`system.actions.${actionId}.ranges`]: {
-                ...action.ranges,
-                [foundry.utils.randomID()]: newRange,
-            },
-        });
+    $item.update({
+      [`system.actions.${actionId}.ranges`]: {
+        ...action.ranges,
+        [foundry.utils.randomID()]: newRange,
+      },
+    });
+  }
+
+  function selectTarget(event) {
+    const selectedOption = event.target?.selectedOptions[0]?.value;
+
+    if (selectedOption === "null") {
+      $item.update({
+        [`system.actions.${actionId}`]: {
+          "-=target": null,
+        },
+      });
+    } else {
+      $item.update({
+        [`system.actions.${actionId}.target`]: {
+          type: selectedOption,
+        },
+      });
     }
+  }
 
-    function deleteRangeIncrement(event) {
-        const { rangeId } = event.target.closest(".range-increment").dataset;
-
-        $item.update({
-            [`system.actions.${actionId}.ranges`]: {
-                [`-=${rangeId}`]: null,
-            },
-        });
-    }
-
-    function selectTarget(event) {
-        const selectedOption = event.target?.selectedOptions[0]?.value;
-
-        if (selectedOption === "null") {
-            $item.update({
-                [`system.actions.${actionId}`]: {
-                    "-=target": null,
-                },
-            });
-        } else {
-            $item.update({
-                [`system.actions.${actionId}.target`]: {
-                    type: selectedOption,
-                },
-            });
-        }
-    }
-
-    $: action = $item.system.actions[actionId];
+  $: action = $item.system.actions[actionId];
 </script>
 
 <section class="form-wrapper">
-    <section class="form-section">
-        <header class="section-header">
-            <h2>Range</h2>
+  <section class="form-section">
+    <header class="section-header">
+      <h2>Ranges</h2>
 
-            <a on:click={addRangeIncrement}>+ Add Range Increment</a>
-        </header>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-missing-attribute -->
+      <a on:click={addRangeIncrement}>+ Add Range Increment</a>
+    </header>
 
-        <ul class="section-list">
-            {#each Object.entries(action.ranges ?? {}) as [id, { range }] (id)}
-                <li class="range-increment" data-range-id={id}>
-                    {range}
+    <ul class="section-list">
+      {#each Object.entries(action.ranges ?? {}) as [id, { range }], index (id)}
+        <li class="range-increment" data-range-id={id}>
+          <RangeIncrement {index} {id} {range} />
+        </li>
+      {:else}
+        <li class="none">None</li>
+      {/each}
+    </ul>
+  </section>
 
-                    <i
-                        class="delete-button fas fa-trash"
-                        on:click={deleteRangeIncrement}
-                    />
-                </li>
-            {:else}
-                <li class="none">None</li>
-            {/each}
-        </ul>
-    </section>
+  <AreaConfig {action} {actionId} {item} />
 
-    <AreaConfig {action} {actionId} {item} />
+  <section class="form-section">
+    <header class="section-header">
+      <h2>Target</h2>
+    </header>
 
-    <section class="form-section">
-        <header class="section-header">
-            <h2>Target</h2>
-        </header>
+    <div class="u-flex u-gap-md">
+      {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
+        <input
+          class="target-quantity-input"
+          type="number"
+          name="targetQuantity"
+          value={action.target?.quantity ?? 1}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.target.quantity`,
+              Number(target.value || 0)
+            )}
+          on:click={({ target }) => target.select()}
+        />
+      {/if}
 
-        <div class="u-flex u-gap-md">
-            {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
-                <input
-                    class="target-quantity-input"
-                    type="number"
-                    name="targetQuantity"
-                    value={action.target?.quantity ?? 1}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.target.quantity`,
-                            Number(target.value || 0)
-                        )}
-                    on:click={({ target }) => target.select()}
-                />
-            {/if}
+      <select class="u-w-fit" name="data.target.type" on:change={selectTarget}>
+        <!-- svelte-ignore missing-declaration (foundry) -->
+        <option value={null} selected={foundry.utils.isEmpty(action?.target)}>
+          {localize("A5E.None")}
+        </option>
 
-            <select
-                class="u-w-fit"
-                name="data.target.type"
-                on:change={selectTarget}
-            >
-                <!-- svelte-ignore missing-declaration (foundry) -->
-                <option
-                    value={null}
-                    selected={foundry.utils.isEmpty(action?.target)}
-                >
-                    {localize("A5E.None")}
-                </option>
-
-                <!-- svelte-ignore missing-declaration (CONFIG)-->
-                {#each Object.entries(CONFIG.A5E.targetTypes) as [key, name] (key)}
-                    <option value={key} selected={action?.target?.type === key}>
-                        {localize(name)}
-                    </option>
-                {/each}
-            </select>
-        </div>
-    </section>
+        <!-- svelte-ignore missing-declaration (CONFIG)-->
+        {#each Object.entries(CONFIG.A5E.targetTypes) as [key, name] (key)}
+          <option value={key} selected={action?.target?.type === key}>
+            {localize(name)}
+          </option>
+        {/each}
+      </select>
+    </div>
+  </section>
 </section>
 
 <style lang="scss">
-    .delete-button {
-        color: #999;
-        margin-left: auto;
-        margin-right: 0.5rem;
-        padding: 0.25rem;
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            transform: scale(1.2);
-            color: #8b2525;
-        }
+  .form {
+    &-section {
+      gap: 0.5rem;
     }
 
-    .form {
-        &-section {
-            gap: 0.5rem;
-        }
-
-        &-section,
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-
-        &-wrapper {
-            gap: 1rem;
-        }
+    &-section,
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
     }
 
-    .none {
-        color: #555;
-        text-align: center;
-        font-size: 1rem;
+    &-wrapper {
+      gap: 1rem;
     }
+  }
 
-    .section-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0.25rem 0.25rem 0.25rem;
-        font-family: "Modesto Condensed", serif;
-        border-bottom: 1px solid #ccc;
-    }
+  .none {
+    color: #555;
+    text-align: center;
+    font-size: 1rem;
+  }
 
-    .range-increment {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
-        border: 1px solid #bbb;
-        border-radius: 3px;
-        font-size: 1rem;
-    }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.25rem 0.25rem 0.25rem;
+    font-family: "Modesto Condensed", serif;
+    border-bottom: 1px solid #ccc;
+  }
 
-    .section-list {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-        list-style: none;
-        font-family: "Modesto Condensed", serif;
-    }
+  .range-increment {
+    border-radius: 4px;
+    font-size: 1rem;
+  }
 
-    .target-quantity-input {
-        width: 4rem;
-        text-align: center;
-    }
+  .section-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    gap: 0.25rem;
+    list-style: none;
+    font-family: "Modesto Condensed", serif;
+  }
+
+  .target-quantity-input {
+    width: 4rem;
+    text-align: center;
+  }
 </style>

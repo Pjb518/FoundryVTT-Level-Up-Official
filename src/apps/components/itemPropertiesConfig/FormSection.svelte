@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="a5e-box u-flex u-flex-wrap u-gap-md u-p-md"
+  class="a5e-box u-flex u-flex-wrap u-gap-md u-p-md u-pos-relative"
   class:u-align-center={inline}
 >
   {#if heading}
