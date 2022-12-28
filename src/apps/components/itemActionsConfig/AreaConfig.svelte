@@ -1,6 +1,6 @@
 <script>
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   import AreaShape from "./AreaShape.svelte";
 

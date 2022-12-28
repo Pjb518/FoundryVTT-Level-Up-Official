@@ -2,12 +2,10 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
-
-  const { abilities, skills } = CONFIG.A5E;
 
   export let prompt;
   export let promptId;
@@ -30,96 +28,39 @@
   />
 </div>
 
-<div class="option-wrapper">
-  <h3 class="field-group__heading">{localize("A5E.Skill")}</h3>
+<div class="field-group field-group--formula">
+  <label for={`${actionId}-${promptId}-roll-formula`}>
+    {localize("A5E.RollFormula")}
+  </label>
 
-  <select
-    name={`${actionId}-${promptId}-skill`}
-    id={`${actionId}-${promptId}-skill`}
-    class="u-w-fit"
+  <input
+    id={`${actionId}-${promptId}-roll-formula`}
+    name={`${actionId}-${promptId}-roll-formula`}
+    type="text"
+    value={prompt.formula ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${promptId}.skill`,
+        `system.actions.${actionId}.prompts.${promptId}.formula`,
         target.value
       )}
-  >
-    <!-- svelte-ignore missing-declaration -->
-    <option value="" selected={foundry.utils.isEmpty(prompt?.skill)}>
-      {localize("A5E.None")}
-    </option>
-
-    {#each Object.entries(skills) as [skill, label]}
-      <option value={skill} selected={prompt?.skill === skill}>
-        {localize(label)}
-      </option>
-    {/each}
-  </select>
-</div>
-
-<div class="field-group">
-  <h3 class="field-group__heading">{localize("A5E.ItemAbilityCheckType")}</h3>
-
-  <div class="option-list">
-    <input
-      class="option-input"
-      type="radio"
-      name={`${actionId}-${promptId}-ability`}
-      id={`${actionId}-${promptId}-ability-none`}
-      value=""
-      checked={(prompt.ability ?? true) || prompt.ability === ""}
-      on:change={() =>
-        updateDocumentDataFromField(
-          $item,
-          `system.actions.${actionId}.prompts.${promptId}`,
-          { "-=ability": null }
-        )}
-    />
-
-    <label class="option-label" for={`${actionId}-${promptId}-ability-none`}>
-      {localize("A5E.None")}
-    </label>
-
-    {#each Object.entries(abilities) as [ability, label]}
-      <input
-        class="option-input"
-        type="radio"
-        name={`${actionId}-${promptId}-ability`}
-        id={`${actionId}-${promptId}-ability-${ability}`}
-        value={ability}
-        checked={prompt.ability === ability}
-        on:change={({ target }) =>
-          updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.prompts.${promptId}.ability`,
-            target.value
-          )}
-      />
-
-      <label
-        class="option-label"
-        for={`${actionId}-${promptId}-ability-${ability}`}
-      >
-        {localize(label)}
-      </label>
-    {/each}
-  </div>
+  />
 </div>
 
 <div class="field-group field-group--formula">
   <label for={`${actionId}-${promptId}-dc`}>
-    {localize("A5E.ItemSkillCheckDC")}
+    {localize("A5E.DC")}
   </label>
 
   <input
     id={`${actionId}-${promptId}-dc`}
     name={`${actionId}-${promptId}-dc`}
     type="text"
-    value={prompt.skillDC ?? ""}
+    value={prompt.dc ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.prompts.${promptId}.skillDC`,
+        `system.actions.${actionId}.prompts.${promptId}.dc`,
         target.value
       )}
   />

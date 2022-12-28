@@ -2,17 +2,15 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import actionHasAttackRoll from "../../../utils/actionHasAttackRoll";
-
-  import AbilityCheckConfig from "./AbilityCheckConfig.svelte";
-  import AttackRollConfig from "./AttackRollConfig.svelte";
-  import DamageRollConfig from "./DamageRollConfig.svelte";
-  import GenericRollConfig from "./GenericRollConfig.svelte";
-  import HealingRollConfig from "./HealingRollConfig.svelte";
-  import RollConfigWrapper from "./RollConfigWrapper.svelte";
-  import SavingThrowConfig from "./SavingThrowConfig.svelte";
-  import SkillCheckConfig from "./SkillCheckConfig.svelte";
-  import ToolCheckConfig from "./ToolCheckConfig.svelte";
+  import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
+  import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
+  import DamageRollConfig from "../itemActionsConfig/DamageRollConfig.svelte";
+  import GenericRollConfig from "../itemActionsConfig/GenericRollConfig.svelte";
+  import HealingRollConfig from "../itemActionsConfig/HealingRollConfig.svelte";
+  import RollConfigWrapper from "../itemActionsConfig/RollConfigWrapper.svelte";
+  import SavingThrowRollConfig from "../itemActionsConfig/SavingThrowRollConfig.svelte";
+  import SkillCheckRollConfig from "../itemActionsConfig/SkillCheckRollConfig.svelte";
+  import ToolCheckRollConfig from "../itemActionsConfig/ToolCheckRollConfig.svelte";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
@@ -37,11 +35,11 @@
     healing: { heading: "Healing Rolls", component: HealingRollConfig },
     abilityCheck: {
       heading: "Ability Checks",
-      component: AbilityCheckConfig,
+      component: AbilityCheckRollConfig,
     },
-    skillCheck: { heading: "Skill Checks", component: SkillCheckConfig },
-    toolCheck: { heading: "Tool Checks", component: ToolCheckConfig },
-    savingThrow: { heading: "Saving Throws", component: SavingThrowConfig },
+    skillCheck: { heading: "Skill Checks", component: SkillCheckRollConfig },
+    toolCheck: { heading: "Tool Checks", component: ToolCheckRollConfig },
+    savingThrow: { heading: "Saving Throws", component: SavingThrowRollConfig },
     generic: { heading: "Other", component: GenericRollConfig },
   };
 

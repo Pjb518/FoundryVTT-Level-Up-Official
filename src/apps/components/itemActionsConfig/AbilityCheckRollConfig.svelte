@@ -2,11 +2,10 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
-
   const { abilities } = CONFIG.A5E;
 
   export let roll;
@@ -31,7 +30,7 @@
 </div>
 
 <div class="field-group">
-  <h3 class="field-group__heading">Saving Throw Type</h3>
+  <h3 class="field-group__heading">{localize("A5E.ItemAbilityCheckType")}</h3>
 
   <div class="option-list">
     <input
@@ -80,7 +79,7 @@
 </div>
 
 <div class="field-group">
-  <label for={`${actionId}-${rollId}-bonus`}> Save Bonus </label>
+  <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
 
   <input
     id={`${actionId}-${rollId}-bonus`}

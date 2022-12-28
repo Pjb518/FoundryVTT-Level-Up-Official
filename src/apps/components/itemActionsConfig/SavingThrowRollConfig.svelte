@@ -2,21 +2,15 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
 
   const { abilities } = CONFIG.A5E;
-  const tools = Object.entries(CONFIG.A5E.tools)
-    .map(([_, tools]) => Object.entries(tools))
-    .flat()
-    .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
 
   export let roll;
   export let rollId;
-
-  $: roll = $item.system.actions[actionId]?.rolls[rollId];
 </script>
 
 <div class="field-group field-group--label">
@@ -36,35 +30,8 @@
   />
 </div>
 
-<div class="option-wrapper">
-  <h3>Tool</h3>
-
-  <select
-    name={`${actionId}-${rollId}-tool`}
-    id={`${actionId}-${rollId}-tool`}
-    class="u-w-fit"
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.rolls.${rollId}.tool`,
-        target.value
-      )}
-  >
-    <!-- svelte-ignore missing-declaration -->
-    <option value="" selected={foundry.utils.isEmpty(roll?.tool)}>
-      {localize("A5E.None")}
-    </option>
-
-    {#each tools as [tool, label]}
-      <option value={tool} selected={roll?.tool === tool}>
-        {localize(label)}
-      </option>
-    {/each}
-  </select>
-</div>
-
-<div class="option-wrapper">
-  <h3>Default Ability Score</h3>
+<div class="field-group">
+  <h3 class="field-group__heading">Saving Throw Type</h3>
 
   <div class="option-list">
     <input
@@ -113,7 +80,7 @@
 </div>
 
 <div class="field-group">
-  <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
+  <label for={`${actionId}-${rollId}-bonus`}> Save Bonus </label>
 
   <input
     id={`${actionId}-${rollId}-bonus`}
@@ -137,6 +104,10 @@
 
     &--label {
       margin-right: 4.5rem;
+    }
+
+    &__heading {
+      font-size: 0.833rem;
     }
 
     input[type="text"] {
@@ -167,14 +138,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.25rem;
-    }
-
-    &-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
       font-size: 0.694rem;
-      font-family: "Signika", sans-serif;
     }
   }
 </style>

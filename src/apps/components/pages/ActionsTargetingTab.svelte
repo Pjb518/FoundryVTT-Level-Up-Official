@@ -2,8 +2,8 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import AreaConfig from "./areaConfig/AreaConfig.svelte";
-  import RangeIncrement from "./targetConfig/RangeIncrement.svelte";
+  import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
+  import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
 
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -57,7 +57,7 @@
     <ul class="section-list">
       {#each Object.entries(action.ranges ?? {}) as [id, { range }], index (id)}
         <li class="range-increment" data-range-id={id}>
-          <RangeIncrement {index} {id} {range} />
+          <TargetRangeIncrement {index} {id} {range} />
         </li>
       {:else}
         <li class="none">None</li>

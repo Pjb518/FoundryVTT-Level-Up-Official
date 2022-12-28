@@ -2,12 +2,12 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
 
-  const { abilities } = CONFIG.A5E;
+  const { abilities, skills } = CONFIG.A5E;
 
   export let prompt;
   export let promptId;
@@ -28,6 +28,33 @@
         target.value
       )}
   />
+</div>
+
+<div class="option-wrapper">
+  <h3 class="field-group__heading">{localize("A5E.Skill")}</h3>
+
+  <select
+    name={`${actionId}-${promptId}-skill`}
+    id={`${actionId}-${promptId}-skill`}
+    class="u-w-fit"
+    on:change={({ target }) =>
+      updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.rolls.${promptId}.skill`,
+        target.value
+      )}
+  >
+    <!-- svelte-ignore missing-declaration -->
+    <option value="" selected={foundry.utils.isEmpty(prompt?.skill)}>
+      {localize("A5E.None")}
+    </option>
+
+    {#each Object.entries(skills) as [skill, label]}
+      <option value={skill} selected={prompt?.skill === skill}>
+        {localize(label)}
+      </option>
+    {/each}
+  </select>
 </div>
 
 <div class="field-group">
@@ -81,18 +108,18 @@
 
 <div class="field-group field-group--formula">
   <label for={`${actionId}-${promptId}-dc`}>
-    {localize("A5E.ItemAbilityCheckDC")}
+    {localize("A5E.ItemSkillCheckDC")}
   </label>
 
   <input
     id={`${actionId}-${promptId}-dc`}
     name={`${actionId}-${promptId}-dc`}
     type="text"
-    value={prompt.abilityDC ?? ""}
+    value={prompt.skillDC ?? ""}
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.prompts.${promptId}.abilityDC`,
+        `system.actions.${actionId}.prompts.${promptId}.skillDC`,
         target.value
       )}
   />

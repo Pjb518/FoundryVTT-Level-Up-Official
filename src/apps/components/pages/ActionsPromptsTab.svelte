@@ -2,11 +2,11 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import AbilityCheckPromptConfig from "./promptsConfig/AbilityCheckPromptConfig.svelte";
-  import GenericPromptConfig from "./promptsConfig/GenericPromptConfig.svelte";
-  import PromptsConfigWrapper from "./promptsConfig/PromptsConfigWrapper.svelte";
-  import SavePromptConfig from "./promptsConfig/SavePromptConfig.svelte";
-  import SkillCheckPromptConfig from "./promptsConfig/SkillCheckPromptConfig.svelte";
+  import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
+  import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
+  import PromptsConfigWrapper from "../itemActionsConfig/PromptsConfigWrapper.svelte";
+  import SavePromptConfig from "../itemActionsConfig/SavePromptConfig.svelte";
+  import SkillCheckPromptConfig from "../itemActionsConfig/SkillCheckPromptConfig.svelte";
 
   const item = getContext("item");
   const actionId = getContext("actionId");

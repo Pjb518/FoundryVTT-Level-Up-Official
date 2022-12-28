@@ -2,11 +2,16 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
-  const { abilities, skills } = CONFIG.A5E;
+
+  const { abilities } = CONFIG.A5E;
+  const tools = Object.entries(CONFIG.A5E.tools)
+    .map(([_, tools]) => Object.entries(tools))
+    .flat()
+    .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
 
   export let roll;
   export let rollId;
@@ -32,26 +37,26 @@
 </div>
 
 <div class="option-wrapper">
-  <h3>Skill</h3>
+  <h3>Tool</h3>
 
   <select
-    name={`${actionId}-${rollId}-skill`}
-    id={`${actionId}-${rollId}-skill`}
+    name={`${actionId}-${rollId}-tool`}
+    id={`${actionId}-${rollId}-tool`}
     class="u-w-fit"
     on:change={({ target }) =>
       updateDocumentDataFromField(
         $item,
-        `system.actions.${actionId}.rolls.${rollId}.skill`,
+        `system.actions.${actionId}.rolls.${rollId}.tool`,
         target.value
       )}
   >
     <!-- svelte-ignore missing-declaration -->
-    <option value="" selected={foundry.utils.isEmpty(roll?.skill)}>
+    <option value="" selected={foundry.utils.isEmpty(roll?.tool)}>
       {localize("A5E.None")}
     </option>
 
-    {#each Object.entries(skills) as [skill, label]}
-      <option value={skill} selected={roll?.skill === skill}>
+    {#each tools as [tool, label]}
+      <option value={tool} selected={roll?.tool === tool}>
         {localize(label)}
       </option>
     {/each}
