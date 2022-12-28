@@ -9,7 +9,7 @@
   import InventoryShields from "../item/InventoryShields.svelte";
   import ItemCategory from "../item/ItemCategory.svelte";
   import WeightTrack from "../item/WeightTrack.svelte";
-  import TabFooter from "../actor/TabFooter.svelte";
+  import TabFooter from "../TabFooter.svelte";
 
   const actor = getContext("actor");
   const { objects } = actor;

@@ -8,7 +8,7 @@
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   import ItemCategory from "../item/ItemCategory.svelte";
-  import TabFooter from "../actor/TabFooter.svelte";
+  import TabFooter from "../TabFooter.svelte";
 
   const actor = getContext("actor");
   const { spells } = actor;

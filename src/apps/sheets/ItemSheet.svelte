@@ -8,7 +8,7 @@
   import ItemActionsTab from "../components/pages/ItemActionsTab.svelte";
   import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
   import ItemPropertiesTab from "../components/pages/ItemPropertiesTab.svelte";
-  import ItemSheetHeader from "../components/itemSheetHeader/ItemSheetHeader.svelte";
+  import ItemSheetHeader from "../components/ItemSheetHeader.svelte";
   import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
   export let { appId, itemDocument } = getContext("external").application;
