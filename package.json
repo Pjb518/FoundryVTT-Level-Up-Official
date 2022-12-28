@@ -5,9 +5,12 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "node ./compendia.mjs && vite build",
+
+    "build": "npm run build:compendia && vite build",
     "build:system": "vite build",
-    "build:compendia": "node ./compendia.mjs"
+    "build:compendia": "node -e \"import('./compendia.mjs').then( m => m.compilePacks())\"",
+    "build:fixIds": "node -e \"import('./compendia.mjs').then( m => m.fixIds())\"",
+    "build:saveIds": "node -e \"import('./compendia.mjs').then( m => m.saveIds())\""
   },
   "repository": {
     "type": "git",

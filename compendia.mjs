@@ -293,5 +293,3 @@ export function compilePacks() {
   console.info(`\n[INFO] - Generated ${numNewIds} new ids.`);
   console.info(`[INFO] - Mapped ${numMappedIds} ids from sourceId to _id.`);
 }
-
-compilePacks();
