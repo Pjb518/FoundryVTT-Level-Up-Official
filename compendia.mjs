@@ -41,7 +41,6 @@ function cleanDocument(document, { clearSourceId = false } = {}) {
   delete document.flags?.exportSource;
   delete document.flags?.importSource;
   delete document._stats;
-  delete document.system?._stats;
 
   if (!document.flags) document.flags = {};
   Object.entries(document.flags).forEach(([flag, flagData]) => {
@@ -57,7 +56,7 @@ function cleanDocument(document, { clearSourceId = false } = {}) {
 
   // Recurse for subDocuments
   if (document.effects) document.effects.forEach((doc) => cleanDocument(doc));
-  if (document.items) document.effects.forEach((doc) => cleanDocument(doc));
+  if (document.items) document.items.forEach((doc) => cleanDocument(doc));
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
