@@ -2,7 +2,7 @@
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
   import { getContext } from "svelte";
 
-  import ItemWrapper from "../item/ItemWrapper.svelte";
+  import ItemWrapper from "../ItemWrapper.svelte";
 
   const actor = getContext("actor");
   const { activeEffects } = actor;

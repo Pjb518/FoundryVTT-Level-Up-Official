@@ -2,8 +2,8 @@
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
   import { getContext } from "svelte";
 
-  import ResourceTrack from "../actor/ResourceTrack.svelte";
-  import ItemWrapper from "../item/ItemWrapper.svelte";
+  import GenericActorResource from "../GenericActorResource.svelte";
+  import ItemWrapper from "../ItemWrapper.svelte";
 
   export let resources;
 
@@ -15,7 +15,7 @@
 
 <ol class="resources-container">
   {#each Object.entries(resources) as [source, resource]}
-    <ResourceTrack {resource} {source} />
+    <GenericActorResource {resource} {source} />
   {/each}
 </ol>
 

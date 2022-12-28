@@ -6,9 +6,9 @@
 
   import addReducerFilter from "../../utils/addReducerFilter";
 
-  import InventoryShields from "../item/InventoryShields.svelte";
-  import ItemCategory from "../item/ItemCategory.svelte";
-  import WeightTrack from "../item/WeightTrack.svelte";
+  import ActorInventoryShields from "../ActorInventoryShields.svelte";
+  import ItemCategory from "../ItemCategory.svelte";
+  import ItemWeightTrack from "../ItemWeightTrack.svelte";
   import TabFooter from "../TabFooter.svelte";
 
   const actor = getContext("actor");
@@ -42,9 +42,9 @@
   </section>
 
   <TabFooter>
-    <WeightTrack />
+    <ItemWeightTrack />
 
-    <InventoryShields />
+    <ActorInventoryShields />
   </TabFooter>
 </div>
 

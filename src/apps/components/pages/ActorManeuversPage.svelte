@@ -6,7 +6,7 @@
 
   import addReducerFilter from "../../utils/addReducerFilter";
 
-  import ItemCategory from "../item/ItemCategory.svelte";
+  import ItemCategory from "../ItemCategory.svelte";
   import TabFooter from "../TabFooter.svelte";
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 

@@ -5,7 +5,7 @@
 
   import addReducerFilter from "../../utils/addReducerFilter";
 
-  import ItemCategory from "../item/ItemCategory.svelte";
+  import ItemCategory from "../ItemCategory.svelte";
 
   const actor = getContext("actor");
   const { features } = actor;

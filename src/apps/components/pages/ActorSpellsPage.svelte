@@ -7,7 +7,7 @@
   import addReducerFilter from "../../utils/addReducerFilter";
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-  import ItemCategory from "../item/ItemCategory.svelte";
+  import ItemCategory from "../ItemCategory.svelte";
   import TabFooter from "../TabFooter.svelte";
 
   const actor = getContext("actor");
