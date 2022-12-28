@@ -3,7 +3,7 @@ import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import BackgroundDropDialog from './BackgroundDropDialog';
 
-import LanguageSelectDialog from './dialogs/LanguageSelect/LanguageSelectDialog';
+import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**

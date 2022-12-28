@@ -6,9 +6,9 @@
   import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import ItemDescriptionTab from "../../components/ItemDescriptionTab.svelte";
-  import ItemSheetHeader from "../../components/itemSheetHeader/ItemSheetHeader.svelte";
-  import NavigationBar from "../../components/navigation/NavigationBar.svelte";
+  import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
+  import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
+  import NavigationBar from "../components/navigation/NavigationBar.svelte";
   import CultureDetailsTab from "../components/pages/CultureDetailsTab.svelte";
 
   export let { itemDocument } = getContext("external").application;
