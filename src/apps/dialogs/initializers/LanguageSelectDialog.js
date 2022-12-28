@@ -2,7 +2,7 @@
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
 import isCustomLanguage from '../../utils/isCustomLanguage';
-import LanguageSelectDialogComponent from './LanguageSelectDialog.svelte';
+import LanguageSelectDialogComponent from '../LanguageSelectDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.

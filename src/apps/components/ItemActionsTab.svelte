@@ -1,7 +1,7 @@
 <script>
   import { getContext } from "svelte";
 
-  import ActionConfigDialog from "../ActionConfigDialog";
+  import ActionConfigDialog from "../dialogs/initializers/ActionConfigDialog";
 
   const item = getContext("item");
 

@@ -1,5 +1,6 @@
+// eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
-import ActionConfigDialogComponent from './dialogs/ActionConfigDialog.svelte';
+import ActionConfigDialogComponent from '../ActionConfigDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
