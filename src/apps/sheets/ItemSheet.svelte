@@ -5,9 +5,9 @@
   import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
   import { getContext, setContext } from "svelte";
 
-  import ItemActionsTab from "../components/ItemActionsTab.svelte";
-  import ItemDescriptionTab from "../components/ItemDescriptionTab.svelte";
-  import ItemPropertiesTab from "../components/ItemPropertiesTab.svelte";
+  import ItemActionsTab from "../components/pages/ItemActionsTab.svelte";
+  import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
+  import ItemPropertiesTab from "../components/pages/ItemPropertiesTab.svelte";
   import ItemSheetHeader from "../components/itemSheetHeader/ItemSheetHeader.svelte";
   import NavigationBar from "../components/navigation/NavigationBar.svelte";
 

@@ -2,15 +2,15 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import AmmunitionConfiguration from "./itemPropertiesConfig/AmmunitionConfiguration.svelte";
-  import ArmorConfiguration from "./itemPropertiesConfig/ArmorConfiguration.svelte";
-  import FeatureConfiguration from "./itemPropertiesConfig/FeatureConfiguration.svelte";
-  import ManeuverConfiguration from "./itemPropertiesConfig/ManeuverConfiguration.svelte";
-  import MaterialConfiguration from "./itemPropertiesConfig/MaterialConfiguration.svelte";
-  import ObjectConfiguration from "./itemPropertiesConfig/ObjectConfiguration.svelte";
-  import ResourceConfiguration from "./itemPropertiesConfig/ResourceConfiguration.svelte";
-  import SpellConfiguration from "./itemPropertiesConfig/SpellConfiguration.svelte";
-  import WeaponConfiguration from "./itemPropertiesConfig/WeaponConfiguration.svelte";
+  import AmmunitionConfiguration from "../itemPropertiesConfig/AmmunitionConfiguration.svelte";
+  import ArmorConfiguration from "../itemPropertiesConfig/ArmorConfiguration.svelte";
+  import FeatureConfiguration from "../itemPropertiesConfig/FeatureConfiguration.svelte";
+  import ManeuverConfiguration from "../itemPropertiesConfig/ManeuverConfiguration.svelte";
+  import MaterialConfiguration from "../itemPropertiesConfig/MaterialConfiguration.svelte";
+  import ObjectConfiguration from "../itemPropertiesConfig/ObjectConfiguration.svelte";
+  import ResourceConfiguration from "../itemPropertiesConfig/ResourceConfiguration.svelte";
+  import SpellConfiguration from "../itemPropertiesConfig/SpellConfiguration.svelte";
+  import WeaponConfiguration from "../itemPropertiesConfig/WeaponConfiguration.svelte";
 
   const item = getContext("item");
 </script>
