@@ -1,11 +1,11 @@
 {
-	"name": "Swarm of Woodland Creatures",
+	"name": "Witch",
 	"type": "npc",
-	"img": "icons/svg/cowled.svg",
+	"img": "systems/a5e/assets/green-hag.webp",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 10,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -17,7 +17,7 @@
 				}
 			},
 			"dex": {
-				"value": 12,
+				"value": 13,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -29,7 +29,7 @@
 				}
 			},
 			"con": {
-				"value": 8,
+				"value": 17,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -42,7 +42,7 @@
 				}
 			},
 			"int": {
-				"value": 2,
+				"value": 13,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -54,7 +54,7 @@
 				}
 			},
 			"wis": {
-				"value": 10,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -66,7 +66,7 @@
 				}
 			},
 			"cha": {
-				"value": 4,
+				"value": 15,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -369,14 +369,14 @@
 			}
 		},
 		"attributes": {
-			"ac": 11,
+			"ac": 14,
 			"death": {
 				"success": 0,
 				"failure": 0
 			},
 			"hp": {
-				"value": 17,
-				"baseMax": 17,
+				"value": 38,
+				"baseMax": 38,
 				"temp": "",
 				"bonus": null
 			},
@@ -426,7 +426,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "wis"
+			"spellcasting": "cha"
 		},
 		"bonuses": {
 			"abilities": {
@@ -448,18 +448,20 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<p><strong>MONSTER TYPE DESCRIPTION</strong></p><p>Beasts are natural animals whose existence and abilities are nonmagical. A bear and a tyrannosaurus rex are both beasts.</p><p style=\"text-align: right\"><strong>Source</strong></p><p style=\"text-align: right\">Monstrous Menagerie</p>",
+			"bio": "<p><strong>DESCRIPTION</strong></p><p>Witches form pacts with supernatural entities to cast spells. They typically live as recluses, but from time to time a witch can be found within a settlement.</p><p></p><hr class=\"a5e-rule u-my-md\"><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p><p style=\"text-align: right\"><strong>Source</strong></p><p style=\"text-align: right\">Monstrous Menagerie</p>",
 			"creatureTypes": [
-				"beast"
+				"humanoid"
 			],
-			"cr": 0.25,
+			"cr": 2,
 			"elite": false,
 			"privateNotes": "",
-			"notes": "<h4><strong>Terrain</strong></h4><blockquote><p>Forest, Grassland</p></blockquote>"
+			"notes": "<h4><strong>Tags</strong></h4><blockquote><p>NPC</p></blockquote><p></p><hr class=\"a5e-rule u-my-md\"><h4><strong>Terrain</strong></h4><blockquote><p>Forest, Grassland, Hills, Jungle, Ruin, Settlement, Swamp</p></blockquote>"
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"common"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -485,33 +487,20 @@
 		},
 		"traits": {
 			"size": "med",
-			"conditionImmunities": [
-				"charmed",
-				"frightened",
-				"grappled",
-				"paralyzed",
-				"petrified",
-				"prone",
-				"restrained",
-				"stunned"
-			],
+			"conditionImmunities": [],
 			"damageImmunities": [],
-			"damageResistances": [
-				"bludgeoning",
-				"piercing",
-				"slashing"
-			],
+			"damageResistances": [],
 			"damageVulnerabilities": []
 		}
 	},
 	"prototypeToken": {
-		"name": "Swarm of Woodland Creatures",
+		"name": "Witch",
 		"displayName": 20,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/cowled.svg",
-			"scaleX": 1.1,
-			"scaleY": 1.1,
+			"src": "systems/a5e/assets/green-hag.webp",
+			"scaleX": 0.9,
+			"scaleY": 0.9,
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
@@ -1072,16 +1061,24 @@
 			}
 		},
 		{
-			"name": "Keen Smell",
-			"type": "feature",
-			"_id": "FIiai9kDSHOTZiyZ",
-			"img": "icons/creatures/mammals/dog-husky-white-blue.webp",
+			"name": "Acid Splash",
+			"type": "spell",
+			"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.z3y2a7pwy9gzcv45"
+				}
+			},
 			"system": {
-				"ability": "",
-				"actionOptions": [],
+				"ability": "spellcasting",
+				"actionOptions": [
+					"savingThrow",
+					"damage"
+				],
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"attack": {
@@ -1090,16 +1087,418 @@
 					"type": ""
 				},
 				"area": {
-					"shape": ""
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "acid",
+						"formula": "(floor((@details.level+1)/6)+1)d6",
+						"name": ""
+					}
+				],
+				"description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "dex"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": null,
+					"per": ""
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"acid",
+						"arcane"
+					]
+				}
+			},
+			"_id": "3SOs2YhGk525FuXv",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671778775790,
+				"modifiedTime": 1671778798741,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"name": "Shocking Grasp",
+			"type": "spell",
+			"img": "icons/magic/lightning/fist-unarmed-strike-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ks87w0iees5tbu0z"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": "meleeSpellAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "lightning",
+						"formula": "(floor((@details.level+1)/6)+1)d8",
+						"name": ""
+					}
+				],
+				"description": "<p>Electricity arcs from your hand to shock the target. Make a melee spell attack (with advantage if the target is wearing armor made of metal). On a hit, you deal 1d8 lightning damage, and the target can't take reactions until the start of its next turn as the electricity courses through its body.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"touch"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"attack",
+						"lightning"
+					]
+				}
+			},
+			"_id": "KC19bgcBCkVILR2c",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671778807371,
+				"modifiedTime": 1671778809649,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"name": "Ray of Enfeeblement",
+			"type": "spell",
+			"img": "icons/magic/unholy/projectile-missile-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.9eojtnhu5ptcipov"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"attack",
+					"savingThrow",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": "rangedSpellAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
 				},
 				"check": {
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The creature has advantage on Perception checks that rely on smell.</p>",
+				"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
 				"duration": {
-					"unit": "",
+					"unit": "minute",
+					"value": "1"
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"medium"
+				],
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Special",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"arcane",
+						"necrotic"
+					]
+				}
+			},
+			"_id": "hJ5ATkyPWeRAr4RO",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671778827070,
+				"modifiedTime": 1671778835057,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"name": "Fire Bolt",
+			"type": "spell",
+			"img": "icons/magic/fire/projectile-fireball-embers-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.c1qq11be32b3s1qr"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": "rangedSpellAttack"
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "fire",
+						"formula": "(floor((@details.level+1)/6)+1)d10",
+						"name": ""
+					}
+				],
+				"description": "<p>You cast a streak of flame at the target. Make a ranged spell attack. On a hit, you deal 1d10 fire damage. An unattended flammable object is ignited.</p><p>This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</p>",
+				"duration": {
+					"unit": "instantaneous",
 					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"long"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"fire"
+					]
+				}
+			},
+			"_id": "wTKss4TDByQTuXDh",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
+			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671778833110,
+				"modifiedTime": 1671778836615,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"name": "Unseen Watcher",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
+				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>A witch may choose to become invisible as a bonus action as long as she takes no other actions and does not move on the turn she becomes invisible.</p><p>Moving or taking any actions ends the invisibility effect.</p>",
+				"duration": {
+					"unit": "special",
+					"value": 1
 				},
 				"favorite": true,
 				"healing": [],
@@ -1112,42 +1511,146 @@
 				},
 				"source": "",
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": null,
+					"type": "self"
 				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null
 				},
-				"featureType": "other"
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": "2",
+				"materials": "piece of a veil",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				}
 			},
-			"effects": [],
+			"_id": "jD7F4fRgQPphF1Do",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
 				"default": 0,
 				"Npd1d9XoO2BQWXWb": 3
 			},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671778865918,
+				"modifiedTime": 1671781606641,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"name": "Magical Disguise",
+			"type": "spell",
+			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
+			"effects": [],
 			"flags": {
 				"core": {
-					"sourceId": "Actor.IJh5XFcXBP7DxUsv.Item.FIiai9kDSHOTZiyZ"
+					"sourceId": "Compendium.a5e.a5e-spells.vemj08hawvmf44ya"
 				}
+			},
+			"system": {
+				"ability": "spellcasting",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p>This effect is permanent, unless she chooses to end it as a bonus action.</p>",
+				"duration": {
+					"unit": "permanent",
+					"value": 1
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"self"
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": true,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement"
+					]
+				}
+			},
+			"_id": "u6e2gY270djhbHhx",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.8.12",
 				"coreVersion": "10.291",
-				"createdTime": 1671777369320,
-				"modifiedTime": 1671777491372,
+				"createdTime": 1671778875969,
+				"modifiedTime": 1671781665582,
 				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
 			}
 		},
 		{
-			"name": "Swarm",
+			"name": "Innate Spellcasting",
 			"type": "feature",
-			"_id": "SIHuecECbmXB9PBX",
-			"img": "icons/creatures/mammals/bats-movement-flying-purple.webp",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
 			"system": {
 				"ability": "",
 				"actionOptions": [],
@@ -1168,7 +1671,7 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The swarm can occupy another creature’s space and move through any opening large enough for a Tiny creature.</p><p>It can’t gain hit points or temporary hit points.</p>",
+				"description": "<p>The witch's spellcasting ability is Charisma (spell save DC <em>12, +4 to hit with spell attacks</em>).</p><p>It can innately cast the following spells:</p><blockquote><ul><li><p>Acid Splash</p></li><li><p>Shocking Grasp</p></li><li><p>Ray of Enfeeblement</p></li><li><p>Fire Bolt</p></li></ul></blockquote>",
 				"duration": {
 					"unit": "",
 					"value": ""
@@ -1195,26 +1698,31 @@
 				"featureType": ""
 			},
 			"effects": [],
-			"folder": null,
-			"sort": 0,
+			"folder": "UPNIL7hbEQbBZvRJ",
+			"sort": 12500,
 			"ownership": {
 				"default": 0,
 				"Npd1d9XoO2BQWXWb": 3
 			},
-			"flags": {},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.uCJgHyrQXfBhuYMS.Item.nJu8NGnLwZyhqMdf"
+				}
+			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.8.12",
 				"coreVersion": "10.291",
-				"createdTime": 1671777564145,
-				"modifiedTime": 1671777726544,
+				"createdTime": 1670850344599,
+				"modifiedTime": 1671780609473,
 				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
-			}
+			},
+			"_id": "tWwMsEQPXcCwgFAm"
 		},
 		{
-			"name": "Bites",
+			"name": "Claws",
 			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-tongue-purple.webp",
+			"img": "icons/creatures/claws/claw-talons-glowing-orange.webp",
 			"system": {
 				"ability": "default",
 				"actionOptions": [
@@ -1240,10 +1748,10 @@
 				"damage": [
 					{
 						"canCrit": true,
-						"damageType": "piercing",
+						"damageType": "slashing",
 						"defaultSelection": true,
-						"formula": "1d6",
-						"name": "Swarm Bites"
+						"formula": "2d6 +@mod",
+						"name": "Claws"
 					}
 				],
 				"description": "<p></p>",
@@ -1255,7 +1763,7 @@
 				"healing": [],
 				"proficient": true,
 				"range": [
-					"0 ft."
+					"5 ft."
 				],
 				"save": {
 					"dc": "",
@@ -1276,7 +1784,7 @@
 			},
 			"effects": [],
 			"folder": "UPNIL7hbEQbBZvRJ",
-			"sort": 25000,
+			"sort": 200000,
 			"ownership": {
 				"default": 0,
 				"Npd1d9XoO2BQWXWb": 3
@@ -1291,20 +1799,24 @@
 				"systemVersion": "0.8.12",
 				"coreVersion": "10.291",
 				"createdTime": 1670846255226,
-				"modifiedTime": 1671778089698,
+				"modifiedTime": 1671781786096,
 				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
 			},
-			"_id": "Mt07CYjXMaMR62wR"
+			"_id": "dv72Cjri678xwKYM"
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [],
+			"availableSpellLevels": [
+				"0",
+				"1",
+				"2"
+			],
 			"showSpellSlots": false,
 			"showSpellPoints": false,
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "jlche4gubmbr3rjh"
+	"_id": "dteg7m1ha9njyf76"
 }

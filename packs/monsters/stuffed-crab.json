@@ -1,11 +1,11 @@
 {
-	"name": "Swarm of Woodland Creatures",
+	"name": "Stuffed Crab",
 	"type": "npc",
-	"img": "icons/svg/cowled.svg",
+	"img": "systems/a5e/assets/chuul.webp",
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 10,
+				"value": 20,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -17,7 +17,7 @@
 				}
 			},
 			"dex": {
-				"value": 12,
+				"value": 4,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -29,7 +29,7 @@
 				}
 			},
 			"con": {
-				"value": 8,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -42,18 +42,6 @@
 				}
 			},
 			"int": {
-				"value": 2,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
 				"value": 10,
 				"check": {
 					"expertiseDice": 0,
@@ -65,8 +53,20 @@
 					"bonus": ""
 				}
 			},
+			"wis": {
+				"value": 1,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
 			"cha": {
-				"value": 4,
+				"value": 8,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -369,14 +369,14 @@
 			}
 		},
 		"attributes": {
-			"ac": 11,
+			"ac": 14,
 			"death": {
 				"success": 0,
 				"failure": 0
 			},
 			"hp": {
-				"value": 17,
-				"baseMax": 17,
+				"value": 104,
+				"baseMax": 104,
 				"temp": "",
 				"bonus": null
 			},
@@ -386,16 +386,16 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 5,
-					"total": 5
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 0,
 					"total": 0
 				},
 				"d12": {
-					"current": 0,
-					"total": 0
+					"current": 16,
+					"total": 16
 				},
 				"d4": {
 					"current": 0,
@@ -411,17 +411,17 @@
 				"expertiseDice": 0
 			},
 			"movement": {
-				"burrow": 0,
-				"climb": 0,
-				"fly": 0,
-				"swim": 0,
-				"walk": 30
+				"burrow": "",
+				"climb": "",
+				"fly": "",
+				"swim": "40",
+				"walk": "40"
 			},
 			"senses": {
-				"blindsight": 0,
-				"darkvision": 0,
-				"tremorsense": 0,
-				"truesight": 0
+				"blindsight": "30",
+				"darkvision": "60",
+				"tremorsense": "",
+				"truesight": ""
 			},
 			"inspiration": false,
 			"fatigue": 0,
@@ -448,14 +448,14 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<p><strong>MONSTER TYPE DESCRIPTION</strong></p><p>Beasts are natural animals whose existence and abilities are nonmagical. A bear and a tyrannosaurus rex are both beasts.</p><p style=\"text-align: right\"><strong>Source</strong></p><p style=\"text-align: right\">Monstrous Menagerie</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>The crab prioritizes grappling creatures and stuffing them into its exoskeleton, despite the damage it takes.</p><p></p><hr class=\"a5e-rule u-my-md\"><h4><strong>DESCRIPTION</strong></h4><p>This huge undead crab is stuffed with ghouls.</p><p></p><hr class=\"a5e-rule u-my-md\"><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as skeletons. Others, like vampires, are the products of an evil ritual or curse.</p><p style=\"text-align: right\"><strong>Source</strong></p><p style=\"text-align: right\"><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/gate-pass-gazette\">Gate Pass Gazette</a></p>",
 			"creatureTypes": [
-				"beast"
+				"undead"
 			],
-			"cr": 0.25,
+			"cr": 6,
 			"elite": false,
 			"privateNotes": "",
-			"notes": "<h4><strong>Terrain</strong></h4><blockquote><p>Forest, Grassland</p></blockquote>"
+			"notes": "<h4><strong>Terrain</strong></h4><blockquote><p>Laboratory, Water</p></blockquote>"
 		},
 		"proficiencies": {
 			"armor": [],
@@ -484,41 +484,37 @@
 			}
 		},
 		"traits": {
-			"size": "med",
+			"size": "huge",
 			"conditionImmunities": [
-				"charmed",
-				"frightened",
-				"grappled",
-				"paralyzed",
-				"petrified",
-				"prone",
-				"restrained",
-				"stunned"
+				"fatigue",
+				"poisoned"
 			],
-			"damageImmunities": [],
+			"damageImmunities": [
+				"poison"
+			],
 			"damageResistances": [
-				"bludgeoning",
-				"piercing",
-				"slashing"
+				"necrotic"
 			],
-			"damageVulnerabilities": []
+			"damageVulnerabilities": [
+				"bludgeoning"
+			]
 		}
 	},
 	"prototypeToken": {
-		"name": "Swarm of Woodland Creatures",
+		"name": "Stuffed Crab",
 		"displayName": 20,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/cowled.svg",
-			"scaleX": 1.1,
-			"scaleY": 1.1,
+			"src": "systems/a5e/assets/chuul.webp",
+			"scaleX": 1,
+			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
 			"tint": null
 		},
-		"width": 1,
-		"height": 1,
+		"width": 3,
+		"height": 3,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1072,16 +1068,16 @@
 			}
 		},
 		{
-			"name": "Keen Smell",
+			"name": "Ghouls",
 			"type": "feature",
-			"_id": "FIiai9kDSHOTZiyZ",
-			"img": "icons/creatures/mammals/dog-husky-white-blue.webp",
+			"_id": "lgLa2TzhRDudTMG0",
+			"img": "systems/a5e/assets/ghoul.webp",
 			"system": {
 				"ability": "",
 				"actionOptions": [],
 				"activation": {
 					"cost": "",
-					"type": "",
+					"type": "special",
 					"reactionTrigger": ""
 				},
 				"attack": {
@@ -1096,7 +1092,156 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The creature has advantage on Perception checks that rely on smell.</p>",
+				"description": "<blockquote><p>The crab contains 7 ghouls.</p></blockquote><p>Due to the huge crab’s state of decay, the location struck matters. Creatures who attack it must choose one of the squares it occupies that they can target.</p><p>On a successful hit, a ghoul falls prone into that space. </p><p>When the crab is reduced to 0 hit points, any ghoul still inside takes crawls out on its turn.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": 7,
+					"max": 7,
+					"per": ""
+				},
+				"featureType": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
+			},
+			"flags": {},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671767707196,
+				"modifiedTime": 1671768283235,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"name": "Pincer",
+			"type": "feature",
+			"_id": "fxBCtmCzFX8Kw4RN",
+			"img": "icons/creatures/claws/pincer-crab-brown.webp",
+			"system": {
+				"ability": "",
+				"actionOptions": [
+					"attack",
+					"damage"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": "20",
+					"type": "meleeWeaponAttack"
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": true,
+						"damageType": "slashing",
+						"defaultSelection": true,
+						"formula": "3d8 +@mod",
+						"name": "Pincer"
+					}
+				],
+				"description": "<p>On a success, the target must make a DC 16 Strength or Dexterity saving throw or become grappled (escape DC 16).</p><p>The crab can grapple up to two creatures.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": true,
+				"healing": [],
+				"proficient": true,
+				"range": [
+					"10 ft."
+				],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"source": "",
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 300000,
+			"ownership": {
+				"default": 0,
+				"Npd1d9XoO2BQWXWb": 3
+			},
+			"flags": {},
+			"_stats": {
+				"systemId": "a5e",
+				"systemVersion": "0.8.12",
+				"coreVersion": "10.291",
+				"createdTime": 1671768255590,
+				"modifiedTime": 1671773893504,
+				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
+			}
+		},
+		{
+			"folder": "UPNIL7hbEQbBZvRJ",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/creatures/claws/pincer-crab-brown.webp",
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The stuffed crab attacks twice with it's <em>pincer</em> attack.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
@@ -1123,37 +1268,39 @@
 				"featureType": "other"
 			},
 			"effects": [],
-			"folder": null,
-			"sort": 0,
+			"sort": 250000,
 			"ownership": {
 				"default": 0,
 				"Npd1d9XoO2BQWXWb": 3
 			},
 			"flags": {
 				"core": {
-					"sourceId": "Actor.IJh5XFcXBP7DxUsv.Item.FIiai9kDSHOTZiyZ"
+					"sourceId": "Item.KIPaMdwMAeDZilc9"
 				}
 			},
 			"_stats": {
 				"systemId": "a5e",
 				"systemVersion": "0.8.12",
 				"coreVersion": "10.291",
-				"createdTime": 1671777369320,
-				"modifiedTime": 1671777491372,
+				"createdTime": 1671065275442,
+				"modifiedTime": 1671773932147,
 				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
-			}
+			},
+			"_id": "IXCoNTjZtuVUcUTT"
 		},
 		{
-			"name": "Swarm",
+			"name": "Stuffing",
 			"type": "feature",
-			"_id": "SIHuecECbmXB9PBX",
-			"img": "icons/creatures/mammals/bats-movement-flying-purple.webp",
+			"_id": "cPDqSUzFbj44DNvV",
+			"img": "icons/creatures/unholy/demon-winged-cyclops-drooling.webp",
 			"system": {
 				"ability": "",
-				"actionOptions": [],
+				"actionOptions": [
+					"savingThrow"
+				],
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "bonusAction",
 					"reactionTrigger": ""
 				},
 				"attack": {
@@ -1168,7 +1315,7 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The swarm can occupy another creature’s space and move through any opening large enough for a Tiny creature.</p><p>It can’t gain hit points or temporary hit points.</p>",
+				"description": "<p>If the crab has a Medium or smaller creature grappled, it stuffs the creature into its shell, taking 5 points of damage itself but trapping its target.</p><p>The creature moves with the crab, but is considered restrained (escape DC 16).</p><p>Every turn the creature remains restrained, each ghoul that is still inside the crab can make an attack against it with disadvantage.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
@@ -1176,23 +1323,25 @@
 				"favorite": true,
 				"healing": [],
 				"proficient": true,
-				"range": [],
+				"range": [
+					"touch"
+				],
 				"save": {
-					"dc": "",
-					"onSave": "",
+					"dc": "16",
+					"onSave": "no longer restrained.",
 					"targetAbility": ""
 				},
 				"source": "",
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 1,
+					"type": "creature"
 				},
 				"uses": {
 					"value": null,
 					"max": "",
 					"per": null
 				},
-				"featureType": ""
+				"featureType": "other"
 			},
 			"effects": [],
 			"folder": null,
@@ -1206,95 +1355,10 @@
 				"systemId": "a5e",
 				"systemVersion": "0.8.12",
 				"coreVersion": "10.291",
-				"createdTime": 1671777564145,
-				"modifiedTime": 1671777726544,
+				"createdTime": 1671773862108,
+				"modifiedTime": 1671774190102,
 				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
 			}
-		},
-		{
-			"name": "Bites",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-tongue-purple.webp",
-			"system": {
-				"ability": "default",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"defaultSelection": true,
-						"formula": "1d6",
-						"name": "Swarm Bites"
-					}
-				],
-				"description": "<p></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"0 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon"
-			},
-			"effects": [],
-			"folder": "UPNIL7hbEQbBZvRJ",
-			"sort": 25000,
-			"ownership": {
-				"default": 0,
-				"Npd1d9XoO2BQWXWb": 3
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Actor.UAk4SeQM04OLz0g4.Item.G1t52Ix7Zc9wz9Pv"
-				}
-			},
-			"_stats": {
-				"systemId": "a5e",
-				"systemVersion": "0.8.12",
-				"coreVersion": "10.291",
-				"createdTime": 1670846255226,
-				"modifiedTime": 1671778089698,
-				"lastModifiedBy": "Npd1d9XoO2BQWXWb"
-			},
-			"_id": "Mt07CYjXMaMR62wR"
 		}
 	],
 	"effects": [],
@@ -1306,5 +1370,5 @@
 			"sheetIsLocked": true
 		}
 	},
-	"_id": "jlche4gubmbr3rjh"
+	"_id": "w6qyqoqh1yjq5puf"
 }
