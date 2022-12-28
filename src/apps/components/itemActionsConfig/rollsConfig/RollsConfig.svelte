@@ -18,6 +18,11 @@
   const actionId = getContext("actionId");
 
   function addRoll(type) {
+    if (type === "attack" && attackRolls.length > 0)
+      return ui.notifications.error(
+        "An action can have no more than 1 attack roll."
+      );
+
     $item.update({
       [`system.actions.${actionId}.rolls`]: {
         ...action.rolls,
@@ -41,6 +46,10 @@
   };
 
   $: action = $item.system.actions[actionId];
+
+  $: attackRolls = Object.entries(action.rolls ?? {}).filter(
+    ([_, roll]) => roll.type === "attack"
+  );
 </script>
 
 <ul class="roll-config-list">
@@ -49,9 +58,11 @@
       <header class="section-header">
         <h2 class="section-heading">{localize(heading)}</h2>
 
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <a on:click={() => addRoll(rollType)}>+ Add Roll</a>
+        {#if !(rollType === "attack" && attackRolls.length > 0)}
+          <button class="section-add-button" on:click={() => addRoll(rollType)}>
+            + Add Roll
+          </button>
+        {/if}
       </header>
 
       <ul class="roll-list">
@@ -85,6 +96,16 @@
 
   .section-heading {
     font-size: 1rem;
+  }
+
+  .section-add-button {
+    all: unset;
+    font-size: 0.833rem;
+    cursor: pointer;
+
+    &:hover {
+      text-shadow: 0 0 8px var(--color-shadow-primary);
+    }
   }
 
   .roll-list {
