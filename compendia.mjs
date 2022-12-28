@@ -35,28 +35,29 @@ function generateId() {
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function cleanDocument(data, { clearSourceId = false } = {}) {
+function cleanDocument(document, { clearSourceId = false } = {}) {
   // Remove Flag data
-  if (clearSourceId) delete data.flags?.core?.sourceId;
-  delete data.flags?.exportSource;
-  delete data.flags?.importSource;
-  delete data?._stats;
+  if (clearSourceId) delete document.flags?.core?.sourceId;
+  delete document.flags?.exportSource;
+  delete document.flags?.importSource;
+  delete document._stats;
+  delete document.system?._stats;
 
-  if (!data.flags) data.flags = {};
-  Object.entries(data.flags).forEach(([flag, flagData]) => {
+  if (!document.flags) document.flags = {};
+  Object.entries(document.flags).forEach(([flag, flagData]) => {
     if (!['core', 'a5e'].includes(flag)) {
-      delete data.flags[flag];
+      delete document.flags[flag];
       return;
     }
-    if (Object.keys(flagData).length === 0) delete data.flags[flag];
+    if (Object.keys(flagData).length === 0) delete document.flags[flag];
   });
 
   // Remove Permission information
-  if (data.ownership) data.ownership = { default: 0 };
+  if (document.ownership) document.ownership = { default: 0 };
 
   // Recurse for subDocuments
-  if (data.effects) data.effects.forEach((doc) => cleanDocument(doc));
-  if (data.items) data.effects.forEach((doc) => cleanDocument(doc));
+  if (document.effects) document.effects.forEach((doc) => cleanDocument(doc));
+  if (document.items) document.effects.forEach((doc) => cleanDocument(doc));
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
