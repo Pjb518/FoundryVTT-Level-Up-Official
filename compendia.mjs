@@ -130,11 +130,11 @@ export function saveIds() {
   });
 
   // Update saved file data
-  console.info('Updated saved ids data - Please check.');
+  console.info('[WARN] - Updated saved ids data - Please check.');
   fs.writeFileSync(IDS_FILE_PATH, JSON.stringify(savedIdData, null, '\t'), { encoding: 'utf-8' });
 
   // Info Log
-  console.info(`[INFO] - Changed/Saved ${numAdds} ids.`);
+  console.info(`[INFO] - Changed/Saved ${numAdds} ids.\n`);
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -219,7 +219,7 @@ export function fixIds() {
 
   // Info Log
   console.info(`[INFO] - Generated ${numNewIds} ids.`);
-  console.info(`[INFO] - Fixed ${numChangedIds} ids.`);
+  console.info(`[INFO] - Fixed ${numChangedIds} ids.\n`);
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -291,5 +291,5 @@ export function compilePacks() {
 
   // Info Log
   console.info(`\n[INFO] - Generated ${numNewIds} new ids.`);
-  console.info(`[INFO] - Mapped ${numMappedIds} ids from sourceId to _id.`);
+  console.info(`[INFO] - Mapped ${numMappedIds} ids from sourceId to _id.\n`);
 }
