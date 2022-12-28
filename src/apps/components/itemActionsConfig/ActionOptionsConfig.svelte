@@ -77,7 +77,7 @@
           id={`${actionId}-duration-value`}
           name={`${actionId}-duration-value`}
           type="number"
-          value={action.activationCost ?? 0}
+          value={action.duration?.value ?? 0}
           on:change={({ target }) =>
             updateDocumentDataFromField(
               $item,
