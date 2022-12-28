@@ -1,5 +1,6 @@
 <script>
   import { getContext } from "svelte";
+  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
   import actionHasAttackRoll from "../../../utils/actionHasAttackRoll";
 
@@ -40,25 +41,13 @@
   };
 
   $: action = $item.system.actions[actionId];
-
-  //   $: abilityChecks = Object.entries(action.rolls ?? {}).filter(
-  //     ([_, roll]) => roll.type === "abilityCheck"
-  //   );
-
-  //   $: attackRolls = Object.entries(action.rolls ?? {}).filter(
-  //     ([_, roll]) => roll.type === "attack"
-  //   );
-
-  //   $: damageRolls = Object.entries(action.rolls ?? {}).filter(
-  //     ([_, roll]) => roll.type === "damage"
-  //   );
 </script>
 
 <ul class="roll-config-list">
   {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
     <li class="roll-config-list__item">
       <header class="section-header">
-        <h2 class="section-heading">{heading}</h2>
+        <h2 class="section-heading">{localize(heading)}</h2>
 
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-missing-attribute -->

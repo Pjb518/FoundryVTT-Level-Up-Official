@@ -5,6 +5,7 @@
   import AbilityCheckPromptConfig from "./promptsConfig/AbilityCheckPromptConfig.svelte";
   import PromptsConfigWrapper from "./promptsConfig/PromptsConfigWrapper.svelte";
   import SavePromptConfig from "./promptsConfig/SavePromptConfig.svelte";
+  import SkillCheckPromptConfig from "./promptsConfig/SkillCheckPromptConfig.svelte";
 
   const item = getContext("item");
   const actionId = getContext("actionId");
@@ -19,11 +20,20 @@
   }
 
   const promptTypes = {
+    savingThrow: {
+      heading: "A5E.ActionConfigSavingThrowPrompt",
+      component: SavePromptConfig,
+    },
     abilityCheck: {
-      heading: "Ability Check Prompt",
+      heading: "A5E.ActionConfigAbilityCheckPrompt",
       component: AbilityCheckPromptConfig,
     },
-    save: { heading: "Saving Throw Prompt", component: SavePromptConfig },
+    skillCheck: {
+      heading: "A5E.ActionConfigSkillCheckPrompt",
+      component: SkillCheckPromptConfig,
+    },
+    toolCheck: { heading: "A5E.ActionConfigToolCheckPrompt", component: null },
+    generic: { heading: "A5E.ActionConfigGenericPrompt", component: null },
   };
 
   $: action = $item.system.actions[actionId];
@@ -33,7 +43,7 @@
   {#each Object.entries(promptTypes) as [promptType, { heading, component }] (promptType)}
     <li class="prompts-config-list__item">
       <header class="section-header">
-        <h2 class="section-heading">{heading}</h2>
+        <h2 class="section-heading">{localize(heading)}</h2>
 
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-missing-attribute -->
