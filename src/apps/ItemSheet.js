@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import CultureSheetComponent from './sheets/CultureSheet/CultureSheet.svelte';
+import CultureSheetComponent from './sheets/CultureSheet.svelte';
 import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
 import ItemSheetComponent from './sheets/ItemSheet.svelte';
 

@@ -9,8 +9,7 @@
   import ItemDescriptionTab from "../../components/ItemDescriptionTab.svelte";
   import ItemSheetHeader from "../../components/itemSheetHeader/ItemSheetHeader.svelte";
   import NavigationBar from "../../components/navigation/NavigationBar.svelte";
-  import localizeLanguage from "../../utils/localizeLanguage";
-  import CultureDetailTab from "./CultureDetailsTab.svelte";
+  import CultureDetailsTab from "../components/pages/CultureDetailsTab.svelte";
 
   export let { itemDocument } = getContext("external").application;
   export let elementRoot;
@@ -28,7 +27,7 @@
     {
       name: "details",
       label: "A5E.TabDetails",
-      component: CultureDetailTab,
+      component: CultureDetailsTab,
     },
   ];
 

@@ -4,7 +4,7 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import DropArea from "../../components/DropArea.svelte";
+  import DropArea from "../DropArea.svelte";
 
   import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
