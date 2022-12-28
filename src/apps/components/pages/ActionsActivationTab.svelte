@@ -4,7 +4,7 @@
 
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-  import FormSection from "../itemPropertiesConfig/FormSection.svelte";
+  import FormSection from "../FormSection.svelte";
 
   const item = getContext("item");
   const actionId = getContext("actionId");

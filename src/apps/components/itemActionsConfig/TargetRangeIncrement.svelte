@@ -5,7 +5,7 @@
   import getOrdinalNumber from "../../../modules/utils/getOrdinalNumber";
   import isStandardRange from "../../../modules/utils/isStandardRange";
 
-  import FormSection from "../itemPropertiesConfig/FormSection.svelte";
+  import FormSection from "../FormSection.svelte";
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   export let index;

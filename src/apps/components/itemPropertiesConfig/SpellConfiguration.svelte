@@ -4,9 +4,9 @@
 
   import objectEntriesNumberKeyConverter from "../../utils/objectEntriesNumberKeyConverter";
 
-  import FormSection from "./FormSection.svelte";
-  import CheckboxGroup from "./CheckboxGroup.svelte";
-  import RadioGroup from "./RadioGroup.svelte";
+  import FormSection from "../FormSection.svelte";
+  import CheckboxGroup from "../CheckboxGroup.svelte";
+  import RadioGroup from "../RadioGroup.svelte";
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");

@@ -2,8 +2,8 @@
   import { getContext } from "svelte";
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import FormSection from "./FormSection.svelte";
-  import RadioGroup from "./RadioGroup.svelte";
+  import FormSection from "../FormSection.svelte";
+  import RadioGroup from "../RadioGroup.svelte";
 
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
   import objectEntriesNumberKeyConverter from "../../utils/objectEntriesNumberKeyConverter";
