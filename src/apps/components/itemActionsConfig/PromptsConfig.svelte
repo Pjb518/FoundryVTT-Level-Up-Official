@@ -3,6 +3,7 @@
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
   import AbilityCheckPromptConfig from "./promptsConfig/AbilityCheckPromptConfig.svelte";
+  import GenericPromptConfig from "./promptsConfig/GenericPromptConfig.svelte";
   import PromptsConfigWrapper from "./promptsConfig/PromptsConfigWrapper.svelte";
   import SavePromptConfig from "./promptsConfig/SavePromptConfig.svelte";
   import SkillCheckPromptConfig from "./promptsConfig/SkillCheckPromptConfig.svelte";
@@ -32,8 +33,10 @@
       heading: "A5E.ActionConfigSkillCheckPrompt",
       component: SkillCheckPromptConfig,
     },
-    toolCheck: { heading: "A5E.ActionConfigToolCheckPrompt", component: null },
-    generic: { heading: "A5E.ActionConfigGenericPrompt", component: null },
+    generic: {
+      heading: "A5E.Other",
+      component: GenericPromptConfig,
+    },
   };
 
   $: action = $item.system.actions[actionId];
