@@ -22,17 +22,17 @@
 
 <FormSection heading="A5E.ItemActivationCost">
   <div class="u-align-center u-flex u-gap-lg u-w-full">
-    {#if action?.activationType}
+    {#if action.activation?.type}
       <div class="u-text-center u-text-sm u-w-20">
         <input
           id={`${actionId}-activation-cost`}
           name={`${actionId}-activation-cost`}
           type="number"
-          value={action.activationCost ?? 0}
+          value={action.activation?.cost ?? 0}
           on:change={({ target }) =>
             updateDocumentDataFromField(
               $item,
-              `system.actions.${actionId}.activationCost`,
+              `system.actions.${actionId}.activation.cost`,
               Number(target.value)
             )}
         />
@@ -41,13 +41,17 @@
 
     <select
       class="u-w-fit"
-      name={`system.actions.${actionId}.activationType`}
+      name={`system.actions.${actionId}.activation.type`}
       on:change={({ target }) =>
         updateDocumentDataFromField($item, target.name, target.value)}
     >
       <option value="" />
       {#each Object.entries(abilityActivationTypes) as [value, label]}
-        <option key={value} {value} selected={action?.activationType === value}>
+        <option
+          key={value}
+          {value}
+          selected={action.activation?.type === value}
+        >
           {localize(label)}
         </option>
       {/each}
@@ -55,13 +59,13 @@
   </div>
 </FormSection>
 
-{#if action?.activationType === "reaction"}
+{#if action.activation?.type === "reaction"}
   <FormSection heading="A5E.ActionActivationReactionTrigger">
     <div class="u-text-sm u-w-full">
       <input
         type="text"
-        name={`system.actions.${actionId}.reactionTrigger`}
-        value={action.reactionTrigger ?? ""}
+        name={`system.actions.${actionId}.activation.reactionTrigger`}
+        value={action.activation?.reactionTrigger ?? ""}
         on:change={({ target }) =>
           updateDocumentDataFromField($item, target.name, target.value)}
       />
