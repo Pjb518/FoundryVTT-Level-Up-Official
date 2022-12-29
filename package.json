@@ -1,13 +1,16 @@
 {
   "name": "a5e",
-  "version": "0.8.11",
+  "version": "0.8.12",
   "description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
   "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "node ./compendia.mjs && vite build",
+
+    "build": "npm run build:compendia && vite build",
     "build:system": "vite build",
-    "build:compendia": "node ./compendia.mjs"
+    "build:compendia": "node -e \"import('./compendia.mjs').then( m => m.compilePacks())\"",
+    "build:fixIds": "node -e \"import('./compendia.mjs').then( m => m.fixIds())\"",
+    "build:saveIds": "node -e \"import('./compendia.mjs').then( m => m.saveIds())\""
   },
   "repository": {
     "type": "git",

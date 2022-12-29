@@ -88,7 +88,8 @@ export default class Actor5e extends Actor {
 
     // Player character configuration
     if (this.type === 'character') {
-      this.data.token.update({ vision: true, actorLink: true, disposition: 1 });
+      const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
+      this.updateSource({ prototypeToken });
     }
   }
 

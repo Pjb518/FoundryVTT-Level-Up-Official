@@ -349,8 +349,10 @@ A5E.maneuverDegrees = {
 
 A5E.maneuverTraditions = {
   adamantMountain: 'A5E.ManeuverTraditionAdamantMountain',
+  arcaneKnight: 'A5E.ManeuverTraditionArcaneKnight',
   beastUnity: 'A5E.ManeuverTraditionBeastUnity',
   bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
+  cuttingOmen: 'A5E.ManeuverTraditionCuttingOmen',
   mirrorsGlint: 'A5E.ManeuverTraditionMirrorsGlint',
   mistAndShade: 'A5E.ManeuverTraditionMistAndShade',
   rapidCurrent: 'A5E.ManeuverTraditionRapidCurrent',
@@ -558,6 +560,7 @@ A5E.spellSchools = {
     law: 'A5E.SpellSchoolLaw',
     lightning: 'A5E.SpellSchoolLightning',
     movement: 'A5E.SpellSchoolMovement',
+    multiclass: 'A5E.SpellSchoolMovement',
     nature: 'A5E.SpellSchoolNature',
     necrotic: 'A5E.SpellSchoolNecrotic',
     negation: 'A5E.SpellSchoolNegation',
