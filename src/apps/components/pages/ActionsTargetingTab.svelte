@@ -10,6 +10,8 @@
   const item = getContext("item");
   const actionId = getContext("actionId");
 
+  const { targetTypes } = CONFIG.A5E;
+
   function addRangeIncrement() {
     const newRange = {
       range: "",
@@ -55,9 +57,9 @@
     </header>
 
     <ul class="section-list">
-      {#each Object.entries(action.ranges ?? {}) as [id, { range }], index (id)}
+      {#each Object.entries(action.ranges ?? {}) as [id, range], index (id)}
         <li class="range-increment" data-range-id={id}>
-          <TargetRangeIncrement {index} {id} {range} />
+          <TargetRangeIncrement {index} {id} rangeObject={range} />
         </li>
       {:else}
         <li class="none">None</li>
@@ -89,14 +91,17 @@
         />
       {/if}
 
-      <select class="u-w-fit" name="data.target.type" on:change={selectTarget}>
+      <select
+        class="u-w-fit"
+        name={`system.actions.${actionId}.target.type`}
+        on:change={selectTarget}
+      >
         <!-- svelte-ignore missing-declaration (foundry) -->
         <option value={null} selected={foundry.utils.isEmpty(action?.target)}>
           {localize("A5E.None")}
         </option>
 
-        <!-- svelte-ignore missing-declaration (CONFIG)-->
-        {#each Object.entries(CONFIG.A5E.targetTypes) as [key, name] (key)}
+        {#each Object.entries(targetTypes) as [key, name] (key)}
           <option value={key} selected={action?.target?.type === key}>
             {localize(name)}
           </option>

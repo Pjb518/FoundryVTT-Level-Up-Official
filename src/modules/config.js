@@ -406,6 +406,16 @@ A5E.movementAbbreviations = {
 };
 
 /**
+ * @enum {string}
+ */
+A5E.movementUnits = {
+  feet: 'A5E.MovementUnitFeet',
+  miles: 'A5E.MovementUnitMiles',
+  meters: 'A5E.MovementUnitMeters',
+  kilometers: 'A5E.MovementUnitKilometers'
+};
+
+/**
  * The set of object subtypes available within the system.
  * @enum {string}
  */
@@ -445,8 +455,8 @@ A5E.objectTypesPlural = {
  */
 A5E.rangeDescriptors = {
   self: 'A5E.RangeSelf',
-  fiveFeet: 'A5E.RangeFiveFeet',
   touch: 'A5E.RangeTouch',
+  fiveFeet: 'A5E.RangeFiveFeet',
   short: 'A5E.RangeShort',
   medium: 'A5E.RangeMedium',
   long: 'A5E.RangeLong',

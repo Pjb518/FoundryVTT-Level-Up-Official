@@ -10,18 +10,49 @@
 
   export let index;
   export let id;
-  export let range;
+  export let rangeObject;
+  let range = rangeObject.range;
 
   const item = getContext("item");
   const actionId = getContext("actionId");
 
-  function update(option) {
+  const { movementUnits } = CONFIG.A5E;
+
+  function updateRangeValue(option) {
     range = isStandardRange(option) ? option : customValue;
     updateDocumentDataFromField(
       $item,
       `system.actions.${actionId}.ranges.${id}.range`,
       range
     );
+  }
+
+  function selectRangeUnit(event) {
+    const selectedOption = event.target?.selectedOptions[0]?.value;
+
+    if (selectedOption === "null") {
+      $item.update({
+        [`system.actions.${actionId}.ranges.${id}`]: {
+          "-=unit": null,
+        },
+      });
+    } else {
+      $item.update({
+        [`system.actions.${actionId}.ranges.${id}`]: {
+          unit: selectedOption,
+        },
+      });
+    }
+  }
+
+  function deleteRangeUnit(event) {
+    const checked = event.target?.checked;
+    if (checked === true) return;
+    $item.update({
+      [`system.actions.${actionId}.ranges.${id}`]: {
+        "-=unit": null,
+      },
+    });
   }
 
   function deleteRangeIncrement(event) {
@@ -50,6 +81,7 @@
   );
 
   let customValue = isStandardRange(range) ? "" : range;
+  let includeUnit = rangeObject.unit ? true : false;
   $: selected = isStandardRange(range) ? range : "other";
 </script>
 
@@ -65,7 +97,7 @@
           class:a5e-tag--inactive={!(
             selected === value || selected?.toString() === value
           )}
-          on:click={() => update(value)}
+          on:click={() => updateRangeValue(value)}
         >
           {localize(label)}
         </li>
@@ -73,12 +105,38 @@
     </ul>
 
     {#if selected === "other"}
+      <div class="u-flex u-gap-md u-align-center u-mt-xs u=mb-xs">
+        <input
+          id={`${actionId}-${id}-include-unit`}
+          name={`${actionId}-${id}-include-unit`}
+          type="checkbox"
+          bind:checked={includeUnit}
+          on:change={deleteRangeUnit}
+        />
+        <label for={`${actionId}-${id}-include-unit`}>Include Unit</label>
+      </div>
+
       <div class="u-align-center u-flex u-gap-md u-w-full">
         <input
           type="text"
           bind:value={customValue}
-          on:change={() => update(customValue)}
+          on:change={() => updateRangeValue(customValue)}
         />
+
+        {#if includeUnit}
+          <select
+            class="u-w-fit"
+            name="system.actions.${actionId}.ranges.{id}.unit"
+            on:change={selectRangeUnit}
+          >
+            <option value={null}>{localize("A5E.None")}</option>
+            {#each Object.entries(movementUnits) as [unit, label]}
+              <option value={unit} selected={rangeObject.unit === unit}>
+                {localize(label)}
+              </option>
+            {/each}
+          </select>
+        {/if}
       </div>
     {/if}
   </div>
