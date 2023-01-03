@@ -32,7 +32,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   action.target = foundry.utils.duplicate(itemData.system.target);
 
   // Step 8: Migrate Uses
-  // TODO:
+  action.uses = foundry.utils.duplicate(itemData.system.uses);
 
   // Step 9: Rolls & Prompts
   if (actionOptions.includes('attack')) {
@@ -105,7 +105,8 @@ export default function migrateActionsConfig(itemData, updateData) {
     '-=damage': null,
     '-=healing': null,
     '-=check': null,
-    '-=savingThrow': null
+    '-=savingThrow': null,
+    '-=uses': null
   };
 
   // Step 11: Add action to update data
