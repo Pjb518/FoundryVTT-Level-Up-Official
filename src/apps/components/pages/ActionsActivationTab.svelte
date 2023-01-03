@@ -3,6 +3,7 @@
   import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+  import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
   import FormSection from "../FormSection.svelte";
 
@@ -11,6 +12,7 @@
 
   const { abilityActivationTypes, resourceRecoveryOptions, timePeriods } =
     CONFIG.A5E;
+  const specialActivationTypes = ["none", "special"];
   const specialTimeTypes = ["instantaneous", "permanent", "special"];
 
   $: action = $item.system.actions[actionId];
@@ -22,13 +24,13 @@
 
 <FormSection heading="A5E.ItemActivationCost">
   <div class="u-align-center u-flex u-gap-lg u-w-full">
-    {#if action.activation?.type}
+    {#if action.activation?.type && !specialActivationTypes.includes(action.activation?.type)}
       <div class="u-text-center u-text-sm u-w-20">
         <input
           id={`${actionId}-activation-cost`}
           name={`${actionId}-activation-cost`}
           type="number"
-          value={action.activation?.cost ?? 0}
+          value={action.activation?.cost ?? 1}
           on:change={({ target }) =>
             updateDocumentDataFromField(
               $item,
@@ -43,7 +45,13 @@
       class="u-w-fit"
       name={`system.actions.${actionId}.activation.type`}
       on:change={({ target }) =>
-        updateDocumentDataFromField($item, target.name, target.value)}
+        updateAssociatedValues(
+          $item,
+          target.name,
+          target.value,
+          `system.actions.${actionId}.activation.cost`,
+          specialActivationTypes
+        )}
     >
       <option value="" />
       {#each Object.entries(abilityActivationTypes) as [value, label]}
@@ -81,7 +89,7 @@
           id={`${actionId}-duration-value`}
           name={`${actionId}-duration-value`}
           type="number"
-          value={action.duration?.value ?? 0}
+          value={action.duration?.value ?? 1}
           on:change={({ target }) =>
             updateDocumentDataFromField(
               $item,
@@ -96,7 +104,13 @@
       class="u-w-fit"
       name={`system.actions.${actionId}.duration.unit`}
       on:change={({ target }) =>
-        updateDocumentDataFromField($item, target.name, target.value)}
+        updateAssociatedValues(
+          $item,
+          target.name,
+          target.value,
+          `system.actions.${actionId}.duration.value`,
+          specialTimeTypes
+        )}
     >
       <option value="" />
       {#each Object.entries(timePeriods) as [value, label]}
