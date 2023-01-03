@@ -1,0 +1,53 @@
+.action-config {
+  &__section,
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__section {
+    gap: 0.5rem;
+  }
+
+  &__wrapper {
+    gap: 1rem;
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.25rem 0.25rem;
+    font-family: sans-serif;
+    font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__component {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+
+    .label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 100%;
+      margin-right: 4.5rem;
+    }
+
+    .small-input {
+      width: 5rem;
+      text-align: center;
+      font-size: $font-size-sm;
+    }
+
+    .full-size-input {
+      font-size: $font-size-sm;
+      width: 100%;
+    }
+  }
+
+}
