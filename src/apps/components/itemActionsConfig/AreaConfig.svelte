@@ -3,6 +3,7 @@
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   import AreaShape from "./AreaShape.svelte";
+  import FormSection from "../FormSection.svelte";
 
   export let action;
   export let actionId;
@@ -17,11 +18,12 @@
   }
 </script>
 
-<section class="form-section">
-  <header class="section-header">
-    <h2>Area</h2>
+<section class="action-config__section">
+  <header class="action-config__section-header">
+    <h2 class="action-config__section-heading">Area</h2>
   </header>
 
+  <!-- <FormSection> -->
   <div class="area-shape-list">
     <!-- svelte-ignore missing-declaration (foundry)-->
     <input
@@ -47,114 +49,119 @@
       <AreaShape {action} {actionId} {item} {key} {name} />
     {/each}
   </div>
-
-  <div class="u-flex u-gap-lg u-w-full">
-    {#if action.area?.shape}
-      <div class="u-flex u-flex-col u-gap-xs u-w-30">
-        <label for={`${actionId}-area-quantity`}>Quantity</label>
-        <input
-          id={`${actionId}-area-quantity`}
-          type="number"
-          value={action.area?.quantity ?? 1}
-          on:change={({ target }) =>
-            updateDocumentDataFromField(
-              $item,
-              `system.actions.${actionId}.area.quantity`,
-              Number(target.value)
-            )}
-        />
-      </div>
-    {/if}
-
-    {#if ["cylinder", "sphere"].includes(action.area?.shape)}
-      <div class="u-flex u-flex-col u-gap-xs u-w-30">
-        <label for={`${actionId}-area-radius`}>Radius</label>
-        <input
-          id={`${actionId}-area-radius`}
-          type="number"
-          value={action.area?.radius ?? 0}
-          on:change={({ target }) =>
-            updateDocumentDataFromField(
-              $item,
-              `system.actions.${actionId}.area.radius`,
-              Number(target.value)
-            )}
-        />
-      </div>
-    {/if}
-
-    {#if ["cone", "line"].includes(action.area?.shape)}
-      <div class="u-flex u-flex-col u-gap-xs u-w-30">
-        <label for={`${actionId}-area-length`}>Length</label>
-        <input
-          id={`${actionId}-area-length`}
-          type="number"
-          value={action.area?.length ?? 0}
-          on:change={({ target }) =>
-            updateDocumentDataFromField(
-              $item,
-              `system.actions.${actionId}.area.length`,
-              Number(target.value)
-            )}
-        />
-      </div>
-    {/if}
-
-    {#if ["cube", "line"].includes(action.area?.shape)}
-      <div class="u-flex u-flex-col u-gap-xs u-w-30">
-        <label for={`${actionId}-area-width`}>Width</label>
-        <input
-          id={`${actionId}-area-width`}
-          type="number"
-          value={action.area?.width ?? 0}
-          on:change={({ target }) =>
-            updateDocumentDataFromField(
-              $item,
-              `system.actions.${actionId}.area.width`,
-              Number(target.value)
-            )}
-        />
-      </div>
-    {/if}
-
-    {#if action.area?.shape === "cylinder"}
-      <div class="u-flex u-flex-col u-gap-xs u-w-30">
-        <label for={`${actionId}-area-height`}>Height</label>
-        <input
-          id={`${actionId}-area-height`}
-          type="number"
-          value={action.area?.height ?? 0}
-          on:change={({ target }) =>
-            updateDocumentDataFromField(
-              $item,
-              `system.actions.${actionId}.area.height`,
-              Number(target.value)
-            )}
-        />
-      </div>
-    {/if}
-  </div>
+  <!-- </FormSection> -->
 
   {#if action.area?.shape}
-    <div class="u-flex u-gap-lg u-w-full u-mt-xs">
-      <div class="u-flex u-gap-md u-align-center">
-        <input
-          id={`${actionId}-place-template`}
-          type="checkbox"
-          checked={action.area?.placeTemplate ?? false}
-          on:change={({ target }) =>
-            updateDocumentDataFromField(
-              $item,
-              `system.actions.${actionId}.area.placeTemplate`,
-              target.checked
-            )}
-        />
+    <FormSection>
+      <div class="u-flex u-gap-lg u-w-full">
+        <div class="u-flex u-flex-col u-gap-xs u-w-30">
+          <label for={`${actionId}-area-quantity`}>Quantity</label>
+          <input
+            id={`${actionId}-area-quantity`}
+            type="number"
+            value={action.area?.quantity ?? 1}
+            on:change={({ target }) =>
+              updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.area.quantity`,
+                Number(target.value)
+              )}
+          />
+        </div>
 
-        <label class="u-pointer" for={`${actionId}-place-template`}>
-          {localize("A5E.ItemPlaceTemplate")}
-        </label>
+        {#if ["cylinder", "sphere"].includes(action.area?.shape)}
+          <div class="u-flex u-flex-col u-gap-xs u-w-30">
+            <label for={`${actionId}-area-radius`}>Radius</label>
+            <input
+              id={`${actionId}-area-radius`}
+              type="number"
+              value={action.area?.radius ?? 0}
+              on:change={({ target }) =>
+                updateDocumentDataFromField(
+                  $item,
+                  `system.actions.${actionId}.area.radius`,
+                  Number(target.value)
+                )}
+            />
+          </div>
+        {/if}
+
+        {#if ["cone", "line"].includes(action.area?.shape)}
+          <div class="u-flex u-flex-col u-gap-xs u-w-30">
+            <label for={`${actionId}-area-length`}>Length</label>
+            <input
+              id={`${actionId}-area-length`}
+              type="number"
+              value={action.area?.length ?? 0}
+              on:change={({ target }) =>
+                updateDocumentDataFromField(
+                  $item,
+                  `system.actions.${actionId}.area.length`,
+                  Number(target.value)
+                )}
+            />
+          </div>
+        {/if}
+
+        {#if ["cube", "line"].includes(action.area?.shape)}
+          <div class="u-flex u-flex-col u-gap-xs u-w-30">
+            <label for={`${actionId}-area-width`}>Width</label>
+            <input
+              id={`${actionId}-area-width`}
+              type="number"
+              value={action.area?.width ?? 0}
+              on:change={({ target }) =>
+                updateDocumentDataFromField(
+                  $item,
+                  `system.actions.${actionId}.area.width`,
+                  Number(target.value)
+                )}
+            />
+          </div>
+        {/if}
+
+        {#if action.area?.shape === "cylinder"}
+          <div class="u-flex u-flex-col u-gap-xs u-w-30">
+            <label for={`${actionId}-area-height`}>Height</label>
+            <input
+              id={`${actionId}-area-height`}
+              type="number"
+              value={action.area?.height ?? 0}
+              on:change={({ target }) =>
+                updateDocumentDataFromField(
+                  $item,
+                  `system.actions.${actionId}.area.height`,
+                  Number(target.value)
+                )}
+            />
+          </div>
+        {/if}
       </div>
-    </div>
+    </FormSection>
+  {/if}
+
+  {#if action.area?.shape}
+    <FormSection>
+      <div class="u-flex u-gap-lg u-w-full u-mt-xs">
+        <div class="u-flex u-gap-md u-align-center">
+          <input
+            id={`${actionId}-place-template`}
+            type="checkbox"
+            checked={action.area?.placeTemplate ?? false}
+            on:change={({ target }) =>
+              updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.area.placeTemplate`,
+                target.checked
+              )}
+          />
+
+          <label class="u-pointer" for={`${actionId}-place-template`}>
+            {localize("A5E.ItemPlaceTemplate")}
+          </label>
+        </div>
+      </div>
+    </FormSection>
   {/if}
 </section>
 
@@ -180,7 +187,8 @@
       width: 100%;
       border-radius: 3px;
       border: 1px solid #bbb;
-      font-size: 1rem;
+      font-size: 0.833rem;
+      font-weight: bold;
       padding: 0.5rem;
       cursor: pointer;
       transition: all 0.15s ease-in-out;
@@ -191,23 +199,7 @@
       width: 100%;
       gap: 0.375rem;
       margin: 0;
-      padding: 0;
-      font-family: "Modesto Condensed", serif;
+      padding-block: 0.25rem;
     }
-  }
-
-  .form-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.25rem 0.25rem 0.25rem;
-    font-family: "Modesto Condensed", serif;
-    border-bottom: 1px solid #ccc;
   }
 </style>

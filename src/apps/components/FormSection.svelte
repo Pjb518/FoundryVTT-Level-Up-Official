@@ -7,11 +7,11 @@
 </script>
 
 <div
-  class="a5e-box u-flex u-flex-wrap u-gap-md u-p-md u-pos-relative"
+  class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative"
   class:u-align-center={inline}
 >
   {#if heading}
-    <h3 class="u-flex-shrink-0 u-text-bold u-text-sm" class:u-w-30={inline}>
+    <h3 class="form-heading u-flex-shrink-0" class:u-w-30={inline}>
       {localize(heading)}
     </h3>
   {/if}
@@ -22,3 +22,10 @@
     <small>{localize(hint)}</small>
   {/if}
 </div>
+
+<style lang="scss">
+  .form-heading {
+    font-size: 0.833rem;
+    font-weight: bold;
+  }
+</style>

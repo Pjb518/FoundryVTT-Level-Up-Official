@@ -21,7 +21,9 @@
 <section class="action-config action-config__wrapper">
   <section class="action-config action-config__section">
     <header class="action-config__section-header">
-      <h2>{localize("A5E.ActivationConfiguration")}</h2>
+      <h2 class="action-config__section-heading">
+        {localize("A5E.ActivationConfiguration")}
+      </h2>
     </header>
 
     <FormSection heading="A5E.ItemActivationCost">
@@ -130,7 +132,9 @@
 
   <section class="action-config action-config__section">
     <header class="action-config__section-header">
-      <h2>{localize("A5E.Uses")}</h2>
+      <h2 class="action-config__section-heading">
+        {localize("A5E.Uses")}
+      </h2>
     </header>
 
     <FormSection>

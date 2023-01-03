@@ -86,7 +86,7 @@
 </script>
 
 <FormSection {heading}>
-  <div class="u-flex u-flex-wrap u-gap-md u-pos-relative u-w-full">
+  <div class="action-config__component">
     <ul
       class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
     >
@@ -105,7 +105,7 @@
     </ul>
 
     {#if selected === "other"}
-      <div class="u-flex u-gap-md u-align-center u-mt-xs u=mb-xs">
+      <div class="u-flex u-gap-md u-align-center">
         <input
           id={`${actionId}-${id}-include-unit`}
           name={`${actionId}-${id}-include-unit`}
@@ -125,7 +125,7 @@
 
         {#if includeUnit}
           <select
-            class="u-w-fit"
+            class="u-w-30"
             name="system.actions.${actionId}.ranges.{id}.unit"
             on:change={selectRangeUnit}
           >
@@ -139,10 +139,10 @@
         {/if}
       </div>
     {/if}
-  </div>
 
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <i class="delete-button fas fa-trash" on:click={deleteRangeIncrement} />
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <i class="delete-button fas fa-trash" on:click={deleteRangeIncrement} />
+  </div>
 </FormSection>
 
 <style lang="scss">
