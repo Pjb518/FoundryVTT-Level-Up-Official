@@ -122,78 +122,107 @@
   </div>
 </FormSection>
 
-<!-- ////////////////////////////////////////////////////////////// -->
-
 <header class="section-header">
-  <h2>Resource Consumption</h2>
+  <h2>{localize("A5E.Uses")}</h2>
 </header>
 
 <FormSection>
   <div class="field-group field-group--label">
-    <label for={`${actionId}-resource-label`}> Label </label>
-
     <input
-      id={`${actionId}-resource-label`}
-      name={`${actionId}-resource-label`}
-      type="text"
-      value={action.resource?.label ?? ""}
+      id={`${actionId}-prefer-action-uses`}
+      name={`${actionId}-prefer-action-uses`}
+      type="checkbox"
+      checked={action.uses?.preferAction ?? false}
       on:change={({ target }) =>
         updateDocumentDataFromField(
           $item,
-          `system.actions.${actionId}.resource.label`,
-          target.value
+          `system.actions.${actionId}.uses.preferAction`,
+          target.checked
         )}
     />
-  </div>
 
-  <div class="field-group field-group--resource">
-    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-      <h3 class="u-text-sm">{localize("A5E.UsesCurrent")}</h3>
-
-      <input
-        class="a5e-input"
-        type="number"
-        name={`system.actions.${actionId}.resource.value`}
-        value={action.resource?.value ?? 0}
-        on:change={({ target }) =>
-          updateDocumentDataFromField($item, target.name, Number(target.value))}
-      />
-    </div>
-
-    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-      <h3 class="u-text-sm">{localize("A5E.UsesMax")}</h3>
-
-      <input
-        class="a5e-input"
-        type="number"
-        name={`system.actions.${actionId}.resource.max`}
-        value={action.resource?.max ?? 0}
-        on:change={({ target }) =>
-          updateDocumentDataFromField($item, target.name, Number(target.value))}
-      />
-    </div>
-
-    <div class="u-flex u-flex-col u-gap-xs u-w-30">
-      <h3 class="u-text-sm">{localize("A5E.UsesPer")}</h3>
-
-      <select
-        class="u-h-8 u-w-40"
-        name={`system.actions.${actionId}.resource.per`}
-        value={action.resource?.per ?? ""}
-        on:change={({ target }) =>
-          updateDocumentDataFromField($item, target.name, target.value)}
-      >
-        <option value="" />
-
-        {#each Object.entries(resourceRecoveryOptions) as [key, name]}
-          <option {key} value={key} selected={$item.system.uses.per === key}>
-            {localize(name)}
-          </option>
-        {/each}
-      </select>
-    </div>
+    <label for={`${actionId}-prefer-action-uses`}>
+      {localize("A5E.UsesUseActionUses")}
+    </label>
   </div>
 </FormSection>
+
+{#if action.uses?.preferAction}
+  <FormSection>
+    <div class="field-group field-group--label">
+      <label for={`${actionId}-uses-label`}> Label </label>
+
+      <input
+        id={`${actionId}-uses-label`}
+        name={`${actionId}-uses-label`}
+        type="text"
+        value={action.uses?.label ?? ""}
+        on:change={({ target }) =>
+          updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.uses.label`,
+            target.value
+          )}
+      />
+    </div>
+
+    <div class="field-group field-group--resource">
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <h3 class="u-text-sm">{localize("A5E.UsesCurrent")}</h3>
+
+        <input
+          class="a5e-input"
+          type="number"
+          name={`system.actions.${actionId}.uses.value`}
+          value={action.uses?.value ?? 0}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              target.name,
+              Number(target.value)
+            )}
+        />
+      </div>
+
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <h3 class="u-text-sm">{localize("A5E.UsesMax")}</h3>
+
+        <input
+          class="a5e-input"
+          type="number"
+          name={`system.actions.${actionId}.uses.max`}
+          value={action.uses?.max ?? 0}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              target.name,
+              Number(target.value)
+            )}
+        />
+      </div>
+
+      <div class="u-flex u-flex-col u-gap-xs u-w-30">
+        <h3 class="u-text-sm">{localize("A5E.UsesPer")}</h3>
+
+        <select
+          class="u-h-8 u-w-40"
+          name={`system.actions.${actionId}.uses.per`}
+          value={action.uses?.per ?? ""}
+          on:change={({ target }) =>
+            updateDocumentDataFromField($item, target.name, target.value)}
+        >
+          <option value="" />
+
+          {#each Object.entries(resourceRecoveryOptions) as [key, name]}
+            <option {key} value={key} selected={$item.system.uses.per === key}>
+              {localize(name)}
+            </option>
+          {/each}
+        </select>
+      </div>
+    </div>
+  </FormSection>
+{/if}
 
 <style lang="scss">
   .none {
