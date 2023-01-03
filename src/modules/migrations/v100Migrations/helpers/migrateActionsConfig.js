@@ -105,8 +105,7 @@ export default function migrateActionsConfig(itemData, updateData) {
     '-=damage': null,
     '-=healing': null,
     '-=check': null,
-    '-=savingThrow': null,
-    '-=uses': null
+    '-=savingThrow': null
   };
 
   // Step 11: Add action to update data
