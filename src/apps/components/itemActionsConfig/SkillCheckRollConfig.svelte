@@ -33,7 +33,7 @@
   </div>
 
   <div class="option-wrapper">
-    <h3>Skill</h3>
+    <h3>{localize("A5E.Skill")}</h3>
 
     <select
       name={`${actionId}-${rollId}-skill`}
