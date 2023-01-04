@@ -55,29 +55,46 @@
   }
 </script>
 
-<header class="actions-header">
-  <h2 class="tab-heading">Actions</h2>
+<section class="action-config action-config__wrapper">
+  <header class="action-config__section-header">
+    <h2 class="tab-heading">Actions</h2>
 
-  <a on:click={addAction}>+ Add Action</a>
-</header>
+    <button class="add-button" on:click={addAction}>+ Add Action</button>
+  </header>
 
-<ul class="action-list">
-  {#each Object.entries($item.system.actions) as [id, action] (id)}
-    <li class="action" data-action-id={id}>
-      {action?.name}
-      <div class="action-buttons">
-        <i class="action-button fas fa-cog" on:click={configureAction} />
+  <ul class="action-list">
+    {#each Object.entries($item.system.actions) as [id, action] (id)}
+      <li class="action" data-action-id={id}>
+        {action?.name}
+        <div class="action-buttons">
+          <button class="action-button fas fa-cog" on:click={configureAction} />
 
-        <i class="action-button fa-solid fa-clone" on:click={duplicateAction} />
+          <button
+            class="action-button fa-solid fa-clone"
+            on:click={duplicateAction}
+          />
 
-        <i
-          class="action-button delete-button fas fa-trash"
-          on:click={deleteAction}
-        />
-      </div>
-    </li>
-  {/each}
-</ul>
+          <button
+            class="action-button delete-button fas fa-trash"
+            on:click={deleteAction}
+          />
+
+          <!-- <i class="action-button fas fa-cog" on:click={configureAction} />
+
+          <i
+            class="action-button fa-solid fa-clone"
+            on:click={duplicateAction}
+          />
+
+          <i
+            class="action-button delete-button fas fa-trash"
+            on:click={deleteAction}
+          /> -->
+        </div>
+      </li>
+    {/each}
+  </ul>
+</section>
 
 <style lang="scss">
   .action {
@@ -89,15 +106,30 @@
     border-radius: 3px;
     font-size: 1rem;
 
-    &-button {
-      margin-left: auto;
-      padding: 0.25rem;
-      cursor: pointer;
-      transition: all 0.15s ease-in-out;
+    // &-button {
+    //   margin-left: auto;
+    //   padding: 0.25rem;
+    //   cursor: pointer;
+    //   transition: all 0.15s ease-in-out;
 
-      &:hover {
+    //   &:hover {
+    //     color: #555;
+    //     transform: scale(1.2);
+    //   }
+    // }
+
+    &-button {
+      padding: 0.25rem;
+      background: none;
+      border: 0;
+      transition: all 0.15s ease-in-out;
+      color: #999;
+
+      &:hover,
+      &:focus {
         color: #555;
         transform: scale(1.2);
+        box-shadow: none;
       }
     }
 
@@ -115,7 +147,7 @@
       padding: 0;
       margin: 0;
       list-style: none;
-      font-family: "Modesto Condensed", serif;
+      font-family: "Signika", sans-serif;
     }
   }
 
@@ -133,5 +165,6 @@
 
   .tab-heading {
     font-family: "Modesto Condensed", serif;
+    font-size: 1.44rem;
   }
 </style>

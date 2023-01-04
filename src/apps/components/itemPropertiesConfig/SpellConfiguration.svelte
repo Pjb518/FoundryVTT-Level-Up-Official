@@ -30,7 +30,7 @@
     class="
             u-align-center
             u-flex
-            u-fot-serif
+            u-font-serif
             u-gap-md
             u-mb-lg
             u-ml-xs

@@ -1,6 +1,5 @@
 <script>
   import { getContext } from "svelte";
-  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
   import AmmunitionConfiguration from "../itemPropertiesConfig/AmmunitionConfiguration.svelte";
   import ArmorConfiguration from "../itemPropertiesConfig/ArmorConfiguration.svelte";
@@ -33,8 +32,6 @@
   {:else if $item.type === "spell"}
     <SpellConfiguration />
   {/if}
-
-  <hr class="a5e-rule" />
 
   <ResourceConfiguration />
 </div>
