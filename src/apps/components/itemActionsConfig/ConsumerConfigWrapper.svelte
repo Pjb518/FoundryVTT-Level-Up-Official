@@ -12,15 +12,15 @@
   function updateType(event) {
     const selectedOption = event.target?.selectedOptions[0].value;
 
-    $item.update(
-      {
-        [`system.actions.${actionId}.uses.${consumerId}`]: {
-          label: consumer.label ?? "",
-          type: selectedOption,
-        },
+    $item.update({
+      [`system.actions.${actionId}.uses.${consumerId}`]: {
+        label: consumer.label ?? "",
+        type: selectedOption,
+        "-=value": null,
+        "-=max": null,
+        "-=per": null,
       },
-      { recursive: false }
-    );
+    });
   }
 
   const consumerTypes = {
