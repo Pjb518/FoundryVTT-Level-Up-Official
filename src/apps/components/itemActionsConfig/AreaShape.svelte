@@ -57,7 +57,6 @@
       border-radius: 3px;
       border: 1px solid #bbb;
       font-size: 0.833rem;
-      font-weight: bold;
       padding: 0.5rem;
       cursor: pointer;
       transition: all 0.15s ease-in-out;

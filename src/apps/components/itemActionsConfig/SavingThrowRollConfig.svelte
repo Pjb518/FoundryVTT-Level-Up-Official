@@ -13,108 +13,92 @@
   export let rollId;
 </script>
 
-<div class="field-group field-group--label">
-  <label for={`${actionId}-${rollId}-label`}>Label</label>
+<section class="action-config__wrapper">
+  <div class="a5e-field-group a5e-field-group--label">
+    <label for={`${actionId}-${rollId}-label`}>Label</label>
 
-  <input
-    id={`${actionId}-${rollId}-label`}
-    name={`${actionId}-${rollId}-label`}
-    type="text"
-    value={roll.label ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.rolls.${rollId}.label`,
-        target.value
-      )}
-  />
-</div>
-
-<div class="field-group">
-  <h3 class="field-group__heading">Saving Throw Type</h3>
-
-  <div class="option-list">
     <input
-      class="option-input"
-      type="radio"
-      name={`${actionId}-${rollId}-ability`}
-      id={`${actionId}-${rollId}-ability-none`}
-      value=""
-      checked={(roll.ability ?? true) || roll.ability === ""}
-      on:change={() =>
+      id={`${actionId}-${rollId}-label`}
+      name={`${actionId}-${rollId}-label`}
+      type="text"
+      value={roll.label ?? ""}
+      on:change={({ target }) =>
         updateDocumentDataFromField(
           $item,
-          `system.actions.${actionId}.rolls.${rollId}`,
-          { "-=ability": null }
+          `system.actions.${actionId}.rolls.${rollId}.label`,
+          target.value
         )}
     />
+  </div>
 
-    <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
-      {localize("A5E.None")}
-    </label>
+  <div class="a5e-field-group">
+    <h3 class="a5e-field-group__heading">Saving Throw Type</h3>
 
-    {#each Object.entries(abilities) as [ability, label]}
+    <div class="option-list">
       <input
         class="option-input"
         type="radio"
         name={`${actionId}-${rollId}-ability`}
-        id={`${actionId}-${rollId}-ability-${ability}`}
-        value={ability}
-        checked={roll.ability === ability}
-        on:change={({ target }) =>
+        id={`${actionId}-${rollId}-ability-none`}
+        value=""
+        checked={(roll.ability ?? true) || roll.ability === ""}
+        on:change={() =>
           updateDocumentDataFromField(
             $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
-            target.value
+            `system.actions.${actionId}.rolls.${rollId}`,
+            { "-=ability": null }
           )}
       />
 
-      <label
-        class="option-label"
-        for={`${actionId}-${rollId}-ability-${ability}`}
-      >
-        {localize(label)}
+      <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
+        {localize("A5E.None")}
       </label>
-    {/each}
+
+      {#each Object.entries(abilities) as [ability, label]}
+        <input
+          class="option-input"
+          type="radio"
+          name={`${actionId}-${rollId}-ability`}
+          id={`${actionId}-${rollId}-ability-${ability}`}
+          value={ability}
+          checked={roll.ability === ability}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.rolls.${rollId}.ability`,
+              target.value
+            )}
+        />
+
+        <label
+          class="option-label"
+          for={`${actionId}-${rollId}-ability-${ability}`}
+        >
+          {localize(label)}
+        </label>
+      {/each}
+    </div>
   </div>
-</div>
 
-<div class="field-group">
-  <label for={`${actionId}-${rollId}-bonus`}> Save Bonus </label>
+  <div class="a5e-field-group">
+    <label for={`${actionId}-${rollId}-bonus`}> Save Bonus </label>
 
-  <input
-    id={`${actionId}-${rollId}-bonus`}
-    name={`${actionId}-${rollId}-bonus`}
-    type="text"
-    value={roll.bonus ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.rolls.${rollId}.bonus`,
-        target.value
-      )}
-  />
-</div>
+    <input
+      id={`${actionId}-${rollId}-bonus`}
+      name={`${actionId}-${rollId}-bonus`}
+      type="text"
+      value={roll.bonus ?? ""}
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.rolls.${rollId}.bonus`,
+          target.value
+        )}
+    />
+  </div>
+</section>
 
 <style lang="scss">
-  .field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-
-    &--label {
-      margin-right: 4.5rem;
-    }
-
-    &__heading {
-      font-size: 0.833rem;
-    }
-
-    input[type="text"] {
-      width: 100%;
-    }
-  }
-
   .option {
     &-input {
       display: none;

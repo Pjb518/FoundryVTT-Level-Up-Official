@@ -11,131 +11,78 @@
   export let promptId;
 </script>
 
-<div class="field-group field-group--label">
-  <label for={`${actionId}-${promptId}-label`}>Label</label>
+<section class="action-config__wrapper">
+  <div class="a5e-field-group a5e-field-group--label">
+    <label for={`${actionId}-${promptId}-label`}>Label</label>
 
-  <input
-    id={`${actionId}-${promptId}-label`}
-    name={`${actionId}-${promptId}-label`}
-    type="text"
-    value={prompt.label ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.prompts.${promptId}.label`,
-        target.value
-      )}
-  />
-</div>
+    <input
+      id={`${actionId}-${promptId}-label`}
+      name={`${actionId}-${promptId}-label`}
+      type="text"
+      value={prompt.label ?? ""}
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.prompts.${promptId}.label`,
+          target.value
+        )}
+    />
+  </div>
 
-<div class="field-group field-group--formula">
-  <label for={`${actionId}-${promptId}-roll-formula`}>
-    {localize("A5E.RollFormula")}
-  </label>
+  <div class="a5e-field-group a5e-field-group--formula">
+    <label for={`${actionId}-${promptId}-roll-formula`}>
+      {localize("A5E.RollFormula")}
+    </label>
 
-  <input
-    id={`${actionId}-${promptId}-roll-formula`}
-    name={`${actionId}-${promptId}-roll-formula`}
-    type="text"
-    value={prompt.formula ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.prompts.${promptId}.formula`,
-        target.value
-      )}
-  />
-</div>
+    <input
+      id={`${actionId}-${promptId}-roll-formula`}
+      name={`${actionId}-${promptId}-roll-formula`}
+      type="text"
+      value={prompt.formula ?? ""}
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.prompts.${promptId}.formula`,
+          target.value
+        )}
+    />
+  </div>
 
-<div class="field-group field-group--formula">
-  <label for={`${actionId}-${promptId}-dc`}>
-    {localize("A5E.DC")}
-  </label>
+  <div class="a5e-field-group a5e-field-group--formula">
+    <label for={`${actionId}-${promptId}-dc`}>
+      {localize("A5E.DC")}
+    </label>
 
-  <input
-    id={`${actionId}-${promptId}-dc`}
-    name={`${actionId}-${promptId}-dc`}
-    type="text"
-    value={prompt.dc ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.prompts.${promptId}.dc`,
-        target.value
-      )}
-  />
-</div>
+    <input
+      id={`${actionId}-${promptId}-dc`}
+      name={`${actionId}-${promptId}-dc`}
+      type="text"
+      value={prompt.dc ?? ""}
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.prompts.${promptId}.dc`,
+          target.value
+        )}
+    />
+  </div>
 
-<div class="field-group ">
-  <label for={`${actionId}-${promptId}-save-effect`}>
-    {localize("A5E.ItemEffectOnCheck")}
-  </label>
+  <div class="a5e-field-group ">
+    <label for={`${actionId}-${promptId}-save-effect`}>
+      {localize("A5E.ItemEffectOnCheck")}
+    </label>
 
-  <input
-    id={`${actionId}-${promptId}-save-effect`}
-    name={`${actionId}-${promptId}-save-effect`}
-    type="text"
-    value={prompt.onSave ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.prompts.${promptId}.onSave`,
-        target.value
-      )}
-  />
-</div>
-
-<style lang="scss">
-  .field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-
-    &--formula {
-      flex-grow: 1;
-    }
-
-    &--label {
-      margin-right: 4.5rem;
-    }
-
-    &__heading {
-      font-size: 0.833rem;
-    }
-
-    input[type="text"] {
-      width: 100%;
-    }
-  }
-
-  //   .hint {
-  //     font-size: 0.694rem;
-  //   }
-
-  .option {
-    &-input {
-      display: none;
-
-      &:checked + .option-label {
-        background: #2b6537;
-        border-color: darken($color: #2b6537, $amount: 5);
-        color: #f6f2eb;
-      }
-    }
-
-    &-label {
-      border-radius: 3px;
-      border: 1px solid #bbb;
-      padding: 0.125rem 0.25rem;
-      cursor: pointer;
-      transition: all 0.15s ease-in-out;
-    }
-
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-      font-size: 0.694rem;
-    }
-  }
-</style>
+    <input
+      id={`${actionId}-${promptId}-save-effect`}
+      name={`${actionId}-${promptId}-save-effect`}
+      type="text"
+      value={prompt.onSave ?? ""}
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.prompts.${promptId}.onSave`,
+          target.value
+        )}
+    />
+  </div>
+</section>

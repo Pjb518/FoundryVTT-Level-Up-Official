@@ -14,131 +14,119 @@
   $: roll = $item.system.actions[actionId]?.rolls[rollId];
 </script>
 
-<div class="field-group field-group--label">
-  <label for={`${actionId}-${rollId}-label`}>Label</label>
+<section class="action-config__wrapper">
+  <div class="a5e-field-group a5e-field-group--label">
+    <label for={`${actionId}-${rollId}-label`}>Label</label>
 
-  <input
-    id={`${actionId}-${rollId}-label`}
-    name={`${actionId}-${rollId}-label`}
-    type="text"
-    value={roll.label ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.rolls.${rollId}.label`,
-        target.value
-      )}
-  />
-</div>
-
-<div class="option-wrapper">
-  <h3>Skill</h3>
-
-  <select
-    name={`${actionId}-${rollId}-skill`}
-    id={`${actionId}-${rollId}-skill`}
-    class="u-w-fit"
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.rolls.${rollId}.skill`,
-        target.value
-      )}
-  >
-    <!-- svelte-ignore missing-declaration -->
-    <option value="" selected={foundry.utils.isEmpty(roll?.skill)}>
-      {localize("A5E.None")}
-    </option>
-
-    {#each Object.entries(skills) as [skill, label]}
-      <option value={skill} selected={roll?.skill === skill}>
-        {localize(label)}
-      </option>
-    {/each}
-  </select>
-</div>
-
-<div class="option-wrapper">
-  <h3>Default Ability Score</h3>
-
-  <div class="option-list">
     <input
-      class="option-input"
-      type="radio"
-      name={`${actionId}-${rollId}-ability`}
-      id={`${actionId}-${rollId}-ability-none`}
-      value=""
-      checked={(roll.ability ?? true) || roll.ability === ""}
-      on:change={() =>
+      id={`${actionId}-${rollId}-label`}
+      name={`${actionId}-${rollId}-label`}
+      type="text"
+      value={roll.label ?? ""}
+      on:change={({ target }) =>
         updateDocumentDataFromField(
           $item,
-          `system.actions.${actionId}.rolls.${rollId}`,
-          { "-=ability": null }
+          `system.actions.${actionId}.rolls.${rollId}.label`,
+          target.value
         )}
     />
+  </div>
 
-    <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
-      {localize("A5E.None")}
-    </label>
+  <div class="option-wrapper">
+    <h3>Skill</h3>
 
-    {#each Object.entries(abilities) as [ability, label]}
+    <select
+      name={`${actionId}-${rollId}-skill`}
+      id={`${actionId}-${rollId}-skill`}
+      class="u-w-fit"
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.rolls.${rollId}.skill`,
+          target.value
+        )}
+    >
+      <!-- svelte-ignore missing-declaration -->
+      <option value="" selected={foundry.utils.isEmpty(roll?.skill)}>
+        {localize("A5E.None")}
+      </option>
+
+      {#each Object.entries(skills) as [skill, label]}
+        <option value={skill} selected={roll?.skill === skill}>
+          {localize(label)}
+        </option>
+      {/each}
+    </select>
+  </div>
+
+  <div class="option-wrapper">
+    <h3>Default Ability Score</h3>
+
+    <div class="option-list">
       <input
         class="option-input"
         type="radio"
         name={`${actionId}-${rollId}-ability`}
-        id={`${actionId}-${rollId}-ability-${ability}`}
-        value={ability}
-        checked={roll.ability === ability}
-        on:change={({ target }) =>
+        id={`${actionId}-${rollId}-ability-none`}
+        value=""
+        checked={(roll.ability ?? true) || roll.ability === ""}
+        on:change={() =>
           updateDocumentDataFromField(
             $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
-            target.value
+            `system.actions.${actionId}.rolls.${rollId}`,
+            { "-=ability": null }
           )}
       />
 
-      <label
-        class="option-label"
-        for={`${actionId}-${rollId}-ability-${ability}`}
-      >
-        {localize(label)}
+      <label class="option-label" for={`${actionId}-${rollId}-ability-none`}>
+        {localize("A5E.None")}
       </label>
-    {/each}
+
+      {#each Object.entries(abilities) as [ability, label]}
+        <input
+          class="option-input"
+          type="radio"
+          name={`${actionId}-${rollId}-ability`}
+          id={`${actionId}-${rollId}-ability-${ability}`}
+          value={ability}
+          checked={roll.ability === ability}
+          on:change={({ target }) =>
+            updateDocumentDataFromField(
+              $item,
+              `system.actions.${actionId}.rolls.${rollId}.ability`,
+              target.value
+            )}
+        />
+
+        <label
+          class="option-label"
+          for={`${actionId}-${rollId}-ability-${ability}`}
+        >
+          {localize(label)}
+        </label>
+      {/each}
+    </div>
   </div>
-</div>
 
-<div class="field-group">
-  <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
+  <div class="a5e-field-group">
+    <label for={`${actionId}-${rollId}-bonus`}> Check Bonus </label>
 
-  <input
-    id={`${actionId}-${rollId}-bonus`}
-    name={`${actionId}-${rollId}-bonus`}
-    type="text"
-    value={roll.bonus ?? ""}
-    on:change={({ target }) =>
-      updateDocumentDataFromField(
-        $item,
-        `system.actions.${actionId}.rolls.${rollId}.bonus`,
-        target.value
-      )}
-  />
-</div>
+    <input
+      id={`${actionId}-${rollId}-bonus`}
+      name={`${actionId}-${rollId}-bonus`}
+      type="text"
+      value={roll.bonus ?? ""}
+      on:change={({ target }) =>
+        updateDocumentDataFromField(
+          $item,
+          `system.actions.${actionId}.rolls.${rollId}.bonus`,
+          target.value
+        )}
+    />
+  </div>
+</section>
 
 <style lang="scss">
-  .field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-
-    &--label {
-      margin-right: 4.5rem;
-    }
-
-    input[type="text"] {
-      width: 100%;
-    }
-  }
-
   .option {
     &-input {
       display: none;

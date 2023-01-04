@@ -53,11 +53,11 @@
 <ul class="roll-config-list">
   {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
     <li class="roll-config-list__item">
-      <header class="section-header">
-        <h2 class="section-heading">{localize(heading)}</h2>
+      <header class="action-config__section-header">
+        <h2 class="action-config__section-heading">{localize(heading)}</h2>
 
         {#if !(rollType === "attack" && attackRolls.length > 0)}
-          <button class="section-add-button" on:click={() => addRoll(rollType)}>
+          <button class="add-button" on:click={() => addRoll(rollType)}>
             + Add Roll
           </button>
         {/if}
@@ -69,7 +69,7 @@
             <svelte:component this={component} {roll} {rollId} />
           </RollConfigWrapper>
         {:else}
-          <li class="none">None</li>
+          <li class="action-config__none">None</li>
         {/each}
       </ul>
     </li>
@@ -77,33 +77,8 @@
 </ul>
 
 <style lang="scss">
-  .none {
-    color: #555;
-    text-align: center;
-    font-size: 0.833rem;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.25rem 0.25rem 0.25rem;
-    font-size: 0.833rem;
-    border-bottom: 1px solid #ccc;
-  }
-
   .section-heading {
     font-size: 1rem;
-  }
-
-  .section-add-button {
-    all: unset;
-    font-size: 0.833rem;
-    cursor: pointer;
-
-    &:hover {
-      text-shadow: 0 0 8px var(--color-shadow-primary);
-    }
   }
 
   .roll-list {
