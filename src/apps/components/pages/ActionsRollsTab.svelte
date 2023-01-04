@@ -69,7 +69,7 @@
             <svelte:component this={component} {roll} {rollId} />
           </RollConfigWrapper>
         {:else}
-          <li class="action-config__none">None</li>
+          <li class="action-config__none">{localize("A5E.None")}</li>
         {/each}
       </ul>
     </li>
@@ -77,10 +77,6 @@
 </ul>
 
 <style lang="scss">
-  .section-heading {
-    font-size: 1rem;
-  }
-
   .roll-list {
     display: flex;
     flex-direction: column;

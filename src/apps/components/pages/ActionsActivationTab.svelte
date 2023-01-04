@@ -130,7 +130,7 @@
     </FormSection>
   </section>
 
-  <section class="action-config action-config__section">
+  <!-- <section class="action-config action-config__section">
     <header class="action-config__section-header">
       <h2 class="action-config__section-heading">
         {localize("A5E.Uses")}
@@ -240,5 +240,5 @@
         </div>
       </FormSection>
     {/if}
-  </section>
+  </section> -->
 </section>
