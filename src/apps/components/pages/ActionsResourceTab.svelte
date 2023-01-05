@@ -11,7 +11,7 @@
     $item.update({
       [`system.actions.${actionId}.uses`]: {
         ...action.uses,
-        [foundry.utils.randomID()]: {},
+        [foundry.utils.randomID()]: { type: "item" },
       },
     });
   }

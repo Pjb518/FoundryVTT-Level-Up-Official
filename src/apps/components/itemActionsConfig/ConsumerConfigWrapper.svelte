@@ -26,7 +26,7 @@
   const consumerTypes = {
     action: "Action",
     item: "Item",
-    resource: "Resource",
+    // resource: "Resource",
   };
 
   export let consumerId;
@@ -62,11 +62,6 @@
       class="u-w-fit"
       on:change={updateType}
     >
-      <!-- svelte-ignore missing-declaration -->
-      <option value="" selected={foundry.utils.isEmpty(consumer?.type)}>
-        {localize("A5E.None")}
-      </option>
-
       {#each Object.entries(consumerTypes) as [type, label]}
         <option value={type} selected={consumer?.type === type}>
           {localize(label)}
