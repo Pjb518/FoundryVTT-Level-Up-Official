@@ -2,8 +2,6 @@
 	"name": "Sacred Flame",
 	"type": "spell",
 	"img": "icons/magic/light/projectile-beam-yellow.webp",
-	"effects": [],
-	"flags": {},
 	"system": {
 		"ability": "spellcasting",
 		"actionOptions": [
@@ -30,7 +28,8 @@
 		"damage": [
 			{
 				"canCrit": false,
-				"damageType": "fire",
+				"damageType": "radiant",
+				"defaultSelection": true,
 				"formula": "(floor((@details.level+1)/6)+1)d8",
 				"name": ""
 			}
@@ -40,6 +39,7 @@
 			"unit": "instantaneous",
 			"value": ""
 		},
+		"favorite": false,
 		"healing": [],
 		"proficient": true,
 		"range": [
@@ -80,5 +80,7 @@
 			]
 		}
 	},
+	"effects": [],
+	"flags": {},
 	"_id": "tvtm60k5wxyki9qc"
 }
