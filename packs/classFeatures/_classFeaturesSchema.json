@@ -1,0 +1,684 @@
+{
+  "$id": "http://example.com/example.json",
+  "title": "Class Features Schema",
+  "type": "object",
+  "default": {},
+  "required": [
+    "name",
+    "type",
+    "img",
+    "system",
+    "effects",
+    "flags",
+    "_id"
+  ],
+  "properties": {
+    "name": {
+      "title": "The name Schema",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "A Better Mousetrap",
+        "Advanced Grafting",
+        "Ancestral Guidance"
+      ]
+    },
+    "type": {
+      "title": "The type Schema",
+      "type": "string",
+      "examples": [
+        "feature",
+        "object"
+      ]
+    },
+    "img": {
+      "title": "The img Schema",
+      "type": "string",
+      "default": [
+        "icons/svg/item-bag.svg"
+      ],
+      "examples": [
+        "icons/svg/item-bag.svg",
+        "icons/weapons/thrown/grenade-round.webp",
+        "icons/weapons/thrown/bomb-gas-grey-purple.webp"
+      ]
+    },
+    "system": {
+      "title": "The system Schema",
+      "type": "object",
+      "default": {},
+      "required": [
+        "ability",
+        "actionOptions",
+        "activation",
+        "attack",
+        "area",
+        "check",
+        "damage",
+        "description",
+        "duration",
+        "favorite",
+        "healing",
+        "proficient",
+        "range",
+        "save",
+        "source",
+        "target",
+        "uses",
+        "featureType"
+      ],
+      "properties": {
+        "ability": {
+          "title": "The ability Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "",
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ]
+        },
+        "actionOptions": {
+          "title": "The actionOptions Schema",
+          "type": "array",
+          "default": [],
+          "items": {
+            "title": "A Schema",
+            "type": "string",
+            "examples": [
+              "attack",
+              "damage",
+              "savingThrow"
+            ]
+          },
+          "examples": []
+        },
+        "activation": {
+          "title": "The activation Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "cost",
+            "type",
+            "reactionTrigger"
+          ],
+          "properties": {
+            "cost": {
+              "title": "The cost Schema",
+              "type": [
+                "string",
+                "integer"
+              ],
+              "default": "",
+              "examples": [
+                "",
+                1
+              ]
+            },
+            "type": {
+              "title": "The type Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "action",
+                "special"
+              ]
+            },
+            "reactionTrigger": {
+              "title": "The reactionTrigger Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            }
+          },
+          "examples": []
+        },
+        "attack": {
+          "title": "The attack Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "bonus",
+            "critThreshold",
+            "type"
+          ],
+          "properties": {
+            "bonus": {
+              "title": "The bonus Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "critThreshold": {
+              "title": "The critThreshold Schema",
+              "type": [
+                "integer",
+                "string"
+              ],
+              "default": 0,
+              "examples": [
+                20,
+                "20"
+              ]
+            },
+            "type": {
+              "title": "The type Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "rangedWeaponAttack"
+              ]
+            }
+          },
+          "examples": []
+        },
+        "area": {
+          "title": "The area Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "shape",
+            "size"
+          ],
+          "properties": {
+            "shape": {
+              "title": "The shape Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "size": {
+              "title": "The size Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            }
+          },
+          "examples": []
+        },
+        "check": {
+          "title": "The check Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "ability"
+          ],
+          "properties": {
+            "ability": {
+              "title": "The ability Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "str"
+              ]
+            }
+          },
+          "examples": []
+        },
+        "damage": {
+          "title": "The damage Schema",
+          "type": "array",
+          "default": [],
+          "items": {
+            "title": "A Schema",
+            "type": "object",
+            "required": [
+              "canCrit",
+              "damageType",
+              "defaultSelection",
+              "formula",
+              "name"
+            ],
+            "properties": {
+              "canCrit": {
+                "title": "The canCrit Schema",
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "damageType": {
+                "title": "The damageType Schema",
+                "type": "string",
+                "examples": [
+                  "force",
+                  "fire",
+                  "acid"
+                ]
+              },
+              "defaultSelection": {
+                "title": "The defaultSelection Schema",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "formula": {
+                "title": "The formula Schema",
+                "type": "string",
+                "examples": [
+                  "(floor((@details.level+1)/6)+1)d6",
+                  "(floor((@details.level+1)/6)+1)d4",
+                  "(floor((@details.level+1)/6)+1)d12",
+                  "1d6"
+                ]
+              },
+              "name": {
+                "title": "The name Schema",
+                "type": "string",
+                "examples": [
+                  "Force",
+                  "Additional Force",
+                  "Additional Fire",
+                  "Ongoing Acid "
+                ]
+              }
+            },
+            "examples": []
+          },
+          "examples": []
+        },
+        "description": {
+          "title": "The description Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "<p>This feature does a thing.</p>"
+          ]
+        },
+        "duration": {
+          "title": "The duration Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "unit",
+            "value"
+          ],
+          "properties": {
+            "unit": {
+              "title": "The unit Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "turn"
+              ]
+            },
+            "value": {
+              "title": "The value Schema",
+              "type": [
+                "string",
+                "integer"
+              ],
+              "default": "",
+              "examples": [
+                "",
+                1
+              ]
+            }
+          },
+          "examples": []
+        },
+        "favorite": {
+          "title": "The favorite Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false,
+            true
+          ]
+        },
+        "healing": {
+          "title": "The healing Schema",
+          "type": "array",
+          "default": [],
+          "items": {},
+          "examples": []
+        },
+        "proficient": {
+          "title": "The proficient Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "range": {
+          "title": "The range Schema",
+          "type": "array",
+          "default": [],
+          "items": {
+            "title": "A Schema",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "Within Commanding Presence range",
+              "20 ft.",
+              "medium"
+            ]
+          },
+          "examples": []
+        },
+        "save": {
+          "title": "The save Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "dc",
+            "onSave",
+            "targetAbility"
+          ],
+          "properties": {
+            "dc": {
+              "title": "The dc Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "@spellDC"
+              ]
+            },
+            "onSave": {
+              "title": "The onSave Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "Half damage"
+              ]
+            },
+            "targetAbility": {
+              "title": "The targetAbility Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            }
+          },
+          "examples": []
+        },
+        "source": {
+          "title": "The source Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            ""
+          ]
+        },
+        "target": {
+          "title": "The target Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "quantity",
+            "type"
+          ],
+          "properties": {
+            "quantity": {
+              "title": "The quantity Schema",
+              "type": [
+                "string",
+                "integer"
+              ],
+              "default": "",
+              "examples": [
+                "",
+                1
+              ]
+            },
+            "type": {
+              "title": "The type Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "",
+                "creature"
+              ]
+            },
+            "shape": {
+              "title": "The shape Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "size": {
+              "title": "The size Schema",
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            }
+          },
+          "examples": []
+        },
+        "uses": {
+          "title": "The uses Schema",
+          "type": "object",
+          "default": {},
+          "required": [
+            "value",
+            "max",
+            "per"
+          ],
+          "properties": {
+            "value": {
+              "title": "The value Schema",
+              "type": [
+                "null",
+                "integer"
+              ],
+              "default": null,
+              "examples": [
+                null,
+                1
+              ]
+            },
+            "max": {
+              "title": "The max Schema",
+              "type": [
+                "string",
+                "integer"
+              ],
+              "default": "",
+              "examples": [
+                "",
+                1
+              ]
+            },
+            "per": {
+              "title": "The per Schema",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null,
+              "examples": [
+                null,
+                "longRest"
+              ]
+            }
+          },
+          "examples": []
+        },
+        "featureType": {
+          "title": "The featureType Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "class"
+          ]
+        },
+        "ammunitionProperties": {
+          "title": "The ammunitionProperties Schema",
+          "type": "array",
+          "default": [],
+          "items": {},
+          "examples": []
+        },
+        "armorCategory": {
+          "title": "The armorCategory Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            ""
+          ]
+        },
+        "armorProperties": {
+          "title": "The armorProperties Schema",
+          "type": "array",
+          "default": [],
+          "items": {},
+          "examples": []
+        },
+        "attuned": {
+          "title": "The attuned Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "bulky": {
+          "title": "The bulky Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "equipped": {
+          "title": "The equipped Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "materialProperties": {
+          "title": "The materialProperties Schema",
+          "type": "array",
+          "default": [],
+          "items": {},
+          "examples": []
+        },
+        "objectType": {
+          "title": "The objectType Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "",
+            "weapon"
+          ]
+        },
+        "plotItem": {
+          "title": "The plotItem Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            true,
+            false
+          ]
+        },
+        "price": {
+          "title": "The price Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "0"
+          ]
+        },
+        "quantity": {
+          "title": "The quantity Schema",
+          "type": "integer",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "rarity": {
+          "title": "The rarity Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "common"
+          ]
+        },
+        "requiresAttunement": {
+          "title": "The requiresAttunement Schema",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false,
+            true
+          ]
+        },
+        "weaponProperties": {
+          "title": "The weaponProperties Schema",
+          "type": "array",
+          "default": [],
+          "items": {},
+          "examples": []
+        },
+        "weight": {
+          "title": "The weight Schema",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "0"
+          ]
+        }
+      },
+      "examples": []
+    },
+    "effects": {
+      "title": "The effects Schema",
+      "type": "array",
+      "default": [],
+      "items": {},
+      "examples": []
+    },
+    "flags": {
+      "title": "The flags Schema",
+      "type": "object",
+      "default": {},
+      "required": [],
+      "properties": {},
+      "examples": []
+    },
+    "_id": {
+      "title": "The _id Schema",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "jg5ptsds5fgmupgr",
+        "mrr8lw68g6jfntkc"
+      ]
+    }
+  },
+  "examples": []
+}
