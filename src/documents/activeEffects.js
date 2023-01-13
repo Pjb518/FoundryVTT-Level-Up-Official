@@ -9,17 +9,19 @@
  * - Allow macros to be executed.
  *
  * Add system-specific logic to the base ActiveEffect Class
-*/
+ */
 export default class ActiveEffect5e extends ActiveEffect {
   /**
    * Transfer the affect to another token.
    */
   transferEffect(token) {
-    const data = [{
-      label: this.label,
-      origin: this.parent.uuid,
-      changes: this.changes
-    }];
+    const data = [
+      {
+        label: this.label,
+        origin: this.parent.uuid,
+        changes: this.changes
+      }
+    ];
 
     token.actor.createEmbeddedDocuments('ActiveEffect', data);
   }

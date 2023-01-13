@@ -9,7 +9,8 @@
     "build:system": "vite build",
     "build:compendia": "node -e \"import('./compendia.mjs').then( m => m.compilePacks())\"",
     "build:fixIds": "node -e \"import('./compendia.mjs').then( m => m.fixIds())\"",
-    "build:saveIds": "node -e \"import('./compendia.mjs').then( m => m.saveIds())\""
+    "build:saveIds": "node -e \"import('./compendia.mjs').then( m => m.saveIds())\"",
+    "pre-commit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -32,12 +33,17 @@
   "devDependencies": {
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "eslint": "^8.31.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.24.1",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-svelte3": "^4.0.0",
+    "eslint-plugin-vue": "^9.9.0",
     "glob": "^8.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
     "postcss-scss": "^4.0.6",
     "sass": "^1.57.1",
     "stylelint": "^14.16.1",
@@ -52,5 +58,10 @@
     "handlebars-helper-range": "^1.1.1",
     "svelte": "^3.53.1",
     "svelte-preprocess": "^4.10.7"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,jsx,ts,tsx,vue}": [
+      "eslint --fix"
+    ]
   }
 }

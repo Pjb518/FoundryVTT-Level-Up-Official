@@ -10,9 +10,8 @@ export default class ActorSheet extends SvelteApplication {
    * @inheritDoc
    */
   constructor(actor, options = {}) {
-    super(foundry.utils.mergeObject(
-      options,
-      {
+    super(
+      foundry.utils.mergeObject(options, {
         id: `actor-sheet-${actor.id}`,
         title: actor.name,
         svelte: {
@@ -20,8 +19,8 @@ export default class ActorSheet extends SvelteApplication {
             actorDocument: actor
           }
         }
-      }
-    ));
+      })
+    );
 
     this.actor = actor;
     this.options.svelte.props.sheet = this;
@@ -50,7 +49,9 @@ export default class ActorSheet extends SvelteApplication {
 
   async _onDropBackground(item) {
     if (item?.type !== 'background') {
-      ui.notifications.warn('The item provided to _onDropBackground must be of type "background".');
+      ui.notifications.warn(
+        'The item provided to _onDropBackground must be of type "background".'
+      );
       return;
     }
 
@@ -72,9 +73,9 @@ export default class ActorSheet extends SvelteApplication {
     }
 
     const backgroundFeature = await fromUuid(item.system.feature);
-    const startingEquipment = await Promise.all(selectedEquipment.map(
-      (equipmentItem) => fromUuid(equipmentItem)
-    ));
+    const startingEquipment = await Promise.all(
+      selectedEquipment.map((equipmentItem) => fromUuid(equipmentItem))
+    );
 
     await this.actor.createEmbeddedDocuments('Item', [
       item,
@@ -84,7 +85,8 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   async _onDropCulture(item) {
-    if (item?.type !== 'culture') throw Error('_onDropCulture() must be called with a culture type item.');
+    if (item?.type !== 'culture')
+      throw Error('_onDropCulture() must be called with a culture type item.');
 
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Background documents cannot be added to NPCs.');
@@ -113,13 +115,9 @@ export default class ActorSheet extends SvelteApplication {
     });
 
     const features = await Promise.all(
-      Object.values(item.system.features)
-        .map((f) => fromUuid(f.uuid))
+      Object.values(item.system.features).map((f) => fromUuid(f.uuid))
     );
 
-    this.actor.createEmbeddedDocuments('Item', [
-      item,
-      ...features
-    ]);
+    this.actor.createEmbeddedDocuments('Item', [item, ...features]);
   }
 }
