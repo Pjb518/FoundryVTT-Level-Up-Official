@@ -1,13 +1,16 @@
 {
-	"name": "Channel Divinity: Summon the Stars",
+	"name": "Channel Divinity: Summon the Stars (Sun Priest)",
 	"type": "feature",
 	"img": "icons/svg/item-bag.svg",
 	"system": {
-		"ability": "",
-		"actionOptions": [],
+		"ability": "con",
+		"actionOptions": [
+			"savingThrow",
+			"damage"
+		],
 		"activation": {
 			"cost": "",
-			"type": "",
+			"type": "special",
 			"reactionTrigger": ""
 		},
 		"attack": {
@@ -16,30 +19,40 @@
 			"type": ""
 		},
 		"area": {
-			"shape": ""
+			"shape": "sphere",
+			"size": "30 ft."
 		},
 		"check": {
 			"ability": "str"
 		},
-		"damage": [],
+		"damage": [
+			{
+				"canCrit": false,
+				"damageType": "radiant",
+				"formula": "12d6",
+				"name": "Radiance"
+			}
+		],
 		"description": "<p>At 17th level, you are able to manipulate the burning brilliance of the stars themselves. Choose an object or creature within 60 feet. For 1 minute the target emits bright light in a 60-foot radius and dim light for an additional 30 feet. When a creature starts its turn within 30 feet of the target or first enters into a space within 30 feet of the target on its turn, it makes a Constitution saving throw or becomes blinded for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.<br></p><p>The first time this feature is used per long rest, any creature within 30 feet of the target takes 12d6 radiant damage on a failed save, or half damage on a success. Magical auras within the light’s radius become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An invisible creature that fails its saving throw against the radiant damage is also revealed and it sheds dim light in a 5-foot radius for 1 hour. </p>",
 		"duration": {
-			"unit": "",
+			"unit": "special",
 			"value": ""
 		},
 		"favorite": false,
 		"healing": [],
 		"proficient": true,
-		"range": [],
+		"range": [
+			"medium"
+		],
 		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
+			"dc": "8 + @prof + @wis.mod",
+			"onSave": "Half damage",
+			"targetAbility": "con"
 		},
 		"source": "",
 		"target": {
-			"quantity": "",
-			"type": ""
+			"quantity": null,
+			"type": "creature"
 		},
 		"uses": {
 			"value": null,
