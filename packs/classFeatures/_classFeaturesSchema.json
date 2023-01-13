@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/example.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Class Features Schema",
   "type": "object",
   "default": {},
@@ -26,6 +26,9 @@
     "type": {
       "title": "The type Schema",
       "type": "string",
+      "enum": [
+        "feature, object"
+      ],
       "examples": [
         "feature",
         "object"
@@ -72,6 +75,15 @@
           "title": "The ability Schema",
           "type": "string",
           "default": "",
+          "enum": [
+            "",
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
           "examples": [
             "",
             "str",
@@ -89,6 +101,13 @@
           "items": {
             "title": "A Schema",
             "type": "string",
+            "default": "",
+            "enum": [
+              "",
+              "attack",
+              "damage",
+              "savingThrow"
+            ],
             "examples": [
               "attack",
               "damage",
@@ -123,6 +142,11 @@
               "title": "The type Schema",
               "type": "string",
               "default": "",
+              "enum": [
+                "",
+                "action",
+                "special"
+              ],
               "examples": [
                 "",
                 "action",
