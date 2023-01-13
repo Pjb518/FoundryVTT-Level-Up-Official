@@ -1,57 +1,57 @@
 <template>
   <form
-    @submit.prevent="onSubmit"
     class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
+    @submit.prevent="onSubmit"
   >
     <template v-if="hasAttackRoll">
       <section class="a5e-form__section u-flex u-flex-col u-gap-md">
         <h3 class="u-text-bold u-text-sm">
-          {{ localize("A5E.RollModeHeading") }}
+          {{ localize('A5E.RollModeHeading') }}
         </h3>
 
         <radio-group
-          :baseId="appId"
-          :initialSelection="rollMode"
+          :base-id="appId"
+          :initial-selection="rollMode"
           :values="rollModeOptions"
           :wide="true"
           :wrap="false"
-          @updateSelection="updateRollMode"
+          @update-selection="updateRollMode"
         />
       </section>
 
       <expertise-die-picker
         heading="A5E.ExpertiseDieAttackRoll"
-        :appId="appId"
-        :initialSelection="baseExpertiseLevel"
-        @updateSelection="updateExpertiseDie"
+        :app-id="appId"
+        :initial-selection="baseExpertiseLevel"
+        @update-selection="updateExpertiseDie"
       />
 
       <formula-field
-        :hasInitialFocus="true"
-        :reduceMargin="true"
+        :has-initial-focus="true"
+        :reduce-margin="true"
         heading="A5E.SituationalModsAttackRoll"
         @update-field-value="updateSituationalMods"
       />
 
-      <roll-formula-preview :rollFormula="rollFormula" />
+      <roll-formula-preview :roll-formula="rollFormula" />
     </template>
 
     <tag-group
       v-if="hasDamage"
       heading="A5E.DamageOptionsPrompt"
-      :initialSelections="defaultDamageSelection"
+      :initial-selections="defaultDamageSelection"
       :sort="false"
       :tags="damageTags"
-      @updateSelectionList="updateSelectedDamageGroups"
+      @update-selection-list="updateSelectedDamageGroups"
     />
 
     <tag-group
       v-if="hasHealing"
       heading="A5E.HealingOptionsPrompt"
-      :initialSelections="defaultHealingSelection"
+      :initial-selections="defaultHealingSelection"
       :sort="false"
       :tags="healingTags"
-      @updateSelectionList="updateSelectedHealingGroups"
+      @update-selection-list="updateSelectedHealingGroups"
     />
 
     <section
@@ -59,36 +59,35 @@
       class="a5e-form__section u-align-center u-flex u-gap-md"
     >
       <input
-        class="u-pointer"
-        type="checkbox"
-        style="margin-left: 0"
         :id="`${appId}-place-template`"
         ref="inputField"
         v-model="placeTemplate"
+        class="u-pointer"
+        type="checkbox"
+        style="margin-left: 0"
       />
 
       <label class="u-pointer" :for="`${appId}-place-template`">
-        {{ localize("A5E.ItemPlaceTemplate") }}
+        {{ localize('A5E.ItemPlaceTemplate') }}
       </label>
     </section>
 
     <button class="a5e-button" type="submit" :disabled="!rollFormulaIsValid">
-      <i class="fas fa-dice-d20"></i> {{ submitText }}
+      <i class="fas fa-dice-d20" /> {{ submitText }}
     </button>
   </form>
 </template>
 
 <script>
-import ExpertiseDiePicker from "./partials/ExpertiseDiePicker.vue";
-import FormulaField from "./partials/FormulaField.vue";
-import RadioGroup from "./partials/RadioGroup.vue";
-import RollFormulaPreview from "./partials/RollFormulaPreview.vue";
-import TagGroup from "./partials/TagGroup.vue";
+import { ref, watch } from 'vue';
+import ExpertiseDiePicker from './partials/ExpertiseDiePicker.vue';
+import FormulaField from './partials/FormulaField.vue';
+import RadioGroup from './partials/RadioGroup.vue';
+import RollFormulaPreview from './partials/RollFormulaPreview.vue';
+import TagGroup from './partials/TagGroup.vue';
 
-import constructRollFormula from "../modules/dice/constructRollFormula";
-import getExpertiseDieSize from "../modules/utils/getExpertiseDieSize";
-
-import { ref, watch } from "vue";
+import constructRollFormula from '../modules/dice/constructRollFormula';
+import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
 
 export default {
   components: {
@@ -96,7 +95,7 @@ export default {
     FormulaField,
     RadioGroup,
     RollFormulaPreview,
-    TagGroup,
+    TagGroup
   },
   setup(_, context) {
     const { actor, item, appWindow, ...overrides } = context.attrs;
@@ -110,14 +109,14 @@ export default {
     const { actionOptions, attack, damage, healing } = itemData;
     const abilityMod = actorData.abilities[item.abilityMod]?.check.mod;
     const addProficiencyBonus = itemData.proficient;
-    const hasAttackRoll = actionOptions.includes("attack");
-    const hasDamage = actionOptions.includes("damage");
-    const hasHealing = actionOptions.includes("healing");
+    const hasAttackRoll = actionOptions.includes('attack');
+    const hasDamage = actionOptions.includes('damage');
+    const hasHealing = actionOptions.includes('healing');
 
     const damageTags = Object.fromEntries(
       damage.map(({ name }, i) => [
         i,
-        name?.trim() || `${game.i18n.localize("A5E.Damage")} #${i + 1}`,
+        name?.trim() || `${game.i18n.localize('A5E.Damage')} #${i + 1}`
       ])
     );
 
@@ -129,7 +128,7 @@ export default {
     const healingTags = Object.fromEntries(
       healing.map(({ name }, i) => [
         i,
-        name?.trim() || `${game.i18n.localize("A5E.Healing")} #${i + 1}`,
+        name?.trim() || `${game.i18n.localize('A5E.Healing')} #${i + 1}`
       ])
     );
 
@@ -142,19 +141,19 @@ export default {
       ([key, value]) => ({
         id: key,
         value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        name: game.i18n.localize(value),
+        name: game.i18n.localize(value)
       })
     );
 
-    const expertiseDie = ref("");
-    const placeTemplateDefault = ref(item.getFlag("a5e", "placeTemplate"));
+    const expertiseDie = ref('');
+    const placeTemplateDefault = ref(item.getFlag('a5e', 'placeTemplate'));
     const placeTemplate = ref(placeTemplateDefault.value);
-    const rollFormula = ref("");
+    const rollFormula = ref('');
     const rollFormulaIsValid = ref(true);
     const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
     const selectedDamageGroups = ref(Object.keys(damageTags));
     const selectedHealingGroups = ref(Object.keys(healingTags));
-    const situationalMods = ref("");
+    const situationalMods = ref('');
 
     function updateExpertiseDie(diceQuantity) {
       expertiseDie.value = getExpertiseDieSize(diceQuantity);
@@ -181,29 +180,30 @@ export default {
         attack: {
           critThreshold: attack.critThreshold,
           formula: rollFormula.value,
-          type: attack.type,
+          type: attack.type
         },
         damage: selectedDamageGroups.value.map((index) => damage[index]),
         healing: selectedHealingGroups.value.map((index) => healing[index]),
-        placeTemplate: placeTemplate.value,
+        placeTemplate: placeTemplate.value
       });
     }
 
     watch(
       [expertiseDie, rollMode, situationalMods],
-      ([expertiseDie, rollMode, situationalMods]) => {
-        let d20 = "1d20";
+      ([_expertiseDie, _rollMode, _situationalMods]) => {
+        let d20 = '1d20';
 
-        if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) d20 = "2d20kh";
-        else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) d20 = "2d20kl";
+        if (_rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) d20 = '2d20kh';
+        else if (_rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE)
+          d20 = '2d20kl';
 
         try {
           const terms = [
             d20,
-            expertiseDie,
+            _expertiseDie,
             abilityMod,
             attack.bonus,
-            situationalMods,
+            _situationalMods
           ];
 
           if (addProficiencyBonus) terms.push(actorData.prof);
@@ -213,7 +213,7 @@ export default {
           rollFormula.value = formula;
           rollFormulaIsValid.value = true;
         } catch {
-          rollFormula.value = game.i18n.localize("A5E.ErrorInvalidFormula");
+          rollFormula.value = game.i18n.localize('A5E.ErrorInvalidFormula');
           rollFormulaIsValid.value = false;
         }
       }
@@ -238,13 +238,13 @@ export default {
       rollFormulaIsValid,
       rollMode,
       rollModeOptions,
-      submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
+      submitText: game.i18n.localize('A5E.DialogSubmitRoll'),
       updateExpertiseDie,
       updateRollMode,
       updateSelectedDamageGroups,
       updateSelectedHealingGroups,
-      updateSituationalMods,
+      updateSituationalMods
     };
-  },
+  }
 };
 </script>

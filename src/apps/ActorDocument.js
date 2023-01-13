@@ -23,7 +23,10 @@ export default class ActorDocument extends TJSDocument {
   constructor(doc, options) {
     super(doc, options);
 
-    this.#activeEffects = this.embedded.create('ActiveEffect', ActiveEffectMapReducer);
+    this.#activeEffects = this.embedded.create(
+      'ActiveEffect',
+      ActiveEffectMapReducer
+    );
     this.#favorites = this.embedded.create('Item', FavoriteMapReducer);
     this.#features = this.embedded.create('Item', FeatureMapReducer);
     this.#maneuvers = this.embedded.create('Item', ManeuverMapReducer);
@@ -31,15 +34,27 @@ export default class ActorDocument extends TJSDocument {
     this.#spells = this.embedded.create('Item', SpellMapReducer);
   }
 
-  get activeEffects() { return this.#activeEffects; }
+  get activeEffects() {
+    return this.#activeEffects;
+  }
 
-  get favorites() { return this.#favorites; }
+  get favorites() {
+    return this.#favorites;
+  }
 
-  get features() { return this.#features; }
+  get features() {
+    return this.#features;
+  }
 
-  get maneuvers() { return this.#maneuvers; }
+  get maneuvers() {
+    return this.#maneuvers;
+  }
 
-  get objects() { return this.#objects; }
+  get objects() {
+    return this.#objects;
+  }
 
-  get spells() { return this.#spells; }
+  get spells() {
+    return this.#spells;
+  }
 }

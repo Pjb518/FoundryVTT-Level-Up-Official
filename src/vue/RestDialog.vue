@@ -1,20 +1,20 @@
 <template>
   <form
-    @submit.prevent="onSubmit"
     class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
+    @submit.prevent="onSubmit"
   >
     <section class="a5e-form__section">
       <h3 class="u-text-bold u-text-sm">
-        {{ localize("A5E.RestType") }}
+        {{ localize('A5E.RestType') }}
       </h3>
 
       <radio-group
-        initialSelection="short"
-        :baseId="appId"
+        initial-selection="short"
+        :base-id="appId"
         :values="restTypeOptions"
         :wide="true"
         :wrap="false"
-        @updateSelection="updateRestType"
+        @update-selection="updateRestType"
       />
     </section>
 
@@ -27,7 +27,7 @@
       </label>
 
       <div class="a5e-input-container a5e-input-container--inline-wide">
-        <input type="checkbox" v-model="haven" />
+        <input v-model="haven" type="checkbox" />
       </div>
     </div>
 
@@ -40,18 +40,20 @@
       </label>
 
       <div class="a5e-input-container a5e-input-container--inline-wide">
-        <input type="checkbox" v-model="supply" />
+        <input v-model="supply" type="checkbox" />
       </div>
     </div>
 
     <div v-if="restType === 'short'" class="a5e-form__section">
-      <h3 class="u-text-bold u-text-sm">{{ hitDiceLabel }}</h3>
+      <h3 class="u-text-bold u-text-sm">
+        {{ hitDiceLabel }}
+      </h3>
 
       <div class="u-flex u-gap-md u-text-md">
         <div
-          class="a5e-hit-die-wrapper"
           v-for="die in ['d6', 'd8', 'd10', 'd12']"
           :key="die"
+          class="a5e-hit-die-wrapper"
         >
           <div
             class="a5e-hit-die a5e-hit-die--rollable"
@@ -72,19 +74,17 @@
     </div>
 
     <button class="a5e-button">
-      <i class="fas fa-campground"></i> {{ submitText }}
+      <i class="fas fa-campground" /> {{ submitText }}
     </button>
   </form>
 </template>
 
 <script>
-import NumericField from "./partials/NumericField.vue";
-import RadioGroup from "./partials/RadioGroup.vue";
-
-import { ref } from "vue";
+import { ref } from 'vue';
+import RadioGroup from './partials/RadioGroup.vue';
 
 export default {
-  components: { NumericField, RadioGroup },
+  components: { RadioGroup },
   setup(_, context) {
     const { actor, appWindow } = context.attrs;
     const actorData = actor.system;
@@ -98,18 +98,18 @@ export default {
 
     const restTypeOptions = [
       {
-        id: "short",
-        value: "short",
-        name: game.i18n.localize("A5E.RestShort"),
+        id: 'short',
+        value: 'short',
+        name: game.i18n.localize('A5E.RestShort')
       },
       {
-        id: "long",
-        value: "long",
-        name: game.i18n.localize("A5E.RestLong"),
-      },
+        id: 'long',
+        value: 'long',
+        name: game.i18n.localize('A5E.RestLong')
+      }
     ];
 
-    const restType = ref("short");
+    const restType = ref('short');
     const haven = ref(true);
     const supply = ref(true);
 
@@ -126,10 +126,10 @@ export default {
     }
 
     function updateHitDice(dieSize) {
-      if (dieSize === "d6") d6.value = Math.max(d6.value - 1, 0);
-      if (dieSize === "d8") d8.value = Math.max(d8.value - 1, 0);
-      if (dieSize === "d10") d10.value = Math.max(d10.value - 1, 0);
-      if (dieSize === "d12") d12.value = Math.max(d12.value - 1, 0);
+      if (dieSize === 'd6') d6.value = Math.max(d6.value - 1, 0);
+      if (dieSize === 'd8') d8.value = Math.max(d8.value - 1, 0);
+      if (dieSize === 'd10') d10.value = Math.max(d10.value - 1, 0);
+      if (dieSize === 'd12') d12.value = Math.max(d12.value - 1, 0);
     }
 
     function updateRestType(value) {
@@ -139,33 +139,33 @@ export default {
     function onSubmit() {
       actor.update();
       appWindow.submit({
-        haven: restType.value === "long" ? haven.value : null,
+        haven: restType.value === 'long' ? haven.value : null,
         restType: restType.value,
-        supply: restType.value === "long" ? supply.value : null,
+        supply: restType.value === 'long' ? supply.value : null
       });
     }
 
     return {
       appId,
       haven,
-      havenLabel: game.i18n.localize("A5E.HavenPrompt"),
+      havenLabel: game.i18n.localize('A5E.HavenPrompt'),
       hitDice: {
         d6,
         d8,
         d10,
-        d12,
+        d12
       },
-      hitDiceLabel: game.i18n.localize("A5E.HitDiceLabel"),
+      hitDiceLabel: game.i18n.localize('A5E.HitDiceLabel'),
       localize: (key) => game.i18n.localize(key),
       onSubmit,
       restType,
       restTypeOptions,
       rollHitDie,
-      submitText: game.i18n.localize("A5E.Rest"),
+      submitText: game.i18n.localize('A5E.Rest'),
       supply,
-      supplyLabel: game.i18n.localize("A5E.SupplyPrompt"),
-      updateRestType,
+      supplyLabel: game.i18n.localize('A5E.SupplyPrompt'),
+      updateRestType
     };
-  },
+  }
 };
 </script>

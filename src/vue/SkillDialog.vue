@@ -1,66 +1,65 @@
 <template>
   <form
-    @submit.prevent="onSubmit"
     class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
+    @submit.prevent="onSubmit"
   >
     <error-list v-if="errors.length" :errors="errors" />
 
     <section class="a5e-form__section u-flex u-flex-col u-gap-md">
       <h3 class="u-text-bold u-text-sm">
-        {{ localize("A5E.RollModeHeading") }}
+        {{ localize('A5E.RollModeHeading') }}
       </h3>
 
       <radio-group
-        :baseId="appId"
-        :initialSelection="rollMode"
+        :base-id="appId"
+        :initial-selection="rollMode"
         :values="rollModeOptions"
         :wide="true"
         :wrap="false"
-        @updateSelection="updateRollMode"
+        @update-selection="updateRollMode"
       />
     </section>
 
     <ability-score-picker
-      :appId="appId"
-      :initialSelection="selectedAbility"
+      :app-id="appId"
+      :initial-selection="selectedAbility"
       @update-selected-ability="updateSelectedAbility"
     />
 
     <expertise-die-picker
-      :appId="appId"
-      :initialSelection="baseExpertiseLevel"
-      @updateSelection="updateExpertiseDie"
+      :app-id="appId"
+      :initial-selection="baseExpertiseLevel"
+      @update-selection="updateExpertiseDie"
     />
 
     <formula-field
-      :hasInitialFocus="true"
-      :reduceMargin="true"
+      :has-initial-focus="true"
+      :reduce-margin="true"
       heading="A5E.SituationalMods"
       @update-field-value="updateSituationalMods"
     />
 
-    <roll-formula-preview :rollFormula="rollFormula" />
+    <roll-formula-preview :roll-formula="rollFormula" />
 
     <button class="a5e-button" type="submit" :disabled="!rollFormulaIsValid">
-      <i class="fas fa-dice-d20"></i> {{ submitText }}
+      <i class="fas fa-dice-d20" /> {{ submitText }}
     </button>
   </form>
 </template>
 
 <script>
-import AbilityScorePicker from "./partials/AbilityScorePicker.vue";
-import ErrorList from "./partials/ErrorList.vue";
-import ExpertiseDiePicker from "./partials/ExpertiseDiePicker.vue";
-import RadioGroup from "./partials/RadioGroup.vue";
-import RollFormulaPreview from "./partials/RollFormulaPreview.vue";
-import FormulaField from "./partials/FormulaField.vue";
+import { ref, watch } from 'vue';
+import AbilityScorePicker from './partials/AbilityScorePicker.vue';
+import ErrorList from './partials/ErrorList.vue';
+import ExpertiseDiePicker from './partials/ExpertiseDiePicker.vue';
+import RadioGroup from './partials/RadioGroup.vue';
+import RollFormulaPreview from './partials/RollFormulaPreview.vue';
+import FormulaField from './partials/FormulaField.vue';
 
-import A5E from "../modules/config";
-import getExpertiseDieSize from "../modules/utils/getExpertiseDieSize";
-import constructRollFormula from "../modules/dice/constructRollFormula";
-import validateTerms from "../modules/utils/validateTerms";
-
-import { ref, watch } from "vue";
+import A5E from '../modules/config';
+import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
+import constructRollFormula from '../modules/dice/constructRollFormula';
+import validateTerms from '../modules/utils/validateTerms';
 
 export default {
   components: {
@@ -69,7 +68,7 @@ export default {
     ExpertiseDiePicker,
     FormulaField,
     RadioGroup,
-    RollFormulaPreview,
+    RollFormulaPreview
   },
   setup(_, context) {
     const { actor, skill, appWindow, ...overrides } = context.attrs;
@@ -78,11 +77,11 @@ export default {
     const skillData = actorData.skills[skill];
     const appId = appWindow.id;
 
-    const abilityBonus = ref("");
-    const abilityMod = ref("");
+    const abilityBonus = ref('');
+    const abilityMod = ref('');
     const globalCheckBonus = actorData.bonuses.abilities.check;
     const globalSkillBonus = actorData.bonuses.abilities.skill;
-    const minRoll = skillData.minRoll;
+    const { minRoll } = skillData;
     const skillBonus = skillData.bonuses.check;
     const skillMod = skillData.mod;
 
@@ -90,15 +89,15 @@ export default {
       ([key, value]) => ({
         id: key,
         value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        name: game.i18n.localize(value),
+        name: game.i18n.localize(value)
       })
     );
 
     const errors = ref([]);
-    const expertiseDie = ref("");
+    const expertiseDie = ref('');
     const selectedAbility = ref(overrides.ability ?? skillData.ability);
-    const situationalMods = ref("");
-    const rollFormula = ref("");
+    const situationalMods = ref('');
+    const rollFormula = ref('');
     const rollFormulaIsValid = ref(true);
     const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
 
@@ -121,14 +120,14 @@ export default {
     function onSubmit() {
       appWindow.submit({
         formula: rollFormula.value,
-        ability: selectedAbility.value,
+        ability: selectedAbility.value
       });
     }
 
     watch(
       selectedAbility,
-      (selectedAbility) => {
-        const ability = actorData.abilities[selectedAbility];
+      (selected) => {
+        const ability = actorData.abilities[selected];
         abilityBonus.value = ability?.check.bonus;
         abilityMod.value = ability?.check.mod;
 
@@ -137,26 +136,26 @@ export default {
         const vulnerableTerms = [
           {
             value: skillBonus,
-            message: game.i18n.format("A5E.ErrorInvalidSkillBonus", {
-              skill: game.i18n.localize(A5E.skills[skill]),
-            }),
+            message: game.i18n.format('A5E.ErrorInvalidSkillBonus', {
+              skill: game.i18n.localize(A5E.skills[skill])
+            })
           },
           {
             value: globalSkillBonus,
-            message: game.i18n.localize("A5E.ErrorInvalidGlobalSkillBonus"),
+            message: game.i18n.localize('A5E.ErrorInvalidGlobalSkillBonus')
           },
           {
             value: abilityBonus.value,
-            message: game.i18n.format("A5E.ErrorInvalidAbilityCheckBonus", {
-              ability: game.i18n.localize(A5E.abilities[selectedAbility]),
-            }),
+            message: game.i18n.format('A5E.ErrorInvalidAbilityCheckBonus', {
+              ability: game.i18n.localize(A5E.abilities[selected])
+            })
           },
           {
             value: globalCheckBonus,
             message: game.i18n.localize(
-              "A5E.ErrorInvalidGlobalAbilityCheckBonus"
-            ),
-          },
+              'A5E.ErrorInvalidGlobalAbilityCheckBonus'
+            )
+          }
         ];
 
         errors.value = validateTerms(vulnerableTerms);
@@ -166,35 +165,36 @@ export default {
 
     watch(
       [expertiseDie, rollMode, selectedAbility, situationalMods],
-      ([expertiseDie, rollMode, _, situationalMods]) => {
-        const d20Parts = ["d20"];
+      // eslint-disable-next-line no-unused-vars, no-shadow
+      ([_expertiseDie, _rollMode, _, _situationalMods]) => {
+        const d20Parts = ['d20'];
 
         if (minRoll > 1) d20Parts.push(`min${minRoll}`);
 
-        if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) {
-          d20Parts.unshift("2");
-          d20Parts.push("kh");
-        } else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) {
-          d20Parts.unshift("2");
-          d20Parts.push("kl");
+        if (_rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) {
+          d20Parts.unshift('2');
+          d20Parts.push('kh');
+        } else if (_rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) {
+          d20Parts.unshift('2');
+          d20Parts.push('kl');
         } else {
-          d20Parts.unshift("1");
+          d20Parts.unshift('1');
         }
 
-        const d20 = d20Parts.join("");
+        const d20 = d20Parts.join('');
 
         try {
           const formula = constructRollFormula(
             [
               d20,
-              expertiseDie,
+              _expertiseDie,
               skillMod,
               abilityMod.value,
               skillBonus,
               globalSkillBonus,
               abilityBonus.value,
               globalCheckBonus,
-              situationalMods,
+              _situationalMods
             ],
             rollData
           );
@@ -202,7 +202,7 @@ export default {
           rollFormula.value = formula;
           rollFormulaIsValid.value = true;
         } catch {
-          rollFormula.value = game.i18n.localize("A5E.ErrorInvalidFormula");
+          rollFormula.value = game.i18n.localize('A5E.ErrorInvalidFormula');
           rollFormulaIsValid.value = false;
         }
       }
@@ -219,12 +219,12 @@ export default {
       rollMode,
       rollModeOptions,
       selectedAbility,
-      submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
+      submitText: game.i18n.localize('A5E.DialogSubmitRoll'),
       updateExpertiseDie,
       updateRollMode,
       updateSelectedAbility,
-      updateSituationalMods,
+      updateSituationalMods
     };
-  },
+  }
 };
 </script>

@@ -3,16 +3,21 @@
     "shared-node-browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "@typhonjs-fvtt/eslint-config-foundry.js"],
+  "extends": [
+    "airbnb",
+    "@typhonjs-fvtt/eslint-config-foundry.js",
+    "plugin:vue/vue3-recommended",
+    "prettier"],
   "parserOptions": {
     "ecmaVersion": 13,
     "sourceType": "module"
   },
-  "plugins": ["import", "svelte3"],
+  "plugins": ["import", "prettier", "svelte3"],
   "ignorePatterns": ["dist/**/*"],
   "rules": {
     "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
+    "import/no-unresolved": [2, { "ignore": ["vue"]}],
     "no-constant-binary-expression": ["error"],
     "no-underscore-dangle": [
       "error",
@@ -23,7 +28,11 @@
       }
     ],
     "no-use-before-define": ["error", { "functions": false, "classes": true }],
-    "no-param-reassign": [ "error", { "props": false }]
+    "no-param-reassign": [ "error", { "props": false }],
+    "vue/v-on-event-hyphenation": ["warn", "always", {
+      "autofix": true
+    }],
+    "prettier/prettier": 0
   },
   "globals": {
     "$": "readonly",

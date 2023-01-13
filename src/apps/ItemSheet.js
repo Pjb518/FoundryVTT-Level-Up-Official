@@ -10,9 +10,8 @@ export default class ItemSheet extends SvelteApplication {
    * @inheritDoc
    */
   constructor(item, options = {}) {
-    super(foundry.utils.mergeObject(
-      options,
-      {
+    super(
+      foundry.utils.mergeObject(options, {
         id: `item-sheet-${item.id}`,
         title: item.name,
         svelte: {
@@ -21,8 +20,8 @@ export default class ItemSheet extends SvelteApplication {
             itemDocument: item
           }
         }
-      }
-    ));
+      })
+    );
   }
 
   /**

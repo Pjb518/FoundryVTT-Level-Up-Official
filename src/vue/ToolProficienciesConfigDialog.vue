@@ -1,62 +1,61 @@
 <template>
   <form
-    @submit.prevent="onSubmit"
     class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
+    @submit.prevent="onSubmit"
   >
     <tag-group
       heading="A5E.ToolsArtisanTools"
-      :initialSelections="artisansToolProficiencies"
+      :initial-selections="artisansToolProficiencies"
       :tags="artisansTools"
-      @updateSelectionList="updateArtisansToolProficiencies"
+      @update-selection-list="updateArtisansToolProficiencies"
     />
 
     <tag-group
       heading="A5E.ToolsGamingSets"
-      :initialSelections="gamingSetProficiencies"
+      :initial-selections="gamingSetProficiencies"
       :tags="gamingSets"
-      @updateSelectionList="updateGamingSetProficiencies"
+      @update-selection-list="updateGamingSetProficiencies"
     />
 
     <tag-group
       heading="A5E.MusicalInstruments"
-      :initialSelections="musicalInstrumentProficiencies"
+      :initial-selections="musicalInstrumentProficiencies"
       :tags="musicalInstruments"
-      @updateSelectionList="updateMusicalInstrumentProficiencies"
+      @update-selection-list="updateMusicalInstrumentProficiencies"
     />
 
     <tag-group
       heading="A5E.ToolsMiscellaneous"
-      :initialSelections="miscellaneousToolProficiencies"
+      :initial-selections="miscellaneousToolProficiencies"
       :tags="miscellaneous"
-      @updateSelectionList="updateMiscellaneousToolProficiencies"
+      @update-selection-list="updateMiscellaneousToolProficiencies"
     />
 
     <tag-group
       heading="A5E.ToolsVehicles"
-      :initialSelections="vehicleProficiencies"
+      :initial-selections="vehicleProficiencies"
       :tags="vehicles"
-      @updateSelectionList="updateVehicleProficiencies"
+      @update-selection-list="updateVehicleProficiencies"
     />
 
     <input-field
       heading="A5E.ToolsOther"
       hint="A5E.HintSeparateBySemiColon"
-      :hasInitialFocus="true"
-      :initialValue="otherToolProficiencies"
+      :has-initial-focus="true"
+      :initial-value="otherToolProficiencies"
       @update-field-value="updateOtherToolProficiencies"
     />
 
     <button class="a5e-button" type="submit">
-      <i class="fas fa-save"></i> {{ submitText }}
+      <i class="fas fa-save" /> {{ submitText }}
     </button>
   </form>
 </template>
 
 <script>
-import InputField from "./partials/InputField.vue";
-import TagGroup from "./partials/TagGroup.vue";
-
-import { ref } from "vue";
+import { ref } from 'vue';
+import InputField from './partials/InputField.vue';
+import TagGroup from './partials/TagGroup.vue';
 
 export default {
   components: { InputField, TagGroup },
@@ -64,11 +63,11 @@ export default {
     const { actor, appWindow } = context.attrs;
     const actorData = actor.system;
 
-    const artisansTools = CONFIG.A5E.toolsPlural.artisansTools;
-    const gamingSets = CONFIG.A5E.toolsPlural.gamingSets;
-    const musicalInstruments = CONFIG.A5E.toolsPlural.musicalInstruments;
-    const miscellaneous = CONFIG.A5E.toolsPlural.miscellaneous;
-    const vehicles = CONFIG.A5E.toolsPlural.vehicles;
+    const { artisansTools } = CONFIG.A5E.toolsPlural;
+    const { gamingSets } = CONFIG.A5E.toolsPlural;
+    const { musicalInstruments } = CONFIG.A5E.toolsPlural;
+    const { miscellaneous } = CONFIG.A5E.toolsPlural;
+    const { vehicles } = CONFIG.A5E.toolsPlural;
 
     const toolProficiencies = actorData.proficiencies.tools.reduce(
       (acc, curr) => {
@@ -94,7 +93,7 @@ export default {
         musicalInstruments: [],
         miscellaneous: [],
         vehicles: [],
-        other: [],
+        other: []
       }
     );
 
@@ -107,7 +106,7 @@ export default {
 
     const miscellaneousToolProficiencies = ref(toolProficiencies.miscellaneous);
     const vehicleProficiencies = ref(toolProficiencies.vehicles);
-    const otherToolProficiencies = ref(toolProficiencies.other.join("; "));
+    const otherToolProficiencies = ref(toolProficiencies.other.join('; '));
 
     function updateArtisansToolProficiencies(value) {
       artisansToolProficiencies.value = value;
@@ -134,19 +133,19 @@ export default {
     }
 
     function onSubmit() {
-      const toolProficiencies = [
+      const updatedToolProficiencies = [
         ...artisansToolProficiencies.value,
         ...gamingSetProficiencies.value,
         ...musicalInstrumentProficiencies.value,
         ...miscellaneousToolProficiencies.value,
         ...vehicleProficiencies.value,
         ...otherToolProficiencies.value
-          .split(";")
+          .split(';')
           .map((tool) => tool.trim())
-          .filter(Boolean),
+          .filter(Boolean)
       ];
 
-      actor.update({ "data.proficiencies.tools": toolProficiencies });
+      actor.update({ 'data.proficiencies.tools': updatedToolProficiencies });
       appWindow.submit();
     }
 
@@ -169,8 +168,8 @@ export default {
       updateMiscellaneousToolProficiencies,
       updateVehicleProficiencies,
       updateOtherToolProficiencies,
-      submitText: game.i18n.localize("A5E.SaveSubmit"),
+      submitText: game.i18n.localize('A5E.SaveSubmit')
     };
-  },
+  }
 };
 </script>
