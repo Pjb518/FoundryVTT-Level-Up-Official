@@ -1,6 +1,7 @@
 {
   "name": "a5e",
   "version": "0.8.12",
+  "type": "module",
   "description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
   "main": "dist/index.js",
   "scripts": {
@@ -57,15 +58,8 @@
     "@typhonjs-fvtt/runtime": "^0.0.21",
     "@typhonjs-fvtt/svelte-standard": "^0.0.17",
     "handlebars-helper-range": "^1.1.1",
+    "jsonrepair": "^3.0.2",
     "svelte": "^3.53.1",
     "svelte-preprocess": "^4.10.7"
-  },
-  "lint-staged": {
-    "*.{js,mjs,cjs,jsx,ts,tsx,vue}": [
-      "eslint --fix"
-    ],
-    "packs/classFeatures/*.json": [
-      "jsonlint -V packs/classFeatures/_classFeaturesSchema.json '!**/packs/classFeatures/_classFeaturesSchema.json'"
-    ]
   }
 }
