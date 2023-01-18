@@ -1,27 +1,19 @@
 import './scss/main.scss';
-import 'remixicon/fonts/remixicon.css';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
+import ActorSheet5e from './apps/ActorSheet';
+import ItemSheet5e from './apps/ItemSheet';
 
 import A5E from './modules/config';
-import Actor5e from './modules/actor/entity';
+import ActiveEffect5e from './documents/activeEffects';
+import Actor5e from './documents/actor';
 import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
-import Item5e from './modules/item/entity';
-import ActorSheet5e from './modules/sheets/character';
-import ActiveEffect5e from './modules/activeEffects/entity';
-import ItemSheet5e from './modules/sheets/item';
-import ReactiveDialog from './modules/apps/reactiveDialog';
-import Token5e from './modules/actor/token';
-import TokenDocument5e from './modules/actor/tokenDocument';
+import Item5e from './documents/item';
+import Token5e from './documents/token';
+import TokenDocument5e from './documents/tokenDocument';
+import TokenHUD5e from './documents/tokenHUD';
 
-import AbilityDialog from './vue/AbilityDialog.vue';
-import DeathSavingThrowDialog from './vue/DeathSavingThrowDialog.vue';
-import InitiativeDialog from './vue/InitiativeDialog.vue';
-import ItemActivationDialog from './vue/ItemActivationDialog.vue';
-import RestDialog from './vue/RestDialog.vue';
-
-import getDialogData from './modules/dice/getDialogData';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
 import measureDistances from './modules/pixi/measureDistances';
@@ -50,8 +42,7 @@ Hooks.once('init', () => {
   game.a5e = {
     applications: {
       ActorSheet5e,
-      ItemSheet5e,
-      ReactiveDialog
+      ItemSheet5e
     },
     config: A5E,
     dice: {
@@ -76,16 +67,6 @@ Hooks.once('init', () => {
       migrateMacroData,
       migrateSceneData,
       migrateCurrentHitPoints
-    },
-    vue: {
-      AbilityDialog,
-      DeathSavingThrowDialog,
-      InitiativeDialog,
-      ItemActivationDialog,
-      RestDialog
-    },
-    utils: {
-      getDialogData
     }
   };
 
@@ -197,6 +178,15 @@ Hooks.once('ready', () => {
 Hooks.on('canvasInit', () => {
   canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
   SquareGrid.prototype.measureDistances = measureDistances;
+  game.canvas.hud.token = new TokenHUD5e();
 });
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
+
+Hooks.on('init', () => {
+  class FastTooltipManager extends TooltipManager {
+    static TOOLTIP_ACTIVATION_MS = 100;
+  }
+
+  game.tooltip = new FastTooltipManager();
+});
