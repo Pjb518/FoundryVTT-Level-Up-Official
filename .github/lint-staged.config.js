@@ -5,7 +5,7 @@ export default {
   "packs/classFeatures/*.json": files => {
     const matched = micromatch.not(files, '_*Schema.json')
     return [
-      `jsonrepair ${matched.join(' ')}`,
+      `jsonrepair "${matched.join('" "')}" --overwrite`,
       `jsonlint -V packs/classFeatures/_classFeaturesSchema.json ${matched.join(' ')}`
     ]
   }
