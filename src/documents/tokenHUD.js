@@ -20,20 +20,16 @@ export default class TokenHUD5e extends TokenHUD {
   activateListeners(html) {
     super.activateListeners(html);
 
-    html
-      .find('.clear-all-conditions')
-      .click(this._clearAllConditions.bind(this));
+    html.find('.clear-all-conditions').click(this._clearAllConditions.bind(this));
   }
 
   /** @override */
   _getStatusEffectChoices() {
     CONFIG.statusEffects = CONFIG.statusEffects.sort((a, b) => {
-      const aid =
-        a.label !== undefined ? game.i18n.localize(a.label) : a.id || a;
-      const bid =
-        b.label !== undefined ? game.i18n.localize(b.label) : b.id || b;
+      const aid = (a.label !== undefined ? game.i18n.localize(a.label) : a.id || a);
+      const bid = (b.label !== undefined ? game.i18n.localize(b.label) : b.id || b);
       // eslint-disable-next-line no-nested-ternary
-      return aid > bid ? 1 : aid < bid ? -1 : 0;
+      return (aid > bid ? 1 : (aid < bid ? -1 : 0));
     });
 
     return super._getStatusEffectChoices();
@@ -56,10 +52,7 @@ export default class TokenHUD5e extends TokenHUD {
     for (const condition of Object.values(conditions)) {
       if (condition.isActive) {
         // eslint-disable-next-line no-await-in-loop
-        await this.object.toggleEffect({
-          id: condition.id,
-          icon: condition.src
-        });
+        await this.object.toggleEffect({ id: condition.id, icon: condition.src });
       }
     }
   }

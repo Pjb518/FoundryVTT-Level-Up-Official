@@ -7,16 +7,13 @@ import BackgroundDropDialogComponent from './dialogs/BackgroundDropDialog.svelte
  */
 export default class BackgroundDropDialog extends TJSDialog {
   constructor(item) {
-    super(
-      {
-        title: 'Test',
-        content: {
-          class: BackgroundDropDialogComponent,
-          props: { itemDocument: item }
-        }
-      },
-      { classes: ['a5e-sheet'], width: 480 }
-    );
+    super({
+      title: 'Test',
+      content: {
+        class: BackgroundDropDialogComponent,
+        props: { itemDocument: item }
+      }
+    }, { classes: ['a5e-sheet'], width: 480 });
 
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;

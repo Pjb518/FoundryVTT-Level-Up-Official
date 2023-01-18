@@ -9,15 +9,9 @@ import createTemplateDocument from '../modules/utils/templates/createTemplateDoc
  */
 export default class Item5e extends Item {
   static chatListeners(html) {
-    html
-      .find('.a5e-js-chat-ability-check-button')
-      .click(this._onClickChatAbilityCheckButton.bind(this));
-    html
-      .find('.a5e-js-chat-saving-throw-button')
-      .click(this._onClickChatSavingThrowButton.bind(this));
-    html
-      .find('.a5e-js-toggle-roll-tooltip-visibility')
-      .click(this._onToggleRollTooltipVisibility.bind(this));
+    html.find('.a5e-js-chat-ability-check-button').click(this._onClickChatAbilityCheckButton.bind(this));
+    html.find('.a5e-js-chat-saving-throw-button').click(this._onClickChatSavingThrowButton.bind(this));
+    html.find('.a5e-js-toggle-roll-tooltip-visibility').click(this._onToggleRollTooltipVisibility.bind(this));
   }
 
   async activate(options = {}) {
@@ -28,10 +22,10 @@ export default class Item5e extends Item {
     let healing;
     let placeTemplate;
 
-    const dialogTitle = game.i18n.format('A5E.ItemActivationPrompt', {
-      name: this.actor.name,
-      itemName: this.name
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.ItemActivationPrompt',
+      { name: this.actor.name, itemName: this.name }
+    );
 
     // const dialog = new ReactiveDialog(ItemActivationDialog, {
     //   title: dialogTitle, props: { actor: this.actor, item: this, rollMode: options.rollMode }
@@ -50,30 +44,27 @@ export default class Item5e extends Item {
       healing: null,
       abilityCheck: {
         ...itemData.check,
-        label: game.i18n.format('A5E.RollPromptAbilityCheck', {
-          ability: game.i18n.localize(
-            CONFIG.A5E.abilities[itemData.check.ability]
-          )
-        })
+        label: game.i18n.format(
+          'A5E.RollPromptAbilityCheck',
+          { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.check.ability]) }
+        )
       },
       savingThrow: {
         dc: getDeterministicBonus(itemData.save.dc, rollData),
-        label: game.i18n.format('A5E.RollPromptSavingThrow', {
-          ability: game.i18n.localize(
-            CONFIG.A5E.abilities[itemData.save.targetAbility]
-          )
-        }),
+        label: game.i18n.format(
+          'A5E.RollPromptSavingThrow',
+          { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.save.targetAbility]) }
+        ),
         targetAbility: itemData.save.targetAbility
       }
     };
 
     if (
-      ['attack', 'damage', 'healing'].some((option) =>
-        itemData.actionOptions.includes(option)
-      ) ||
-      this.hasValidTemplateDefinition
+      ['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))
+      || this.hasValidTemplateDefinition
     ) {
       // await dialog.render(true);
+
       // try {
       //   const configuration = await dialog.promise;
       //   attack = configuration.attack;
@@ -105,18 +96,17 @@ export default class Item5e extends Item {
 
       // TODO: Refactor this to stop eslint complaining
       for (const { canCrit, damageType, formula } of damage) {
-        const roll = new CONFIG.Dice.DamageRoll(formula || '0', rollData, {
-          canCrit,
-          isCrit: data.isCrit
-        });
+        const roll = new CONFIG.Dice.DamageRoll(
+          formula || '0',
+          rollData,
+          { canCrit, isCrit: data.isCrit }
+        );
 
         await roll.evaluate({ async: true });
         const tooltip = await roll.getTooltip();
 
         data.damage.push({
-          damageType,
-          roll,
-          tooltip
+          damageType, roll, tooltip
         });
       }
     }
@@ -126,17 +116,17 @@ export default class Item5e extends Item {
 
       // TODO: Refactor this to stop eslint complaining
       for (const { healingType, formula } of healing) {
-        const roll = new CONFIG.Dice.DamageRoll(formula || '0', rollData, {
-          canCrit: false
-        });
+        const roll = new CONFIG.Dice.DamageRoll(
+          formula || '0',
+          rollData,
+          { canCrit: false }
+        );
 
         await roll.evaluate({ async: true });
         const tooltip = await roll.getTooltip();
 
         data.healing.push({
-          healingType,
-          roll,
-          tooltip
+          healingType, roll, tooltip
         });
       }
     }
@@ -163,8 +153,7 @@ export default class Item5e extends Item {
     if (!area.shape) return false;
 
     if (area.shape === 'line' || area.shape === 'cone') return !!area.length;
-    if (area.shape === 'sphere' || area.shape === 'cylinder')
-      return !!area.radius;
+    if (area.shape === 'sphere' || area.shape === 'cylinder') return !!area.radius;
     if (area.shape === 'cube') return !!area.width;
 
     return false;
@@ -181,10 +170,7 @@ export default class Item5e extends Item {
 
     if (itemData.ability === 'default') {
       if (this.type === 'object' && itemData.objectType === 'weapon') {
-        if (
-          itemData.actionOptions.includes('attack') &&
-          itemData.attack.type === 'rangedWeaponAttack'
-        ) {
+        if (itemData.actionOptions.includes('attack') && itemData.attack.type === 'rangedWeaponAttack') {
           return 'dex';
         }
 
@@ -231,9 +217,7 @@ export default class Item5e extends Item {
   static _onToggleRollTooltipVisibility(event) {
     event.preventDefault();
 
-    const tooltip = Array.from(
-      $(event.currentTarget).siblings('.a5e-dice-tooltip')
-    )[0];
+    const tooltip = Array.from($(event.currentTarget).siblings('.a5e-dice-tooltip'))[0];
     $(tooltip).slideToggle();
   }
 }

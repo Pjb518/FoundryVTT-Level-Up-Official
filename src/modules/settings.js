@@ -8,6 +8,7 @@ class ConditionAutomationSettings extends FormApplication {
       height: 'auto',
       closeOnSubmit: true,
       resizable: true
+
     });
   }
 
@@ -49,9 +50,7 @@ class ConditionAutomationSettings extends FormApplication {
   }
 
   async _updateObject(event, formData) {
-    const updatedConditions = this.conditions.filter(
-      (c, i) => formData.conditions[i] === true
-    );
+    const updatedConditions = this.conditions.filter((c, i) => formData.conditions[i] === true);
     await game.settings.set('a5e', 'automatedConditions', updatedConditions);
 
     this.render();
@@ -93,9 +92,7 @@ export default function registerSystemSettings() {
       euclidean: 'A5E.Settings.DiagEuclidean',
       5105: 'A5E.Settings.Diag5105'
     },
-    onChange: (rule) => {
-      canvas.grid.diagonalRule = rule;
-    }
+    onChange: (rule) => { canvas.grid.diagonalRule = rule; }
   });
 
   // Default GM Setting for placing templates

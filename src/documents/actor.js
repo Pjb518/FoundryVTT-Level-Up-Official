@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import A5E from '../modules/config';
 import Item5e from './item';
 
@@ -34,8 +33,7 @@ export default class Actor5e extends Actor {
       const baseMod = getBaseAbilityMod(ability.value);
 
       ability.check.mod = baseMod;
-      ability.save.mod =
-        baseMod + (ability.save.proficient ? actorData.attributes.prof : 0);
+      ability.save.mod = baseMod + (ability.save.proficient ? actorData.attributes.prof : 0);
     });
 
     /**
@@ -52,31 +50,23 @@ export default class Actor5e extends Actor {
         );
 
         // Fall back to the base ability mod if no bonus could be calculated.
-        ability[key].deterministicBonus =
-          deterministicBonus ?? ability[key].mod;
+        ability[key].deterministicBonus = deterministicBonus ?? ability[key].mod;
       });
     });
 
     const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
     actorData.attributes.hp.max = baseHP + bonusHP;
 
-    actorData.attributes.maneuverDC =
-      8 +
-      actorData.attributes.prof +
-      (parseInt(actorData.bonuses.maneuverDC, 10) || 0) +
-      Math.max(
-        actorData.abilities.str.check.mod,
-        actorData.abilities.dex.check.mod
-      );
+    actorData.attributes.maneuverDC = 8
+      + actorData.attributes.prof
+      + (parseInt(actorData.bonuses.maneuverDC, 10) || 0)
+      + Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod);
 
     if (this.type === 'character') {
-      actorData.attributes.attunement.current = this.items.reduce(
-        (acc, curr) => {
-          const { requiresAttunement, attuned } = curr.system;
-          return requiresAttunement && attuned ? acc + 1 : acc;
-        },
-        0
-      );
+      actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
+        const { requiresAttunement, attuned } = curr.system;
+        return (requiresAttunement && attuned) ? acc + 1 : acc;
+      }, 0);
     }
 
     this.prepareSkills();
@@ -84,18 +74,12 @@ export default class Actor5e extends Actor {
 
   prepareCharacterData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(
-      2,
-      Math.floor((this.system.details.level + 7) / 4)
-    );
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
   }
 
   prepareNPCData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(
-      2,
-      Math.floor((this.system.details.cr + 7) / 4)
-    );
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
   }
 
   /** @inheritdoc */
@@ -125,8 +109,7 @@ export default class Actor5e extends Actor {
 
     // Reset death save counters
     const isUnconscious = this.system.attributes.hp.value === 0;
-    const willRegainConsciousness =
-      foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
+    const willRegainConsciousness = foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
 
     if (isUnconscious && willRegainConsciousness) {
       foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
@@ -168,17 +151,10 @@ export default class Actor5e extends Actor {
         value: Math.clamped(value + temp - damage, 0, value)
       };
     } else {
-      updates['system.attributes.hp.value'] = Math.clamped(
-        value - damage,
-        0,
-        value
-      );
+      updates['system.attributes.hp.value'] = Math.clamped(value - damage, 0, value);
     }
 
-    Hooks.callAll('a5e.actorDamaged', this, {
-      prevHp: { value, temp },
-      damage
-    });
+    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damage });
     return this.update(updates);
   }
 
@@ -204,25 +180,16 @@ export default class Actor5e extends Actor {
 
     if (options.temp) {
       if (healing <= temp) {
-        ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', {
-          localize: true
-        });
+        ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
         return this;
       }
 
       updates['system.attributes.hp.temp'] = healing;
     } else {
-      updates['system.attributes.hp.value'] = Math.clamped(
-        value + healing,
-        value,
-        max
-      );
+      updates['system.attributes.hp.value'] = Math.clamped(value + healing, value, max);
     }
 
-    Hooks.callAll('a5e.actorHealed', this, {
-      prevHp: { value, temp },
-      healingData: { healing, options }
-    });
+    Hooks.callAll('a5e.actorHealed', this, { prevHp: { value, temp }, healingData: { healing, options } });
     return this.update(updates);
   }
 
@@ -234,13 +201,10 @@ export default class Actor5e extends Actor {
     });
 
     Object.values(actorData.skills).forEach((skill) => {
-      const { check: globalCheckBonus, skill: globalSkillBonus } =
-        actorData.bonuses.abilities;
+      const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
 
       const deterministicBonus = getDeterministicBonus(
-        `${skill.mod} + ${skill.bonuses.check} + ${globalSkillBonus || 0} + ${
-          globalCheckBonus || 0
-        }`,
+        `${skill.mod} + ${skill.bonuses.check} + ${globalSkillBonus || 0} + ${globalCheckBonus || 0}`,
         this.getRollData()
       );
 
@@ -303,10 +267,7 @@ export default class Actor5e extends Actor {
   configureAbilityScore(ability) {
     const dialogTitle = game.i18n.format(
       'A5E.AbilityScoreConfigurationPrompt',
-      {
-        name: this.name,
-        ability: game.i18n.localize(CONFIG.A5E.abilities[ability])
-      }
+      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
     );
 
     // const dialog = new ReactiveDialog(AbilityScoreConfigDialog, {
@@ -317,12 +278,7 @@ export default class Actor5e extends Actor {
   }
 
   configureArmorProficiencies() {
-    const dialogTitle = game.i18n.format(
-      'A5E.ArmorProficienciesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(ArmorProficienciesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -332,9 +288,7 @@ export default class Actor5e extends Actor {
   }
 
   configureBackground() {
-    const dialogTitle = game.i18n.format('A5E.BackgroundConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.BackgroundConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(BackgroundConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -344,12 +298,7 @@ export default class Actor5e extends Actor {
   }
 
   configureConditionImmunities() {
-    const dialogTitle = game.i18n.format(
-      'A5E.ConditionImmunitiesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(ConditionImmunitiesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -359,12 +308,7 @@ export default class Actor5e extends Actor {
   }
 
   configureCreatureTypes() {
-    const dialogTitle = game.i18n.format(
-      'A5E.CreatureTypesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(CreatureTypesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -374,9 +318,7 @@ export default class Actor5e extends Actor {
   }
 
   configureCulture() {
-    const dialogTitle = game.i18n.format('A5E.CultureConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.CultureConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(CultureConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -386,12 +328,7 @@ export default class Actor5e extends Actor {
   }
 
   configureDamageImmunities() {
-    const dialogTitle = game.i18n.format(
-      'A5E.DamageImmunitiesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
     //   title: dialogTitle, props: { actor: this, updatePath: 'damageImmunities' }
@@ -401,12 +338,7 @@ export default class Actor5e extends Actor {
   }
 
   configureDamageResistances() {
-    const dialogTitle = game.i18n.format(
-      'A5E.DamageResistancesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
     //   title: dialogTitle, props: { actor: this, updatePath: 'damageResistances' }
@@ -416,12 +348,7 @@ export default class Actor5e extends Actor {
   }
 
   configureDamageVulnerabilities() {
-    const dialogTitle = game.i18n.format(
-      'A5E.DamageVulnerabilitiesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
     //   title: dialogTitle, props: { actor: this, updatePath: 'damageVulnerabilities' }
@@ -431,9 +358,7 @@ export default class Actor5e extends Actor {
   }
 
   configureHealth() {
-    const dialogTitle = game.i18n.format('A5E.HitPointsConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.HitPointsConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(HitPointConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -443,9 +368,7 @@ export default class Actor5e extends Actor {
   }
 
   configureHeritage() {
-    const dialogTitle = game.i18n.format('A5E.HeritageConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.HeritageConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(HeritageConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -455,9 +378,7 @@ export default class Actor5e extends Actor {
   }
 
   configureInitiative() {
-    const dialogTitle = game.i18n.format('A5E.InitiativeConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.InitiativeConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(InitiativeConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -467,9 +388,7 @@ export default class Actor5e extends Actor {
   }
 
   configureLanguages() {
-    const dialogTitle = game.i18n.format('A5E.LanguagesConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.LanguagesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(LanguagesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -479,9 +398,7 @@ export default class Actor5e extends Actor {
   }
 
   configureManeuvers() {
-    const dialogTitle = game.i18n.format('A5E.ManeuverConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(ManeuverTabConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -491,9 +408,7 @@ export default class Actor5e extends Actor {
   }
 
   configureMovement() {
-    const dialogTitle = game.i18n.format('A5E.MovementConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.MovementConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(MovementConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -503,9 +418,7 @@ export default class Actor5e extends Actor {
   }
 
   configureSenses() {
-    const dialogTitle = game.i18n.format('A5E.SensesConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.SensesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(SensesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -515,12 +428,7 @@ export default class Actor5e extends Actor {
   }
 
   configureSizeCategory() {
-    const dialogTitle = game.i18n.format(
-      'A5E.SizeCategoryConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(SizeCategoryConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -530,10 +438,10 @@ export default class Actor5e extends Actor {
   }
 
   configureSkill(skill) {
-    const dialogTitle = game.i18n.format('A5E.SkillConfigurationPrompt', {
-      name: this.name,
-      skill: game.i18n.localize(CONFIG.A5E.skills[skill])
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.SkillConfigurationPrompt',
+      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
+    );
 
     // const dialog = new ReactiveDialog(SkillConfigDialog, {
     //   title: dialogTitle, props: { actor: this, skill }
@@ -543,9 +451,10 @@ export default class Actor5e extends Actor {
   }
 
   configureSpellTab() {
-    const dialogTitle = game.i18n.format('A5E.SpellTabConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.SpellTabConfigurationPrompt',
+      { name: this.name }
+    );
 
     // const dialog = new ReactiveDialog(SpellTabConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -555,12 +464,7 @@ export default class Actor5e extends Actor {
   }
 
   configureToolProficiencies() {
-    const dialogTitle = game.i18n.format(
-      'A5E.ToolProficienciesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(ToolProficienciesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -570,12 +474,7 @@ export default class Actor5e extends Actor {
   }
 
   configureWeaponProficiencies() {
-    const dialogTitle = game.i18n.format(
-      'A5E.WeaponProficienciesConfigurationPrompt',
-      {
-        name: this.name
-      }
-    );
+    const dialogTitle = game.i18n.format('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
 
     // const dialog = new ReactiveDialog(WeaponProficienciesConfigDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -627,30 +526,14 @@ export default class Actor5e extends Actor {
     if (data.damage?.length) {
       data.damage.forEach((damageSource) => {
         // eslint-disable-next-line max-len
-        game.dice3d?.showForRoll(
-          damageSource.roll,
-          game.user,
-          false,
-          null,
-          false,
-          null,
-          chatData.speaker
-        );
+        game.dice3d?.showForRoll(damageSource.roll, game.user, false, null, false, null, chatData.speaker);
       });
     }
 
     if (data.healing?.length) {
       data.healing.forEach((healingSource) => {
         // eslint-disable-next-line max-len
-        game.dice3d?.showForRoll(
-          healingSource.roll,
-          game.user,
-          false,
-          null,
-          false,
-          null,
-          chatData.speaker
-        );
+        game.dice3d?.showForRoll(healingSource.roll, game.user, false, null, false, null, chatData.speaker);
       });
     }
   }
@@ -667,14 +550,10 @@ export default class Actor5e extends Actor {
       const delta = hpPool - value;
 
       if (isDelta) {
-        return value <= 0
-          ? this.applyDamage(-1 * value)
-          : this.applyHealing(value);
+        return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
       }
 
-      return delta <= 0
-        ? this.applyHealing(-1 * delta)
-        : this.applyHealing(delta);
+      return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyHealing(delta);
     }
 
     return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
@@ -701,69 +580,33 @@ export default class Actor5e extends Actor {
 
   async resetFeatureFilters() {
     await Promise.all([
-      this.setFlag('a5e', 'featureActivationCostFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'featureTypeFilters', {
-        inclusive: [],
-        exclusive: []
-      })
+      this.setFlag('a5e', 'featureActivationCostFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'featureTypeFilters', { inclusive: [], exclusive: [] })
     ]);
   }
 
   async resetManeuverFilters() {
     await Promise.all([
-      this.setFlag('a5e', 'maneuverActivationCostFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'maneuverDegreeFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'maneuverTraditionFilters', {
-        inclusive: [],
-        exclusive: []
-      })
+      this.setFlag('a5e', 'maneuverActivationCostFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'maneuverDegreeFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'maneuverTraditionFilters', { inclusive: [], exclusive: [] })
     ]);
   }
 
   async resetObjectFilters() {
     await Promise.all([
-      this.setFlag('a5e', 'itemActivationCostFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'itemRarityFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'miscellaneousItemFilters', {
-        inclusive: [],
-        exclusive: []
-      })
+      this.setFlag('a5e', 'itemActivationCostFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'itemRarityFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'miscellaneousItemFilters', { inclusive: [], exclusive: [] })
     ]);
   }
 
   async resetSpellFilters() {
     await Promise.all([
-      this.setFlag('a5e', 'spellActivationCostFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'spellComponentFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'spellSchoolFilters', {
-        inclusive: [],
-        exclusive: []
-      }),
-      this.setFlag('a5e', 'miscellaneousSpellFilters', {
-        inclusive: [],
-        exclusive: []
-      })
+      this.setFlag('a5e', 'spellActivationCostFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'spellComponentFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'spellSchoolFilters', { inclusive: [], exclusive: [] }),
+      this.setFlag('a5e', 'miscellaneousSpellFilters', { inclusive: [], exclusive: [] })
     ]);
   }
 
@@ -781,25 +624,16 @@ export default class Actor5e extends Actor {
     const { hitDice } = this.system.attributes;
     const updates = {};
 
-    const expendedHitDice = Object.entries(hitDice).reduce(
-      (acc, [die, { current, total }]) => {
-        acc[die] = Math.max(total - current, 0);
-        return acc;
-      },
-      {}
-    );
+    const expendedHitDice = Object.entries(hitDice).reduce((acc, [die, { current, total }]) => {
+      acc[die] = Math.max(total - current, 0);
+      return acc;
+    }, {});
 
     // eslint-disable-next-line max-len
-    const expendedHitDiceQuantity = Object.values(expendedHitDice).reduce(
-      (count, curr) => count + curr,
-      0
-    );
+    const expendedHitDiceQuantity = Object.values(expendedHitDice).reduce((count, curr) => count + curr, 0);
 
     // eslint-disable-next-line max-len
-    const totalHitDiceQuantity = Object.values(hitDice).reduce(
-      (count, { total: curr }) => count + curr,
-      0
-    );
+    const totalHitDiceQuantity = Object.values(hitDice).reduce((count, { total: curr }) => count + curr, 0);
     const quantityToRecover = Math.floor(totalHitDiceQuantity / 2) || 1;
 
     if (quantityToRecover >= expendedHitDiceQuantity) {
@@ -869,18 +703,12 @@ export default class Actor5e extends Actor {
     const { spellResources } = this.system;
 
     const updates = {
-      'system.spellResources.points.current': Math.max(
-        spellResources.points.max,
-        0
-      )
+      'system.spellResources.points.current': Math.max(spellResources.points.max, 0)
     };
 
     if (restType === 'long') {
       Object.entries(spellResources.slots).forEach(([level, { max }]) => {
-        updates[`system.spellResources.slots.${level}.current`] = Math.max(
-          max,
-          0
-        );
+        updates[`system.spellResources.slots.${level}.current`] = Math.max(max, 0);
       });
     }
 
@@ -896,10 +724,10 @@ export default class Actor5e extends Actor {
    * @param {string} ability A key that can be used to reference a given ability score.
    */
   async rollAbilityCheck(ability, options = {}) {
-    const dialogTitle = game.i18n.format('A5E.AbilityCheckPromptTitle', {
-      name: this.name,
-      ability: game.i18n.localize(CONFIG.A5E.abilities[ability])
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.AbilityCheckPromptTitle',
+      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
+    );
 
     // const checkData = await getDialogData(AbilityDialog, {
     //   title: dialogTitle,
@@ -924,9 +752,10 @@ export default class Actor5e extends Actor {
       content: await renderTemplate(
         'systems/a5e/templates/chat/ability-check.hbs',
         {
-          title: game.i18n.format('A5E.AbilityCheckSpecific', {
-            ability: game.i18n.localize(A5E.abilities[ability])
-          }),
+          title: game.i18n.format(
+            'A5E.AbilityCheckSpecific',
+            { ability: game.i18n.localize(A5E.abilities[ability]) }
+          ),
           img: this.img,
           formula: roll.formula,
           tooltip: await roll.getTooltip(),
@@ -941,9 +770,10 @@ export default class Actor5e extends Actor {
   }
 
   async rollDeathSavingThrow() {
-    const dialogTitle = game.i18n.format('A5E.DeathSavingThrowPromptTitle', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.DeathSavingThrowPromptTitle',
+      { name: this.name }
+    );
 
     // const saveData = await getDialogData(DeathSavingThrowDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -953,9 +783,7 @@ export default class Actor5e extends Actor {
 
     if (saveData === null) return;
 
-    const roll = await new CONFIG.Dice.D20Roll(saveData.formula).roll({
-      async: true
-    });
+    const roll = await new CONFIG.Dice.D20Roll(saveData.formula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
@@ -987,9 +815,7 @@ export default class Actor5e extends Actor {
 
     if (attributes.hitDice[dieSize].current - quantity < 0) return;
 
-    const title = game.i18n.format('A5E.HitDiceChatHeader', {
-      dieSize: dieSize.toUpperCase()
-    });
+    const title = game.i18n.format('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
 
     const conMod = parseInt(actorData.abilities.con.check.mod, 10);
     const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
@@ -1015,15 +841,14 @@ export default class Actor5e extends Actor {
 
     this.update({
       'data.attributes': {
-        [`hitDice.${dieSize}.current`]:
-          attributes.hitDice[dieSize].current - quantity,
+        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
         'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
       }
     });
 
     Hooks.callAll('a5e.rollHitDice', this, {
       dieSize,
-      dieCount: attributes.hitDice[dieSize].current - quantity,
+      dieCount: (attributes.hitDice[dieSize].current - quantity),
       formula,
       newHp: Math.min(attributes.hp.value + hpDelta, maxHp),
       roll
@@ -1031,10 +856,10 @@ export default class Actor5e extends Actor {
   }
 
   async rollSavingThrow(ability, options = {}) {
-    const dialogTitle = game.i18n.format('A5E.SavingThrowPromptTitle', {
-      name: this.name,
-      ability: game.i18n.localize(CONFIG.A5E.abilities[ability])
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.SavingThrowPromptTitle',
+      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
+    );
 
     // const checkData = await getDialogData(AbilityDialog, {
     //   title: dialogTitle,
@@ -1059,9 +884,10 @@ export default class Actor5e extends Actor {
       content: await renderTemplate(
         'systems/a5e/templates/chat/ability-check.hbs',
         {
-          title: game.i18n.format('A5E.SavingThrowSpecific', {
-            ability: game.i18n.localize(A5E.abilities[ability])
-          }),
+          title: game.i18n.format(
+            'A5E.SavingThrowSpecific',
+            { ability: game.i18n.localize(A5E.abilities[ability]) }
+          ),
           img: this.img,
           formula: roll.formula,
           tooltip: await roll.getTooltip(),
@@ -1086,10 +912,10 @@ export default class Actor5e extends Actor {
    * @returns {Promise<undefined>}
    */
   async rollSkillCheck(skill, options = {}) {
-    const dialogTitle = game.i18n.format('A5E.SkillPromptTitle', {
-      name: this.name,
-      skill: game.i18n.localize(CONFIG.A5E.skills[skill])
-    });
+    const dialogTitle = game.i18n.format(
+      'A5E.SkillPromptTitle',
+      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
+    );
 
     // const skillData = await getDialogData(SkillDialog, {
     //   title: dialogTitle, props: { actor: this, skill, rollMode: options.rollMode }
@@ -1111,9 +937,7 @@ export default class Actor5e extends Actor {
       content: await renderTemplate(
         'systems/a5e/templates/chat/ability-check.hbs',
         {
-          title: game.i18n.format('A5E.SkillCheck', {
-            skill: game.i18n.localize(A5E.skills[skill])
-          }),
+          title: game.i18n.format('A5E.SkillCheck', { skill: game.i18n.localize(A5E.skills[skill]) }),
           img: this.img,
           ability: game.i18n.localize(CONFIG.A5E.abilityAbbreviations[ability]),
           formula: roll.formula,
@@ -1124,10 +948,7 @@ export default class Actor5e extends Actor {
     };
 
     const hookData = {
-      ability,
-      formula,
-      rollMode: options.rollMode,
-      skill
+      ability, formula, rollMode: options.rollMode, skill
     };
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
     ChatMessage.create(chatData);
@@ -1138,15 +959,11 @@ export default class Actor5e extends Actor {
   }
 
   toggleInspiration() {
-    this.update({
-      'system.attributes.inspiration': !this.system.attributes.inspiration
-    });
+    this.update({ 'system.attributes.inspiration': !this.system.attributes.inspiration });
   }
 
   async triggerRest() {
-    const dialogTitle = game.i18n.format('A5E.RestConfigurationPrompt', {
-      name: this.name
-    });
+    const dialogTitle = game.i18n.format('A5E.RestConfigurationPrompt', { name: this.name });
 
     // const restData = await getDialogData(RestDialog, {
     //   title: dialogTitle, props: { actor: this }
@@ -1189,14 +1006,12 @@ export default class Actor5e extends Actor {
 
   async updateFilters(filterKey, filterValue) {
     const filter = this.getFlag('a5e', filterKey) ?? {};
-    const [inclusiveFilters, exclusiveFilters] = toggleFilter(
-      filter,
-      filterValue
-    );
+    const [inclusiveFilters, exclusiveFilters] = toggleFilter(filter, filterValue);
 
-    await this.setFlag('a5e', filterKey, {
-      inclusive: inclusiveFilters,
-      exclusive: exclusiveFilters
-    });
+    await this.setFlag(
+      'a5e',
+      filterKey,
+      { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
+    );
   }
 }

@@ -1,47 +1,48 @@
 <template>
   <form
-    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
     @submit.prevent="onSubmit"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
   >
     <tag-group
       heading="A5E.WeaponsSimple"
-      :initial-selections="simpleWeaponProficiencies"
+      :initialSelections="simpleWeaponProficiencies"
       :tags="simpleWeapons"
-      @update-selection-list="updateSimpleWeaponProficiencies"
+      @updateSelectionList="updateSimpleWeaponProficiencies"
     />
 
     <tag-group
       heading="A5E.WeaponsMartial"
-      :initial-selections="martialWeaponProficiencies"
+      :initialSelections="martialWeaponProficiencies"
       :tags="martialWeapons"
-      @update-selection-list="updateMartialWeaponProficiencies"
+      @updateSelectionList="updateMartialWeaponProficiencies"
     />
 
     <tag-group
       heading="A5E.WeaponsRare"
-      :initial-selections="rareWeaponProficiencies"
+      :initialSelections="rareWeaponProficiencies"
       :tags="rareWeapons"
-      @update-selection-list="updateRareWeaponProficiencies"
+      @updateSelectionList="updateRareWeaponProficiencies"
     />
 
     <input-field
       heading="A5E.WeaponsOther"
-      :has-initial-focus="true"
+      :hasInitialFocus="true"
       hint="A5E.HintSeparateBySemiColon"
-      :initial-value="otherWeaponProficiencies"
+      :initialValue="otherWeaponProficiencies"
       @update-field-value="updateOtherWeaponProficiencies"
     />
 
     <button class="a5e-button" type="submit">
-      <i class="fas fa-save" /> {{ submitText }}
+      <i class="fas fa-save"></i> {{ submitText }}
     </button>
   </form>
 </template>
 
 <script>
-import { ref } from "vue";
 import InputField from "./partials/InputField.vue";
 import TagGroup from "./partials/TagGroup.vue";
+
+import { ref } from "vue";
 
 export default {
   components: { InputField, TagGroup },
@@ -71,7 +72,7 @@ export default {
         simple: [],
         martial: [],
         rare: [],
-        other: []
+        other: [],
       }
     );
 
@@ -97,19 +98,17 @@ export default {
     }
 
     function onSubmit() {
-      const updatedWeaponProficiencies = [
+      const weaponProficiencies = [
         ...martialWeaponProficiencies.value,
         ...simpleWeaponProficiencies.value,
         ...rareWeaponProficiencies.value,
         ...otherWeaponProficiencies.value
           .split(";")
           .map((weapon) => weapon.trim())
-          .filter(Boolean)
+          .filter(Boolean),
       ];
 
-      actor.update({
-        "data.proficiencies.weapons": updatedWeaponProficiencies
-      });
+      actor.update({ "data.proficiencies.weapons": weaponProficiencies });
       appWindow.submit();
     }
 
@@ -126,8 +125,8 @@ export default {
       updateRareWeaponProficiencies,
       updateSimpleWeaponProficiencies,
       updateOtherWeaponProficiencies,
-      submitText: game.i18n.localize("A5E.SaveSubmit")
+      submitText: game.i18n.localize("A5E.SaveSubmit"),
     };
-  }
+  },
 };
 </script>

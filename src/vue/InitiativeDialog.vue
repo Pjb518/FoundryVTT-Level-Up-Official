@@ -1,7 +1,7 @@
 <template>
   <form
-    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
     @submit.prevent="onSubmit"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
   >
     <error-list v-if="errors.length" :errors="errors" />
 
@@ -11,41 +11,41 @@
       </h3>
 
       <radio-group
-        :base-id="appId"
-        :initial-selection="initialRollMode"
+        :baseId="appId"
+        :initialSelection="initialRollMode"
         :values="rollModeOptions"
         :wide="true"
         :wrap="false"
-        @update-selection="updateRollMode"
+        @updateSelection="updateRollMode"
       />
     </section>
 
     <ability-score-picker
-      :app-id="appId"
-      :initial-selection="overrides.ability ?? 'dex'"
+      :appId="appId"
+      :initialSelection="overrides.ability ?? 'dex'"
       @update-selected-ability="updateSelectedAbility"
     />
 
     <skill-picker
-      :app-id="appId"
-      :initial-selection="overrides.skill ?? 'none'"
+      :appId="appId"
+      :initialSelection="overrides.skill ?? 'none'"
       @update-selected-skill="updateSelectedSkill"
     />
 
     <expertise-die-picker
-      :app-id="appId"
-      :initial-selection="baseExpertiseDie"
-      @update-selection="updateExpertiseDie"
+      :appId="appId"
+      :initialSelection="baseExpertiseDie"
+      @updateSelection="updateExpertiseDie"
     />
 
     <formula-field
-      :has-initial-focus="true"
-      :reduce-margin="true"
+      :hasInitialFocus="true"
+      :reduceMargin="true"
       heading="A5E.SituationalMods"
       @update-field-value="updateSituationalMods"
     />
 
-    <roll-formula-preview :roll-formula="rollFormula" />
+    <roll-formula-preview :rollFormula="rollFormula" />
 
     <button class="a5e-button" type="submit" :disabled="!rollFormulaIsValid">
       <i class="fas fa-dice-d20"></i> {{ submitText }}
@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
 import AbilityScorePicker from "./partials/AbilityScorePicker.vue";
 import ErrorList from "./partials/ErrorList.vue";
 import ExpertiseDiePicker from "./partials/ExpertiseDiePicker.vue";
@@ -68,6 +67,7 @@ import constructRollFormula from "../modules/dice/constructRollFormula";
 import getExpertiseDieSize from "../modules/utils/getExpertiseDieSize";
 import validateTerms from "../modules/utils/validateTerms";
 
+import { ref, watch } from "vue";
 
 export default {
   components: {
@@ -77,7 +77,7 @@ export default {
     FormulaField,
     RadioGroup,
     RollFormulaPreview,
-    SkillPicker
+    SkillPicker,
   },
   setup(_, context) {
     const { actor, appWindow, ...overrides } = context.attrs;
@@ -103,7 +103,7 @@ export default {
       ([key, value]) => ({
         id: key,
         value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        name: game.i18n.localize(value)
+        name: game.i18n.localize(value),
       })
     );
 
@@ -138,7 +138,7 @@ export default {
 
     function onSubmit() {
       appWindow.submit({
-        formula: rollFormula.value
+        formula: rollFormula.value,
       });
     }
 
@@ -163,25 +163,25 @@ export default {
           {
             value: abilityBonus.value,
             message: game.i18n.format("A5E.ErrorInvalidAbilityCheckBonus", {
-              ability: game.i18n.localize(A5E.abilities[selectedAbility])
-            })
+              ability: game.i18n.localize(A5E.abilities[selectedAbility]),
+            }),
           },
           {
             value: globalCheckBonus,
             message: game.i18n.localize(
               "A5E.ErrorInvalidGlobalAbilityCheckBonus"
-            )
+            ),
           },
           {
             value: globalSkillBonus,
-            message: game.i18n.localize("A5E.ErrorInvalidGlobalSkillBonus")
+            message: game.i18n.localize("A5E.ErrorInvalidGlobalSkillBonus"),
           },
           {
             value: skillBonus.value,
             message: game.i18n.format("A5E.ErrorInvalidSkillBonus", {
-              skill: game.i18n.localize(A5E.skills[selectedSkill])
-            })
-          }
+              skill: game.i18n.localize(A5E.skills[selectedSkill]),
+            }),
+          },
         ];
 
         errors.value = validateTerms(vulnerableTerms);
@@ -196,7 +196,7 @@ export default {
         rollMode,
         selectedAbility,
         selectedSkill,
-        situationalMods
+        situationalMods,
       ]) => {
         let d20 = "1d20";
 
@@ -215,7 +215,7 @@ export default {
               abilityBonus.value,
               skillBonus.value,
               globalCheckBonus,
-              situationalMods
+              situationalMods,
             ],
             rollData
           );
@@ -245,8 +245,8 @@ export default {
       updateRollMode,
       updateSelectedAbility,
       updateSelectedSkill,
-      updateSituationalMods
+      updateSituationalMods,
     };
-  }
+  },
 };
 </script>

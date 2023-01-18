@@ -1,58 +1,59 @@
 <template>
   <form
-    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
     @submit.prevent="onSubmit"
+    class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none"
   >
     <error-list v-if="errors.length" :errors="errors" />
 
     <section class="a5e-form__section u-flex u-flex-col u-gap-md">
       <h3 class="u-text-bold u-text-sm">
-        {{ localize('A5E.RollModeHeading') }}
+        {{ localize("A5E.RollModeHeading") }}
       </h3>
 
       <radio-group
-        :base-id="appId"
-        :initial-selection="initialRollMode"
+        :baseId="appId"
+        :initialSelection="initialRollMode"
         :values="rollModeOptions"
         :wide="true"
         :wrap="false"
-        @update-selection="updateRollMode"
+        @updateSelection="updateRollMode"
       />
     </section>
 
     <expertise-die-picker
-      :app-id="appId"
-      :initial-selection="baseExpertiseLevel"
-      @update-selection="updateExpertiseDie"
+      :appId="appId"
+      :initialSelection="baseExpertiseLevel"
+      @updateSelection="updateExpertiseDie"
     />
 
     <formula-field
-      :has-initial-focus="true"
-      :reduce-margin="true"
+      :hasInitialFocus="true"
+      :reduceMargin="true"
       heading="A5E.SituationalMods"
       @update-field-value="updateSituationalMods"
     />
 
-    <roll-formula-preview :roll-formula="rollFormula" />
+    <roll-formula-preview :rollFormula="rollFormula" />
 
     <button class="a5e-button" type="submit" :disabled="!rollFormulaIsValid">
-      <i class="fas fa-dice-d20" /> {{ submitText }}
+      <i class="fas fa-dice-d20"></i> {{ submitText }}
     </button>
   </form>
 </template>
 
 <script>
-import { ref, watch } from 'vue';
-import ErrorList from './partials/ErrorList.vue';
-import ExpertiseDiePicker from './partials/ExpertiseDiePicker.vue';
-import FormulaField from './partials/FormulaField.vue';
-import RadioGroup from './partials/RadioGroup.vue';
-import RollFormulaPreview from './partials/RollFormulaPreview.vue';
+import ErrorList from "./partials/ErrorList.vue";
+import ExpertiseDiePicker from "./partials/ExpertiseDiePicker.vue";
+import FormulaField from "./partials/FormulaField.vue";
+import RadioGroup from "./partials/RadioGroup.vue";
+import RollFormulaPreview from "./partials/RollFormulaPreview.vue";
 
-import A5E from '../modules/config';
-import constructRollFormula from '../modules/dice/constructRollFormula';
-import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
-import validateTerms from '../modules/utils/validateTerms';
+import A5E from "../modules/config";
+import constructRollFormula from "../modules/dice/constructRollFormula";
+import getExpertiseDieSize from "../modules/utils/getExpertiseDieSize";
+import validateTerms from "../modules/utils/validateTerms";
+
+import { ref, watch } from "vue";
 
 export default {
   components: {
@@ -60,7 +61,7 @@ export default {
     ExpertiseDiePicker,
     FormulaField,
     RadioGroup,
-    RollFormulaPreview
+    RollFormulaPreview,
   },
   setup(_, context) {
     const { actor, appWindow, ...overrides } = context.attrs;
@@ -73,23 +74,23 @@ export default {
       ([key, value]) => ({
         id: key,
         value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        name: game.i18n.localize(value)
+        name: game.i18n.localize(value),
       })
     );
 
     const vulnerableTerms = [
       {
         value: globalSaveBonus,
-        message: game.i18n.localize('A5E.ErrorInvalidGlobalSavingThrowBonus')
-      }
+        message: game.i18n.localize("A5E.ErrorInvalidGlobalSavingThrowBonus"),
+      },
     ];
 
     const errors = validateTerms(vulnerableTerms);
-    const expertiseDie = ref('');
-    const rollFormula = ref('');
+    const expertiseDie = ref("");
+    const rollFormula = ref("");
     const rollFormulaIsValid = ref(true);
     const rollMode = ref(overrides.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
-    const situationalMods = ref('');
+    const situationalMods = ref("");
 
     function updateExpertiseDie(diceQuantity) {
       expertiseDie.value = getExpertiseDieSize(diceQuantity);
@@ -105,17 +106,17 @@ export default {
 
     function onSubmit() {
       appWindow.submit({
-        formula: rollFormula.value
+        formula: rollFormula.value,
       });
     }
 
     watch(
       [expertiseDie, rollMode, situationalMods],
       ([expertiseDie, rollMode, situationalMods]) => {
-        let d20 = '1d20';
+        let d20 = "1d20";
 
-        if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) d20 = '2d20kh';
-        else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) d20 = '2d20kl';
+        if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) d20 = "2d20kh";
+        else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) d20 = "2d20kl";
 
         try {
           const terms = [d20, expertiseDie, globalSaveBonus, situationalMods];
@@ -124,7 +125,7 @@ export default {
           rollFormula.value = formula;
           rollFormulaIsValid.value = true;
         } catch {
-          rollFormula.value = game.i18n.localize('A5E.ErrorInvalidFormula');
+          rollFormula.value = game.i18n.localize("A5E.ErrorInvalidFormula");
           rollFormulaIsValid.value = false;
         }
       }
@@ -140,11 +141,11 @@ export default {
       rollFormula,
       rollFormulaIsValid,
       rollModeOptions,
-      submitText: game.i18n.localize('A5E.DialogSubmitRoll'),
+      submitText: game.i18n.localize("A5E.DialogSubmitRoll"),
       updateExpertiseDie,
       updateRollMode,
-      updateSituationalMods
+      updateSituationalMods,
     };
-  }
+  },
 };
 </script>
