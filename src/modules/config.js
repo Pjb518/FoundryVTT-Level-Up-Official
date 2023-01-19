@@ -353,6 +353,7 @@ A5E.maneuverTraditions = {
   beastUnity: 'A5E.ManeuverTraditionBeastUnity',
   bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
   cuttingOmen: 'A5E.ManeuverTraditionCuttingOmen',
+  eldritchBlackguard: 'A5E.ManeuverTraditionEldritchBlackguard',
   mirrorsGlint: 'A5E.ManeuverTraditionMirrorsGlint',
   mistAndShade: 'A5E.ManeuverTraditionMistAndShade',
   rapidCurrent: 'A5E.ManeuverTraditionRapidCurrent',
