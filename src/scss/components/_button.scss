@@ -5,6 +5,24 @@
     cursor: not-allowed;
   }
 
+  &--edit-config {
+    position: absolute;
+    width: fit-content;
+    background: none;
+    font-size: 0.833rem;
+    border: 0;
+    padding: 0;
+    transition: all 0.15s ease-in-out;
+    color: rgba(0, 0, 0, 0.2);
+
+    &:hover,
+    &:focus {
+      color: #555;
+      transform: scale(1.2);
+      box-shadow: none;
+    }
+  }
+
   &--add-item,
   &--chat,
   &--filter-reset {
