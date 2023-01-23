@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
+    // TODO: Fix this
     import rollInitiative from "../../handlers/rollInitiative";
     import InitiativeConfigDialog from "../../dialogs/initializers/InitiativeConfigDialog";
 
@@ -21,7 +22,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
-            on:click={configureInitiative}
+            on:click={() => rollInitiative($actor)}
         />
     {:else}
         <!-- svelte-ignore a11y-click-events-have-key-events -->

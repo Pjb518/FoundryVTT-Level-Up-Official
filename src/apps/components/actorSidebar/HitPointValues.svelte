@@ -1,6 +1,8 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import ActorHpConfigDialog from "../../dialogs/initializers/ActorHpConfigDialog";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let hp;
@@ -30,33 +32,51 @@
     ];
 
     const actor = getContext("actor");
+
+    function configureHitPoints() {
+        const dialog = new ActorHpConfigDialog(actor);
+        dialog.render(true);
+    }
+
+    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<div class="hp-container">
-    {#each hpFields as { key, label, value }}
-        <div class="hp-box">
-            <label class="hp-label" for="{$actor.id}-hp-{key}">{label}</label>
+{#if sheetIsLocked}
+    <div class="hp-container">
+        {#each hpFields as { key, label, value }}
+            <div class="hp-box">
+                <label class="hp-label" for="{$actor.id}-hp-{key}"
+                    >{label}</label
+                >
 
-            <input
-                id="{$actor.id}-hp-{key}"
-                class="hp-input"
-                type="number"
-                name="system.attributes.hp.{key}"
-                {value}
-                placeholder="0"
-                min={key !== "bonus" ? 0 : ""}
-                disabled={key === "max"}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value)
-                    )}
-                on:click={({ target }) => target.select()}
-            />
-        </div>
-    {/each}
-</div>
+                <input
+                    id="{$actor.id}-hp-{key}"
+                    class="hp-input"
+                    type="number"
+                    name="system.attributes.hp.{key}"
+                    {value}
+                    placeholder="0"
+                    min={key !== "bonus" ? 0 : ""}
+                    disabled={key === "max"}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value)
+                        )}
+                    on:click={({ target }) => target.select()}
+                />
+            </div>
+        {/each}
+    </div>
+{:else}
+    <div class="hp-config__container">
+        <button class="a5e-button" on:click={configureHitPoints}>
+            <i class="fas fa-gear" />
+            {localize("A5E.HitPointsConfigurationTooltip")}
+        </button>
+    </div>
+{/if}
 
 <style lang="scss">
     .hp-container {
@@ -96,6 +116,17 @@
         &:focus {
             outline: 0;
             box-shadow: none;
+        }
+    }
+
+    .hp-config__container {
+        padding-block: 0.275rem;
+        button {
+            padding: 0.125rem 0;
+            background: transparent;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 5px #ccc inset;
         }
     }
 </style>
