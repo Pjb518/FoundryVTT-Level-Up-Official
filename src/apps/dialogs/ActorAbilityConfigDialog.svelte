@@ -38,7 +38,7 @@
     });
 
     $: ability = $actor.system.abilities[label];
-    $: currentTab = tabs[1];
+    $: currentTab = tabs[0];
 </script>
 
 <main>

@@ -2,28 +2,36 @@
     import { getContext } from "svelte";
 
     import rollInitiative from "../../handlers/rollInitiative";
+    import InitiativeConfigDialog from "../../dialogs/initializers/InitiativeConfigDialog";
 
     const actor = getContext("actor");
+
+    function configureInitiative() {
+        const dialog = new InitiativeConfigDialog(actor);
+        dialog.render(true);
+    }
+
+    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li>
     <h4 class="initiative-label">Initiative</h4>
-    <i
-        class="initiative-roll-button fas fa-dice-d20"
-        on:click={() => rollInitiative($actor)}
-    />
+
+    {#if sheetIsLocked}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <i
+            class="initiative-roll-button fas fa-dice-d20"
+            on:click={configureInitiative}
+        />
+    {:else}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <i
+            class="initiative-roll-button fas fa-cog"
+            on:click={configureInitiative}
+        />
+    {/if}
 </li>
 
-<!-- <div
-        v-if="!sheetIsLocked"
-        class="a5e-ability-score__buttons u-justify-center"
-    >
-        <i
-            class="a5e-config-button fas fa-cog"
-            title="Configure Initiative Bonuses"
-            @click="onClickConfigButton"
-        />
-</div> -->
 <style lang="scss">
     .initiative-roll-button {
         display: flex;
