@@ -59,6 +59,7 @@
                     options={Object.entries(armorProperties)}
                     selected={$item.system.armorProperties}
                     name="system.armorProperties"
+                    document={item}
                 />
             </FormSection>
         </div>

@@ -76,6 +76,7 @@
                     options={Object.entries(spellSchoolSecondary)}
                     selected={$item.system.schools.secondary}
                     name="system.schools.secondary"
+                    document={item}
                 />
             </FormSection>
 
