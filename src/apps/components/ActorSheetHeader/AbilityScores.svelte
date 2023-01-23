@@ -9,7 +9,7 @@
 
 <ul class="ability-scores">
     {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-        <AbilityScoreWrapper>
+        <AbilityScoreWrapper {abilityLabel}>
             <AbilityScore {ability} {abilityLabel} />
         </AbilityScoreWrapper>
     {/each}
@@ -18,6 +18,7 @@
 <style lang="scss">
     .ability-scores {
         display: flex;
+        position: relative;
         gap: 0.5rem;
         margin: 0;
         padding: 0;

@@ -25,10 +25,6 @@
             updateDocumentDataFromField($actor, target.name, target.value)}
         placeholder="10"
     />
-
-    {#if !($actor.flags?.a5e?.sheetIsLocked ?? true)}
-        <i class="fas fa-gear a5e-config-button" />
-    {/if}
 </div>
 
 <div class="ability-score-buttons">
@@ -121,11 +117,5 @@
         &-value {
             color: #191813;
         }
-    }
-
-    .a5e-config-button {
-        position: absolute;
-        top: 0.25rem;
-        right: 0.25rem;
     }
 </style>
