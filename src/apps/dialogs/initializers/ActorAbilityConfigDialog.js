@@ -15,8 +15,7 @@ export default class ActorAbilityConfigDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      width: 420,
-      height: 300
+      width: 420
     });
   }
 }
