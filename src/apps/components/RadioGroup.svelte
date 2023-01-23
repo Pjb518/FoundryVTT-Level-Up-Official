@@ -13,7 +13,6 @@
 
     function update(value) {
         value = value === selected ? "" : value;
-        console.log(name);
         updateDocumentDataFromField($document, name, value);
     }
 </script>
