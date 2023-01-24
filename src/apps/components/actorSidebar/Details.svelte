@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import MovementConfigDialog from "../../dialogs/initializers/MovementConfigDialog";
+    import SensesConfigDialog from "../../dialogs/initializers/SensesConfigDialog";
 
     import prepareArmorProficiencies from "../../handlers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../handlers/prepareConditionImmunities";
@@ -33,7 +34,7 @@
         {
             label: localize("A5E.SensesSpecial"),
             values: prepareSenses($actor),
-            dialog: MovementConfigDialog,
+            dialog: SensesConfigDialog,
         },
         {
             label: localize("A5E.Languages"),
