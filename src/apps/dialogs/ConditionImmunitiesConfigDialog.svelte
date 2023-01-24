@@ -5,16 +5,16 @@
 
     export let { actor, appId } = getContext("external").application;
 
-    const defaultProficiencies = Object.entries(CONFIG.A5E.armorPlural);
-    $: actorProficiencies = $actor.system.proficiencies.armor;
+    const systemImmunities = Object.entries(CONFIG.A5E.conditions);
+    $: actorImmunities = $actor.system.traits.conditionImmunities;
 </script>
 
 <main>
     <CustomTagGroup
-        heading="A5E.ArmorProficiencies"
-        options={defaultProficiencies}
-        selected={actorProficiencies}
-        name="system.proficiencies.armor"
+        heading="A5E.ConditionImmunities"
+        options={systemImmunities}
+        selected={actorImmunities}
+        name="system.traits.conditionImmunities"
         document={actor}
     />
 </main>
