@@ -26,8 +26,6 @@
         if (temp.has(value)) temp.delete(value);
         else temp.add(value);
 
-        console.log(temp);
-
         updateDocumentDataFromField($document, name, [...temp]);
     }
 

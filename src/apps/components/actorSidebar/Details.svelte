@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import LanguagesConfigDialog from "../../dialogs/initializers/LanguagesConfigDialog";
     import MovementConfigDialog from "../../dialogs/initializers/MovementConfigDialog";
     import SensesConfigDialog from "../../dialogs/initializers/SensesConfigDialog";
 
@@ -39,7 +40,7 @@
         {
             label: localize("A5E.Languages"),
             values: prepareLanguageProficiencies($actor),
-            dialog: MovementConfigDialog,
+            dialog: LanguagesConfigDialog,
         },
         {
             label: localize("A5E.ConditionImmunities"),
