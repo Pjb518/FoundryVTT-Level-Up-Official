@@ -77,7 +77,7 @@
 		shield--currency
 	"
         class:u-ml-auto={$actor.type === "npc"}
-        class:u-mr-lg={$actor.type === "npc"}
+        class:u-mr-auto={$actor.type === "npc"}
     >
         <ol class="currency__list">
             {#each Object.entries(currency) as [label, value]}

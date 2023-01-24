@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import MovementConfigDialog from "../../dialogs/initializers/MovementConfigDialog";
+
     import prepareArmorProficiencies from "../../handlers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../handlers/prepareConditionImmunities";
     import prepareCreatureTypes from "../../handlers/prepareCreatureTypes";
@@ -17,58 +19,78 @@
 
     const actor = getContext("actor");
 
+    function configureDetail(dialogClass) {
+        const dialog = new dialogClass(actor);
+        dialog.render(true);
+    }
+
     $: details = [
         {
             label: localize("A5E.Movement"),
             values: prepareMovementData($actor),
+            dialog: MovementConfigDialog,
         },
-        { label: localize("A5E.SensesSpecial"), values: prepareSenses($actor) },
+        {
+            label: localize("A5E.SensesSpecial"),
+            values: prepareSenses($actor),
+            dialog: MovementConfigDialog,
+        },
         {
             label: localize("A5E.Languages"),
             values: prepareLanguageProficiencies($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.ConditionImmunities"),
             values: prepareConditionImmunities($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.DamageImmunities"),
             values: prepareDamageImmunities($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.DamageResistances"),
             values: prepareDamageResistances($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.DamageVulnerabilities"),
             values: prepareDamageVulnerabilities($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.WeaponProficiencies"),
             values: prepareWeaponProficiencies($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.ArmorProficiencies"),
             values: prepareArmorProficiencies($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.ToolProficiencies"),
             values: prepareToolProficiencies($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.Size"),
             values: prepareCreatureSize($actor),
+            dialog: MovementConfigDialog,
         },
         {
             label: localize("A5E.CreatureTypesLabel"),
             values: prepareCreatureTypes($actor),
+            dialog: MovementConfigDialog,
         },
     ];
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#each details as { label, values }}
+{#each details as { label, values, dialog }}
     {#if values.length || !sheetIsLocked}
         <section class="details-section">
             <h2 class="details-header">
@@ -76,7 +98,11 @@
             </h2>
 
             {#if !sheetIsLocked}
-                <i class="fas fa-gear a5e-config-button details-config" />
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <i
+                    class="fas fa-gear a5e-config-button details-config"
+                    on:click={() => configureDetail(dialog)}
+                />
             {/if}
 
             <ul class="details-list">

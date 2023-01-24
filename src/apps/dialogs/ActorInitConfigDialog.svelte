@@ -16,7 +16,7 @@
 </script>
 
 <main>
-    <header class="u-px-lg u-pu-xl">
+    <header class="u-px-lg u-py-xl">
         <h1 class="u-font-serif u-text-xl">
             {localize("A5e.InitiativeConfigurationTitle")}
         </h1>
