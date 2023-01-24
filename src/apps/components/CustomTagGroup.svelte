@@ -18,6 +18,8 @@
         } else {
             selectedCoreOptions = optionKeys;
         }
+
+        updateCustom(selectedCustomOptions);
     }
 
     function updateCore(value) {
