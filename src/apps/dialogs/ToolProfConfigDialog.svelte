@@ -3,8 +3,9 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import TagGroup from "../components/TagGroup.svelte";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
     import InputField from "../components/InputField.svelte";
+
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actor, appId } = getContext("external").application;
 
@@ -62,7 +63,7 @@
         }
     );
 
-    $: otherProficiencies = toolProficiencies.other.join(";");
+    $: otherProficiencies = toolProficiencies.other.join("; ");
 </script>
 
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
