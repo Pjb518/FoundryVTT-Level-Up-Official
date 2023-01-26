@@ -14,13 +14,22 @@
 </script>
 
 <main>
-    <header class="u-px-lg u-py-xl">
-        <h1 class="u-font-serif u-text-xl">
-            {localize("A5E.ResourceConfigurationTitle")}
-        </h1>
-    </header>
-
     <div class="u-flex u-flex-col u-gap-md">
+        <FormSection heading="A5E.Label">
+            <input
+                class="a5e-input"
+                type="text"
+                name={`system.resources.${source}.label`}
+                value={resource.label}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    )}
+            />
+        </FormSection>
+
         <FormSection>
             <div class="u-flex u-gap-md u-align-center">
                 <input

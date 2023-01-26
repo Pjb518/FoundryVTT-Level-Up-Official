@@ -16,6 +16,25 @@
         dialog.render(true);
     }
 
+    function incrementResource() {
+        resource.value = Math.max(resource.value + 1, 0);
+        updateDocumentDataFromField(
+            $actor,
+            `system.resources.${source}.value`,
+            Number(resource.value)
+        );
+    }
+
+    function decrementResource() {
+        resource.value = Math.max(resource.value - 1, 0);
+        updateDocumentDataFromField(
+            $actor,
+            `system.resources.${source}.value`,
+            Number(resource.value)
+        );
+    }
+
+    $: resource = resource;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
@@ -35,17 +54,23 @@
 
     <div class="resource-value-container">
         {#if resource.hideMax}
-            <button type="button" class="a5e-button resource-btn">
+            <button
+                class="a5e-button resource-btn"
+                type="button"
+                disabled={resource.value === 0}
+                on:click={decrementResource}
+            >
                 <i class="fas fa-minus" />
             </button>
         {/if}
 
         <input
+            class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
             type="number"
             name="system.resources.{source}.value"
             value={resource.value}
-            class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
             placeholder="0"
+            min="0"
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $actor,
@@ -55,8 +80,12 @@
         />
 
         {#if resource.hideMax}
-            <button type="button" class="a5e-button resource-btn">
-                <i class="fas fa-plus" />
+            <button
+                class="a5e-button resource-btn"
+                type="button"
+                on:click={incrementResource}
+            >
+                <i class="fas fa-plus" on:click={incrementResource} />
             </button>
         {:else}
             <span class="resource-seperator"> / </span>
