@@ -2,15 +2,16 @@
 </script>
 
 <footer class="tab-footer">
-	<slot />
+    <slot />
 </footer>
 
 <style lang="scss">
-	.tab-footer {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.25rem;
-		align-items: center;
-		justify-content: space-between;
-	}
+    .tab-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.833rem;
+    }
 </style>

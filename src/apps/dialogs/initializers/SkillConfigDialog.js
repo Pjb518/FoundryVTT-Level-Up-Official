@@ -15,8 +15,8 @@ export default class SkillConfigDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      width: 420,
-      height: 500
+      width: 380,
+      height: 600
     });
   }
 }
