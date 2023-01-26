@@ -85,7 +85,7 @@
                 type="button"
                 on:click={incrementResource}
             >
-                <i class="fas fa-plus" on:click={incrementResource} />
+                <i class="fas fa-plus" />
             </button>
         {:else}
             <span class="resource-seperator"> / </span>
