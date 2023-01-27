@@ -1,8 +1,8 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
+import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import BackgroundDropDialog from './BackgroundDropDialog';
-
 import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
 
 export default class ActorSheet extends SvelteApplication {
@@ -17,13 +17,17 @@ export default class ActorSheet extends SvelteApplication {
         title: actor.name,
         svelte: {
           props: {
-            actorDocument: actor
+            actor: null
           }
         }
       }
     ));
 
     this.actor = actor;
+    this.options.svelte.props.actor = new ActorDocument(
+      actor,
+      { delete: this.close.bind(this) }
+    );
     this.options.svelte.props.sheet = this;
   }
 

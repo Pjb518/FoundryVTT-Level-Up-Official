@@ -157,6 +157,12 @@
                     name="flags.a5e.showManeuverTab"
                     id={`${$actor.id}-show-maneuver-tab`}
                     checked={flags.a5e?.showManeuverTab ?? true}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.checked
+                        )}
                 />
 
                 <label class="u-pointer" for={`${$actor.id}-show-maneuver-tab`}>
@@ -173,6 +179,12 @@
                     name="flags.a5e.showSpellTab"
                     id={`${$actor.id}-show-spell-tab`}
                     checked={flags.a5e?.showSpellTab ?? true}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.checked
+                        )}
                 />
 
                 <label class="u-pointer" for={`${$actor.id}-show-spell-tab`}>
