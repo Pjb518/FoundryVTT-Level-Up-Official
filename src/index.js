@@ -227,20 +227,20 @@ Hooks.on("createToken", async (token) => {
       }
     }
 
-    if (hitDiceTotalCount > 0) {
-      // Roll the hitDiceFormula
-      const newHp = await new Roll(hitDiceFormula).roll({async: true});
+    if (hitDiceTotalCount === 0) return 
+    
+    // Roll the hitDiceFormula
+    const newHp = await new Roll(hitDiceFormula).roll({async: true});
 
-      // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
-      const finalHp = newHp.total + (conMod * hitDiceTotalCount);
+    // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
+    const finalHp = newHp.total + (conMod * hitDiceTotalCount);
 
-      // Update token with new information
-      token.actor.update({
-            "system.attributes.hp": {
-                  "baseMax": finalHp,
-                  "value": finalHp
-            }
-        });
-    }
+    // Update token with new information
+    token.actor.update({
+          "system.attributes.hp": {
+                "baseMax": finalHp,
+                "value": finalHp
+          }
+      });
   }
 });
