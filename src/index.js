@@ -210,35 +210,28 @@ Hooks.on("createToken", async (token) => {
     // Get Constitution Modifier
     const conMod = token.actor.system.abilities.con.mod;
 
-    // Creates hitDiceFormula for Roll
-    const hitDiceFormula = Object.entries(hitDice).reduce((acc, [dieType, hitDie]) =>{
-      if (hitDie.total) acc.push(`${hitDie.total}${dieType}`);
-      return acc;
-    }, []).join("+");
-
-    // Creates tracker for the hitDiceTotalCount
-    let hitDiceTotalCount = 0;
-
-    const hitDiceArray= Object.entries(hitDice);
-
-    hitDiceArray.forEach(element => {
-      console.log(element)
-      hitDiceTotalCount += element[1].total
-    })
-
-    if (hitDiceTotalCount === 0) return 
+    // Builds towards the hitDiceFormula for Roll and tracks the totalHitDiceCount
+    const {parts, count} = Object.entries(hitDice).reduce((acc, [dieType, hitDie]) =>{
+      if (hitDie.total) {
+        acc.parts.push(`${hitDie.total}${dieType}`);
+        acc.count += hitDie.total;
+      }
     
-    // Roll the hitDiceFormula
-    const newHp = await new Roll(hitDiceFormula).roll({async: true});
+      return acc;
+    }, { parts: [], count: 0 })
+    
+    // creates the actual hitDiceFormula
+    const hitDiceFormula = `${parts.join("+")}`;
+    
+    // Roll the hitDiceFormula and add the total hit dice multiplied by conmod in order to get the new total hit points
+    const finalHp = await new Roll(`${hitDiceFormula} + @conModBonus`, {conModBonus: (count * conMod)}).roll({async: true});
 
-    // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
-    const finalHp = newHp.total + (conMod * hitDiceTotalCount);
-
+    
     // Update token with new information
     token.actor.update({
           "system.attributes.hp": {
-                "baseMax": finalHp,
-                "value": finalHp
+                "baseMax": finalHp.total,
+                "value": finalHp.total
           }
       });
   }
