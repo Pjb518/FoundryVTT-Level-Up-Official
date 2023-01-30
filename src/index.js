@@ -238,9 +238,9 @@ Hooks.on("createToken", (newNpc) => {
         // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
         let finalHp = result.total + (conMod * hitDiceTotalCount);
 
-        npcHp.max = finalHp;
         npcHp.value = finalHp;
         npcHp.baseMax = finalHp;
+        npcHp.max = finalHp;
       });
     }
   }
