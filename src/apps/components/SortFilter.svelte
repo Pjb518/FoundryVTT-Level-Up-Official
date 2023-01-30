@@ -1,4 +1,5 @@
 <script>
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext, onDestroy } from "svelte";
     import { createFilterQuery } from "@typhonjs-fvtt/svelte-standard/store";
     import { TJSInput } from "@typhonjs-fvtt/svelte-standard/component";
@@ -20,6 +21,9 @@
     reducer.filters.add({ id: "searchFilter", filter: searchFilter });
 
     onDestroy(() => reducer.filters.removeById("searchFilter"));
+
+    // Get filterOptions
+    const filterOptions = [["concentration", "Concentration"]];
 </script>
 
 <section class="filters filters__container">
@@ -37,15 +41,26 @@
         </button>
     </div>
 
-    <!-- {#if selected.length > 0}
-        <div class="filter-pills__container">
-            <CheckboxGroup {options} {selected} document={null} name="" />
-        </div>
+    <div class="filter-pills__container">
+        <ul
+            class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
+        >
+            {#each filterOptions as [value, label]}
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <li
+                    class="a5e-tag u-pointer"
+                    class:a5e-tag--inactive={true}
+                    on:click={null}
+                >
+                    {localize(label)}
+                </li>
+            {/each}
+        </ul>
 
-        {#if options.length > 5}
+        {#if filterOptions.length > 5}
             <a class="filter-pills__expand-button"> Expand </a>
         {/if}
-    {/if} -->
+    </div>
 </section>
 
 <style lang="scss">

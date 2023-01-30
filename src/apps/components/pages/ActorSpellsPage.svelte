@@ -84,11 +84,6 @@
         gap: 0.5rem;
         overflow: hidden;
     }
-    .search-container {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-    }
 
     .spells-main-container {
         display: flex;
