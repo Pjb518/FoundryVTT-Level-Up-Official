@@ -202,10 +202,8 @@ Hooks.on('canvasInit', () => {
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
 
 Hooks.on("createToken", async (token) => {
-  console.log(token.actor.type)
   // Checks if its a NPC type of actor and if the game setting is set to true
   if (token.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
-    console.log("made it!")
     // getting the NPC Hit Dice
     const hitDice = token.actor.system.attributes.hitDice;
     
@@ -230,7 +228,6 @@ Hooks.on("createToken", async (token) => {
     }
 
     if (hitDiceTotalCount > 0) {
-      console.log(hitDiceFormula);
       // Roll the hitDiceFormula
       const newHp = await new Roll(hitDiceFormula).roll({async: true});
 
