@@ -201,17 +201,16 @@ Hooks.on('canvasInit', () => {
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
 
-Hooks.on("createToken", (newNpc) => {
+Hooks.on("createToken", async (token) => {
+  console.log(token.actor.type)
   // Checks if its a NPC type of actor and if the game setting is set to true
-  if (newNpc.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
+  if (token.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
+    console.log("made it!")
     // getting the NPC Hit Dice
-    let hitDice = newNpc.actor.system.attributes.hitDice;
-
-    // get the NPC HP information
-    let npcHp = newNpc.actor.system.attributes.hp;
+    const hitDice = token.actor.system.attributes.hitDice;
     
     // Get Constitution Modifier
-    let conMod = newNpc.actor.system.abilities.con.mod;
+    const conMod = token.actor.system.abilities.con.mod;
 
     // Set variable to track total number of hitDice for con mod multiplier later
     let hitDiceTotalCount = 0;
@@ -226,22 +225,25 @@ Hooks.on("createToken", (newNpc) => {
         // Add hit dice to formula
         hitDiceFormula += hitDice[prop].total + prop;
         // Increment Hit Dice Count total
-        hitDiceTotalCount++
+        hitDiceTotalCount++;
       }
     }
 
     if (hitDiceTotalCount > 0) {
       console.log(hitDiceFormula);
       // Roll the hitDiceFormula
-      let newHp = new Roll(hitDiceFormula).roll();
-      newHp.then(function(result){
-        // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
-        let finalHp = result.total + (conMod * hitDiceTotalCount);
+      const newHp = await new Roll(hitDiceFormula).roll({async: true});
 
-        npcHp.value = finalHp;
-        npcHp.baseMax = finalHp;
-        npcHp.max = finalHp;
-      });
+      // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
+      let finalHp = newHp.total + (conMod * hitDiceTotalCount);
+
+      // Update token with new information
+      token.actor.update({
+            "system.attributes.hp": {
+                  "baseMax": finalHp,
+                  "value": finalHp
+            }
+        });
     }
   }
 });
