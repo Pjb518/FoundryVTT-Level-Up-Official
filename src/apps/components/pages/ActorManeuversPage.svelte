@@ -1,38 +1,22 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { TJSInput } from "@typhonjs-fvtt/svelte-standard/component";
-    import { createFilterQuery } from "@typhonjs-fvtt/svelte-standard/store";
 
-    import addReducerFilter from "../../utils/addReducerFilter";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import ItemCategory from "../ItemCategory.svelte";
     import TabFooter from "../TabFooter.svelte";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import SortFilter from "../SortFilter.svelte";
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
-
-    const filterSearch = createFilterQuery("name");
-    const input = {
-        store: filterSearch,
-        placeholder: "Search...",
-        type: "search",
-    };
-
-    addReducerFilter(maneuvers, { id: "searchFilter", filter: filterSearch });
 
     $: exertion = $actor.system.attributes.exertion;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="maneuvers-page">
-    <header class="search-container">
-        <TJSInput {input} />
-
-        <i class="fas fa-sort" />
-        <i class="fas fa-filter" />
-    </header>
+    <SortFilter itemType="maneuvers" />
 
     <section class="maneuvers-main-container">
         {#each Object.entries($maneuvers._degrees) as [label, items]}
