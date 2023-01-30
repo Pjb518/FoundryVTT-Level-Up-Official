@@ -216,17 +216,15 @@ Hooks.on("createToken", async (token) => {
         acc.parts.push(`${hitDie.total}${dieType}`);
         acc.count += hitDie.total;
       }
-    
       return acc;
     }, { parts: [], count: 0 })
     
     // creates the actual hitDiceFormula
-    const hitDiceFormula = `${parts.join("+")}`;
+    const hitDiceFormula = `${parts.join("+")}+${count * conMod}`;
     
-    // Roll the hitDiceFormula and add the total hit dice multiplied by conmod in order to get the new total hit points
-    const finalHp = await new Roll(`${hitDiceFormula} + @conModBonus`, {conModBonus: (count * conMod)}).roll({async: true});
+    // Roll the hitDiceFormula
+    const finalHp = await new Roll(hitDiceFormula).roll();
 
-    
     // Update token with new information
     token.actor.update({
           "system.attributes.hp": {
