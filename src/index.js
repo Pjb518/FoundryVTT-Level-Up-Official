@@ -235,7 +235,7 @@ Hooks.on("createToken", async (token) => {
       const newHp = await new Roll(hitDiceFormula).roll({async: true});
 
       // Set NPC current and max HP to the rolled value + conMod multiplied by the total number of hit dice added to the creature
-      let finalHp = newHp.total + (conMod * hitDiceTotalCount);
+      const finalHp = newHp.total + (conMod * hitDiceTotalCount);
 
       // Update token with new information
       token.actor.update({
