@@ -210,22 +210,21 @@ Hooks.on("createToken", async (token) => {
     // Get Constitution Modifier
     const conMod = token.actor.system.abilities.con.mod;
 
-    // Set variable to track total number of hitDice for con mod multiplier later
+    // Creates hitDiceFormula for Roll
+    const hitDiceFormula = Object.entries(hitDice).reduce((acc, [dieType, hitDie]) =>{
+      if (hitDie.total) acc.push(`${hitDie.total}${dieType}`);
+      return acc;
+    }, []).join("+");
+
+    // Creates tracker for the hitDiceTotalCount
     let hitDiceTotalCount = 0;
-  
-    // Build Hit Dice formula for Roll
-    let hitDiceFormula = "";
-    for (const prop in hitDice){
-      if(hitDice[prop].total > 0){
-        if (hitDiceFormula !== "") {
-          hitDiceFormula += "+";
-        } 
-        // Add hit dice to formula
-        hitDiceFormula += hitDice[prop].total + prop;
-        // Increment Hit Dice Count total
-        hitDiceTotalCount++;
-      }
-    }
+
+    const hitDiceArray= Object.entries(hitDice);
+
+    hitDiceArray.forEach(element => {
+      console.log(element)
+      hitDiceTotalCount += element[1].total
+    })
 
     if (hitDiceTotalCount === 0) return 
     
