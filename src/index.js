@@ -210,17 +210,19 @@ Hooks.on("createToken", async (token) => {
     // Get Constitution Modifier
     const conMod = token.actor.system.abilities.con.mod;
 
+    let hitDiceCount = 0;
+    const parts = [];
+
     // Builds towards the hitDiceFormula for Roll and tracks the totalHitDiceCount
-    const {parts, count} = Object.entries(hitDice).reduce((acc, [dieType, hitDie]) =>{
-      if (hitDie.total) {
-        acc.parts.push(`${hitDie.total}${dieType}`);
-        acc.count += hitDie.total;
-      }
-      return acc;
-    }, { parts: [], count: 0 })
+    Object.entries(hitDice).forEach(([dieType, hitDie]) => {
+      if (!hitDie.total) return;
+      
+      parts.push(`${hitDie.total}${dieType}`);
+      hitDiceCount += hitDie.total;
+    });
     
     // creates the actual hitDiceFormula
-    const hitDiceFormula = `${parts.join("+")}+${count * conMod}`;
+    const hitDiceFormula = `${parts.join(" + ")} + ${hitDiceCount * conMod}`;
     
     // Roll the hitDiceFormula
     const finalHp = await new Roll(hitDiceFormula).roll();
