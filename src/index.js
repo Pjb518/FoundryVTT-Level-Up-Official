@@ -205,7 +205,7 @@ Hooks.on("createToken", async (token) => {
   // Checks if its a NPC type of actor and if the game setting is set to true
   if (token.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
     // getting the NPC Hit Dice
-    const hitDice = token.actor.system.attributes.hitDice;
+    const { hitDice } = token.actor.system.attributes;
     
     // Get Constitution Modifier
     const conMod = token.actor.system.abilities.con.mod;
