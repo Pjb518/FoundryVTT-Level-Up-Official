@@ -1,8 +1,8 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
-import BackgroundDropDialog from './BackgroundDropDialog';
 
+import BackgroundDropDialog from './BackgroundDropDialog';
 import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
 
 export default class ActorSheet extends SvelteApplication {
@@ -48,12 +48,19 @@ export default class ActorSheet extends SvelteApplication {
     });
   }
 
-  async _onDropBackground(item) {
-    if (item?.type !== 'background') {
-      ui.notifications.warn('The item provided to _onDropBackground must be of type "background".');
-      return;
-    }
+  async onDrop(document) {
+    if (document.documentName === 'Actor') this.#onDropActor(document);
+    else if (document.documentName === 'Item') this.#onDropItem(document);
+  }
 
+  async #onDropActor(actor) { }
+
+  async #onDropItem(item) {
+    if (item.type === 'background') this.#onDropBackground(item);
+    else if (item.type === 'culture') this.#onDropCulture(item);
+  }
+
+  async #onDropBackground(item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Background documents cannot be added to NPCs.');
       return;
@@ -83,11 +90,9 @@ export default class ActorSheet extends SvelteApplication {
     ]);
   }
 
-  async _onDropCulture(item) {
-    if (item?.type !== 'culture') throw Error('_onDropCulture() must be called with a culture type item.');
-
+  async #onDropCulture(item) {
     if (this.actor.type !== 'character') {
-      ui.notifications.warn('Background documents cannot be added to NPCs.');
+      ui.notifications.warn('Culture documents cannot be added to NPCs.');
       return;
     }
 
