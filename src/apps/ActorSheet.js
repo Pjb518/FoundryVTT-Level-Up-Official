@@ -48,7 +48,7 @@ export default class ActorSheet extends SvelteApplication {
     });
   }
 
-  async onDrop(document) {
+  async _onDropDocument(document) {
     if (document.documentName === 'Actor') this.#onDropActor(document);
     else if (document.documentName === 'Item') this.#onDropItem(document);
   }

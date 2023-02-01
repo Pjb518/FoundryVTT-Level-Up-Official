@@ -30,7 +30,7 @@
         const { uuid } = JSON.parse(event.dataTransfer.getData("text/plain"));
         const document = await fromUuid(uuid);
 
-        sheet.onDrop(document);
+        sheet._onDropDocument(document);
     }
 
     const tabs = [
