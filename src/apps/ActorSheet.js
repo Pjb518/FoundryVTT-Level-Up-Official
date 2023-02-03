@@ -1,8 +1,8 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
-import BackgroundDropDialog from './BackgroundDropDialog';
 
+import BackgroundDropDialog from './BackgroundDropDialog';
 import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
 
 export default class ActorSheet extends SvelteApplication {
@@ -48,46 +48,62 @@ export default class ActorSheet extends SvelteApplication {
     });
   }
 
-  async _onDropBackground(item) {
-    if (item?.type !== 'background') {
-      ui.notifications.warn('The item provided to _onDropBackground must be of type "background".');
-      return;
-    }
+  async _onDropDocument(document) {
+    if (document.documentName === 'Actor') this.#onDropActor(document);
+    else if (document.documentName === 'Item') this.#onDropItem(document);
+  }
 
+  async #onDropActor(actor) { }
+
+  async #onDropItem(item) {
+    if (item.type === 'background') this.#onDropBackground(item);
+    else if (item.type === 'culture') this.#onDropCulture(item);
+
+    this.actor.createEmbeddedDocuments('Item', [item]);
+  }
+
+  async #onDropBackground(item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Background documents cannot be added to NPCs.');
       return;
     }
 
-    const dialog = new BackgroundDropDialog(item);
-    dialog.render(true);
+    const { equipment, feature, includesASI } = item.system;
+    const backgroundFeature = await fromUuid(feature);
 
-    let selectedAbilityScores;
-    let selectedEquipment;
+    let selectedAbilityScores = [];
+    let selectedEquipment = [];
 
-    try {
-      ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
-    } catch (error) {
-      return;
+    // Do not show the dialog if there is no ASI or equipment to select.
+    if (includesASI || equipment.length) {
+      const dialog = new BackgroundDropDialog(item);
+      dialog.render(true);
+
+      try {
+        ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
+      } catch (error) {
+        return;
+      }
     }
 
-    const backgroundFeature = await fromUuid(item.system.feature);
     const startingEquipment = await Promise.all(selectedEquipment.map(
       (equipmentItem) => fromUuid(equipmentItem)
     ));
 
-    await this.actor.createEmbeddedDocuments('Item', [
-      item,
-      backgroundFeature,
-      ...startingEquipment
-    ]);
+    // Do not attempt to add items if there are no background features or starting
+    // equipment to add.
+    if (backgroundFeature || startingEquipment.length) {
+      await this.actor.createEmbeddedDocuments('Item', [
+        item,
+        backgroundFeature,
+        ...startingEquipment
+      ].filter(Boolean));
+    }
   }
 
-  async _onDropCulture(item) {
-    if (item?.type !== 'culture') throw Error('_onDropCulture() must be called with a culture type item.');
-
+  async #onDropCulture(item) {
     if (this.actor.type !== 'character') {
-      ui.notifications.warn('Background documents cannot be added to NPCs.');
+      ui.notifications.warn('Culture documents cannot be added to NPCs.');
       return;
     }
 
