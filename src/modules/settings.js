@@ -105,6 +105,15 @@ export default function registerSystemSettings() {
     default: false
   });
 
+  // Default GM Setting for NPC Health Randomization
+  game.settings.register("a5e", "npcHealthRandomization", {
+    name: "Enable NPC Health Randomization",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   // Enable settings for condition automation
   game.settings.register('a5e', 'automatedConditions', {
     name: 'Enable Condition Automation',
