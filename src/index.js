@@ -201,12 +201,15 @@ Hooks.on('canvasInit', () => {
 
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
 
+// TODO: Move to separate file in 1.0.0
 Hooks.on("createToken", async (token) => {
+  if (!game.user.isGM) return;
+
   // Checks if its a NPC type of actor and if the game setting is set to true
   if (token.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
     // getting the NPC Hit Dice
     const { hitDice } = token.actor.system.attributes;
-    
+
     // Get Constitution Modifier
     const conMod = token.actor.system.abilities.con.mod;
 
@@ -216,23 +219,25 @@ Hooks.on("createToken", async (token) => {
     // Builds towards the hitDiceFormula for Roll and tracks the totalHitDiceCount
     Object.entries(hitDice).forEach(([dieType, hitDie]) => {
       if (!hitDie.total) return;
-      
+
       parts.push(`${hitDie.total}${dieType}`);
       hitDiceCount += hitDie.total;
     });
-    
+
     // creates the actual hitDiceFormula
     const hitDiceFormula = `${parts.join(" + ")} + ${hitDiceCount * conMod}`;
-    
+
     // Roll the hitDiceFormula
-    const finalHp = await new Roll(hitDiceFormula).roll();
+    // TODO: Remove async true when foundry bug is fixed
+    const hpRoll = await new Roll(hitDiceFormula).roll({ async: true });
+    // await hpRoll.toMessage({ whisper: ChatMessage.getWhisperRecipients("Gm") });
 
     // Update token with new information
     token.actor.update({
-          "system.attributes.hp": {
-                "baseMax": finalHp.total,
-                "value": finalHp.total
-          }
-      });
+      "system.attributes.hp": {
+        "baseMax": hpRoll.total,
+        "value": hpRoll.total
+      }
+    });
   }
 });
