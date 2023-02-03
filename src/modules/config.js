@@ -349,10 +349,13 @@ A5E.maneuverDegrees = {
 
 A5E.maneuverTraditions = {
   adamantMountain: 'A5E.ManeuverTraditionAdamantMountain',
+  arcaneArtillery: 'A5E.ManeuverTraditionArcaneArtillery',
   arcaneKnight: 'A5E.ManeuverTraditionArcaneKnight',
+  awakenedMind: 'A5E.ManeuverTraditionAwakenedMind',
   beastUnity: 'A5E.ManeuverTraditionBeastUnity',
   bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
   cuttingOmen: 'A5E.ManeuverTraditionCuttingOmen',
+  eldritchBlackguard: 'A5E.ManeuverTraditionEldritchBlackguard',
   mirrorsGlint: 'A5E.ManeuverTraditionMirrorsGlint',
   mistAndShade: 'A5E.ManeuverTraditionMistAndShade',
   rapidCurrent: 'A5E.ManeuverTraditionRapidCurrent',
