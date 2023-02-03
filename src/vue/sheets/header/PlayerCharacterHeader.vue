@@ -304,6 +304,10 @@ export default {
       actor.toggleInspiration();
     }
 
+    function onToggleElite() {
+      actor.toggleElite();
+    }
+
     function onToggleSheetLockedState() {
       const currentState = data.value.flags?.a5e?.sheetIsLocked;
       actor.setFlag("a5e", "sheetIsLocked", !currentState);
@@ -313,6 +317,7 @@ export default {
       challengeRating,
       data,
       localize: (key) => game.i18n.localize(key),
+      onToggleElite,
       onToggleInspiration,
       onToggleSheetLockedState,
       sheetIsLocked,
