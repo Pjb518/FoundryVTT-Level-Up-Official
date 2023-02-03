@@ -68,28 +68,37 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
-    const dialog = new BackgroundDropDialog(item);
-    dialog.render(true);
+    const { equipment, feature, includesASI } = item.system;
+    const backgroundFeature = await fromUuid(feature);
 
-    let selectedAbilityScores;
-    let selectedEquipment;
+    let selectedAbilityScores = [];
+    let selectedEquipment = [];
 
-    try {
-      ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
-    } catch (error) {
-      return;
+    // Do not show the dialog if there is no ASI or equipment to select.
+    if (includesASI || equipment.length) {
+      const dialog = new BackgroundDropDialog(item);
+      dialog.render(true);
+
+      try {
+        ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
+      } catch (error) {
+        return;
+      }
     }
 
-    const backgroundFeature = await fromUuid(item.system.feature);
     const startingEquipment = await Promise.all(selectedEquipment.map(
       (equipmentItem) => fromUuid(equipmentItem)
     ));
 
-    await this.actor.createEmbeddedDocuments('Item', [
-      item,
-      backgroundFeature,
-      ...startingEquipment
-    ]);
+    // Do not attempt to add items if there are no background features or starting
+    // equipment to add.
+    if (backgroundFeature || startingEquipment.length) {
+      await this.actor.createEmbeddedDocuments('Item', [
+        item,
+        backgroundFeature,
+        ...startingEquipment
+      ].filter(Boolean));
+    }
   }
 
   async #onDropCulture(item) {

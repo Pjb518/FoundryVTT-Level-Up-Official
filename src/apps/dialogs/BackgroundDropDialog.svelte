@@ -60,32 +60,34 @@
         </section>
     {/if}
 
-    <section class="ability-score-wrapper">
-        <h3>Select Starting Equipment</h3>
+    {#if $item.system.equipment.length}
+        <section class="ability-score-wrapper">
+            <h3>Select Starting Equipment</h3>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
-            <!-- svelte-ignore missing-declaration (fromUuid) -->
-            {#each $item.system?.equipment.map( (uuid) => fromUuid(uuid) ) as promise}
-                {#await promise then equipment}
-                    <input
-                        class="ability-score-input"
-                        type="checkbox"
-                        name="ASI"
-                        id={`${$item.id}-equipment-${equipment.uuid}`}
-                        value={equipment.uuid}
-                        bind:group={selectedEquipment}
-                    />
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                <!-- svelte-ignore missing-declaration (fromUuid) -->
+                {#each $item.system?.equipment.map( (uuid) => fromUuid(uuid) ) as promise}
+                    {#await promise then equipment}
+                        <input
+                            class="ability-score-input"
+                            type="checkbox"
+                            name="ASI"
+                            id={`${$item.id}-equipment-${equipment.uuid}`}
+                            value={equipment.uuid}
+                            bind:group={selectedEquipment}
+                        />
 
-                    <label
-                        class="ability-score-label"
-                        for={`${$item.id}-equipment-${equipment.uuid}`}
-                    >
-                        {equipment.name}
-                    </label>
-                {/await}
-            {/each}
-        </div>
-    </section>
+                        <label
+                            class="ability-score-label"
+                            for={`${$item.id}-equipment-${equipment.uuid}`}
+                        >
+                            {equipment.name}
+                        </label>
+                    {/await}
+                {/each}
+            </div>
+        </section>
+    {/if}
 
     <div class="button-container">
         <button on:click|preventDefault={submitForm}>Submit</button>
