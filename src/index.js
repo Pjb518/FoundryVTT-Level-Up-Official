@@ -202,11 +202,11 @@ Hooks.on('canvasInit', () => {
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
 
 // TODO: Move to separate file in 1.0.0
-Hooks.on("createToken", async (token) => {
+Hooks.on('createToken', async (token) => {
   if (!game.user.isGM) return;
 
   // Checks if its a NPC type of actor and if the game setting is set to true
-  if (token.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
+  if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHealth')) {
     // getting the NPC Hit Dice
     const { hitDice } = token.actor.system.attributes;
 
@@ -225,7 +225,7 @@ Hooks.on("createToken", async (token) => {
     });
 
     // creates the actual hitDiceFormula
-    const hitDiceFormula = `${parts.join(" + ")} + ${hitDiceCount * conMod}`;
+    const hitDiceFormula = `${parts.join(' + ')} + ${hitDiceCount * conMod}`;
 
     // Roll the hitDiceFormula
     // TODO: Remove async true when foundry bug is fixed
@@ -234,9 +234,9 @@ Hooks.on("createToken", async (token) => {
 
     // Update token with new information
     token.actor.update({
-      "system.attributes.hp": {
-        "baseMax": hpRoll.total,
-        "value": hpRoll.total
+      'system.attributes.hp': {
+        baseMax: hpRoll.total,
+        value: hpRoll.total
       }
     });
   }
