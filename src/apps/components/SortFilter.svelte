@@ -1,10 +1,12 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext, onDestroy } from "svelte";
-    import { createFilterQuery } from "@typhonjs-fvtt/svelte-standard/store";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSInput } from "@typhonjs-fvtt/svelte-standard/component";
 
-    import CheckboxGroup from "./CheckboxGroup.svelte";
+    import {
+        addSearchFilter,
+        removeSearchFilter,
+    } from "../utils/handleSearchFilter";
 
     export let itemType;
 
@@ -12,15 +14,8 @@
     const reducer = actor[itemType];
 
     // Create Search Filter
-    const searchFilter = createFilterQuery("name");
-    const searchInput = {
-        store: searchFilter,
-        placeholder: "Search",
-        type: "search",
-    };
-    reducer.filters.add({ id: "searchFilter", filter: searchFilter });
-
-    onDestroy(() => reducer.filters.removeById("searchFilter"));
+    const searchInput = addSearchFilter(reducer);
+    onDestroy(() => removeSearchFilter(reducer));
 
     // Get filterOptions
     const filterOptions = [["concentration", "Concentration"]];
