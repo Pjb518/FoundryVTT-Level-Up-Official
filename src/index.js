@@ -209,7 +209,7 @@ Hooks.on('createToken', async (token) => {
   if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHitPoints')) {
     const { hitPointFormula } = token.actor;
 
-    const hpRoll = await new Roll(hitPointFormula);
+    const hpRoll = new Roll(hitPointFormula);
     await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
 
     // Update token with new information
