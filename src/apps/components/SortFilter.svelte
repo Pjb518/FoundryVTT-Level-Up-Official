@@ -6,7 +6,7 @@
     import {
         addSearchFilter,
         removeSearchFilter,
-    } from "../utils/handleSearchFilter";
+    } from "../handlers/handleSearchFilter";
 
     export let itemType;
 

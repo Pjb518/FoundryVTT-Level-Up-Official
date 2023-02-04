@@ -310,6 +310,14 @@ A5E.itemRarity = {
 };
 
 /**
+ * List of Inventory Filters
+ * @enum {string}
+ */
+A5E.inventoryFilters = {
+  bulk: 'Bulk'
+};
+
+/**
  * Languages a character can learn.
  * @enum {string}
  */
@@ -1121,6 +1129,36 @@ A5E.weaponProperties = {
   twoHanded: 'A5E.WeaponPropertyTwoHanded',
   versatile: 'A5E.WeaponPropertyVersatile',
   vicious: 'A5E.WeaponPropertyVicious'
+};
+
+// ---------------------------------------------------
+// Filter Data
+
+/**
+ * Data for filters on the spells page. Schools of magic are added in on the page.
+ */
+A5E.abilityActionFilters = {};
+Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {
+  A5E.abilityActionFilters[value] = { label, key: 'system.activation.type', value };
+});
+
+A5E.spellFilters = {
+  activationCost: {
+    ...A5E.abilityActionFilters
+  },
+
+  components: {
+    material: { label: 'A5E.SpellComponentMaterial', type: '' },
+    seen: { label: 'A5E.SpellComponentSeen', type: '' },
+    vocalized: { label: 'A5E.SpellComponentVocalized', type: '' }
+  },
+
+  miscellaneous: {
+    concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration' },
+    ritual: { label: 'A5E.SpellRitual', key: 'system.ritual' },
+    prepared: { label: 'A5E.', key: 'system.prepared' }
+  }
+
 };
 
 export default A5E;
