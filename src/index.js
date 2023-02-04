@@ -202,22 +202,21 @@ Hooks.on('canvasInit', () => {
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
 
 // TODO: Move to separate file in 1.0.0
-Hooks.on('createToken', async (token) => {
-  if (!game.user.isGM) return;
+Hooks.on('createToken', async (token, _, userID) => {
+  const userPlacingToken = game.users.get(userID);
 
-  // Checks if its a NPC type of actor and if the game setting is set to true
-  if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHitPoints')) {
-    const { hitPointFormula } = token.actor;
+  if (![game.user.isGM, game.user === userPlacingToken, token.actor.type === 'npc', game.settings.get('a5e', 'randomizeNPCHitPoints')
+  ].every(Boolean)) return;
 
-    const hpRoll = new Roll(hitPointFormula);
-    await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
+  const { hitPointFormula } = token.actor;
+  const hpRoll = new Roll(hitPointFormula);
+  await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
 
-    // Update token with new information
-    token.actor.update({
-      'system.attributes.hp': {
-        baseMax: hpRoll.total,
-        value: hpRoll.total
-      }
-    });
-  }
+  // Update token with new information
+  token.actor.update({
+    'system.attributes.hp': {
+      baseMax: hpRoll.total,
+      value: hpRoll.total
+    }
+  });
 });
