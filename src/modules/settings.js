@@ -106,8 +106,8 @@ export default function registerSystemSettings() {
   });
 
   // Default GM Setting for NPC Health Randomization
-  game.settings.register('a5e', 'randomizeNPCHealth', {
-    name: 'Randomize NPC health',
+  game.settings.register('a5e', 'randomizeNPCHitPoints', {
+    name: 'Randomize NPC Hit Points',
     hint: 'When enabled, the hit points of NPCs with be randomly rolled based on their hit point formula when an actor is dragged to a scene.',
     scope: 'world',
     config: true,

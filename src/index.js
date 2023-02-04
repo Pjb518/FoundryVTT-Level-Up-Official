@@ -206,7 +206,7 @@ Hooks.on('createToken', async (token) => {
   if (!game.user.isGM) return;
 
   // Checks if its a NPC type of actor and if the game setting is set to true
-  if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHealth')) {
+  if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHitPoints')) {
     // getting the NPC Hit Dice
     const { hitDice } = token.actor.system.attributes;
 
