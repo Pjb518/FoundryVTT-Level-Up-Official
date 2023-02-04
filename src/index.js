@@ -207,29 +207,10 @@ Hooks.on('createToken', async (token) => {
 
   // Checks if its a NPC type of actor and if the game setting is set to true
   if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHitPoints')) {
-    // getting the NPC Hit Dice
-    const { hitDice } = token.actor.system.attributes;
+    const { hitPointFormula } = token.actor;
 
-    // Get Constitution Modifier
-    const conMod = token.actor.system.abilities.con.mod;
-
-    let hitDiceCount = 0;
-    const parts = [];
-
-    // Builds towards the hitDiceFormula for Roll and tracks the totalHitDiceCount
-    Object.entries(hitDice).forEach(([dieType, hitDie]) => {
-      if (!hitDie.total) return;
-
-      parts.push(`${hitDie.total}${dieType}`);
-      hitDiceCount += hitDie.total;
-    });
-
-    // creates the actual hitDiceFormula
-    const hitDiceFormula = `${parts.join(' + ')} + ${hitDiceCount * conMod}`;
-
-    // Roll the hitDiceFormula
     // TODO: Remove async true when foundry bug is fixed
-    const hpRoll = await new Roll(hitDiceFormula).roll({ async: true });
+    const hpRoll = await new Roll(hitPointFormula).roll({ async: true });
     // await hpRoll.toMessage({ whisper: ChatMessage.getWhisperRecipients("Gm") });
 
     // Update token with new information
