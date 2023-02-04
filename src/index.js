@@ -209,9 +209,8 @@ Hooks.on('createToken', async (token) => {
   if (token.actor.type === 'npc' && game.settings.get('a5e', 'randomizeNPCHitPoints')) {
     const { hitPointFormula } = token.actor;
 
-    // TODO: Remove async true when foundry bug is fixed
-    const hpRoll = await new Roll(hitPointFormula).roll({ async: true });
-    // await hpRoll.toMessage({ whisper: ChatMessage.getWhisperRecipients("Gm") });
+    const hpRoll = await new Roll(hitPointFormula);
+    await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
 
     // Update token with new information
     token.actor.update({
