@@ -12,6 +12,7 @@ class ConditionAutomationSettings extends FormApplication {
     });
   }
 
+  // eslint-disable-next-line no-unused-vars
   getData(options = {}) {
     this.conditions = [
       // 'blinded',
@@ -50,7 +51,7 @@ class ConditionAutomationSettings extends FormApplication {
   }
 
   async _updateObject(event, formData) {
-    const updatedConditions = this.conditions.filter((c, i) => formData.conditions[i] === true);
+    const updatedConditions = formData.conditions.filter((c) => c);
     await game.settings.set('a5e', 'automatedConditions', updatedConditions);
 
     this.render();
@@ -99,6 +100,15 @@ export default function registerSystemSettings() {
   game.settings.register('a5e', 'placeItemTemplateDefault', {
     name: 'Place templates for items by default',
     scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  // Default GM Setting for NPC Health Randomization
+  game.settings.register("a5e", "npcHealthRandomization", {
+    name: "Enable NPC Health Randomization",
+    scope: "world",
     config: true,
     type: Boolean,
     default: false
