@@ -98,7 +98,8 @@ export default function registerSystemSettings() {
 
   // Default GM Setting for placing templates
   game.settings.register('a5e', 'placeItemTemplateDefault', {
-    name: 'Place templates for items by default',
+    name: 'Place Templates by Default',
+    hint: 'Automatically select the "Place Measured Template" option in the roll dialog for features, spells, etc.',
     scope: 'world',
     config: true,
     type: Boolean,
@@ -106,9 +107,10 @@ export default function registerSystemSettings() {
   });
 
   // Default GM Setting for NPC Health Randomization
-  game.settings.register("a5e", "npcHealthRandomization", {
-    name: "Enable NPC Health Randomization",
-    scope: "world",
+  game.settings.register('a5e', 'randomizeNPCHitPoints', {
+    name: 'Randomize NPC Hit Points',
+    hint: 'When enabled, the hit points of NPCs with be randomly rolled based on their hit point formula when an actor is dragged to a scene.',
+    scope: 'world',
     config: true,
     type: Boolean,
     default: false

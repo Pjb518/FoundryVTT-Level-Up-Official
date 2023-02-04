@@ -9,6 +9,23 @@ import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 import toggleFilter from '../modules/utils/toggleFilter';
 
 export default class Actor5e extends Actor {
+  get hitPointFormula() {
+    const { hitDice } = this.system.attributes;
+    const { mod } = this.system.abilities.con;
+
+    let hitDiceCount = 0;
+    const parts = [];
+
+    Object.entries(hitDice).forEach(([dieSize, { total: diceQuantity }]) => {
+      if (!diceQuantity) return;
+
+      parts.push(`${diceQuantity}${dieSize}`);
+      hitDiceCount += diceQuantity;
+    });
+
+    return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+  }
+
   /**
    * @override
    */
