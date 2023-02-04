@@ -98,7 +98,8 @@ export default function registerSystemSettings() {
 
   // Default GM Setting for placing templates
   game.settings.register('a5e', 'placeItemTemplateDefault', {
-    name: 'Place Templates for Items by Default',
+    name: 'Place Templates by Default',
+    hint: 'Automatically select the "Place Measured Template" option in the roll dialog for features, spells, etc.',
     scope: 'world',
     config: true,
     type: Boolean,
