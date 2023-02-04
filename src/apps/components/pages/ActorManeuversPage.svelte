@@ -2,6 +2,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import ActorManueverConfigDialog from "../../dialogs/initializers/ActorManueverConfigDialog";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import ItemCategory from "../ItemCategory.svelte";
@@ -10,6 +11,11 @@
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
+
+    function configureManuevers() {
+        const dialog = new ActorManueverConfigDialog(actor);
+        dialog.render(true);
+    }
 
     $: exertion = $actor.system.attributes.exertion;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -70,7 +76,10 @@
                     {localize("A5E.ConfigureManeuvers")}
                 </h3>
 
-                <i class="fas fa-gear a5e-config-button" />
+                <i
+                    class="fas fa-gear a5e-config-button"
+                    on:click={configureManuevers}
+                />
             </div>
         {/if}
     </TabFooter>
@@ -84,12 +93,6 @@
         gap: 0.5rem;
         overflow: hidden;
     }
-    .search-container {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-    }
-
     .maneuvers-main-container {
         display: flex;
         flex-grow: 1;
