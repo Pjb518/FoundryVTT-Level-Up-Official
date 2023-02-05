@@ -243,6 +243,7 @@ export default class Actor5e extends Actor {
   getRollData() {
     const data = super.getRollData();
     const { abilities } = this.system;
+    const { attributes } = this.system;
 
     data.prof = this.system.attributes.prof || 0;
 
@@ -259,6 +260,8 @@ export default class Actor5e extends Actor {
     }, data);
 
     data.level = this.system.details.level;
+
+    data.spell = abilities[attributes.spellcasting]
 
     data.spellDC = calculateSpellDC(this.system);
     data.maneuverDC = calculateManeuverDC(this.system);
