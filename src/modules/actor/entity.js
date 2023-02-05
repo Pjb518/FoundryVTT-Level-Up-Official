@@ -28,6 +28,7 @@ import WeaponProficienciesConfigDialog from '../../vue/WeaponProficienciesConfig
 
 import calculateManeuverDC from '../utils/calculateManeuverDC';
 import calculatePassiveScore from '../utils/calculatePassiveScore';
+import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import calculateSpellDC from '../utils/calculateSpellDC';
 import getBaseAbilityMod from '../utils/getBaseAbilityMod';
 import getDialogData from '../dice/getDialogData';
@@ -276,6 +277,8 @@ export default class Actor5e extends Actor {
     }, data);
 
     data.level = this.system.details.level;
+
+    data.spellMod = calculateSpellcastingMod(this.system);
 
     data.spellDC = calculateSpellDC(this.system);
     data.maneuverDC = calculateManeuverDC(this.system);
