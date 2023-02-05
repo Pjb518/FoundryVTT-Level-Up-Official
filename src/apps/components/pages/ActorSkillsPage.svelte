@@ -1,11 +1,16 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
-    import A5E from "../../../modules/config";
 
     import getExpertiseDieSize from "../../../modules/utils/getExpertiseDieSize";
+    import SkillConfigDialog from "../../dialogs/initializers/SkillConfigDialog";
 
     const actor = getContext("actor");
+
+    function configureSkill(skill, label) {
+        const dialog = new SkillConfigDialog(actor, skill, label);
+        dialog.render(true);
+    }
 
     const showDeterministicBonus =
         $actor.system.flags?.a5e?.IncludeAbilityModifiersForSkills ??
@@ -38,8 +43,9 @@
             </span>
 
             {#if !sheetIsLocked}
-                <i
-                    class="a5e-config-button a5e-config-button--skill fas fa-gear"
+                <button
+                    class="fas fa-cog a5e-config-button--skill a5e-button--edit-config"
+                    on:click={() => configureSkill(skill, label)}
                 />
             {/if}
 
@@ -74,15 +80,15 @@
                     {#if skills[skill].specialties.length}
                         {#each skills[skill].specialties.sort((a, b) => a
                                 .toLowerCase()
-                                .localeCompare(b.toLowerCase())) as speciality}
+                                .localeCompare(b.toLowerCase())) as specialty}
                             <li
                                 class="a5e-tag a5e-tag--tight"
-                                data-speciality={speciality}
+                                data-specialty={specialty}
                             >
                                 {localize(
                                     CONFIG.A5E.skillSpecialties[skill][
-                                        speciality
-                                    ] ?? speciality
+                                        specialty
+                                    ] ?? specialty
                                 )}
                             </li>
                         {/each}

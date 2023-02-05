@@ -13,5 +13,8 @@ export default class FeatureMapReducer extends DynMapReducer {
     Object.entries(this._types).forEach(([key, reducer]) => {
       reducer.filters.add((item) => item.system.featureType === key);
     });
+
+    this._types.other = this.derived.create('other');
+    this._types.other.filters.add((item) => item.system.featureType === '');
   }
 }

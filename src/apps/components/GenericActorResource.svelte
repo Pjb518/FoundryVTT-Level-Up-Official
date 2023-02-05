@@ -1,14 +1,40 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
+    import GenericActorResourceConfigDialog from "../dialogs/initializers/GenericActorResourceConfigDialog";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let resource;
     export let source;
+    export let idx;
 
     const actor = getContext("actor");
 
+    function configureResource() {
+        const dialog = new GenericActorResourceConfigDialog(actor, source);
+        dialog.render(true);
+    }
+
+    function incrementResource() {
+        resource.value = Math.max(resource.value + 1, 0);
+        updateDocumentDataFromField(
+            $actor,
+            `system.resources.${source}.value`,
+            Number(resource.value)
+        );
+    }
+
+    function decrementResource() {
+        resource.value = Math.max(resource.value - 1, 0);
+        updateDocumentDataFromField(
+            $actor,
+            `system.resources.${source}.value`,
+            Number(resource.value)
+        );
+    }
+
+    $: resource = resource;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
@@ -20,6 +46,7 @@
             value={resource.label}
             class="a5e-input a5e-input--slim resource-label"
             placeholder={localize(`A5E.Resources${source.capitalize()}`)}
+            disabled={sheetIsLocked}
             on:change={({ target }) =>
                 updateDocumentDataFromField($actor, target.name, target.value)}
         />
@@ -27,23 +54,38 @@
 
     <div class="resource-value-container">
         {#if resource.hideMax}
-            <button type="button" class="a5e-button resource-btn">
+            <button
+                class="a5e-button resource-btn"
+                type="button"
+                disabled={resource.value === 0}
+                on:click={decrementResource}
+            >
                 <i class="fas fa-minus" />
             </button>
         {/if}
 
         <input
+            class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
             type="number"
             name="system.resources.{source}.value"
             value={resource.value}
-            class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
             placeholder="0"
+            min="0"
             on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
+                updateDocumentDataFromField(
+                    $actor,
+                    target.name,
+                    Number(target.value)
+                )}
         />
 
         {#if resource.hideMax}
-            <button type="button" class="a5e-button resource-btn">
+            <button
+                class="a5e-button resource-btn"
+                type="button"
+                on:click={incrementResource}
+            >
+                >>>>>>> actor-forms
                 <i class="fas fa-plus" />
             </button>
         {:else}
@@ -68,7 +110,11 @@
 
     {#if !sheetIsLocked}
         <div class="resource-setting">
-            <i class="fas fa-gear a5e-config-button" />
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <i
+                class="fas fa-gear a5e-config-button"
+                on:click={configureResource}
+            />
         </div>
     {/if}
 </li>

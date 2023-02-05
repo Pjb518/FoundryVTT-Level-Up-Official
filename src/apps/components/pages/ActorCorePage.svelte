@@ -1,83 +1,83 @@
 <script>
-  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-  import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { getContext } from "svelte";
 
-  import GenericActorResource from "../GenericActorResource.svelte";
-  import ItemWrapper from "../ItemWrapper.svelte";
+    import GenericActorResource from "../GenericActorResource.svelte";
+    import ItemWrapper from "../ItemWrapper.svelte";
 
-  export let resources;
+    export let resources;
 
-  const actor = getContext("actor");
-  const { favorites } = actor;
+    const actor = getContext("actor");
+    const { favorites } = actor;
 
-  $: resources = $actor.system.resources;
+    $: resources = $actor.system.resources;
 </script>
 
 <ol class="resources-container">
-  {#each Object.entries(resources) as [source, resource]}
-    <GenericActorResource {resource} {source} />
-  {/each}
+    {#each Object.entries(resources) as [source, resource], idx}
+        <GenericActorResource {resource} {source} {idx} />
+    {/each}
 </ol>
 
 <header class="section-header">
-  <i class="fas fa-star heading-icon" />
+    <i class="fas fa-star heading-icon" />
 
-  <h3>
-    {localize("A5E.FavoriteItems")}
-  </h3>
+    <h3>
+        {localize("A5E.FavoriteItems")}
+    </h3>
 </header>
 
 <ul class="items-container">
-  {#each [...$favorites] as item}
-    <ItemWrapper>
-      <img class="item-image" src={item.img} alt={item.name} />
-      {item.name}
-    </ItemWrapper>
-  {/each}
+    {#each [...$favorites] as item}
+        <ItemWrapper>
+            <img class="item-image" src={item.img} alt={item.name} />
+            {item.name}
+        </ItemWrapper>
+    {/each}
 </ul>
 
 <style lang="scss">
-  .heading-icon {
-    font-size: 0.833rem;
-  }
+    .heading-icon {
+        font-size: 0.833rem;
+    }
 
-  .item-image {
-    height: 1.75rem;
-    width: 1.75rem;
-    border-radius: 3px;
-  }
+    .item-image {
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 3px;
+    }
 
-  .items-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0;
-    padding-right: 0.375rem;
-    margin: 0;
-    margin-right: -0.375rem;
-    list-style: none;
-    overflow-y: auto;
-  }
+    .items-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0;
+        padding-right: 0.375rem;
+        margin: 0;
+        margin-right: -0.375rem;
+        list-style: none;
+        overflow-y: auto;
+    }
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 0.25rem;
-    padding-top: 0;
-    border-bottom: 1px solid #ccc;
-    font-size: 1rem;
-    font-family: "Modesto Condensed", serif;
-  }
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.25rem;
+        padding-top: 0;
+        border-bottom: 1px solid #ccc;
+        font-size: 1rem;
+        font-family: "Modesto Condensed", serif;
+    }
 
-  .resources-container {
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+    .resources-container {
+        display: flex;
+        gap: 0.5rem;
+        width: 100%;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 </style>

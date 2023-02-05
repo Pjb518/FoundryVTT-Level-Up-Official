@@ -1,11 +1,9 @@
 <script>
     import { getContext } from "svelte";
-
-    const actor = getContext("actor");
 </script>
 
 <div class="rest" data-tooltip="A5E.Rest" data-tooltip-direction="DOWN">
-    <i class="rest-icon fas fa-campfire" />
+    <i class="rest__icon fas fa-campfire" />
 </div>
 
 <style lang="scss">
@@ -22,7 +20,7 @@
         bottom: 1rem;
         right: 0.625rem;
 
-        &-icon {
+        &__icon {
             z-index: 1;
             display: flex;
             width: 2rem;
@@ -45,7 +43,7 @@
         &:hover {
             background-color: darken(#dddace, 2.5%);
 
-            .rest-icon {
+            .rest__icon {
                 color: lighten(#191813, 35%);
             }
         }

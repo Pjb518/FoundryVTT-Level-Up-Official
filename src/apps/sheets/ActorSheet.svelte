@@ -3,7 +3,6 @@
 <script>
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
     import { getContext, setContext } from "svelte";
-    import ActorDocument from "../ActorDocument";
 
     import ActorCorePage from "../components/pages/ActorCorePage.svelte";
     import ActorBioPage from "../components/pages/ActorBioPage.svelte";
@@ -13,12 +12,13 @@
     import ActorManeuversPage from "../components/pages/ActorManeuversPage.svelte";
     import ActorNotesPage from "../components/pages/ActorNotesPage.svelte";
     import ActorSheetHeader from "../components/actorSheetHeader/actorSheetHeader.svelte";
+    import ActorSettingsPage from "../components/pages/ActorSettingsPage.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
     import ActorSkillsPage from "../components/pages/ActorSkillsPage.svelte";
     import ActorSpellsPage from "../components/pages/ActorSpellsPage.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { actorDocument, sheet } = getContext("external").application;
+    export let { actor, sheet } = getContext("external").application;
     export let currentTab;
     export let elementRoot;
 
@@ -58,11 +58,19 @@
             name: "maneuvers",
             label: "A5E.TabManeuvers",
             component: ActorManeuversPage,
+            display: $actor.flags?.a5e.showManeuverTab,
         },
         {
             name: "spells",
             label: "A5E.TabSpells",
             component: ActorSpellsPage,
+            display: $actor.flags?.a5e.showSpellTab,
+        },
+        {
+            name: "biography",
+            label: "A5E.TabBiography",
+            component: ActorBioPage,
+            display: $actor.type === "character",
         },
         {
             name: "notes",
@@ -77,21 +85,13 @@
         {
             name: "settings",
             label: "A5E.TabSettings",
-            component: ActorCorePage,
+            component: ActorSettingsPage,
         },
     ];
 
-    if (actorDocument.type === "character") {
-        tabs.splice(6, 0, {
-            name: "biography",
-            label: "A5E.TabBiography",
-            component: ActorBioPage,
-        });
-    }
-
     $: currentTab = tabs[0];
 
-    setContext("actor", new ActorDocument(actorDocument));
+    setContext("actor", actor);
 </script>
 
 <ApplicationShell bind:elementRoot>
