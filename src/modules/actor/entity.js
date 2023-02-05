@@ -244,7 +244,6 @@ export default class Actor5e extends Actor {
   getRollData() {
     const data = super.getRollData();
     const { abilities } = this.system;
-    const { attributes } = this.system;
 
     data.prof = this.system.attributes.prof || 0;
 
