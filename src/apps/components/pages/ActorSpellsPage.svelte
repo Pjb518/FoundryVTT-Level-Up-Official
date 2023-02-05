@@ -6,10 +6,16 @@
     import TabFooter from "../TabFooter.svelte";
     import SortFilter from "../SortFilter.svelte";
 
+    import ActorSpellConfigDialog from "../../dialogs/initializers/ActorSpellConfigDialog";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
     const { spells } = actor;
+
+    function configureSpells() {
+        const dialog = new ActorSpellConfigDialog(actor);
+        dialog.render(true);
+    }
 
     $: spellResources = $actor.system.spellResources;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -70,7 +76,10 @@
                     {localize("A5E.ConfigureSpells")}
                 </h3>
 
-                <i class="fas fa-gear a5e-config-button u-text-sm" />
+                <i
+                    class="fas fa-gear a5e-config-button u-text-sm"
+                    on:click={configureSpells}
+                />
             </div>
         {/if}
     </TabFooter>

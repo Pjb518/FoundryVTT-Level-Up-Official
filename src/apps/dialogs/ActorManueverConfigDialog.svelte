@@ -42,7 +42,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            target.checked
                         )}
                 />
 
