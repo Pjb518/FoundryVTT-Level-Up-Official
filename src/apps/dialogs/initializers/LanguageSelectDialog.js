@@ -23,27 +23,35 @@ export default class LanguageSelectDialog extends TraitSelectDialog {
   }
 
   /**
-   * @param {string} Name to include in the title
-   * @param {[string]]} known List of known languages, users can not change these.
-   * @param {[string]} recommended List of recommended languages, users may change these.
-   * @param {number=0} additional
-   * @return Returns the new list of languages, or `known` if user doesn't submit their choices
+   * @param {string} dialogTitle A title for the dialog window.
+   * @param {[string]]} knownLanguage A list of languages the character already knows. Users can't
+   *                                  change these.
+   * @param {[string]} defaultSelections A list of recommended languages. Users may change these.
+   * @param {number=0} additional The number of additional languages the user can select.
+   * @return Returns the new list of languages or the character's currently known languages if user
+   * doesn't submit their choices.
    */
-  static async createRecommendLanguages(titleName, known, recommended, additional = 0) {
+  static async createRecommendLanguages(
+    dialogTitle,
+    knownLanguages,
+    defaultSelections,
+    additional = 0
+  ) {
     // Remove duplicates
-    const selected = [...new Set([...known, ...recommended])];
+    const selected = [...new Set([...knownLanguages, ...defaultSelections])];
 
     const dialog = new LanguageSelectDialog(
-      titleName,
+      dialogTitle,
       {
         selected,
-        disabled: known,
-        selectionLimit: known.length + recommended.length + additional
+        disabled: knownLanguages,
+        selectionLimit: knownLanguages.length + defaultSelections.length + additional
       }
     );
+
     dialog.render(true);
 
-    // If the dialog is closed without user submitting their choices, return known.
-    return (await dialog.promise) ?? known;
+    // If the dialog is closed without user submitting their choices, return knownLanguages.
+    return (await dialog.promise) ?? knownLanguages;
   }
 }
