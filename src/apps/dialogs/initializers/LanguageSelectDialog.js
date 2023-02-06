@@ -22,10 +22,14 @@ export default class LanguageSelectDialog extends TraitSelectDialog {
     );
   }
 
+  // TODO: Replace this approach. I don't think we need to be using a static method here, and the
+  // method name doesn't accurately describe what this function does. Nothing is created, and it
+  // has nothing to do with recommended languages. We're allowing the user to select whatever they
+  // want and returning their selections.
   /**
    * @param {string} name The name of the parent item or actor to include in the dialog window.
-   * @param {[string]]} knownLanguage A list of languages the character already knows. Users can't
-   *                                  change these.
+   * @param {[string]]} knownLanguages A list of languages the character already knows. Users can't
+   *                                   change these.
    * @param {[string]} defaultSelections A list of recommended languages. Users may change these.
    * @param {number=0} additional The number of additional languages the user can select.
    * @return Returns the new list of languages or the character's currently known languages if user
