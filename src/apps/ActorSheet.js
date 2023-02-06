@@ -115,14 +115,14 @@ export default class ActorSheet extends SvelteApplication {
     let known = this.actor.system.proficiencies.languages;
     known = known.concat(item.system.languages.base);
 
-    const addLangugaes = item.system.languages.additional;
-    if (addLangugaes > 0) {
+    const addLanguages = item.system.languages.additional;
+    if (addLanguages > 0) {
       const dialog = new LanguageSelectDialog({
         languages: known,
         disabled: known,
         /* TODO: Add selectionCount to the LanguageSelect Dialog.
         This can be done after languages get delocalized. */
-        selectionCount: addLangugaes
+        selectionCount: addLanguages
       });
       dialog.render(true);
       known = await dialog.promise;
