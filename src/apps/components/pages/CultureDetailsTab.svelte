@@ -115,11 +115,11 @@
         <input
             class="a5e-input"
             type="number"
-            value={$item.system.proficiencies.additional_languages}
+            value={$item.system.proficiencies.additionalLanguages}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    "system.proficiencies.additional_languages",
+                    "system.proficiencies.additionalLanguages",
                     parseInt(target.value)
                 )}
         />
