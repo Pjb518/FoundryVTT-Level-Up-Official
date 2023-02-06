@@ -8,7 +8,7 @@
 <nav class="nav-wrapper">
     <ul class="nav-list">
         {#each tabs as tab, index}
-            {#if tab?.display ?? true}
+            {#if tab?.display || true}
                 <NavigationItem on:tab-change {tab} {index} {currentTab} />
             {/if}
         {/each}

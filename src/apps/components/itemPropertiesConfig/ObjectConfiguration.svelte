@@ -14,6 +14,8 @@
     function toggleEditMode() {
         editMode = !editMode;
     }
+
+    console.log(item)
 </script>
 
 <section>
@@ -246,6 +248,27 @@
                     </div>
                 </div>
             </FormSection>
+
+            <FormSection heading="A5E.ItemCondition">
+                <div 
+                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full" 
+                >
+                    <div class="u-align-center u-flex u-gap-md u-w-30">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="system.broken"
+                            id={`${appId}-broken`}
+                            checked={$item.system.broken}
+                        />
+
+                        <label class="u-pointer" for={`${appId}-broken`}>
+                            {localize("A5E.ItemBroken")}
+                        </label>
+                    </div>
+                </div>
+            </FormSection>
+                                        
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
@@ -289,6 +312,13 @@
             </div>
 
             <hr class="a5e-rule u-my-sm" />
+
+            <div class="u-flex u-gap-md">
+                <dt class="u-text-bold">{localize("A5E.ItemBroken")}:</dt>
+                <dd class="u-m-0 u-p-0">
+                    {$item.system.broken}
+                </dd>
+            </div>
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ItemWeight")}:</dt>

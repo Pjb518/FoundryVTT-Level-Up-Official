@@ -58,13 +58,13 @@
             name: "maneuvers",
             label: "A5E.TabManeuvers",
             component: ActorManeuversPage,
-            display: $actor.flags?.a5e.showManeuverTab,
+            display: $actor.flags?.a5e?.showManeuverTab,
         },
         {
             name: "spells",
             label: "A5E.TabSpells",
             component: ActorSpellsPage,
-            display: $actor.flags?.a5e.showSpellTab,
+            display: $actor.flags?.a5e?.showSpellTab,
         },
         {
             name: "biography",
