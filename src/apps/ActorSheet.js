@@ -110,7 +110,6 @@ export default class ActorSheet extends SvelteApplication {
       ui.notifications.warn('Culture documents cannot be added to NPCs.');
       return;
     }
-
     const currentLanguages = await LanguageSelectDialog.createRecommendLanguages(
       this.actor.name,
       this.actor.system.proficiencies.languages,

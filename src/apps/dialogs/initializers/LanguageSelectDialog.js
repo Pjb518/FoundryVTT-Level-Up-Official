@@ -5,12 +5,12 @@ import TraitSelectDialog from './TraitSelectDialog';
  */
 export default class LanguageSelectDialog extends TraitSelectDialog {
   /**
-   * @param {string} titleName Name to include in the title
+   * @param {string} name The name of the parent item or actor to include in the dialog window.
    * @param {*} options See TraitSelectDialog options
    */
-  constructor(titleName, options) {
+  constructor(name, options) {
     super(
-      game.i18n.format('A5E.LanguagesConfigurationPrompt', titleName),
+      game.i18n.format('A5E.LanguagesConfigurationPrompt', { name }),
       [{
         label: 'A5E.Languages',
         traits: CONFIG.A5E.languages
@@ -23,7 +23,7 @@ export default class LanguageSelectDialog extends TraitSelectDialog {
   }
 
   /**
-   * @param {string} dialogTitle A title for the dialog window.
+   * @param {string} name The name of the parent item or actor to include in the dialog window.
    * @param {[string]]} knownLanguage A list of languages the character already knows. Users can't
    *                                  change these.
    * @param {[string]} defaultSelections A list of recommended languages. Users may change these.
@@ -32,7 +32,7 @@ export default class LanguageSelectDialog extends TraitSelectDialog {
    * doesn't submit their choices.
    */
   static async createRecommendLanguages(
-    dialogTitle,
+    name,
     knownLanguages,
     defaultSelections,
     additional = 0
@@ -41,7 +41,7 @@ export default class LanguageSelectDialog extends TraitSelectDialog {
     const selected = [...new Set([...knownLanguages, ...defaultSelections])];
 
     const dialog = new LanguageSelectDialog(
-      dialogTitle,
+      name,
       {
         selected,
         disabled: knownLanguages,
