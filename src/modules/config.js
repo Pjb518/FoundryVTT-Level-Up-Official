@@ -1137,28 +1137,69 @@ A5E.weaponProperties = {
 /**
  * Data for filters on the spells page. Schools of magic are added in on the page.
  */
-A5E.abilityActionFilters = {};
+const abilityActionFilters = {};
 Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {
-  A5E.abilityActionFilters[value] = { label, key: 'system.activation.type', value };
+  abilityActionFilters[value] = { label, key: 'system.activation.type' };
 });
 
-A5E.spellFilters = {
-  activationCost: {
-    ...A5E.abilityActionFilters
-  },
-
-  components: {
-    material: { label: 'A5E.SpellComponentMaterial', type: '' },
-    seen: { label: 'A5E.SpellComponentSeen', type: '' },
-    vocalized: { label: 'A5E.SpellComponentVocalized', type: '' }
-  },
-
-  miscellaneous: {
-    concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration' },
-    ritual: { label: 'A5E.SpellRitual', key: 'system.ritual' },
-    prepared: { label: 'A5E.', key: 'system.prepared' }
+A5E.filters = {
+  features: {},
+  maneuvers: {},
+  objects: {},
+  spells: {
+    activationCost: {
+      label: 'A5E.FilterLabelActivationCost',
+      filters: { ...abilityActionFilters }
+    },
+    components: {
+      label: 'A5E.FilterLabelSpellComponents',
+      filters: {
+        material: {
+          label: 'A5E.SpellComponentMaterial',
+          key: 'system.components.material',
+          type: ''
+        },
+        seen: {
+          label: 'A5E.SpellComponentSeen',
+          key: 'system.components.seen',
+          type: ''
+        },
+        vocalized: {
+          label: 'A5E.SpellComponentVocalized',
+          key: 'system.components.vocalized',
+          type: ''
+        }
+      }
+    },
+    miscellaneous: {
+      label: 'A5E.FilterLabelMiscellaneous',
+      filters: {
+        concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration' },
+        ritual: { label: 'A5E.SpellRitual', key: 'system.ritual' },
+        prepared: { label: 'A5E.', key: 'system.prepared' }
+      }
+    },
+    primarySpellSchools: {
+      label: 'A5E.FilterLabelPrimarySpellSchools',
+      filters: {}
+    },
+    secondarySpellSchools: {
+      label: 'A5E.FilterLabelSecondarySpellSchools',
+      filters: {}
+    }
   }
-
 };
+
+Object.entries(A5E.spellSchools.primary).forEach(([value, label]) => {
+  A5E.filters.spells.primarySpellSchools.filters[value] = {
+    label, key: 'system.schools.primary'
+  };
+});
+
+Object.entries(A5E.spellSchools.secondary).forEach(([value, label]) => {
+  A5E.filters.spells.secondarySpellSchools.filters[value] = {
+    label, key: 'system.schools.secondary'
+  };
+});
 
 export default A5E;
