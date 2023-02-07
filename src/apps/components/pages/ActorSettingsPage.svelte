@@ -20,7 +20,34 @@
     class="u-flex-grow u-grid u-grid-2 u-overflow-y-auto u-gap-md u-px-md"
     style="grid-auto-rows: min-content;"
 >
+
+    
     <div class="u-flex u-flex-col u-gap-md">
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
+                    name="flags.a5e.jackOfAllTrades"
+                    id={`${$actor.id}-jack-of-all-trades`}
+                    checked={flags.a5e?.jackOfAllTrades ?? false}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.checked
+                        )}
+                />
+
+                <label
+                    class="u-pointer"
+                    for={`${$actor.id}-jack-of-all-trades`}
+                >
+                    {localize("A5E.SettingsJackOfAllTrades")}
+                </label>
+            </div>
+        </FormSection>
+
         <FormSection>
             <div class="u-align-center u-flex u-gap-md">
                 <input
