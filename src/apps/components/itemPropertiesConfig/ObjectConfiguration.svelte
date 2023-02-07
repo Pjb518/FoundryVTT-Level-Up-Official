@@ -14,8 +14,6 @@
     function toggleEditMode() {
         editMode = !editMode;
     }
-
-    console.log(item)
 </script>
 
 <section>
@@ -260,6 +258,12 @@
                             name="system.broken"
                             id={`${appId}-broken`}
                             checked={$item.system.broken}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $item,
+                                    target.name,
+                                    target.checked
+                                )}
                         />
 
                         <label class="u-pointer" for={`${appId}-broken`}>
@@ -312,13 +316,6 @@
             </div>
 
             <hr class="a5e-rule u-my-sm" />
-
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.ItemBroken")}:</dt>
-                <dd class="u-m-0 u-p-0">
-                    {$item.system.broken}
-                </dd>
-            </div>
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ItemWeight")}:</dt>

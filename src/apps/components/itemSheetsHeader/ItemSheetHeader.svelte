@@ -18,9 +18,19 @@
     on:change={({ target }) =>
       updateDocumentDataFromField($item, target.name, target.value)}
   />
+  {#if $item.system.broken}
+    <i class="broken-item-icon fa-solid fa-heart-crack" data-tooltip="A5E.BrokenItem" data-tooltip-direction="RIGHT"></i>
+  {/if}
 </header>
 
 <style lang="scss">
+  .broken-item-icon {
+    display: block;
+    font-size: 2.25rem;
+    color: #8b2525;
+    padding-right: 1rem
+  }
+
   .sheet-header {
     display: flex;
     align-items: center;
