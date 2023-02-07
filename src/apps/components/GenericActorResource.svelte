@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import GenericActorResourceConfigDialog from "../dialogs/initializers/GenericActorResourceConfigDialog";
 

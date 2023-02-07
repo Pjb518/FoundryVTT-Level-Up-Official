@@ -110,26 +110,15 @@ export default class ActorSheet extends SvelteApplication {
       ui.notifications.warn('Culture documents cannot be added to NPCs.');
       return;
     }
-
-    // Concat known languages with newly learned, removing duplicates.
-    let known = this.actor.system.proficiencies.languages;
-    known = known.concat(item.system.languages.base);
-
-    const addLangugaes = item.system.languages.additional;
-    if (addLangugaes > 0) {
-      const dialog = new LanguageSelectDialog({
-        languages: known,
-        disabled: known,
-        /* TODO: Add selectionCount to the LanguageSelect Dialog.
-        This can be done after languages get delocalized. */
-        selectionCount: addLangugaes
-      });
-      dialog.render(true);
-      known = await dialog.promise;
-    }
+    const currentLanguages = await LanguageSelectDialog.createRecommendLanguages(
+      this.actor.name,
+      this.actor.system.proficiencies.languages,
+      item.system.proficiencies.languages,
+      item.system.proficiencies.additionalLanguages
+    );
 
     this.actor.update({
-      'system.proficiencies.languages': [...new Set(known)] // Keep only unique values
+      'system.proficiencies.languages': currentLanguages
     });
 
     const features = await Promise.all(

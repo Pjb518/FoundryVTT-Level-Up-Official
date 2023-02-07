@@ -1,87 +1,61 @@
-// eslint-disable-next-line import/no-unresolved
-import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
-
-import isCustomLanguage from '../../utils/isCustomLanguage';
-import LanguageSelectDialogComponent from '../LanguageSelectDialog.svelte';
+import TraitSelectDialog from './TraitSelectDialog';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class LanguageSelectDialog extends TJSDialog {
-  _selected = [];
-
-  _disabled = [];
-
-  constructor(options) {
-    super({
-      title: 'Select Languages',
-      content: {
-        class: LanguageSelectDialogComponent,
-        props: {
-        }
-      }
-    }, { classes: ['a5e-sheet'], width: 480 });
-
-    if (Array.isArray(options?.languages)) this._selected = options.languages;
-    if (Array.isArray(options?.disabled)) this._disabled = options.disabled;
-
-    this.promise = new Promise((resolve) => {
-      this.resolve = resolve;
-    });
-  }
-
+export default class LanguageSelectDialog extends TraitSelectDialog {
   /**
-   *
-   * @param {[:string]} selected A list of languages to preselect
-   * @param {[:string]} disabled A list of languages which to disable
-   * @returns
+   * @param {string} name The name of the parent item or actor to include in the dialog window.
+   * @param {*} options See TraitSelectDialog options
    */
-  getLanguages() {
-    const core = [];
+  constructor(name, options) {
+    super(
+      game.i18n.format('A5E.LanguagesConfigurationPrompt', { name }),
+      [{
+        label: 'A5E.Languages',
+        traits: CONFIG.A5E.languages
+      },
+      {
+        label: 'Other Languages'
+      }],
+      options
+    );
+  }
 
-    Object.entries(CONFIG.A5E.languages).forEach((element) => {
-      core.push({
-        value: element[0],
-        name: game.i18n.localize(element[1]),
-        selected: this._selected.includes(element[0]),
-        disabled: this._disabled.includes(element[0])
-      });
-    });
+  // TODO: Replace this approach. I don't think we need to be using a static method here, and the
+  // method name doesn't accurately describe what this function does. Nothing is created, and it
+  // has nothing to do with recommended languages. We're allowing the user to select whatever they
+  // want and returning their selections.
+  /**
+   * @param {string} name The name of the parent item or actor to include in the dialog window.
+   * @param {[string]]} knownLanguages A list of languages the character already knows. Users can't
+   *                                   change these.
+   * @param {[string]} defaultSelections A list of recommended languages. Users may change these.
+   * @param {number=0} additional The number of additional languages the user can select.
+   * @return Returns the new list of languages or the character's currently known languages if user
+   * doesn't submit their choices.
+   */
+  static async createRecommendLanguages(
+    name,
+    knownLanguages,
+    defaultSelections,
+    additional = 0
+  ) {
+    // Remove duplicates
+    const selected = [...new Set([...knownLanguages, ...defaultSelections])];
 
-    const custom = [];
-    this._selected.forEach((lang) => {
-      if (isCustomLanguage(lang)) {
-        custom.push(lang);
+    const dialog = new LanguageSelectDialog(
+      name,
+      {
+        selected,
+        disabled: knownLanguages,
+        selectionLimit: knownLanguages.length + defaultSelections.length + additional
       }
-    });
+    );
 
-    return {
-      core,
-      custom: custom.join(';')
-    };
-  }
+    dialog.render(true);
 
-  close(options) {
-    this.resolvePromise(null);
-    return super.close(options);
-  }
-
-  resolvePromise(data) {
-    if (this.resolve) {
-      this.resolve(data);
-    }
-  }
-
-  submit(data) {
-    const results = [];
-    data.core.forEach((lang) => { if (lang.selected) results.push(lang.value); });
-    data.custom.split(';').forEach((l) => {
-      const lang = l.trim();
-      if (lang !== '' && !results.includes(lang)) {
-        results.push(lang);
-      }
-    });
-    this.resolvePromise(results);
-    return super.close();
+    // If the dialog is closed without user submitting their choices, return knownLanguages.
+    return (await dialog.promise) ?? knownLanguages;
   }
 }
