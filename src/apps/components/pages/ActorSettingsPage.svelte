@@ -23,28 +23,32 @@
 
     
     <div class="u-flex u-flex-col u-gap-md">
-        <FormSection>
+        <FormSection 
+            hint="When enabled, half of your proficiency bonus (rounded down) will be added to all ability checks that do not already include your proficiency bonus."
+        >
             <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="u-pointer"
-                    type="checkbox"
-                    name="flags.a5e.jackOfAllTrades"
-                    id={`${$actor.id}-jack-of-all-trades`}
-                    checked={flags.a5e?.jackOfAllTrades ?? false}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
+                <div class="u-align-center u-flex u-gap-md">
+                    <input
+                        class="u-pointer"
+                        type="checkbox"
+                        name="flags.a5e.jackOfAllTrades"
+                        id={`${$actor.id}-jack-of-all-trades`}
+                        checked={flags.a5e?.jackOfAllTrades ?? false}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            )}
+                    />
 
-                <label
-                    class="u-pointer"
-                    for={`${$actor.id}-jack-of-all-trades`}
-                >
-                    {localize("A5E.SettingsJackOfAllTrades")}
-                </label>
+                    <label
+                        class="u-pointer" 
+                        for={`${$actor.id}-jack-of-all-trades`}
+                    >
+                        {localize("A5E.SettingsJackOfAllTrades")}
+                    </label>
+                </div>
             </div>
         </FormSection>
 
