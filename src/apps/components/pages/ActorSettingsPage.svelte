@@ -17,13 +17,11 @@
 </script>
 
 <section
-    class="u-flex-grow u-grid u-grid-2 u-overflow-y-auto u-gap-md u-px-md"
+    class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
     style="grid-auto-rows: min-content;"
 >
-
-    
     <div class="u-flex u-flex-col u-gap-md">
-        <FormSection 
+        <FormSection
             hint="When enabled, half of your proficiency bonus (rounded down) will be added to all ability checks that do not already include your proficiency bonus."
         >
             <div class="u-align-center u-flex u-gap-md">
@@ -43,7 +41,7 @@
                     />
 
                     <label
-                        class="u-pointer" 
+                        class="u-pointer"
                         for={`${$actor.id}-jack-of-all-trades`}
                     >
                         {localize("A5E.SettingsJackOfAllTrades")}
