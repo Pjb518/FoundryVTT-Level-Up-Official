@@ -212,9 +212,10 @@ export default class Actor5e extends Actor {
 
   prepareSkills() {
     const actorData = this.system;
+    const { jackOfAllTrades } = this.flags.a5e;
 
     Object.values(actorData.skills).forEach((skill) => {
-      skill.mod = skill.proficient ? actorData.attributes.prof : 0;
+      skill.mod = skill.proficient ? actorData.attributes.prof : jackOfAllTrades ? Math.floor(actorData.attributes.prof/2) : 0;
     });
 
     Object.values(actorData.skills).forEach((skill) => {

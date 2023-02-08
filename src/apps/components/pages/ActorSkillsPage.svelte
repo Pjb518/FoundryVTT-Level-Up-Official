@@ -29,6 +29,7 @@
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: skills = $actor.system.skills;
+    $: jackOfAllTrades = $actor.flags.a5e.jackOfAllTrades;
 </script>
 
 <ul class="skills-container">
