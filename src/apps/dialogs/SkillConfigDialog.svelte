@@ -33,7 +33,7 @@
             <input
                 class="u-pointer"
                 type="checkbox"
-                id={`${appId}-${""}-proficient`}
+                id={`${appId}-${skillKey}-proficient`}
                 name={`system.skills.${skillKey}.proficient`}
                 checked={skill.proficient}
                 on:change={({ target }) =>
