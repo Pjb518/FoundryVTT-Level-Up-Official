@@ -106,3 +106,9 @@
         </ul>
     </div>
 </li>
+
+<style lang="scss">
+    .skill-proficiency-icon {
+        color: rgba(0, 0, 0, 0.25);
+    }
+</style>
