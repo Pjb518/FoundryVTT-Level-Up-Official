@@ -1,108 +1,18 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import getExpertiseDieSize from "../../../modules/utils/getExpertiseDieSize";
-    import SkillConfigDialog from "../../dialogs/initializers/SkillConfigDialog";
+    import Skill from "../Skill.svelte";
 
     const actor = getContext("actor");
 
-    function configureSkill(skill, label) {
-        const dialog = new SkillConfigDialog(actor, skill, label);
-        dialog.render(true);
-    }
-
-    const showDeterministicBonus =
-        $actor.system.flags?.a5e?.IncludeAbilityModifiersForSkills ??
-        $actor.system.type;
-
-    function getBonus(id) {
-        const skill = $actor.system.skills[id];
-        const skillBonus = skill.deterministicBonus;
-        if (!showDeterministicBonus) return skillBonus;
-        else
-            return (
-                skillBonus +
-                $actor.system.abilities[skill.ability].check.deterministicBonus
-            );
-    }
-
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: jackOfAllTrades = $actor.flags.a5e?.jackOfAllTrades;
     $: skills = $actor.system.skills;
-    $: jackOfAllTrades = $actor.flags.a5e.jackOfAllTrades;
 </script>
 
 <ul class="skills-container">
     <!-- svelte-ignore missing-declaration (CONFIG)-->
-    {#each Object.entries(CONFIG.A5E.skills) as [skill, label]}
-        <li class="a5e-item a5e-item--skill" data-skill={skill}>
-            <span
-                class="a5e-skill__value"
-                class:a5e-skill__value--green={skills[skill].proficient}
-            >
-                {getBonus(skill)}
-            </span>
-
-            {#if !sheetIsLocked}
-                <button
-                    class="fas fa-cog a5e-config-button--skill a5e-button--edit-config"
-                    on:click={() => configureSkill(skill, label)}
-                />
-            {/if}
-
-            <div class="u-flex u-flex-col u-gap-xxs u-justify-center">
-                <header class="u-align-center u-flex u-gap-xs">
-                    <h3 class="u-text-bold u-text-sm">
-                        {localize(label)}
-                    </h3>
-
-                    {#if skills[skill].expertiseDice}
-                        <span class="u-text-xs">
-                            ({getExpertiseDieSize(
-                                skills[skill].expertiseDice,
-                                false
-                            )})
-                        </span>
-                    {/if}
-                </header>
-
-                <ul
-                    class="
-                        u-flex
-                        u-flex-wrap
-                        u-font-san-serif
-                        u-list-style-none
-                        u-m-0
-                        u-p-0
-                        u-text-xxs
-                        u-gap-xs
-                        "
-                >
-                    {#if skills[skill].specialties.length}
-                        {#each skills[skill].specialties.sort((a, b) => a
-                                .toLowerCase()
-                                .localeCompare(b.toLowerCase())) as specialty}
-                            <li
-                                class="a5e-tag a5e-tag--tight"
-                                data-specialty={specialty}
-                            >
-                                {localize(
-                                    CONFIG.A5E.skillSpecialties[skill][
-                                        specialty
-                                    ] ?? specialty
-                                )}
-                            </li>
-                        {/each}
-                    {:else}
-                        <li
-                            class="u-border u-border-transparent u-py-xxxs u-text-medium"
-                        >
-                            {localize("A5E.SkillNoSpecialties")}
-                        </li>
-                    {/if}
-                </ul>
-            </div>
-        </li>
+    {#each Object.entries(skills) as [key, skill]}
+        <Skill {jackOfAllTrades} {key} {skill} />
     {/each}
 </ul>
 
