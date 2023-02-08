@@ -1,7 +1,6 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import preprocess from 'svelte-preprocess';
-
-const path = require('path');
+import path from 'path';
 
 const config = {
   root: 'src/',
