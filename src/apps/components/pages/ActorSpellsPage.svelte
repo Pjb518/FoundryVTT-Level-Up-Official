@@ -26,52 +26,52 @@
 
     <section class="spells-main-container">
         {#each Object.entries($spells._levels) as [label, items]}
-            {#if items.length}
-                <ItemCategory {label} {items} type="spellLevels" />
-            {/if}
+            <ItemCategory {label} {items} type="spellLevels" />
         {/each}
     </section>
 
     <TabFooter>
         <!-- Spell Points -->
-        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
-            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.SpellPoints")}
-            </h3>
+        {#if $actor.flags?.a5e?.showSpellPoints ?? false}
+            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                    {localize("A5E.SpellPoints")}
+                </h3>
 
-            <input
-                class="a5e-footer-group__input"
-                type="number"
-                name="system.spellResources.points.current"
-                value={spellResources.points.current}
-                placeholder="0"
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-            /
-            <input
-                class="a5e-footer-group__input"
-                type="number"
-                name="system.spellResources.points.max"
-                value={spellResources.points.max}
-                placeholder="0"
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-        </div>
+                <input
+                    class="a5e-footer-group__input"
+                    type="number"
+                    name="system.spellResources.points.current"
+                    value={spellResources.points.current}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value)
+                        )}
+                />
+                /
+                <input
+                    class="a5e-footer-group__input"
+                    type="number"
+                    name="system.spellResources.points.max"
+                    value={spellResources.points.max}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value)
+                        )}
+                />
+            </div>
+        {/if}
 
         {#if !sheetIsLocked}
-            <div class="u-align-center u-flex u-gap-md u-h-6 u-mr-lg">
+            <div class="u-align-center u-flex u-gap-md u-h-6 u-mr-lg u-ml-auto">
                 <h3 class="u-mb-0 u-text-bold u-text-sm">
                     {localize("A5E.ConfigureSpells")}
                 </h3>
