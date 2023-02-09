@@ -3,7 +3,7 @@
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("external").application;
+    export let { actor, appId } = getContext("#external").application;
 
     const defaultProficiencies = Object.entries(CONFIG.A5E.armorPlural);
     $: actorProficiencies = $actor.system.proficiencies.armor;

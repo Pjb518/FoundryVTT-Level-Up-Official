@@ -7,7 +7,7 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("external").application;
+    export let { actor, appId } = getContext("#external").application;
 
     function updateFunction() {
         const proficiencies = [

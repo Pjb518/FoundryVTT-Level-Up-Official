@@ -7,7 +7,7 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, source, appId } = getContext("external").application;
+    export let { actor, source, appId } = getContext("#external").application;
 
     const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
     $: resource = $actor.system.resources[source];

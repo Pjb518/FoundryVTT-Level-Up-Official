@@ -3,7 +3,7 @@
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("external").application;
+    export let { actor, appId } = getContext("#external").application;
 
     const systemDamageTypes = Object.entries(CONFIG.A5E.damageTypes);
     $: actorVulnerabilities = $actor.system.traits.damageVulnerabilities;

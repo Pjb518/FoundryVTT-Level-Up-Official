@@ -9,7 +9,7 @@
     import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId, label } = getContext("external").application;
+    export let { actor, appId, label } = getContext("#external").application;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];

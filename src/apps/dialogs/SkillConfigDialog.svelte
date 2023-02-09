@@ -10,7 +10,7 @@
     import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId, skillKey } = getContext("external").application;
+    export let { actor, appId, skillKey } = getContext("#external").application;
 
     const abilityOptions = prepareAbilityOptions();
     const checkBonusHeading = game.i18n.format("A5E.SkillCheckBonus", {

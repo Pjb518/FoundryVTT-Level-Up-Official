@@ -5,8 +5,8 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    export let { application } = getContext("external");
-    export let { itemDocument } = getContext("external").application;
+    export let { application } = getContext("#external");
+    export let { itemDocument } = getContext("#external").application;
 
     const item = new TJSDocument(itemDocument);
 

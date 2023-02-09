@@ -10,7 +10,7 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("external").application;
+    export let { actor, appId } = getContext("#external").application;
 
     const flags = $actor.flags.a5e;
 </script>

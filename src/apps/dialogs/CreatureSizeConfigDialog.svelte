@@ -5,7 +5,7 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    export let { actor, appId } = getContext("external").application;
+    export let { actor, appId } = getContext("#external").application;
 
     const creatureSizes = Object.entries(CONFIG.A5E.actorSizes);
 </script>

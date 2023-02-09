@@ -9,7 +9,7 @@
     export let disabled;
     export let selectionLimit;
 
-    const { application } = getContext("external");
+    const { application } = getContext("#external");
 
     // We generate a list of disabled selected traits, since we remove disabled traits from the
     // custom input box, we must keep track them seperately.
