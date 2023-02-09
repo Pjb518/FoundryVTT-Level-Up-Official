@@ -2,7 +2,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import ItemWrapper from "./ItemWrapper.svelte";
+    import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";
 
     export let label;
@@ -34,10 +34,7 @@
 
     <ul class="items-container">
         {#each [...items] as item}
-            <ItemWrapper>
-                <img class="item-image" src={item.img} alt={item.name} />
-                {item.name}
-            </ItemWrapper>
+            <Item {item} />
         {/each}
     </ul>
 </section>
@@ -60,12 +57,6 @@
         .inventory-add-icon {
             padding-inline: 0.25rem;
         }
-    }
-
-    .item-image {
-        height: 1.75rem;
-        width: 1.75rem;
-        border-radius: 3px;
     }
 
     .items-container {
