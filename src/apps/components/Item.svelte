@@ -7,19 +7,21 @@
     {item.name}
 </li>
 
-<ul class="actions-list">
-    {#each Object.values(item.system.actions) as action}
-        <li class="item-wrapper" draggable="false">
-            <img
-                class="item-image"
-                src={action.img ?? "icons/svg/item-bag.svg"}
-                alt={action.name}
-            />
+{#if Object.values(item.system.actions).length > 1}
+    <ul class="actions-list">
+        {#each Object.values(item.system.actions) as action}
+            <li class="item-wrapper" draggable="false">
+                <img
+                    class="item-image"
+                    src={action.img ?? "icons/svg/item-bag.svg"}
+                    alt={action.name}
+                />
 
-            {action.name}
-        </li>
-    {/each}
-</ul>
+                {action.name}
+            </li>
+        {/each}
+    </ul>
+{/if}
 
 <style>
     .actions-list {
