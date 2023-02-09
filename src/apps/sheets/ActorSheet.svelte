@@ -24,6 +24,8 @@
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
+        console.log(currentTab);
+        $actor.update({ "flags.a5e.currentTab": currentTab.name });
     }
 
     async function onDrop(event) {
@@ -33,7 +35,7 @@
         sheet._onDropDocument(document);
     }
 
-    const tabs = [
+    $: tabs = [
         {
             name: "core",
             label: "A5E.TabCore",
@@ -54,18 +56,22 @@
             label: "A5E.TabFeatures",
             component: ActorFeaturesPage,
         },
-        {
-            name: "maneuvers",
-            label: "A5E.TabManeuvers",
-            component: ActorManeuversPage,
-            display: $actor.flags?.a5e?.showManeuverTab,
-        },
-        {
-            name: "spells",
-            label: "A5E.TabSpells",
-            component: ActorSpellsPage,
-            display: $actor.flags?.a5e?.showSpellTab,
-        },
+        $actor.flags?.a5e?.showManeuverTab
+            ? {
+                  name: "maneuvers",
+                  label: "A5E.TabManeuvers",
+                  component: ActorManeuversPage,
+                  display: $actor.flags?.a5e?.showManeuverTab,
+              }
+            : null,
+        $actor.flags?.a5e?.showSpellTab
+            ? {
+                  name: "spells",
+                  label: "A5E.TabSpells",
+                  component: ActorSpellsPage,
+                  display: $actor.flags?.a5e?.showSpellTab,
+              }
+            : null,
         {
             name: "biography",
             label: "A5E.TabBiography",
@@ -87,9 +93,11 @@
             label: "A5E.TabSettings",
             component: ActorSettingsPage,
         },
-    ];
+    ].filter(Boolean);
 
-    $: currentTab = tabs[0];
+    $: currentTab =
+        tabs.find((tab) => tab.name === $actor.flags?.a5e?.currentTab) ??
+        tabs[0];
 
     setContext("actor", actor);
 </script>
