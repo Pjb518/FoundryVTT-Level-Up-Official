@@ -7,7 +7,29 @@
     {item.name}
 </li>
 
+<ul class="actions-list">
+    {#each Object.values(item.system.actions) as action}
+        <li class="item-wrapper" draggable="false">
+            <img
+                class="item-image"
+                src={action.img ?? "icons/svg/item-bag.svg"}
+                alt={action.name}
+            />
+
+            {action.name}
+        </li>
+    {/each}
+</ul>
+
 <style>
+    .actions-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0 0 0 1rem;
+    }
+
     .item-wrapper {
         position: relative;
         display: flex;
