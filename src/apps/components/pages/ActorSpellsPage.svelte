@@ -12,6 +12,14 @@
     const actor = getContext("actor");
     const { spells } = actor;
 
+    function isSpellLevelVisible(level) {
+        const flags = $actor?.flags?.a5e ?? {};
+
+        if (!flags.availableSpellLevels.length) return true;
+
+        return flags.availableSpellLevels.includes(level.toString());
+    }
+
     function configureSpells() {
         const dialog = new ActorSpellConfigDialog(actor);
         dialog.render(true);
@@ -25,14 +33,21 @@
     <SortFilter itemType="spells" />
 
     <section class="spells-main-container">
-        {#each Object.entries($spells._levels) as [label, items]}
-            <ItemCategory {label} {items} type="spellLevels" />
+        {#each Object.entries(CONFIG.A5E.spellLevels) as [level, label]}
+            {#if isSpellLevelVisible(level)}
+                <ItemCategory
+                    {level}
+                    {label}
+                    items={$spells._levels[level]}
+                    type="spellLevels"
+                />
+            {/if}
         {/each}
     </section>
 
     <TabFooter>
         <!-- Spell Points -->
-        {#if $actor.flags?.a5e?.showSpellPoints ?? false}
+        {#if $actor?.flags?.a5e?.showSpellPoints ?? false}
             <div class="u-flex u-flex-wrap u-align-center u-gap-md">
                 <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
                     {localize("A5E.SpellPoints")}

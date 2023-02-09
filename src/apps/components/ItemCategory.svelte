@@ -16,7 +16,7 @@
     <!-- svelte-ignore missing-declaration -->
     <span class="category-header">
         <h3>
-            {localize(CONFIG.A5E[type][label])}
+            {localize(CONFIG.A5E[type][label] || label)}
         </h3>
 
         {#if !sheetIsLocked}
