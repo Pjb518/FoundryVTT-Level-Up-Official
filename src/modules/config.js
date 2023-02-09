@@ -1139,7 +1139,7 @@ A5E.weaponProperties = {
  */
 const abilityActionFilters = {};
 Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {
-  abilityActionFilters[value] = { label, key: 'system.activation.type' };
+  abilityActionFilters[value] = { label, key: 'system.activation.type', type: 'action' };
 });
 
 A5E.filters = {
@@ -1172,26 +1172,26 @@ A5E.filters = {
         material: {
           label: 'A5E.SpellComponentMaterial',
           key: 'system.components.material',
-          type: ''
+          type: 'boolean'
         },
         seen: {
           label: 'A5E.SpellComponentSeen',
           key: 'system.components.seen',
-          type: ''
+          type: 'boolean'
         },
         vocalized: {
           label: 'A5E.SpellComponentVocalized',
           key: 'system.components.vocalized',
-          type: ''
+          type: 'boolean'
         }
       }
     },
     miscellaneous: {
       label: 'A5E.FilterLabelMiscellaneous',
       filters: {
-        concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration' },
-        ritual: { label: 'A5E.SpellRitual', key: 'system.ritual' },
-        prepared: { label: 'A5E.SpellPrepared', key: 'system.prepared' }
+        concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration', type: 'boolean' },
+        ritual: { label: 'A5E.SpellRitual', key: 'system.ritual', type: 'boolean' },
+        prepared: { label: 'A5E.SpellPrepared', key: 'system.prepared', type: 'boolean' }
       }
     },
     primarySpellSchools: {
@@ -1203,7 +1203,7 @@ A5E.filters = {
 
 Object.entries(A5E.spellSchools.primary).forEach(([value, label]) => {
   A5E.filters.spells.primarySpellSchools.filters[value] = {
-    label, key: 'system.schools.primary'
+    label, key: 'system.schools.primary', type: 'value'
   };
 });
 
