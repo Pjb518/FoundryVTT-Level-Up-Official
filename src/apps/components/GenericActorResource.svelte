@@ -8,7 +8,6 @@
 
     export let resource;
     export let source;
-    export let idx;
 
     const actor = getContext("actor");
 

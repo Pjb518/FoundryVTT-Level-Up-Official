@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -247,8 +248,8 @@
             </FormSection>
 
             <FormSection heading="A5E.ItemCondition">
-                <div 
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full" 
+                <div
+                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
                 >
                     <div class="u-align-center u-flex u-gap-md u-w-30">
                         <input
@@ -271,7 +272,6 @@
                     </div>
                 </div>
             </FormSection>
-                                        
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">

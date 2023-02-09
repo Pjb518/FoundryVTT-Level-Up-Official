@@ -1,85 +1,88 @@
 <script>
-  import { getContext } from "svelte";
+    import { getContext } from "svelte";
 
-  import ActionConfigDialog from "../../dialogs/initializers/ActionConfigDialog";
+    import ActionConfigDialog from "../../dialogs/initializers/ActionConfigDialog";
 
-  const item = getContext("item");
+    const item = getContext("item");
 
-  function addAction() {
-    const actions = $item.system.actions;
+    function addAction() {
+        const actions = $item.system.actions;
 
-    const newAction = {
-      name: "New Action",
-    };
+        const newAction = {
+            name: "New Action",
+        };
 
-    $item.update({
-      "system.actions": {
-        ...actions,
-        [foundry.utils.randomID()]: newAction,
-      },
-    });
-  }
+        $item.update({
+            "system.actions": {
+                ...actions,
+                [foundry.utils.randomID()]: newAction,
+            },
+        });
+    }
 
-  function duplicateAction(event) {
-    const actions = $item.system.actions;
-    const { actionId } = event.target.closest(".action").dataset;
+    function duplicateAction(event) {
+        const actions = $item.system.actions;
+        const { actionId } = event.target.closest(".action").dataset;
 
-    const newAction = foundry.utils.duplicate(actions[actionId]);
-    newAction.name = `${newAction.name} (Copy)`;
+        const newAction = foundry.utils.duplicate(actions[actionId]);
+        newAction.name = `${newAction.name} (Copy)`;
 
-    $item.update({
-      "system.actions": {
-        ...actions,
-        [foundry.utils.randomID()]: newAction,
-      },
-    });
-  }
+        $item.update({
+            "system.actions": {
+                ...actions,
+                [foundry.utils.randomID()]: newAction,
+            },
+        });
+    }
 
-  function configureAction(event) {
-    const { actionId } = event.target.closest(".action").dataset;
-    const actionName = $item.system.actions[actionId].name;
+    function configureAction(event) {
+        const { actionId } = event.target.closest(".action").dataset;
+        const actionName = $item.system.actions[actionId].name;
 
-    const dialog = new ActionConfigDialog(item, actionId, actionName);
+        const dialog = new ActionConfigDialog(item, actionId, actionName);
 
-    dialog.render(true);
-  }
+        dialog.render(true);
+    }
 
-  function deleteAction(event) {
-    const { actionId } = event.target.closest(".action").dataset;
+    function deleteAction(event) {
+        const { actionId } = event.target.closest(".action").dataset;
 
-    $item.update({
-      "system.actions": {
-        [`-=${actionId}`]: null,
-      },
-    });
-  }
+        $item.update({
+            "system.actions": {
+                [`-=${actionId}`]: null,
+            },
+        });
+    }
 </script>
 
 <section class="action-config action-config__wrapper">
-  <header class="action-config__section-header">
-    <h2 class="tab-heading">Actions</h2>
+    <header class="action-config__section-header">
+        <h2 class="tab-heading">Actions</h2>
 
-    <button class="add-button" on:click={addAction}>+ Add Action</button>
-  </header>
+        <button class="add-button" on:click={addAction}>+ Add Action</button>
+    </header>
 
-  <ul class="action-list">
-    {#each Object.entries($item.system.actions) as [id, action] (id)}
-      <li class="action" data-action-id={id}>
-        {action?.name}
-        <div class="action-buttons">
-          <button class="action-button fas fa-cog" on:click={configureAction} />
+    <ul class="action-list">
+        {#each Object.entries($item.system.actions) as [id, action] (id)}
+            <li class="action" data-action-id={id}>
+                {action?.name}
+                <div class="action-buttons">
+                    <button
+                        class="action-button fas fa-cog"
+                        on:click={configureAction}
+                    />
 
-          <button
-            class="action-button fa-solid fa-clone"
-            on:click={duplicateAction}
-          />
+                    <button
+                        class="action-button fa-solid fa-clone"
+                        on:click={duplicateAction}
+                    />
 
-          <button
-            class="action-button delete-button fas fa-trash"
-            on:click={deleteAction}
-          />
+                    <button
+                        class="action-button delete-button fas fa-trash"
+                        on:click={deleteAction}
+                    />
 
-          <!-- <i class="action-button fas fa-cog" on:click={configureAction} />
+                    <!-- <i class="action-button fas fa-cog" on:click={configureAction} />
 
           <i
             class="action-button fa-solid fa-clone"
@@ -90,81 +93,73 @@
             class="action-button delete-button fas fa-trash"
             on:click={deleteAction}
           /> -->
-        </div>
-      </li>
-    {/each}
-  </ul>
+                </div>
+            </li>
+        {/each}
+    </ul>
 </section>
 
 <style lang="scss">
-  .action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 1rem;
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 1rem;
 
-    // &-button {
-    //   margin-left: auto;
-    //   padding: 0.25rem;
-    //   cursor: pointer;
-    //   transition: all 0.15s ease-in-out;
+        // &-button {
+        //   margin-left: auto;
+        //   padding: 0.25rem;
+        //   cursor: pointer;
+        //   transition: all 0.15s ease-in-out;
 
-    //   &:hover {
-    //     color: #555;
-    //     transform: scale(1.2);
-    //   }
-    // }
+        //   &:hover {
+        //     color: #555;
+        //     transform: scale(1.2);
+        //   }
+        // }
 
-    &-button {
-      padding: 0.25rem;
-      background: none;
-      border: 0;
-      transition: all 0.15s ease-in-out;
-      color: #999;
+        &-button {
+            padding: 0.25rem;
+            background: none;
+            border: 0;
+            transition: all 0.15s ease-in-out;
+            color: #999;
 
-      &:hover,
-      &:focus {
-        color: #555;
-        transform: scale(1.2);
-        box-shadow: none;
-      }
+            &:hover,
+            &:focus {
+                color: #555;
+                transform: scale(1.2);
+                box-shadow: none;
+            }
+        }
+
+        &-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #999;
+        }
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-family: "Signika", sans-serif;
+        }
     }
 
-    &-buttons {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: #999;
+    .delete-button:hover {
+        color: #8b2525;
     }
 
-    &-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      font-family: "Signika", sans-serif;
+    .tab-heading {
+        font-family: "Modesto Condensed", serif;
+        font-size: 1.44rem;
     }
-  }
-
-  .actions-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding: 0 0.25rem 0.25rem 0.25rem;
-  }
-
-  .delete-button:hover {
-    color: #8b2525;
-  }
-
-  .tab-heading {
-    font-family: "Modesto Condensed", serif;
-    font-size: 1.44rem;
-  }
 </style>

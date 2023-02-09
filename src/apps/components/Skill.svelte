@@ -11,6 +11,7 @@
 
     const actor = getContext("actor");
     const label = CONFIG.A5E.skills[key];
+    const { skillSpecialties } = CONFIG.A5E;
 
     const showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ??
@@ -91,8 +92,7 @@
                         data-specialty={specialty}
                     >
                         {localize(
-                            CONFIG.A5E.skillSpecialties[key][specialty] ??
-                                specialty
+                            skillSpecialties[key][specialty] ?? specialty
                         )}
                     </li>
                 {/each}

@@ -11,6 +11,7 @@
 
     const actor = getContext("actor");
     const { spells } = actor;
+    const { spellLevels } = CONFIG.A5E;
 
     function isSpellLevelVisible(level) {
         const flags = $actor?.flags?.a5e ?? {};
@@ -33,7 +34,7 @@
     <SortFilter itemType="spells" />
 
     <section class="spells-main-container">
-        {#each Object.entries(CONFIG.A5E.spellLevels) as [level, label]}
+        {#each Object.entries(spellLevels) as [level, label]}
             {#if isSpellLevelVisible(level)}
                 <ItemCategory
                     {level}
