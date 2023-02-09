@@ -1,12 +1,17 @@
 <script>
     import { getContext, onDestroy } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { TJSInput } from "@typhonjs-fvtt/svelte-standard/component";
+    import {
+        TJSInput,
+        TJSMenu,
+        TJSToggleIconButton,
+    } from "@typhonjs-fvtt/svelte-standard/component";
 
     import {
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
+    import FilterBox from "./FilterBox.svelte";
 
     export let itemType;
 
@@ -18,7 +23,19 @@
     onDestroy(() => removeSearchFilter(reducer));
 
     // Get filterOptions
-    const filterOptions = [["concentration", "Concentration"]];
+    const filterSections = Object.values(CONFIG.A5E.filters[itemType]);
+
+    function updateFilters(inclusiveFilters, exclusiveFilters) {
+        $actor.setFlag("a5e", `filters.${itemType}`, {
+            inclusive: inclusiveFilters,
+            exclusive: exclusiveFilters,
+        });
+
+        filters.inclusive = inclusiveFilters;
+        filters.exclusive = exclusiveFilters;
+    }
+
+    $: filters = $actor.getFlag("a5e", `filters.${itemType}`) ?? {};
 </script>
 
 <section class="filters filters__container">
@@ -31,30 +48,22 @@
             <i class="fas fa-sort" />
         </button>
 
-        <button class="sort-filter__button">
+        <TJSToggleIconButton icon="fas fa-filter">
+            <TJSMenu>
+                <FilterBox
+                    {filterSections}
+                    {filters}
+                    onUpdateFilters={updateFilters}
+                />
+            </TJSMenu>
+        </TJSToggleIconButton>
+
+        <!-- <button class="sort-filter__button">
             <i class="fas fa-filter" />
-        </button>
-    </div>
-
-    <div class="filter-pills__container">
-        <ul
-            class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
-        >
-            {#each filterOptions as [value, label]}
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <li
-                    class="a5e-tag u-pointer"
-                    class:a5e-tag--inactive={true}
-                    on:click={null}
-                >
-                    {localize(label)}
-                </li>
-            {/each}
-        </ul>
-
-        {#if filterOptions.length > 5}
-            <a class="filter-pills__expand-button"> Expand </a>
-        {/if}
+            <TJSMenu>
+                <FilterBox {filterSections} />
+            </TJSMenu>
+        </button> -->
     </div>
 </section>
 
@@ -85,6 +94,7 @@
     }
 
     .sort-filter__button {
+        position: relative;
         width: 1.75rem;
         padding-inline: 0.25rem;
         background: transparent;
@@ -96,23 +106,6 @@
             box-shadow: none;
             transform: scale(1.2);
             color: #555;
-        }
-    }
-
-    .filter-pills {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        &__expand-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            grid-area: expand;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            color: black;
-            font-size: 0.694rem;
         }
     }
 </style>
