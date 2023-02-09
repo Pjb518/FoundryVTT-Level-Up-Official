@@ -23,7 +23,9 @@
     </section>
 
     <TabFooter>
-        <ItemWeightTrack />
+        {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
+            <ItemWeightTrack />
+        {/if}
 
         <ActorInventoryShields />
     </TabFooter>

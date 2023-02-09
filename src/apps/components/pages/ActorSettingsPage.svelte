@@ -57,7 +57,7 @@
                     type="checkbox"
                     name="flags.a5e.trackInventoryWeight"
                     id={`${$actor.id}-track-inventory-weight`}
-                    checked={flags.a5e?.trackInventoryWeight ?? true}
+                    checked={$actor.flags?.a5e?.trackInventoryWeight ?? true}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -75,7 +75,7 @@
             </div>
         </FormSection>
 
-        {#if flags.a5e?.trackInventoryWeight ?? true}
+        {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
             <FormSection
                 heading="A5E.SettingsCarryCapacityMultiplier"
                 hint="Do not increase this number to account for your size category."
