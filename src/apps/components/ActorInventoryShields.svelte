@@ -1,7 +1,6 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { each } from "svelte/internal";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
@@ -10,7 +9,6 @@
     $: attunement = $actor.system.attributes.attunement;
     $: currency = $actor.system.currency;
     $: supply = $actor.system.supply;
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <section class="shield-container">
