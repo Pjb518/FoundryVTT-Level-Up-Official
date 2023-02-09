@@ -87,16 +87,18 @@
                     </label>
 
                     <input
-                        class="
-						a5e-footer-group__input
-						a5e-footer-group__input--currency
-						shield-input
-					"
+                        class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
                         id="currency-{label}"
                         type="number"
                         name="system.currency.{label}"
                         {value}
                         min="0"
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                Number(target.value)
+                            )}
                     />
                 </li>
             {/each}
