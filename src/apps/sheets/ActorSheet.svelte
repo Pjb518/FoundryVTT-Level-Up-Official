@@ -56,7 +56,7 @@
             label: "A5E.TabFeatures",
             component: ActorFeaturesPage,
         },
-        $actor.flags?.a5e?.showManeuverTab
+        $actor.flags?.a5e?.showManeuverTab ?? true
             ? {
                   name: "maneuvers",
                   label: "A5E.TabManeuvers",
@@ -64,7 +64,7 @@
                   display: $actor.flags?.a5e?.showManeuverTab,
               }
             : null,
-        $actor.flags?.a5e?.showSpellTab
+        $actor.flags?.a5e?.showSpellTab ?? true
             ? {
                   name: "spells",
                   label: "A5E.TabSpells",

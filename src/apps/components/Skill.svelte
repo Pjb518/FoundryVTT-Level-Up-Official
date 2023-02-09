@@ -13,7 +13,7 @@
     const label = CONFIG.A5E.skills[key];
 
     const showDeterministicBonus =
-        $actor.system.flags?.a5e?.IncludeAbilityModifiersForSkills ??
+        $actor.flags?.a5e?.includeAbilityModifiersForSkills ??
         $actor.system.type;
 
     function configureSkill(skill, label) {

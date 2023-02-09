@@ -157,7 +157,7 @@
                 <input
                     class="u-pointer"
                     type="checkbox"
-                    name="flags.a5e.IncludeAbilityModifiersForSkills"
+                    name="flags.a5e.includeAbilityModifiersForSkills"
                     id={`${actor.id}-include-ability-mods-for-skills`}
                     checked={flags.a5e?.includeAbilityModifiersForSkills ??
                         $actor.type === "npc"}
