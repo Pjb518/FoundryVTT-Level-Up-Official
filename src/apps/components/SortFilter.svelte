@@ -11,6 +11,9 @@
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
+    import updateFilters from "../utils/updateFilters";
+    import { simpleFilter } from "../utils/simpleFilters";
+
     import FilterBox from "./FilterBox.svelte";
 
     export let itemType;
@@ -25,7 +28,17 @@
     // Get filterOptions
     const filterSections = Object.values(CONFIG.A5E.filters[itemType]);
 
-    function updateFilters(inclusiveFilters, exclusiveFilters) {
+    // simpleFilter(reducer, "system.concentration");
+
+    updateFilters(
+        reducer,
+        itemType,
+        $actor.getFlag("a5e", `filters.${itemType}`) ?? {}
+    );
+
+    console.log([...reducer.filters]);
+
+    function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
         $actor.setFlag("a5e", `filters.${itemType}`, {
             inclusive: inclusiveFilters,
             exclusive: exclusiveFilters,
@@ -33,6 +46,8 @@
 
         filters.inclusive = inclusiveFilters;
         filters.exclusive = exclusiveFilters;
+
+        updateFilters(reducer, itemType, filters);
     }
 
     $: filters = $actor.getFlag("a5e", `filters.${itemType}`) ?? {};
@@ -53,7 +68,7 @@
                 <FilterBox
                     {filterSections}
                     activeFilters={filters}
-                    onUpdateFilters={updateFilters}
+                    {onUpdateFilters}
                 />
             </TJSMenu>
         </TJSToggleIconButton>
