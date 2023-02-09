@@ -2,6 +2,7 @@
     import { getContext, onDestroy } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import {
+        TJSIconButton,
         TJSInput,
         TJSMenu,
         TJSToggleIconButton,
@@ -11,6 +12,7 @@
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
+    import { sortAscending, sortDescending } from "../utils/sortActorItems";
     import updateFilters from "../utils/updateFilters";
 
     import FilterBox from "./FilterBox.svelte";
@@ -19,6 +21,7 @@
 
     const actor = getContext("actor");
     const reducer = actor[itemType];
+    const items = [...$reducer];
 
     // Create Search Filter
     const searchInput = addSearchFilter(reducer);
@@ -26,13 +29,10 @@
 
     // Get filterOptions
     const filterSections = Object.values(CONFIG.A5E.filters[itemType]);
+    const filterFlag = $actor.getFlag("a5e", `filters.${itemType}`) ?? {};
 
     // Apply any filters previously applied
-    updateFilters(
-        reducer,
-        itemType,
-        $actor.getFlag("a5e", `filters.${itemType}`) ?? {}
-    );
+    updateFilters(reducer, itemType, filterFlag);
 
     function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
         $actor.setFlag("a5e", `filters.${itemType}`, {
@@ -46,7 +46,13 @@
         updateFilters(reducer, itemType, filters);
     }
 
-    $: filters = $actor.getFlag("a5e", `filters.${itemType}`) ?? {};
+    // Sorting Helpers
+    function onSort() {
+        // reducer.reversed(true);
+        // sortDescending($actor, items);
+    }
+
+    $: filters = filterFlag;
 </script>
 
 <section class="filters filters__container">
@@ -56,8 +62,10 @@
 
     <div class="sort-filter__container">
         <button class="sort-filter__button">
-            <i class="fas fa-sort" />
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <i class="fas fa-sort" on:click={onSort} />
         </button>
+        <!-- <TJSIconButton title="Sort" icon="fas fa-sort" /> -->
 
         <TJSToggleIconButton title="Filters" icon="fas fa-filter">
             <TJSMenu>
