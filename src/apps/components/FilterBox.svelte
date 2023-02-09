@@ -2,41 +2,62 @@
     import { getContext, onDestroy } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import arraysAreEqual from "../../modules/utils/arraysAreEqual";
     import toggleFilter from "../utils/toggleFilter";
 
     export let filterSections;
-    export let filters;
+    export let activeFilters;
     export let onUpdateFilters;
 
+    function toggleAll(filters) {
+        filters = Object.keys(filters);
+        if (arraysAreEqual(activeFilters?.inclusive, filters)) {
+            return onUpdateFilters([], []);
+        }
+
+        return onUpdateFilters(filters, []);
+    }
+
     function onFilterSelect(filter) {
-        // TODO: Add prevent default
         const [inclusiveFilters, exclusiveFilters] = toggleFilter(
-            filters,
+            activeFilters,
             filter
         );
 
         onUpdateFilters(inclusiveFilters, exclusiveFilters);
     }
-
-    console.log(filters);
 </script>
 
 <section class="filter-box">
     {#each filterSections as { label, filters }}
         <div class="filter-box__section">
-            <h3 class="u-text-sm u-text-bold">
-                {localize(label)}
-            </h3>
+            <header class="u-align-center u-flex u-gap-lg">
+                <h3 class="u-text-sm u-text-bold">
+                    {localize(label)}
+                </h3>
+
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <a
+                    class="u-text-xs"
+                    on:click|stopPropagation={() => toggleAll(filters)}
+                >
+                    + Toggle All</a
+                >
+            </header>
+
             <ul class="filter-box__filters u-text-xs u-w-full">
                 {#each Object.entries(filters) as [value, { label }]}
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <li
                         class="a5e-tag a5e-tag--tight u-pointer"
-                        class:a5e-tag--red={filters?.exclusive?.includes(value)}
-                        class:a5e-tag--inactive={!filters?.inclusive?.includes(
+                        class:a5e-tag--red={activeFilters?.exclusive?.includes(
                             value
-                        ) && !filters?.exclusive?.includes(value)}
-                        on:click={() => onFilterSelect(value)}
+                        )}
+                        class:a5e-tag--inactive={!activeFilters?.inclusive?.includes(
+                            value
+                        ) && !activeFilters?.exclusive?.includes(value)}
+                        on:click|stopPropagation={() => onFilterSelect(value)}
                     >
                         {localize(label)}
                     </li>

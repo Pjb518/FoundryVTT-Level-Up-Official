@@ -48,11 +48,11 @@
             <i class="fas fa-sort" />
         </button>
 
-        <TJSToggleIconButton icon="fas fa-filter">
+        <TJSToggleIconButton title="Filters" icon="fas fa-filter">
             <TJSMenu>
                 <FilterBox
                     {filterSections}
-                    {filters}
+                    activeFilters={filters}
                     onUpdateFilters={updateFilters}
                 />
             </TJSMenu>
