@@ -10,11 +10,23 @@
 
     function toggleAll(filters) {
         filters = Object.keys(filters);
-        if (arraysAreEqual(activeFilters?.inclusive, filters)) {
-            return onUpdateFilters([], []);
+        const sectionFilters = activeFilters?.inclusive?.filter((f) =>
+            filters.includes(f)
+        );
+
+        if (arraysAreEqual(sectionFilters, filters)) {
+            const inclusiveFilters = activeFilters?.inclusive?.filter(
+                (f) => !filters.includes(f)
+            );
+            return onUpdateFilters(inclusiveFilters, []);
         }
 
-        return onUpdateFilters(filters, []);
+        const inclusiveFilters = new Set([
+            ...filters,
+            ...activeFilters?.inclusive,
+        ]);
+
+        return onUpdateFilters([...inclusiveFilters], []);
     }
 
     function onFilterSelect(filter) {
