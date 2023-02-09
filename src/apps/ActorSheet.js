@@ -43,7 +43,7 @@ export default class ActorSheet extends SvelteApplication {
       resizable: true,
       minimizable: true,
       width: 730,
-      height: 672,
+      height: 708,
 
       svelte: {
         class: ActorSheetComponent,

@@ -47,10 +47,10 @@
         align-items: center;
         margin-bottom: 0.25rem;
         border-bottom: 1px solid #ccc;
+        height: 1.5rem;
 
         h3 {
-            font-family: "Modesto Condensed", serif;
-            font-size: 1.3rem;
+            font-size: 1rem;
         }
 
         .inventory-add-icon {
