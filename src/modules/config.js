@@ -1143,9 +1143,24 @@ Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {
 });
 
 A5E.filters = {
-  features: {},
-  maneuvers: {},
-  objects: {},
+  features: {
+    activationCost: {
+      label: 'A5E.FilterLabelActivationCost',
+      filters: { ...abilityActionFilters }
+    }
+  },
+  maneuvers: {
+    activationCost: {
+      label: 'A5E.FilterLabelActivationCost',
+      filters: { ...abilityActionFilters }
+    }
+  },
+  objects: {
+    activationCost: {
+      label: 'A5E.FilterLabelActivationCost',
+      filters: { ...abilityActionFilters }
+    }
+  },
   spells: {
     activationCost: {
       label: 'A5E.FilterLabelActivationCost',
@@ -1176,15 +1191,11 @@ A5E.filters = {
       filters: {
         concentration: { label: 'A5E.ConditionConcentration', key: 'system.concentration' },
         ritual: { label: 'A5E.SpellRitual', key: 'system.ritual' },
-        prepared: { label: 'A5E.', key: 'system.prepared' }
+        prepared: { label: 'A5E.SpellPrepared', key: 'system.prepared' }
       }
     },
     primarySpellSchools: {
       label: 'A5E.FilterLabelPrimarySpellSchools',
-      filters: {}
-    },
-    secondarySpellSchools: {
-      label: 'A5E.FilterLabelSecondarySpellSchools',
       filters: {}
     }
   }
@@ -1193,12 +1204,6 @@ A5E.filters = {
 Object.entries(A5E.spellSchools.primary).forEach(([value, label]) => {
   A5E.filters.spells.primarySpellSchools.filters[value] = {
     label, key: 'system.schools.primary'
-  };
-});
-
-Object.entries(A5E.spellSchools.secondary).forEach(([value, label]) => {
-  A5E.filters.spells.secondarySpellSchools.filters[value] = {
-    label, key: 'system.schools.secondary'
   };
 });
 
