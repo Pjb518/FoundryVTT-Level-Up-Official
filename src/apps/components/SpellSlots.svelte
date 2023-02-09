@@ -11,7 +11,7 @@
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#if level && level !== "0" && !sheetIsLocked}
+{#if level && level !== "0"}
     <input
         class="a5e-footer-group__input"
         type="number"
@@ -34,6 +34,7 @@
         value={spellResources.slots[level.toString()].max}
         placeholder="0"
         min="0"
+        disabled={sheetIsLocked}
         on:change={({ target }) =>
             updateDocumentDataFromField(
                 $actor,

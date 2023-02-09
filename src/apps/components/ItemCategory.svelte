@@ -21,10 +21,11 @@
     <span class="category-header">
         <h3>
             {localize(CONFIG.A5E[type][label] || label)}
-            {#if type === "spellLevels" && showSpellSlots}
-                <SpellSlots {level} />
-            {/if}
         </h3>
+
+        {#if type === "spellLevels" && showSpellSlots}
+            <SpellSlots {level} />
+        {/if}
 
         {#if !sheetIsLocked}
             <i class="fas fa-plus inventory-add-icon a5e-config-button" />
@@ -46,11 +47,14 @@
         display: flex;
         align-items: center;
         margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
         border-bottom: 1px solid #ccc;
         height: 1.5rem;
+        gap: 0.5rem;
 
         h3 {
             font-size: 1rem;
+            min-width: 4.5rem;
         }
 
         .inventory-add-icon {
