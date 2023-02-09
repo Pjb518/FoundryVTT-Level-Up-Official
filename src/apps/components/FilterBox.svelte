@@ -1,5 +1,4 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import arraysAreEqual from "../../modules/utils/arraysAreEqual";

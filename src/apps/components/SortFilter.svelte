@@ -12,7 +12,6 @@
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
     import updateFilters from "../utils/updateFilters";
-    import { simpleFilter } from "../utils/simpleFilters";
 
     import FilterBox from "./FilterBox.svelte";
 
@@ -28,15 +27,12 @@
     // Get filterOptions
     const filterSections = Object.values(CONFIG.A5E.filters[itemType]);
 
-    // simpleFilter(reducer, "system.concentration");
-
+    // Apply any filters previously applied
     updateFilters(
         reducer,
         itemType,
         $actor.getFlag("a5e", `filters.${itemType}`) ?? {}
     );
-
-    console.log([...reducer.filters]);
 
     function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
         $actor.setFlag("a5e", `filters.${itemType}`, {

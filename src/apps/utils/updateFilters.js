@@ -7,7 +7,6 @@ export default function updateFilters(reducer, type, filterKeys) {
   }, []);
 
   reducer.filters.removeById(...removeIds);
-  // removeIds.forEach((id) => reducer.filters.removeById(id));
 
   // Get filterData
   const filterData = Object.values(CONFIG.A5E.filters[type])
@@ -15,7 +14,7 @@ export default function updateFilters(reducer, type, filterKeys) {
 
   const filters = [];
 
-  // Add inclusive filters
+  // Get inclusive filters
   filterKeys?.inclusive?.forEach((value) => {
     const { key, type: filterType } = filterData[value];
     let filter;
@@ -31,7 +30,7 @@ export default function updateFilters(reducer, type, filterKeys) {
     });
   });
 
-  // Add exclusive filters
+  // Get exclusive filters
   filterKeys?.exclusive?.forEach((value) => {
     const { key, type: filterType } = filterData[value];
     let filter;
@@ -47,8 +46,8 @@ export default function updateFilters(reducer, type, filterKeys) {
     });
   });
 
+  // Add filters to reducer
   reducer.filters.add(...filters);
-  console.log(...reducer.filters);
 }
 
 /**

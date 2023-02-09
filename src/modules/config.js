@@ -1153,12 +1153,30 @@ A5E.filters = {
     activationCost: {
       label: 'A5E.FilterLabelActivationCost',
       filters: { ...abilityActionFilters }
+    },
+    traditions: {
+      label: 'A5E.FilterLabelManueverTraditions',
+      filters: {}
     }
   },
   objects: {
     activationCost: {
       label: 'A5E.FilterLabelActivationCost',
       filters: { ...abilityActionFilters }
+    },
+    rarity: {
+      label: 'A5E.FilterLabelRarity',
+      filters: {}
+    },
+    miscellaneous: {
+      label: 'A5E.FilterLabelMiscellaneous',
+      filters: {
+        attuned: { label: 'A5E.Attuned', key: 'system.attuned', type: 'boolean' },
+        bulky: { label: 'A5E.ItemBulky', key: 'system.bulky', type: 'boolean' },
+        equipped: { label: 'A5E.ItemEquipped', key: 'system.equipped', type: 'boolean' },
+        plotItem: { label: 'A5E.PlotItem', key: 'system.plotItem', type: 'boolean' },
+        requiresAttunement: { label: 'A5E.AttunementRequired', key: 'system.requiredAttunement', type: 'boolean' }
+      }
     }
   },
   spells: {
@@ -1200,6 +1218,18 @@ A5E.filters = {
     }
   }
 };
+
+Object.entries(A5E.maneuverTraditions).forEach(([value, label]) => {
+  A5E.filters.maneuvers.traditions.filters[value] = {
+    label, key: 'system.tradition', type: 'value'
+  };
+});
+
+Object.entries(A5E.itemRarity).forEach(([value, label]) => {
+  A5E.filters.objects.rarity.filters[value] = {
+    label, key: 'system.rarity', type: 'value'
+  };
+});
 
 Object.entries(A5E.spellSchools.primary).forEach(([value, label]) => {
   A5E.filters.spells.primarySpellSchools.filters[value] = {
