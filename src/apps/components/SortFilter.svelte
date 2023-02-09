@@ -1,6 +1,5 @@
 <script>
     import { getContext, onDestroy } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import {
         TJSIconButton,
         TJSInput,
@@ -12,7 +11,6 @@
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
-    import { sortAscending, sortDescending } from "../utils/sortActorItems";
     import updateFilters from "../utils/updateFilters";
 
     import FilterBox from "./FilterBox.svelte";
@@ -21,7 +19,6 @@
 
     const actor = getContext("actor");
     const reducer = actor[itemType];
-    const items = [...$reducer];
 
     // Create Search Filter
     const searchInput = addSearchFilter(reducer);
@@ -46,12 +43,6 @@
         updateFilters(reducer, itemType, filters);
     }
 
-    // Sorting Helpers
-    function onSort() {
-        // reducer.reversed(true);
-        // sortDescending($actor, items);
-    }
-
     $: filters = filterFlag;
 </script>
 
@@ -61,11 +52,7 @@
     </div>
 
     <div class="sort-filter__container">
-        <button class="sort-filter__button">
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <i class="fas fa-sort" on:click={onSort} />
-        </button>
-        <!-- <TJSIconButton title="Sort" icon="fas fa-sort" /> -->
+        <TJSIconButton title="Sort" icon="fas fa-sort" />
 
         <TJSToggleIconButton title="Filters" icon="fas fa-filter">
             <TJSMenu>
@@ -76,13 +63,6 @@
                 />
             </TJSMenu>
         </TJSToggleIconButton>
-
-        <!-- <button class="sort-filter__button">
-            <i class="fas fa-filter" />
-            <TJSMenu>
-                <FilterBox {filterSections} />
-            </TJSMenu>
-        </button> -->
     </div>
 </section>
 
@@ -110,21 +90,5 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .sort-filter__button {
-        position: relative;
-        width: 1.75rem;
-        padding-inline: 0.25rem;
-        background: transparent;
-        color: rgba(0 0 0 / 0.5);
-        transition: all 0.15s ease-in-out;
-
-        &:focus,
-        &:hover {
-            box-shadow: none;
-            transform: scale(1.2);
-            color: #555;
-        }
     }
 </style>
