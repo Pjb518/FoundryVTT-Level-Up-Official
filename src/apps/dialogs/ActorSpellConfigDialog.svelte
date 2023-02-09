@@ -66,7 +66,7 @@
                     type="checkbox"
                     name="flags.a5e.showSpellSlots"
                     id={`${appId}-show-spell-slots`}
-                    checked={$actor.flags.a5e?.showSpellSlots ?? true}
+                    checked={flags.showSpellSlots ?? true}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -86,7 +86,7 @@
                     type="checkbox"
                     name="flags.a5e.showSpellPoints"
                     id={`${appId}-show-spell-points`}
-                    checked={$actor.flags.a5e?.showSpellPoints ?? true}
+                    checked={flags.showSpellPoints ?? false}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,

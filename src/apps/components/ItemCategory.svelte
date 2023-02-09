@@ -3,13 +3,17 @@
     import { getContext } from "svelte";
 
     import ItemWrapper from "./ItemWrapper.svelte";
+    import SpellSlots from "./SpellSlots.svelte";
 
     export let label;
+    export let level = 0;
     export let items;
     export let type;
 
     const actor = getContext("actor");
+
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
 </script>
 
 <section class="category-container">
@@ -17,6 +21,9 @@
     <span class="category-header">
         <h3>
             {localize(CONFIG.A5E[type][label] || label)}
+            {#if type === "spellLevels" && showSpellSlots}
+                <SpellSlots {level} />
+            {/if}
         </h3>
 
         {#if !sheetIsLocked}

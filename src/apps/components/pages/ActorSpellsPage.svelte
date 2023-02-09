@@ -15,7 +15,7 @@
     function isSpellLevelVisible(level) {
         const flags = $actor?.flags?.a5e ?? {};
 
-        if (!flags.availableSpellLevels.length) return true;
+        if (!flags.availableSpellLevels?.length) return true;
 
         return flags.availableSpellLevels.includes(level.toString());
     }
