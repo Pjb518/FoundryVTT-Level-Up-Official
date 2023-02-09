@@ -52,6 +52,27 @@ export default class ActorSheet extends SvelteApplication {
     });
   }
 
+  _getHeaderButtons() {
+    const buttons = super._getHeaderButtons();
+
+    buttons.unshift({
+      label: 'Sheet Configuration',
+      class: 'configure-sheet',
+      icon: 'fas fa-cog fa-fw',
+      title: 'Configure Sheet',
+      onclick: (event) => this._onConfigureSheet(event)
+    });
+
+    return buttons;
+  }
+
+  _onConfigureSheet(event) {
+    if (event) event.preventDefault();
+
+    const sheetConfigDialog = new DocumentSheetConfig(this.actor, { top: this.position.top + 40 });
+    sheetConfigDialog.render(true);
+  }
+
   async _onDropDocument(document) {
     if (document.documentName === 'Actor') this.#onDropActor(document);
     else if (document.documentName === 'Item') this.#onDropItem(document);
