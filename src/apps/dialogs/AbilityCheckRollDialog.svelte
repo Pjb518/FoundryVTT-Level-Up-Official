@@ -44,7 +44,7 @@
 
     $: rollFormula = constructRollFormula($actor, rollMode, [
         {
-            label: `${abilityKey.capitalize()} Mod`,
+            label: "Check Mod",
             value: $actor.system.abilities[abilityKey].check.mod,
         },
         {
