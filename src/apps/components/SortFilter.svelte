@@ -67,6 +67,10 @@
 </section>
 
 <style lang="scss">
+    :root {
+        --tjs-menu-background: url(../ui/denim075.png) repeat;
+    }
+
     .filters {
         position: relative;
         font-size: 0.833rem;
@@ -90,5 +94,49 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        color: rgba(0 0 0 / 0.2);
+    }
+
+    :global {
+        .tjs-menu {
+            --tjs-menu-background: url(../ui/denim075.png) repeat;
+            --tjs-menu-primary-color: #deddd3;
+            --tjs-menu-border: 2px solid #555;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0 0 0 / 0.15);
+            }
+        }
+
+        .tjs-icon-button,
+        .tjs-toggle-icon-button {
+            --tjs-icon-button-background-hover: none;
+            --tjs-icon-button-background-focus: none;
+            --tjs-icon-button-background-focus-visible: none;
+            --tjs-button-background-selected: none;
+            --tjs-icon-button-background-selected: none;
+            // --tjs-icon-button-text-shadow-hover: none;
+            // --tjs-icon-button-text-shadow-focus: none;
+            --tjs-icon-button-transition: all 0.15s ease-in-out;
+
+            i:hover,
+            i:focus {
+                color: #555;
+                transform: scale(1.2);
+            }
+
+            a.selected {
+                color: #555;
+                transform: scale(1.2);
+
+                :hover {
+                    transform: none;
+                }
+            }
+        }
     }
 </style>

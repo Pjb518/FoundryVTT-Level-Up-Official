@@ -100,6 +100,12 @@
             list-style: none;
             margin: 0;
             padding: 0;
+
+            li:hover {
+                background-color: #5c6066;
+                // color: black;
+                border: 1px solid slategrey;
+            }
         }
     }
 </style>
