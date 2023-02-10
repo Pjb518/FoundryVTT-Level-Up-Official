@@ -48,6 +48,14 @@
             value: $actor.system.abilities[abilityKey].check.mod,
         },
         {
+            label: `${abilityKey.capitalize()} Check Bonus`,
+            value: $actor.system.abilities[abilityKey].check.bonus,
+        },
+        {
+            label: "Global Check Bonus",
+            value: $actor.system.bonuses.abilities.check,
+        },
+        {
             label: "Expertise Die",
             value: getExpertiseDieSize(expertiseDie),
         },

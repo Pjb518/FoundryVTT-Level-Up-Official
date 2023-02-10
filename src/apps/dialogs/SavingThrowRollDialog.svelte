@@ -54,12 +54,20 @@
             value: $actor.system.abilities[abilityKey].save.mod,
         },
         {
+            label: `${abilityKey.capitalize()} Save Bonus`,
+            value: $actor.system.abilities[abilityKey].save.bonus,
+        },
+        {
             label: "Concentration Bonus",
             value:
                 saveType === "concentration"
                     ? $actor.system.abilities[abilityKey].save
                           .concentrationBonus
                     : null,
+        },
+        {
+            label: "Global Save Bonus",
+            value: $actor.system.bonuses.abilities.save,
         },
         {
             label: "Expertise Die",
