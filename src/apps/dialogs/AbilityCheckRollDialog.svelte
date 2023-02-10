@@ -29,6 +29,14 @@
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
 
+    const buttonText = `Roll ${localize(
+        CONFIG.A5E.abilities[abilityKey]
+    )} Check`;
+
+    function onSubmit() {
+        dialog.submit({ rollFormula });
+    }
+
     let expertiseDie = $actor.system.abilities[abilityKey].check.expertiseDice;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
@@ -137,9 +145,13 @@
         />
     </section>
 
-    <div class="roll-formula-preview">
+    <section class="roll-formula-preview">
         {rollFormula}
-    </div>
+    </section>
+
+    <section>
+        <button on:click|preventDefault={onSubmit}>{buttonText}</button>
+    </section>
 </form>
 
 <style lang="scss">

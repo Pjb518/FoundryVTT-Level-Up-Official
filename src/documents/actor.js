@@ -750,44 +750,35 @@ export default class Actor5e extends Actor {
     const dialog = new AbilityCheckRollDialog(this, abilityKey);
     await dialog.render(true);
 
-    // const checkData = await getDialogData(AbilityDialog, {
-    //   title: dialogTitle,
-    //   props: {
-    //     actor: this, ability, isSave: false, rollMode: options.rollMode
-    //   }
-    // });
+    const { rollFormula } = await dialog.promise;
+    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
-    // const checkData = null;
+    // TODO: Review the code below this point as it is part of the 0.8.x implementation.
 
-    // if (checkData === null) return;
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      roll,
+      content: await renderTemplate(
+        'systems/a5e/templates/chat/ability-check.hbs',
+        {
+          title: game.i18n.format(
+            'A5E.AbilityCheckSpecific',
+            { ability: game.i18n.localize(A5E.abilities[abilityKey]) }
+          ),
+          img: this.img,
+          formula: roll.formula,
+          tooltip: await roll.getTooltip(),
+          total: roll.total
+        }
+      )
+    };
 
-    // const { formula } = checkData;
-    // const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
-
-    // const chatData = {
-    //   user: game.user?.id,
-    //   speaker: ChatMessage.getSpeaker({ actor: this }),
-    //   type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-    //   sound: CONFIG.sounds.dice,
-    //   roll,
-    //   content: await renderTemplate(
-    //     'systems/a5e/templates/chat/ability-check.hbs',
-    //     {
-    //       title: game.i18n.format(
-    //         'A5E.AbilityCheckSpecific',
-    //         { ability: game.i18n.localize(A5E.abilities[ability]) }
-    //       ),
-    //       img: this.img,
-    //       formula: roll.formula,
-    //       tooltip: await roll.getTooltip(),
-    //       total: roll.total
-    //     }
-    //   )
-    // };
-
-    // const hookData = { ability, formula, rollMode: options.rollMode };
-    // Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
-    // ChatMessage.create(chatData);
+    const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
+    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
+    ChatMessage.create(chatData);
   }
 
   async rollDeathSavingThrow() {
