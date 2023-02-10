@@ -1,4 +1,5 @@
 <script>
+    import { slide } from "svelte/transition";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
@@ -8,10 +9,14 @@
     const actor = new TJSDocument(fromUuidSync($message.flags?.a5e?.actorId));
     const { abilityKey, skillKey } = $message.flags?.a5e;
     const { abilities, skills } = CONFIG.A5E;
+
+    let tooltipIsVisible = false;
+
+    $: console.log(tooltipIsVisible);
 </script>
 
 <header class="card-header">
-    <img class="a5e-image a5e-image--card" src={$actor.img} alt={$actor.name} />
+    <img class="actor-image" src={$actor.img} alt={$actor.name} />
 
     <div>
         <h2 class="card-title">{`${localize(skills[skillKey])} Check`}</h2>
@@ -24,15 +29,36 @@
 
 <hr class="a5e-rule a5e-rule--card" />
 
-<div class="a5e-roll a5e-js-toggle-roll-tooltip-visibility">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+    class="a5e-roll a5e-js-toggle-roll-tooltip-visibility"
+    on:click={() => {
+        tooltipIsVisible = !tooltipIsVisible;
+    }}
+>
     {$message.rolls[0].formula}
 </div>
+
+{#if tooltipIsVisible}
+    {#await $message.rolls[0].getTooltip() then tooltip}
+        <div in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
+            {@html tooltip}
+        </div>
+    {/await}
+{/if}
 
 <div class="a5e-roll a5e-roll--total">
     {$message.rolls[0].total}
 </div>
 
 <style lang="scss">
+    .actor-image {
+        border: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 4px;
+    }
+
     .card-header {
         display: flex;
         align-items: center;
