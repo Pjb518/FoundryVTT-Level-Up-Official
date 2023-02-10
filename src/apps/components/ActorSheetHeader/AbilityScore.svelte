@@ -22,7 +22,11 @@
         type="number"
         value={ability.value}
         on:change={({ target }) =>
-            updateDocumentDataFromField($actor, target.name, target.value)}
+            updateDocumentDataFromField(
+                $actor,
+                target.name,
+                Number(target.value)
+            )}
         placeholder="10"
     />
 </div>
