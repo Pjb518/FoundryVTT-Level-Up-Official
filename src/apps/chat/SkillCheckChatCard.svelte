@@ -1,7 +1,8 @@
 <script>
-    import { slide } from "svelte/transition";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
+    import RollTooltip from "./tooltip/RollTooltip.svelte";
 
     export let messageDocument;
 
@@ -37,38 +38,11 @@
     {$message.rolls[0].formula}
 </div>
 
-{#if tooltipIsVisible}
-    <div in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
-        {#each $message.rolls[0].dice as part}
-            <section class="u-mb-md">
-                <header
-                    class="u-align-center u-flex u-justify-space-between u-text-bold"
-                >
-                    <span class="a5e-dice-tooltip__formula">
-                        {part.expression}
-                    </span>
-
-                    <span class="a5e-dice-tooltip__total">{part.total}</span>
-                </header>
-
-                <ol
-                    class="u-align-center u-flex u-flex-wrap u-gap-xs u-list-style-none u-my-xs u-p-0"
-                >
-                    {#each part.results as roll}
-                        <li
-                            class={`a5e-die a5e-die--${part.faces}`}
-                            class:discarded-die={roll.discarded}
-                            class:fumbled-die={roll.result === 1}
-                            class:critical-die={roll.result === part.faces}
-                        >
-                            {roll.result}
-                        </li>
-                    {/each}
-                </ol>
-            </section>
-        {/each}
-    </div>
-{/if}
+{#each $message.rolls as roll}
+    {#if tooltipIsVisible}
+        <RollTooltip {roll} />
+    {/if}
+{/each}
 
 <div class="a5e-roll a5e-roll--total">
     {$message.rolls[0].total}
