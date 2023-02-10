@@ -38,11 +38,7 @@
 </div>
 
 {#if tooltipIsVisible}
-    <div
-        class="a5e-dice-tooltip"
-        in:slide={{ duration: 150 }}
-        out:slide={{ duration: 150 }}
-    >
+    <div in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
         {#each $message.rolls[0].dice as part}
             <section class="u-mb-md">
                 <header
