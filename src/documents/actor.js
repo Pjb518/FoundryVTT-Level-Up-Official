@@ -872,23 +872,33 @@ export default class Actor5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      roll,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/ability-check.hbs',
-        {
-          title: game.i18n.format('A5E.SkillCheck', { skill: game.i18n.localize(A5E.skills[skillKey]) }),
-          img: this.img,
-          ability: game.i18n.localize(CONFIG.A5E.abilityAbbreviations[abilityKey]),
-          formula: roll.formula,
-          tooltip: await roll.getTooltip(),
-          total: roll.total
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'skillCheck',
+          abilityKey,
+          skillKey
         }
-      )
+      },
+      content: '<article></article>'
+      // content: await renderTemplate(
+      //   'systems/a5e/templates/chat/ability-check.hbs',
+      //   {
+      //     title: game.i18n.format('A5E.SkillCheck', { skill: game.i18n.localize(A5E.skills[skillKey]) }),
+      //     img: this.img,
+      //     ability: game.i18n.localize(CONFIG.A5E.abilityAbbreviations[abilityKey]),
+      //     formula: roll.formula,
+      //     tooltip: await roll.getTooltip(),
+      //     total: roll.total
+      //   }
+      // )
     };
 
     const hookData = {
       abilityKey, rollFormula, rollMode: options.rollMode, skillKey
     };
+
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
     ChatMessage.create(chatData);
   }

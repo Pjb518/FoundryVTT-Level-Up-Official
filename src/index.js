@@ -4,6 +4,8 @@ import handlebarsHelperRange from 'handlebars-helper-range';
 import ActorSheet5e from './apps/ActorSheet';
 import ItemSheet5e from './apps/ItemSheet';
 
+import SkillCheckChatCard from './apps/chat/SkillCheckChatCard.svelte';
+
 import A5E from './modules/config';
 import ActiveEffect5e from './documents/activeEffects';
 import Actor5e from './documents/actor';
@@ -209,4 +211,19 @@ Hooks.on('createToken', async (token, _, userID) => {
       value: hpRoll.total
     }
   });
+});
+
+Hooks.on('renderChatMessage', (message, html) => {
+  message._svelteComponent = new SkillCheckChatCard({
+    target: $(html).find('.message-content article')[0],
+    props: { messageDocument: message }
+  });
+});
+
+Hooks.on('preDeleteChatMessage', (message) => {
+  const flagData = message?.flags?.a5e;
+
+  if (typeof flagData === 'object' && typeof message?._svelteComponent?.$destroy === 'function') {
+    message._svelteComponent.$destroy();
+  }
 });
