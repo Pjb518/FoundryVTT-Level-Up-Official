@@ -1,4 +1,3 @@
-import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 import simplifyOperatorTerms from './simplifyOperatorTerms';
 
 /**
@@ -9,34 +8,21 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  *
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
-export default function constructRollFormula(
-  actor,
-  modifiers,
-  expertiseDie,
-  rollMode,
-  situationalMods
-) {
+export default function constructRollFormula(actor, rollMode, modifiers) {
   const rollData = actor.getRollData();
-  const expertiseDieSize = getExpertiseDieSize(expertiseDie);
   const parts = [];
 
   if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) parts.push('2d20kh');
   else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) parts.push('2d20kl');
   else parts.push('1d20');
 
-  parts.push(
-    modifiers.map(({ label, value }) => {
-      if (value && value !== 0) {
-        return label ? `${value}[${label}]` : value;
-      }
+  parts.push(...modifiers.map(({ label, value }) => {
+    if (value && value !== 0) {
+      return label ? `${value}[${label}]` : value;
+    }
 
-      return null;
-    }).join(' + ')
-  );
-
-  if (expertiseDieSize) parts.push(`${expertiseDieSize}[Expertise Die]`);
-
-  parts.push(situationalMods);
+    return null;
+  }));
 
   const formula = parts.filter((part) => Boolean(part) && part !== '0').join(' + ');
 

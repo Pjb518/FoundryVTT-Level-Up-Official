@@ -4,6 +4,7 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import constructRollFormula from "../../modules/dice/constructRollFormula";
+    import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
     export let { actorDocument, abilityKey, dialog } =
         getContext("#external").application;
@@ -33,18 +34,19 @@
     let rollFormula;
     let situationalMods = "";
 
-    $: rollFormula = constructRollFormula(
-        $actor,
-        [
-            {
-                label: "AbilityMod",
-                value: $actor.system.abilities[abilityKey].check.mod,
-            },
-        ],
-        expertiseDie,
-        rollMode,
-        situationalMods
-    );
+    $: rollFormula = constructRollFormula($actor, rollMode, [
+        {
+            label: "Ability Mod",
+            value: $actor.system.abilities[abilityKey].check.mod,
+        },
+        {
+            label: "Expertise Die",
+            value: getExpertiseDieSize(expertiseDie),
+        },
+        {
+            value: situationalMods,
+        },
+    ]);
 </script>
 
 <form>
