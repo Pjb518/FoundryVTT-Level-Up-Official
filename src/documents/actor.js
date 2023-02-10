@@ -10,7 +10,6 @@ import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
 import calculateSpellDC from '../modules/utils/calculateSpellDC';
 import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
-import toggleFilter from '../modules/utils/toggleFilter';
 
 export default class Actor5e extends Actor {
   get hitPointFormula() {
@@ -596,45 +595,6 @@ export default class Actor5e extends Actor {
     });
   }
 
-  async resetFilters(tab) {
-    if (tab === 'features') await this.resetFeatureFilters();
-    else if (tab === 'maneuvers') await this.resetManeuverFilters();
-    else if (tab === 'inventory') await this.resetObjectFilters();
-    else if (tab === 'spells') await this.resetSpellFilters();
-  }
-
-  async resetFeatureFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'featureActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'featureTypeFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
-  async resetManeuverFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'maneuverActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'maneuverDegreeFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'maneuverTraditionFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
-  async resetObjectFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'itemActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'itemRarityFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'miscellaneousItemFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
-  async resetSpellFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'spellActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'spellComponentFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'spellSchoolFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'miscellaneousSpellFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
   async restoreExertion() {
     const { exertion } = this.system.attributes;
 
@@ -1002,16 +962,5 @@ export default class Actor5e extends Actor {
     else updates['system.attributes.death'].success += 1;
 
     await this.update(updates);
-  }
-
-  async updateFilters(filterKey, filterValue) {
-    const filter = this.getFlag('a5e', filterKey) ?? {};
-    const [inclusiveFilters, exclusiveFilters] = toggleFilter(filter, filterValue);
-
-    await this.setFlag(
-      'a5e',
-      filterKey,
-      { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
-    );
   }
 }
