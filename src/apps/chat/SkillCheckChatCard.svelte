@@ -78,20 +78,6 @@
         color: #7e7960;
     }
 
-    .discarded-die {
-        filter: sepia(0.5) contrast(0.75) opacity(0.4);
-    }
-
-    .fumbled-die {
-        color: #aa0200;
-        filter: sepia(0.5) hue-rotate(-60deg);
-    }
-
-    .critical-die {
-        color: #18520b;
-        filter: sepia(0.5) hue-rotate(60deg);
-    }
-
     .roll-formula {
         word-break: keep-all;
     }
