@@ -11,8 +11,6 @@
     const { abilities, skills } = CONFIG.A5E;
 
     let tooltipIsVisible = false;
-
-    $: console.log(tooltipIsVisible);
 </script>
 
 <header class="card-header">
@@ -31,7 +29,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-    class="a5e-roll a5e-js-toggle-roll-tooltip-visibility"
+    class="a5e-roll a5e-js-toggle-roll-tooltip-visibility roll-formula"
     on:click={() => {
         tooltipIsVisible = !tooltipIsVisible;
     }}
@@ -40,11 +38,40 @@
 </div>
 
 {#if tooltipIsVisible}
-    {#await $message.rolls[0].getTooltip() then tooltip}
-        <div in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
-            {@html tooltip}
-        </div>
-    {/await}
+    <div
+        class="a5e-dice-tooltip"
+        in:slide={{ duration: 150 }}
+        out:slide={{ duration: 150 }}
+    >
+        {#each $message.rolls[0].dice as part}
+            <section class="u-mb-md">
+                <header
+                    class="u-align-center u-flex u-justify-space-between u-text-bold"
+                >
+                    <span class="a5e-dice-tooltip__formula">
+                        {part.expression}
+                    </span>
+
+                    <span class="a5e-dice-tooltip__total">{part.total}</span>
+                </header>
+
+                <ol
+                    class="u-align-center u-flex u-flex-wrap u-gap-xs u-list-style-none u-my-xs u-p-0"
+                >
+                    {#each part.results as roll}
+                        <li
+                            class={`a5e-die a5e-die--${part.faces}`}
+                            class:discarded-die={roll.discarded}
+                            class:fumbled-die={roll.result === 1}
+                            class:critical-die={roll.result === part.faces}
+                        >
+                            {roll.result}
+                        </li>
+                    {/each}
+                </ol>
+            </section>
+        {/each}
+    </div>
 {/if}
 
 <div class="a5e-roll a5e-roll--total">
@@ -79,5 +106,23 @@
         font-size: 0.833rem;
         border-bottom: 0;
         color: #7e7960;
+    }
+
+    .discarded-die {
+        filter: sepia(0.5) contrast(0.75) opacity(0.4);
+    }
+
+    .fumbled-die {
+        color: #aa0200;
+        filter: sepia(0.5) hue-rotate(-60deg);
+    }
+
+    .critical-die {
+        color: #18520b;
+        filter: sepia(0.5) hue-rotate(60deg);
+    }
+
+    .roll-formula {
+        word-break: keep-all;
     }
 </style>
