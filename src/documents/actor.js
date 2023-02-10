@@ -2,6 +2,7 @@ import A5E from '../modules/config';
 import Item5e from './item';
 
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
+import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 
 import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
 import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
@@ -749,8 +750,11 @@ export default class Actor5e extends Actor {
   async rollAbilityCheck(abilityKey, options = {}) {
     const dialog = new AbilityCheckRollDialog(this, abilityKey);
     await dialog.render(true);
+    const dialogData = await dialog.promise;
 
-    const { rollFormula } = await dialog.promise;
+    if (dialogData === null) return;
+
+    const { rollFormula } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
     // TODO: Review the code below this point as it is part of the 0.8.x implementation.
@@ -867,25 +871,15 @@ export default class Actor5e extends Actor {
     });
   }
 
-  async rollSavingThrow(ability, options = {}) {
-    const dialogTitle = game.i18n.format(
-      'A5E.SavingThrowPromptTitle',
-      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
-    );
+  async rollSavingThrow(abilityKey, options = {}) {
+    const dialog = new SavingThrowRollDialog(this, abilityKey);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
 
-    // const checkData = await getDialogData(AbilityDialog, {
-    //   title: dialogTitle,
-    //   props: {
-    //     actor: this, ability, isSave: true, rollMode: options.rollMode
-    //   }
-    // });
+    if (dialogData === null) return;
 
-    const checkData = null;
-
-    if (checkData === null) return;
-
-    const { formula } = checkData;
-    const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
+    const { rollFormula } = dialogData;
+    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
@@ -898,7 +892,7 @@ export default class Actor5e extends Actor {
         {
           title: game.i18n.format(
             'A5E.SavingThrowSpecific',
-            { ability: game.i18n.localize(A5E.abilities[ability]) }
+            { ability: game.i18n.localize(A5E.abilities[abilityKey]) }
           ),
           img: this.img,
           formula: roll.formula,
@@ -908,7 +902,7 @@ export default class Actor5e extends Actor {
       )
     };
 
-    const hookData = { ability, formula, rollMode: options.rollMode };
+    const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
     Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
     ChatMessage.create(chatData);
   }
