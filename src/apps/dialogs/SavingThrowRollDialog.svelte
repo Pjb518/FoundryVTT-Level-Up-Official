@@ -50,11 +50,11 @@
 
     $: rollFormula = constructRollFormula($actor, rollMode, [
         {
-            label: "Save Mod",
+            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
             value: $actor.system.abilities[abilityKey].save.mod,
         },
         {
-            label: `${abilityKey.capitalize()} Save Bonus`,
+            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Save Bonus`,
             value: $actor.system.abilities[abilityKey].save.bonus,
         },
         {

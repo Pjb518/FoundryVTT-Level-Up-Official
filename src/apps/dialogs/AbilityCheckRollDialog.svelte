@@ -44,11 +44,11 @@
 
     $: rollFormula = constructRollFormula($actor, rollMode, [
         {
-            label: "Check Mod",
+            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
             value: $actor.system.abilities[abilityKey].check.mod,
         },
         {
-            label: `${abilityKey.capitalize()} Check Bonus`,
+            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
             value: $actor.system.abilities[abilityKey].check.bonus,
         },
         {

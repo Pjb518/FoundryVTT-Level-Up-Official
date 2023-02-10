@@ -3,6 +3,7 @@ import Item5e from './item';
 
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
+import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
 import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
 import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
@@ -917,22 +918,15 @@ export default class Actor5e extends Actor {
    *
    * @returns {Promise<undefined>}
    */
-  async rollSkillCheck(skill, options = {}) {
-    const dialogTitle = game.i18n.format(
-      'A5E.SkillPromptTitle',
-      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
-    );
+  async rollSkillCheck(skillKey, options = {}) {
+    const dialog = new SkillCheckRollDialog(this, skillKey);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
 
-    // const skillData = await getDialogData(SkillDialog, {
-    //   title: dialogTitle, props: { actor: this, skill, rollMode: options.rollMode }
-    // });
+    if (dialogData === null) return;
 
-    const skillData = null;
-
-    if (!skillData) return;
-
-    const { formula, ability } = skillData;
-    const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
+    const { rollFormula, abilityKey } = dialogData;
+    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
@@ -943,9 +937,9 @@ export default class Actor5e extends Actor {
       content: await renderTemplate(
         'systems/a5e/templates/chat/ability-check.hbs',
         {
-          title: game.i18n.format('A5E.SkillCheck', { skill: game.i18n.localize(A5E.skills[skill]) }),
+          title: game.i18n.format('A5E.SkillCheck', { skill: game.i18n.localize(A5E.skills[skillKey]) }),
           img: this.img,
-          ability: game.i18n.localize(CONFIG.A5E.abilityAbbreviations[ability]),
+          ability: game.i18n.localize(CONFIG.A5E.abilityAbbreviations[abilityKey]),
           formula: roll.formula,
           tooltip: await roll.getTooltip(),
           total: roll.total
@@ -954,7 +948,7 @@ export default class Actor5e extends Actor {
     };
 
     const hookData = {
-      ability, formula, rollMode: options.rollMode, skill
+      abilityKey, rollFormula, rollMode: options.rollMode, skillKey
     };
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
     ChatMessage.create(chatData);

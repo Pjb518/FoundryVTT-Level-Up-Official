@@ -30,7 +30,9 @@
 </script>
 
 <li class="a5e-item a5e-item--skill" data-skill={skill}>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <span
+        on:click={$actor.rollSkillCheck(key)}
         class="a5e-skill__value"
         class:a5e-skill__value--green={skill.proficient}
     >
