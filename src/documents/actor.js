@@ -1,6 +1,8 @@
 import A5E from '../modules/config';
 import Item5e from './item';
 
+import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
+
 import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
 import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
 import calculateSpellDC from '../modules/utils/calculateSpellDC';
@@ -742,13 +744,11 @@ export default class Actor5e extends Actor {
    *
    * @async
    * @method
-   * @param {string} ability A key that can be used to reference a given ability score.
+   * @param {string} abilityKey A key that can be used to reference a given ability score.
    */
-  async rollAbilityCheck(ability, options = {}) {
-    const dialogTitle = game.i18n.format(
-      'A5E.AbilityCheckPromptTitle',
-      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
-    );
+  async rollAbilityCheck(abilityKey, options = {}) {
+    const dialog = new AbilityCheckRollDialog(this, abilityKey);
+    await dialog.render(true);
 
     // const checkData = await getDialogData(AbilityDialog, {
     //   title: dialogTitle,
@@ -757,37 +757,37 @@ export default class Actor5e extends Actor {
     //   }
     // });
 
-    const checkData = null;
+    // const checkData = null;
 
-    if (checkData === null) return;
+    // if (checkData === null) return;
 
-    const { formula } = checkData;
-    const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
+    // const { formula } = checkData;
+    // const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
 
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      roll,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/ability-check.hbs',
-        {
-          title: game.i18n.format(
-            'A5E.AbilityCheckSpecific',
-            { ability: game.i18n.localize(A5E.abilities[ability]) }
-          ),
-          img: this.img,
-          formula: roll.formula,
-          tooltip: await roll.getTooltip(),
-          total: roll.total
-        }
-      )
-    };
+    // const chatData = {
+    //   user: game.user?.id,
+    //   speaker: ChatMessage.getSpeaker({ actor: this }),
+    //   type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+    //   sound: CONFIG.sounds.dice,
+    //   roll,
+    //   content: await renderTemplate(
+    //     'systems/a5e/templates/chat/ability-check.hbs',
+    //     {
+    //       title: game.i18n.format(
+    //         'A5E.AbilityCheckSpecific',
+    //         { ability: game.i18n.localize(A5E.abilities[ability]) }
+    //       ),
+    //       img: this.img,
+    //       formula: roll.formula,
+    //       tooltip: await roll.getTooltip(),
+    //       total: roll.total
+    //     }
+    //   )
+    // };
 
-    const hookData = { ability, formula, rollMode: options.rollMode };
-    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
-    ChatMessage.create(chatData);
+    // const hookData = { ability, formula, rollMode: options.rollMode };
+    // Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
+    // ChatMessage.create(chatData);
   }
 
   async rollDeathSavingThrow() {
