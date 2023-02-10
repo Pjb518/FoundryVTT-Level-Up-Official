@@ -35,7 +35,12 @@
 
     $: rollFormula = constructRollFormula(
         $actor,
-        `${$actor.system.abilities[abilityKey].check.mod}[Ability Mod]`,
+        [
+            {
+                label: "AbilityMod",
+                value: $actor.system.abilities[abilityKey].check.mod,
+            },
+        ],
         expertiseDie,
         rollMode,
         situationalMods

@@ -11,7 +11,7 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  */
 export default function constructRollFormula(
   actor,
-  modifier,
+  modifiers,
   expertiseDie,
   rollMode,
   situationalMods
@@ -24,7 +24,15 @@ export default function constructRollFormula(
   else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) parts.push('2d20kl');
   else parts.push('1d20');
 
-  parts.push(modifier);
+  parts.push(
+    modifiers.map(({ label, value }) => {
+      if (value && value !== 0) {
+        return label ? `${value}[${label}]` : value;
+      }
+
+      return null;
+    }).join(' + ')
+  );
 
   if (expertiseDieSize) parts.push(`${expertiseDieSize}[Expertise Die]`);
 
