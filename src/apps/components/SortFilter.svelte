@@ -29,6 +29,7 @@
     const filterFlag = $actor.getFlag("a5e", `filters.${itemType}`) ?? {};
 
     // Apply any filters previously applied
+    // TODO: Destroy filters on tab change
     updateFilters(reducer, itemType, filterFlag);
 
     function onUpdateFilters(inclusiveFilters, exclusiveFilters) {

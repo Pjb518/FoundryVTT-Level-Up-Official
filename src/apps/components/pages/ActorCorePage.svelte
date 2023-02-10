@@ -14,8 +14,8 @@
 </script>
 
 <ol class="resources-container">
-    {#each Object.entries(resources) as [source, resource], idx}
-        <GenericActorResource {resource} {source} {idx} />
+    {#each Object.entries(resources) as [source, resource]}
+        <GenericActorResource {resource} {source} />
     {/each}
 </ol>
 
