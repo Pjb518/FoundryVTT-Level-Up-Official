@@ -16,7 +16,7 @@
 
 <ul class="items-container">
     {#each [...$activeEffects] as item}
-        <Item {item} />
+        <!-- <Item {item} /> -->
     {/each}
 </ul>
 

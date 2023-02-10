@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
 
 import ActiveEffectMapReducer from './reducers/ActiveEffectMapReducer';
