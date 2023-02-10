@@ -629,40 +629,19 @@ export default class Actor5e extends Actor {
         'd12.current': hitDice.d12.total
       };
     } else {
-      // TODO: Clean up this implementation. Ewwww.
       for (let i = 0; i < quantityToRecover; i += 1) {
-        if (expendedHitDice.d12 > 0) {
-          if (!updates['system.attributes.hitDice.d12.current']) {
-            updates['system.attributes.hitDice.d12.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d12.current'] += 1;
-          }
+        // eslint-disable-next-line no-restricted-syntax
+        for (const dieSize of Object.keys(hitDice).reverse()) {
+          if (expendedHitDice[dieSize] > 0) {
+            if (!updates[`system.attributes.hitDice.${dieSize}.current`]) {
+              updates[`system.attributes.hitDice.${dieSize}.current`] = hitDice[dieSize].current + 1;
+            } else {
+              updates[`system.attributes.hitDice.${dieSize}.current`] += 1;
+            }
 
-          expendedHitDice.d12 -= 1;
-        } else if (expendedHitDice.d10 > 0) {
-          if (!updates['system.attributes.hitDice.d10.current']) {
-            updates['system.attributes.hitDice.d10.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d10.current'] += 1;
+            expendedHitDice[dieSize] -= 1;
+            break;
           }
-
-          expendedHitDice.d10 -= 1;
-        } else if (expendedHitDice.d8 > 0) {
-          if (!updates['system.attributes.hitDice.d8.current']) {
-            updates['system.attributes.hitDice.d8.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d8.current'] += 1;
-          }
-
-          expendedHitDice.d8 -= 1;
-        } else {
-          if (!updates['system.attributes.hitDice.d6.current']) {
-            updates['system.attributes.hitDice.d6.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d6.current'] += 1;
-          }
-
-          expendedHitDice.d6 -= 1;
         }
       }
     }
