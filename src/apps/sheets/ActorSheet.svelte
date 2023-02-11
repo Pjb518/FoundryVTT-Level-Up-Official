@@ -24,7 +24,6 @@
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
-        console.log(currentTab);
         $actor.update({ "flags.a5e.currentTab": currentTab.name });
     }
 

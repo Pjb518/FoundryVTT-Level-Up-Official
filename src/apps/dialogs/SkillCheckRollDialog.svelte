@@ -3,20 +3,14 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
+    import FormSection from "../components/FormSection.svelte";
+
     import constructRollFormula from "../../modules/dice/constructRollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
     export let { actorDocument, skillKey, dialog } =
         getContext("#external").application;
-
-    const expertiseDieOptions = [
-        { name: game.i18n.localize("A5E.None"), value: 0 },
-        { name: "d4", value: 1 },
-        { name: "d6", value: 2 },
-        { name: "d8", value: 3 },
-        { name: "d10", value: 4 },
-        { name: "d12", value: 5 },
-    ];
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => ({
@@ -74,8 +68,6 @@
             value: situationalMods,
         },
     ]);
-
-    $: console.log(abilityKey);
 </script>
 
 <form>
@@ -151,43 +143,14 @@
         </div>
     </section>
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">Expertise Die</h3>
-
-        <div
-            class="
-                u-flex
-                u-flex-wrap
-                u-list-style-none
-                u-m-0
-                u-p-0
-                u-w-full
-                a5e-radio-group--expertise
-                u-gap-md
-                u-mb-md
-                u-text-sm
-            "
-            role="radiogroup"
-            id={`${$actor.id}-${appId}-expertise`}
-        >
-            {#each expertiseDieOptions as { name, value }}
-                <input
-                    class="u-hidden"
-                    type="radio"
-                    id={`${$actor.id}-${appId}-expertise-${name}`}
-                    bind:group={expertiseDie}
-                    {value}
-                />
-                <label
-                    class="a5e-tag u-pointer u-p-md u-text-center u-w-12"
-                    class:a5e-tag--inactive={value !== expertiseDie}
-                    for={`${$actor.id}-${appId}-expertise-${name}`}
-                >
-                    {name}
-                </label>
-            {/each}
-        </div>
-    </section>
+    <FormSection heading="A5E.ExpertiseDie">
+        <ExpertiseDiePicker
+            selected={expertiseDie}
+            on:updateSelection={(event) => {
+                expertiseDie = event.detail;
+            }}
+        />
+    </FormSection>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
         <label class="heading" for={`${$actor.id}-${appId}-situational-mods`}>

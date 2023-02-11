@@ -79,11 +79,8 @@
         const [_, feature] = event.detail;
 
         const index = $item.system.equipment.findIndex((item) => {
-            console.log(item, feature.get().uuid, item === feature.get().uuid);
             return item === feature.get().uuid;
         });
-
-        console.log(index);
 
         $item.system.equipment.splice(index, 1);
 
