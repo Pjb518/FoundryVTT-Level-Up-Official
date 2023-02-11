@@ -70,6 +70,16 @@ export default function registerSystemSettings() {
     default: ''
   });
 
+  game.settings.register('a5e', 'terseRollFormulae', {
+    name: 'Hide System Roll Annotations',
+    hint: 'The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.',
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: reload
+  });
+
   // Currency Weight
   game.settings.register('a5e', 'currencyWeight', {
     name: 'A5E.Settings.CoinWeightName',

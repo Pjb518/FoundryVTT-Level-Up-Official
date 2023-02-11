@@ -28,12 +28,14 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 {#each $message.rolls as roll}
     <div
-        class="a5e-roll a5e-js-toggle-roll-tooltip-visibility roll-formula"
+        class="a5e-roll roll-formula"
         on:click={() => {
             tooltipIsVisible = !tooltipIsVisible;
         }}
     >
-        {roll.formula}
+        {game.settings.get("a5e", "terseRollFormulae")
+            ? roll.terms.map((x) => x.expression).join("")
+            : roll.formula}
     </div>
 
     {#each $message.rolls as rollComponent}
@@ -49,6 +51,14 @@
 
 <style lang="scss">
     .roll-formula {
+        position: relative;
+        border: 1px solid #ccc;
+        margin: 0 0 0.25rem;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        line-height: 24px;
+        text-align: center;
         word-break: keep-all;
+        cursor: pointer;
     }
 </style>
