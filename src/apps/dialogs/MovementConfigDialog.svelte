@@ -1,12 +1,14 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../components/FormSection.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
+
+    const actor = new TJSDocument(actorDocument);
 
     const headings = {
         burrow: "A5E.MovementBurrowingSpeed",
@@ -15,19 +17,11 @@
         swim: "A5E.MovementSwimmingSpeed",
         walk: "A5E.MovementWalkingSpeed",
     };
-
-    $: movement = $actor.system.attributes.movement;
 </script>
 
 <main>
-    <header class="u-px-lg u-py-xl">
-        <h1 class="u-font-serif u-text-xl">
-            {localize("A5E.MovementConfigurationPrompt")}
-        </h1>
-    </header>
-
     <!-- TODO: Maybe make distance a number? -->
-    {#each Object.entries(movement) as [mode, distance]}
+    {#each Object.entries($actor.system.attributes.movement) as [mode, distance]}
         <FormSection heading={headings[mode]} inline={true}>
             <div class="u-w-20">
                 <input

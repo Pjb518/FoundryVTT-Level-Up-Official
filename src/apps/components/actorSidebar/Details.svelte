@@ -33,7 +33,7 @@
         {
             label: localize("A5E.Movement"),
             values: prepareMovementData($actor),
-            dialog: MovementConfigDialog,
+            dialogMethod: "configureMovement",
         },
         {
             label: localize("A5E.SensesSpecial"),

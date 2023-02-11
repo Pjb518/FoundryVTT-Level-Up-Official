@@ -6,12 +6,12 @@ import MovementConfigComponent from '../MovementConfigDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class MovementConfigDialog extends TJSDialog {
-  constructor(actor) {
+  constructor(actorDocument) {
     super({
-      title: 'Movement Config',
+      title: game.i18n.format('A5E.MovementConfigurationPrompt', { name: actorDocument.name }),
       content: {
         class: MovementConfigComponent,
-        props: { actor }
+        props: { actorDocument }
       }
     }, {
       classes: ['a5e-sheet'],

@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
+
 import ToolProfConfigComponent from '../ToolProfConfigDialog.svelte';
 
 /**

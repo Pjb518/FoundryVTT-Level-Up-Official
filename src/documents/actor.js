@@ -3,6 +3,7 @@ import Item5e from './item';
 import ActorAbilityConfigDialog from '../apps/dialogs/initializers/ActorAbilityConfigDialog';
 import ActorHpConfigDialog from '../apps/dialogs/initializers/ActorHpConfigDialog';
 import ArmorProfConfigDialog from '../apps/dialogs/initializers/ArmorProfConfigDialog';
+import MovementConfigDialog from '../apps/dialogs/initializers/MovementConfigDialog';
 import ToolProfConfigDialog from '../apps/dialogs/initializers/ToolProfConfigDialog';
 
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
@@ -418,13 +419,8 @@ export default class Actor5e extends Actor {
   }
 
   configureMovement() {
-    const dialogTitle = game.i18n.format('A5E.MovementConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(MovementConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new MovementConfigDialog(this);
+    dialog.render(true);
   }
 
   configureSenses() {
