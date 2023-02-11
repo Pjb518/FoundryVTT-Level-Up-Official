@@ -10,7 +10,7 @@
     import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId, label } =
+    export let { actorDocument, appId, abilityKey } =
         getContext("#external").application;
 
     function updateCurrentTab(event) {
@@ -30,26 +30,21 @@
         },
     ];
 
-    const heading = game.i18n.format("A5E.AbilityConfiguration", {
-        ability: game.i18n.localize(CONFIG.A5E.abilities[label]),
-    });
     const expertiseDieOptions = prepareExpertiseDiceOptions();
+
     const checkBonusHeading = game.i18n.format("A5E.AbilityCheckBonus", {
-        ability: game.i18n.localize(CONFIG.A5E.abilities[label]),
-    });
-    const saveBonusHeading = game.i18n.format("A5E.SavingThrowBonus", {
-        ability: game.i18n.localize(CONFIG.A5E.abilities[label]),
+        ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]),
     });
 
-    $: ability = $actor.system.abilities[label];
+    const saveBonusHeading = game.i18n.format("A5E.SavingThrowBonus", {
+        ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]),
+    });
+
+    $: ability = $actor.system.abilities[abilityKey];
     $: currentTab = tabs[0];
 </script>
 
 <main>
-    <header class="u-px-lg u-py-xl">
-        <h1 class="u-font-serif u-text-xl">{heading}</h1>
-    </header>
-
     <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
     <!-- Ability Check Config -->
@@ -59,7 +54,7 @@
                 <RadioGroup
                     options={expertiseDieOptions}
                     selected={ability.check.expertiseDice}
-                    name={`system.abilities.${label}.check.expertiseDice`}
+                    name={`system.abilities.${abilityKey}.check.expertiseDice`}
                     document={actor}
                 />
             </FormSection>
@@ -72,7 +67,7 @@
                     <input
                         class="a5e-input"
                         type="text"
-                        name={`system.abilities.${label}.check.bonus`}
+                        name={`system.abilities.${abilityKey}.check.bonus`}
                         value={ability.check.bonus}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
@@ -113,9 +108,10 @@
                     <input
                         class="u-pointer"
                         type="checkbox"
-                        id={`${appId}-${label}-proficient`}
-                        name={`system.abilities.${label}.save.proficient`}
-                        value={$actor.system.abilities[label].save.proficient}
+                        id={`${appId}-${abilityKey}-proficient`}
+                        name={`system.abilities.${abilityKey}.save.proficient`}
+                        value={$actor.system.abilities[abilityKey].save
+                            .proficient}
                         checked={ability.save.proficient}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
@@ -127,7 +123,7 @@
 
                     <label
                         class="u-pointer"
-                        for={`${appId}-${label}-proficient`}
+                        for={`${appId}-${abilityKey}-proficient`}
                     >
                         {localize("A5E.ProficiencyProficient")}
                     </label>
@@ -140,7 +136,7 @@
                     optionClasses="u-p-md u-text-center u-w-12"
                     options={expertiseDieOptions}
                     selected={ability.save.expertiseDice}
-                    name={`system.abilities.${label}.save.expertiseDice`}
+                    name={`system.abilities.${abilityKey}.save.expertiseDice`}
                     document={actor}
                 />
             </FormSection>
@@ -153,7 +149,7 @@
                     <input
                         class="a5e-input"
                         type="text"
-                        name={`system.abilities.${label}.save.bonus`}
+                        name={`system.abilities.${abilityKey}.save.bonus`}
                         value={ability.save.bonus}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
@@ -165,7 +161,7 @@
                 </div>
             </FormSection>
 
-            {#if label === "con"}
+            {#if abilityKey === "con"}
                 <FormSection
                     heading="A5E.ConcentrationCheckBonus"
                     hint="This field accepts any values valid in roll formulae."

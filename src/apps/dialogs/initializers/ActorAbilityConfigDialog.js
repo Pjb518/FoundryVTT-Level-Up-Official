@@ -14,7 +14,7 @@ export default class ActorAbilityConfigDialog extends TJSDialog {
       ),
       content: {
         class: AbilityConfigComponent,
-        props: { actorDocument, label: abilityKey }
+        props: { actorDocument, abilityKey }
       }
     }, {
       classes: ['a5e-sheet'],
