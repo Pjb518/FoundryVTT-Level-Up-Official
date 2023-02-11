@@ -13,6 +13,7 @@ import DamageVulnerabilitiesConfigDialog from '../apps/dialogs/initializers/Dama
 import LanguagesConfigDialog from '../apps/dialogs/initializers/LanguagesConfigDialog';
 import MovementConfigDialog from '../apps/dialogs/initializers/MovementConfigDialog';
 import SensesConfigDialog from '../apps/dialogs/initializers/SensesConfigDialog';
+import SkillConfigDialog from '../apps/dialogs/initializers/SkillConfigDialog';
 import ToolProfConfigDialog from '../apps/dialogs/initializers/ToolProfConfigDialog';
 import WeaponProfConfigDialog from '../apps/dialogs/initializers/WeaponProfConfigDialog';
 
@@ -378,17 +379,9 @@ export default class Actor5e extends Actor {
     dialog.render(true);
   }
 
-  configureSkill(skill) {
-    const dialogTitle = game.i18n.format(
-      'A5E.SkillConfigurationPrompt',
-      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
-    );
-
-    // const dialog = new ReactiveDialog(SkillConfigDialog, {
-    //   title: dialogTitle, props: { actor: this, skill }
-    // });
-
-    // dialog.render(true);
+  configureSkill(skillKey) {
+    const dialog = new SkillConfigDialog(this, skillKey);
+    dialog.render(true);
   }
 
   configureSpellTab() {

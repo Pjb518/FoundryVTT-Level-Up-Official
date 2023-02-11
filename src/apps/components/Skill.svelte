@@ -3,7 +3,6 @@
     import { getContext } from "svelte";
 
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
-    import SkillConfigDialog from "../dialogs/initializers/SkillConfigDialog";
 
     export let jackOfAllTrades;
     export let key;
@@ -16,11 +15,6 @@
     const showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ??
         $actor.system.type;
-
-    function configureSkill(skill, label) {
-        const dialog = new SkillConfigDialog(actor, skill, label);
-        dialog.render(true);
-    }
 
     $: abilityBonus =
         $actor.system.abilities[skill.ability].check.deterministicBonus;
@@ -42,7 +36,7 @@
     {#if !sheetIsLocked}
         <button
             class="fas fa-cog a5e-config-button--skill a5e-button--edit-config"
-            on:click={() => configureSkill(key, label)}
+            on:click={() => $actor.configureSkill(key)}
         />
     {/if}
 

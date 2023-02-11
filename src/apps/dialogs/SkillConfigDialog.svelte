@@ -1,8 +1,9 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
-    import CustomTagGroup from "../components/CustomTagGroup.svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -10,16 +11,23 @@
     import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId, skillKey } = getContext("#external").application;
+    export let { actorDocument, appId, skillKey } =
+        getContext("#external").application;
 
+    console.log(appId);
+
+    const actor = new TJSDocument(actorDocument);
     const abilityOptions = prepareAbilityOptions();
+    const expertiseDiceOptions = prepareExpertiseDiceOptions();
+
     const checkBonusHeading = game.i18n.format("A5E.SkillCheckBonus", {
         skill: game.i18n.localize(CONFIG.A5E.skills[skillKey]),
     });
-    const expertiseDiceOptions = prepareExpertiseDiceOptions();
+
     const specialtyOptions = Object.entries(
         CONFIG.A5E.skillSpecialties[skillKey]
     );
+
     const passiveBonusHeading = game.i18n.format("A5E.SkillCheckBonusPassive", {
         skill: game.i18n.localize(CONFIG.A5E.skills[skillKey]),
     });
