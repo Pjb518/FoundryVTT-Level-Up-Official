@@ -1,25 +1,27 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
-
-    import A5E from "../../modules/config";
-
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
-    const flags = $actor.flags.a5e;
+    const actor = new TJSDocument(actorDocument);
+    const { abilityAbbreviations, spellLevels } = CONFIG.A5E;
+
+    $: flags = $actor.flags.a5e;
 </script>
 
 <main>
     <FormSection>
         <CustomTagGroup
             heading="A5E.AvailableSpellLevels"
-            options={Object.entries(A5E.spellLevels)}
+            options={Object.entries(spellLevels)}
             selected={flags?.availableSpellLevels ||
                 [...Array(10).keys()].map((x) => x.toString())}
             showCustomInput={false}
@@ -32,7 +34,7 @@
         <RadioGroup
             listClasses="u-gap-md u-mb-md u-text-sm"
             optionClasses="u-p-md u-text-center u-w-12"
-            options={Object.entries(A5E.abilityAbbreviations)}
+            options={Object.entries(abilityAbbreviations)}
             selected={$actor.system.attributes.spellcasting}
             document={actor}
             name="system.attributes.spellcasting"

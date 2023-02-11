@@ -2,7 +2,6 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import ActorManueverConfigDialog from "../../dialogs/initializers/ActorManueverConfigDialog";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import ItemCategory from "../ItemCategory.svelte";
@@ -11,11 +10,6 @@
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
-
-    function configureManuevers() {
-        const dialog = new ActorManueverConfigDialog(actor);
-        dialog.render(true);
-    }
 
     $: exertion = $actor.system.attributes.exertion;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -70,15 +64,17 @@
                 />
             </div>
         {/if}
+
         {#if !sheetIsLocked}
-            <div class="u-flex u-align-center u-gap-md u-mr-lg">
+            <div class="u-flex u-align-center u-gap-md u-mr-lg u-ml-auto">
                 <h3 class="u-mb-0 u-text-sm u-text-bold">
                     {localize("A5E.ConfigureManeuvers")}
                 </h3>
 
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <i
                     class="fas fa-gear a5e-config-button"
-                    on:click={configureManuevers}
+                    on:click={() => $actor.configureManeuvers()}
                 />
             </div>
         {/if}

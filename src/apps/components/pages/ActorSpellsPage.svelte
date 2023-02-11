@@ -6,7 +6,6 @@
     import TabFooter from "../TabFooter.svelte";
     import SortFilter from "../SortFilter.svelte";
 
-    import ActorSpellConfigDialog from "../../dialogs/initializers/ActorSpellConfigDialog";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
@@ -19,11 +18,6 @@
         if (!flags.availableSpellLevels?.length) return true;
 
         return flags.availableSpellLevels.includes(level.toString());
-    }
-
-    function configureSpells() {
-        const dialog = new ActorSpellConfigDialog(actor);
-        dialog.render(true);
     }
 
     $: spellResources = $actor.system.spellResources;
@@ -92,9 +86,10 @@
                     {localize("A5E.ConfigureSpells")}
                 </h3>
 
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <i
                     class="fas fa-gear a5e-config-button u-text-sm"
-                    on:click={configureSpells}
+                    on:click={() => $actor.configureSpellTab()}
                 />
             </div>
         {/if}

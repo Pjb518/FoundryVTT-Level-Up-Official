@@ -3,6 +3,8 @@ import Item5e from './item';
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
 import ActorHpConfigDialog from '../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../apps/dialogs/ActorInitConfigDialog.svelte';
+import ActorManueverConfigDialog from '../apps/dialogs/ActorManueverConfigDialog.svelte';
+import ActorSpellConfigDialog from '../apps/dialogs/ActorSpellConfigDialog.svelte';
 import ArmorProfConfigDialog from '../apps/dialogs/ArmorProfConfigDialog.svelte';
 import ConditionImmunitiesConfigDialog from '../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
 import CreatureSizeConfigDialog from '../apps/dialogs/CreatureSizeConfigDialog.svelte';
@@ -44,10 +46,12 @@ export default class Actor5e extends Actor {
       health: ActorHpConfigDialog,
       initiative: ActorInitConfigDialog,
       languages: LanguagesConfigDialog,
+      maneuvers: ActorManueverConfigDialog,
       movement: MovementConfigDialog,
       senses: SensesConfigDialog,
       size: CreatureSizeConfigDialog,
       skill: SkillConfigDialog,
+      spells: ActorSpellConfigDialog,
       tools: ToolProfConfigDialog,
       types: CreatureTypeConfigDialog,
       weapons: WeaponProfConfigDialog
@@ -392,14 +396,9 @@ export default class Actor5e extends Actor {
     this.#configure('languages', title, data, options);
   }
 
-  configureManeuvers() {
-    const dialogTitle = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(ManeuverTabConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+  configureManeuvers(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
+    this.#configure('maneuvers', title, data, options);
   }
 
   configureMovement(data = {}, options = {}) {
@@ -426,17 +425,9 @@ export default class Actor5e extends Actor {
     this.#configure('skill', title, data, options);
   }
 
-  configureSpellTab() {
-    const dialogTitle = game.i18n.format(
-      'A5E.SpellTabConfigurationPrompt',
-      { name: this.name }
-    );
-
-    // const dialog = new ReactiveDialog(SpellTabConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+  configureSpellTab(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.SpellTabConfigurationPrompt', { name: this.name });
+    this.#configure('spells', title, data, options);
   }
 
   configureToolProficiencies(data = {}, options = {}) {
