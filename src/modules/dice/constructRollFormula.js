@@ -6,15 +6,25 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  * Values which are undefined, null, or 0 are not included in the resulting formula, and some
  * arithmetic simplification is performed on the resulting formula for presentational purposes.
  *
- * @param {string[]} parts An array of roll terms in string format.
- * @throws An error when the provided terms produce an invalid roll formula.
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
-export default function constructRollFormula(parts, rollData) {
-  const formula = parts.filter((part) => Boolean(part) && part !== '0').join(' + ');
-  const isValid = Roll.validate(formula);
+export default function constructRollFormula(actor, rollMode, modifiers) {
+  const rollData = actor.getRollData();
+  const parts = [];
 
-  if (!isValid) throw Error('Invalid roll formula');
+  if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) parts.push('2d20kh');
+  else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) parts.push('2d20kl');
+  else parts.push('1d20');
+
+  parts.push(...modifiers.map(({ label, value }) => {
+    if (value && value !== 0) {
+      return label ? `${value}[${label}]` : value;
+    }
+
+    return null;
+  }));
+
+  const formula = parts.filter((part) => Boolean(part) && part !== '0').join(' + ');
 
   const { terms } = new Roll(formula, rollData);
   const simplifiedTerms = simplifyOperatorTerms(terms);

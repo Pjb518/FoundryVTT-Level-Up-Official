@@ -1,12 +1,15 @@
 import A5E from '../modules/config';
 import Item5e from './item';
 
+import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
+import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
+import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
+
 import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
 import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
 import calculateSpellDC from '../modules/utils/calculateSpellDC';
 import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
-import toggleFilter from '../modules/utils/toggleFilter';
 
 export default class Actor5e extends Actor {
   get hitPointFormula() {
@@ -592,45 +595,6 @@ export default class Actor5e extends Actor {
     });
   }
 
-  async resetFilters(tab) {
-    if (tab === 'features') await this.resetFeatureFilters();
-    else if (tab === 'maneuvers') await this.resetManeuverFilters();
-    else if (tab === 'inventory') await this.resetObjectFilters();
-    else if (tab === 'spells') await this.resetSpellFilters();
-  }
-
-  async resetFeatureFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'featureActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'featureTypeFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
-  async resetManeuverFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'maneuverActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'maneuverDegreeFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'maneuverTraditionFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
-  async resetObjectFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'itemActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'itemRarityFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'miscellaneousItemFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
-  async resetSpellFilters() {
-    await Promise.all([
-      this.setFlag('a5e', 'spellActivationCostFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'spellComponentFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'spellSchoolFilters', { inclusive: [], exclusive: [] }),
-      this.setFlag('a5e', 'miscellaneousSpellFilters', { inclusive: [], exclusive: [] })
-    ]);
-  }
-
   async restoreExertion() {
     const { exertion } = this.system.attributes;
 
@@ -665,40 +629,19 @@ export default class Actor5e extends Actor {
         'd12.current': hitDice.d12.total
       };
     } else {
-      // TODO: Clean up this implementation. Ewwww.
       for (let i = 0; i < quantityToRecover; i += 1) {
-        if (expendedHitDice.d12 > 0) {
-          if (!updates['system.attributes.hitDice.d12.current']) {
-            updates['system.attributes.hitDice.d12.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d12.current'] += 1;
-          }
+        // eslint-disable-next-line no-restricted-syntax
+        for (const dieSize of Object.keys(hitDice).reverse()) {
+          if (expendedHitDice[dieSize] > 0) {
+            if (!updates[`system.attributes.hitDice.${dieSize}.current`]) {
+              updates[`system.attributes.hitDice.${dieSize}.current`] = hitDice[dieSize].current + 1;
+            } else {
+              updates[`system.attributes.hitDice.${dieSize}.current`] += 1;
+            }
 
-          expendedHitDice.d12 -= 1;
-        } else if (expendedHitDice.d10 > 0) {
-          if (!updates['system.attributes.hitDice.d10.current']) {
-            updates['system.attributes.hitDice.d10.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d10.current'] += 1;
+            expendedHitDice[dieSize] -= 1;
+            break;
           }
-
-          expendedHitDice.d10 -= 1;
-        } else if (expendedHitDice.d8 > 0) {
-          if (!updates['system.attributes.hitDice.d8.current']) {
-            updates['system.attributes.hitDice.d8.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d8.current'] += 1;
-          }
-
-          expendedHitDice.d8 -= 1;
-        } else {
-          if (!updates['system.attributes.hitDice.d6.current']) {
-            updates['system.attributes.hitDice.d6.current'] = 1;
-          } else {
-            updates['system.attributes.hitDice.d6.current'] += 1;
-          }
-
-          expendedHitDice.d6 -= 1;
         }
       }
     }
@@ -742,50 +685,37 @@ export default class Actor5e extends Actor {
    *
    * @async
    * @method
-   * @param {string} ability A key that can be used to reference a given ability score.
+   * @param {string} abilityKey A key that can be used to reference a given ability score.
    */
-  async rollAbilityCheck(ability, options = {}) {
-    const dialogTitle = game.i18n.format(
-      'A5E.AbilityCheckPromptTitle',
-      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
-    );
+  async rollAbilityCheck(abilityKey, options = {}) {
+    const dialog = new AbilityCheckRollDialog(this, abilityKey);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
 
-    // const checkData = await getDialogData(AbilityDialog, {
-    //   title: dialogTitle,
-    //   props: {
-    //     actor: this, ability, isSave: false, rollMode: options.rollMode
-    //   }
-    // });
+    if (dialogData === null) return;
 
-    const checkData = null;
+    const { rollFormula } = dialogData;
+    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
-    if (checkData === null) return;
-
-    const { formula } = checkData;
-    const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
+    // TODO: Review the code below this point as it is part of the 0.8.x implementation.
 
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      roll,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/ability-check.hbs',
-        {
-          title: game.i18n.format(
-            'A5E.AbilityCheckSpecific',
-            { ability: game.i18n.localize(A5E.abilities[ability]) }
-          ),
-          img: this.img,
-          formula: roll.formula,
-          tooltip: await roll.getTooltip(),
-          total: roll.total
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'abilityCheck',
+          abilityKey
         }
-      )
+      },
+      content: '<article></article>'
     };
 
-    const hookData = { ability, formula, rollMode: options.rollMode };
+    const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
     Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
     ChatMessage.create(chatData);
   }
@@ -876,48 +806,33 @@ export default class Actor5e extends Actor {
     });
   }
 
-  async rollSavingThrow(ability, options = {}) {
-    const dialogTitle = game.i18n.format(
-      'A5E.SavingThrowPromptTitle',
-      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
-    );
+  async rollSavingThrow(abilityKey, options = {}) {
+    const dialog = new SavingThrowRollDialog(this, abilityKey);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
 
-    // const checkData = await getDialogData(AbilityDialog, {
-    //   title: dialogTitle,
-    //   props: {
-    //     actor: this, ability, isSave: true, rollMode: options.rollMode
-    //   }
-    // });
+    if (dialogData === null) return;
 
-    const checkData = null;
-
-    if (checkData === null) return;
-
-    const { formula } = checkData;
-    const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
+    const { rollFormula } = dialogData;
+    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      roll,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/ability-check.hbs',
-        {
-          title: game.i18n.format(
-            'A5E.SavingThrowSpecific',
-            { ability: game.i18n.localize(A5E.abilities[ability]) }
-          ),
-          img: this.img,
-          formula: roll.formula,
-          tooltip: await roll.getTooltip(),
-          total: roll.total
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'savingThrow',
+          abilityKey
         }
-      )
+      },
+      content: '<article></article>'
     };
 
-    const hookData = { ability, formula, rollMode: options.rollMode };
+    const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
     Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
     ChatMessage.create(chatData);
   }
@@ -932,45 +847,37 @@ export default class Actor5e extends Actor {
    *
    * @returns {Promise<undefined>}
    */
-  async rollSkillCheck(skill, options = {}) {
-    const dialogTitle = game.i18n.format(
-      'A5E.SkillPromptTitle',
-      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[skill]) }
-    );
+  async rollSkillCheck(skillKey, options = {}) {
+    const dialog = new SkillCheckRollDialog(this, skillKey);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
 
-    // const skillData = await getDialogData(SkillDialog, {
-    //   title: dialogTitle, props: { actor: this, skill, rollMode: options.rollMode }
-    // });
+    if (dialogData === null) return;
 
-    const skillData = null;
-
-    if (!skillData) return;
-
-    const { formula, ability } = skillData;
-    const roll = await new CONFIG.Dice.D20Roll(formula).roll({ async: true });
+    const { rollFormula, abilityKey } = dialogData;
+    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      roll,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/ability-check.hbs',
-        {
-          title: game.i18n.format('A5E.SkillCheck', { skill: game.i18n.localize(A5E.skills[skill]) }),
-          img: this.img,
-          ability: game.i18n.localize(CONFIG.A5E.abilityAbbreviations[ability]),
-          formula: roll.formula,
-          tooltip: await roll.getTooltip(),
-          total: roll.total
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'skillCheck',
+          abilityKey,
+          skillKey
         }
-      )
+      },
+      content: '<article></article>'
     };
 
     const hookData = {
-      ability, formula, rollMode: options.rollMode, skill
+      abilityKey, rollFormula, rollMode: options.rollMode, skillKey
     };
+
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
     ChatMessage.create(chatData);
   }
@@ -1023,16 +930,5 @@ export default class Actor5e extends Actor {
     else updates['system.attributes.death'].success += 1;
 
     await this.update(updates);
-  }
-
-  async updateFilters(filterKey, filterValue) {
-    const filter = this.getFlag('a5e', filterKey) ?? {};
-    const [inclusiveFilters, exclusiveFilters] = toggleFilter(filter, filterValue);
-
-    await this.setFlag(
-      'a5e',
-      filterKey,
-      { inclusive: inclusiveFilters, exclusive: exclusiveFilters }
-    );
   }
 }
