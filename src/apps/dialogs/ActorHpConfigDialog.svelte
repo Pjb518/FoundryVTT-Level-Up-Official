@@ -1,15 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../components/FormSection.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
 
     import prepareHitDice from "../handlers/prepareHitDice";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
     const hpFields = [
         { label: "A5E.HitPointsCurrent", updateAttribute: "value" },
@@ -18,6 +16,7 @@
         { label: "A5E.HitPointsMaxModifier", updateAttribute: "bonus" },
     ];
 
+    const actor = new TJSDocument(actorDocument);
     const hitDice = prepareHitDice($actor);
 
     $: hitDieClasses =
@@ -29,12 +28,6 @@
 </script>
 
 <main>
-    <header class="u-px-lg u-py-xl">
-        <h1 class="u-font-serif u-text-xl">
-            {localize("A5E.HitPointsConfigurationTooltip")}
-        </h1>
-    </header>
-
     <div class="u-flex u-flex-col u-gap-md">
         {#each hpFields as { label, updateAttribute }}
             <FormSection heading={label} inline={true}>

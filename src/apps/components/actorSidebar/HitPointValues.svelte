@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import ActorHpConfigDialog from "../../dialogs/initializers/ActorHpConfigDialog";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let hp;
@@ -32,11 +31,6 @@
     ];
 
     const actor = getContext("actor");
-
-    function configureHitPoints() {
-        const dialog = new ActorHpConfigDialog(actor);
-        dialog.render(true);
-    }
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
@@ -71,7 +65,7 @@
     </div>
 {:else}
     <div class="hp-config__container">
-        <button class="a5e-button" on:click={configureHitPoints}>
+        <button class="a5e-button" on:click={() => $actor.configureHealth()}>
             <i class="fas fa-gear" />
             {localize("A5E.HitPointsConfigurationTooltip")}
         </button>
