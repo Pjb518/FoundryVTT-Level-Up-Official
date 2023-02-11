@@ -1,6 +1,8 @@
 <script>
     import { slide } from "svelte/transition";
 
+    import DieResult from "./DieResult.svelte";
+
     export let roll;
 </script>
 
@@ -10,9 +12,13 @@
             <header
                 class="u-align-center u-flex u-justify-space-between u-text-bold"
             >
-                <span class="a5e-dice-tooltip__formula">
+                <div class="a5e-dice-tooltip__formula tooltip-formula">
                     {part.expression}
-                </span>
+
+                    <span class="tooltip-flavor">
+                        {#if part.flavor}[{part.flavor}]{/if}
+                    </span>
+                </div>
 
                 <span class="a5e-dice-tooltip__total">{part.total}</span>
             </header>
@@ -20,15 +26,14 @@
             <ol
                 class="u-align-center u-flex u-flex-wrap u-gap-xs u-list-style-none u-my-xs u-p-0"
             >
-                {#each part.results as die}
-                    <li
-                        class={`a5e-die a5e-die--${part.faces}`}
-                        class:discarded-die={die.discarded}
-                        class:fumbled-die={die.result === 1}
-                        class:critical-die={die.result === part.faces}
-                    >
-                        {die.result}
-                    </li>
+                {#each part.results as { discarded: isDiscarded, result }}
+                    <DieResult
+                        dieSize={part.faces}
+                        isCritical={result === part.faces}
+                        isFumble={result === 1}
+                        {isDiscarded}
+                        {result}
+                    />
                 {/each}
             </ol>
         </section>
@@ -36,17 +41,14 @@
 </div>
 
 <style lang="scss">
-    .discarded-die {
-        filter: sepia(0.5) contrast(0.75) opacity(0.4);
+    .tooltip-formula {
+        display: flex;
+        gap: 0.5rem;
     }
 
-    .fumbled-die {
-        color: #aa0200;
-        filter: sepia(0.5) hue-rotate(-60deg);
-    }
-
-    .critical-die {
-        color: #18520b;
-        filter: sepia(0.5) hue-rotate(60deg);
+    .tooltip-flavor {
+        font-size: 0.833rem;
+        font-weight: normal;
+        color: #7e7960;
     }
 </style>
