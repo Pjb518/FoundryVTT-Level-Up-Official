@@ -1,16 +1,9 @@
 <script>
     import { getContext } from "svelte";
 
-    import ActorAbilityConfigDialog from "../../dialogs/initializers/ActorAbilityConfigDialog";
-
     export let abilityLabel;
 
     const actor = getContext("actor");
-
-    function configureAbility() {
-        const dialog = new ActorAbilityConfigDialog(actor, abilityLabel);
-        dialog.render(true);
-    }
 </script>
 
 <li class="container">
@@ -18,7 +11,7 @@
 
     {#if !($actor.flags?.a5e?.sheetIsLocked ?? true)}
         <button
-            on:click={configureAbility}
+            on:click={$actor.configureAbilityScore(abilityLabel)}
             class="fas fa-gear a5e-button--edit-config"
         />
     {/if}

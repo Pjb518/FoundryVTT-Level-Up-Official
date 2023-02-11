@@ -1,5 +1,6 @@
-import A5E from '../modules/config';
 import Item5e from './item';
+
+import ActorAbilityConfigDialog from '../apps/dialogs/initializers/ActorAbilityConfigDialog';
 
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
@@ -288,17 +289,9 @@ export default class Actor5e extends Actor {
     this.update(updates);
   }
 
-  configureAbilityScore(ability) {
-    const dialogTitle = game.i18n.format(
-      'A5E.AbilityScoreConfigurationPrompt',
-      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[ability]) }
-    );
-
-    // const dialog = new ReactiveDialog(AbilityScoreConfigDialog, {
-    //   title: dialogTitle, props: { actor: this, ability, isSave: false }
-    // });
-
-    // dialog.render(true);
+  configureAbilityScore(abilityKey) {
+    const dialog = new ActorAbilityConfigDialog(this, abilityKey);
+    dialog.render(true);
   }
 
   configureArmorProficiencies() {

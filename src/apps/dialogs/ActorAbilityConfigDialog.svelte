@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../components/FormSection.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -9,11 +10,14 @@
     import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId, label } = getContext("#external").application;
+    export let { actorDocument, appId, label } =
+        getContext("#external").application;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
     }
+
+    const actor = new TJSDocument(actorDocument);
 
     const tabs = [
         {
