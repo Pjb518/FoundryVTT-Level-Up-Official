@@ -1,13 +1,17 @@
 <script>
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import AbilityCheckHeader from "./header/AbilityCheckHeader.svelte";
     import RollTooltip from "./tooltip/RollTooltip.svelte";
+    import SavingThrowHeader from "./header/SavingThrowHeader.svelte";
     import SkillCheckHeader from "./header/SkillCheckHeader.svelte";
 
     export let messageDocument;
 
     function getHeaderComponent(cardType) {
-        if (cardType === "skillCheck") return SkillCheckHeader;
+        if (cardType === "abilityCheck") return AbilityCheckHeader;
+        else if (cardType === "savingThrow") return SavingThrowHeader;
+        else if (cardType === "skillCheck") return SkillCheckHeader;
     }
 
     const message = new TJSDocument(messageDocument);
