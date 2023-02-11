@@ -867,6 +867,8 @@ export default class Actor5e extends Actor {
     const { rollFormula, abilityKey } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
+    console.log(this);
+
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),

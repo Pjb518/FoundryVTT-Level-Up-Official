@@ -7,6 +7,7 @@
     export let messageDocument;
 
     const message = new TJSDocument(messageDocument);
+
     const actor = new TJSDocument(fromUuidSync($message.flags?.a5e?.actorId));
     const { abilityKey, skillKey } = $message.flags?.a5e;
     const { abilities, skills } = CONFIG.A5E;
@@ -15,7 +16,11 @@
 </script>
 
 <header class="card-header">
-    <img class="actor-image" src={$actor.img} alt={$actor.name} />
+    <img
+        class="actor-image"
+        src={$actor.img ?? $actor.actor.img}
+        alt={$actor.name}
+    />
 
     <div>
         <h2 class="card-title">{`${localize(skills[skillKey])} Check`}</h2>
