@@ -1,12 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const creatureSizes = Object.entries(CONFIG.A5E.actorSizes);
 </script>
 
@@ -26,7 +27,6 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
         background: rgba(246, 242, 235, 0.5);

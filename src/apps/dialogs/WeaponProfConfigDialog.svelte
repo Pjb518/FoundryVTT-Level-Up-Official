@@ -1,13 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import TagGroup from "../components/TagGroup.svelte";
     import InputField from "../components/InputField.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
     function updateFunction() {
         const proficiencies = [
@@ -27,6 +27,7 @@
         );
     }
 
+    const actor = new TJSDocument(actorDocument);
     const martialWeapons = CONFIG.A5E.weaponsPlural.martial;
     const rareWeapons = CONFIG.A5E.weaponsPlural.rare;
     const simpleWeapons = CONFIG.A5E.weaponsPlural.simple;

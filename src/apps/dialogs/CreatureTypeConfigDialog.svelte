@@ -1,19 +1,20 @@
 <script>
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const systemTypes = Object.entries(CONFIG.A5E.creatureTypes);
-    $: actorTypes = $actor.system.details.creatureTypes;
 </script>
 
 <main>
     <CustomTagGroup
         heading="A5E.CreatureTypePlural"
         options={systemTypes}
-        selected={actorTypes}
+        selected={$actor.system.details.creatureTypes}
         name="system.details.creatureTypes"
         document={actor}
     />

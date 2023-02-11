@@ -2,18 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import CreatureSizeConfigDialog from "../../dialogs/initializers/CreatureSizeConfigDialog";
-    import CreatureTypeConfigDialog from "../../dialogs/initializers/CreatureTypeConfigDialog";
-    import ConditionImmunitiesConfigDialog from "../../dialogs/initializers/ConditionImmunitiesConfigDialog";
-    import DamageImmunitiesConfigDialog from "../../dialogs/initializers/DamageImmunitiesConfigDialog";
-    import DamageResistancesConfigDialog from "../../dialogs/initializers/DamageResistancesConfigDialog";
-    import DamageVulnerabilitiesConfigDialog from "../../dialogs/initializers/DamageVulnerabilitiesConfigDialog";
-    import LanguagesConfigDialog from "../../dialogs/initializers/LanguagesConfigDialog";
-    import MovementConfigDialog from "../../dialogs/initializers/MovementConfigDialog";
-    import SensesConfigDialog from "../../dialogs/initializers/SensesConfigDialog";
-    import ToolProfConfigDialog from "../../dialogs/initializers/ToolProfConfigDialog";
-    import WeaponProfConfigDialog from "../../dialogs/initializers/WeaponProfConfigDialog";
-
     import prepareArmorProficiencies from "../../handlers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../handlers/prepareConditionImmunities";
     import prepareCreatureTypes from "../../handlers/prepareCreatureTypes";
@@ -38,37 +26,37 @@
         {
             label: localize("A5E.SensesSpecial"),
             values: prepareSenses($actor),
-            dialog: SensesConfigDialog,
+            dialogMethod: "configureSenses",
         },
         {
             label: localize("A5E.Languages"),
             values: prepareLanguageProficiencies($actor),
-            dialog: LanguagesConfigDialog,
+            dialogMethod: "configureLanguages",
         },
         {
             label: localize("A5E.ConditionImmunities"),
             values: prepareConditionImmunities($actor),
-            dialog: ConditionImmunitiesConfigDialog,
+            dialogMethod: "configureConditionImmunities",
         },
         {
             label: localize("A5E.DamageImmunities"),
             values: prepareDamageImmunities($actor),
-            dialog: DamageImmunitiesConfigDialog,
+            dialogMethod: "configureDamageImmunities",
         },
         {
             label: localize("A5E.DamageResistances"),
             values: prepareDamageResistances($actor),
-            dialog: DamageResistancesConfigDialog,
+            dialogMethod: "configureDamageResistances",
         },
         {
             label: localize("A5E.DamageVulnerabilities"),
             values: prepareDamageVulnerabilities($actor),
-            dialog: DamageVulnerabilitiesConfigDialog,
+            dialogMethod: "configureDamageVulnerabilities",
         },
         {
             label: localize("A5E.WeaponProficiencies"),
             values: prepareWeaponProficiencies($actor),
-            dialog: WeaponProfConfigDialog,
+            dialogMethod: "configureWeaponProficiencies",
         },
         {
             label: localize("A5E.ArmorProficiencies"),
@@ -83,12 +71,12 @@
         {
             label: localize("A5E.Size"),
             values: prepareCreatureSize($actor),
-            dialog: CreatureSizeConfigDialog,
+            dialogMethod: "configureSizeCategory",
         },
         {
             label: localize("A5E.CreatureTypesLabel"),
             values: prepareCreatureTypes($actor),
-            dialog: CreatureTypeConfigDialog,
+            dialogMethod: "configureCreatureTypes",
         },
     ];
 

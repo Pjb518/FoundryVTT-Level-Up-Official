@@ -7,11 +7,6 @@
 
     const actor = getContext("actor");
 
-    function configureInitiative() {
-        const dialog = new InitiativeConfigDialog(actor);
-        dialog.render(true);
-    }
-
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
@@ -28,7 +23,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-cog"
-            on:click={configureInitiative}
+            on:click={() => $actor.configureInitiative()}
         />
     {/if}
 </li>

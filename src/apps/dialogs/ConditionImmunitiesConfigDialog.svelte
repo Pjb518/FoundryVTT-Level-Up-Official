@@ -1,19 +1,20 @@
 <script>
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const systemImmunities = Object.entries(CONFIG.A5E.conditions);
-    $: actorImmunities = $actor.system.traits.conditionImmunities;
 </script>
 
 <main>
     <CustomTagGroup
         heading="A5E.ConditionImmunities"
         options={systemImmunities}
-        selected={actorImmunities}
+        selected={$actor.system.traits.conditionImmunities}
         name="system.traits.conditionImmunities"
         document={actor}
     />

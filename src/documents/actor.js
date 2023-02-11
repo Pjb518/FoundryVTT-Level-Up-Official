@@ -2,9 +2,19 @@ import Item5e from './item';
 
 import ActorAbilityConfigDialog from '../apps/dialogs/initializers/ActorAbilityConfigDialog';
 import ActorHpConfigDialog from '../apps/dialogs/initializers/ActorHpConfigDialog';
+import ActorInitConfigDialog from '../apps/dialogs/initializers/InitiativeConfigDialog';
 import ArmorProfConfigDialog from '../apps/dialogs/initializers/ArmorProfConfigDialog';
+import ConditionImmunitiesConfigDialog from '../apps/dialogs/initializers/ConditionImmunitiesConfigDialog';
+import CreatureSizeConfigDialog from '../apps/dialogs/initializers/CreatureSizeConfigDialog';
+import CreatureTypeConfigDialog from '../apps/dialogs/initializers/CreatureTypeConfigDialog';
+import DamageImmunitiesConfigDialog from '../apps/dialogs/initializers/DamageImmunitiesConfigDialog';
+import DamageResistancesConfigDialog from '../apps/dialogs/initializers/DamageResistancesConfigDialog';
+import DamageVulnerabilitiesConfigDialog from '../apps/dialogs/initializers/DamageVulnerabilitiesConfigDialog';
+import LanguagesConfigDialog from '../apps/dialogs/initializers/LanguagesConfigDialog';
 import MovementConfigDialog from '../apps/dialogs/initializers/MovementConfigDialog';
+import SensesConfigDialog from '../apps/dialogs/initializers/SensesConfigDialog';
 import ToolProfConfigDialog from '../apps/dialogs/initializers/ToolProfConfigDialog';
+import WeaponProfConfigDialog from '../apps/dialogs/initializers/WeaponProfConfigDialog';
 
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
@@ -314,23 +324,13 @@ export default class Actor5e extends Actor {
   }
 
   configureConditionImmunities() {
-    const dialogTitle = game.i18n.format('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(ConditionImmunitiesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new ConditionImmunitiesConfigDialog(this);
+    dialog.render(true);
   }
 
   configureCreatureTypes() {
-    const dialogTitle = game.i18n.format('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(CreatureTypesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new CreatureTypeConfigDialog(this);
+    dialog.render(true);
   }
 
   configureCulture() {
@@ -344,33 +344,18 @@ export default class Actor5e extends Actor {
   }
 
   configureDamageImmunities() {
-    const dialogTitle = game.i18n.format('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
-    //   title: dialogTitle, props: { actor: this, updatePath: 'damageImmunities' }
-    // });
-
-    // dialog.render(true);
+    const dialog = new DamageImmunitiesConfigDialog(this);
+    dialog.render(true);
   }
 
   configureDamageResistances() {
-    const dialogTitle = game.i18n.format('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
-    //   title: dialogTitle, props: { actor: this, updatePath: 'damageResistances' }
-    // });
-
-    // dialog.render(true);
+    const dialog = new DamageResistancesConfigDialog(this);
+    dialog.render(true);
   }
 
   configureDamageVulnerabilities() {
-    const dialogTitle = game.i18n.format('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(DamageIRVConfigDialog, {
-    //   title: dialogTitle, props: { actor: this, updatePath: 'damageVulnerabilities' }
-    // });
-
-    // dialog.render(true);
+    const dialog = new DamageVulnerabilitiesConfigDialog(this);
+    dialog.render(true);
   }
 
   configureHealth() {
@@ -389,23 +374,13 @@ export default class Actor5e extends Actor {
   }
 
   configureInitiative() {
-    const dialogTitle = game.i18n.format('A5E.InitiativeConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(InitiativeConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new ActorInitConfigDialog(this);
+    dialog.render(true);
   }
 
   configureLanguages() {
-    const dialogTitle = game.i18n.format('A5E.LanguagesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(LanguagesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new LanguagesConfigDialog(this);
+    dialog.render(true);
   }
 
   configureManeuvers() {
@@ -424,23 +399,13 @@ export default class Actor5e extends Actor {
   }
 
   configureSenses() {
-    const dialogTitle = game.i18n.format('A5E.SensesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(SensesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new SensesConfigDialog(this);
+    dialog.render(true);
   }
 
   configureSizeCategory() {
-    const dialogTitle = game.i18n.format('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(SizeCategoryConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new CreatureSizeConfigDialog(this);
+    dialog.render(true);
   }
 
   configureSkill(skill) {
@@ -475,13 +440,8 @@ export default class Actor5e extends Actor {
   }
 
   configureWeaponProficiencies() {
-    const dialogTitle = game.i18n.format('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(WeaponProficienciesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new WeaponProfConfigDialog(this);
+    dialog.render(true);
   }
 
   async constructItemCard(data) {

@@ -1,19 +1,20 @@
 <script>
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const systemDamageTypes = Object.entries(CONFIG.A5E.damageTypes);
-    $: actorVulnerabilities = $actor.system.traits.damageVulnerabilities;
 </script>
 
 <main>
     <CustomTagGroup
         heading="A5E.DamageTypePlural"
         options={systemDamageTypes}
-        selected={actorVulnerabilities}
+        selected={$actor.system.traits.damageVulnerabilities}
         name="system.traits.damageVulnerabilities"
         document={actor}
     />

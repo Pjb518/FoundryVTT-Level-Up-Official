@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
@@ -8,20 +8,15 @@
     import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const expertiseDieOptions = prepareExpertiseDiceOptions();
 
     $: initiative = $actor.system.attributes.initiative;
 </script>
 
 <main>
-    <header class="u-px-lg u-py-xl">
-        <h1 class="u-font-serif u-text-xl">
-            {localize("A5E.InitiativeConfigurationTitle")}
-        </h1>
-    </header>
-
     <div class="u-flex u-flex-col u-gap-md">
         <FormSection heading="A5E.ExpertiseDie">
             <RadioGroup

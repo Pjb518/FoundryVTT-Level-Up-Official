@@ -1,19 +1,20 @@
 <script>
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
-    $: actorLanguages = $actor.system.proficiencies.languages;
 </script>
 
 <main>
     <CustomTagGroup
         heading="A5E.Languages"
         options={defaultLanguages}
-        selected={actorLanguages}
+        selected={$actor.system.proficiencies.languages}
         name="system.proficiencies.languages"
         document={actor}
     />

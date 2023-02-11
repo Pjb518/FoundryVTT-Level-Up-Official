@@ -1,12 +1,14 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../components/FormSection.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
+
+    const actor = new TJSDocument(actorDocument);
 
     const headings = {
         blindsight: "A5E.SenseBlindsightRange",
@@ -14,19 +16,11 @@
         tremorsense: "A5E.SenseTremorsenseRange",
         truesight: "A5E.SenseTruesightRange",
     };
-
-    $: senses = $actor.system.attributes.senses;
 </script>
 
 <main>
-    <header class="u-px-lg u-py-xl">
-        <h1 class="u-font-serif u-text-xl">
-            {localize("A5E.SensesConfigurationPrompt")}
-        </h1>
-    </header>
-
     <!-- TODO: Possible conversion to number -->
-    {#each Object.entries(senses) as [sense, distance]}
+    {#each Object.entries($actor.system.attributes.senses) as [sense, distance]}
         <FormSection heading={headings[sense]} inline={true}>
             <div class="u-w-20">
                 <input
