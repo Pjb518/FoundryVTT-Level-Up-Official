@@ -2,17 +2,11 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import RollTooltip from "./tooltip/RollTooltip.svelte";
-
-    export let messageDocument;
-
-    const message = new TJSDocument(messageDocument);
+    export let message;
 
     const actor = new TJSDocument(fromUuidSync($message.flags?.a5e?.actorId));
     const { abilityKey, skillKey } = $message.flags?.a5e;
     const { abilities, skills } = CONFIG.A5E;
-
-    let tooltipIsVisible = false;
 </script>
 
 <header class="card-header">
@@ -31,31 +25,7 @@
     </div>
 </header>
 
-<hr class="a5e-rule a5e-rule--card" />
-
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-{#each $message.rolls as roll}
-    <div
-        class="a5e-roll a5e-js-toggle-roll-tooltip-visibility roll-formula"
-        on:click={() => {
-            tooltipIsVisible = !tooltipIsVisible;
-        }}
-    >
-        {roll.formula}
-    </div>
-
-    {#each $message.rolls as rollComponent}
-        {#if tooltipIsVisible}
-            <RollTooltip roll={rollComponent} />
-        {/if}
-    {/each}
-
-    <div class="a5e-roll a5e-roll--total">
-        {$message.rolls[0].total}
-    </div>
-{/each}
-
-<style lang="scss">
+<style>
     .actor-image {
         border: 0;
         width: 2.5rem;
@@ -83,9 +53,5 @@
         font-size: 0.833rem;
         border-bottom: 0;
         color: #7e7960;
-    }
-
-    .roll-formula {
-        word-break: keep-all;
     }
 </style>

@@ -4,7 +4,7 @@ import handlebarsHelperRange from 'handlebars-helper-range';
 import ActorSheet5e from './apps/ActorSheet';
 import ItemSheet5e from './apps/ItemSheet';
 
-import SkillCheckChatCard from './apps/chat/SkillCheckChatCard.svelte';
+import CheckChatCard from './apps/chat/CheckChatCard.svelte';
 
 import A5E from './modules/config';
 import ActiveEffect5e from './documents/activeEffects';
@@ -214,7 +214,7 @@ Hooks.on('createToken', async (token, _, userID) => {
 });
 
 Hooks.on('renderChatMessage', (message, html) => {
-  message._svelteComponent = new SkillCheckChatCard({
+  message._svelteComponent = new CheckChatCard({
     target: $(html).find('.message-content article')[0],
     props: { messageDocument: message }
   });
