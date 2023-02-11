@@ -34,24 +34,26 @@
 <hr class="a5e-rule a5e-rule--card" />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div
-    class="a5e-roll a5e-js-toggle-roll-tooltip-visibility roll-formula"
-    on:click={() => {
-        tooltipIsVisible = !tooltipIsVisible;
-    }}
->
-    {$message.rolls[0].formula}
-</div>
-
 {#each $message.rolls as roll}
-    {#if tooltipIsVisible}
-        <RollTooltip {roll} />
-    {/if}
-{/each}
+    <div
+        class="a5e-roll a5e-js-toggle-roll-tooltip-visibility roll-formula"
+        on:click={() => {
+            tooltipIsVisible = !tooltipIsVisible;
+        }}
+    >
+        {roll.formula}
+    </div>
 
-<div class="a5e-roll a5e-roll--total">
-    {$message.rolls[0].total}
-</div>
+    {#each $message.rolls as rollComponent}
+        {#if tooltipIsVisible}
+            <RollTooltip roll={rollComponent} />
+        {/if}
+    {/each}
+
+    <div class="a5e-roll a5e-roll--total">
+        {$message.rolls[0].total}
+    </div>
+{/each}
 
 <style lang="scss">
     .actor-image {
