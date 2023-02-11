@@ -18,6 +18,8 @@
     function isCriticalSuccess(roll) {
         const d20Roll = roll.terms.find((term) => term.faces === 20);
 
+        if (!d20Roll) return false;
+
         return d20Roll.results.some(
             ({ result, active }) => active && result === 20
         );
@@ -25,6 +27,8 @@
 
     function isCriticalFailure(roll) {
         const d20Roll = roll.terms.find((term) => term.faces === 20);
+
+        if (!d20Roll) return false;
 
         return d20Roll.results.some(
             ({ result, active }) => active && result === 1
