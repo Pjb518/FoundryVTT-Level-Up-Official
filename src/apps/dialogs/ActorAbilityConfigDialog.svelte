@@ -3,11 +3,10 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
 
-    import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, abilityKey } =
@@ -30,8 +29,6 @@
         },
     ];
 
-    const expertiseDieOptions = prepareExpertiseDiceOptions();
-
     const checkBonusHeading = game.i18n.format("A5E.AbilityCheckBonus", {
         ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]),
     });
@@ -51,11 +48,14 @@
     {#if currentTab.name === "abilityCheck"}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.ExpertiseDie">
-                <RadioGroup
-                    options={expertiseDieOptions}
-                    selected={ability.check.expertiseDice}
-                    name={`system.abilities.${abilityKey}.check.expertiseDice`}
-                    document={actor}
+                <ExpertiseDiePicker
+                    selected={ability?.check.expertiseDice}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.abilities.${abilityKey}.check.expertiseDice`,
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -131,13 +131,14 @@
             </FormSection>
 
             <FormSection heading="A5E.ExpertiseDie">
-                <RadioGroup
-                    listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
-                    optionClasses="u-p-md u-text-center u-w-12"
-                    options={expertiseDieOptions}
-                    selected={ability.save.expertiseDice}
-                    name={`system.abilities.${abilityKey}.save.expertiseDice`}
-                    document={actor}
+                <ExpertiseDiePicker
+                    selected={ability?.save.expertiseDice}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.abilities.${abilityKey}.save.expertiseDice`,
+                            event.detail
+                        )}
                 />
             </FormSection>
 
