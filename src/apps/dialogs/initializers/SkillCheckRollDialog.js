@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import SkillCheckRollDialog from '../SkillCheckRollDialog.svelte';
+import SkillCheckRollDialogComponent from '../SkillCheckRollDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class ActorAbilityConfigDialog extends TJSDialog {
+export default class SkillCheckRollDialog extends TJSDialog {
   constructor(actorDocument, skillKey) {
     super({
       title: game.i18n.format(
@@ -14,7 +14,7 @@ export default class ActorAbilityConfigDialog extends TJSDialog {
         { name: actorDocument.name, skill: game.i18n.localize(CONFIG.A5E.skills[skillKey]) }
       ),
       content: {
-        class: SkillCheckRollDialog,
+        class: SkillCheckRollDialogComponent,
         props: { actorDocument, skillKey }
       }
     }, {

@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import SavingThrowRollDialog from '../SavingThrowRollDialog.svelte';
+import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class ActorAbilityConfigDialog extends TJSDialog {
+export default class SavingThrowRollDialog extends TJSDialog {
   constructor(actorDocument, abilityKey) {
     super({
       title: game.i18n.format(
@@ -14,7 +14,7 @@ export default class ActorAbilityConfigDialog extends TJSDialog {
         { name: actorDocument.name, ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]) }
       ),
       content: {
-        class: SavingThrowRollDialog,
+        class: SavingThrowRollDialogComponent,
         props: { actorDocument, abilityKey }
       }
     }, {
