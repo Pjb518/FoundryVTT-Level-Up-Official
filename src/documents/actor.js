@@ -2,6 +2,8 @@ import Item5e from './item';
 
 import ActorAbilityConfigDialog from '../apps/dialogs/initializers/ActorAbilityConfigDialog';
 import ActorHpConfigDialog from '../apps/dialogs/initializers/ActorHpConfigDialog';
+import ArmorProfConfigDialog from '../apps/dialogs/initializers/ArmorProfConfigDialog';
+import ToolProfConfigDialog from '../apps/dialogs/initializers/ToolProfConfigDialog';
 
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
@@ -296,13 +298,8 @@ export default class Actor5e extends Actor {
   }
 
   configureArmorProficiencies() {
-    const dialogTitle = game.i18n.format('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(ArmorProficienciesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new ArmorProfConfigDialog(this);
+    dialog.render(true);
   }
 
   configureBackground() {
@@ -477,13 +474,8 @@ export default class Actor5e extends Actor {
   }
 
   configureToolProficiencies() {
-    const dialogTitle = game.i18n.format('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(ToolProficienciesConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
+    const dialog = new ToolProfConfigDialog(this);
+    dialog.render(true);
   }
 
   configureWeaponProficiencies() {

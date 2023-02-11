@@ -1,19 +1,20 @@
 <script>
     import { getContext } from "svelte";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
-    export let { actor, appId } = getContext("#external").application;
+    export let { actorDocument, appId } = getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const defaultProficiencies = Object.entries(CONFIG.A5E.armorPlural);
-    $: actorProficiencies = $actor.system.proficiencies.armor;
 </script>
 
 <main>
     <CustomTagGroup
         heading="A5E.ArmorProficiencies"
         options={defaultProficiencies}
-        selected={actorProficiencies}
+        selected={$actor.system.proficiencies.armor}
         name="system.proficiencies.armor"
         document={actor}
     />

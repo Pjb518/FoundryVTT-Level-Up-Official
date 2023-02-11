@@ -15,7 +15,7 @@ export default class ActorHpConfigDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      width: 420
+      width: 380
     });
   }
 }

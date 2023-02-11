@@ -6,12 +6,12 @@ import ToolProfConfigComponent from '../ToolProfConfigDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class ToolProfConfigDialog extends TJSDialog {
-  constructor(actor) {
+  constructor(actorDocument) {
     super({
-      title: 'Tool Proficiencies Config',
+      title: game.i18n.format('A5E.ToolProficienciesConfigurationPrompt', { name: actorDocument.name }),
       content: {
         class: ToolProfConfigComponent,
-        props: { actor }
+        props: { actorDocument }
       }
     }, {
       classes: ['a5e-sheet'],

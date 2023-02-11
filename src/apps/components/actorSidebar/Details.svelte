@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import ArmorProfConfigDialog from "../../dialogs/initializers/ArmorProfConfigDialog";
     import CreatureSizeConfigDialog from "../../dialogs/initializers/CreatureSizeConfigDialog";
     import CreatureTypeConfigDialog from "../../dialogs/initializers/CreatureTypeConfigDialog";
     import ConditionImmunitiesConfigDialog from "../../dialogs/initializers/ConditionImmunitiesConfigDialog";
@@ -29,11 +28,6 @@
     import prepareWeaponProficiencies from "../../handlers/prepareWeaponProficiencies";
 
     const actor = getContext("actor");
-
-    function configureDetail(dialogClass) {
-        const dialog = new dialogClass(actor);
-        dialog.render(true);
-    }
 
     $: details = [
         {
@@ -79,12 +73,12 @@
         {
             label: localize("A5E.ArmorProficiencies"),
             values: prepareArmorProficiencies($actor),
-            dialog: ArmorProfConfigDialog,
+            dialogMethod: "configureArmorProficiencies",
         },
         {
             label: localize("A5E.ToolProficiencies"),
             values: prepareToolProficiencies($actor),
-            dialog: ToolProfConfigDialog,
+            dialogMethod: "configureToolProficiencies",
         },
         {
             label: localize("A5E.Size"),
@@ -101,7 +95,7 @@
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-{#each details as { label, values, dialog }}
+{#each details as { label, values, dialogMethod }}
     {#if values.length || !sheetIsLocked}
         <section class="details-section">
             <h2 class="details-header">
@@ -112,7 +106,7 @@
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <i
                     class="fas fa-gear a5e-config-button details-config"
-                    on:click={() => configureDetail(dialog)}
+                    on:click={() => $actor[dialogMethod]()}
                 />
             {/if}
 
