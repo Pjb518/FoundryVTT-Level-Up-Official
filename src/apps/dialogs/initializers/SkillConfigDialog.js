@@ -6,7 +6,7 @@ import SkillConfigComponent from '../SkillConfigDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class SkillConfigDialog extends TJSDialog {
-  constructor(actorDocument, skillKey) {
+  constructor(actorDocument, { skillKey }) {
     super({
       title: game.i18n.format(
         'A5E.SkillConfigurationPrompt',

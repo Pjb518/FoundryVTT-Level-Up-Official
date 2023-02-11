@@ -28,6 +28,31 @@ import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 
 export default class Actor5e extends Actor {
+  #configDialogMap;
+
+  constructor(...args) {
+    super(...args);
+
+    this.#configDialogMap = {
+      ability: ActorAbilityConfigDialog,
+      armor: ArmorProfConfigDialog,
+      conditionImmunities: ConditionImmunitiesConfigDialog,
+      damageImmunities: DamageImmunitiesConfigDialog,
+      damageResistances: DamageResistancesConfigDialog,
+      damageVulnerabilities: DamageVulnerabilitiesConfigDialog,
+      health: ActorHpConfigDialog,
+      initiative: ActorInitConfigDialog,
+      languages: LanguagesConfigDialog,
+      movement: MovementConfigDialog,
+      senses: SensesConfigDialog,
+      size: CreatureSizeConfigDialog,
+      skill: SkillConfigDialog,
+      tools: ToolProfConfigDialog,
+      types: CreatureTypeConfigDialog,
+      weapons: WeaponProfConfigDialog
+    };
+  }
+
   get hitPointFormula() {
     const { hitDice } = this.system.attributes;
     const { mod } = this.system.abilities.con;
@@ -304,55 +329,32 @@ export default class Actor5e extends Actor {
     this.update(updates);
   }
 
-  configureAbilityScore(abilityKey) {
-    const dialog = new ActorAbilityConfigDialog(this, abilityKey);
+  #configure(key, data) {
+    const DialogComponent = this.#configDialogMap[key];
+    const dialog = new DialogComponent(this, data ?? {});
+
     dialog.render(true);
   }
 
-  configureArmorProficiencies() {
-    const dialog = new ArmorProfConfigDialog(this);
-    dialog.render(true);
-  }
+  configureAbilityScore(data) { this.#configure('ability', data); }
 
-  configureConditionImmunities() {
-    const dialog = new ConditionImmunitiesConfigDialog(this);
-    dialog.render(true);
-  }
+  configureArmorProficiencies() { this.#configure('armor'); }
 
-  configureCreatureTypes() {
-    const dialog = new CreatureTypeConfigDialog(this);
-    dialog.render(true);
-  }
+  configureConditionImmunities() { this.#configure('conditionImmunities'); }
 
-  configureDamageImmunities() {
-    const dialog = new DamageImmunitiesConfigDialog(this);
-    dialog.render(true);
-  }
+  configureCreatureTypes() { this.#configure('types'); }
 
-  configureDamageResistances() {
-    const dialog = new DamageResistancesConfigDialog(this);
-    dialog.render(true);
-  }
+  configureDamageImmunities() { this.#configure('damageImmunities'); }
 
-  configureDamageVulnerabilities() {
-    const dialog = new DamageVulnerabilitiesConfigDialog(this);
-    dialog.render(true);
-  }
+  configureDamageResistances() { this.#configure('damageResistances'); }
 
-  configureHealth() {
-    const dialog = new ActorHpConfigDialog(this);
-    dialog.render(true);
-  }
+  configureDamageVulnerabilities() { this.#configure('damageVulnerabilities'); }
 
-  configureInitiative() {
-    const dialog = new ActorInitConfigDialog(this);
-    dialog.render(true);
-  }
+  configureHealth() { this.#configure('health'); }
 
-  configureLanguages() {
-    const dialog = new LanguagesConfigDialog(this);
-    dialog.render(true);
-  }
+  configureInitiative() { this.#configure('initiative'); }
+
+  configureLanguages() { this.#configure('languages'); }
 
   configureManeuvers() {
     const dialogTitle = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
@@ -364,25 +366,13 @@ export default class Actor5e extends Actor {
     // dialog.render(true);
   }
 
-  configureMovement() {
-    const dialog = new MovementConfigDialog(this);
-    dialog.render(true);
-  }
+  configureMovement() { this.#configure('movement'); }
 
-  configureSenses() {
-    const dialog = new SensesConfigDialog(this);
-    dialog.render(true);
-  }
+  configureSenses() { this.#configure('senses'); }
 
-  configureSizeCategory() {
-    const dialog = new CreatureSizeConfigDialog(this);
-    dialog.render(true);
-  }
+  configureSizeCategory() { this.#configure('size'); }
 
-  configureSkill(skillKey) {
-    const dialog = new SkillConfigDialog(this, skillKey);
-    dialog.render(true);
-  }
+  configureSkill(data) { this.#configure('skill', data); }
 
   configureSpellTab() {
     const dialogTitle = game.i18n.format(
@@ -397,15 +387,9 @@ export default class Actor5e extends Actor {
     // dialog.render(true);
   }
 
-  configureToolProficiencies() {
-    const dialog = new ToolProfConfigDialog(this);
-    dialog.render(true);
-  }
+  configureToolProficiencies() { this.#configure('tools'); }
 
-  configureWeaponProficiencies() {
-    const dialog = new WeaponProfConfigDialog(this);
-    dialog.render(true);
-  }
+  configureWeaponProficiencies() { this.#configure('weapons'); }
 
   async constructItemCard(data) {
     const chatData = {

@@ -11,7 +11,8 @@
 
     {#if !($actor.flags?.a5e?.sheetIsLocked ?? true)}
         <button
-            on:click={$actor.configureAbilityScore(abilityLabel)}
+            on:click={() =>
+                $actor.configureAbilityScore({ abilityKey: abilityLabel })}
             class="fas fa-gear a5e-button--edit-config"
         />
     {/if}

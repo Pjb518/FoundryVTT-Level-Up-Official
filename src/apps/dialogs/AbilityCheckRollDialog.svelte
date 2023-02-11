@@ -37,7 +37,7 @@
         dialog.submit({ rollFormula });
     }
 
-    let expertiseDie = $actor.system.abilities[abilityKey].check.expertiseDice;
+    let expertiseDie = $actor.system.abilities[abilityKey]?.check.expertiseDice;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = "";

@@ -14,8 +14,6 @@
     export let { actorDocument, appId, skillKey } =
         getContext("#external").application;
 
-    console.log(appId);
-
     const actor = new TJSDocument(actorDocument);
     const abilityOptions = prepareAbilityOptions();
     const expertiseDiceOptions = prepareExpertiseDiceOptions();

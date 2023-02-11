@@ -36,7 +36,7 @@
     {#if !sheetIsLocked}
         <button
             class="fas fa-cog a5e-config-button--skill a5e-button--edit-config"
-            on:click={() => $actor.configureSkill(key)}
+            on:click={() => $actor.configureSkill({ skillKey: key })}
         />
     {/if}
 
