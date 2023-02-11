@@ -3,7 +3,6 @@
 
     // TODO: Fix this
     import rollInitiative from "../../handlers/rollInitiative";
-    import InitiativeConfigDialog from "../../dialogs/initializers/InitiativeConfigDialog";
 
     const actor = getContext("actor");
 

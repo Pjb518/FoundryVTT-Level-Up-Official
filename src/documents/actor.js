@@ -1,22 +1,23 @@
 import Item5e from './item';
 
-import ActorAbilityConfigDialog from '../apps/dialogs/initializers/ActorAbilityConfigDialog';
-import ActorHpConfigDialog from '../apps/dialogs/initializers/ActorHpConfigDialog';
-import ActorInitConfigDialog from '../apps/dialogs/initializers/InitiativeConfigDialog';
-import ArmorProfConfigDialog from '../apps/dialogs/initializers/ArmorProfConfigDialog';
-import ConditionImmunitiesConfigDialog from '../apps/dialogs/initializers/ConditionImmunitiesConfigDialog';
-import CreatureSizeConfigDialog from '../apps/dialogs/initializers/CreatureSizeConfigDialog';
-import CreatureTypeConfigDialog from '../apps/dialogs/initializers/CreatureTypeConfigDialog';
-import DamageImmunitiesConfigDialog from '../apps/dialogs/initializers/DamageImmunitiesConfigDialog';
-import DamageResistancesConfigDialog from '../apps/dialogs/initializers/DamageResistancesConfigDialog';
-import DamageVulnerabilitiesConfigDialog from '../apps/dialogs/initializers/DamageVulnerabilitiesConfigDialog';
-import LanguagesConfigDialog from '../apps/dialogs/initializers/LanguagesConfigDialog';
-import MovementConfigDialog from '../apps/dialogs/initializers/MovementConfigDialog';
-import SensesConfigDialog from '../apps/dialogs/initializers/SensesConfigDialog';
-import SkillConfigDialog from '../apps/dialogs/initializers/SkillConfigDialog';
-import ToolProfConfigDialog from '../apps/dialogs/initializers/ToolProfConfigDialog';
-import WeaponProfConfigDialog from '../apps/dialogs/initializers/WeaponProfConfigDialog';
+import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
+import ActorHpConfigDialog from '../apps/dialogs/ActorHpConfigDialog.svelte';
+import ActorInitConfigDialog from '../apps/dialogs/ActorInitConfigDialog.svelte';
+import ArmorProfConfigDialog from '../apps/dialogs/ArmorProfConfigDialog.svelte';
+import ConditionImmunitiesConfigDialog from '../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
+import CreatureSizeConfigDialog from '../apps/dialogs/CreatureSizeConfigDialog.svelte';
+import CreatureTypeConfigDialog from '../apps/dialogs/CreatureTypeConfigDialog.svelte';
+import DamageImmunitiesConfigDialog from '../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
+import DamageResistancesConfigDialog from '../apps/dialogs/DamageResistancesConfigDialog.svelte';
+import DamageVulnerabilitiesConfigDialog from '../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
+import LanguagesConfigDialog from '../apps/dialogs/LanguagesConfigDialog.svelte';
+import MovementConfigDialog from '../apps/dialogs/MovementConfigDialog.svelte';
+import SensesConfigDialog from '../apps/dialogs/SensesConfigDialog.svelte';
+import SkillConfigDialog from '../apps/dialogs/SkillConfigDialog.svelte';
+import ToolProfConfigDialog from '../apps/dialogs/ToolProfConfigDialog.svelte';
+import WeaponProfConfigDialog from '../apps/dialogs/WeaponProfConfigDialog.svelte';
 
+import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
@@ -34,7 +35,7 @@ export default class Actor5e extends Actor {
     super(...args);
 
     this.#configDialogMap = {
-      ability: ActorAbilityConfigDialog,
+      ability: AbilityCheckConfigDialog,
       armor: ArmorProfConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
@@ -329,32 +330,67 @@ export default class Actor5e extends Actor {
     this.update(updates);
   }
 
-  #configure(key, data) {
-    const DialogComponent = this.#configDialogMap[key];
-    const dialog = new DialogComponent(this, data ?? {});
+  #configure(key, title, data, options) {
+    const component = this.#configDialogMap[key];
+    const dialog = new GenericConfigDialog(this, title, component, data, options);
 
     dialog.render(true);
   }
 
-  configureAbilityScore(data) { this.#configure('ability', data); }
+  configureAbilityScore(data = {}, options = {}) {
+    const title = game.i18n.format(
+      'A5E.AbilityCheckPromptTitle',
+      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[data.abilityKey]) }
+    );
 
-  configureArmorProficiencies() { this.#configure('armor'); }
+    this.#configure('ability', title, data, options);
+  }
 
-  configureConditionImmunities() { this.#configure('conditionImmunities'); }
+  configureArmorProficiencies(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
+    this.#configure('armor', title, data, options);
+  }
 
-  configureCreatureTypes() { this.#configure('types'); }
+  configureConditionImmunities(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
+    this.#configure('conditionImmunities', title, data, options);
+  }
 
-  configureDamageImmunities() { this.#configure('damageImmunities'); }
+  configureCreatureTypes(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+    this.#configure('types', title, data, options);
+  }
 
-  configureDamageResistances() { this.#configure('damageResistances'); }
+  configureDamageImmunities(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
+    this.#configure('damageImmunities', title, data, options);
+  }
 
-  configureDamageVulnerabilities() { this.#configure('damageVulnerabilities'); }
+  configureDamageResistances(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
+    this.#configure('damageResistances', title, data, options);
+  }
 
-  configureHealth() { this.#configure('health'); }
+  configureDamageVulnerabilities(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
+    this.#configure('damageVulnerabilities', title, data, options);
+  }
 
-  configureInitiative() { this.#configure('initiative'); }
+  configureHealth(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.HitPointsConfigurationPrompt', { name: this.name });
+    options.width ??= 380;
+    this.#configure('health', title, data, options);
+  }
 
-  configureLanguages() { this.#configure('languages'); }
+  configureInitiative(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.InitiativeConfigurationPrompt', { name: this.name });
+    this.#configure('initiative', title, data, options);
+  }
+
+  configureLanguages(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.LanguagesConfigurationPrompt', { name: this.name });
+    this.#configure('languages', title, data, options);
+  }
 
   configureManeuvers() {
     const dialogTitle = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
@@ -366,13 +402,29 @@ export default class Actor5e extends Actor {
     // dialog.render(true);
   }
 
-  configureMovement() { this.#configure('movement'); }
+  configureMovement(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.MovementConfigurationPrompt', { name: this.name });
+    this.#configure('movement', title, data, options);
+  }
 
-  configureSenses() { this.#configure('senses'); }
+  configureSenses(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.SensesConfigurationPrompt', { name: this.name });
+    this.#configure('senses', title, data, options);
+  }
 
-  configureSizeCategory() { this.#configure('size'); }
+  configureSizeCategory(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
+    this.#configure('size', title, data, options);
+  }
 
-  configureSkill(data) { this.#configure('skill', data); }
+  configureSkill(data = {}, options = {}) {
+    const title = game.i18n.format(
+      'A5E.SkillConfigurationPrompt',
+      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[data.skillKey]) }
+    );
+
+    this.#configure('skill', title, data, options);
+  }
 
   configureSpellTab() {
     const dialogTitle = game.i18n.format(
@@ -387,9 +439,15 @@ export default class Actor5e extends Actor {
     // dialog.render(true);
   }
 
-  configureToolProficiencies() { this.#configure('tools'); }
+  configureToolProficiencies(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
+    this.#configure('tools', title, data, options);
+  }
 
-  configureWeaponProficiencies() { this.#configure('weapons'); }
+  configureWeaponProficiencies(data = {}, options = {}) {
+    const title = game.i18n.format('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
+    this.#configure('weapons', title, data, options);
+  }
 
   async constructItemCard(data) {
     const chatData = {
