@@ -1,7 +1,7 @@
 <script>
     export let altText;
     export let img;
-    export let subtitle;
+    export let subtitle = null;
     export let title;
 </script>
 

@@ -214,10 +214,12 @@ Hooks.on('createToken', async (token, _, userID) => {
 });
 
 Hooks.on('renderChatMessage', (message, html) => {
-  message._svelteComponent = new CheckChatCard({
-    target: $(html).find('.message-content article')[0],
-    props: { messageDocument: message }
-  });
+  if (['abilityCheck', 'savingThrow', 'skillCheck'].includes(message.getFlag('a5e', 'cardType'))) {
+    message._svelteComponent = new CheckChatCard({
+      target: $(html).find('.message-content article')[0],
+      props: { messageDocument: message }
+    });
+  }
 });
 
 Hooks.on('preDeleteChatMessage', (message) => {
