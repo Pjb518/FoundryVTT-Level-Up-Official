@@ -13,7 +13,7 @@
 
 <BaseHeader
     img={$actor.img ?? $actor.actor.img}
-    alt={$actor.name}
+    altText={$actor.name}
     title={`${localize(skills[skillKey])} Check`}
     subtitle={localize(abilities[abilityKey] ?? "No Ability Selected")}
 />

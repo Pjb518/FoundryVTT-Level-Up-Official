@@ -13,6 +13,6 @@
 
 <BaseHeader
     img={$actor.img ?? $actor.actor.img}
-    alt={$actor.name}
+    altText={$actor.name}
     title={`${localize(abilities[abilityKey])} Save`}
 />
