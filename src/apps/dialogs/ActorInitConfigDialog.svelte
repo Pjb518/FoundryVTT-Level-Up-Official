@@ -2,16 +2,14 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
 
-    import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId } = getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
-    const expertiseDieOptions = prepareExpertiseDiceOptions();
 
     $: initiative = $actor.system.attributes.initiative;
 </script>
@@ -19,13 +17,14 @@
 <main>
     <div class="u-flex u-flex-col u-gap-md">
         <FormSection heading="A5E.ExpertiseDie">
-            <RadioGroup
-                listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
-                optionClasses="u-p-md u-text-center u-w-12"
-                options={expertiseDieOptions}
+            <ExpertiseDiePicker
                 selected={initiative.expertiseDice}
-                name={`system.attributes.initiative.expertiseDice`}
-                document={actor}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.attributes.initiative.expertiseDice`,
+                        event.detail
+                    )}
             />
         </FormSection>
 
