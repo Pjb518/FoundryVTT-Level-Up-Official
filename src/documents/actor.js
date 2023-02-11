@@ -313,16 +313,6 @@ export default class Actor5e extends Actor {
     dialog.render(true);
   }
 
-  configureBackground() {
-    const dialogTitle = game.i18n.format('A5E.BackgroundConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(BackgroundConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
-  }
-
   configureConditionImmunities() {
     const dialog = new ConditionImmunitiesConfigDialog(this);
     dialog.render(true);
@@ -331,16 +321,6 @@ export default class Actor5e extends Actor {
   configureCreatureTypes() {
     const dialog = new CreatureTypeConfigDialog(this);
     dialog.render(true);
-  }
-
-  configureCulture() {
-    const dialogTitle = game.i18n.format('A5E.CultureConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(CultureConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
   }
 
   configureDamageImmunities() {
@@ -361,16 +341,6 @@ export default class Actor5e extends Actor {
   configureHealth() {
     const dialog = new ActorHpConfigDialog(this);
     dialog.render(true);
-  }
-
-  configureHeritage() {
-    const dialogTitle = game.i18n.format('A5E.HeritageConfigurationPrompt', { name: this.name });
-
-    // const dialog = new ReactiveDialog(HeritageConfigDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    // dialog.render(true);
   }
 
   configureInitiative() {
