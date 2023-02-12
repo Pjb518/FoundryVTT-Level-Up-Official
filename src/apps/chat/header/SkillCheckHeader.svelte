@@ -1,19 +1,17 @@
 <script>
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import BaseHeader from "./BaseHeader.svelte";
 
     export let message;
 
-    const actor = new TJSDocument(fromUuidSync($message.flags?.a5e?.actorId));
-    const { abilityKey, skillKey } = $message.flags?.a5e;
+    const { abilityKey, img, name, skillKey } = $message.flags?.a5e;
     const { abilities, skills } = CONFIG.A5E;
 </script>
 
 <BaseHeader
-    img={$actor.img ?? $actor.actor.img}
-    altText={$actor.name}
+    {img}
+    altText={name}
     title={`${localize(skills[skillKey])} Check`}
     subtitle={localize(abilities[abilityKey] ?? "No Ability Selected")}
 />
