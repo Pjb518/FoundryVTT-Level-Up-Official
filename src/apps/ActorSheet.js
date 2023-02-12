@@ -26,7 +26,7 @@ export default class ActorSheet extends SvelteApplication {
     this.actor = actor.isLinked ? actor.parent : actor;
 
     this.options.svelte.props.actor = new ActorDocument(
-      actor,
+      this.actor,
       { delete: this.close.bind(this) }
     );
 
