@@ -10,8 +10,6 @@ export default class ActorSheet extends SvelteApplication {
    * @inheritDoc
    */
   constructor(actor, options = {}) {
-    console.log(actor);
-
     super(foundry.utils.mergeObject(
       options,
       {
