@@ -10,10 +10,12 @@ export default class ActorSheet extends SvelteApplication {
    * @inheritDoc
    */
   constructor(actor, options = {}) {
+    console.log(actor);
+
     super(foundry.utils.mergeObject(
       options,
       {
-        id: `actor-sheet-${actor.id}`,
+        id: `actor-sheet-${actor.isLinked ? actor.id : actor.parent?.id}`,
         title: actor.name,
         svelte: {
           props: {
@@ -23,11 +25,13 @@ export default class ActorSheet extends SvelteApplication {
       }
     ));
 
-    this.actor = actor;
+    this.actor = actor.isLinked ? actor.parent : actor;
+
     this.options.svelte.props.actor = new ActorDocument(
       actor,
       { delete: this.close.bind(this) }
     );
+
     this.options.svelte.props.sheet = this;
   }
 
