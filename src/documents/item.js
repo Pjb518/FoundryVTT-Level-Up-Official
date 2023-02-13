@@ -86,6 +86,11 @@ export default class Item5e extends Item {
     return Object.values(actions).some((action) => (!!Object.values(action.consumers)?.length));
   }
 
+  get hasRange() {
+    const { actions } = this.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.ranges)?.length));
+  }
+
   // *****************************************************************************************
 
   // FIXME: Needs complete refactor
