@@ -32,7 +32,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>Feature Properties</h3>
+        <h3>{localize("A5E.TabFeatureProperties")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -43,7 +43,6 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.FeatureTypePrompt">
-                <!-- svelte-ignore missing-declaration -->
                 <RadioGroup
                     options={Object.entries(featureTypes)}
                     selected={$item.system.featureType}

@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import A5E from "../../../modules/config";
+
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -34,7 +36,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>Maneuver Properties</h3>
+        <h3>{localize("A5E.TabManeuverProperties")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -45,10 +47,9 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.ManeuverDegreePrompt">
-                <!-- svelte-ignore missing-declaration -->
                 <RadioGroup
                     options={objectEntriesNumberKeyConverter(
-                        CONFIG.A5E.maneuverDegrees
+                        A5E.maneuverDegrees
                     )}
                     selected={$item.system.degree}
                     name="system.degree"
@@ -58,9 +59,8 @@
 
             {#if $item.system.degree > 0}
                 <FormSection heading="A5E.ManeuverTraditionPrompt">
-                    <!-- svelte-ignore missing-declaration -->
                     <RadioGroup
-                        options={Object.entries(CONFIG.A5E.maneuverTraditions)}
+                        options={Object.entries(A5E.maneuverTraditions)}
                         selected={$item.system.tradition}
                         name="system.tradition"
                         document={item}
@@ -104,9 +104,8 @@
                     {localize("A5E.ManeuverDegreePrompt")}:
                 </dt>
 
-                <!-- svelte-ignore missing-declaration -->
                 <dd class="u-m-0 u-p-0">
-                    {localize(CONFIG.A5E.maneuverDegrees[$item.system.degree])}
+                    {localize(A5E.maneuverDegrees[$item.system.degree])}
                 </dd>
             </div>
 
@@ -116,12 +115,10 @@
                         {localize("A5E.ManeuverTraditionPrompt")}:
                     </dt>
 
-                    <!-- svelte-ignore missing-declaration -->
                     <dd class="u-m-0 u-p-0">
                         {localize(
-                            CONFIG.A5E.maneuverTraditions[
-                                $item.system.tradition
-                            ] ?? "A5E.None"
+                            A5E.maneuverTraditions[$item.system.tradition] ??
+                                "A5E.None"
                         )}
                     </dd>
                 </div>
