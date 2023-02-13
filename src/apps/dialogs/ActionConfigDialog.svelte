@@ -6,7 +6,7 @@
     import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";
     import ActionsPromptsTab from "../components/pages/ActionsPromptsTab.svelte";
     import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
-    import ActionsResourceTab from "../components/pages/ActionsResourceTab.svelte";
+    import ActionsConsumerTab from "../components/pages/ActionsConsumerTab.svelte";
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
@@ -40,9 +40,9 @@
             component: ActionsPromptsTab,
         },
         {
-            name: "resources",
-            label: "Resources",
-            component: ActionsResourceTab,
+            name: "consumers",
+            label: "Consumers",
+            component: ActionsConsumerTab,
         },
     ];
 
