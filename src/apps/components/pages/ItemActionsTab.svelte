@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import ActionConfigDialog from "../../dialogs/initializers/ActionConfigDialog";
 
@@ -57,9 +58,13 @@
 
 <section class="action-config action-config__wrapper">
     <header class="action-config__section-header">
-        <h2 class="tab-heading">Actions</h2>
+        <h2 class="tab-heading">
+            {localize("A5E.TabActions")}
+        </h2>
 
-        <button class="add-button" on:click={addAction}>+ Add Action</button>
+        <button class="add-button" on:click={addAction}>
+            {localize("A5E.ButtonAddAction")}
+        </button>
     </header>
 
     <ul class="action-list">
@@ -69,30 +74,24 @@
                 <div class="action-buttons">
                     <button
                         class="action-button fas fa-cog"
+                        data-tooltip="A5E.ButtonToolTipConfigure"
+                        data-tooltip-direction="UP"
                         on:click={configureAction}
                     />
 
                     <button
                         class="action-button fa-solid fa-clone"
+                        data-tooltip="A5E.ButtonToolTipDuplicate"
+                        data-tooltip-direction="UP"
                         on:click={duplicateAction}
                     />
 
                     <button
                         class="action-button delete-button fas fa-trash"
+                        data-tooltip="A5E.ButtonToolTipDelete"
+                        data-tooltip-direction="UP"
                         on:click={deleteAction}
                     />
-
-                    <!-- <i class="action-button fas fa-cog" on:click={configureAction} />
-
-          <i
-            class="action-button fa-solid fa-clone"
-            on:click={duplicateAction}
-          />
-
-          <i
-            class="action-button delete-button fas fa-trash"
-            on:click={deleteAction}
-          /> -->
                 </div>
             </li>
         {/each}
@@ -108,18 +107,6 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         font-size: 1rem;
-
-        // &-button {
-        //   margin-left: auto;
-        //   padding: 0.25rem;
-        //   cursor: pointer;
-        //   transition: all 0.15s ease-in-out;
-
-        //   &:hover {
-        //     color: #555;
-        //     transform: scale(1.2);
-        //   }
-        // }
 
         &-button {
             padding: 0.25rem;
