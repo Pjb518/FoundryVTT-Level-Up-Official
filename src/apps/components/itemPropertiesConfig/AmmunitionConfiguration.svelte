@@ -43,7 +43,6 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.AmmunitionProperties">
-                <!-- svelte-ignore missing-declaration -->
                 <CheckboxGroup
                     options={Object.entries(ammunitionProperties)}
                     selected={$item.system.ammunitionProperties}
@@ -62,15 +61,15 @@
                     {#if $item.system.ammunitionProperties.length}
                         <ul
                             class="
-              u-comma-list
-              u-flex
-              u-flex-shrink-0
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-              u-w-fit
-            "
+                                u-comma-list
+                                u-flex
+                                u-flex-shrink-0
+                                u-gap-ch
+                                u-list-style-none
+                                u-m-0
+                                u-p-0
+                                u-w-fit
+                            "
                         >
                             {#each $item.system.weaponProperties.sort( (a, b) => a
                                         .toLowerCase()

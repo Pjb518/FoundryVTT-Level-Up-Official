@@ -21,17 +21,17 @@
     const tabs = [
         {
             name: "description",
-            label: "Description",
+            label: "A5E.ItemSheetLabelDescriptionTab",
             component: ItemDescriptionTab,
         },
         {
             name: "properties",
-            label: "Properties",
+            label: "A5E.ItemSheetLabelPropertiesTab",
             component: ItemPropertiesTab,
         },
         {
             name: "actions",
-            label: "Actions",
+            label: "A5E.ItemSheetLabelActionsTab",
             component: ItemActionsTab,
         },
     ];
