@@ -1,163 +1,172 @@
 <script>
-  import { getContext } from "svelte";
-  import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-  import getOrdinalNumber from "../../../modules/utils/getOrdinalNumber";
-  import isStandardRange from "../../../modules/utils/isStandardRange";
+    import getOrdinalNumber from "../../../modules/utils/getOrdinalNumber";
+    import isStandardRange from "../../../modules/utils/isStandardRange";
 
-  import FormSection from "../FormSection.svelte";
-  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import FormSection from "../FormSection.svelte";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import InputField from "../InputField.svelte";
 
-  export let index;
-  export let id;
-  export let rangeObject;
-  let range = rangeObject.range;
+    export let index;
+    export let id;
+    export let rangeObject;
+    let range = rangeObject.range;
 
-  const item = getContext("item");
-  const actionId = getContext("actionId");
+    const item = getContext("item");
+    const actionId = getContext("actionId");
 
-  const { movementUnits } = CONFIG.A5E;
+    const { movementUnits } = CONFIG.A5E;
 
-  function updateRangeValue(option) {
-    range = isStandardRange(option) ? option : customValue;
-    updateDocumentDataFromField(
-      $item,
-      `system.actions.${actionId}.ranges.${id}.range`,
-      range
+    function updateRangeValue(option) {
+        let range = isStandardRange(option) ? option : customValue;
+        if (includeUnit) range = Number(range);
+
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.ranges.${id}.range`,
+            range
+        );
+    }
+
+    function selectRangeUnit(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+
+        if (selectedOption === "null") {
+            $item.update({
+                [`system.actions.${actionId}.ranges.${id}`]: {
+                    "-=unit": null,
+                },
+            });
+        } else {
+            $item.update({
+                [`system.actions.${actionId}.ranges.${id}`]: {
+                    unit: selectedOption,
+                },
+            });
+        }
+    }
+
+    function deleteRangeUnit(event) {
+        const checked = event.target?.checked;
+        if (checked === true) return;
+        $item.update({
+            [`system.actions.${actionId}.ranges.${id}`]: {
+                "-=unit": null,
+            },
+        });
+    }
+
+    function deleteRangeIncrement(event) {
+        const { rangeId } = event.target.closest(".range-increment").dataset;
+
+        $item.update({
+            [`system.actions.${actionId}.ranges`]: {
+                [`-=${rangeId}`]: null,
+            },
+        });
+    }
+
+    const heading = game.i18n.format("A5E.ItemRangeIncrement", {
+        increment: getOrdinalNumber(index + 1),
+    });
+
+    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
+        ([value, label]) => {
+            if (["short", "medium", "long"].includes(value)) {
+                const range = CONFIG.A5E.rangeValues[value];
+                return [value, `${game.i18n.localize(label)} (${range} ft.)`];
+            }
+
+            return [value, label];
+        }
     );
-  }
 
-  function selectRangeUnit(event) {
-    const selectedOption = event.target?.selectedOptions[0]?.value;
-
-    if (selectedOption === "null") {
-      $item.update({
-        [`system.actions.${actionId}.ranges.${id}`]: {
-          "-=unit": null,
-        },
-      });
-    } else {
-      $item.update({
-        [`system.actions.${actionId}.ranges.${id}`]: {
-          unit: selectedOption,
-        },
-      });
-    }
-  }
-
-  function deleteRangeUnit(event) {
-    const checked = event.target?.checked;
-    if (checked === true) return;
-    $item.update({
-      [`system.actions.${actionId}.ranges.${id}`]: {
-        "-=unit": null,
-      },
-    });
-  }
-
-  function deleteRangeIncrement(event) {
-    const { rangeId } = event.target.closest(".range-increment").dataset;
-
-    $item.update({
-      [`system.actions.${actionId}.ranges`]: {
-        [`-=${rangeId}`]: null,
-      },
-    });
-  }
-
-  const heading = game.i18n.format("A5E.ItemRangeIncrement", {
-    increment: getOrdinalNumber(index + 1),
-  });
-
-  const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
-    ([value, label]) => {
-      if (["short", "medium", "long"].includes(value)) {
-        const range = CONFIG.A5E.rangeValues[value];
-        return [value, `${game.i18n.localize(label)} (${range} ft.)`];
-      }
-
-      return [value, label];
-    }
-  );
-
-  let customValue = isStandardRange(range) ? "" : range;
-  let includeUnit = rangeObject.unit ? true : false;
-  $: selected = isStandardRange(range) ? range : "other";
+    let customValue = isStandardRange(range) ? "" : range;
+    let includeUnit = rangeObject.unit ? true : false;
+    $: selected = isStandardRange(range) ? range : "other";
 </script>
 
 <FormSection {heading}>
-  <div class="action-config__component">
-    <ul
-      class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
-    >
-      {#each options as [value, label]}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <li
-          class="a5e-tag u-pointer"
-          class:a5e-tag--inactive={!(
-            selected === value || selected?.toString() === value
-          )}
-          on:click={() => updateRangeValue(value)}
+    <div class="action-config__wrapper">
+        <ul
+            class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
         >
-          {localize(label)}
-        </li>
-      {/each}
-    </ul>
-
-    {#if selected === "other"}
-      <div class="u-flex u-gap-md u-align-center">
-        <input
-          id={`${actionId}-${id}-include-unit`}
-          name={`${actionId}-${id}-include-unit`}
-          type="checkbox"
-          bind:checked={includeUnit}
-          on:change={deleteRangeUnit}
-        />
-        <label for={`${actionId}-${id}-include-unit`}>Include Unit</label>
-      </div>
-
-      <div class="u-align-center u-flex u-gap-md u-w-full">
-        <input
-          type="text"
-          bind:value={customValue}
-          on:change={() => updateRangeValue(customValue)}
-        />
-
-        {#if includeUnit}
-          <select
-            class="u-w-30"
-            name="system.actions.${actionId}.ranges.{id}.unit"
-            on:change={selectRangeUnit}
-          >
-            <option value={null}>{localize("A5E.None")}</option>
-            {#each Object.entries(movementUnits) as [unit, label]}
-              <option value={unit} selected={rangeObject.unit === unit}>
-                {localize(label)}
-              </option>
+            {#each options as [value, label]}
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <li
+                    class="a5e-tag u-pointer"
+                    class:a5e-tag--inactive={!(
+                        selected === value || selected?.toString() === value
+                    )}
+                    on:click={() => updateRangeValue(value)}
+                >
+                    {localize(label)}
+                </li>
             {/each}
-          </select>
-        {/if}
-      </div>
-    {/if}
+        </ul>
 
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <i class="delete-button fas fa-trash" on:click={deleteRangeIncrement} />
-  </div>
+        {#if selected === "other"}
+            <div class="u-flex u-gap-md u-align-center">
+                <input
+                    id={`${actionId}-${id}-include-unit`}
+                    name={`${actionId}-${id}-include-unit`}
+                    type="checkbox"
+                    bind:checked={includeUnit}
+                    on:change={deleteRangeUnit}
+                />
+                <label for={`${actionId}-${id}-include-unit`}>
+                    Include Unit
+                </label>
+            </div>
+
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class:small-input={includeUnit}
+                    type="text"
+                    bind:value={customValue}
+                    on:change={() => updateRangeValue(customValue)}
+                />
+
+                {#if includeUnit}
+                    <select
+                        class="u-w-30"
+                        name="system.actions.${actionId}.ranges.{id}.unit"
+                        on:change={selectRangeUnit}
+                    >
+                        <option value={null}>{localize("A5E.None")}</option>
+                        {#each Object.entries(movementUnits) as [unit, label]}
+                            <option
+                                value={unit}
+                                selected={rangeObject.unit === unit}
+                            >
+                                {localize(label)}
+                            </option>
+                        {/each}
+                    </select>
+                {/if}
+            </div>
+        {/if}
+
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <i class="delete-button fas fa-trash" on:click={deleteRangeIncrement} />
+    </div>
 </FormSection>
 
 <style lang="scss">
-  .delete-button {
-    position: absolute;
-    top: 0.275rem;
-    right: 0.275rem;
-    color: #999;
-    padding: 0.25rem;
-    cursor: pointer;
-    transition: all 0.15s ease-in-out;
+    .delete-button {
+        position: absolute;
+        top: 0.275rem;
+        right: 0.275rem;
+        color: #999;
+        padding: 0.25rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
 
-    &:hover {
-      transform: scale(1.2);
-      color: #8b2525;
+        &:hover {
+            transform: scale(1.2);
+            color: #8b2525;
+        }
     }
-  }
 </style>
