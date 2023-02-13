@@ -7,7 +7,6 @@
 
     import FormSection from "../FormSection.svelte";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import InputField from "../InputField.svelte";
 
     export let index;
     export let id;
@@ -20,7 +19,7 @@
     const { movementUnits } = CONFIG.A5E;
 
     function updateRangeValue(option) {
-        let range = isStandardRange(option) ? option : customValue;
+        range = isStandardRange(option) ? option : customValue;
         if (includeUnit) range = Number(range);
 
         updateDocumentDataFromField(
