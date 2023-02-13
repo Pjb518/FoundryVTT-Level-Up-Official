@@ -14,6 +14,66 @@ export default class Item5e extends Item {
     html.find('.a5e-js-toggle-roll-tooltip-visibility').click(this._onToggleRollTooltipVisibility.bind(this));
   }
 
+  get abilityMod() {
+    const itemData = this.system;
+
+    if (!itemData.ability) return null;
+
+    if (itemData.ability === 'spellcasting') {
+      return this.actor ? this.actor.system.attributes.spellcasting : 'int';
+    }
+
+    if (itemData.ability === 'default') {
+      if (this.type === 'object' && itemData.objectType === 'weapon') {
+        if (itemData.actionOptions.includes('attack') && itemData.attack.type === 'rangedWeaponAttack') {
+          return 'dex';
+        }
+
+        if (this.actor && itemData.weaponProperties.includes('finesse')) {
+          const { str, dex } = this.actor.system.abilities;
+
+          return dex.value > str.value ? 'dex' : 'str';
+        }
+      }
+
+      if (this.type === 'spell') {
+        return this.actor ? this.actor.system.attributes.spellcasting : 'int';
+      }
+
+      return 'str';
+    }
+
+    return itemData.ability || 'str';
+  }
+
+  get hasValidTemplateDefinition() {
+    const { area } = this.system;
+
+    if (!area.shape) return false;
+
+    if (area.shape === 'line' || area.shape === 'cone') return !!area.length;
+    if (area.shape === 'sphere' || area.shape === 'cylinder') return !!area.radius;
+    if (area.shape === 'cube') return !!area.width;
+
+    return false;
+  }
+
+  get actions() {
+    return Object.entries(this.system.actions);
+  }
+
+  get activationTypes() {
+    const actions = Object.values(this.system.actions);
+
+    return actions.reduce((acc, action) => {
+      if (action.activation?.type) acc.push(action.activation.type);
+      return acc;
+    }, []);
+  }
+
+  // *****************************************************************************************
+
+  // FIXME: Needs complete refactor
   async activate(options = {}) {
     const itemData = this.system;
     const rollData = this.actor.getRollData();
@@ -145,50 +205,6 @@ export default class Item5e extends Item {
     }
 
     this.actor.constructItemCard(data);
-  }
-
-  get hasValidTemplateDefinition() {
-    const { area } = this.system;
-
-    if (!area.shape) return false;
-
-    if (area.shape === 'line' || area.shape === 'cone') return !!area.length;
-    if (area.shape === 'sphere' || area.shape === 'cylinder') return !!area.radius;
-    if (area.shape === 'cube') return !!area.width;
-
-    return false;
-  }
-
-  get abilityMod() {
-    const itemData = this.system;
-
-    if (!itemData.ability) return null;
-
-    if (itemData.ability === 'spellcasting') {
-      return this.actor ? this.actor.system.attributes.spellcasting : 'int';
-    }
-
-    if (itemData.ability === 'default') {
-      if (this.type === 'object' && itemData.objectType === 'weapon') {
-        if (itemData.actionOptions.includes('attack') && itemData.attack.type === 'rangedWeaponAttack') {
-          return 'dex';
-        }
-
-        if (this.actor && itemData.weaponProperties.includes('finesse')) {
-          const { str, dex } = this.actor.system.abilities;
-
-          return dex.value > str.value ? 'dex' : 'str';
-        }
-      }
-
-      if (this.type === 'spell') {
-        return this.actor ? this.actor.system.attributes.spellcasting : 'int';
-      }
-
-      return 'str';
-    }
-
-    return itemData.ability || 'str';
   }
 
   static async _onClickChatAbilityCheckButton(event) {
