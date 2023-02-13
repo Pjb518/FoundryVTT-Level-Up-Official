@@ -202,42 +202,21 @@ Hooks.on('canvasInit', () => {
 Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
 
 // TODO: Move to separate file in 1.0.0
-Hooks.on("createToken", async (token) => {
-  if (!game.user.isGM) return;
+Hooks.on('createToken', async (token, _, userID) => {
+  const userPlacingToken = game.users.get(userID);
 
-  // Checks if its a NPC type of actor and if the game setting is set to true
-  if (token.actor.type === "npc" && game.settings.get("a5e", "npcHealthRandomization")) {
-    // getting the NPC Hit Dice
-    const { hitDice } = token.actor.system.attributes;
+  if (![game.user.isGM, game.user === userPlacingToken, token.actor.type === 'npc', game.settings.get('a5e', 'randomizeNPCHitPoints')
+  ].every(Boolean)) return;
 
-    // Get Constitution Modifier
-    const conMod = token.actor.system.abilities.con.mod;
+  const { hitPointFormula } = token.actor;
+  const hpRoll = new Roll(hitPointFormula);
+  await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
 
-    let hitDiceCount = 0;
-    const parts = [];
-
-    // Builds towards the hitDiceFormula for Roll and tracks the totalHitDiceCount
-    Object.entries(hitDice).forEach(([dieType, hitDie]) => {
-      if (!hitDie.total) return;
-
-      parts.push(`${hitDie.total}${dieType}`);
-      hitDiceCount += hitDie.total;
-    });
-
-    // creates the actual hitDiceFormula
-    const hitDiceFormula = `${parts.join(" + ")} + ${hitDiceCount * conMod}`;
-
-    // Roll the hitDiceFormula
-    // TODO: Remove async true when foundry bug is fixed
-    const hpRoll = await new Roll(hitDiceFormula).roll({ async: true });
-    // await hpRoll.toMessage({ whisper: ChatMessage.getWhisperRecipients("Gm") });
-
-    // Update token with new information
-    token.actor.update({
-      "system.attributes.hp": {
-        "baseMax": hpRoll.total,
-        "value": hpRoll.total
-      }
-    });
-  }
+  // Update token with new information
+  token.actor.update({
+    'system.attributes.hp': {
+      baseMax: hpRoll.total,
+      value: hpRoll.total
+    }
+  });
 });

@@ -28,6 +28,7 @@ import WeaponProficienciesConfigDialog from '../../vue/WeaponProficienciesConfig
 
 import calculateManeuverDC from '../utils/calculateManeuverDC';
 import calculatePassiveScore from '../utils/calculatePassiveScore';
+import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import calculateSpellDC from '../utils/calculateSpellDC';
 import getBaseAbilityMod from '../utils/getBaseAbilityMod';
 import getDialogData from '../dice/getDialogData';
@@ -35,6 +36,23 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
 import toggleFilter from '../utils/toggleFilter';
 
 export default class Actor5e extends Actor {
+  get hitPointFormula() {
+    const { hitDice } = this.system.attributes;
+    const { mod } = this.system.abilities.con;
+
+    let hitDiceCount = 0;
+    const parts = [];
+
+    Object.entries(hitDice).forEach(([dieSize, { total: diceQuantity }]) => {
+      if (!diceQuantity) return;
+
+      parts.push(`${diceQuantity}${dieSize}`);
+      hitDiceCount += diceQuantity;
+    });
+
+    return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+  }
+
   /**
    * @override
    */
@@ -259,6 +277,8 @@ export default class Actor5e extends Actor {
     }, data);
 
     data.level = this.system.details.level;
+
+    data.spellMod = calculateSpellcastingMod(this.system);
 
     data.spellDC = calculateSpellDC(this.system);
     data.maneuverDC = calculateManeuverDC(this.system);
