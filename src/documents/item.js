@@ -71,6 +71,21 @@ export default class Item5e extends Item {
     }, []);
   }
 
+  get hasRoll() {
+    const { actions } = this.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.rolls)?.length));
+  }
+
+  get hasPrompt() {
+    const { actions } = this.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.prompts)?.length));
+  }
+
+  get hasConsumer() {
+    const { actions } = this.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.consumers)?.length));
+  }
+
   // *****************************************************************************************
 
   // FIXME: Needs complete refactor
