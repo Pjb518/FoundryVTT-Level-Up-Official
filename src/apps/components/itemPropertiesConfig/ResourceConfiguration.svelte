@@ -2,8 +2,10 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import FormSection from "../FormSection.svelte";
+    import A5E from "../../../modules/config";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    import FormSection from "../FormSection.svelte";
 
     const item = getContext("item");
 
@@ -13,7 +15,6 @@
         editMode = !editMode;
     }
 
-    const recoveryOptions = CONFIG.A5E.resourceRecoveryOptions;
     $: hasUses = $item.system.uses.value || $item.system.uses.max;
 </script>
 
@@ -33,7 +34,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>{localize("Resource Consumption")}</h3>
+        <h3>{localize("A5E.TabResourceConsumption")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -95,7 +96,7 @@
                         >
                             <option value="" />
 
-                            {#each Object.entries(recoveryOptions) as [key, name]}
+                            {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
                                 <option
                                     {key}
                                     value={key}
@@ -127,7 +128,9 @@
                         {#if $item.system.uses.per}
                             <span>
                                 ( Per {localize(
-                                    recoveryOptions[$item.system.uses.per]
+                                    A5E.resourceRecoveryOptions[
+                                        $item.system.uses.per
+                                    ]
                                 )} )
                             </span>
                         {/if}

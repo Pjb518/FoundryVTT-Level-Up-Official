@@ -2,6 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import A5E from "../../../modules/config";
+    import localeSort from "../../utils/localeSort";
+
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
@@ -12,8 +15,6 @@
     function toggleEditMode() {
         editMode = !editMode;
     }
-
-    const weaponProperties = CONFIG.A5E.weaponProperties;
 </script>
 
 <section>
@@ -32,7 +33,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>{localize("Weapon Configuration")}</h3>
+        <h3>{localize("A5E.TabWeaponProperties")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -43,9 +44,8 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.WeaponProperties">
-                <!-- svelte-ignore missing-declaration -->
                 <CheckboxGroup
-                    options={Object.entries(weaponProperties)}
+                    options={Object.entries(A5E.weaponProperties)}
                     selected={$item.system.weaponProperties}
                     name="system.weaponProperties"
                     document={item}
@@ -60,22 +60,21 @@
                     {#if $item.system.weaponProperties.length}
                         <ul
                             class="
-              u-comma-list
-              u-flex
-              u-flex-shrink-0
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-              u-w-fit
-            "
+                            u-comma-list
+                            u-flex
+                            u-flex-shrink-0
+                            u-gap-ch
+                            u-list-style-none
+                            u-m-0
+                            u-p-0
+                            u-w-fit
+                        "
                         >
-                            {#each $item.system.weaponProperties.sort( (a, b) => a
-                                        .toLowerCase()
-                                        .localeCompare(b.toLowerCase()) ) as property}
+                            {#each localeSort($item.system.weaponProperties) as property}
                                 <li key={property}>
                                     {localize(
-                                        weaponProperties[property] ?? property
+                                        A5E.weaponProperties[property] ??
+                                            property
                                     )}
                                 </li>
                             {/each}

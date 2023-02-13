@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import A5E from "../../../modules/config";
+
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -32,7 +34,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>Object Properties</h3>
+        <h3>{localize("A5E.TabObjectProperties")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -43,9 +45,8 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.ObjectTypePrompt">
-                <!-- svelte-ignore missing-declaration -->
                 <RadioGroup
-                    options={Object.entries(CONFIG.A5E.objectTypes)}
+                    options={Object.entries(A5E.objectTypes)}
                     selected={$item.system.objectType}
                     name="system.objectType"
                     document={item}
@@ -53,9 +54,8 @@
             </FormSection>
 
             <FormSection heading="A5E.ItemRarity">
-                <!-- svelte-ignore missing-declaration -->
                 <RadioGroup
-                    options={Object.entries(CONFIG.A5E.itemRarity)}
+                    options={Object.entries(A5E.itemRarity)}
                     selected={$item.system.rarity}
                     name="system.rarity"
                     document={item}
@@ -151,9 +151,8 @@
                                     )}
                             />
 
-                            <!-- TODO: Localize this -->
                             <label class="u-pointer" for={`${appId}-weight`}>
-                                {localize("lbs.")}
+                                {localize("A5E.DetailsWeightLbs")}
                             </label>
                         </div>
 
@@ -269,21 +268,18 @@
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ObjectTypePrompt")}:</dt>
-                <!-- svelte-ignore missing-declaration -->
                 <dd class="u-m-0 u-p-0">
                     {localize(
-                        CONFIG.A5E.objectTypes[$item.system.objectType] ??
-                            "A5E.None"
+                        A5E.objectTypes[$item.system.objectType] ?? "A5E.None"
                     )}
                 </dd>
             </div>
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ItemRarity")}:</dt>
-                <!-- svelte-ignore missing-declaration -->
                 <dd class="u-m-0 u-p-0">
                     {localize(
-                        CONFIG.A5E.itemRarity[$item.system.rarity] ??
+                        A5E.itemRarity[$item.system.rarity] ??
                             $item.system.rarity
                     )}
                 </dd>
@@ -312,7 +308,7 @@
                 <dt class="u-text-bold">{localize("A5E.ItemWeight")}:</dt>
                 <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
                     {$item.system.weight}
-                    <!-- TODO: Reflect lbs here -->
+                    {localize("A5E.DetailsWeightLbs")}
 
                     {#if $item.system.bulky}
                         ({localize("A5E.ItemBulky")})
@@ -330,8 +326,7 @@
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ItemPrice")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {$item.system.price || 0}
-                    <!-- TODO: Reflect currency type here -->
+                    {$item.system.price ?? localize("A5E.None")}
                 </dd>
             </div>
         </dl>

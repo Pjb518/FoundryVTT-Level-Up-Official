@@ -2,6 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import A5E from "../../../modules/config";
+    import localeSort from "../../utils/localeSort";
+
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
@@ -12,8 +15,6 @@
     function toggleEditMode() {
         editMode = !editMode;
     }
-
-    const materialProperties = CONFIG.A5E.materialProperties;
 </script>
 
 <section>
@@ -43,9 +44,8 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.MaterialProperties">
-                <!-- svelte-ignore missing-declaration -->
                 <CheckboxGroup
-                    options={Object.entries(materialProperties)}
+                    options={Object.entries(A5E.materialProperties)}
                     selected={$item.system.materialProperties}
                     name="system.materialProperties"
                     document={item}
@@ -62,22 +62,21 @@
                     {#if $item.system.materialProperties.length}
                         <ul
                             class="
-              u-comma-list
-              u-flex
-              u-flex-shrink-0
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-              u-w-fit
-            "
+                                u-comma-list
+                                u-flex
+                                u-flex-shrink-0
+                                u-gap-ch
+                                u-list-style-none
+                                u-m-0
+                                u-p-0
+                                u-w-fit
+                            "
                         >
-                            {#each $item.system.materialProperties.sort( (a, b) => a
-                                        .toLowerCase()
-                                        .localeCompare(b.toLowerCase()) ) as property}
+                            {#each localeSort($item.system.materialProperties) as property}
                                 <li key={property}>
                                     {localize(
-                                        materialProperties[property] ?? property
+                                        A5E.materialProperties[property] ??
+                                            property
                                     )}
                                 </li>
                             {/each}

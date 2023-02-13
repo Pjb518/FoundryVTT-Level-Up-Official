@@ -2,12 +2,14 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import A5E from "../../../modules/config";
+    import localeSort from "../../utils/localeSort";
     import objectEntriesNumberKeyConverter from "../../utils/objectEntriesNumberKeyConverter";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
     const appId = getContext("appId");
@@ -17,11 +19,6 @@
     function toggleEditMode() {
         editMode = !editMode;
     }
-
-    const spellLevels = CONFIG.A5E.spellLevels;
-    const spellSchoolPrimary = CONFIG.A5E.spellSchools.primary;
-    const spellSchoolSecondary = CONFIG.A5E.spellSchools.secondary;
-    const spellComponents = CONFIG.A5E.spellComponents;
 </script>
 
 <section>
@@ -40,7 +37,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>{localize("Spell Configuration")}</h3>
+        <h3>{localize("A5E.TabSpellConfiguration")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -51,9 +48,8 @@
     {#if editMode}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.SpellLevel">
-                <!-- svelte-ignore missing-declaration -->
                 <RadioGroup
-                    options={objectEntriesNumberKeyConverter(spellLevels)}
+                    options={objectEntriesNumberKeyConverter(A5E.spellLevels)}
                     selected={$item.system.level}
                     name="system.level"
                     document={item}
@@ -61,9 +57,8 @@
             </FormSection>
 
             <FormSection heading="A5E.SpellSchoolPrimary">
-                <!-- svelte-ignore missing-declaration -->
                 <RadioGroup
-                    options={Object.entries(spellSchoolPrimary)}
+                    options={Object.entries(A5E.spellSchools.primary)}
                     selected={$item.system.schools.primary}
                     name="system.schools.primary"
                     document={item}
@@ -71,9 +66,8 @@
             </FormSection>
 
             <FormSection heading="A5E.SpellSchoolSecondaryPlural">
-                <!-- svelte-ignore missing-declaration -->
                 <CheckboxGroup
-                    options={Object.entries(spellSchoolSecondary)}
+                    options={Object.entries(A5E.spellSchools.secondary)}
                     selected={$item.system.schools.secondary}
                     name="system.schools.secondary"
                     document={item}
@@ -84,7 +78,7 @@
                 <ul
                     class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
                 >
-                    {#each Object.entries(spellComponents) as [value, label]}
+                    {#each Object.entries(A5E.spellComponents) as [value, label]}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <li
                             class="a5e-tag u-pointer"
@@ -202,7 +196,7 @@
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.SpellLevel")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(spellLevels[$item.system.level])}
+                    {localize(A5E.spellLevels[$item.system.level])}
                 </dd>
             </div>
 
@@ -211,32 +205,35 @@
                     {localize("A5E.SpellSchoolPrimary")}:
                 </dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(spellSchoolPrimary[$item.system.schools.primary])}
+                    {localize(
+                        A5E.spellSchools.primary[$item.system.schools.primary]
+                    )}
                 </dd>
             </div>
 
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.SpellLevel")}:</dt>
+                <dt class="u-text-bold">
+                    {localize("A5E.SpellSchoolSecondaryPlural")}:
+                </dt>
                 <dd class="u-m-0 u-p-0">
                     {#if $item.system.schools.secondary.length}
                         <ul
                             class="
-              u-comma-list
-              u-flex
-              u-flex-shrink-0
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-              u-w-fit
-            "
+                            u-comma-list
+                            u-flex
+                            u-flex-shrink-0
+                            u-gap-ch
+                            u-list-style-none
+                            u-m-0
+                            u-p-0
+                            u-w-fit
+                        "
                         >
-                            {#each $item.system.schools.secondary.sort( (a, b) => a
-                                        .toLowerCase()
-                                        .localeCompare(b.toLowerCase()) ) as school}
+                            {#each localeSort($item.system.schools.secondary) as school}
                                 <li key={school}>
                                     {localize(
-                                        spellSchoolSecondary[school] ?? school
+                                        A5E.spellSchools.secondary[school] ??
+                                            school
                                     )}
                                 </li>
                             {/each}
@@ -255,20 +252,20 @@
                     {#if Object.values($item.system.components).some(Boolean)}
                         <ul
                             class="
-              u-comma-list
-              u-flex
-              u-flex-shrink-0
-              u-gap-ch
-              u-list-style-none
-              u-m-0
-              u-p-0
-              u-w-fit
-            "
+                                u-comma-list
+                                u-flex
+                                u-flex-shrink-0
+                                u-gap-ch
+                                u-list-style-none
+                                u-m-0
+                                u-p-0
+                                u-w-fit
+                            "
                         >
                             {#each Object.entries($item.system.components).filter(([_, state]) => state) as [component, _]}
                                 <li>
                                     {localize(
-                                        `${spellComponents[component]}Abbr` ??
+                                        `${A5E.spellComponents[component]}Abbr` ??
                                             component
                                     )}
                                 </li>
