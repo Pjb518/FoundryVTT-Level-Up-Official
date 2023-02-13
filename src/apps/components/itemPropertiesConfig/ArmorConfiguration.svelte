@@ -96,7 +96,7 @@
                                 u-w-fit
                             "
                         >
-                            {#each localeSort($item.system.armorProperties.sort) as property}
+                            {#each localeSort($item.system.armorProperties) as property}
                                 <li key={property}>
                                     {localize(
                                         armorProperties[property] ?? property
