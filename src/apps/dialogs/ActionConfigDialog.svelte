@@ -52,7 +52,7 @@
     setContext("actionId", actionId);
 </script>
 
-<main>
+<article>
     <header class="action-header">
         <img class="item-image" src={$item.img} alt="${item.name} image" />
 
@@ -74,7 +74,7 @@
     <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
     <svelte:component this={currentTab.component} />
-</main>
+</article>
 
 <style lang="scss">
     :global {
@@ -83,13 +83,14 @@
         }
     }
 
-    main {
+    article {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        // FIXME: Fix this when TJSDialog is fixed.
+        height: 592px;
         padding: 0.75rem;
         gap: 0.5rem;
-        overflow: auto;
+        overflow: scroll;
         background: rgba(246, 242, 235, 0.5);
     }
 
