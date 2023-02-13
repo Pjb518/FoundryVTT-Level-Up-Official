@@ -21,27 +21,27 @@
     const tabs = [
         {
             name: "activation",
-            label: "Activation",
+            label: "A5E.TabActivation",
             component: ActionsActivationTab,
         },
         {
             name: "targeting",
-            label: "Targeting",
+            label: "A5E.TabTargeting",
             component: ActionsTargetingTab,
         },
         {
             name: "rolls",
-            label: "Rolls",
+            label: "A5E.TabRolls",
             component: ActionsRollsTab,
         },
         {
             name: "prompts",
-            label: "Prompts",
+            label: "A5E.TabPrompts",
             component: ActionsPromptsTab,
         },
         {
             name: "consumers",
-            label: "Consumers",
+            label: "A5E.TabConsumers",
             component: ActionsConsumerTab,
         },
     ];
