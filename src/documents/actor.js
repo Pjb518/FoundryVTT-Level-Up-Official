@@ -640,9 +640,11 @@ export default class Actor5e extends Actor {
       rolls: [roll],
       flags: {
         a5e: {
+          abilityKey,
           actorId: this.uuid,
           cardType: 'abilityCheck',
-          abilityKey
+          img: this.token?.img ?? this.img,
+          name: this.name
         }
       },
       content: '<article></article>'
@@ -757,9 +759,11 @@ export default class Actor5e extends Actor {
       rolls: [roll],
       flags: {
         a5e: {
+          abilityKey,
           actorId: this.uuid,
           cardType: 'savingThrow',
-          abilityKey
+          img: this.token?.img ?? this.img,
+          name: this.name
         }
       },
       content: '<article></article>'
@@ -798,9 +802,11 @@ export default class Actor5e extends Actor {
       rolls: [roll],
       flags: {
         a5e: {
+          abilityKey,
           actorId: this.uuid,
           cardType: 'skillCheck',
-          abilityKey,
+          img: this.token?.img ?? this.img,
+          name: this.name,
           skillKey
         }
       },
