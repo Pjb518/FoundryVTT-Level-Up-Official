@@ -32,11 +32,11 @@
 <section class="action-config action-config__wrapper">
     <header class="action-config__section-header">
         <h2 class="action-config__section-heading">
-            {localize("A5E.Consumers")}
+            {localize("A5E.TabConsumers")}
         </h2>
 
         <button class="add-button" on:click={() => addConsumer()}>
-            + Add Consumer
+            {localize("A5E.ButtonAddConsumer")}
         </button>
     </header>
 
