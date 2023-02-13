@@ -235,13 +235,6 @@
                                     target.value
                                 )}
                         />
-
-                        <!-- TODO: Add text select box and text box -->
-                        <select
-                            class="u-h-8 u-w-fit"
-                            name="system.price.type"
-                            id={`${appId}-price-type`}
-                        />
                     </div>
                 </div>
             </FormSection>
