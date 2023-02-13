@@ -78,6 +78,10 @@
 
 <style lang="scss">
     :global {
+        .a5e-sheet main {
+            height: 100%;
+        }
+
         .a5e-sheet .dialog-content {
             height: 100%;
         }
@@ -86,11 +90,10 @@
     article {
         display: flex;
         flex-direction: column;
-        // FIXME: Fix this when TJSDialog is fixed.
-        height: 592px;
+        height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-        overflow: scroll;
+        overflow: auto;
         background: rgba(246, 242, 235, 0.5);
     }
 
