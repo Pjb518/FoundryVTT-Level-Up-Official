@@ -224,8 +224,7 @@
                     <div class="u-align-center u-flex u-gap-md u-w-30">
                         <input
                             class="u-pl-lg"
-                            type="number"
-                            data-dtype="Number"
+                            type="text"
                             name="system.price"
                             id={`${appId}-price`}
                             value={$item.system.price}
@@ -233,7 +232,7 @@
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    Number(target.value)
+                                    target.value
                                 )}
                         />
 
