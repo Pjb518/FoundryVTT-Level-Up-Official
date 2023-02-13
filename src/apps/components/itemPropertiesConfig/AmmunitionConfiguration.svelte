@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import localeSort from "../../utils/localeSort";
+
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
@@ -71,9 +73,7 @@
                                 u-w-fit
                             "
                         >
-                            {#each $item.system.weaponProperties.sort( (a, b) => a
-                                        .toLowerCase()
-                                        .localeCompare(b.toLowerCase()) ) as property}
+                            {#each localeSort($item.system.weaponProperties) as property}
                                 <li key={property}>
                                     {localize(
                                         ammunitionProperties[property] ??
