@@ -19,7 +19,7 @@
     };
 </script>
 
-<main>
+<article>
     <!-- TODO: Maybe make distance a number? -->
     {#each Object.entries($actor.system.attributes.movement) as [mode, distance]}
         <FormSection heading={headings[mode]} inline={true}>
@@ -40,10 +40,10 @@
             </div>
         </FormSection>
     {/each}
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

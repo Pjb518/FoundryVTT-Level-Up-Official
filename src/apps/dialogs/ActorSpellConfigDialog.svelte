@@ -17,7 +17,7 @@
     $: flags = $actor.flags.a5e;
 </script>
 
-<main>
+<article>
     <FormSection>
         <CustomTagGroup
             heading="A5E.AvailableSpellLevels"
@@ -103,10 +103,10 @@
             </div>
         </div>
     </FormSection>
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

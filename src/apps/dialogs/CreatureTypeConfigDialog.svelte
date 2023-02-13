@@ -10,7 +10,7 @@
     const systemTypes = Object.entries(CONFIG.A5E.creatureTypes);
 </script>
 
-<main>
+<article>
     <CustomTagGroup
         heading="A5E.CreatureTypePlural"
         options={systemTypes}
@@ -18,10 +18,10 @@
         name="system.details.creatureTypes"
         document={actor}
     />
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

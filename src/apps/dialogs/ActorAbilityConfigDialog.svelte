@@ -41,7 +41,7 @@
     $: currentTab = tabs[0];
 </script>
 
-<main>
+<article>
     <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
     <!-- Ability Check Config -->
@@ -205,10 +205,10 @@
             </FormSection>
         </div>
     {/if}
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

@@ -11,7 +11,7 @@
     const creatureSizes = Object.entries(CONFIG.A5E.actorSizes);
 </script>
 
-<main>
+<article>
     <FormSection heading="A5E.SizeCategory">
         <RadioGroup
             options={creatureSizes}
@@ -20,10 +20,10 @@
             document={actor}
         />
     </FormSection>
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

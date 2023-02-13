@@ -10,7 +10,7 @@
     const systemDamageTypes = Object.entries(CONFIG.A5E.damageTypes);
 </script>
 
-<main>
+<article>
     <CustomTagGroup
         heading="A5E.DamageTypePlural"
         options={systemDamageTypes}
@@ -18,10 +18,10 @@
         name="system.traits.damageImmunities"
         document={actor}
     />
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

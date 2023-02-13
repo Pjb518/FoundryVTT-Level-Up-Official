@@ -12,7 +12,7 @@
     const actor = new TJSDocument(actorDocument);
 </script>
 
-<main>
+<article>
     <FormSection heading="A5E.ManeuverDCBonus">
         <div class="u-w-full">
             <div class="u-w-20">
@@ -55,10 +55,10 @@
             </div>
         </FormSection>
     {/if}
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

@@ -18,7 +18,7 @@
     };
 </script>
 
-<main>
+<article>
     <!-- TODO: Possible conversion to number -->
     {#each Object.entries($actor.system.attributes.senses) as [sense, distance]}
         <FormSection heading={headings[sense]} inline={true}>
@@ -39,10 +39,10 @@
             </div>
         </FormSection>
     {/each}
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

@@ -27,7 +27,7 @@
     $: hp = $actor.system.attributes.hp;
 </script>
 
-<main>
+<article>
     <div class="u-flex u-flex-col u-gap-md">
         {#each hpFields as { label, updateAttribute }}
             <FormSection heading={label} inline={true}>
@@ -93,10 +93,10 @@
             {/each}
         </section>
     </div>
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

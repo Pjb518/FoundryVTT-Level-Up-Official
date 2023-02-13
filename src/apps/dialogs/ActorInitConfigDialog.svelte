@@ -14,7 +14,7 @@
     $: initiative = $actor.system.attributes.initiative;
 </script>
 
-<main>
+<article>
     <div class="u-flex u-flex-col u-gap-md">
         <FormSection heading="A5E.ExpertiseDie">
             <ExpertiseDiePicker
@@ -68,10 +68,10 @@
             </div>
         </FormSection>
     </div>
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;
