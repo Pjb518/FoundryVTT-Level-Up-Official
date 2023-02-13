@@ -2,11 +2,12 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import A5E from "../../../modules/config";
     import getOrdinalNumber from "../../../modules/utils/getOrdinalNumber";
     import isStandardRange from "../../../modules/utils/isStandardRange";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let index;
     export let id;
@@ -15,8 +16,6 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
-
-    const { movementUnits } = CONFIG.A5E;
 
     function updateRangeValue(option) {
         range = isStandardRange(option) ? option : customValue;
@@ -116,7 +115,7 @@
                     on:change={deleteRangeUnit}
                 />
                 <label for={`${actionId}-${id}-include-unit`}>
-                    Include Unit
+                    {localize("A5E.IncludeUnit")}
                 </label>
             </div>
 
@@ -135,7 +134,7 @@
                         on:change={selectRangeUnit}
                     >
                         <option value={null}>{localize("A5E.None")}</option>
-                        {#each Object.entries(movementUnits) as [unit, label]}
+                        {#each Object.entries(A5E.movementUnits) as [unit, label]}
                             <option
                                 value={unit}
                                 selected={rangeObject.unit === unit}
@@ -148,8 +147,13 @@
             </div>
         {/if}
 
+        <!-- TODO: Unable to add tooltip for some reason -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <i class="delete-button fas fa-trash" on:click={deleteRangeIncrement} />
+        <i
+            class="delete-button fas fa-trash"
+            role="button"
+            on:click={deleteRangeIncrement}
+        />
     </div>
 </FormSection>
 

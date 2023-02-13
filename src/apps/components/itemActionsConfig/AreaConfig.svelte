@@ -1,5 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
+    import A5E from "../../../modules/config";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import AreaShape from "./AreaShape.svelte";
@@ -20,7 +22,9 @@
 
 <section class="action-config__section">
     <header class="action-config__section-header">
-        <h2 class="action-config__section-heading">Area</h2>
+        <h2 class="action-config__section-heading">
+            {localize("A5E.ItemAreaShape")}
+        </h2>
     </header>
 
     <div class="area-shape-list">
@@ -43,8 +47,7 @@
             {localize("A5E.None")}
         </label>
 
-        <!-- svelte-ignore missing-declaration  (CONFIG)-->
-        {#each Object.entries(CONFIG.A5E.areaTypes) as [key, name] (key)}
+        {#each Object.entries(A5E.areaTypes) as [key, name] (key)}
             <AreaShape {action} {actionId} {item} {key} {name} />
         {/each}
     </div>
@@ -53,7 +56,10 @@
         <FormSection>
             <div class="u-flex u-gap-lg u-w-full">
                 <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                    <label for={`${actionId}-area-quantity`}>Quantity</label>
+                    <label for={`${actionId}-area-quantity`}>
+                        {localize("A5E.ItemQuantity")}
+                    </label>
+
                     <input
                         id={`${actionId}-area-quantity`}
                         type="number"
