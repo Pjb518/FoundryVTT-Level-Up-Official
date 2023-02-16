@@ -19,4 +19,20 @@ export default class ActionsManager {
     return this.actions[id] ?? null;
   }
 
+  /**
+   *
+   * @param {String} name
+   */
+  getName(name) {
+    const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
+    return this.actions[actionId] ?? null;
+  }
+
+  add() { }
+
+  duplicate() { }
+
+  remove() { }
+
+  update() { }
 }
