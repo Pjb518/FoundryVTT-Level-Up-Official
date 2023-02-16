@@ -1,15 +1,11 @@
 import DataProxy from './DataProxy';
 
 export default class ActionsManager extends DataProxy {
-  #actions;
-
   #item;
 
   constructor(item) {
-    const { actions } = item.system;
-    super(actions);
+    super(item.system.actions);
 
-    this.#actions = actions;
     this.#item = item;
   }
 
@@ -18,7 +14,7 @@ export default class ActionsManager extends DataProxy {
    * @returns {Array}
    */
   entries() {
-    return Object.entries(this.#actions);
+    return Object.entries(this.#item.system.actions);
   }
 
   /**
@@ -26,7 +22,7 @@ export default class ActionsManager extends DataProxy {
    * @param {String} id
    */
   get(id) {
-    return this.#actions[id] ?? null;
+    return this.#item.system.actions[id] ?? null;
   }
 
   /**
@@ -36,18 +32,18 @@ export default class ActionsManager extends DataProxy {
   getName(name) {
     // eslint-disable-next-line no-unused-vars
     const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
-    return this.#actions[actionId] ?? null;
+    return this.#item.system.actions[actionId] ?? null;
   }
 
   add() { }
 
   async duplicate(id) {
-    const newAction = foundry.utils.duplicate(this.#actions[id]);
+    const newAction = foundry.utils.duplicate(this.#item.system.actions[id]);
     newAction.name = `${newAction.name} (Copy)`;
 
     await this.#item.update({
       'system.actions': {
-        ...this.#actions,
+        ...this.#item.system.actions,
         [foundry.utils.randomId()]: newAction
       }
     });
