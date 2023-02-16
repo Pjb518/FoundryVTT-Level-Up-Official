@@ -1,4 +1,4 @@
-import ActionsManager from '../modules/ActionsManager';
+import ActionsManager from '../managers/ActionsManager';
 
 import getChatCardTargets from '../modules/utils/getChatCardTargets';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
