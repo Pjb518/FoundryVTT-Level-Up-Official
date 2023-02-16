@@ -1,3 +1,5 @@
+import ActionsManager from '../modules/ActionsManager';
+
 import getChatCardTargets from '../modules/utils/getChatCardTargets';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../modules/pixi/ItemMeasuredTemplate';
@@ -59,7 +61,8 @@ export default class Item5e extends Item {
   }
 
   get actions() {
-    return Object.entries(this.system.actions);
+    // return Object.entries(this.system.actions);
+    return new ActionsManager(this);
   }
 
   get activationTypes() {
