@@ -13,7 +13,7 @@ export default class ActorSheet extends SvelteApplication {
     super(foundry.utils.mergeObject(
       options,
       {
-        id: `actor-sheet-${actor.isLinked ? actor.id : actor.parent?.id}`,
+        id: `actor-sheet-${actor.isToken ? actor.parent?.id : actor.id}`,
         title: actor.name,
         svelte: {
           props: {
@@ -23,7 +23,7 @@ export default class ActorSheet extends SvelteApplication {
       }
     ));
 
-    this.actor = actor.isLinked ? actor.parent : actor;
+    this.actor = actor.isToken ? actor.parent.actor : actor;
 
     this.options.svelte.props.actor = new ActorDocument(
       this.actor,
