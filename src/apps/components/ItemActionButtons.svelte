@@ -1,28 +1,48 @@
 <script>
+    import { getContext } from "svelte";
+
     export let item;
+    const actor = getContext("actor");
+
+    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="action-buttons">
     <button
-        class="action-button fas fa-cog"
-        data-tooltip="A5E.ButtonToolTipConfigure"
+        class="action-button fas fa-star"
+        class:active={item.system.favorite}
+        class:locked={sheetIsLocked}
+        disabled={sheetIsLocked}
+        data-tooltip="A5E.ButtonToolTipFavorite"
         data-tooltip-direction="UP"
-        on:click={() => item.configureItem()}
+        on:click={() => {
+            item.toggleFavorite();
+            document.location.back();
+        }}
     />
 
-    <button
-        class="action-button fa-solid fa-clone"
-        data-tooltip="A5E.ButtonToolTipDuplicate"
-        data-tooltip-direction="UP"
-        on:click={() => item.duplicateItem()}
-    />
+    {#if !sheetIsLocked}
+        <button
+            class="action-button fas fa-cog"
+            data-tooltip="A5E.ButtonToolTipConfigure"
+            data-tooltip-direction="UP"
+            on:click={() => item.configureItem()}
+        />
 
-    <button
-        class="action-button delete-button fas fa-trash"
-        data-tooltip="A5E.ButtonToolTipDelete"
-        data-tooltip-direction="UP"
-        on:click={() => item.delete()}
-    />
+        <button
+            class="action-button fa-solid fa-clone"
+            data-tooltip="A5E.ButtonToolTipDuplicate"
+            data-tooltip-direction="UP"
+            on:click={() => item.duplicateItem()}
+        />
+
+        <button
+            class="action-button delete-button fas fa-trash"
+            data-tooltip="A5E.ButtonToolTipDelete"
+            data-tooltip-direction="UP"
+            on:click={() => item.delete()}
+        />
+    {/if}
 </div>
 
 <style lang="scss">
@@ -41,12 +61,28 @@
         transition: all 0.15s ease-in-out;
         color: #999;
 
-        &:hover,
-        &:focus {
+        &:hover {
             color: #555;
             transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
             box-shadow: none;
         }
+    }
+
+    .active {
+        color: #425f65;
+
+        &:hover {
+            color: #425f65;
+            box-shadow: none;
+        }
+    }
+
+    .locked {
+        pointer-events: none;
     }
 
     .delete-button:hover {

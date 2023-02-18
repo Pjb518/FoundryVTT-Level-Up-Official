@@ -243,6 +243,14 @@ export default class Item5e extends Item {
     else Item.createDocuments([newItem]);
   }
 
+  async toggleFavorite() {
+    if (!this.actor) return;
+
+    await this.update({
+      'system.favorite': !this.system.favorite
+    });
+  }
+
   static async _onClickChatAbilityCheckButton(event) {
     /* eslint-disable no-await-in-loop, no-restricted-syntax */
     event.preventDefault();
