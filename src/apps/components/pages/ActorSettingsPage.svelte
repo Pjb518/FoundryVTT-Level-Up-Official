@@ -50,6 +50,32 @@
             </div>
         </FormSection>
 
+        <FormSection
+            hint="When enabled d20 rolls resulting in a 1 will be automatically rerolled."
+        >
+            <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md">
+                    <input
+                        class="u-pointer"
+                        type="checkbox"
+                        name="flags.a5e.halflingLuck"
+                        id={`${$actor.id}-halfling-luck`}
+                        checked={flags.a5e?.halflingLuck ?? false}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            )}
+                    />
+
+                    <label class="u-pointer" for={`${$actor.id}-halfling-luck`}>
+                        {localize("A5E.SettingsHalflingLuck")}
+                    </label>
+                </div>
+            </div>
+        </FormSection>
+
         <FormSection>
             <div class="u-align-center u-flex u-gap-md">
                 <input
