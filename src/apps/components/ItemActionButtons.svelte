@@ -21,6 +21,34 @@
         }}
     />
 
+    {#if item.type === "object"}
+        <button
+            class="action-button fas fa-shield-alt"
+            class:active={item.system.equipped}
+            class:locked={sheetIsLocked}
+            disabled={sheetIsLocked}
+            data-tooltip={item.system.equipped
+                ? "A5E.ButtonToolTipUnequip"
+                : "A5E.ButtonToolTipEquip"}
+            data-tooltip-direction="UP"
+            on:click={() => item.toggleEquipped()}
+        />
+    {/if}
+
+    {#if item.type === "spell"}
+        <button
+            class="action-button fas fa-book"
+            class:active={item.system.prepared}
+            class:locked={sheetIsLocked}
+            disabled={sheetIsLocked}
+            data-tooltip={item.system.prepared
+                ? "A5E.ButtonToolTipUnprepare"
+                : "A5E.ButtonToolTipPrepare"}
+            data-tooltip-direction="UP"
+            on:click={() => item.togglePrepared()}
+        />
+    {/if}
+
     {#if !sheetIsLocked}
         <button
             class="action-button fas fa-cog"
