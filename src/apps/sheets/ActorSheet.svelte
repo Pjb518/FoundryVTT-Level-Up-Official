@@ -82,11 +82,11 @@
             label: "A5E.TabNotes",
             component: ActorNotesPage,
         },
-        {
-            name: "effects",
-            label: "A5E.TabEffects",
-            component: ActorEffectsPage,
-        },
+        // {
+        //     name: "effects",
+        //     label: "A5E.TabEffects",
+        //     component: ActorEffectsPage,
+        // },
         {
             name: "settings",
             label: "A5E.TabSettings",
