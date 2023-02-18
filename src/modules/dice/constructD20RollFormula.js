@@ -1,3 +1,4 @@
+import constructD20Term from './constructD20Term';
 import simplifyOperatorTerms from './simplifyOperatorTerms';
 
 /**
@@ -8,13 +9,13 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  *
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
-export default function constructRollFormula(actor, rollMode, modifiers) {
+export default function constructD20RollFormula({
+  actor, minRoll, modifiers, rollMode
+}) {
   const rollData = actor.getRollData();
   const parts = [];
 
-  if (rollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) parts.push('2d20kh');
-  else if (rollMode === CONFIG.A5E.ROLL_MODE.DISADVANTAGE) parts.push('2d20kl');
-  else parts.push('1d20');
+  parts.push(constructD20Term({ actor, minRoll, rollMode }));
 
   parts.push(...modifiers.map(({ label, value }) => {
     if (value && value !== 0) {

@@ -6,7 +6,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
 
-    import constructRollFormula from "../../modules/dice/constructRollFormula";
+    import constructD20RollFormula from "../../modules/dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
     export let { actorDocument, skillKey, dialog } =
@@ -31,43 +31,51 @@
 
     let abilityKey = $actor.system.skills[skillKey].ability;
     let expertiseDie = $actor.system.skills[skillKey].expertiseDice;
+    let { minRoll } = $actor.system.skills[skillKey];
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = "";
 
-    $: rollFormula = constructRollFormula($actor, rollMode, [
-        {
-            label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
-            value: $actor.system.skills[skillKey].mod,
-        },
-        {
-            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
-            value: $actor.system.abilities[abilityKey]?.check.mod,
-        },
-        {
-            label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
-            value: $actor.system.skills[skillKey].bonuses.check,
-        },
-        {
-            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
-            value: $actor.system.abilities[abilityKey]?.check.bonus,
-        },
-        {
-            label: "Global Skill Bonus",
-            value: $actor.system.bonuses.abilities.skill,
-        },
-        {
-            label: "Global Check Bonus",
-            value: $actor.system.bonuses.abilities.check,
-        },
-        {
-            label: "Expertise Die",
-            value: getExpertiseDieSize(expertiseDie),
-        },
-        {
-            value: situationalMods,
-        },
-    ]);
+    $: rollFormula = constructD20RollFormula({
+        actor: $actor,
+        rollMode,
+        minRoll,
+        modifiers: [
+            {
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
+                value: $actor.system.skills[skillKey].mod,
+            },
+            {
+                label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+                value: $actor.system.abilities[abilityKey]?.check.mod,
+            },
+            {
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+                value: $actor.system.skills[skillKey].bonuses.check,
+            },
+            {
+                label: `${localize(
+                    CONFIG.A5E.abilities[abilityKey]
+                )} Check Bonus`,
+                value: $actor.system.abilities[abilityKey]?.check.bonus,
+            },
+            {
+                label: "Global Skill Bonus",
+                value: $actor.system.bonuses.abilities.skill,
+            },
+            {
+                label: "Global Check Bonus",
+                value: $actor.system.bonuses.abilities.check,
+            },
+            {
+                label: "Expertise Die",
+                value: getExpertiseDieSize(expertiseDie),
+            },
+            {
+                value: situationalMods,
+            },
+        ],
+    });
 </script>
 
 <form>

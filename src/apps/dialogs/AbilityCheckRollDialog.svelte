@@ -6,7 +6,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
 
-    import constructRollFormula from "../../modules/dice/constructRollFormula";
+    import constructD20RollFormula from "../../modules/dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
     export let { actorDocument, abilityKey, dialog } =
@@ -36,27 +36,33 @@
     let rollFormula;
     let situationalMods = "";
 
-    $: rollFormula = constructRollFormula($actor, rollMode, [
-        {
-            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
-            value: $actor.system.abilities[abilityKey].check.mod,
-        },
-        {
-            label: `${localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
-            value: $actor.system.abilities[abilityKey].check.bonus,
-        },
-        {
-            label: "Global Check Bonus",
-            value: $actor.system.bonuses.abilities.check,
-        },
-        {
-            label: "Expertise Die",
-            value: getExpertiseDieSize(expertiseDie),
-        },
-        {
-            value: situationalMods,
-        },
-    ]);
+    $: rollFormula = constructD20RollFormula({
+        actor: $actor,
+        rollMode,
+        modifiers: [
+            {
+                label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+                value: $actor.system.abilities[abilityKey].check.mod,
+            },
+            {
+                label: `${localize(
+                    CONFIG.A5E.abilities[abilityKey]
+                )} Check Bonus`,
+                value: $actor.system.abilities[abilityKey].check.bonus,
+            },
+            {
+                label: "Global Check Bonus",
+                value: $actor.system.bonuses.abilities.check,
+            },
+            {
+                label: "Expertise Die",
+                value: getExpertiseDieSize(expertiseDie),
+            },
+            {
+                value: situationalMods,
+            },
+        ],
+    });
 </script>
 
 <form>
