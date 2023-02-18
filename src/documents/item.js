@@ -230,6 +230,19 @@ export default class Item5e extends Item {
     this.actor.constructItemCard(data);
   }
 
+  async configureItem() {
+    await this.sheet.render(true);
+  }
+
+  async duplicateItem() {
+    const owningActor = this.actor;
+    const newItem = foundry.utils.duplicate(this);
+    newItem.name = `${newItem.name} (Copy)`;
+
+    if (owningActor) owningActor.createEmbeddedDocuments('Item', [newItem]);
+    else Item.createDocuments([newItem]);
+  }
+
   static async _onClickChatAbilityCheckButton(event) {
     /* eslint-disable no-await-in-loop, no-restricted-syntax */
     event.preventDefault();

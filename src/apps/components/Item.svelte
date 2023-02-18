@@ -1,10 +1,15 @@
 <script>
+    import ItemActionButtons from "./ItemActionButtons.svelte";
+
     export let item;
 </script>
 
 <li class="item-wrapper" draggable="true">
     <img class="item-image" src={item.img} alt={item.name} />
+
     {item.name}
+
+    <ItemActionButtons {item} />
 </li>
 
 {#if Object.values(item.system.actions).length > 1}
