@@ -98,33 +98,29 @@ export default class Item5e extends Item {
 
   // *****************************************************************************************
 
-  async activate(actionId = null) {
-    // If no actions are defined, default to outputting just the item description.
+  async activate(actionId) {
     if (this.actions.count === 0) {
+      // If no actions are defined, default to outputting just the item description.
       this.shareItemDescription();
-      return;
-    }
-
-    // If there is a single defined action, use that action.
-    if (!this.actions.count === 1) {
+    } else if (!this.actions.count === 1) {
+      // If there is a single defined action, use that action.
       this.#activateAction(this.actions.keys()[0]);
-    }
-
-    // If no action id was provided, and there is more then one action defined for the item,
-    // show a dialog window so that the user can select an appropriate action.
-    if (!actionId) {
+    } else if (actionId) {
+      // If an action is provided, use the provided action
+      this.#activateAction(actionId);
+    } else {
+      // If no action id was provided, and there is more then one action defined for the item,
+      // show a dialog window so that the user can select an appropriate action.
       const dialog = new ActionSelectionDialog(this);
       await dialog.render(true);
 
       const promise = await dialog.promise;
 
       // If no selection is made, cancel the activation.
-      if (!promise.actionId) return;
+      if (!promise?.actionId) return;
 
-      actionId = promise.actionId;
+      this.#activateAction(promise.actionId);
     }
-
-    this.#activateAction(actionId);
   }
 
   async #activateAction(actionId = null) {
