@@ -5,21 +5,29 @@
 </script>
 
 <li class="item-wrapper" draggable="true">
-    <img class="item-image" src={item.img} alt={item.name} />
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <img
+        class="item-image"
+        src={item.img}
+        alt={item.name}
+        on:click={() => item.activate()}
+    />
 
     {item.name}
 
     <ItemActionButtons {item} />
 </li>
 
-{#if Object.values(item.system.actions).length > 1}
+{#if item.actions.count > 1}
     <ul class="actions-list">
-        {#each Object.values(item.system.actions) as action}
+        {#each item.actions.entries() as [id, action]}
             <li class="item-wrapper" draggable="false">
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <img
                     class="item-image"
                     src={action.img ?? "icons/svg/item-bag.svg"}
                     alt={action.name}
+                    on:click={() => item.activate(id)}
                 />
 
                 {action.name}

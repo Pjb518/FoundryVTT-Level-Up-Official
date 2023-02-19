@@ -9,6 +9,10 @@ export default class ActionsManager extends DataProxy {
     this.#item = item;
   }
 
+  get count() {
+    return Object.keys(this.#item.system.actions).length;
+  }
+
   /**
    *
    * @returns {Array}
@@ -33,6 +37,14 @@ export default class ActionsManager extends DataProxy {
     // eslint-disable-next-line no-unused-vars
     const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
     return this.#item.system.actions[actionId] ?? null;
+  }
+
+  keys() {
+    return Object.keys(this.#item.system.actions);
+  }
+
+  values() {
+    return Object.values(this.#item.system.actions);
   }
 
   add() { }
