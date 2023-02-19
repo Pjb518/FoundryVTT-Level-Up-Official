@@ -99,6 +99,9 @@ export default class Item5e extends Item {
   // *****************************************************************************************
 
   async activate(actionId) {
+    // Do not allow an item to activate if it not attached to an actor.
+    if (!this.actor) return;
+
     if (this.actions.count === 0) {
       // If no actions are defined, default to outputting just the item description.
       this.shareItemDescription();
