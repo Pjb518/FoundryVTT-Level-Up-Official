@@ -5,6 +5,7 @@ import ActorSheet5e from './apps/ActorSheet';
 import ItemSheet5e from './apps/ItemSheet';
 
 import CheckChatCard from './apps/chat/CheckChatCard.svelte';
+import ItemDescriptionCard from './apps/chat/DescriptionCard.svelte';
 
 import A5E from './modules/config';
 import ActiveEffect5e from './documents/activeEffects';
@@ -214,6 +215,13 @@ Hooks.on('createToken', async (token, _, userID) => {
 });
 
 Hooks.on('renderChatMessage', (message, html) => {
+  if (message.getFlag('a5e', 'cardType') === 'itemDescription') {
+    message._svelteComponent = new ItemDescriptionCard({
+      target: $(html).find('.message-content article')[0],
+      props: { messageDocument: message }
+    });
+  }
+
   if (['abilityCheck', 'savingThrow', 'skillCheck'].includes(message.getFlag('a5e', 'cardType'))) {
     message._svelteComponent = new CheckChatCard({
       target: $(html).find('.message-content article')[0],

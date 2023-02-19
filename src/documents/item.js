@@ -131,7 +131,23 @@ export default class Item5e extends Item {
   }
 
   async shareItemDescription() {
-    console.log('DESCRIPTION ONLY!!!');
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      sound: CONFIG.sounds.dice,
+      flags: {
+        a5e: {
+          actorId: this.actor.uuid,
+          cardType: 'itemDescription',
+          description: this.system.description,
+          img: this.img,
+          name: this.name
+        }
+      },
+      content: '<article></article>'
+    };
+
+    ChatMessage.create(chatData);
   }
 
   // FIXME: Needs complete refactor

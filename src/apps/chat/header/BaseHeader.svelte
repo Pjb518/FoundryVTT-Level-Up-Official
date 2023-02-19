@@ -6,7 +6,7 @@
 </script>
 
 <header class="card-header">
-    <img class="actor-image" src={img} alt={altText} />
+    <img class="card-image" src={img} alt={altText} />
 
     <div>
         <h2 class="card-title">{title}</h2>
@@ -20,7 +20,7 @@
 </header>
 
 <style>
-    .actor-image {
+    .card-image {
         border: 0;
         width: 2.5rem;
         height: 2.5rem;
