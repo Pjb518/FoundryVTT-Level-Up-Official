@@ -2,8 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
-
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
@@ -12,6 +10,7 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
+    const A5E = CONFIG.A5E;
     const specialActivationTypes = ["none", "special"];
     const specialTimeTypes = ["instantaneous", "permanent", "special"];
 

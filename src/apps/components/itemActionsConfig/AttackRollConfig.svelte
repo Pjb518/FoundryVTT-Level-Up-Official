@@ -2,11 +2,12 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
+
+    const A5E = CONFIG.A5E;
 
     export let roll;
     export let rollId;

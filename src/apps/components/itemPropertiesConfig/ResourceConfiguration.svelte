@@ -2,12 +2,12 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
 
     const item = getContext("item");
+    const A5E = CONFIG.A5E;
 
     let editMode = false;
 
