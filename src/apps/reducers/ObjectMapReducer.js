@@ -1,8 +1,5 @@
-/* eslint-disable max-classes-per-file */
-import {
-  DynMapReducer,
-  DerivedMapReducer
-} from '@typhonjs-fvtt/runtime/svelte/store';
+// eslint-disable-next-line import/no-unresolved
+import { DynMapReducer } from '@typhonjs-fvtt/runtime/svelte/store';
 
 export default class ObjectMapReducer extends DynMapReducer {
   initialize() {
@@ -17,5 +14,8 @@ export default class ObjectMapReducer extends DynMapReducer {
     Object.entries(this._types).forEach(([key, reducer]) => {
       reducer.filters.add((item) => item.system.objectType === key);
     });
+
+    this._types.Uncategorized = this.derived.create('uncategorized');
+    this._types.Uncategorized.filters.add((item) => item.system.objectType === '');
   }
 }
