@@ -1,5 +1,4 @@
 <script>
-    import RollFormula from "../dice/RollFormula.svelte";
     import RollTooltip from "../dice/RollTooltip.svelte";
 
     export let roll;
@@ -27,19 +26,20 @@
     let tooltipIsVisible = false;
 </script>
 
-<RollFormula
-    {roll}
-    on:toggleTooltipVisibility={() => (tooltipIsVisible = !tooltipIsVisible)}
-/>
-
 {#if tooltipIsVisible}
-    <RollTooltip {roll} />
+    <RollTooltip
+        {roll}
+        on:toggleTooltipVisibility={() =>
+            (tooltipIsVisible = !tooltipIsVisible)}
+    />
 {/if}
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-    class="a5e-roll a5e-roll--total"
+    class="a5e-roll a5e-roll--total u-pointer"
     class:max={isCriticalSuccess(roll)}
     class:min={isCriticalFailure(roll)}
+    on:click={() => (tooltipIsVisible = !tooltipIsVisible)}
 >
     {roll.total}
 </div>

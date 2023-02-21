@@ -1,12 +1,21 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { slide } from "svelte/transition";
 
     import DieResult from "./DieResult.svelte";
+    import RollFormula from "../dice/RollFormula.svelte";
 
     export let roll;
+
+    const dispatch = createEventDispatcher();
 </script>
 
 <div in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
+    <RollFormula
+        {roll}
+        on:toggleTooltipVisibility={() => dispatch("toggleTooltipVisibility")}
+    />
+
     {#each roll.dice as part}
         <section class="u-mb-md">
             <header
