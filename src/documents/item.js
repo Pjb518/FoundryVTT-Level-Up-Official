@@ -1,8 +1,5 @@
 import ActionsManager from '../managers/ActionsManager';
 
-import ItemActivationBody from '../apps/chat/body/ItemActivationBody.svelte';
-import ItemActivationHeader from '../apps/chat/header/ItemActivationHeader.svelte';
-
 import getChatCardTargets from '../modules/utils/getChatCardTargets';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../modules/pixi/ItemMeasuredTemplate';
