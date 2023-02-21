@@ -43,3 +43,16 @@
 >
     {roll.total}
 </div>
+
+<style class="scss">
+    .max {
+        color: #18520b;
+        background-color: #c7d0c0;
+        border: 1px solid #97ae8f;
+    }
+    .min {
+        color: #aa0200;
+        background-color: #ffdddd;
+        border: 1px solid #f0b5b5;
+    }
+</style>
