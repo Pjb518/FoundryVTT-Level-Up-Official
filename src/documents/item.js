@@ -1,5 +1,8 @@
 import ActionsManager from '../managers/ActionsManager';
 
+import ItemActivationBody from '../apps/chat/body/ItemActivationBody.svelte';
+import ItemActivationHeader from '../apps/chat/header/ItemActivationHeader.svelte';
+
 import getChatCardTargets from '../modules/utils/getChatCardTargets';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../modules/pixi/ItemMeasuredTemplate';
@@ -134,11 +137,10 @@ export default class Item5e extends Item {
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      sound: CONFIG.sounds.dice,
       flags: {
         a5e: {
           actorId: this.actor.uuid,
-          cardType: 'itemDescription',
+          cardType: 'item',
           description: this.system.description,
           img: this.img,
           name: this.name

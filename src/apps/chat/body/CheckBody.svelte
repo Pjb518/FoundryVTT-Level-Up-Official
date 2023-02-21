@@ -1,19 +1,8 @@
 <script>
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import RollFormula from "../tooltip/RollFormula.svelte";
+    import RollTooltip from "../tooltip/RollTooltip.svelte";
 
-    import AbilityCheckHeader from "./header/AbilityCheckHeader.svelte";
-    import RollFormula from "./tooltip/RollFormula.svelte";
-    import RollTooltip from "./tooltip/RollTooltip.svelte";
-    import SavingThrowHeader from "./header/SavingThrowHeader.svelte";
-    import SkillCheckHeader from "./header/SkillCheckHeader.svelte";
-
-    export let messageDocument;
-
-    function getHeaderComponent(cardType) {
-        if (cardType === "abilityCheck") return AbilityCheckHeader;
-        else if (cardType === "savingThrow") return SavingThrowHeader;
-        else if (cardType === "skillCheck") return SkillCheckHeader;
-    }
+    export let message;
 
     function isCriticalSuccess(roll) {
         const d20Roll = roll.terms.find((term) => term.faces === 20);
@@ -35,16 +24,8 @@
         );
     }
 
-    const message = new TJSDocument(messageDocument);
-    const { cardType } = $message.flags?.a5e;
-
     let tooltipIsVisible = false;
-    let headerComponent = getHeaderComponent(cardType);
 </script>
-
-<!-- TODO: Fix up the classes in this component -->
-
-<svelte:component this={headerComponent} {message} />
 
 <hr class="a5e-rule a5e-rule--card" />
 
