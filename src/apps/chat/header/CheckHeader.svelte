@@ -6,14 +6,17 @@
     export let message;
 
     function getTitle() {
+        const ability = localize(abilities[abilityKey]);
+
         switch ($message?.flags?.a5e?.cardType) {
             case "abilityCheck":
-                return `${localize(abilities[abilityKey])} Check`;
+                return localize("A5E.AbilityCheckSpecific", { ability });
             case "savingThrow":
-                return `${localize(abilities[abilityKey])} Save`;
+                return localize("A5E.SavingThrowSpecific", { ability });
             case "skillCheck":
                 const { skillKey } = $message?.flags?.a5e;
-                return `${localize(skills[skillKey])} Check`;
+                const skill = localize(skills[skillKey]);
+                return localize("A5E.SkillCheck", { skill });
         }
     }
 
