@@ -29,11 +29,20 @@
         }
     }
 
+    async function modifyRolls() {}
+
+    async function repeatCard() {}
+
     export let messageDocument;
 
     const message = new TJSDocument(messageDocument);
 </script>
 
-<svelte:component this={getHeaderComponent()} {message} />
+<svelte:component
+    this={getHeaderComponent()}
+    {message}
+    on:modifyRolls={() => modifyRolls()}
+    on:repeatCard={() => repeatCard()}
+/>
 
 <svelte:component this={getBodyComponent()} {message} />

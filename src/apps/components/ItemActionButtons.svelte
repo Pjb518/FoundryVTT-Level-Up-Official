@@ -15,10 +15,7 @@
         disabled={sheetIsLocked}
         data-tooltip="A5E.ButtonToolTipFavorite"
         data-tooltip-direction="UP"
-        on:click={() => {
-            item.toggleFavorite();
-            document.location.back();
-        }}
+        on:click={() => item.toggleFavorite()}
     />
 
     {#if item.type === "object"}

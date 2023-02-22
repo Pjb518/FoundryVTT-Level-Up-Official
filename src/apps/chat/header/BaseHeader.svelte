@@ -1,21 +1,39 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+
     export let altText;
     export let img;
     export let subtitle = null;
     export let title;
+
+    const dispatch = createEventDispatcher();
 </script>
 
 <header class="card-header">
     <img class="card-image" src={img} alt={altText} />
 
     <div>
-        <h2 class="card-title">{title}</h2>
+        <div>
+            <div class="u-flex u-align-center">
+                <h2 class="card-title">{title}</h2>
+            </div>
 
-        {#if subtitle}
-            <h3 class="card-subtitle">
-                {subtitle}
-            </h3>
-        {/if}
+            {#if subtitle}
+                <h3 class="card-subtitle">
+                    {subtitle}
+                </h3>
+            {/if}
+        </div>
+
+        <!-- <div class="u-flex u-flex-col">
+            <button on:click={() => dispatch("repeatCard")}>
+                <i class="fa-solid fa-repeat" />
+            </button>
+
+            <button>
+                <i class="fa-solid fa-dice" />
+            </button>
+        </div> -->
     </div>
 </header>
 

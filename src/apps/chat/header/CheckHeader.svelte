@@ -1,4 +1,5 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import BaseHeader from "./BaseHeader.svelte";
@@ -29,8 +30,15 @@
         }
     }
 
+    const dispatch = createEventDispatcher();
     const { abilities, skills } = CONFIG.A5E;
     const { abilityKey, img, name } = $message?.flags?.a5e;
 </script>
 
-<BaseHeader {img} altText={name} title={getTitle()} subtitle={getSubtitle()} />
+<BaseHeader
+    {img}
+    altText={name}
+    title={getTitle()}
+    subtitle={getSubtitle()}
+    on:repeatCard={() => dispatch("repeatCard")}
+/>
