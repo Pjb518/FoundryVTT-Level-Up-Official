@@ -98,7 +98,18 @@ export default class Item5e extends Item {
 
   // *****************************************************************************************
 
-  async activate(actionId) {
+  /**
+   * A handler for acivating an item. An actionId can be passed to this method to use a specific
+   * action defined on the item. If there are no actions defined, this method defaults to
+   * outputting the item's description.
+   *
+   * This method accepts an options object to further customise the activation process.
+   *
+   * @param {string} actionId
+   * @param {object options
+   * @returns
+   */
+  async activate(actionId, options = {}) {
     // Do not allow an item to activate if it not attached to an actor.
     if (!this.actor) return;
 
@@ -110,7 +121,7 @@ export default class Item5e extends Item {
       this.#activateAction(this.actions.keys()[0]);
     } else if (actionId) {
       // If an action is provided, use the provided action
-      this.#activateAction(actionId);
+      this.#activateAction(actionId, options);
     } else {
       // If no action id was provided, and there is more then one action defined for the item,
       // show a dialog window so that the user can select an appropriate action.
@@ -126,7 +137,7 @@ export default class Item5e extends Item {
     }
   }
 
-  async #activateAction(actionId = null) {
+  async #activateAction(actionId, options) {
     console.log('WORKING!!!', actionId);
   }
 

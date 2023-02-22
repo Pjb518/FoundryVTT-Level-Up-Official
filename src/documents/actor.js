@@ -27,8 +27,10 @@ import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDia
 import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
 import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
 import calculateSpellDC from '../modules/utils/calculateSpellDC';
+import constructD20RollFormula from '../modules/dice/constructD20RollFormula';
 import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
+import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
 
 export default class Actor5e extends Actor {
   #configDialogMap;
@@ -780,18 +782,20 @@ export default class Actor5e extends Actor {
    *
    * @async
    * @method
-   * @param {string} skill A key that can be used to reference a given skill.
+   * @param {string} skillKey A key that can be used to reference a given skill.
+   * @param {object}
    *
    * @returns {Promise<undefined>}
    */
   async rollSkillCheck(skillKey, options = {}) {
-    const dialog = new SkillCheckRollDialog(this, skillKey);
-    await dialog.render(true);
-    const dialogData = await dialog.promise;
+    let rollData;
 
-    if (dialogData === null) return;
+    if (options.skipRollDialog) rollData = this.#getDefaultSkillRollData(skillKey);
+    else rollData = await this.#showSkillCheckPrompt(skillKey);
 
-    const { rollFormula, abilityKey } = dialogData;
+    if (!rollData) return;
+
+    const { rollFormula, abilityKey } = rollData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -819,6 +823,59 @@ export default class Actor5e extends Actor {
 
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
     ChatMessage.create(chatData);
+  }
+
+  #getDefaultSkillRollData(skillKey) {
+    const skill = this.system.skills[skillKey];
+    const ability = this.system.abilities[skill.ability];
+
+    // TODO: Update the keys below to use format and proper localisations.
+
+    const rollFormula = constructD20RollFormula({
+      actor: this,
+      rollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
+      minRoll: skill.minRoll,
+      modifiers: [
+        {
+          label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Mod`,
+          value: skill.mod
+        },
+        {
+          label: `${game.i18n.localize(CONFIG.A5E.abilities[skill.ability])} Mod`,
+          value: ability?.check.mod
+        },
+        {
+          label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+          value: skill.bonuses.check
+        },
+        {
+          label: `${game.i18n.localize(CONFIG.A5E.abilities[skill.ability])} Check Bonus`,
+          value: ability?.check.bonus
+        },
+        {
+          label: 'Global Skill Bonus',
+          value: this.system.bonuses.abilities.skill
+        },
+        {
+          label: 'Global Check Bonus',
+          value: this.system.bonuses.abilities.check
+        },
+        {
+          label: 'Expertise Die',
+          value: getExpertiseDieSize(skill.expertiseDice)
+        }
+      ]
+    });
+
+    return { rollFormula, abilityKey: skill.ability };
+  }
+
+  async #showSkillCheckPrompt(skillKey) {
+    const dialog = new SkillCheckRollDialog(this, skillKey);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
+
+    return dialogData;
   }
 
   toggleElite() {
