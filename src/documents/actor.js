@@ -790,8 +790,8 @@ export default class Actor5e extends Actor {
   async rollSkillCheck(skillKey, options = {}) {
     let rollData;
 
-    if (options.skipRollDialog) rollData = this.#getDefaultSkillRollData(skillKey);
-    else rollData = await this.#showSkillCheckPrompt(skillKey);
+    if (options.skipRollDialog) rollData = this.#getDefaultSkillRollData(skillKey, options);
+    else rollData = await this.#showSkillCheckPrompt(skillKey, options);
 
     if (!rollData) return;
 
@@ -825,23 +825,24 @@ export default class Actor5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultSkillRollData(skillKey) {
+  #getDefaultSkillRollData(skillKey, options) {
     const skill = this.system.skills[skillKey];
-    const ability = this.system.abilities[skill.ability];
+    const abilityKey = options.abilityKey ?? skill.ability;
+    const ability = this.system.abilities[abilityKey];
 
     // TODO: Update the keys below to use format and proper localisations.
 
     const rollFormula = constructD20RollFormula({
       actor: this,
-      rollMode: CONFIG.A5E.ROLL_MODE.NORMAL,
-      minRoll: skill.minRoll,
+      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      minRoll: options.minRoll ?? skill.minRoll,
       modifiers: [
         {
           label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Mod`,
           value: skill.mod
         },
         {
-          label: `${game.i18n.localize(CONFIG.A5E.abilities[skill.ability])} Mod`,
+          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
           value: ability?.check.mod
         },
         {
@@ -849,7 +850,7 @@ export default class Actor5e extends Actor {
           value: skill.bonuses.check
         },
         {
-          label: `${game.i18n.localize(CONFIG.A5E.abilities[skill.ability])} Check Bonus`,
+          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
           value: ability?.check.bonus
         },
         {
@@ -862,16 +863,19 @@ export default class Actor5e extends Actor {
         },
         {
           label: 'Expertise Die',
-          value: getExpertiseDieSize(skill.expertiseDice)
+          value: getExpertiseDieSize(options.expertiseDice ?? skill.expertiseDice)
+        },
+        {
+          value: options.situationalMods
         }
       ]
     });
 
-    return { rollFormula, abilityKey: skill.ability };
+    return { rollFormula, abilityKey };
   }
 
-  async #showSkillCheckPrompt(skillKey) {
-    const dialog = new SkillCheckRollDialog(this, skillKey);
+  async #showSkillCheckPrompt(skillKey, options) {
+    const dialog = new SkillCheckRollDialog(this, skillKey, options);
     await dialog.render(true);
     const dialogData = await dialog.promise;
 
