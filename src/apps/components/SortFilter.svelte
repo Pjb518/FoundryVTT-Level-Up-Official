@@ -11,6 +11,7 @@
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
+    import { sortAscending, sortDescending } from "../handlers/sortingHandlers";
     import updateFilters from "../utils/updateFilters";
 
     import FilterBox from "./FilterBox.svelte";
@@ -44,7 +45,33 @@
         updateFilters(reducer, itemType, filters);
     }
 
+    // +++++++++++++++++++++++++++++++++++++++++++
+    // Sorting
+    const sortIcons = {
+        0: "fa-sort",
+        1: "fa-arrow-down-a-z",
+        2: "fa-arrow-down-z-a",
+    };
+
+    // TODO: Change when custom sort is implemented
+    const sortMappings = {
+        0: sortAscending,
+        1: sortDescending,
+        2: sortAscending,
+    };
+
+    function onSortReducer() {
+        sortMappings[sortMode]($actor, $reducer);
+
+        // TODO: Change when custom sort is implemented
+        let newMode = (sortMode + 1) % 3;
+        newMode = newMode === 0 ? 1 : newMode;
+
+        $actor.setFlag("a5e", "sortMode", newMode);
+    }
+
     $: filters = filterFlag;
+    $: sortMode = $actor.getFlag("a5e", "sortMode") || 0;
 </script>
 
 <section class="filters filters__container">
@@ -53,7 +80,11 @@
     </div>
 
     <div class="sort-filter__container">
-        <TJSIconButton title="Sort" icon="fas fa-sort" />
+        <TJSIconButton
+            title="Sort"
+            icon={`fas ${sortIcons[sortMode]}`}
+            onPress={onSortReducer}
+        />
 
         <TJSToggleIconButton title="Filters" icon="fas fa-filter">
             <TJSMenu>
