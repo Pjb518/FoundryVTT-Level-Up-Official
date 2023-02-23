@@ -1,6 +1,8 @@
 <script>
     import { getContext } from "svelte";
 
+    import editDocumentImage from "../../handlers/editDocumentImage";
+
     import ArmorClass from "./ArmorClass.svelte";
     import HitDice from "./HitDice.svelte";
     import HitPointBar from "./HitPointBar.svelte";
@@ -15,17 +17,23 @@
 
     const actor = getContext("actor");
 
+    async function onEditImage() {
+        await editDocumentImage($actor);
+    }
+
     $: hp = $actor.system.attributes.hp;
 </script>
 
 <div class="actor-sidebar">
     <section class="actor-portrait-wrapper">
         <HitPointBar {hp}>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
                 class="actor-image"
                 src={$actor.img}
                 alt={$actor.name}
                 title={$actor.name}
+                on:click={onEditImage}
             />
         </HitPointBar>
 
