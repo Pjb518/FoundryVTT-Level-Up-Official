@@ -12,7 +12,7 @@
 
     const actor = getContext("actor");
 
-    const itemContext = [...items][0].type || "item";
+    const itemContext = [...items][0]?.type || "item";
 
     function createItem() {
         const updateData = {
