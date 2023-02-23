@@ -12,6 +12,8 @@
 
     const actor = getContext("actor");
 
+    const itemContext = [...items][0].type;
+
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
 </script>
@@ -28,7 +30,13 @@
         {/if}
 
         {#if !sheetIsLocked}
-            <i class="fas fa-plus inventory-add-icon a5e-config-button" />
+            <i class="inventory-add-icon a5e-config-button" />
+            <button
+                class="a5e-button a5e-button--add inventory-add-icon"
+                on:click={null}
+            >
+                + Add {itemContext.capitalize()}
+            </button>
         {/if}
     </span>
 
