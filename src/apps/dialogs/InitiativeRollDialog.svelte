@@ -22,6 +22,8 @@
 
     const actor = new TJSDocument(combatant.actor);
     const appId = dialog.id;
+    const abilities = CONFIG.A5E.abilities;
+    const skills = { none: null, ...CONFIG.A5E.skills };
 
     function onSubmit() {
         dialog.submit({ rollFormula });
@@ -32,6 +34,8 @@
         $actor.system.attributes.initiative.expertiseDice;
 
     let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let abilityKey = options.abilityKey ?? "dex";
+    let skillKey = options.skillKey ?? "none";
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
@@ -39,6 +43,28 @@
         actor: $actor,
         rollMode,
         modifiers: [
+            {
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
+                value: $actor.system.skills[skillKey]?.mod,
+            },
+            {
+                label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+                value: $actor.system.abilities[abilityKey]?.check.mod,
+            },
+            {
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+                value: $actor.system.skills[skillKey]?.bonuses.check,
+            },
+            {
+                label: `${localize(
+                    CONFIG.A5E.abilities[abilityKey]
+                )} Check Bonus`,
+                value: $actor.system.abilities[abilityKey]?.check.bonus,
+            },
+            {
+                label: "Global Skill Bonus",
+                value: skillKey ? $actor.system.bonuses.abilities.skill : null,
+            },
             {
                 label: "Global Check Bonus",
                 value: $actor.system.bonuses.abilities.check,
@@ -86,6 +112,78 @@
                     for={`${$actor.id}-${appId}-rollMode-${id}`}
                 >
                     {name}
+                </label>
+            {/each}
+        </div>
+    </section>
+
+    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
+        <h3 class="heading">{localize("A5E.AbilityScore")}</h3>
+
+        <div
+            class="
+                u-flex
+                u-flex-wrap
+                u-list-style-none
+                u-m-0
+                u-p-0
+                u-w-full
+                u-gap-md
+                u-text-sm
+            "
+            role="radiogroup"
+            id={`${$actor.id}-${appId}-ability-score`}
+        >
+            {#each Object.entries(abilities) as [key, name]}
+                <input
+                    class="u-hidden"
+                    type="radio"
+                    id={`${$actor.id}-${appId}-ability-score-${key}`}
+                    bind:group={abilityKey}
+                    value={key}
+                />
+                <label
+                    class="a5e-tag u-pointer u-p-md u-text-center"
+                    class:a5e-tag--inactive={key !== abilityKey}
+                    for={`${$actor.id}-${appId}-ability-score-${key}`}
+                >
+                    {localize(name ?? "A5E.None")}
+                </label>
+            {/each}
+        </div>
+    </section>
+
+    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
+        <h3 class="heading">{localize("A5E.AbilityScore")}</h3>
+
+        <div
+            class="
+                u-flex
+                u-flex-wrap
+                u-list-style-none
+                u-m-0
+                u-p-0
+                u-w-full
+                u-gap-md
+                u-text-sm
+            "
+            role="radiogroup"
+            id={`${$actor.id}-${appId}-skill`}
+        >
+            {#each Object.entries(skills) as [key, name]}
+                <input
+                    class="u-hidden"
+                    type="radio"
+                    id={`${$actor.id}-${appId}-skill-${key}`}
+                    bind:group={skillKey}
+                    value={key}
+                />
+                <label
+                    class="a5e-tag u-pointer u-text-center"
+                    class:a5e-tag--inactive={key !== skillKey}
+                    for={`${$actor.id}-${appId}-skill-${key}`}
+                >
+                    {localize(name ?? "A5E.None")}
                 </label>
             {/each}
         </div>
