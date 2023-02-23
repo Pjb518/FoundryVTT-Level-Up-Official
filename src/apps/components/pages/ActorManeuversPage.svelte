@@ -93,7 +93,7 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.75rem;
         overflow-y: auto;
         overflow-x: hidden;
     }
