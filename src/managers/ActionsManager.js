@@ -23,24 +23,6 @@ export default class ActionsManager extends DataProxy {
     return Object.entries(this.#item.system.actions);
   }
 
-  /**
-   *
-   * @param {String} id
-   */
-  get(id) {
-    return this.#item.system.actions[id] ?? null;
-  }
-
-  /**
-   *
-   * @param {String} name
-   */
-  getName(name) {
-    // eslint-disable-next-line no-unused-vars
-    const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
-    return this.#item.system.actions[actionId] ?? null;
-  }
-
   keys() {
     return Object.keys(this.#item.system.actions);
   }
@@ -49,6 +31,54 @@ export default class ActionsManager extends DataProxy {
     return Object.values(this.#item.system.actions);
   }
 
+  /** ************************************************ */
+  /**
+   * @param {String} id
+   */
+  get(id) {
+    return this.#item.system.actions[id] ?? null;
+  }
+
+  /**
+   * @param {String} name
+   */
+  getName(name) {
+    // eslint-disable-next-line no-unused-vars
+    const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
+    return this.#item.system.actions[actionId] ?? null;
+  }
+
+  /** ************************************************ */
+  get activationTypes() {
+    const actions = Object.values(this.#item.system.actions);
+
+    return actions.reduce((acc, action) => {
+      if (action.activation?.type) acc.add(action.activation.type);
+      return acc;
+    }, new Set());
+  }
+
+  get hasRoll() {
+    const { actions } = this.#item.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.rolls)?.length));
+  }
+
+  get hasPrompt() {
+    const { actions } = this.#item.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.prompts)?.length));
+  }
+
+  get hasConsumer() {
+    const { actions } = this.#item.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.consumers)?.length));
+  }
+
+  get hasRange() {
+    const { actions } = this.#item.system;
+    return Object.values(actions).some((action) => (!!Object.values(action.ranges)?.length));
+  }
+
+  /** ************************************************ */
   async add(name = 'New Action') {
     const newAction = { name };
 
