@@ -753,10 +753,6 @@ export default class Actor5e extends Actor {
     });
   }
 
-  async rollInitiative(options = {}) {
-    console.log(options);
-  }
-
   async rollSavingThrow(abilityKey, options = {}) {
     let dialogData;
 
