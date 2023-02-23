@@ -35,12 +35,12 @@
             <ol
                 class="u-align-center u-flex u-flex-wrap u-gap-xs u-list-style-none u-my-xs u-p-0"
             >
-                {#each part.results as { discarded: isDiscarded, result }}
+                {#each part.results as { rerolled, discarded, result }}
                     <DieResult
                         dieSize={part.faces}
                         isCritical={result === part.faces}
                         isFumble={result === 1}
-                        {isDiscarded}
+                        isDiscarded={discarded || rerolled}
                         {result}
                     />
                 {/each}

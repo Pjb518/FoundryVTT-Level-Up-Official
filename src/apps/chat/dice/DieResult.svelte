@@ -15,7 +15,7 @@
     {result}
 </li>
 
-<style class="scss">
+<style lang="scss">
     .discarded-die {
         filter: sepia(0.5) contrast(0.75) opacity(0.4);
     }
@@ -23,10 +23,18 @@
     .fumbled-die {
         color: #aa0200;
         filter: sepia(0.5) hue-rotate(-60deg);
+
+        &.discarded-die {
+            filter: sepia(0.5) hue-rotate(-60deg) contrast(0.75) opacity(0.4);
+        }
     }
 
     .critical-die {
         color: #18520b;
         filter: sepia(0.5) hue-rotate(60deg);
+
+        &.discarded-die {
+            filter: sepia(0.5) hue-rotate(60deg) contrast(0.75) opacity(0.4);
+        }
     }
 </style>
