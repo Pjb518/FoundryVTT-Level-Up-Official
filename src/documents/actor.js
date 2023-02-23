@@ -653,7 +653,7 @@ export default class Actor5e extends Actor {
       content: '<article></article>'
     };
 
-    const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
+    const hookData = { abilityKey, rollFormula };
     Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
     ChatMessage.create(chatData);
   }
@@ -700,42 +700,11 @@ export default class Actor5e extends Actor {
     return dialogData;
   }
 
-  async rollDeathSavingThrow() {
-    const dialogTitle = game.i18n.format(
-      'A5E.DeathSavingThrowPromptTitle',
-      { name: this.name }
-    );
+  async rollDeathSavingThrow(options = {}) {
+    options.saveType = 'death';
 
-    // const saveData = await getDialogData(DeathSavingThrowDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
+    this.rollSavingThrow(null, options);
 
-    const saveData = null;
-
-    if (saveData === null) return;
-
-    const roll = await new CONFIG.Dice.D20Roll(saveData.formula).roll({ async: true });
-
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      roll,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/ability-check.hbs',
-        {
-          title: game.i18n.localize('A5E.DeathSavingThrow'),
-          img: this.img,
-          formula: roll.formula,
-          tooltip: await roll.getTooltip(),
-          total: roll.total
-        }
-      )
-    };
-
-    Hooks.callAll('a5e.rollDeathSavingThrow', this, roll);
-    ChatMessage.create(chatData);
     this.updateDeathSavingThrowFigures(roll);
   }
 
@@ -815,8 +784,14 @@ export default class Actor5e extends Actor {
       content: '<article></article>'
     };
 
-    const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
-    Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
+    const hookData = { abilityKey, rollFormula };
+
+    if (options?.saveType === 'death') {
+      Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, roll);
+    } else {
+      Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
+    }
+
     ChatMessage.create(chatData);
   }
 
@@ -829,19 +804,19 @@ export default class Actor5e extends Actor {
       modifiers: [
         {
           label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
-          value: ability.save.mod
+          value: ability?.save.mod
         },
         {
           label: `${game.i18n.localize(
             CONFIG.A5E.abilities[abilityKey]
           )} Save Bonus`,
-          value: ability.save.bonus
+          value: ability?.save.bonus
         },
         {
           label: 'Concentration Bonus',
           value:
             options.saveType === 'concentration'
-              ? ability.save.concentrationBonus
+              ? ability?.save.concentrationBonus
               : null
         },
         {
@@ -850,7 +825,7 @@ export default class Actor5e extends Actor {
         },
         {
           label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? ability.expertiseDice)
+          value: getExpertiseDieSize(options.expertiseDice ?? ability?.expertiseDice)
         },
         {
           value: options.situationalMods
@@ -911,7 +886,7 @@ export default class Actor5e extends Actor {
     };
 
     const hookData = {
-      abilityKey, rollFormula, rollMode: options.rollMode, skillKey
+      abilityKey, rollFormula, skillKey
     };
 
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);

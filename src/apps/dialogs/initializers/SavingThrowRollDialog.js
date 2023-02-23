@@ -9,10 +9,7 @@ import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
 export default class SavingThrowRollDialog extends TJSDialog {
   constructor(actorDocument, abilityKey, options) {
     super({
-      title: game.i18n.format(
-        'A5E.SavingThrowPromptTitle',
-        { name: actorDocument.name, ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]) }
-      ),
+      title: setTitle(),
       content: {
         class: SavingThrowRollDialogComponent,
         props: { actorDocument, abilityKey, options }
@@ -21,6 +18,19 @@ export default class SavingThrowRollDialog extends TJSDialog {
       classes: ['a5e-sheet'],
       width: 420
     });
+
+    function setTitle() {
+      if (options?.saveType === 'death') {
+        return game.i18n.format(
+          'A5E.DeathSavingThrowPromptTitle',
+          { name: actorDocument.name }
+        );
+      }
+      return game.i18n.format(
+        'A5E.SavingThrowPromptTitle',
+        { name: actorDocument.name, ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]) }
+      );
+    }
 
     this.data.content.props.dialog = this;
 

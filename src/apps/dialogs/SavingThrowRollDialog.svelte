@@ -12,6 +12,17 @@
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    function getSubmitButtonText(saveType, abilityKey) {
+        if (saveType === "death") return "Roll Death Saving Throw";
+        else if (abilityKey === "con" && saveType === "concentration") {
+            return "Roll Concentration Check";
+        } else {
+            return `Roll ${localize(
+                CONFIG.A5E.abilities[abilityKey]
+            )} Saving Throw`;
+        }
+    }
+
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => ({
             id: key,
@@ -28,22 +39,20 @@
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
 
-    const buttonText = `Roll ${localize(
-        CONFIG.A5E.abilities[abilityKey]
-    )} Saving Throw`;
-
     function onSubmit() {
         dialog.submit({ rollFormula });
     }
 
     let expertiseDie =
         options.expertiseDice ??
-        $actor.system.abilities[abilityKey].save.expertiseDice;
+        $actor.system.abilities[abilityKey]?.save.expertiseDice;
 
     let saveType = options.saveType ?? "standard";
     let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+
+    $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
@@ -51,19 +60,19 @@
         modifiers: [
             {
                 label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
-                value: $actor.system.abilities[abilityKey].save.mod,
+                value: $actor.system.abilities[abilityKey]?.save.mod,
             },
             {
                 label: `${localize(
                     CONFIG.A5E.abilities[abilityKey]
                 )} Save Bonus`,
-                value: $actor.system.abilities[abilityKey].save.bonus,
+                value: $actor.system.abilities[abilityKey]?.save.bonus,
             },
             {
                 label: "Concentration Bonus",
                 value:
                     saveType === "concentration"
-                        ? $actor.system.abilities[abilityKey].save
+                        ? $actor.system.abilities[abilityKey]?.save
                               .concentrationBonus
                         : null,
             },
@@ -128,7 +137,7 @@
         />
     </FormSection>
 
-    {#if abilityKey === "con"}
+    {#if abilityKey === "con" && saveType !== "death"}
         <section
             class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative"
         >
