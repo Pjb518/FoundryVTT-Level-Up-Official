@@ -12,11 +12,15 @@
     <SortFilter itemType="features" />
 
     <section class="features-main-container">
-        {#each Object.entries($features._types) as [label, items]}
-            {#if items.length}
-                <ItemCategory {label} {items} type="featureTypes" />
-            {/if}
-        {/each}
+        {#if $actor.type === "npc"}
+            <ItemCategory label="" items={$features} type="featureTypes" />
+        {:else}
+            {#each Object.entries($features._types) as [label, items]}
+                {#if items.length}
+                    <ItemCategory {label} {items} type="featureTypes" />
+                {/if}
+            {/each}
+        {/if}
     </section>
 
     <footer class="features-footer" />
