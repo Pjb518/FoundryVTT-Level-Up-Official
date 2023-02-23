@@ -7,12 +7,12 @@ import InitiativeRollDialogComponent from '../InitiativeRollDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class InitiativeRollDialog extends TJSDialog {
-  constructor(actorDocument, options) {
+  constructor(combatant, options) {
     super({
-      title: game.i18n.format('A5E.InitiativePromptTitle', { name: actorDocument.name }),
+      title: game.i18n.format('A5E.InitiativePromptTitle', { name: combatant.name }),
       content: {
         class: InitiativeRollDialogComponent,
-        props: { actorDocument, options }
+        props: { combatant, options }
       }
     }, {
       classes: ['a5e-sheet'],
