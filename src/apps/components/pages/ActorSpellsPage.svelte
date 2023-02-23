@@ -12,14 +12,11 @@
     const { spells } = actor;
     const { spellLevels } = CONFIG.A5E;
 
-    function isSpellLevelVisible(level) {
-        const flags = $actor?.flags?.a5e ?? {};
-
+    $: isSpellLevelVisible = (level) => {
+        const flags = $actor.flags?.a5e ?? {};
         if (!flags.availableSpellLevels?.length) return true;
-
         return flags.availableSpellLevels.includes(level.toString());
-    }
-
+    };
     $: spellResources = $actor.system.spellResources;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
