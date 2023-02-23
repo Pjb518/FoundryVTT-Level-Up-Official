@@ -704,8 +704,6 @@ export default class Actor5e extends Actor {
     options.saveType = 'death';
 
     this.rollSavingThrow(null, options);
-
-    this.updateDeathSavingThrowFigures(roll);
   }
 
   // TODO: Refactor this to use its own card constructor
@@ -755,6 +753,10 @@ export default class Actor5e extends Actor {
     });
   }
 
+  async rollInitiative(options = {}) {
+    console.log(options);
+  }
+
   async rollSavingThrow(abilityKey, options = {}) {
     let dialogData;
 
@@ -788,6 +790,7 @@ export default class Actor5e extends Actor {
 
     if (options?.saveType === 'death') {
       Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, roll);
+      this.updateDeathSavingThrowFigures(roll);
     } else {
       Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
     }

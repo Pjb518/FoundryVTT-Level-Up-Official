@@ -16,7 +16,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
-            on:click={() => rollInitiative($actor)}
+            on:click={() => $actor.rollInitiative({ createCombatants: true })}
         />
     {:else}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
