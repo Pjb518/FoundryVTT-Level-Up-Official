@@ -49,17 +49,20 @@ export default class ActionsManager extends DataProxy {
     return Object.values(this.#item.system.actions);
   }
 
-  async add() {
-    const newAction = {
-      name: 'New Action'
-    };
+  async add(name = 'New Action') {
+    const newAction = { name };
 
     await this.#item.update({
       'system.actions': {
         ...this.#item.system.actions,
-        [foundry.utils.randomId()]: newAction
+        [foundry.utils.randomID()]: newAction
       }
     });
+  }
+
+  configure(id) {
+    const actionName = this.#item.system.actions[id].name;
+    new ActionConfigDialog(this.#item, id, actionName).render(true);
   }
 
   async duplicate(id) {
@@ -69,7 +72,7 @@ export default class ActionsManager extends DataProxy {
     await this.#item.update({
       'system.actions': {
         ...this.#item.system.actions,
-        [foundry.utils.randomId()]: newAction
+        [foundry.utils.randomID()]: newAction
       }
     });
   }
@@ -80,10 +83,5 @@ export default class ActionsManager extends DataProxy {
         [`-=${id}`]: null
       }
     });
-  }
-
-  configure(id) {
-    const actionName = this.#item.system.actions[id].name;
-    new ActionConfigDialog(this.#item, id, actionName).render(true);
   }
 }
