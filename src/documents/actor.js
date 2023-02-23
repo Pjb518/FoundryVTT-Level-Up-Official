@@ -623,11 +623,12 @@ export default class Actor5e extends Actor {
    * @param {string} abilityKey A key that can be used to reference a given ability score.
    */
   async rollAbilityCheck(abilityKey, options = {}) {
-    const dialog = new AbilityCheckRollDialog(this, abilityKey, options);
-    await dialog.render(true);
-    const dialogData = await dialog.promise;
+    let dialogData;
 
-    if (dialogData === null) return;
+    if (options.skipRollDialog) dialogData = this.#getDefaultAbilityCheckData(abilityKey, options);
+    else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
+
+    if (!dialogData) return;
 
     const { rollFormula } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
@@ -655,6 +656,48 @@ export default class Actor5e extends Actor {
     const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
     Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
     ChatMessage.create(chatData);
+  }
+
+  #getDefaultAbilityCheckData(abilityKey, options) {
+    const ability = this.system.abilities[abilityKey];
+
+    const rollFormula = constructD20RollFormula({
+      actor: this,
+      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      modifiers: [
+        {
+          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+          value: ability.check.mod
+        },
+        {
+          label: `${game.i18n.localize(
+            CONFIG.A5E.abilities[abilityKey]
+          )} Check Bonus`,
+          value: ability.check.bonus
+        },
+        {
+          label: 'Global Check Bonus',
+          value: this.system.bonuses.abilities.check
+        },
+        {
+          label: 'Expertise Die',
+          value: getExpertiseDieSize(options.expertiseDice ?? ability.expertiseDice)
+        },
+        {
+          value: options.situationalMods
+        }
+      ]
+    });
+
+    return { rollFormula };
+  }
+
+  async #showAbilityCheckPrompt(abilityKey, options) {
+    const dialog = new AbilityCheckRollDialog(this, abilityKey, options);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
+
+    return dialogData;
   }
 
   async rollDeathSavingThrow() {
@@ -744,9 +787,10 @@ export default class Actor5e extends Actor {
   }
 
   async rollSavingThrow(abilityKey, options = {}) {
-    const dialog = new SavingThrowRollDialog(this, abilityKey, options);
-    await dialog.render(true);
-    const dialogData = await dialog.promise;
+    let dialogData;
+
+    if (options.skipRollDialog) dialogData = this.#getDefaultSavingThrowData(abilityKey, options);
+    else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
 
     if (dialogData === null) return;
 
@@ -774,6 +818,55 @@ export default class Actor5e extends Actor {
     const hookData = { abilityKey, rollFormula, rollMode: options.rollMode };
     Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
     ChatMessage.create(chatData);
+  }
+
+  #getDefaultSavingThrowData(abilityKey, options) {
+    const ability = this.system.abilities[abilityKey];
+
+    const rollFormula = constructD20RollFormula({
+      actor: this,
+      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      modifiers: [
+        {
+          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+          value: ability.save.mod
+        },
+        {
+          label: `${game.i18n.localize(
+            CONFIG.A5E.abilities[abilityKey]
+          )} Save Bonus`,
+          value: ability.save.bonus
+        },
+        {
+          label: 'Concentration Bonus',
+          value:
+            options.saveType === 'concentration'
+              ? ability.save.concentrationBonus
+              : null
+        },
+        {
+          label: 'Global Save Bonus',
+          value: this.system.bonuses.abilities.save
+        },
+        {
+          label: 'Expertise Die',
+          value: getExpertiseDieSize(options.expertiseDice ?? ability.expertiseDice)
+        },
+        {
+          value: options.situationalMods
+        }
+      ]
+    });
+
+    return { rollFormula };
+  }
+
+  async #showSavingThrowPrompt(abilityKey, options) {
+    const dialog = new SavingThrowRollDialog(this, abilityKey, options);
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
+
+    return dialogData;
   }
 
   /**
