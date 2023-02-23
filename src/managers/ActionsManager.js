@@ -1,5 +1,7 @@
 import DataProxy from './DataProxy';
 
+import ActionConfigDialog from '../apps/dialogs/initializers/ActionConfigDialog';
+
 export default class ActionsManager extends DataProxy {
   #item;
 
@@ -47,7 +49,18 @@ export default class ActionsManager extends DataProxy {
     return Object.values(this.#item.system.actions);
   }
 
-  add() { }
+  async add() {
+    const newAction = {
+      name: 'New Action'
+    };
+
+    await this.#item.update({
+      'system.actions': {
+        ...this.#item.system.actions,
+        [foundry.utils.randomId()]: newAction
+      }
+    });
+  }
 
   async duplicate(id) {
     const newAction = foundry.utils.duplicate(this.#item.system.actions[id]);
@@ -61,7 +74,16 @@ export default class ActionsManager extends DataProxy {
     });
   }
 
-  remove() { }
+  async remove(id) {
+    await this.#item.update({
+      'system.actions': {
+        [`-=${id}`]: null
+      }
+    });
+  }
 
-  update() { }
+  configure(id) {
+    const actionName = this.#item.system.actions[id].name;
+    new ActionConfigDialog(this.#item, id, actionName).render(true);
+  }
 }
