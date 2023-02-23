@@ -744,7 +744,7 @@ export default class Actor5e extends Actor {
   }
 
   async rollSavingThrow(abilityKey, options = {}) {
-    const dialog = new SavingThrowRollDialog(this, abilityKey);
+    const dialog = new SavingThrowRollDialog(this, abilityKey, options);
     await dialog.render(true);
     const dialogData = await dialog.promise;
 

@@ -7,7 +7,7 @@ import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class SavingThrowRollDialog extends TJSDialog {
-  constructor(actorDocument, abilityKey) {
+  constructor(actorDocument, abilityKey, options) {
     super({
       title: game.i18n.format(
         'A5E.SavingThrowPromptTitle',
@@ -15,7 +15,7 @@ export default class SavingThrowRollDialog extends TJSDialog {
       ),
       content: {
         class: SavingThrowRollDialogComponent,
-        props: { actorDocument, abilityKey }
+        props: { actorDocument, abilityKey, options }
       }
     }, {
       classes: ['a5e-sheet'],

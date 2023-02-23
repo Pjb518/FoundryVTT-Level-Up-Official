@@ -9,7 +9,7 @@
     import constructD20RollFormula from "../../modules/dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
-    export let { actorDocument, abilityKey, dialog } =
+    export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
@@ -36,11 +36,14 @@
         dialog.submit({ rollFormula });
     }
 
-    let expertiseDie = $actor.system.abilities[abilityKey].save.expertiseDice;
-    let saveType = "standard";
-    let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
+    let expertiseDie =
+        options.expertiseDice ??
+        $actor.system.abilities[abilityKey].save.expertiseDice;
+
+    let saveType = options.saveType ?? "standard";
+    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
-    let situationalMods = "";
+    let situationalMods = options.situationalMods ?? "";
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
