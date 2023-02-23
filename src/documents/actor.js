@@ -623,7 +623,7 @@ export default class Actor5e extends Actor {
    * @param {string} abilityKey A key that can be used to reference a given ability score.
    */
   async rollAbilityCheck(abilityKey, options = {}) {
-    const dialog = new AbilityCheckRollDialog(this, abilityKey);
+    const dialog = new AbilityCheckRollDialog(this, abilityKey, options);
     await dialog.render(true);
     const dialogData = await dialog.promise;
 

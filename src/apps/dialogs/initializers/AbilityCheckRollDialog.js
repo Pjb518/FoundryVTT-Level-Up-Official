@@ -7,7 +7,7 @@ import AbilityCheckRollDialogComponent from '../AbilityCheckRollDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class AbilityCheckRollDialog extends TJSDialog {
-  constructor(actorDocument, abilityKey) {
+  constructor(actorDocument, abilityKey, options) {
     super({
       title: game.i18n.format(
         'A5E.AbilityCheckPromptTitle',
@@ -15,7 +15,7 @@ export default class AbilityCheckRollDialog extends TJSDialog {
       ),
       content: {
         class: AbilityCheckRollDialogComponent,
-        props: { actorDocument, abilityKey }
+        props: { actorDocument, abilityKey, options }
       }
     }, {
       classes: ['a5e-sheet'],
