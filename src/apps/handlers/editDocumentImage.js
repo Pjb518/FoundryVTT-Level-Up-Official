@@ -1,4 +1,4 @@
-export default async function editImage(document) {
+export default async function editDocumentImage(document) {
   // Add support for tokenizer
   if (game.modules.get('vtta-tokenizer')?.active) {
     if (['character', 'npc'].includes(document.type)) {
