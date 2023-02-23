@@ -12,7 +12,19 @@
 
     const actor = getContext("actor");
 
-    const itemContext = [...items][0].type;
+    const itemContext = [...items][0].type || "item";
+
+    function createItem() {
+        const updateData = {
+            name: `New ${itemContext}`,
+            type: itemContext,
+        };
+
+        if (label !== "" && itemContext !== "item")
+            updateData[`system.${itemContext}Type`] = label;
+
+        $actor.createEmbeddedDocuments("Item", [updateData]);
+    }
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
@@ -33,7 +45,7 @@
             <i class="inventory-add-icon a5e-config-button" />
             <button
                 class="a5e-button a5e-button--add inventory-add-icon"
-                on:click={null}
+                on:click={createItem}
             >
                 + Add {itemContext.capitalize()}
             </button>
