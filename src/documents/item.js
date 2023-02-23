@@ -63,37 +63,7 @@ export default class Item5e extends Item {
   }
 
   get actions() {
-    // return Object.entries(this.system.actions);
     return new ActionsManager(this);
-  }
-
-  get activationTypes() {
-    const actions = Object.values(this.system.actions);
-
-    return actions.reduce((acc, action) => {
-      if (action.activation?.type) acc.push(action.activation.type);
-      return acc;
-    }, []);
-  }
-
-  get hasRoll() {
-    const { actions } = this.system;
-    return Object.values(actions).some((action) => (!!Object.values(action.rolls)?.length));
-  }
-
-  get hasPrompt() {
-    const { actions } = this.system;
-    return Object.values(actions).some((action) => (!!Object.values(action.prompts)?.length));
-  }
-
-  get hasConsumer() {
-    const { actions } = this.system;
-    return Object.values(actions).some((action) => (!!Object.values(action.consumers)?.length));
-  }
-
-  get hasRange() {
-    const { actions } = this.system;
-    return Object.values(actions).some((action) => (!!Object.values(action.ranges)?.length));
   }
 
   // *****************************************************************************************

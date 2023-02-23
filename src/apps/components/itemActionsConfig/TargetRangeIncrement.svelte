@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
     import getOrdinalNumber from "../../../modules/utils/getOrdinalNumber";
     import isStandardRange from "../../../modules/utils/isStandardRange";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -16,6 +15,7 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
+    const A5E = CONFIG.A5E;
 
     function updateRangeValue(option) {
         range = isStandardRange(option) ? option : customValue;

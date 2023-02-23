@@ -14,7 +14,7 @@ export default class FeatureMapReducer extends DynMapReducer {
       reducer.filters.add((item) => item.system.featureType === key);
     });
 
-    this._types.other = this.derived.create('other');
-    this._types.other.filters.add((item) => item.system.featureType === '');
+    this._types.Uncategorized = this.derived.create('uncategorized');
+    this._types.Uncategorized.filters.add((item) => item.system.featureType === '');
   }
 }

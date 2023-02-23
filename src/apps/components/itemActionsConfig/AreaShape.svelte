@@ -1,7 +1,6 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let action;
@@ -9,6 +8,8 @@
     export let item;
     export let key;
     export let name;
+
+    const A5E = CONFIG.A5E;
 </script>
 
 <input

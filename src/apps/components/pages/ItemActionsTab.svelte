@@ -2,57 +2,22 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import ActionConfigDialog from "../../dialogs/initializers/ActionConfigDialog";
-
     const item = getContext("item");
 
     function addAction() {
-        const actions = $item.system.actions;
-
-        const newAction = {
-            name: "New Action",
-        };
-
-        $item.update({
-            "system.actions": {
-                ...actions,
-                [foundry.utils.randomID()]: newAction,
-            },
-        });
+        $item.actions.add();
     }
 
-    function duplicateAction(event) {
-        const actions = $item.system.actions;
-        const { actionId } = event.target.closest(".action").dataset;
-
-        const newAction = foundry.utils.duplicate(actions[actionId]);
-        newAction.name = `${newAction.name} (Copy)`;
-
-        $item.update({
-            "system.actions": {
-                ...actions,
-                [foundry.utils.randomID()]: newAction,
-            },
-        });
+    function duplicateAction(actionId) {
+        $item.actions.duplicate(actionId);
     }
 
-    function configureAction(event) {
-        const { actionId } = event.target.closest(".action").dataset;
-        const actionName = $item.system.actions[actionId].name;
-
-        const dialog = new ActionConfigDialog(item, actionId, actionName);
-
-        dialog.render(true);
+    function configureAction(actionId) {
+        $item.actions.configure(actionId);
     }
 
-    function deleteAction(event) {
-        const { actionId } = event.target.closest(".action").dataset;
-
-        $item.update({
-            "system.actions": {
-                [`-=${actionId}`]: null,
-            },
-        });
+    function deleteAction(actionId) {
+        $item.actions.remove(actionId);
     }
 </script>
 
@@ -76,21 +41,21 @@
                         class="action-button fas fa-cog"
                         data-tooltip="A5E.ButtonToolTipConfigure"
                         data-tooltip-direction="UP"
-                        on:click={configureAction}
+                        on:click={() => configureAction(id)}
                     />
 
                     <button
                         class="action-button fa-solid fa-clone"
                         data-tooltip="A5E.ButtonToolTipDuplicate"
                         data-tooltip-direction="UP"
-                        on:click={duplicateAction}
+                        on:click={() => duplicateAction(id)}
                     />
 
                     <button
                         class="action-button delete-button fas fa-trash"
                         data-tooltip="A5E.ButtonToolTipDelete"
                         data-tooltip-direction="UP"
-                        on:click={deleteAction}
+                        on:click={() => deleteAction(id)}
                     />
                 </div>
             </li>

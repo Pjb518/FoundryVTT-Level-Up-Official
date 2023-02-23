@@ -56,6 +56,20 @@ export default class ActorSheet extends SvelteApplication {
 
   _getHeaderButtons() {
     const buttons = super._getHeaderButtons();
+    const PERMS = {
+      isGM: game.user.isGM,
+      isOwner: this.actor.isOwner,
+      canConfigure: game.user.can('TOKEN_CONFIGURE')
+    };
+
+    if (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure)) {
+      buttons.unshift({
+        label: this.actor.isToken ? 'Token' : 'Prototype Token',
+        class: 'configure-token',
+        icon: 'fas fa-user-circle',
+        onclick: (event) => this._onConfigureToken(event)
+      });
+    }
 
     buttons.unshift({
       label: 'Sheet Configuration',
@@ -66,6 +80,15 @@ export default class ActorSheet extends SvelteApplication {
     });
 
     return buttons;
+  }
+
+  _onConfigureToken(event) {
+    if (event) event.preventDefault();
+
+    const { token, prototypeToken } = this.actor;
+
+    if (token) return token.sheet.render(true);
+    return new CONFIG.Token.prototypeSheetClass(prototypeToken).render(true);
   }
 
   _onConfigureSheet(event) {

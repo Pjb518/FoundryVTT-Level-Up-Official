@@ -2,13 +2,13 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
     import localeSort from "../../utils/localeSort";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
+    const A5E = CONFIG.A5E;
 
     let editMode = false;
 

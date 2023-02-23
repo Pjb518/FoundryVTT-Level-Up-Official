@@ -1,6 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
 
     import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";
@@ -12,7 +13,9 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actionId, item } = getContext("#external").application;
+    export let { actionId, itemDocument } = getContext("#external").application;
+
+    const item = new TJSDocument(itemDocument);
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
@@ -54,7 +57,7 @@
 
 <article>
     <header class="action-header">
-        <img class="item-image" src={$item.img} alt="${item.name} image" />
+        <img class="item-image" src={$item.img} alt="${$item.name} image" />
 
         <input
             class="a5e-input a5e-input--character-name"

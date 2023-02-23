@@ -2,8 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
-
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -13,6 +11,7 @@
     const item = getContext("item");
     const appId = getContext("appId");
 
+    const A5E = CONFIG.A5E;
     let editMode = false;
 
     function toggleEditMode() {

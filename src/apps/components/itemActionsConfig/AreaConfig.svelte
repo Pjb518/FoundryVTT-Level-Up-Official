@@ -1,7 +1,6 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import A5E from "../../../modules/config";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import AreaShape from "./AreaShape.svelte";
@@ -10,6 +9,8 @@
     export let action;
     export let actionId;
     export let item;
+
+    const A5E = CONFIG.A5E;
 
     function removeArea() {
         $item.update({
