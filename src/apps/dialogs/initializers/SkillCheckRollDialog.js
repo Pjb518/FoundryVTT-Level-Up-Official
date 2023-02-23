@@ -7,7 +7,7 @@ import SkillCheckRollDialogComponent from '../SkillCheckRollDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class SkillCheckRollDialog extends TJSDialog {
-  constructor(actorDocument, skillKey) {
+  constructor(actorDocument, skillKey, options) {
     super({
       title: game.i18n.format(
         'A5E.SkillPromptTitle',
@@ -15,7 +15,7 @@ export default class SkillCheckRollDialog extends TJSDialog {
       ),
       content: {
         class: SkillCheckRollDialogComponent,
-        props: { actorDocument, skillKey }
+        props: { actorDocument, skillKey, options }
       }
     }, {
       classes: ['a5e-sheet'],

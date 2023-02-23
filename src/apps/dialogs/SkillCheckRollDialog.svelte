@@ -9,7 +9,7 @@
     import constructD20RollFormula from "../../modules/dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
-    export let { actorDocument, skillKey, dialog } =
+    export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
@@ -25,16 +25,22 @@
     const abilities = { none: null, ...CONFIG.A5E.abilities };
     const buttonText = `Roll ${localize(CONFIG.A5E.skills[skillKey])} Check`;
 
+    console.log(options);
+
     function onSubmit() {
         dialog.submit({ rollFormula, abilityKey });
     }
 
-    let abilityKey = $actor.system.skills[skillKey].ability;
-    let expertiseDie = $actor.system.skills[skillKey].expertiseDice;
-    let { minRoll } = $actor.system.skills[skillKey];
-    let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
+    let abilityKey =
+        options.abilityKey ?? $actor.system.skills[skillKey].ability;
+
+    let expertiseDie =
+        options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
+
+    let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
+    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
-    let situationalMods = "";
+    let situationalMods = options.situationalMods ?? "";
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
