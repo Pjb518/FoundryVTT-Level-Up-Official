@@ -28,7 +28,10 @@
     }
 
     async function onDrop(event) {
-        const { uuid } = JSON.parse(event.dataTransfer.getData("text/plain"));
+        const transferData = event.dataTransfer.getData("text/plain");
+        if (!transferData) return;
+
+        const { uuid } = JSON.parse(transferData);
         const document = await fromUuid(uuid);
 
         sheet._onDropDocument(document);
