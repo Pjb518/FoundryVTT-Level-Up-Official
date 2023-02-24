@@ -70,7 +70,7 @@
         gap: 0.5rem;
 
         h3 {
-            font-size: 1rem;
+            font-size: 0.833rem;
             min-width: 4.5rem;
         }
 

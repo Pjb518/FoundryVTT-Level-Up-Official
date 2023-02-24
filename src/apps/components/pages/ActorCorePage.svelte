@@ -57,9 +57,13 @@
         width: 100%;
         padding: 0.25rem;
         padding-top: 0;
+        margin-bottom: -0.25rem;
         border-bottom: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: "Modesto Condensed", serif;
+        font-size: 0.833rem;
+
+        h3 {
+            font-size: inherit;
+        }
     }
 
     .resources-container {
