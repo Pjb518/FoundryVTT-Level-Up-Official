@@ -74,6 +74,8 @@ export default class Actor5e extends Actor {
       hitDiceCount += diceQuantity;
     });
 
+    if (hitDiceCount === 0) return null;
+
     return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
   }
 
