@@ -13,6 +13,8 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
+            data-tooltip="A5E.RollInitiative"
+            data-tooltip-direction="DOWN"
             on:click={(event) =>
                 $actor.rollInitiative({
                     createCombatants: true,
@@ -27,6 +29,8 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-cog"
+            data-tooltip="A5E.InitiativeConfigurationTitle"
+            data-tooltip-direction="DOWN"
             on:click={() => $actor.configureInitiative()}
         />
     {/if}
