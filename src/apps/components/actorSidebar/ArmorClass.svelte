@@ -55,6 +55,10 @@
         text-align: center;
         font-size: 1.44rem;
         z-index: 1;
+
+        &:disabled {
+            color: inherit;
+        }
     }
 
     .ac-label {
@@ -70,7 +74,7 @@
     .ac-background {
         position: absolute;
         height: 2.5rem;
-        top: 0;
+        top: 0.0675rem;
         left: 50%;
         transform: translate(-50%, 50%);
         fill: rgba(0, 0, 0, 0.15);
