@@ -16,7 +16,7 @@ export default class InitiativeRollDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      width: 528
+      width: 530
     });
 
     this.data.content.props.dialog = this;
