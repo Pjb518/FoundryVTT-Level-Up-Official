@@ -59,10 +59,11 @@ export default class ActorSheet extends SvelteApplication {
     const PERMS = {
       isGM: game.user.isGM,
       isOwner: this.actor.isOwner,
-      canConfigure: game.user.can('TOKEN_CONFIGURE')
+      canConfigure: game.user.can('TOKEN_CONFIGURE'),
+      isPack: this.actor.pack
     };
 
-    if (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure)) {
+    if (!PERMS.isPack && (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))) {
       buttons.unshift({
         label: this.actor.isToken ? 'Token' : 'Prototype Token',
         class: 'configure-token',
@@ -71,15 +72,32 @@ export default class ActorSheet extends SvelteApplication {
       });
     }
 
-    buttons.unshift({
-      label: 'Sheet Configuration',
-      class: 'configure-sheet',
-      icon: 'fas fa-cog fa-fw',
-      title: 'Configure Sheet',
-      onclick: (event) => this._onConfigureSheet(event)
-    });
+    if (!PERMS.isPack) {
+      buttons.unshift({
+        label: 'Sheet Configuration',
+        class: 'configure-sheet',
+        icon: 'fas fa-cog fa-fw',
+        title: 'Configure Sheet',
+        onclick: (event) => this._onConfigureSheet(event)
+      });
+    }
+
+    if (PERMS.isPack) {
+      buttons.unshift({
+        label: 'Import',
+        class: 'import',
+        icon: 'fas fa-download',
+        onclick: (event) => this._onImport(event)
+      });
+    }
 
     return buttons;
+  }
+
+  _onImport(event) {
+    if (event) event.preventDefault();
+    return this.actor.collection
+      .importFromCompendium(this.actor.compendium, this.actor.id);
   }
 
   _onConfigureToken(event) {

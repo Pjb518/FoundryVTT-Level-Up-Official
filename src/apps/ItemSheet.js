@@ -23,6 +23,8 @@ export default class ItemSheet extends SvelteApplication {
         }
       }
     ));
+
+    this.item = item;
   }
 
   /**
@@ -44,6 +46,43 @@ export default class ItemSheet extends SvelteApplication {
         target: document.body
       }
     });
+  }
+
+  _getHeaderButtons() {
+    const buttons = super._getHeaderButtons();
+
+    if (!this.item.pack) {
+      buttons.unshift({
+        label: 'Sheet Configuration',
+        class: 'configure-sheet',
+        icon: 'fas fa-cog fa-fw',
+        title: 'Configure Sheet',
+        onclick: (event) => this._onConfigureSheet(event)
+      });
+    }
+
+    if (this.item.pack) {
+      buttons.unshift({
+        label: 'Import',
+        class: 'import',
+        icon: 'fas fa-download',
+        onclick: (event) => this._onImport(event)
+      });
+    }
+    return buttons;
+  }
+
+  _onImport(event) {
+    if (event) event.preventDefault();
+    return this.item.collection
+      .importFromCompendium(this.item.compendium, this.item.id);
+  }
+
+  _onConfigureSheet(event) {
+    if (event) event.preventDefault();
+
+    const sheetConfigDialog = new DocumentSheetConfig(this.item, { top: this.position.top + 40 });
+    sheetConfigDialog.render(true);
   }
 
   static getSheetComponent(type) {
