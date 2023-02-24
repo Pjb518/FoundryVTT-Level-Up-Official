@@ -1,3 +1,12 @@
+import migrate5ftRange from './migrate5ftRange';
+import migrateItemWeight from './migrateItemWeight';
+
+// FIXME: Remove
+window.testMigrate = {
+  actions: migrateActionsConfig,
+  weight: migrateItemWeight
+};
+
 export default function migrateActionsConfig(itemData, updateData) {
   const { actions } = itemData.system;
 
@@ -19,6 +28,8 @@ export default function migrateActionsConfig(itemData, updateData) {
   if (itemData.system.range.length) {
     action.ranges = {};
     itemData.system.range.forEach((r) => {
+      // eslint-disable-next-line no-param-reassign
+      r = migrate5ftRange(r);
       action.ranges[foundry.utils.randomID()] = { range: r };
     });
   }
@@ -31,10 +42,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   // Step 7: Migrate target data
   action.target = foundry.utils.duplicate(itemData.system.target);
 
-  // Step 8: Migrate Uses
-  action.uses = foundry.utils.duplicate(itemData.system.uses);
-
-  // Step 9: Rolls & Prompts
+  // Step 8: Rolls & Prompts
   if (actionOptions.includes('attack')) {
     const attack = foundry.utils.duplicate(itemData.system.attack);
     attack.type = 'attack';
@@ -93,7 +101,7 @@ export default function migrateActionsConfig(itemData, updateData) {
     };
   }
 
-  // Step 10: Delete old data
+  // Step 9: Delete old data
   updateData.system = {
     '-=actionOptions': null,
     '-=activation': null,
@@ -108,7 +116,7 @@ export default function migrateActionsConfig(itemData, updateData) {
     '-=savingThrow': null
   };
 
-  // Step 11: Add action to update data
+  // Step 10: Add action to update data
   updateData['system.actions'] = {
     ...actions,
     [foundry.utils.randomID()]: action

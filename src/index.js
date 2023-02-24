@@ -1,6 +1,8 @@
 import './scss/main.scss';
 
 import handlebarsHelperRange from 'handlebars-helper-range';
+import migrateActionsConfig from './modules/migrations/v090Migrations/migrateActionsConfig';
+
 import ActorSheet5e from './apps/ActorSheet';
 import ItemSheet5e from './apps/ItemSheet';
 

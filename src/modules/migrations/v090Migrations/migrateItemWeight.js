@@ -1,4 +1,5 @@
 export default function migrateItemWeight(itemData, updateData) {
+  if (itemData.type !== 'object') return;
   if (!itemData.system.weight?.length) return;
 
   // Extract numbers from string
