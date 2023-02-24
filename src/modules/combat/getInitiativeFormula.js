@@ -1,3 +1,5 @@
+import getDefaultInitiativeFormula from './getDefaultInitiativeFormula';
+
 import InitiativeRollDialog from '../../apps/dialogs/initializers/InitiativeRollDialog';
 
 /**
@@ -6,6 +8,10 @@ import InitiativeRollDialog from '../../apps/dialogs/initializers/InitiativeRoll
  * @returns {string}  Final initiative formula for the actor.
  */
 export default async function getInitiativeFormula(options) {
+  if (options?.skipRollDialog) {
+    return getDefaultInitiativeFormula(this.actor, options);
+  }
+
   const dialog = new InitiativeRollDialog(this, options);
   await dialog.render(true);
 

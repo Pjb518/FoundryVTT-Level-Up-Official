@@ -154,7 +154,7 @@
     </section>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">{localize("A5E.AbilityScore")}</h3>
+        <h3 class="heading">{localize("A5E.Skill")}</h3>
 
         <div
             class="
