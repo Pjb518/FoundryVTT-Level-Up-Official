@@ -9,19 +9,8 @@
     import constructD20RollFormula from "../../modules/dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
-    export let { actorDocument, abilityKey, dialog, options } =
+    export let { combatant, dialog, options } =
         getContext("#external").application;
-
-    function getSubmitButtonText(saveType, abilityKey) {
-        if (saveType === "death") return "Roll Death Saving Throw";
-        else if (abilityKey === "con" && saveType === "concentration") {
-            return "Roll Concentration Check";
-        } else {
-            return `Roll ${localize(
-                CONFIG.A5E.abilities[abilityKey]
-            )} Saving Throw`;
-        }
-    }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => ({
@@ -31,13 +20,10 @@
         })
     );
 
-    const saveTypes = [
-        { name: "Standard Saving Throw", value: "standard" },
-        { name: "Concentration Check", value: "concentration" },
-    ];
-
-    const actor = new TJSDocument(actorDocument);
+    const actor = new TJSDocument(combatant.actor);
     const appId = dialog.id;
+    const abilities = CONFIG.A5E.abilities;
+    const skills = { none: null, ...CONFIG.A5E.skills };
 
     function onSubmit() {
         dialog.submit({ rollFormula });
@@ -45,40 +31,43 @@
 
     let expertiseDie =
         options.expertiseDice ??
-        $actor.system.abilities[abilityKey]?.save.expertiseDice;
+        $actor.system.attributes.initiative.expertiseDice;
 
-    let saveType = options.saveType ?? "standard";
     let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let abilityKey = options.abilityKey ?? "dex";
+    let skillKey = options.skillKey ?? "none";
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
-
-    $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
         rollMode,
         modifiers: [
             {
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
+                value: $actor.system.skills[skillKey]?.mod,
+            },
+            {
                 label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
-                value: $actor.system.abilities[abilityKey]?.save.mod,
+                value: $actor.system.abilities[abilityKey]?.check.mod,
+            },
+            {
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+                value: $actor.system.skills[skillKey]?.bonuses.check,
             },
             {
                 label: `${localize(
                     CONFIG.A5E.abilities[abilityKey]
-                )} Save Bonus`,
-                value: $actor.system.abilities[abilityKey]?.save.bonus,
+                )} Check Bonus`,
+                value: $actor.system.abilities[abilityKey]?.check.bonus,
             },
             {
-                label: "Concentration Bonus",
-                value:
-                    saveType === "concentration"
-                        ? $actor.system.abilities[abilityKey]?.save
-                              .concentrationBonus
-                        : null,
+                label: "Global Skill Bonus",
+                value: skillKey ? $actor.system.bonuses.abilities.skill : null,
             },
             {
-                label: "Global Save Bonus",
-                value: $actor.system.bonuses.abilities.save,
+                label: "Global Check Bonus",
+                value: $actor.system.bonuses.abilities.check,
             },
             {
                 label: "Expertise Die",
@@ -128,23 +117,11 @@
         </div>
     </section>
 
-    <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
-            selected={expertiseDie}
-            on:updateSelection={(event) => {
-                expertiseDie = event.detail;
-            }}
-        />
-    </FormSection>
+    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
+        <h3 class="heading">{localize("A5E.AbilityScore")}</h3>
 
-    {#if abilityKey === "con" && saveType !== "death"}
-        <section
-            class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative"
-        >
-            <h3 class="heading">Saving Throw Type</h3>
-
-            <div
-                class="
+        <div
+            class="
                 u-flex
                 u-flex-wrap
                 u-list-style-none
@@ -154,28 +131,72 @@
                 u-gap-md
                 u-text-sm
             "
-                role="radiogroup"
-                id={`${$actor.id}-${appId}-save-type`}
-            >
-                {#each saveTypes as { name, value }}
-                    <input
-                        class="u-hidden"
-                        type="radio"
-                        id={`${$actor.id}-${appId}-save-type-${value}`}
-                        bind:group={saveType}
-                        {value}
-                    />
-                    <label
-                        class="a5e-tag u-pointer u-p-md u-text-center"
-                        class:a5e-tag--inactive={value !== saveType}
-                        for={`${$actor.id}-${appId}-save-type-${value}`}
-                    >
-                        {name}
-                    </label>
-                {/each}
-            </div>
-        </section>
-    {/if}
+            role="radiogroup"
+            id={`${$actor.id}-${appId}-ability-score`}
+        >
+            {#each Object.entries(abilities) as [key, name]}
+                <input
+                    class="u-hidden"
+                    type="radio"
+                    id={`${$actor.id}-${appId}-ability-score-${key}`}
+                    bind:group={abilityKey}
+                    value={key}
+                />
+                <label
+                    class="a5e-tag u-pointer u-p-md u-text-center"
+                    class:a5e-tag--inactive={key !== abilityKey}
+                    for={`${$actor.id}-${appId}-ability-score-${key}`}
+                >
+                    {localize(name ?? "A5E.None")}
+                </label>
+            {/each}
+        </div>
+    </section>
+
+    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
+        <h3 class="heading">{localize("A5E.Skill")}</h3>
+
+        <div
+            class="
+                u-flex
+                u-flex-wrap
+                u-list-style-none
+                u-m-0
+                u-p-0
+                u-w-full
+                u-gap-md
+                u-text-sm
+            "
+            role="radiogroup"
+            id={`${$actor.id}-${appId}-skill`}
+        >
+            {#each Object.entries(skills) as [key, name]}
+                <input
+                    class="u-hidden"
+                    type="radio"
+                    id={`${$actor.id}-${appId}-skill-${key}`}
+                    bind:group={skillKey}
+                    value={key}
+                />
+                <label
+                    class="a5e-tag u-pointer u-text-center"
+                    class:a5e-tag--inactive={key !== skillKey}
+                    for={`${$actor.id}-${appId}-skill-${key}`}
+                >
+                    {localize(name ?? "A5E.None")}
+                </label>
+            {/each}
+        </div>
+    </section>
+
+    <FormSection heading="A5E.ExpertiseDie">
+        <ExpertiseDiePicker
+            selected={expertiseDie}
+            on:updateSelection={(event) => {
+                expertiseDie = event.detail;
+            }}
+        />
+    </FormSection>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
         <label class="heading" for={`${$actor.id}-${appId}-situational-mods`}>
@@ -195,7 +216,7 @@
     </section>
 
     <section>
-        <button on:click|preventDefault={onSubmit}>{buttonText}</button>
+        <button on:click|preventDefault={onSubmit}>Roll Initiative</button>
     </section>
 </form>
 

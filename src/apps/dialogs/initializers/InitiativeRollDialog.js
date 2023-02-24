@@ -1,36 +1,23 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
+import InitiativeRollDialogComponent from '../InitiativeRollDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class SavingThrowRollDialog extends TJSDialog {
-  constructor(actorDocument, abilityKey, options) {
+export default class InitiativeRollDialog extends TJSDialog {
+  constructor(combatant, options) {
     super({
-      title: setTitle(),
+      title: game.i18n.format('A5E.InitiativePromptTitle', { name: combatant.name }),
       content: {
-        class: SavingThrowRollDialogComponent,
-        props: { actorDocument, abilityKey, options }
+        class: InitiativeRollDialogComponent,
+        props: { combatant, options }
       }
     }, {
       classes: ['a5e-sheet'],
-      width: 420
+      width: 528
     });
-
-    function setTitle() {
-      if (options?.saveType === 'death') {
-        return game.i18n.format(
-          'A5E.DeathSavingThrowPromptTitle',
-          { name: actorDocument.name }
-        );
-      }
-      return game.i18n.format(
-        'A5E.SavingThrowPromptTitle',
-        { name: actorDocument.name, ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]) }
-      );
-    }
 
     this.data.content.props.dialog = this;
 

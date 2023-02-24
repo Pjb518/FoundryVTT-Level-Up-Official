@@ -18,7 +18,7 @@ export default async function rollInitiative(
   /* eslint-ignore no-restricted syntax */
 
   _ids,
-  { updateTurn = true, messageOptions = {} } = {}
+  { updateTurn = true, messageOptions = {}, rollOptions = {} } = {}
 ) {
   // Structure input data
   const ids = typeof _ids === 'string' ? [_ids] : _ids;
@@ -38,7 +38,7 @@ export default async function rollInitiative(
 
     // Produce an initiative roll for the Combatant
     try {
-      roll = await combatant.getInitiativeRoll();
+      roll = await combatant.getInitiativeRoll(rollOptions);
     } catch {
       continue;
     }

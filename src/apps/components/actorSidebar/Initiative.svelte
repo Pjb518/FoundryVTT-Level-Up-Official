@@ -1,9 +1,6 @@
 <script>
     import { getContext } from "svelte";
 
-    // TODO: Fix this
-    import rollInitiative from "../../handlers/rollInitiative";
-
     const actor = getContext("actor");
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -16,7 +13,15 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
-            on:click={() => rollInitiative($actor)}
+            on:click={(event) =>
+                $actor.rollInitiative({
+                    createCombatants: true,
+                    initiativeOptions: {
+                        rollOptions: {
+                            skipRollDialog: event.altKey,
+                        },
+                    },
+                })}
         />
     {:else}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
