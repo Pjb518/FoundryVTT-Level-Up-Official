@@ -477,6 +477,7 @@ A5E.rangeDescriptors = {
 A5E.rangeValues = {
   self: 'A5E.RangeSelf',
   touch: 'A5E.RangeTouch',
+  fiveFeet: 5,
   short: 30,
   medium: 60,
   long: 120
