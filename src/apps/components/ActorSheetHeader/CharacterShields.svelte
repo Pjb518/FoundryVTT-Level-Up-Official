@@ -1,17 +1,31 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import getRequiredExperiencePoints from "../../utils/getRequiredExperiencePoints";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let requiredXP;
-
     const actor = getContext("actor");
+
+    $: hasInspiration = $actor.system.attributes.inspiration;
     $: requiredXP = getRequiredExperiencePoints($actor);
 </script>
 
-<div class="level-container">
-    <div class="level-box">
+<div class="character-shields__container">
+    <div class="character-shields__box">
+        <label class="xp-label" for="{$actor.id}-inspiration">
+            {localize("A5E.Inspiration")}
+        </label>
+
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <i
+            class="fas fa-dice-d20 shield-inspiration"
+            class:shield-inspiration--active={hasInspiration}
+            on:click={() => $actor.toggleInspiration()}
+        />
+    </div>
+
+    <div class="character-shields__box">
         <label class="xp-label" for="{$actor.id}-level">Level</label>
 
         <input
@@ -71,7 +85,7 @@
 </div>
 
 <style lang="scss">
-    .level-container {
+    .character-shields__container {
         display: flex;
         align-items: center;
         gap: 0.25rem;
@@ -80,7 +94,7 @@
         font-family: "Modesto Condensed", serif;
     }
 
-    .level-box,
+    .character-shields__box,
     .xp-box {
         display: flex;
         flex-direction: column;
@@ -96,7 +110,7 @@
         z-index: 4;
     }
 
-    .level-box {
+    .character-shields__box {
         width: 3rem;
     }
 
@@ -117,5 +131,26 @@
 
     .xp-label {
         font-size: 0.694rem;
+    }
+
+    .shield-inspiration {
+        font-size: 1rem;
+        border: 0;
+        padding: 0.125rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+            color: #555;
+        }
+
+        &--active {
+            color: #2b6537;
+
+            &:hover {
+                color: #2b6537;
+            }
+        }
     }
 </style>

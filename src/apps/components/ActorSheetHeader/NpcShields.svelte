@@ -4,17 +4,7 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import prepareXP from "../../handlers/prepareXP";
 
-    export let xp;
-    export let isElite;
-    export let sheetIsLocked;
-
     const actor = getContext("actor");
-
-    function updateEliteStatus() {
-        if (sheetIsLocked) return;
-
-        updateDocumentDataFromField($actor, "system.details.elite", !isElite);
-    }
 
     $: xp = prepareXP($actor);
     $: isElite = $actor.system.details.elite;
@@ -30,8 +20,7 @@
             <i
                 class="fas fa-skull shield-elite"
                 class:shield-elite--active={isElite}
-                class:shield-elite--editable={!sheetIsLocked}
-                on:click={updateEliteStatus}
+                on:click={() => $actor.toggleElite()}
             />
         </div>
     {/if}
@@ -139,12 +128,17 @@
         border: 0;
         padding: 0.125rem;
 
-        &--active {
-            color: #772020;
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
         }
 
-        &--editable {
-            cursor: pointer;
+        &--active {
+            color: #772020;
+
+            &:hover {
+                color: #772020;
+            }
         }
     }
 </style>
