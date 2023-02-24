@@ -21,60 +21,65 @@
     style="grid-auto-rows: min-content;"
 >
     <div class="u-flex u-flex-col u-gap-md">
-        <FormSection
-            hint="When enabled, half of your proficiency bonus (rounded down) will be added to all ability checks that do not already include your proficiency bonus."
-        >
-            <div class="u-align-center u-flex u-gap-md">
+        {#if $actor.type === "character"}
+            <FormSection
+                hint="When enabled, half of your proficiency bonus (rounded down) will be added to all ability checks that do not already include your proficiency bonus."
+            >
                 <div class="u-align-center u-flex u-gap-md">
-                    <input
-                        class="u-pointer"
-                        type="checkbox"
-                        name="flags.a5e.jackOfAllTrades"
-                        id={`${$actor.id}-jack-of-all-trades`}
-                        checked={flags.a5e?.jackOfAllTrades ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="flags.a5e.jackOfAllTrades"
+                            id={`${$actor.id}-jack-of-all-trades`}
+                            checked={flags.a5e?.jackOfAllTrades ?? false}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    target.checked
+                                )}
+                        />
 
-                    <label
-                        class="u-pointer"
-                        for={`${$actor.id}-jack-of-all-trades`}
-                    >
-                        {localize("A5E.SettingsJackOfAllTrades")}
-                    </label>
+                        <label
+                            class="u-pointer"
+                            for={`${$actor.id}-jack-of-all-trades`}
+                        >
+                            {localize("A5E.SettingsJackOfAllTrades")}
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </FormSection>
+            </FormSection>
 
-        <FormSection
-            hint="When enabled d20 rolls resulting in a 1 will be automatically rerolled."
-        >
-            <div class="u-align-center u-flex u-gap-md">
+            <FormSection
+                hint="When enabled d20 rolls resulting in a 1 will be automatically rerolled."
+            >
                 <div class="u-align-center u-flex u-gap-md">
-                    <input
-                        class="u-pointer"
-                        type="checkbox"
-                        name="flags.a5e.halflingLuck"
-                        id={`${$actor.id}-halfling-luck`}
-                        checked={flags.a5e?.halflingLuck ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="flags.a5e.halflingLuck"
+                            id={`${$actor.id}-halfling-luck`}
+                            checked={flags.a5e?.halflingLuck ?? false}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    target.checked
+                                )}
+                        />
 
-                    <label class="u-pointer" for={`${$actor.id}-halfling-luck`}>
-                        {localize("A5E.SettingsHalflingLuck")}
-                    </label>
+                        <label
+                            class="u-pointer"
+                            for={`${$actor.id}-halfling-luck`}
+                        >
+                            {localize("A5E.SettingsHalflingLuck")}
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </FormSection>
+            </FormSection>
+        {/if}
 
         <FormSection>
             <div class="u-align-center u-flex u-gap-md">
