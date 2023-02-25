@@ -44,16 +44,16 @@
         rollMode,
         modifiers: [
             {
-                label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
-                value: $actor.system.skills[skillKey]?.mod,
+                label: "Initiative Bonus",
+                value: $actor.system.attributes.initiative.bonus,
             },
             {
                 label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
                 value: $actor.system.abilities[abilityKey]?.check.mod,
             },
             {
-                label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
-                value: $actor.system.skills[skillKey]?.bonuses.check,
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
+                value: $actor.system.skills[skillKey]?.mod,
             },
             {
                 label: `${localize(
@@ -62,12 +62,16 @@
                 value: $actor.system.abilities[abilityKey]?.check.bonus,
             },
             {
-                label: "Global Skill Bonus",
-                value: skillKey ? $actor.system.bonuses.abilities.skill : null,
+                label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+                value: $actor.system.skills[skillKey]?.bonuses.check,
             },
             {
                 label: "Global Check Bonus",
                 value: $actor.system.bonuses.abilities.check,
+            },
+            {
+                label: "Global Skill Bonus",
+                value: skillKey ? $actor.system.bonuses.abilities.skill : null,
             },
             {
                 label: "Expertise Die",
