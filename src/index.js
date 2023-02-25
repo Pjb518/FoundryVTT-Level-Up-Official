@@ -1,6 +1,5 @@
 import './scss/main.scss';
 
-import handlebarsHelperRange from 'handlebars-helper-range';
 import migrateActionsConfig from './modules/migrations/v090Migrations/migrateActionsConfig';
 
 import ActorSheet5e from './apps/ActorSheet';
@@ -110,8 +109,8 @@ Hooks.once('init', () => {
     label: 'A5E.SheetClassItem'
   });
 
-  Handlebars.registerHelper('range', handlebarsHelperRange);
-  Handlebars.registerHelper('contains', (array, value) => Array.isArray(array) && array.includes(value));
+  // TODO: In a future version, this helper can be removed. It is currently needed to suport legacy
+  // chat cards as we go into 0.9.0.
   Handlebars.registerHelper('containsSubstring', (string, searchTerm) => string.toString().includes(searchTerm));
 
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula; // eslint-disable-line
