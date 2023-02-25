@@ -1,7 +1,31 @@
 <script>
     import { getContext } from "svelte";
 
+    import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
+
     export let item;
+
+    async function onDeleteItem() {
+        let dialogData;
+
+        if (!game.settings.get("a5e", "hideDeleteConfirmation")) {
+            const dialog = new DeletionConfirmationDialog(item);
+            await dialog.render(true);
+            dialogData = await dialog.promise;
+
+            if (!dialogData || !dialogData.confirmDeletion) return;
+        }
+
+        await game.settings.set(
+            "a5e",
+            "hideDeleteConfirmation",
+            dialogData?.hideDeleteConfirmation ??
+                game.settings.get("a5e", "hideDeleteConfirmation")
+        );
+
+        item.delete();
+    }
+
     const actor = getContext("actor");
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -65,7 +89,7 @@
             class="action-button delete-button fas fa-trash"
             data-tooltip="A5E.ButtonToolTipDelete"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.delete()}
+            on:click|stopPropagation={() => onDeleteItem()}
         />
     {/if}
 </div>

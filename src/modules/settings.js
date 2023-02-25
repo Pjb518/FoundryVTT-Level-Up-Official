@@ -70,6 +70,16 @@ export default function registerSystemSettings() {
     default: ''
   });
 
+  // Default GM Setting for placing templates
+  game.settings.register('a5e', 'hideDeleteConfirmation', {
+    name: 'Hide Deletion Confirmation Dialog',
+    hint: 'When this setting is enabled, you can delete items from actor sheets without being presented with a dialog window to confirm the deletion.',
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register('a5e', 'terseRollFormulae', {
     name: 'Hide System Roll Annotations',
     hint: 'The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.',
