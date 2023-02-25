@@ -15,7 +15,7 @@
         disabled={sheetIsLocked}
         data-tooltip="A5E.ButtonToolTipFavorite"
         data-tooltip-direction="UP"
-        on:click={() => item.toggleFavorite()}
+        on:click|stopPropagation={() => item.toggleFavorite()}
     />
 
     {#if item.type === "object"}
@@ -28,7 +28,7 @@
                 ? "A5E.ButtonToolTipUnequip"
                 : "A5E.ButtonToolTipEquip"}
             data-tooltip-direction="UP"
-            on:click={() => item.toggleEquipped()}
+            on:click|stopPropagation={() => item.toggleEquipped()}
         />
     {/if}
 
@@ -42,7 +42,7 @@
                 ? "A5E.ButtonToolTipUnprepare"
                 : "A5E.ButtonToolTipPrepare"}
             data-tooltip-direction="UP"
-            on:click={() => item.togglePrepared()}
+            on:click|stopPropagation={() => item.togglePrepared()}
         />
     {/if}
 
@@ -51,21 +51,21 @@
             class="action-button fas fa-cog"
             data-tooltip="A5E.ButtonToolTipConfigure"
             data-tooltip-direction="UP"
-            on:click={() => item.configureItem()}
+            on:click|stopPropagation={() => item.configureItem()}
         />
 
         <button
             class="action-button fa-solid fa-clone"
             data-tooltip="A5E.ButtonToolTipDuplicate"
             data-tooltip-direction="UP"
-            on:click={() => item.duplicateItem()}
+            on:click|stopPropagation={() => item.duplicateItem()}
         />
 
         <button
             class="action-button delete-button fas fa-trash"
             data-tooltip="A5E.ButtonToolTipDelete"
             data-tooltip-direction="UP"
-            on:click={() => item.delete()}
+            on:click|stopPropagation={() => item.delete()}
         />
     {/if}
 </div>

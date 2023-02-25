@@ -1,22 +1,58 @@
 <script>
+    import { slide } from "svelte/transition";
+
     import ItemActionButtons from "./ItemActionButtons.svelte";
+    import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
+    import ManeuverSummary from "./itemSummaries/ManeuverSummary.svelte";
+    import ObjectSummary from "./itemSummaries/ObjectSummary.svelte";
+    import SpellSummary from "./itemSummaries/SpellSummary.svelte";
 
     export let item;
+
+    function getSummaryComponent(item) {
+        switch (item.type) {
+            case "feature":
+                return FeatureSummary;
+            case "maneuver":
+                return ManeuverSummary;
+            case "object":
+                return ObjectSummary;
+            case "spell":
+                return SpellSummary;
+        }
+    }
+
+    let showDescription = false;
 </script>
 
-<li class="item-wrapper" draggable="true">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<li
+    class="item-wrapper"
+    draggable="true"
+    on:click={() => {
+        showDescription = !showDescription;
+    }}
+>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <img
         class="item-image"
         src={item.img}
         alt={item.name}
-        on:click={() => item.activate()}
+        on:click|stopPropagation={() => item.activate()}
     />
 
     {item.name}
 
     <ItemActionButtons {item} />
 </li>
+
+{#if showDescription}
+    <div class="description-wrapper" transition:slide>
+        <svelte:component this={getSummaryComponent(item)} {item} />
+
+        {@html item.system.description}
+    </div>
+{/if}
 
 {#if item.actions.count > 1}
     <ul class="actions-list">
@@ -27,7 +63,7 @@
                     class="item-image"
                     src={action.img ?? "icons/svg/item-bag.svg"}
                     alt={action.name}
-                    on:click={() => item.activate(id)}
+                    on:click|stopPropagation={() => item.activate(id)}
                 />
 
                 {action.name}
@@ -43,6 +79,10 @@
         gap: 0.25rem;
         margin: 0;
         padding: 0 0 0 1rem;
+    }
+
+    .description-wrapper {
+        padding: 0.125rem 0.25rem;
     }
 
     .item-wrapper {

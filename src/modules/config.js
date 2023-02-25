@@ -530,6 +530,12 @@ A5E.spellComponents = {
   material: 'A5E.SpellComponentMaterial'
 };
 
+A5E.spellComponentAbbreviations = {
+  vocalized: 'A5E.SpellComponentVocalizedAbbr',
+  seen: 'A5E.SpellComponentSeenAbbr',
+  material: 'A5E.SpellComponentMaterialAbbr'
+};
+
 /**
  * Valid spell levels.
  * @enum {string}
