@@ -10,12 +10,16 @@
     <p class="summary">
         {localize(CONFIG.A5E.maneuverDegrees[item.system.degree])}
     </p>
-{:else if item.system.degree}
+{:else if item.system.degree > 0}
     <p class="summary">
         {localize(CONFIG.A5E.maneuverDegrees[item.system.degree])}
 
         {#if item.system.tradition}
             {localize(CONFIG.A5E.maneuverTraditions[item.system.tradition])}
+        {/if}
+
+        {#if item.system.isStance}
+            Stance
         {/if}
 
         {#if item.system.exertionCost}

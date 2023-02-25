@@ -67,6 +67,28 @@
                 </FormSection>
 
                 <FormSection>
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="system.isStance"
+                            id={`${appId}-isStance`}
+                            checked={$item.system.isStance}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $item,
+                                    target.name,
+                                    target.checked
+                                )}
+                        />
+
+                        <label class="u-pointer" for={`${appId}-isStance`}>
+                            Manuever is a stance
+                        </label>
+                    </div>
+                </FormSection>
+
+                <FormSection>
                     <div
                         class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
                     >
@@ -105,6 +127,10 @@
 
                 <dd class="u-m-0 u-p-0">
                     {localize(A5E.maneuverDegrees[$item.system.degree])}
+
+                    {#if $item.system.degree > 0 && $item.system.isStance}
+                        (Stance)
+                    {/if}
                 </dd>
             </div>
 
