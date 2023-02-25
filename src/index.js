@@ -18,6 +18,8 @@ import Token5e from './documents/token';
 import TokenDocument5e from './documents/tokenDocument';
 import TokenHUD5e from './documents/tokenHUD';
 
+import _onCombatControl from './modules/combat/_onCombatControl';
+import _onCombatantControl from './modules/combat/_onCombatantControl';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
 import measureDistances from './modules/pixi/measureDistances';
@@ -117,6 +119,9 @@ Hooks.once('init', () => {
   Combatant.prototype.rollInitiative = rollCombatantInitiative;
 
   Combat.prototype.rollInitiative = rollInitiative;
+
+  CombatTracker.prototype._onCombatantControl = _onCombatantControl;
+  CombatTracker.prototype._onCombatControl = _onCombatControl;
 
   return preloadHandlebarsTemplates();
 });
