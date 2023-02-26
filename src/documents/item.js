@@ -5,6 +5,7 @@ import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../modules/pixi/ItemMeasuredTemplate';
 import createTemplateDocument from '../modules/utils/templates/createTemplateDocument';
 
+import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
 
 /**
@@ -103,12 +104,21 @@ export default class Item5e extends Item {
       // If no selection is made, cancel the activation.
       if (!promise?.actionId) return;
 
+      console.log('WORKING!!!', promise.actionId);
+
       this.#activateAction(promise.actionId);
     }
   }
 
   async #activateAction(actionId, options) {
-    console.log('WORKING!!!', actionId);
+    const dialog = new ActionActivationDialog({
+      actionId,
+      options,
+      actorDocument: this.actor,
+      itemDocument: this
+    });
+
+    dialog.render(true);
   }
 
   async shareItemDescription() {

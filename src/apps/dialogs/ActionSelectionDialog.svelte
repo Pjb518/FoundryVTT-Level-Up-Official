@@ -1,6 +1,8 @@
 <script>
     import { getContext } from "svelte";
 
+    import FormSection from "../components/FormSection.svelte";
+
     export let { dialog, item } = getContext("#external").application;
 
     const randomId = foundry.utils.randomID();
@@ -13,26 +15,28 @@
 </script>
 
 <form>
-    <section class="options">
-        {#each item.actions.entries() as [id, action]}
-            <input
-                class="u-hidden"
-                type="radio"
-                id={`${randomId}-action-${id}`}
-                value={id}
-                bind:group={selectedAction}
-            />
+    <FormSection heading="Select an Action">
+        <div class="options">
+            {#each item.actions.entries() as [id, action]}
+                <input
+                    class="u-hidden"
+                    type="radio"
+                    id={`${randomId}-action-${id}`}
+                    value={id}
+                    bind:group={selectedAction}
+                />
 
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <label
-                class="option u-text-center"
-                class:active={selectedAction === id}
-                for={`${randomId}-action-${id}`}
-            >
-                {action.name}
-            </label>
-        {/each}
-    </section>
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <label
+                    class="option u-text-center"
+                    class:active={selectedAction === id}
+                    for={`${randomId}-action-${id}`}
+                >
+                    {action.name}
+                </label>
+            {/each}
+        </div>
+    </FormSection>
 
     <button on:click|preventDefault={onSubmit}>Activate Action</button>
 </form>
@@ -50,7 +54,9 @@
 
     .options {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.75rem;
+        width: 100%;
     }
 
     .option {
