@@ -87,7 +87,7 @@ export default class Item5e extends Item {
     if (this.actions.count === 0) {
       // If no actions are defined, default to outputting just the item description.
       this.shareItemDescription();
-    } else if (!this.actions.count === 1) {
+    } else if (this.actions.count === 1) {
       // If there is a single defined action, use that action.
       this.#activateAction(this.actions.keys()[0]);
     } else if (actionId) {
@@ -103,8 +103,6 @@ export default class Item5e extends Item {
 
       // If no selection is made, cancel the activation.
       if (!promise?.actionId) return;
-
-      console.log('WORKING!!!', promise.actionId);
 
       this.#activateAction(promise.actionId);
     }
