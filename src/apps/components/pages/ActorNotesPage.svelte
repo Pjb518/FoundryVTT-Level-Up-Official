@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { TJSProseMirror } from "@typhonjs-fvtt/svelte-standard/component";
+    import { TJSTinyMCE } from "@typhonjs-fvtt/svelte-standard/component";
 
     const actor = getContext("actor");
 
@@ -19,7 +19,7 @@
 
 <div class="editor">
     <!-- svelte-ignore missing-declaration -->
-    <TJSProseMirror
+    <TJSTinyMCE
         {content}
         {enrichedContent}
         on:editor:save={(event) => updateDescription(event)}

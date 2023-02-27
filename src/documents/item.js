@@ -12,7 +12,7 @@ import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionD
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-export default class Item5e extends Item {
+export default class ItemA5e extends Item {
   static chatListeners(html) {
     html.find('.a5e-js-chat-ability-check-button').click(this._onClickChatAbilityCheckButton.bind(this));
     html.find('.a5e-js-chat-saving-throw-button').click(this._onClickChatSavingThrowButton.bind(this));
@@ -117,6 +117,10 @@ export default class Item5e extends Item {
     });
 
     dialog.render(true);
+
+    const promise = await dialog.promise;
+
+    if (!promise?.actionId) return;
   }
 
   async shareItemDescription() {

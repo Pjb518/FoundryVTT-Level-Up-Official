@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { TJSProseMirror } from "@typhonjs-fvtt/svelte-standard/component";
+    import { TJSTinyMCE } from "@typhonjs-fvtt/svelte-standard/component";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -129,7 +129,7 @@
 
         <div class="editor">
             <!-- svelte-ignore missing-declaration -->
-            <TJSProseMirror
+            <TJSTinyMCE
                 content={$actor.system.details[currentEditor] ||
                     localize("A5E.NoDescription")}
                 enrichedContent={TextEditor.enrichHTML(

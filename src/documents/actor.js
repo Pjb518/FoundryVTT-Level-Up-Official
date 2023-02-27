@@ -32,7 +32,7 @@ import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
 import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
 
-export default class Actor5e extends Actor {
+export default class ActorA5e extends Actor {
   #configDialogMap;
 
   constructor(...args) {

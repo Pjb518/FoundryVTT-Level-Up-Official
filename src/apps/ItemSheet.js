@@ -38,7 +38,7 @@ export default class ItemSheet extends SvelteApplication {
       classes: ['a5e-sheet', 'a5e-item-sheet'],
       resizable: true,
       minimizable: true,
-      width: 520,
+      width: 555,
       height: 592,
 
       svelte: {

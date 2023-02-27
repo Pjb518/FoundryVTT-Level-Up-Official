@@ -2,7 +2,7 @@
  * Extend the base TokenDocument class to implement system-specific HP bar logic.
  * @extends {TokenDocument}
  */
-export default class TokenDocument5e extends TokenDocument {
+export default class TokenDocumentA5e extends TokenDocument {
   /**
    * Overrides base functionality and doesn't update unlinked tokens.
    * @override

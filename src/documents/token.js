@@ -2,7 +2,7 @@
  * Extend the base Token class to implement additional system-specific logic.
  * @extends {Token}
  */
-export default class Token5e extends Token {
+export default class TokenA5e extends Token {
   /** @inheritdoc */
   _drawBar(number, bar, data) {
     if (data.attribute === 'attributes.hp') return this._drawHPBar(number, bar, data);

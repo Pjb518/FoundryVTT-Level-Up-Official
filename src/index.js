@@ -2,20 +2,20 @@ import './scss/main.scss';
 
 import migrateActionsConfig from './modules/migrations/v090Migrations/migrateActionsConfig';
 
-import ActorSheet5e from './apps/ActorSheet';
-import ItemSheet5e from './apps/ItemSheet';
+import ActorSheetA5e from './apps/ActorSheet';
+import ItemSheetA5e from './apps/ItemSheet';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
 
 import A5E from './modules/config';
-import ActiveEffect5e from './documents/activeEffects';
-import Actor5e from './documents/actor';
+import ActiveEffectA5e from './documents/activeEffects';
+import ActorA5e from './documents/actor';
 import D20Roll from './modules/dice/d20Roll';
 import DamageRoll from './modules/dice/damageRoll';
-import Item5e from './documents/item';
-import Token5e from './documents/token';
-import TokenDocument5e from './documents/tokenDocument';
-import TokenHUD5e from './documents/tokenHUD';
+import ItemA5e from './documents/item';
+import TokenA5e from './documents/token';
+import TokenDocumentA5e from './documents/tokenDocument';
+import TokenHUDA5e from './documents/tokenHUD';
 
 import _onCombatControl from './modules/combat/_onCombatControl';
 import _onCombatantControl from './modules/combat/_onCombatantControl';
@@ -46,8 +46,8 @@ import migrateCurrentHitPoints from './modules/migrations/helpers/migrateCurrent
 Hooks.once('init', () => {
   game.a5e = {
     applications: {
-      ActorSheet5e,
-      ItemSheet5e
+      ActorSheetA5e,
+      ItemSheetA5e
     },
     config: A5E,
     dice: {
@@ -55,10 +55,10 @@ Hooks.once('init', () => {
       DamageRoll
     },
     entities: {
-      Actor5e,
-      Item5e,
-      TokenDocument5e,
-      Token5e
+      ActorA5e,
+      ItemA5e,
+      TokenDocumentA5e,
+      TokenA5e
     },
     macros: {
       activateItemMacro,
@@ -76,11 +76,11 @@ Hooks.once('init', () => {
   };
 
   CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffect5e;
-  CONFIG.Actor.documentClass = Actor5e;
-  CONFIG.Item.documentClass = Item5e;
-  CONFIG.Token.documentClass = TokenDocument5e;
-  CONFIG.Token.objectClass = Token5e;
+  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  CONFIG.Actor.documentClass = ActorA5e;
+  CONFIG.Item.documentClass = ItemA5e;
+  CONFIG.Token.documentClass = TokenDocumentA5e;
+  CONFIG.Token.objectClass = TokenA5e;
 
   CONFIG.Dice.D20Roll = D20Roll;
   CONFIG.Dice.DamageRoll = DamageRoll;
@@ -91,20 +91,20 @@ Hooks.once('init', () => {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('a5e', ActorSheet5e, {
+  Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'
   });
 
-  Actors.registerSheet('a5e', ActorSheet5e, {
+  Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['npc'],
     makeDefault: true,
     label: 'A5E.SheetClassNPC'
   });
 
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('a5e', ItemSheet5e, {
+  Items.registerSheet('a5e', ItemSheetA5e, {
     makeDefault: true,
     label: 'A5E.SheetClassItem'
   });
@@ -186,10 +186,10 @@ Hooks.once('ready', () => {
 Hooks.on('canvasInit', () => {
   canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
   SquareGrid.prototype.measureDistances = measureDistances;
-  game.canvas.hud.token = new TokenHUD5e();
+  game.canvas.hud.token = new TokenHUDA5e();
 });
 
-Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
+Hooks.on('renderChatMessage', (_, html) => ItemA5e.chatListeners(html));
 
 Hooks.on('init', () => {
   class FastTooltipManager extends TooltipManager {

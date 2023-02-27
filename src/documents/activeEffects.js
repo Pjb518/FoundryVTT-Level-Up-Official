@@ -11,7 +11,7 @@
  *
  * Add system-specific logic to the base ActiveEffect Class
 */
-export default class ActiveEffect5e extends ActiveEffect {
+export default class ActiveEffectA5e extends ActiveEffect {
   static fallbackIcon = 'icons/svg/aura.svg';
 
   source = undefined;

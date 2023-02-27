@@ -1,7 +1,7 @@
 /**
  * Extends the Token HUD class to add system specific options
  */
-export default class TokenHUD5e extends TokenHUD {
+export default class TokenHUDA5e extends TokenHUD {
   /** @override */
   getData() {
     let data = super.getData();
