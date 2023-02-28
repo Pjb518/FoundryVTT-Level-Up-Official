@@ -107,23 +107,6 @@
             </div>
           </div>
         </FormSection>
-        <FormSection heading="Prerequisite:">
-          <div
-            class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-          >
-            <div class="u-align-center u-flex u-gap-md u-w-full">
-              <input
-                class="u-pl-lg"
-                type="text"
-                name="system.prerequisite"
-                value={$item.system.prerequisite}
-                id={`${appId}-prerequisite`}
-                on:change={({ target }) =>
-                  updateDocumentDataFromField($item, target.name, target.value)}
-              />
-            </div>
-          </div>
-        </FormSection>
       {/if}
     </div>
   {:else}
@@ -163,14 +146,6 @@
             {$item.system.exertionCost || 0}
           </dd>
         </div>
-        {#if $item.system.prerequisite != ""}
-          <div class="u-flex u-gap-md">
-            <dt class="u-text-bold">Prerequisite:</dt>
-            <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
-              {$item.system.prerequisite}
-            </dd>
-          </div>
-        {/if}
       {/if}
     </dl>
   {/if}

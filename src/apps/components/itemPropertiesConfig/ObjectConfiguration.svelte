@@ -222,7 +222,7 @@
         </div>
       </FormSection>
 
-      <FormSection heading="Crafting Components:">
+      <FormSection heading="A5E.CraftingComponents">
         <div
           class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
         >
@@ -322,7 +322,7 @@
       </div>
       {#if $item.system.craftingComponents != ""}
         <div class="u-flex u-gap-md">
-          <dt class="u-text-bold">Crafting Components:</dt>
+          <dt class="u-text-bold">{localize("A5E.CraftingComponents")}:</dt>
           <dd class="u-m-0 u-p-0">
             {$item.system.craftingComponents ?? localize("A5E.None")}
           </dd>
