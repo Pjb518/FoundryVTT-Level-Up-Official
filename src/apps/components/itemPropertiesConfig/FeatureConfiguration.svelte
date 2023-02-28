@@ -89,7 +89,7 @@
           </div>
         </div>
       </FormSection>
-    {:else}
+    {:else if $item.system.prerequisite != ""}
       <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
         <div class="u-flex u-gap-md">
           <dt class="u-text-bold">Prerequisite:</dt>
