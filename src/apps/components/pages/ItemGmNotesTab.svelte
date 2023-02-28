@@ -5,11 +5,11 @@
 
   const item = getContext("item");
 
-  function updateDescription(event) {
+  function updateGmNotes(event) {
     const { content } = event.detail;
 
     $item.update({
-      "system.description": content === "<p></p>" ? "" : content,
+      "system.gmNotes": content === "<p></p>" ? "" : content,
     });
   }
 </script>
@@ -17,11 +17,11 @@
 <div class="editor">
   <!-- svelte-ignore missing-declaration (TextEditor) -->
   <TJSTinyMCE
-    content={$item.system.description || localize("A5E.NoDescription")}
-    enrichedContent={TextEditor.enrichHTML($item.system.description, {
+    content={$item.system.gmNotes || localize("A5E.NoGmNotes")}
+    enrichedContent={TextEditor.enrichHTML($item.system.gmNotes, {
       async: false,
     })}
-    on:editor:save={(event) => updateDescription(event)}
+    on:editor:save={(event) => updateGmNotes(event)}
   />
 </div>
 
