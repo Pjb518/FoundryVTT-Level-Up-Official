@@ -29,18 +29,21 @@
         updateDocumentDataFromField($item, target.name, target.value)}
     />
     {#if hasType.includes($item.type)}
-      <input
-        id="prerequisites"
-        type="text"
-        name="system.prerequisite"
-        value={$item.system.prerequisite
-          ? "Prerequisites: " + $item.system.prerequisite
-          : null}
-        class="item-prerequisite"
-        placeholder="Prerequisite: None"
-        on:change={({ target }) =>
-          updateDocumentDataFromField($item, target.name, target.value)}
-      />
+      <div class="prerequisites" style="display:flex; align-items:center">
+        <label class="prerequisite-label" for="prerequisites"
+          >Prerequisites:
+        </label>
+        <input
+          id="prerequisites"
+          type="text"
+          name="system.prerequisite"
+          value={$item.system.prerequisite || null}
+          class="item-prerequisite"
+          placeholder="None"
+          on:change={({ target }) =>
+            updateDocumentDataFromField($item, target.name, target.value)}
+        />
+      </div>
     {/if}
   </div>
   {#if $item.system.broken}
@@ -86,15 +89,28 @@
 
   .item-prerequisite,
   .item-prerequisite[type="text"] {
-    font-family: "Modesto Condensed", serif;
-    font-size: 1rem;
     border: 0;
     background: transparent;
-    display: inline-block;
 
     &:active,
     &:focus {
       box-shadow: none;
     }
+  }
+
+  .prerequisite-label {
+    padding-inline: 0.5rem 0rem;
+    &:active,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .prerequisites {
+    display: flex;
+    align-items: center;
+    font-family: "Modesto Condensed", serif;
+    font-size: 1rem;
+    align-items: center;
   }
 </style>
