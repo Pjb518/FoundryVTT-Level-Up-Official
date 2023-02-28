@@ -4,11 +4,16 @@
 
   import FormSection from "../FormSection.svelte";
   import RadioGroup from "../RadioGroup.svelte";
+  import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
   const item = getContext("item");
+  const appId = getContext("appId");
   const hasPrerequisite = ["knack", "feat"];
 
   let editMode = false;
+
+  console.log(appId);
+  console.log(item);
 
   function toggleEditMode() {
     editMode = !editMode;
@@ -66,14 +71,33 @@
   {/if}
 
   {#if hasPrerequisite.includes($item.system.featureType)}
-    <FormSection heading="Prerequisites:">
-      <div
-        class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-      >
-        <div class="u-align-center u-flex u-gap-md u-w-full">
-          <input class="u-pl-lg" type="text" name="Prerequisite" value="" />
+    {#if editMode}
+      <FormSection heading="Prerequisite:">
+        <div
+          class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
+        >
+          <div class="u-align-center u-flex u-gap-md u-w-full">
+            <input
+              class="u-pl-lg"
+              type="text"
+              name="system.prerequisite"
+              value={$item.system.prerequisite}
+              id={`${appId}-prerequisite`}
+              on:change={({ target }) =>
+                updateDocumentDataFromField($item, target.name, target.value)}
+            />
+          </div>
         </div>
-      </div>
-    </FormSection>
+      </FormSection>
+    {:else}
+      <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
+        <div class="u-flex u-gap-md">
+          <dt class="u-text-bold">Prerequisite:</dt>
+          <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
+            {$item.system.prerequisite}
+          </dd>
+        </div>
+      </dl>
+    {/if}
   {/if}
 </section>
