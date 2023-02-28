@@ -6,6 +6,7 @@
 
   const item = getContext("item");
   const hasType = ["maneuver", "feature"];
+  const appId = getContext("appId");
 </script>
 
 <header class="sheet-header">
@@ -29,16 +30,16 @@
         updateDocumentDataFromField($item, target.name, target.value)}
     />
     {#if hasType.includes($item.type)}
-      <div class="prerequisites" style="display:flex; align-items:center">
-        <label class="prerequisite-label" for="prerequisites"
+      <div class="prerequisites">
+        <label class="prerequisite-label" for={`${appId}-prerequisites`}
           >Prerequisites:
         </label>
         <input
-          id="prerequisites"
+          id={`${appId}-prerequisites`}
           type="text"
           name="system.prerequisite"
           value={$item.system.prerequisite || null}
-          class="item-prerequisite"
+          class="prerequisite-input"
           placeholder="None"
           on:change={({ target }) =>
             updateDocumentDataFromField($item, target.name, target.value)}
@@ -87,8 +88,8 @@
     }
   }
 
-  .item-prerequisite,
-  .item-prerequisite[type="text"] {
+  .prerequisite-input,
+  .prerequisite-input[type="text"] {
     border: 0;
     background: transparent;
 
@@ -100,6 +101,7 @@
 
   .prerequisite-label {
     padding-inline: 0.5rem 0rem;
+
     &:active,
     &:focus {
       box-shadow: none;
