@@ -12,9 +12,6 @@
 
   let editMode = false;
 
-  console.log(appId);
-  console.log(item);
-
   function toggleEditMode() {
     editMode = !editMode;
   }
