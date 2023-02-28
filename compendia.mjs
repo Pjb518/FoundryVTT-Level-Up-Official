@@ -4,7 +4,7 @@
 
 import * as fs from 'fs';
 import path from 'path';
-import glob from 'glob';
+import { globSync } from 'glob';
 
 const PACK_DEST = './public/packs';
 const PACK_SRC = './packs';
@@ -73,7 +73,7 @@ function getExistingIds() {
     const filePath = path.join(PACK_DEST, `${folder.name}.db`);
     fs.rmSync(filePath, { force: true });
 
-    const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
+    const filenames = globSync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
     filenames.forEach((file) => {
       const json = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }).toString());
@@ -106,7 +106,7 @@ export function saveIds() {
     const filePath = path.join(PACK_DEST, `${folder.name}.db`);
     fs.rmSync(filePath, { force: true });
 
-    const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
+    const filenames = globSync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
     // Iterate over each json file getting their ids
     filenames.forEach((file) => {
@@ -165,7 +165,7 @@ export function fixIds() {
     const filePath = path.join(PACK_DEST, `${folder.name}.db`);
     fs.rmSync(filePath, { force: true });
 
-    const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
+    const filenames = globSync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
     // Iterate over each json file getting their ids
     filenames.forEach((file) => {
@@ -245,7 +245,7 @@ export function compilePacks() {
     const db = fs.createWriteStream(filePath, { flags: 'a', mode: 0o664 });
     const data = [];
 
-    const filenames = glob.sync(`${PACK_SRC}/${folder.name}/**/*.json`);
+    const filenames = globSync(`${PACK_SRC}/${folder.name}/**/*.json`);
 
     // Iterate over each json file in the folder.
     filenames.forEach((file) => {
