@@ -114,7 +114,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="flags.a5e.doubleCarryCapacity"
-                            id={`${$actor.id}-track-currency-weight`}
+                            id={`${$actor.id}-double-carry-capacity`}
                             checked={flags.a5e?.doubleCarryCapacity ?? false}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -126,7 +126,7 @@
 
                         <label
                             class="u-pointer"
-                            for={`${$actor.id}-track-currency-weight`}
+                            for={`${$actor.id}-double-carry-capacity`}
                         >
                             {localize("A5E.SettingsDoubleCarryCapacity")}
                         </label>

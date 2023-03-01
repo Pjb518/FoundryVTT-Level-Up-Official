@@ -10,6 +10,7 @@
     import ItemPropertiesTab from "../components/pages/ItemPropertiesTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import ItemGmNotesTab from "../components/pages/ItemGmNotesTab.svelte";
 
     export let { appId, itemDocument } = getContext("#external").application;
     export let elementRoot;
@@ -35,6 +36,14 @@
             component: ItemActionsTab,
         },
     ];
+
+    if (game.user.isGM) {
+        tabs.push({
+            name: "gmNotes",
+            label: "GM Notes",
+            component: ItemGmNotesTab,
+        });
+    }
 
     $: currentTab = tabs[0];
 

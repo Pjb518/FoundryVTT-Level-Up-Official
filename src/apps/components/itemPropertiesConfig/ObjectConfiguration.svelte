@@ -237,6 +237,28 @@
                 </div>
             </FormSection>
 
+            <FormSection heading="A5E.CraftingComponents">
+                <div
+                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
+                >
+                    <div class="u-align-center u-flex u-gap-md u-w-full">
+                        <input
+                            class="u-pl-lg"
+                            type="text"
+                            name="system.craftingComponents"
+                            value={$item.system.craftingComponents}
+                            id={`${appId}-craftingComponents`}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $item,
+                                    target.name,
+                                    target.value
+                                )}
+                        />
+                    </div>
+                </div>
+            </FormSection>
+
             <FormSection heading="A5E.ItemCondition">
                 <div
                     class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
@@ -328,6 +350,17 @@
                     {$item.system.price ?? localize("A5E.None")}
                 </dd>
             </div>
+            {#if $item.system.craftingComponents != ""}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">
+                        {localize("A5E.CraftingComponents")}:
+                    </dt>
+                    <dd class="u-m-0 u-p-0">
+                        {$item.system.craftingComponents ??
+                            localize("A5E.None")}
+                    </dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </section>
