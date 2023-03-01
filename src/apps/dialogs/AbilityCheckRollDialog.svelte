@@ -23,9 +23,10 @@
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
 
-    const buttonText = `Roll ${localize(
-        CONFIG.A5E.abilities[abilityKey]
-    )} Check`;
+    const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
+    const buttonText = localize("A5E.RollPromptAbilityCheck", {
+        ability: localizedAbility,
+    });
 
     function onSubmit() {
         dialog.submit({ rollFormula });
@@ -44,21 +45,23 @@
         rollMode,
         modifiers: [
             {
-                label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+                label: localize("A5E.AbilityCheckMod", {
+                    ability: localizedAbility,
+                }),
                 value: $actor.system.abilities[abilityKey].check.mod,
             },
             {
-                label: `${localize(
-                    CONFIG.A5E.abilities[abilityKey]
-                )} Check Bonus`,
+                label: localize("A5E.AbilityCheckBonus", {
+                    ability: localizedAbility,
+                }),
                 value: $actor.system.abilities[abilityKey].check.bonus,
             },
             {
-                label: "Global Check Bonus",
+                label: localize("A5E.AbilityCheckBonusGlobal"),
                 value: $actor.system.bonuses.abilities.check,
             },
             {
-                label: "Expertise Die",
+                label: localize("A5E.ExpertiseDie"),
                 value: getExpertiseDieSize(expertiseDie),
             },
             {
@@ -70,7 +73,9 @@
 
 <form>
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">Roll Mode</h3>
+        <h3 class="heading">
+            {localize("A5E.RollModeHeading")}
+        </h3>
 
         <div
             class="
