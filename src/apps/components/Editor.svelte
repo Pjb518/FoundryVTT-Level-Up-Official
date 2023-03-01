@@ -17,8 +17,10 @@
         });
     }
 
-    $: content = content;
-    $: enrichedContent = TextEditor.enrichHTML(content, { async });
+    $: content = content || localize("A5E.NoDescription");
+    $: enrichedContent = TextEditor.enrichHTML($document[updatePath], {
+        async,
+    });
 </script>
 
 <div class="editor">

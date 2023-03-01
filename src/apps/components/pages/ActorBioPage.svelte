@@ -1,13 +1,13 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
-    import { TJSTinyMCE } from "@typhonjs-fvtt/svelte-standard/component";
+
+    import Editor from "../Editor.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    const actor = getContext("actor");
-
     export let currentEditor;
+    const actor = getContext("actor");
 
     const traitsLabel = {
         age: "A5E.DetailsAge",
@@ -21,15 +21,6 @@
 
     function onSelectEditor(editor) {
         currentEditor = editor;
-    }
-
-    function updateDescription(event) {
-        const { content } = event.detail;
-
-        $actor.update({
-            [`system.details.${currentEditor}`]:
-                content === "<p></p>" ? "" : content,
-        });
     }
 
     $: currentEditor = "bio";
@@ -127,28 +118,10 @@
             </a>
         </div>
 
-        <div class="editor">
-            <!-- svelte-ignore missing-declaration -->
-            <TJSTinyMCE
-                content={$actor.system.details[currentEditor] ||
-                    localize("A5E.NoDescription")}
-                enrichedContent={TextEditor.enrichHTML(
-                    $actor.system.details[currentEditor],
-                    {
-                        async: false,
-                    }
-                )}
-                on:editor:save={(event) => updateDescription(event)}
-            />
-        </div>
+        <Editor
+            document={actor}
+            content={$actor.system.details[currentEditor]}
+            updatePath={`system.details.${currentEditor}`}
+        />
     </div>
 </section>
-
-<style lang="scss">
-    .editor {
-        height: 100%;
-
-        // Nudges the edit icon down 1px. Removing this hides the top border for the button.
-        --tjs-editor-edit-top: 1px;
-    }
-</style>
