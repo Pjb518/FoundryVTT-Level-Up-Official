@@ -1,3 +1,5 @@
+import A5E from '../config';
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                         Changes
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,107 +34,13 @@ export const changes = {
 
   paralyzed: [],
 
-  // FIXME: Dynamically generate the resistance to all damage.
-  petrified: [
-    {
-      key: 'system.traits.damageResistances',
-      value: 'acid',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'bludgeoning',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'cold',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'fire',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'force',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'lightning',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'necrotic',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'piercing',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'poison',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'psychic',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'radiant',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'slashing',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageResistances',
-      value: 'thunder',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    },
-    {
-      key: 'system.traits.damageImmunities',
-      value: 'poison',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
-      label: 'A5E.ConditionPetrified'
-    }
-  ],
+  petrified: Object.keys(A5E.damageTypes).map((damageType) => ({
+    key: 'system.traits.damageResistances',
+    value: damageType,
+    mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+    priority: 20,
+    label: 'A5E.ConditionPetrified'
+  })),
 
   poisoned: [],
 

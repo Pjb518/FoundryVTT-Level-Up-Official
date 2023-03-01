@@ -106,6 +106,8 @@ export default class ActorSheet extends SvelteApplication {
     const { token, prototypeToken } = this.actor;
 
     if (token) return token.sheet.render(true);
+
+    // eslint-disable-next-line new-cap
     return new CONFIG.Token.prototypeSheetClass(prototypeToken).render(true);
   }
 
@@ -130,6 +132,7 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
+  // TODO: Implement ability score selection logic.
   async #onDropBackground(item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Background documents cannot be added to NPCs.');
