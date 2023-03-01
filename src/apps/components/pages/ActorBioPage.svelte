@@ -9,6 +9,15 @@
     export let currentEditor;
     const actor = getContext("actor");
 
+    const charChoicesLabel = {
+        background: "A5E.Background",
+        classes: "A5E.ClassPlural",
+        culture: "A5E.Culture",
+        destiny: "A5E.Destiny",
+        heritage: "A5E.Heritage",
+        prestige: "A5E.Prestige",
+    };
+
     const traitsLabel = {
         age: "A5E.DetailsAge",
         eyeColor: "A5E.DetailsEyeColor",
@@ -27,41 +36,73 @@
     $: details = $actor.system.details;
 </script>
 
-<section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
-    {#each Object.entries(traitsLabel) as [key, label]}
-        <div
-            class="u-flex u-align-center u-gap-md u-justify-space-between"
-            data-type={key}
-        >
-            <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
-                {localize(label)}
-            </h3>
+<div class="bio-page">
+    <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
+        {#each Object.entries(charChoicesLabel) as [key, label]}
+            <div
+                class="u-flex u-align-center u-gap-md u-justify-space-between"
+                data-type={key}
+            >
+                <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
+                    {localize(label)}
+                </h3>
 
-            <div class="a5e-input-container a5e-input-container--bio">
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="text"
-                    name="system.details.{key}"
-                    value={details[key]}
-                    on:change={({ target }) => {
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value
-                        );
-                    }}
-                />
+                <div class="a5e-input-container a5e-input-container--bio">
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        type="text"
+                        name="system.details.{key}"
+                        value={details[key]}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                key !== "prestige"
+                                    ? target.value
+                                    : Number(target.value)
+                            );
+                        }}
+                    />
+                </div>
             </div>
-        </div>
-    {/each}
-</section>
+        {/each}
+    </section>
 
-<section />
+    <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
+        {#each Object.entries(traitsLabel) as [key, label]}
+            <div
+                class="u-flex u-align-center u-gap-md u-justify-space-between"
+                data-type={key}
+            >
+                <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
+                    {localize(label)}
+                </h3>
 
-<section class="u-flex u-flex-grow u-gap-lg">
-    <div class="u-flex u-flex-col u-flex-grow">
-        <div
-            class="
+                <div class="a5e-input-container a5e-input-container--bio">
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        type="text"
+                        name="system.details.{key}"
+                        value={details[key]}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            );
+                        }}
+                    />
+                </div>
+            </div>
+        {/each}
+    </section>
+
+    <section />
+
+    <section class="u-flex u-flex-grow u-gap-lg">
+        <div class="u-flex u-flex-col u-flex-grow">
+            <div
+                class="
                 u-align-center
                 u-border-b
                 u-border-gray
@@ -70,11 +111,11 @@
                 u-mb-md
                 u-pb-md
             "
-        >
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <a
-                class="
+            >
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <a
+                    class="
                     a5e-button
                     u-border
                     u-hover-bg-green
@@ -83,21 +124,21 @@
                     u-rounded
                     u-text-sm
                     u-transition
-                    u-hover-text-shadow-none:hover
+                    u-hover-text-shadow-none
                 "
-                class:u-border-gray={currentEditor !== "bio"}
-                class:u-bg-green={currentEditor === "bio"}
-                class:u-border-green={currentEditor === "bio"}
-                class:u-text-light={currentEditor === "bio"}
-                on:click={() => onSelectEditor("bio")}
-            >
-                {localize("A5E.DetailsBackstory")}
-            </a>
+                    class:u-border-gray={currentEditor !== "bio"}
+                    class:u-bg-green={currentEditor === "bio"}
+                    class:u-border-green={currentEditor === "bio"}
+                    class:u-text-light={currentEditor === "bio"}
+                    on:click={() => onSelectEditor("bio")}
+                >
+                    {localize("A5E.DetailsBackstory")}
+                </a>
 
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <a
-                class="
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <a
+                    class="
                     a5e-button
                     u-border
                     u-hover-bg-green
@@ -106,22 +147,33 @@
                     u-rounded
                     u-text-sm
                     u-transition
-                    u-hover-text-shadow-none:hover
+                    u-hover-text-shadow-none
                 "
-                class:u-border-gray={currentEditor !== "appearance"}
-                class:u-bg-green={currentEditor === "appearance"}
-                class:u-border-green={currentEditor === "appearance"}
-                class:u-text-light={currentEditor === "appearance"}
-                on:click={() => onSelectEditor("appearance")}
-            >
-                {localize("A5E.DetailsAppearance")}
-            </a>
+                    class:u-border-gray={currentEditor !== "appearance"}
+                    class:u-bg-green={currentEditor === "appearance"}
+                    class:u-border-green={currentEditor === "appearance"}
+                    class:u-text-light={currentEditor === "appearance"}
+                    on:click={() => onSelectEditor("appearance")}
+                >
+                    {localize("A5E.DetailsAppearance")}
+                </a>
+            </div>
+
+            <Editor
+                document={actor}
+                content={$actor.system.details[currentEditor]}
+                updatePath={`system.details.${currentEditor}`}
+            />
         </div>
+    </section>
+</div>
 
-        <Editor
-            document={actor}
-            content={$actor.system.details[currentEditor]}
-            updatePath={`system.details.${currentEditor}`}
-        />
-    </div>
-</section>
+<style lang="scss">
+    .bio-page {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.5rem;
+        overflow-y: auto;
+    }
+</style>
