@@ -13,17 +13,17 @@ export default function constructD20RollFormula({
   actor, minRoll, modifiers, rollMode
 }) {
   const rollData = actor.getRollData();
-  const parts = [];
 
-  parts.push(constructD20Term({ actor, minRoll, rollMode }));
+  const parts = [
+    constructD20Term({ actor, minRoll, rollMode }),
+    ...modifiers.map(({ label, value }) => {
+      if (value && value !== 0) {
+        return label ? `${value}[${label}]` : value;
+      }
 
-  parts.push(...modifiers.map(({ label, value }) => {
-    if (value && value !== 0) {
-      return label ? `${value}[${label}]` : value;
-    }
-
-    return null;
-  }));
+      return null;
+    })
+  ];
 
   const formula = parts.filter((part) => Boolean(part) && part !== '0').join(' + ');
 
