@@ -14,7 +14,7 @@
         classes: "A5E.ClassPlural",
         // culture: "A5E.Culture",
         destiny: "A5E.Destiny",
-        // heritage: "A5E.Heritage",
+        heritage: "A5E.Heritage",
         prestige: "A5E.Prestige",
     };
 
