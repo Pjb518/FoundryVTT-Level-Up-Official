@@ -50,7 +50,7 @@
         },
         {
             name: "consumers",
-            label: "A5E.TabConsumers",
+            label: "A5E.TabResourceConsumption",
             component: ActionsConsumerTab,
         },
     ];

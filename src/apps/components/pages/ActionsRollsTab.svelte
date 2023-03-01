@@ -58,7 +58,7 @@
         generic: { heading: "A5E.Other", component: GenericRollConfig },
     };
 
-    $: action = $item.system.actions[actionId];
+    $: action = $item.actions[actionId];
 
     $: attackRolls = Object.entries(action.rolls ?? {}).filter(
         ([_, roll]) => roll.type === "attack"

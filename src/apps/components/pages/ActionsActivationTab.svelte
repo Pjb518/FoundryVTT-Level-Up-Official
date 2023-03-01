@@ -14,7 +14,7 @@
     const specialActivationTypes = ["none", "special"];
     const specialTimeTypes = ["instantaneous", "permanent", "special"];
 
-    $: action = $item.system.actions[actionId];
+    $: action = $item.actions[actionId];
 </script>
 
 <section class="action-config action-config__wrapper">

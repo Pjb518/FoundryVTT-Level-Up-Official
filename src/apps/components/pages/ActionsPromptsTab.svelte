@@ -39,7 +39,7 @@
         },
     };
 
-    $: action = $item.system.actions[actionId];
+    $: action = $item.actions[actionId];
 </script>
 
 <ul class="prompts-config-list">
