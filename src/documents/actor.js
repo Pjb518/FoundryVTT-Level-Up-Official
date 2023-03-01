@@ -44,10 +44,7 @@ export default class ActorA5e extends Actor {
     };
 
     this.#configDialogMap = {
-      ability: {
-        component: AbilityCheckConfigDialog,
-        path: 'abilities'
-      },
+      ability: AbilityCheckConfigDialog,
       armor: ArmorProfConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
