@@ -5,7 +5,7 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
-    const hasType = ["maneuver", "feature"];
+    const prerequisiteTypes = ["maneuver", "feature"];
     const appId = getContext("appId");
 </script>
 
@@ -29,7 +29,7 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
-        {#if hasType.includes($item.type)}
+        {#if prerequisiteTypes.includes($item.type)}
             <div class="prerequisites">
                 <label class="prerequisite-label" for={`${appId}-prerequisites`}
                     >Prerequisites:
