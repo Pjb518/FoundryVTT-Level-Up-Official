@@ -310,6 +310,19 @@ A5E.itemRarity = {
 };
 
 /**
+ * List of various item types.
+ * @enum {string}
+ */
+A5E.itemTypes = {
+  background: 'ITEM.TypeBackground',
+  culture: 'ITEM.TypeCulture',
+  feature: 'ITEM.TypeFeature',
+  maneuver: 'ITEM.TypeManeuver',
+  object: 'ITEM.TypeObject',
+  spell: 'ITEM.TypeSpell'
+};
+
+/**
  * List of Inventory Filters
  * @enum {string}
  */
