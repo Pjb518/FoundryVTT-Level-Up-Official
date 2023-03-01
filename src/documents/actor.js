@@ -38,8 +38,16 @@ export default class ActorA5e extends Actor {
   constructor(...args) {
     super(...args);
 
+    this.dialogs ??= {
+      abilities: {},
+      skills: {}
+    };
+
     this.#configDialogMap = {
-      ability: AbilityCheckConfigDialog,
+      ability: {
+        component: AbilityCheckConfigDialog,
+        path: 'abilities'
+      },
       armor: ArmorProfConfigDialog,
       conditionImmunities: ConditionImmunitiesConfigDialog,
       damageImmunities: DamageImmunitiesConfigDialog,
@@ -340,7 +348,19 @@ export default class ActorA5e extends Actor {
 
   #configure(key, title, data, options) {
     const component = this.#configDialogMap[key];
-    const dialog = new GenericConfigDialog(this, title, component, data, options);
+    let dialog = null;
+
+    if (key === 'ability') dialog = this.dialogs.abilities[data.abilityKey];
+    else if (key === 'skill') dialog = this.dialogs.skills[data.skillKey];
+    else dialog = this.dialogs[key];
+
+    if (!dialog) {
+      dialog = new GenericConfigDialog(this, title, component, data, options);
+
+      if (key === 'ability') this.dialogs.abilities[data.abilityKey] = dialog;
+      else if (key === 'skill') this.dialogs.skills[data.skillKey] = dialog;
+      else this.dialogs[key] = dialog;
+    }
 
     dialog.render(true);
   }
