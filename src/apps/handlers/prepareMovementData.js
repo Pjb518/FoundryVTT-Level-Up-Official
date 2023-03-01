@@ -1,6 +1,6 @@
 export default function getMovementData(actor) {
   // eslint-disable-next-line no-unused-vars
-  const { hover } = actor.system.attributes.movement.traits.hover
+  const { hover } = actor.system.attributes.movement.traits;
   const distances = Object.entries(actor.system.attributes.movement).filter(([mode, distance]) => {
     if (mode === "fly" && hover) { return true; }
     if (mode === "traits") { return false; }
