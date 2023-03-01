@@ -4,11 +4,11 @@
 
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
-    export let jackOfAllTrades;
     export let key;
     export let skill;
 
     const actor = getContext("actor");
+
     const label = CONFIG.A5E.skills[key];
     const { skillSpecialties } = CONFIG.A5E;
 
@@ -18,7 +18,7 @@
 
     $: abilityBonus =
         $actor.system.abilities[skill.ability].check.deterministicBonus;
-
+    $: jackOfAllTrades = $actor.flags.a5e?.jackOfAllTrades;
     $: skillBonus = skill.deterministicBonus;
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
@@ -56,13 +56,13 @@
                 <i
                     class="fa-solid fa-star fa-sm skill-proficiency-icon"
                     data-tooltip="A5E.ProficiencyProficient"
-                    data-tooltip-direction="DOWN"
+                    data-tooltip-direction="UP"
                 />
             {:else if jackOfAllTrades}
                 <i
                     class="fa-solid fa-star-half-stroke fa-sm skill-proficiency-icon"
                     data-tooltip="Jack of All Trades"
-                    data-tooltip-direction="DOWN"
+                    data-tooltip-direction="UP"
                 />
             {/if}
         </header>
