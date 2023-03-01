@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 export default async function _onCombatControl(event) {
   event.preventDefault();
 

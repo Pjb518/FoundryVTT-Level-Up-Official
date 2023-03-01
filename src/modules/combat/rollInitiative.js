@@ -29,11 +29,14 @@ export default async function rollInitiative(
   const updates = [];
   const messages = [];
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const [i, id] of ids.entries()) {
     let roll;
 
     // Get Combatant data (non-strictly)
     const combatant = this.combatants.get(id);
+
+    // TODO: Look into where this results variable is supposed to be coming from.
     if (!combatant?.isOwner) return results;
 
     // Produce an initiative roll for the Combatant

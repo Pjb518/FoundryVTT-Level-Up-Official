@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable consistent-return */
 export default async function _onCombatantControl(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -8,14 +10,13 @@ export default async function _onCombatantControl(event) {
   const c = combat.combatants.get(li.dataset.combatantId);
 
   // Switch control action
+  // eslint-disable-next-line default-case
   switch (btn.dataset.control) {
     // Toggle combatant visibility
-    case 'toggleHidden':
-      return c.update({ hidden: !c.hidden });
+    case 'toggleHidden': return c.update({ hidden: !c.hidden });
 
     // Toggle combatant defeated flag
-    case 'toggleDefeated':
-      return this._onToggleDefeatedStatus(c);
+    case 'toggleDefeated': return this._onToggleDefeatedStatus(c);
 
     // Roll combatant initiative
     case 'rollInitiative':
@@ -26,7 +27,6 @@ export default async function _onCombatantControl(event) {
       });
 
     // Actively ping the Combatant
-    case 'pingCombatant':
-      return this._onPingCombatant(c);
+    case 'pingCombatant': return this._onPingCombatant(c);
   }
 }
