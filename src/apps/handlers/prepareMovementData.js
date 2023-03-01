@@ -13,7 +13,7 @@ export default function getMovementData(actor) {
   return distances.map(([mode, distance]) => {
     const modeLabel = game.i18n.localize(CONFIG.A5E.movement[mode]);
 
-    if (mode == "fly" && hover) {
+    if (mode === "fly" && hover) {
       return `${modeLabel} - ${distance || 0} ${unit} (${hoverText.toLocaleLowerCase()})`;
     } else {
       return `${modeLabel} - ${distance} ${unit}`;
