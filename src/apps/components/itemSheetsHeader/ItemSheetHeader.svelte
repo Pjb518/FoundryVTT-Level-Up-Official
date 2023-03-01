@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -31,8 +32,11 @@
         />
         {#if prerequisiteTypes.includes($item.type)}
             <div class="prerequisites">
-                <label class="prerequisite-label" for={`${appId}-prerequisites`}
-                    >Prerequisites:
+                <label
+                    class="prerequisite-label"
+                    for={`${appId}-prerequisites`}
+                >
+                    {localize("A5E.Prerequisite")}:
                 </label>
                 <input
                     id={`${appId}-prerequisites`}
