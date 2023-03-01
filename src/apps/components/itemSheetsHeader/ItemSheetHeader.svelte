@@ -26,7 +26,7 @@
             name="name"
             value={$item.name}
             class="item-name"
-            placeholder="Name"
+            placeholder={localize("A5E.Name")}
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
@@ -42,9 +42,9 @@
                     id={`${appId}-prerequisites`}
                     type="text"
                     name="system.prerequisite"
-                    value={$item.system.prerequisite || null}
+                    value={$item.system.prerequisite}
                     class="prerequisite-input"
-                    placeholder="None"
+                    placeholder={localize("A5E.None")}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
