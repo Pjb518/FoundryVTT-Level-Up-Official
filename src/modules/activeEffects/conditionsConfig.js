@@ -60,40 +60,19 @@ export const changes = {
 
   slowed: [
     {
-      key: 'system.attributes.movement.walk',
-      value: 0.5,
-      mode: CONST.ACTIVE_EFFECT_MODES.MULTIPLY,
-      priority: 20,
-      label: 'A5E.ConditionSlowed'
-    },
-    {
-      key: 'system.attributes.movement.swim',
-      value: 0.5,
-      mode: CONST.ACTIVE_EFFECT_MODES.MULTIPLY,
-      priority: 20,
-      label: 'A5E.ConditionSlowed'
-    },
-    {
-      key: 'system.attributes.movement.burrow',
-      value: 0.5,
-      mode: CONST.ACTIVE_EFFECT_MODES.MULTIPLY,
-      priority: 20,
-      label: 'A5E.ConditionSlowed'
-    },
-    {
-      key: 'system.attributes.movement.climb',
-      value: 0.5,
-      mode: CONST.ACTIVE_EFFECT_MODES.MULTIPLY,
-      priority: 20,
-      label: 'A5E.ConditionSlowed'
-    },
-    {
       key: 'system.attributes.ac',
       value: '-2',
       mode: CONST.ACTIVE_EFFECT_MODES.ADD,
       priority: 20,
       label: 'A5E.ConditionSlowed'
-    }
+    },
+    ...Object.keys(A5E.movement).map((movementType) => ({
+      key: `system.attributes.movement.${movementType}`,
+      value: 0.5,
+      mode: CONST.ACTIVE_EFFECT_MODES.MULTIPLY,
+      priority: 20,
+      label: 'A5E.ConditionSlowed'
+    }))
   ],
 
   strife: [],
