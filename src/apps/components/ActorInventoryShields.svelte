@@ -81,7 +81,7 @@
             {#each Object.entries(currency) as [label, value]}
                 <li class="currency__item" data-type={label}>
                     <label class="currency__label" for="currency-{label}">
-                        {label}
+                        {localize(label)}
                     </label>
 
                     <input
