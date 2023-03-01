@@ -54,6 +54,17 @@
             data-tooltip-direction="UP"
             on:click|stopPropagation={() => item.toggleEquipped()}
         />
+
+        <button
+            class="action-button fas fa-heart-crack"
+            class:active={item.system.broken}
+            class:locked={sheetIsLocked}
+            data-tooltip={item.system.broken
+                ? "A5E.ButtonToolTipFixBroken"
+                : "A5E.ButtonToolTipBroken"}
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() => item.toggleBroken()}
+        />
     {/if}
 
     {#if item.type === "spell"}

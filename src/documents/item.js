@@ -289,6 +289,14 @@ export default class ItemA5e extends Item {
     else Item.createDocuments([newItem]);
   }
 
+  async toggleBroken() {
+    if (!this.type === 'object') return;
+
+    await this.update({
+      'system.broken': !this.system.broken
+    });
+  }
+
   async toggleFavorite() {
     if (!this.actor) return;
 
