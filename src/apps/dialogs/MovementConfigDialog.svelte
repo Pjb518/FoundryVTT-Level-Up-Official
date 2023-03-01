@@ -21,7 +21,6 @@
 </script>
 
 <article>
-    <!-- TODO: Maybe make distance a number? -->
     {#each Object.entries($actor.system.attributes.movement) as [mode, distance]}
         {#if mode != "traits"}
             <FormSection>
@@ -34,9 +33,9 @@
                         <div class="u-w-20">
                             <input
                                 class="a5e-input"
-                                type="text"
+                                type="number"
                                 name={`system.attributes.movement.${mode}`}
-                                value={distance || ""}
+                                value={distance || 0}
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
                                         $actor,
