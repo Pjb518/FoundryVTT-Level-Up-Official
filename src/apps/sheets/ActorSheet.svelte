@@ -58,22 +58,18 @@
             label: "A5E.TabFeatures",
             component: ActorFeaturesPage,
         },
-        $actor.flags?.a5e?.showManeuverTab ?? true
-            ? {
-                  name: "maneuvers",
-                  label: "A5E.TabManeuvers",
-                  component: ActorManeuversPage,
-                  display: $actor.flags?.a5e?.showManeuverTab,
-              }
-            : null,
-        $actor.flags?.a5e?.showSpellTab ?? true
-            ? {
-                  name: "spells",
-                  label: "A5E.TabSpells",
-                  component: ActorSpellsPage,
-                  display: $actor.flags?.a5e?.showSpellTab,
-              }
-            : null,
+        {
+            name: "maneuvers",
+            label: "A5E.TabManeuvers",
+            component: ActorManeuversPage,
+            display: $actor.flags?.a5e?.showManeuverTab,
+        },
+        {
+            name: "spells",
+            label: "A5E.TabSpells",
+            component: ActorSpellsPage,
+            display: $actor.flags?.a5e?.showSpellTab,
+        },
         {
             name: "biography",
             label: "A5E.TabBiography",
@@ -95,7 +91,7 @@
             label: "A5E.TabSettings",
             component: ActorSettingsPage,
         },
-    ].filter(Boolean);
+    ];
 
     $: currentTab =
         tabs.find((tab) => tab.name === $actor.flags?.a5e?.currentTab) ??
