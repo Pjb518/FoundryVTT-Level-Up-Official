@@ -1,21 +1,22 @@
-export default function getMovementData(data) {
+export default function getMovementData(actor) {
   // eslint-disable-next-line no-unused-vars
-  const hover = data.system.attributes.movement.traits.hover
-  const speeds = Object.entries(data.system.attributes.movement).filter(([key, speed]) => {
-    if (key === "fly" && !speed && hover) { return true; }
-    if (key === "traits") { return false; }
-    return speed
-  })
+  const { hover } = actor.system.attributes.movement.traits.hover
+  const distances = Object.entries(actor.system.attributes.movement).filter(([mode, distance]) => {
+    if (mode === "fly" && hover) { return true; }
+    if (mode === "traits") { return false; }
+    return distance;
+  });
 
   const unit = game.i18n.localize('A5E.MeasurementFeetAbbr');
-  const hoverAbbr = game.i18n.localize('A5E.MovementHoverAbbr');
+  const hoverText = game.i18n.localize('A5E.MovementHover');
 
-  return speeds.map(([name, speed]) => {
-    const label = game.i18n.localize(CONFIG.A5E.movement[name]);
-    if (name == "fly" && hover) {
-      return `${label} - ${speed || 0} ${unit} ${hoverAbbr}`;
+  return distances.map(([mode, distance]) => {
+    const modeLabel = game.i18n.localize(CONFIG.A5E.movement[mode]);
+
+    if (mode == "fly" && hover) {
+      return `${modeLabel} - ${distance || 0} ${unit} (${hoverText.toLocaleLowerCase()})`;
     } else {
-      return `${label} - ${speed} ${unit}`;
+      return `${modeLabel} - ${distance} ${unit}`;
     }
   });
 }
