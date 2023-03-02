@@ -46,15 +46,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<li
-    class="item-wrapper"
-    draggable="true"
-    on:click={() => {
-        showDescription = !showDescription;
-    }}
->
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <span
+    <button
         class="item-image"
         class:item-image--shift={$pressedKeysStore.ShiftLeft}
         class:item-image--ctrl={$pressedKeysStore.ControlLeft}
@@ -121,7 +113,9 @@
         border-radius: 3px;
         transition: all 0.15s ease-in-out;
 
-        &:hover {
+        &:hover,
+        &:focus {
+            box-shadow: none;
             background: no-repeat center/100% url("/icons/svg/d20.svg");
         }
 
