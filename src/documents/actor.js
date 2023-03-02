@@ -129,19 +129,19 @@ export default class ActorA5e extends Actor {
     const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
     actorData.attributes.hp.max = baseHP + bonusHP;
 
-    actorData.attributes.maneuverDC = getDeterministicBonus(
-      8
-      + actorData.attributes.prof
-      + (parseInt(actorData.bonuses.maneuverDC, 10) || 0)
-      + Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
-    );
+    actorData.attributes.maneuverDC = getDeterministicBonus([
+      8,
+      actorData.attributes.prof,
+      actorData.bonuses.maneuverDC,
+      Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
+    ].join(' + '));
 
-    actorData.attributes.spellDC = getDeterministicBonus(
-      8
-      + actorData.attributes.prof
-      + (parseInt(actorData.bonuses?.spell?.dc, 10) || 0)
-      + actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
-    );
+    actorData.attributes.spellDC = getDeterministicBonus([
+      8,
+      actorData.attributes.prof,
+      actorData.bonuses?.spell?.dc || 0,
+      actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
+    ].join(' + '));
 
     if (this.type === 'character') {
       actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
