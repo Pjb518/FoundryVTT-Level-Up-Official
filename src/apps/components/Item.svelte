@@ -8,6 +8,8 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
 
     export let item;
+    let shiftHeld = false;
+    let ctrlHeld = false;
 
     function getSummaryComponent(item) {
         switch (item.type) {
@@ -22,6 +24,21 @@
         }
     }
 
+    function onHover(event) {
+        const { ctrlKey, shiftKey } = event;
+
+        if (shiftKey) shiftHeld = true;
+        else shiftHeld = false;
+
+        if (ctrlKey) ctrlHeld = true;
+        else ctrlHeld = false;
+    }
+
+    function onLeave(event) {
+        shiftHeld = false;
+        ctrlHeld = false;
+    }
+
     let showDescription = false;
 </script>
 
@@ -34,11 +51,16 @@
     }}
 >
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <img
+    <span
         class="item-image"
-        src={item.img}
-        alt={item.name}
+        class:item-image--shift={shiftHeld}
+        class:item-image--ctrl={ctrlHeld}
+        style="--background-image: url({item.img});"
+        role="img"
+        aria-labelledby={item.name}
         on:click|stopPropagation={() => item.activate()}
+        on:mousemove={onHover}
+        on:mouseleave={onLeave}
     />
 
     {item.name}
@@ -59,11 +81,16 @@
         {#each item.actions.entries() as [id, action]}
             <li class="item-wrapper" draggable="false">
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <img
+                <span
                     class="item-image"
-                    src={action.img ?? "icons/svg/item-bag.svg"}
-                    alt={action.name}
+                    class:item-image--shift={shiftHeld}
+                    class:item-image--ctrl={ctrlHeld}
+                    style="--background-image: url({action.img});"
+                    role="img"
+                    aria-labelledby={action.name}
                     on:click|stopPropagation={() => item.activate(id)}
+                    on:mousemove={onHover}
+                    on:mouseleave={onLeave}
                 />
 
                 {action.name}
@@ -72,7 +99,7 @@
     </ul>
 {/if}
 
-<style>
+<style lang="scss">
     .actions-list {
         display: flex;
         flex-direction: column;
@@ -101,8 +128,25 @@
     }
 
     .item-image {
+        position: relative;
         height: 1.75rem;
         width: 1.75rem;
+        background: no-repeat center/100% var(--background-image);
         border-radius: 3px;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            background: no-repeat center/100% url("/icons/svg/d20.svg");
+        }
+
+        &--shift {
+            filter: invert(34%) sepia(4%) saturate(4360%) hue-rotate(143deg)
+                brightness(78%) contrast(65%);
+        }
+
+        &--ctrl {
+            filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
+                brightness(101%) contrast(95%);
+        }
     }
 </style>
