@@ -1,6 +1,6 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";

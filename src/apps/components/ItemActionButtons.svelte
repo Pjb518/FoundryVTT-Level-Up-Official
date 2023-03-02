@@ -32,15 +32,17 @@
 </script>
 
 <div class="action-buttons">
-    <button
-        class="action-button fas fa-star"
-        class:active={item.system.favorite}
-        class:locked={sheetIsLocked}
-        disabled={sheetIsLocked}
-        data-tooltip="A5E.ButtonToolTipFavorite"
-        data-tooltip-direction="UP"
-        on:click|stopPropagation={() => item.toggleFavorite()}
-    />
+    {#if item?.system?.favorite !== undefined}
+        <button
+            class="action-button fas fa-star"
+            class:active={item.system.favorite}
+            class:locked={sheetIsLocked}
+            disabled={sheetIsLocked}
+            data-tooltip="A5E.ButtonToolTipFavorite"
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() => item.toggleFavorite()}
+        />
+    {/if}
 
     {#if item.type === "object"}
         <button

@@ -1,5 +1,6 @@
 <script>
     import { slide } from "svelte/transition";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
@@ -8,12 +9,13 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
 
     export let item;
+    export let actionId = null;
 
     let shiftHeld = false;
     let ctrlHeld = false;
 
     function getSummaryComponent(item) {
-        switch (item.type) {
+        switch (item?.type) {
             case "feature":
                 return FeatureSummary;
             case "maneuver":
@@ -56,10 +58,10 @@
         class="item-image"
         class:item-image--shift={shiftHeld}
         class:item-image--ctrl={ctrlHeld}
-        style="--background-image: url({item.img});"
+        style="--background-image: url({item.img ?? 'icons/svg/item-bag.svg'});"
         role="img"
         aria-labelledby={item.name}
-        on:click|stopPropagation={() => item.activate()}
+        on:click|stopPropagation={() => item.activate(actionId)}
         on:focus={onHover}
         on:mouseover={onHover}
         on:mouseleave={onLeave}
@@ -74,30 +76,16 @@
     <div class="description-wrapper" transition:slide>
         <svelte:component this={getSummaryComponent(item)} {item} />
 
-        {@html item.system.description}
+        {@html item.description ??
+            item?.system?.description ??
+            localize("A5E.NoDescription")}
     </div>
 {/if}
 
-{#if item.actions.count > 1}
+{#if item?.actions?.count > 1}
     <ul class="actions-list">
-        {#each item.actions.entries() as [id, action]}
-            <li class="item-wrapper" draggable="false">
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <span
-                    class="item-image"
-                    class:item-image--shift={shiftHeld}
-                    class:item-image--ctrl={ctrlHeld}
-                    style="--background-image: url({action.img});"
-                    role="img"
-                    aria-labelledby={action.name}
-                    on:click|stopPropagation={() => item.activate(id)}
-                    on:focus={onHover}
-                    on:mouseover={onHover}
-                    on:mouseleave={onLeave}
-                />
-
-                {action.name}
-            </li>
+        {#each item?.actions?.entries() as [id, action]}
+            <svelte:self item={action} actionId={id} />
         {/each}
     </ul>
 {/if}
