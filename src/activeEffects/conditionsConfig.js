@@ -1,4 +1,4 @@
-import A5E from '../../config';
+import A5E from '../config';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                         Changes

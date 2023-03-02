@@ -31,7 +31,7 @@ import registerSystemSettings from './settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
 
-import setupConditions from './modules/activeEffects/conditions';
+import setupConditions from './activeEffects/conditions';
 
 // Macros
 import activateItemMacro from './modules/macros/activateItemMacro';
