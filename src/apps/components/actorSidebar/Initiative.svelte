@@ -1,6 +1,9 @@
 <script>
     import { getContext } from "svelte";
 
+    import pressedKeysStore from "../../../stores/pressedKeysStore";
+    import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
+
     const actor = getContext("actor");
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -15,13 +18,11 @@
             class="initiative-roll-button fas fa-dice-d20"
             data-tooltip="A5E.RollInitiative"
             data-tooltip-direction="DOWN"
-            on:click={(event) =>
+            on:click={() =>
                 $actor.rollInitiative({
                     createCombatants: true,
                     initiativeOptions: {
-                        rollOptions: {
-                            skipRollDialog: event.altKey,
-                        },
+                        rollOptions: getKeyPressAsOptions($pressedKeysStore),
                     },
                 })}
         />
