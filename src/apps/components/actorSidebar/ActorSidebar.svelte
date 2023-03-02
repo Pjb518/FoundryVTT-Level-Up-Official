@@ -12,6 +12,7 @@
     import RestTrack from "./RestTrack.svelte";
     import StatusTrack from "./StatusTrack.svelte";
     import Details from "./Details.svelte";
+    import DeathSaveOverlay from "./DeathSaveOverlay.svelte";
 
     export let hp;
 
@@ -35,6 +36,10 @@
                 title={$actor.name}
                 on:click={onEditImage}
             />
+
+            {#if hp.value === 0}
+                <DeathSaveOverlay />
+            {/if}
         </HitPointBar>
 
         <StatusTrack
