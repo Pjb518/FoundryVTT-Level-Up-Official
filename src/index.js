@@ -6,6 +6,7 @@ import ActorSheetA5e from './apps/ActorSheet';
 import ItemSheetA5e from './apps/ItemSheet';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
+import KeyPressHandler from './apps/KeyPressHandler.svelte';
 
 import A5E from './modules/config';
 import ActiveEffectA5e from './documents/activeEffects';
@@ -181,6 +182,10 @@ Hooks.once('ready', () => {
   announcementWindow.render(true);
 
   game.user.setFlag('a5e', 'latestAnnouncement', game.system.data.version);
+});
+
+Hooks.once('ready', () => {
+  new KeyPressHandler({ target: document.body });
 });
 
 Hooks.on('canvasInit', () => {

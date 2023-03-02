@@ -2,6 +2,8 @@
     import { slide } from "svelte/transition";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import pressedKeysStore from "../../stores/pressedKeysStore";
+
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
     import ManeuverSummary from "./itemSummaries/ManeuverSummary.svelte";
@@ -11,8 +13,7 @@
     export let item;
     export let actionId = null;
 
-    let shiftHeld = false;
-    let ctrlHeld = false;
+    let showDescription = false;
 
     function getSummaryComponent(item) {
         switch (item?.type) {
@@ -26,23 +27,6 @@
                 return SpellSummary;
         }
     }
-
-    function onHover(event) {
-        const { ctrlKey, shiftKey } = event;
-
-        if (shiftKey) shiftHeld = true;
-        else shiftHeld = false;
-
-        if (ctrlKey) ctrlHeld = true;
-        else ctrlHeld = false;
-    }
-
-    function onLeave() {
-        shiftHeld = false;
-        ctrlHeld = false;
-    }
-
-    let showDescription = false;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -56,15 +40,12 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <span
         class="item-image"
-        class:item-image--shift={shiftHeld}
-        class:item-image--ctrl={ctrlHeld}
+        class:item-image--shift={$pressedKeysStore.ShiftLeft}
+        class:item-image--ctrl={$pressedKeysStore.ControlLeft}
         style="--background-image: url({item.img ?? 'icons/svg/item-bag.svg'});"
         role="img"
         aria-labelledby={item.name}
         on:click|stopPropagation={() => item.activate(actionId)}
-        on:focus={onHover}
-        on:mouseover={onHover}
-        on:mouseleave={onLeave}
     />
 
     {item.name}
@@ -130,12 +111,12 @@
             background: no-repeat center/100% url("/icons/svg/d20.svg");
         }
 
-        &--shift {
+        &--shift:hover {
             filter: invert(34%) sepia(4%) saturate(4360%) hue-rotate(143deg)
                 brightness(78%) contrast(65%);
         }
 
-        &--ctrl {
+        &--ctrl:hover {
             filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
                 brightness(101%) contrast(95%);
         }
