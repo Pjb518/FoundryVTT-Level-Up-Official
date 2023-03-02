@@ -25,7 +25,6 @@ import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollD
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
 import calculatePassiveScore from '../utils/calculatePassiveScore';
-import calculateSpellDC from '../utils/calculateSpellDC';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
@@ -130,10 +129,19 @@ export default class ActorA5e extends Actor {
     const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
     actorData.attributes.hp.max = baseHP + bonusHP;
 
-    actorData.attributes.maneuverDC = 8
+    actorData.attributes.maneuverDC = getDeterministicBonus(
+      8
       + actorData.attributes.prof
       + (parseInt(actorData.bonuses.maneuverDC, 10) || 0)
-      + Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod);
+      + Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
+    );
+
+    actorData.attributes.spellDC = getDeterministicBonus(
+      8
+      + actorData.attributes.prof
+      + (parseInt(actorData.bonuses?.spell?.dc, 10) || 0)
+      + actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
+    );
 
     if (this.type === 'character') {
       actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
@@ -311,7 +319,7 @@ export default class ActorA5e extends Actor {
 
     data.level = this.system.details.level;
 
-    data.spellDC = calculateSpellDC(this.system);
+    data.spellDC = this.system.attributes.spellDC;
     data.maneuverDC = this.system.attributes.maneuverDC;
 
     return data;
