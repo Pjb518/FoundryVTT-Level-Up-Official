@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import arraysAreEqual from "../../modules/utils/arraysAreEqual";
+    import arraysAreEqual from "../../utils/arraysAreEqual";
     import toggleFilter from "../utils/toggleFilter";
 
     export let filterSections;

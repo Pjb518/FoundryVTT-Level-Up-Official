@@ -1,4 +1,4 @@
-import getDeterministicBonus from '../../dice/getDeterministicBonus';
+import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 export default function calculatePassiveScore(skill, rollData) {
   const { ability } = skill;

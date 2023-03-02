@@ -24,13 +24,13 @@ import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRol
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
-import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
-import calculateSpellDC from '../modules/utils/calculateSpellDC';
+import calculateManeuverDC from '../utils/calculateManeuverDC';
+import calculatePassiveScore from '../utils/calculatePassiveScore';
+import calculateSpellDC from '../utils/calculateSpellDC';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
-import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
+import getBaseAbilityMod from '../utils/getBaseAbilityMod';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
+import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;

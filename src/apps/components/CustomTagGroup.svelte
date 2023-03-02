@@ -2,7 +2,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
-    import arraysAreEqual from "../../modules/utils/arraysAreEqual";
+    import arraysAreEqual from "../../utils/arraysAreEqual";
 
     export let options = [];
     export let selected = [];

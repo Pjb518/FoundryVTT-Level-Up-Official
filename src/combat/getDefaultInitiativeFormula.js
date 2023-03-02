@@ -1,5 +1,5 @@
 import constructD20RollFormula from '../dice/constructD20RollFormula';
-import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
+import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 
 export default function getDefaultInitiativeFormula(actor, options = {}) {
   const skillKey = options?.skillKey;

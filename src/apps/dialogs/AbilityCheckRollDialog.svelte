@@ -7,7 +7,7 @@
     import FormSection from "../components/FormSection.svelte";
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
+    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;

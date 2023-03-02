@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import arraysAreEqual from "../../modules/utils/arraysAreEqual";
+    import arraysAreEqual from "../../utils/arraysAreEqual";
 
     export let selected = [];
     export let sort = true;

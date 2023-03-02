@@ -1,4 +1,4 @@
-import arraysAreEqual from '../../modules/utils/arraysAreEqual';
+import arraysAreEqual from '../../utils/arraysAreEqual';
 
 export default function getWeaponProficiencies(data) {
   const weaponProficienciesByGroup = data.system.proficiencies.weapons.reduce(

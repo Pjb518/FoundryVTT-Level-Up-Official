@@ -1,9 +1,9 @@
 import ActionsManager from '../managers/ActionsManager';
 
-import getChatCardTargets from '../modules/utils/getChatCardTargets';
+import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
-import createTemplateDocument from '../modules/utils/templates/createTemplateDocument';
+import createTemplateDocument from '../utils/templates/createTemplateDocument';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';

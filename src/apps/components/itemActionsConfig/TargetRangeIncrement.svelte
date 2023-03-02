@@ -2,8 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import getOrdinalNumber from "../../../modules/utils/getOrdinalNumber";
-    import isStandardRange from "../../../modules/utils/isStandardRange";
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import isStandardRange from "../../../utils/isStandardRange";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";

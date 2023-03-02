@@ -5,7 +5,7 @@
     import pressedKeysStore from "../../stores/pressedKeysStore";
 
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
-    import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
+    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
 
     export let key;
     export let skill;
