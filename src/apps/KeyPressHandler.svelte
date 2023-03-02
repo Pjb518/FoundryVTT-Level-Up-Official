@@ -1,5 +1,5 @@
 <script>
-    import { onMount, onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
 
     import keyBindingStore from "../stores/pressedKeysStore";
 
@@ -18,19 +18,11 @@
         keyBindingStore.update(() => ({ ...pressedKeys }));
     }
 
-    function resetKeys() {
-        Object.keys(pressedKeys).forEach((key) => (pressedKeys[key] = false));
-        keyBindingStore.update(() => ({ ...pressedKeys }));
-    }
-
-    onMount(() => {
-        document.onvisibilitychange = () => resetKeys();
-    });
-
     onDestroy(unsubscribe);
 </script>
 
 <svelte:window
     on:keydown={(event) => logKey(event, true)}
     on:keyup={(event) => logKey(event, false)}
+    on:blur={(event) => logKey(event, false)}
 />
