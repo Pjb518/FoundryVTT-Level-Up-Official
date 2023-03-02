@@ -25,7 +25,6 @@
     <!-- TODO: Possible conversion to number -->
     {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
         <FormSection heading={headings[sense]} inline={true}>
-            {console.log($actor.system.attributes.senses)}
             <div class="u-w-20">
                 <input
                     class="a5e-input"
