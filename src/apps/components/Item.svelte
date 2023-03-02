@@ -46,6 +46,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<li class="item-wrapper" draggable="true">
     <button
         class="item-image"
         class:item-image--shift={$pressedKeysStore.ShiftLeft}
@@ -54,7 +55,14 @@
         on:click|stopPropagation={onItemActivate}
     />
 
-    {item.name}
+    <div
+        class="item-name"
+        on:click={() => {
+            showDescription = !showDescription;
+        }}
+    >
+        {item.name}
+    </div>
 
     <ItemActionButtons {item} />
 </li>
@@ -102,6 +110,13 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
+    }
+
+    .item-name {
+        display: flex;
+        flex-grow: 1;
+        height: 1.75rem;
+        align-items: center;
         cursor: pointer;
     }
 
