@@ -2,6 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import pressedKeysStore from "../../../stores/pressedKeysStore";
+
+    import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
     import rollAbilityCheck from "../../handlers/rollAbilityCheck";
     import rollSavingThrow from "../../handlers/rollSavingThrow";
 
@@ -37,7 +40,12 @@
         class="roll-button"
         data-tooltip="A5E.RollAbilityCheck"
         data-tooltip-direction="DOWN"
-        on:click={(event) => rollAbilityCheck($actor, abilityLabel, event)}
+        on:click={() =>
+            rollAbilityCheck(
+                $actor,
+                abilityLabel,
+                getKeyPressAsOptions($pressedKeysStore)
+            )}
     >
         <h4 class="roll-button-label">Check</h4>
 
@@ -51,7 +59,12 @@
         class="roll-button"
         data-tooltip="A5E.RollSavingThrow"
         data-tooltip-direction="DOWN"
-        on:click={(event) => rollSavingThrow($actor, abilityLabel, event)}
+        on:click={() =>
+            rollSavingThrow(
+                $actor,
+                abilityLabel,
+                getKeyPressAsOptions($pressedKeysStore)
+            )}
     >
         <h4 class="roll-button-label">Save</h4>
 
