@@ -1,7 +1,7 @@
 import ActionsManager from '../managers/ActionsManager';
 
 import getChatCardTargets from '../modules/utils/getChatCardTargets';
-import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
+import getDeterministicBonus from '../dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 import createTemplateDocument from '../modules/utils/templates/createTemplateDocument';
 

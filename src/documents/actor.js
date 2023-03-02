@@ -27,9 +27,9 @@ import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDia
 import calculateManeuverDC from '../modules/utils/calculateManeuverDC';
 import calculatePassiveScore from '../modules/utils/calculatePassiveScore';
 import calculateSpellDC from '../modules/utils/calculateSpellDC';
-import constructD20RollFormula from '../modules/dice/constructD20RollFormula';
+import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getBaseAbilityMod from '../modules/utils/getBaseAbilityMod';
-import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
+import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../modules/utils/getExpertiseDieSize';
 
 export default class ActorA5e extends Actor {
