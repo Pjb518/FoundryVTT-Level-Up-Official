@@ -34,8 +34,8 @@ import rollInitiative from './combat/rollInitiative';
 import setupConditions from './activeEffects/conditions';
 
 // Macros
-import activateItemMacro from './modules/macros/activateItemMacro';
-import createMacro from './modules/macros/createMacro';
+import activateItemMacro from './macros/activateItemMacro';
+import createMacro from './macros/createMacro';
 
 // Migrations
 import migrateWorld from './modules/migrations/migrateWorld';

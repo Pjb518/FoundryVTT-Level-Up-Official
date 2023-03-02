@@ -6,7 +6,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
 
-    import constructD20RollFormula from "../../modules/dice/constructD20RollFormula";
+    import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
     export let { combatant, dialog, options } =
