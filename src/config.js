@@ -316,6 +316,7 @@ A5E.itemRarity = {
 A5E.itemTypes = {
   background: 'ITEM.TypeBackground',
   culture: 'ITEM.TypeCulture',
+  destiny: 'ITEM.TypeDestiny',
   feature: 'ITEM.TypeFeature',
   maneuver: 'ITEM.TypeManeuver',
   object: 'ITEM.TypeObject',
