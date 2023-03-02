@@ -33,7 +33,7 @@
     $: skill = $actor.system.skills[skillKey];
 </script>
 
-<main>
+<article>
     <FormSection>
         <div class="u-align-center u-flex u-gap-md">
             <input
@@ -186,10 +186,15 @@
             </div>
         </div>
     </FormSection>
-</main>
+</article>
 
 <style lang="scss">
-    main {
+    :global {
+        .a5e-sheet .dialog-content {
+            height: 100%;
+        }
+    }
+    article {
         display: flex;
         flex-direction: column;
         height: 100%;

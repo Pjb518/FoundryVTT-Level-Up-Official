@@ -44,37 +44,43 @@
         rollMode,
         modifiers: [
             {
-                label: "Initiative Bonus",
+                label: localize("A5E.InitiativeBonus"),
                 value: $actor.system.attributes.initiative.bonus,
             },
             {
-                label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+                label: localize("A5E.AbilityCheckMod", {
+                    ability: localize(CONFIG.A5E.abilities[abilityKey]),
+                }),
                 value: $actor.system.abilities[abilityKey]?.check.mod,
             },
             {
-                label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
+                label: localize("A5E.SkillCheckMod", {
+                    skill: localize(CONFIG.A5E.skills[skillKey]),
+                }),
                 value: $actor.system.skills[skillKey]?.mod,
             },
             {
-                label: `${localize(
-                    CONFIG.A5E.abilities[abilityKey]
-                )} Check Bonus`,
+                label: localize("A5E.AbilityCheckBonus", {
+                    ability: localize(CONFIG.A5E.abilities[abilityKey]),
+                }),
                 value: $actor.system.abilities[abilityKey]?.check.bonus,
             },
             {
-                label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+                label: localize("A5E.SkillCheckBonus", {
+                    skill: localize(CONFIG.A5E.skills[skillKey]),
+                }),
                 value: $actor.system.skills[skillKey]?.bonuses.check,
             },
             {
-                label: "Global Check Bonus",
+                label: localize("A5E.AbilityCheckBonusGlobal"),
                 value: $actor.system.bonuses.abilities.check,
             },
             {
-                label: "Global Skill Bonus",
+                label: localize("A5E.SkillCheckBonusGlobal"),
                 value: skillKey ? $actor.system.bonuses.abilities.skill : null,
             },
             {
-                label: "Expertise Die",
+                label: localize("A5E.ExpertiseDie"),
                 value: getExpertiseDieSize(expertiseDie),
             },
             {
@@ -86,7 +92,9 @@
 
 <form>
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">Roll Mode</h3>
+        <h3 class="heading">
+            {localize("A5E.RollModeHeading")}
+        </h3>
 
         <div
             class="
@@ -122,7 +130,9 @@
     </section>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">{localize("A5E.AbilityScore")}</h3>
+        <h3 class="heading">
+            {localize("A5E.AbilityScore")}
+        </h3>
 
         <div
             class="
@@ -158,7 +168,9 @@
     </section>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">{localize("A5E.Skill")}</h3>
+        <h3 class="heading">
+            {localize("A5E.Skill")}
+        </h3>
 
         <div
             class="
