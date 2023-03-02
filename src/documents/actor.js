@@ -28,7 +28,6 @@ import calculateManeuverDC from '../utils/calculateManeuverDC';
 import calculatePassiveScore from '../utils/calculatePassiveScore';
 import calculateSpellDC from '../utils/calculateSpellDC';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
-import getBaseAbilityMod from '../utils/getBaseAbilityMod';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 
@@ -105,7 +104,7 @@ export default class ActorA5e extends Actor {
 
     // Calculate the base ability modifier for each ability score.
     Object.values(actorData.abilities).forEach((ability) => {
-      const baseMod = getBaseAbilityMod(ability.value);
+      const baseMod = Math.floor((ability.value - 10) / 2);
 
       ability.check.mod = baseMod;
       ability.save.mod = baseMod + (ability.save.proficient ? actorData.attributes.prof : 0);
