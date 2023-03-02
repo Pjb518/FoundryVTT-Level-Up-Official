@@ -1,4 +1,4 @@
-import isStandardRange from '../../utils/isStandardRange';
+import isStandardRange from '../../modules/utils/isStandardRange';
 
 /**
  *

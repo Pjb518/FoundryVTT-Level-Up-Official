@@ -3,7 +3,7 @@
 import './scss/main.scss';
 
 // eslint-disable-next-line no-unused-vars
-import migrateActionsConfig from './modules/migrations/v090Migrations/migrateActionsConfig';
+import migrateActionsConfig from './migrations/v090Migrations/migrateActionsConfig';
 
 import ActorSheetA5e from './apps/ActorSheet';
 import ItemSheetA5e from './apps/ItemSheet';
@@ -38,14 +38,14 @@ import activateItemMacro from './macros/activateItemMacro';
 import createMacro from './macros/createMacro';
 
 // Migrations
-import migrateWorld from './modules/migrations/migrateWorld';
-import migrateActorData from './modules/migrations/migrateActorData';
-import migrateCompendium from './modules/migrations/migrateCompendium';
-import migrateItemData from './modules/migrations/migrateItemData';
-import migrateMacroData from './modules/migrations/migrateMacroData';
-import migrateSceneData from './modules/migrations/migrateSceneData';
+import migrateWorld from './migrations/migrateWorld';
+import migrateActorData from './migrations/migrateActorData';
+import migrateCompendium from './migrations/migrateCompendium';
+import migrateItemData from './migrations/migrateItemData';
+import migrateMacroData from './migrations/migrateMacroData';
+import migrateSceneData from './migrations/migrateSceneData';
 
-import migrateCurrentHitPoints from './modules/migrations/helpers/migrateCurrentHitPoints';
+import migrateCurrentHitPoints from './migrations/helpers/migrateCurrentHitPoints';
 
 Hooks.once('init', () => {
   game.a5e = {
