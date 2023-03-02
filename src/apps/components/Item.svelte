@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
+    import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
 
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
@@ -29,18 +30,7 @@
     }
 
     function onItemActivate() {
-        const { ShiftLeft, ControlLeft, AltLeft } = $pressedKeysStore;
-
-        let rollMode = ShiftLeft
-            ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
-            : CONFIG.A5E.ROLL_MODE.NORMAL;
-        rollMode = ControlLeft ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
-
-        const options = {
-            skipRollDialog: AltLeft,
-            rollMode: rollMode,
-        };
-
+        const options = getKeyPressAsOptions($pressedKeysStore);
         item.activate(actionId, options);
     }
 </script>
