@@ -2,11 +2,11 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
     import ItemCategory from "../ItemCategory.svelte";
     import TabFooter from "../TabFooter.svelte";
     import SortFilter from "../SortFilter.svelte";
-
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
     const { spells } = actor;
@@ -39,7 +39,7 @@
 
     <TabFooter>
         <!-- Spell Points -->
-        {#if $actor?.flags?.a5e?.showSpellPoints ?? false}
+        {#if $actor.flags.a5e?.showSpellPoints ?? false}
             <div class="u-flex u-flex-wrap u-align-center u-gap-md">
                 <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
                     {localize("A5E.SpellPoints")}

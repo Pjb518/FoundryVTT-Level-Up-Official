@@ -5,6 +5,7 @@
     import { getContext, setContext } from "svelte";
 
     import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";
+    import ActionsDescriptionTab from "../components/pages/ActionsDescriptionTab.svelte";
     import ActionsPromptsTab from "../components/pages/ActionsPromptsTab.svelte";
     import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
     import ActionsConsumerTab from "../components/pages/ActionsConsumerTab.svelte";
@@ -22,6 +23,11 @@
     }
 
     const tabs = [
+        {
+            name: "description",
+            label: "A5E.ItemSheetLabelDescriptionTab",
+            component: ActionsDescriptionTab,
+        },
         {
             name: "activation",
             label: "A5E.TabActivation",
@@ -44,7 +50,7 @@
         },
         {
             name: "consumers",
-            label: "A5E.TabConsumers",
+            label: "A5E.TabResourceConsumption",
             component: ActionsConsumerTab,
         },
     ];

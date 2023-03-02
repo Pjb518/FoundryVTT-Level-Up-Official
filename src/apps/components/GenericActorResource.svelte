@@ -2,9 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import GenericActorResourceConfigDialog from "../dialogs/initializers/GenericActorResourceConfigDialog";
-
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+
+    import GenericActorResourceConfigDialog from "../dialogs/initializers/GenericActorResourceConfigDialog";
 
     export let resource;
     export let source;

@@ -15,11 +15,11 @@
     function getSubmitButtonText(saveType, abilityKey) {
         if (saveType === "death") return "Roll Death Saving Throw";
         else if (abilityKey === "con" && saveType === "concentration") {
-            return "Roll Concentration Check";
+            return localize("A5E.RollConcentrationCheck");
         } else {
-            return `Roll ${localize(
-                CONFIG.A5E.abilities[abilityKey]
-            )} Saving Throw`;
+            return localize("A5E.RollPromptSavingThrow", {
+                ability: localizeSave,
+            });
         }
     }
 
@@ -32,12 +32,13 @@
     );
 
     const saveTypes = [
-        { name: "Standard Saving Throw", value: "standard" },
-        { name: "Concentration Check", value: "concentration" },
+        { name: "A5E.SavingThrowNormal", value: "standard" },
+        { name: "A5E.ConcentrationCheck", value: "concentration" },
     ];
 
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
+    const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     function onSubmit() {
         dialog.submit({ rollFormula });
@@ -59,17 +60,19 @@
         rollMode,
         modifiers: [
             {
-                label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+                label: localize("A5E.AbilityCheckMod", {
+                    ability: localizeSave,
+                }),
                 value: $actor.system.abilities[abilityKey]?.save.mod,
             },
             {
-                label: `${localize(
-                    CONFIG.A5E.abilities[abilityKey]
-                )} Save Bonus`,
+                label: localize("A5E.SavingThrowBonus", {
+                    ability: localizeSave,
+                }),
                 value: $actor.system.abilities[abilityKey]?.save.bonus,
             },
             {
-                label: "Concentration Bonus",
+                label: localize("A5E.ConcentrationBonus"),
                 value:
                     saveType === "concentration"
                         ? $actor.system.abilities[abilityKey]?.save
@@ -77,11 +80,11 @@
                         : null,
             },
             {
-                label: "Global Save Bonus",
+                label: localize("A5E.SavingThrowBonusGlobal"),
                 value: $actor.system.bonuses.abilities.save,
             },
             {
-                label: "Expertise Die",
+                label: localize("A5E.ExpertiseDie"),
                 value: getExpertiseDieSize(expertiseDie),
             },
             {
@@ -93,7 +96,9 @@
 
 <form>
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">Roll Mode</h3>
+        <h3 class="heading">
+            {localize("A5E.RollModeHeading")}
+        </h3>
 
         <div
             class="
@@ -141,7 +146,9 @@
         <section
             class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative"
         >
-            <h3 class="heading">Saving Throw Type</h3>
+            <h3 class="heading">
+                {localize("A5E.ItemSavingThrowType")}
+            </h3>
 
             <div
                 class="
@@ -170,7 +177,7 @@
                         class:a5e-tag--inactive={value !== saveType}
                         for={`${$actor.id}-${appId}-save-type-${value}`}
                     >
-                        {name}
+                        {localize(name)}
                     </label>
                 {/each}
             </div>

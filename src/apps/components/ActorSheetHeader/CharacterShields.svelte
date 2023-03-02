@@ -9,6 +9,7 @@
 
     $: hasInspiration = $actor.system.attributes.inspiration;
     $: requiredXP = getRequiredExperiencePoints($actor);
+    $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="character-shields__container">
@@ -20,8 +21,10 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="fas fa-dice-d20 shield-inspiration"
+            class:shield-inspiration--unlocked={!sheetIsLocked}
             class:shield-inspiration--active={hasInspiration}
-            on:click={() => $actor.toggleInspiration()}
+            on:click={() =>
+                !sheetIsLocked ? $actor.toggleInspiration() : null}
         />
     </div>
 
@@ -137,12 +140,15 @@
         font-size: 1rem;
         border: 0;
         padding: 0.125rem;
-        cursor: pointer;
         transition: all 0.15s ease-in-out;
 
-        &:hover {
-            transform: scale(1.2);
-            color: #555;
+        &--unlocked {
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.2);
+                color: #555;
+            }
         }
 
         &--active {

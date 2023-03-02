@@ -37,6 +37,18 @@
 
         onUpdateFilters(inclusiveFilters, exclusiveFilters);
     }
+
+    function removeFilter(filter) {
+        const inclusiveFilters = activeFilters.inclusive ?? [];
+        const exclusiveFilters = activeFilters.exclusive ?? [];
+
+        if (inclusiveFilters.includes(filter))
+            inclusiveFilters.splice(inclusiveFilters.indexOf(filter), 1);
+        else if (exclusiveFilters.includes(filter))
+            exclusiveFilters.splice(exclusiveFilters.indexOf(filter), 1);
+
+        onUpdateFilters(inclusiveFilters, exclusiveFilters);
+    }
 </script>
 
 <section class="filter-box">
@@ -53,8 +65,8 @@
                     class="u-text-xs"
                     on:click|stopPropagation={() => toggleAll(filters)}
                 >
-                    + Toggle All</a
-                >
+                    {localize("A5E.ButtonToggleAll")}
+                </a>
             </header>
 
             <ul class="filter-box__filters u-text-xs u-w-full">
@@ -69,6 +81,7 @@
                             value
                         ) && !activeFilters?.exclusive?.includes(value)}
                         on:click|stopPropagation={() => onFilterSelect(value)}
+                        on:auxclick|stopPropagation={() => removeFilter(value)}
                     >
                         {localize(label)}
                     </li>
@@ -76,6 +89,10 @@
             </ul>
         </div>
     {/each}
+
+    <div class="hint">
+        Hint: Right-click a filter to quickly remove it from the selection.
+    </div>
 </section>
 
 <style lang="scss">
@@ -107,5 +124,9 @@
                 border: 1px solid slategrey;
             }
         }
+    }
+
+    .hint {
+        font-size: 0.694rem;
     }
 </style>

@@ -12,6 +12,7 @@
 
     const actor = getContext("actor");
 
+    const A5E = CONFIG.A5E;
     const itemContext = [...items][0]?.type || "item";
 
     function createItem() {
@@ -47,7 +48,9 @@
                 class="a5e-button a5e-button--add inventory-add-icon"
                 on:click={createItem}
             >
-                + Add {itemContext.capitalize()}
+                {game.i18n.format("A5E.ButtonAdd", {
+                    type: localize(A5E.itemTypes[itemContext]),
+                })}
             </button>
         {/if}
     </span>

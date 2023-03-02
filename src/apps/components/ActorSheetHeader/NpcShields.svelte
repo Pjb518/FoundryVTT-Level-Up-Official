@@ -8,7 +8,7 @@
 
     $: xp = prepareXP($actor);
     $: isElite = $actor.system.details.elite;
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="level-container">
@@ -19,8 +19,9 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <i
                 class="fas fa-skull shield-elite"
+                class:shield-elite--unlocked={!sheetIsLocked}
                 class:shield-elite--active={isElite}
-                on:click={() => $actor.toggleElite()}
+                on:click={() => (!sheetIsLocked ? $actor.toggleElite() : null)}
             />
         </div>
     {/if}
@@ -127,10 +128,15 @@
         font-size: 1rem;
         border: 0;
         padding: 0.125rem;
+        transition: all 0.15s ease-in-out;
 
-        &:hover {
-            color: #555;
-            transform: scale(1.2);
+        &--unlocked {
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.2);
+                color: #555;
+            }
         }
 
         &--active {

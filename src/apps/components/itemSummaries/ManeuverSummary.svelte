@@ -3,19 +3,20 @@
 
     export let item;
 
+    const A5E = CONFIG.A5E;
     const action = item.actions.values()[0];
 </script>
 
 {#if item.system.degree === 0}
     <p class="summary">
-        {localize(CONFIG.A5E.maneuverDegrees[item.system.degree])}
+        {localize(A5E.maneuverDegrees[item.system.degree])}
     </p>
 {:else if item.system.degree > 0}
     <p class="summary">
-        {localize(CONFIG.A5E.maneuverDegrees[item.system.degree])}
+        {localize(A5E.maneuverDegrees[item.system.degree])}
 
         {#if item.system.tradition}
-            {localize(CONFIG.A5E.maneuverTraditions[item.system.tradition])}
+            {localize(A5E.maneuverTraditions[item.system.tradition])}
         {/if}
 
         {#if item.system.isStance}

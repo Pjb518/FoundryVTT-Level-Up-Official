@@ -5,14 +5,13 @@
 
     const actor = getContext("actor");
 
-    $: jackOfAllTrades = $actor.flags.a5e?.jackOfAllTrades;
     $: skills = $actor.system.skills;
 </script>
 
 <ul class="skills-container">
     <!-- svelte-ignore missing-declaration (CONFIG)-->
     {#each Object.entries(skills) as [key, skill]}
-        <Skill {jackOfAllTrades} {key} {skill} />
+        <Skill {key} {skill} />
     {/each}
 </ul>
 
@@ -24,6 +23,6 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        overflow-x: auto;
+        overflow-x: hidden;
     }
 </style>

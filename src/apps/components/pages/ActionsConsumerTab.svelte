@@ -26,13 +26,13 @@
         });
     }
 
-    $: action = $item.system.actions[actionId];
+    $: action = $item.actions[actionId];
 </script>
 
 <section class="action-config action-config__wrapper">
     <header class="action-config__section-header">
         <h2 class="action-config__section-heading">
-            {localize("A5E.TabConsumers")}
+            {localize("A5E.TabResourceConsumption")}
         </h2>
 
         <button class="add-button" on:click={() => addConsumer()}>
