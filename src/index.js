@@ -1,5 +1,8 @@
+/* eslint-disable no-underscore-dangle */
+
 import './scss/main.scss';
 
+// eslint-disable-next-line no-unused-vars
 import migrateActionsConfig from './modules/migrations/v090Migrations/migrateActionsConfig';
 
 import ActorSheetA5e from './apps/ActorSheet';
@@ -8,7 +11,7 @@ import ItemSheetA5e from './apps/ItemSheet';
 import A5eChatCard from './apps/chat/ChatCard.svelte';
 import KeyPressHandler from './apps/KeyPressHandler.svelte';
 
-import A5E from './modules/config';
+import A5E from './config';
 import ActiveEffectA5e from './documents/activeEffects';
 import ActorA5e from './documents/actor';
 import D20Roll from './modules/dice/d20Roll';
@@ -23,8 +26,8 @@ import _onCombatantControl from './modules/combat/_onCombatantControl';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
 import measureDistances from './modules/pixi/measureDistances';
-import preloadHandlebarsTemplates from './modules/templates';
-import registerSystemSettings from './modules/settings';
+import preloadHandlebarsTemplates from './templates';
+import registerSystemSettings from './settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
 import rollInitiative from './modules/combat/rollInitiative';
 
@@ -110,7 +113,7 @@ Hooks.once('init', () => {
     label: 'A5E.SheetClassItem'
   });
 
-  // TODO: In a future version, this helper can be removed. It is currently needed to suport legacy
+  // TODO: In a future version, this helper can be removed. It is currently needed to support legacy
   // chat cards as we go into 0.9.0.
   Handlebars.registerHelper('containsSubstring', (string, searchTerm) => string.toString().includes(searchTerm));
 
@@ -185,6 +188,7 @@ Hooks.once('ready', () => {
 });
 
 Hooks.once('ready', () => {
+  // eslint-disable-next-line no-new
   new KeyPressHandler({ target: document.body });
 });
 
