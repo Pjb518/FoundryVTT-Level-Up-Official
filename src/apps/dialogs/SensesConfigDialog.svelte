@@ -26,19 +26,36 @@
     {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
         <FormSection heading={headings[sense]} inline={true}>
             <div class="u-w-20">
-                <input
-                    class="a5e-input"
-                    type="number"
-                    name={`system.attributes.senses.${sense}.distance`}
-                    value={senseData.distance || 0}
-                    on:change={({ target }) => {
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value)
-                        );
-                    }}
-                />
+                {#if senseData.unit == "unlimited"}
+                    <input
+                        class="a5e-input"
+                        disabled="true"
+                        type="number"
+                        name={`system.attributes.senses.${sense}.distance`}
+                        value={0}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                Number(0)
+                            );
+                        }}
+                    />
+                {:else}
+                    <input
+                        class="a5e-input"
+                        type="number"
+                        name={`system.attributes.senses.${sense}.distance`}
+                        value={senseData.distance || 0}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                Number(target.value)
+                            );
+                        }}
+                    />
+                {/if}
             </div>
             <div class="u-w-20">
                 <select
