@@ -21,15 +21,15 @@ import TokenA5e from './documents/token';
 import TokenDocumentA5e from './documents/tokenDocument';
 import TokenHUDA5e from './documents/tokenHUD';
 
-import _onCombatControl from './modules/combat/_onCombatControl';
-import _onCombatantControl from './modules/combat/_onCombatantControl';
-import getInitiativeFormula from './modules/combat/getInitiativeFormula';
-import getInitiativeRoll from './modules/combat/getInitiativeRoll';
+import _onCombatControl from './combat/_onCombatControl';
+import _onCombatantControl from './combat/_onCombatantControl';
+import getInitiativeFormula from './combat/getInitiativeFormula';
+import getInitiativeRoll from './combat/getInitiativeRoll';
 import measureDistances from './pixi/measureDistances';
 import preloadHandlebarsTemplates from './templates';
 import registerSystemSettings from './settings';
-import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
-import rollInitiative from './modules/combat/rollInitiative';
+import rollCombatantInitiative from './combat/rollCombatantInitiative';
+import rollInitiative from './combat/rollInitiative';
 
 import setupConditions from './activeEffects/conditions';
 

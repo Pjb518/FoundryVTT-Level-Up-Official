@@ -1,6 +1,6 @@
 import getDefaultInitiativeFormula from './getDefaultInitiativeFormula';
 
-import InitiativeRollDialog from '../../apps/dialogs/initializers/InitiativeRollDialog';
+import InitiativeRollDialog from '../apps/dialogs/initializers/InitiativeRollDialog';
 
 /**
  * Override the default Initiative formula to customize special behaviors of the system.
