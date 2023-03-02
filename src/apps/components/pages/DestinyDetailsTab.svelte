@@ -6,9 +6,9 @@
 
     const item = getContext("item");
 
-    function addFeature(event) {
-        const transferData =
-            event.detail?.[0]?.dataTransfer?.getData("text/plain");
+    function addFeature(event, path) {
+        const [dragEvent, feature] = event.detail;
+        const transferData = dragEvent.dataTransfer?.getData("text/plain");
 
         if (!transferData)
             return ui.notifications.warn("The item is not a feature.");
@@ -17,19 +17,25 @@
         if (!uuid) return ui.notifications.warn("No UUID found on feature.");
 
         $item.update({
-            "system.sourceOfInspiration": uuid,
+            [`system.${path}`]: uuid,
         });
+
+        feature?.setFromUUID(uuid);
     }
 
-    function deleteFeature(event) {
+    function deleteFeature(event, path) {
+        const [_, feature] = event.detail;
+        feature.setFromUUID(null);
+        console.log(feature);
+
         $item.update({
-            "system.sourceOfInspiration": "",
+            [`system.${path}`]: "",
         });
     }
 
-    $: source = $item.system.sourceOfInspiration;
-    $: inspiration = $item.system.inspirationFeature;
-    $: fulfillment = $item.system.fulfillmentFeature;
+    $: source = $item.system.sourceOfInspiration || null;
+    $: inspiration = $item.system.inspirationFeature || null;
+    $: fulfillment = $item.system.fulfillmentFeature || null;
 </script>
 
 <article>
@@ -37,7 +43,7 @@
         <h3 class="section-title">
             {localize("A5E.DestinyFeatureSource")}
         </h3>
-
+        {source}
         <DropArea
             uuid={source}
             on:item-dropped={(event) =>
