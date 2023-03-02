@@ -8,6 +8,7 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
 
     export let item;
+
     let shiftHeld = false;
     let ctrlHeld = false;
 
@@ -34,7 +35,7 @@
         else ctrlHeld = false;
     }
 
-    function onLeave(event) {
+    function onLeave() {
         shiftHeld = false;
         ctrlHeld = false;
     }
@@ -59,7 +60,8 @@
         role="img"
         aria-labelledby={item.name}
         on:click|stopPropagation={() => item.activate()}
-        on:mousemove={onHover}
+        on:focus={onHover}
+        on:mouseover={onHover}
         on:mouseleave={onLeave}
     />
 
@@ -89,7 +91,8 @@
                     role="img"
                     aria-labelledby={action.name}
                     on:click|stopPropagation={() => item.activate(id)}
-                    on:mousemove={onHover}
+                    on:focus={onHover}
+                    on:mouseover={onHover}
                     on:mouseleave={onLeave}
                 />
 
