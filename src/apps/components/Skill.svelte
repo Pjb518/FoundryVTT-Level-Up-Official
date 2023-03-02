@@ -2,6 +2,9 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import pressedKeysStore from "../../stores/pressedKeysStore";
+
+    import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
     import getExpertiseDieSize from "../../modules/utils/getExpertiseDieSize";
 
     export let key;
@@ -26,9 +29,12 @@
 <li class="a5e-item a5e-item--skill" data-skill={skill}>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <span
-        on:click={$actor.rollSkillCheck(key)}
         class="a5e-skill__value"
         class:a5e-skill__value--green={skill.proficient}
+        on:click={$actor.rollSkillCheck(
+            key,
+            getKeyPressAsOptions($pressedKeysStore)
+        )}
     >
         {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
     </span>
