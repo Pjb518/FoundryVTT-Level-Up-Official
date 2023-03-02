@@ -2,7 +2,7 @@ import ActionsManager from '../managers/ActionsManager';
 
 import getChatCardTargets from '../modules/utils/getChatCardTargets';
 import getDeterministicBonus from '../modules/dice/getDeterministicBonus';
-import ItemMeasuredTemplate from '../modules/pixi/ItemMeasuredTemplate';
+import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 import createTemplateDocument from '../modules/utils/templates/createTemplateDocument';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';

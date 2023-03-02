@@ -25,7 +25,7 @@ import _onCombatControl from './modules/combat/_onCombatControl';
 import _onCombatantControl from './modules/combat/_onCombatantControl';
 import getInitiativeFormula from './modules/combat/getInitiativeFormula';
 import getInitiativeRoll from './modules/combat/getInitiativeRoll';
-import measureDistances from './modules/pixi/measureDistances';
+import measureDistances from './pixi/measureDistances';
 import preloadHandlebarsTemplates from './templates';
 import registerSystemSettings from './settings';
 import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
