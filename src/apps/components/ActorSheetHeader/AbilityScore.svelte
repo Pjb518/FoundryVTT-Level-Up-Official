@@ -5,9 +5,6 @@
     import pressedKeysStore from "../../../stores/pressedKeysStore";
 
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
-    import rollAbilityCheck from "../../handlers/rollAbilityCheck";
-    import rollSavingThrow from "../../handlers/rollSavingThrow";
-
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let ability;
@@ -41,8 +38,7 @@
         data-tooltip="A5E.RollAbilityCheck"
         data-tooltip-direction="DOWN"
         on:click={() =>
-            rollAbilityCheck(
-                $actor,
+            $actor.rollAbilityCheck(
                 abilityLabel,
                 getKeyPressAsOptions($pressedKeysStore)
             )}
@@ -60,8 +56,7 @@
         data-tooltip="A5E.RollSavingThrow"
         data-tooltip-direction="DOWN"
         on:click={() =>
-            rollSavingThrow(
-                $actor,
+            $actor.rollSavingThrow(
                 abilityLabel,
                 getKeyPressAsOptions($pressedKeysStore)
             )}
