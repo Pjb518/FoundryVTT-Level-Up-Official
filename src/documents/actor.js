@@ -24,7 +24,6 @@ import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRol
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import calculateManeuverDC from '../utils/calculateManeuverDC';
 import calculatePassiveScore from '../utils/calculatePassiveScore';
 import calculateSpellDC from '../utils/calculateSpellDC';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
@@ -313,7 +312,7 @@ export default class ActorA5e extends Actor {
     data.level = this.system.details.level;
 
     data.spellDC = calculateSpellDC(this.system);
-    data.maneuverDC = calculateManeuverDC(this.system);
+    data.maneuverDC = this.system.attributes.maneuverDC;
 
     return data;
   }
