@@ -15,20 +15,18 @@
 <article>
     <FormSection heading="A5E.ManeuverDCBonus">
         <div class="u-w-full">
-            <div class="u-w-20">
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.maneuverDC"
-                    value={$actor.system.bonuses.maneuverDC}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value
-                        )}
-                />
-            </div>
+            <input
+                class="a5e-input"
+                type="text"
+                name="system.bonuses.maneuverDC"
+                value={$actor.system.bonuses.maneuverDC}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    )}
+            />
         </div>
     </FormSection>
 

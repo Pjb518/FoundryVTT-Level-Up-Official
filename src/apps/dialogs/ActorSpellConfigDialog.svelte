@@ -43,20 +43,18 @@
 
     <FormSection heading="A5E.SpellDCBonus">
         <div class="u-w-full">
-            <div class="u-w-20">
-                <input
-                    class="a5e-input"
-                    type="text"
-                    name="system.bonuses.spell.dc"
-                    value={$actor.system.bonuses.spell.dc}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value
-                        )}
-                />
-            </div>
+            <input
+                class="a5e-input"
+                type="text"
+                name="system.bonuses.spell.dc"
+                value={$actor.system.bonuses.spell.dc}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    )}
+            />
         </div>
     </FormSection>
 
