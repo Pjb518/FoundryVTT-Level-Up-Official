@@ -17,7 +17,7 @@
                 return localize(CONFIG.A5E.rangeDescriptors[range]);
             }
 
-            return `${range} ${localize(CONFIG.A5E.movementUnits[unit])}`;
+            return `${range} ${localize(CONFIG.A5E.distanceUnits[unit])}`;
         }
     );
 

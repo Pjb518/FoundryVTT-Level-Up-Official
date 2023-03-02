@@ -134,7 +134,7 @@
                         on:change={selectRangeUnit}
                     >
                         <option value={null}>{localize("A5E.None")}</option>
-                        {#each Object.entries(A5E.movementUnits) as [unit, label]}
+                        {#each Object.entries(A5E.distanceUnits) as [unit, label]}
                             <option
                                 value={unit}
                                 selected={rangeObject.unit === unit}

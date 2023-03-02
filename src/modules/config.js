@@ -432,12 +432,17 @@ A5E.movementAbbreviations = {
 /**
  * @enum {string}
  */
-A5E.movementUnits = {
+A5E.distanceUnits = {
   feet: 'A5E.MovementUnitFeet',
   miles: 'A5E.MovementUnitMiles',
   meters: 'A5E.MovementUnitMeters',
   kilometers: 'A5E.MovementUnitKilometers'
 };
+
+A5E.visionUnits = {
+  ...A5E.distanceUnits,
+  unlimited: "A5E.rangeUnlimited"
+}
 
 /**
  * The set of object subtypes available within the system.

@@ -1,14 +1,17 @@
 <script>
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import FormSection from "../components/FormSection.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import { loop_guard } from "svelte/internal";
 
     export let { actorDocument, appId } = getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
+    const A5E = CONFIG.A5E;
 
     const headings = {
         blindsight: "A5E.SenseBlindsightRange",
@@ -20,22 +23,46 @@
 
 <article>
     <!-- TODO: Possible conversion to number -->
-    {#each Object.entries($actor.system.attributes.senses) as [sense, distance]}
+    {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
         <FormSection heading={headings[sense]} inline={true}>
+            {console.log($actor.system.attributes.senses)}
             <div class="u-w-20">
                 <input
                     class="a5e-input"
-                    type="text"
-                    name={`system.attributes.senses.${sense}`}
-                    value={distance || ""}
+                    type="number"
+                    name={`system.attributes.senses.${sense}.distance`}
+                    value={senseData.distance || 0}
                     on:change={({ target }) => {
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            target.value
+                            Number(target.value)
                         );
                     }}
                 />
+            </div>
+            <div class="u-w-20">
+                <select
+                    class="u-w-30"
+                    name={`system.attributes.senses.${sense}.unit`}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                >
+                    {#each Object.entries(A5E.visionUnits) as [key, name]}
+                        <option
+                            {key}
+                            value={key}
+                            selected={$actor.system.attributes.senses[sense]
+                                .unit === key}
+                        >
+                            {localize(name)}
+                        </option>
+                    {/each}
+                </select>
             </div>
         </FormSection>
     {/each}

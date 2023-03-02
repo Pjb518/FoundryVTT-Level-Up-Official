@@ -40,7 +40,7 @@
                                     updateDocumentDataFromField(
                                         $actor,
                                         target.name,
-                                        target.value
+                                        Number(target.value)
                                     );
                                 }}
                             />
