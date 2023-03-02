@@ -36,8 +36,6 @@
         <button
             class="action-button fas fa-star"
             class:active={item.system.favorite}
-            class:locked={sheetIsLocked}
-            disabled={sheetIsLocked}
             data-tooltip="A5E.ButtonToolTipFavorite"
             data-tooltip-direction="UP"
             on:click|stopPropagation={() => item.toggleFavorite()}
@@ -48,8 +46,6 @@
         <button
             class="action-button fas fa-shield-alt"
             class:active={item.system.equipped}
-            class:locked={sheetIsLocked}
-            disabled={sheetIsLocked}
             data-tooltip={item.system.equipped
                 ? "A5E.ButtonToolTipUnequip"
                 : "A5E.ButtonToolTipEquip"}
@@ -60,7 +56,6 @@
         <button
             class="action-button fas fa-heart-crack"
             class:active={item.system.broken}
-            class:locked={sheetIsLocked}
             data-tooltip={item.system.broken
                 ? "A5E.ButtonToolTipFixBroken"
                 : "A5E.ButtonToolTipBroken"}
@@ -73,8 +68,6 @@
         <button
             class="action-button fas fa-book"
             class:active={item.system.prepared}
-            class:locked={sheetIsLocked}
-            disabled={sheetIsLocked}
             data-tooltip={item.system.prepared
                 ? "A5E.ButtonToolTipUnprepare"
                 : "A5E.ButtonToolTipPrepare"}
