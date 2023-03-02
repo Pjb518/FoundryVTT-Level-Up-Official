@@ -27,6 +27,22 @@
                 return SpellSummary;
         }
     }
+
+    function onItemActivate() {
+        const { ShiftLeft, ControlLeft, AltLeft } = $pressedKeysStore;
+
+        let rollMode = ShiftLeft
+            ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
+            : CONFIG.A5E.ROLL_MODE.NORMAL;
+        rollMode = ControlLeft ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
+
+        const options = {
+            skipRollDialog: AltLeft,
+            rollMode: rollMode,
+        };
+
+        item.activate(actionId, options);
+    }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -43,9 +59,7 @@
         class:item-image--shift={$pressedKeysStore.ShiftLeft}
         class:item-image--ctrl={$pressedKeysStore.ControlLeft}
         style="--background-image: url({item.img ?? 'icons/svg/item-bag.svg'});"
-        role="img"
-        aria-labelledby={item.name}
-        on:click|stopPropagation={() => item.activate(actionId)}
+        on:click|stopPropagation={onItemActivate}
     />
 
     {item.name}
