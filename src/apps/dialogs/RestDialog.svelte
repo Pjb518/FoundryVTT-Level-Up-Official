@@ -1,0 +1,146 @@
+<script>
+    import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+
+    export let { actorDocument, appId } = getContext("#external").application;
+
+    const actor = new TJSDocument(actorDocument);
+
+    const restTypeOptions = {
+        short: "A5E.RestShort",
+        long: "A5E.RestLong",
+    };
+
+    let restType = "short";
+    let haven = true;
+    let supply = true;
+
+    async function rollHitDie(dieSize) {
+        try {
+            await actor.rollHitDice(dieSize);
+        } catch {
+            // TODO: Display a useful error to the user when hit die updates fail
+            return;
+        }
+        // Update hit dice quantities for display purposes only
+        updateHitDice(dieSize);
+    }
+
+    function updateHitDice(dieSize) {
+        if (dieSize === "d6") d6.value = Math.max(d6.value - 1, 0);
+        if (dieSize === "d8") d8.value = Math.max(d8.value - 1, 0);
+        if (dieSize === "d10") d10.value = Math.max(d10.value - 1, 0);
+        if (dieSize === "d12") d12.value = Math.max(d12.value - 1, 0);
+    }
+
+    function onSubmit() {
+        application.submit();
+    }
+
+    $: hitDice = $actor.system.attributes.hitDice;
+    console.log(hitDice);
+</script>
+
+<form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
+    <section class="a5e-form__section">
+        <h3 class="u-text-bold u-text-sm">
+            {localize("A5E.RestType")}
+        </h3>
+
+        <div class="rest-type__wrapper">
+            {#each Object.entries(restTypeOptions) as [rest, label]}
+                <input
+                    class="rest-type__input"
+                    type="radio"
+                    name="rest-type"
+                    id={`${appId}-rest-type-${rest}`}
+                    value={rest}
+                    bind:group={restType}
+                />
+
+                <label
+                    class="rest-type__label"
+                    for={`${appId}-rest-type-${rest}`}
+                >
+                    {localize(label)}
+                </label>
+            {/each}
+        </div>
+    </section>
+
+    {#if restType === "long"}
+        <div class="a5e-form__section a5e-form__section--inline">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+
+            <div class="a5e-input-container a5e-input-container--inline-wide">
+                <input
+                    class="a5e-input"
+                    for="{appId}-haven"
+                    type="checkbox"
+                    bind:checked={haven}
+                />
+            </div>
+
+            <label
+                for="{appId}-haven "
+                class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+            >
+                {localize("A5E.HavenPrompt")}
+            </label>
+        </div>
+
+        <div class="a5e-form__section a5e-form__section--inline">
+            <div class="a5e-input-container a5e-input-container--inline-wide">
+                <input
+                    class="a5e-input"
+                    id="{appId}-supply"
+                    type="checkbox"
+                    bind:checked={supply}
+                />
+
+                <label
+                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    for="{appId}-supply"
+                >
+                    {localize("A5E.SupplyPrompt")}
+                </label>
+            </div>
+        </div>
+    {/if}
+
+    {#if restType === "short"}
+        <div class="a5e-form__section">
+            <h3 class="u-text-bold u-text-sm">
+                {localize("hitDiceLabel")}
+            </h3>
+
+            <div class="u-flex u-gap-md u-text-md">
+                {#each ["d6", "d8", "d10", "d12"] as die}
+                    <div class="a5e-hit-die-wrapper">
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <div
+                            class="a5e-hit-die a5e-hit-die--rollable a5e-hit-die--{die}"
+                            class:disabled={hitDice[die].current === 0}
+                            on:click={() => rollHitDie(die)}
+                        >
+                            <span class="a5e-hit-die__label">{die}</span>
+                        </div>
+
+                        <span class="a5e-hit-die__quantity">
+                            {hitDice[die].current}
+                        </span>
+                    </div>
+                {/each}
+            </div>
+        </div>
+    {/if}
+
+    <button class="a5e-button">
+        <i class="fas fa-campground" />
+        {localize("A5E.Rest")}
+    </button>
+</form>
+
+<style lang="scss">
+</style>
