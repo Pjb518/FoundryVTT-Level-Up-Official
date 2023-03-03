@@ -1,16 +1,15 @@
-<svelte:options accessors={true} />
-
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-
-    import DropArea from "../DropArea.svelte";
 
     import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import prepareLanguageProficiencies from "../../handlers/prepareLanguageProficiencies";
 
     import LanguageSelectDialog from "../../dialogs/initializers/LanguageSelectDialog";
+
+    import DropArea from "../DropArea.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
 
     const item = getContext("item");
 
@@ -73,103 +72,85 @@
             $item.update({ "system.proficiencies.languages": newLanguages });
         }
     }
+
+    const defaultLanguages = Object.entries(CONFIG.A5E.languages);
 </script>
 
-<section class="main-config-wrapper">
-    <div class="drop-area-wrapper">
-        <h3>{localize("A5E.TabFeatures")}</h3>
+<article>
+    <section class="section-wraper">
+        <h3 class="section-title">
+            {localize("A5E.TabFeatures")}
+        </h3>
 
-        <ul class="drop-area-list">
+        <div class="drop-area__container">
+            <DropArea uuid={null} on:item-dropped={handleAddFeature} />
+
             {#each Object.values($item.system.features) as feature (feature.uuid)}
-                <li>
-                    <DropArea
-                        uuid={feature.uuid}
-                        on:item-dropped={handleReplaceFeature}
-                        on:item-deleted={handleDeleteFeature}
-                    />
-                </li>
+                <DropArea
+                    uuid={feature.uuid}
+                    on:item-dropped={handleReplaceFeature}
+                    on:item-deleted={handleDeleteFeature}
+                />
             {/each}
+        </div>
+    </section>
 
-            <li>
-                <DropArea uuid={null} on:item-dropped={handleAddFeature} />
-            </li>
-        </ul>
-    </div>
-
-    <div class="config-wrapper">
-        <h3>{localize("A5E.Languages")}</h3>
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <i
-            class="a5e-config-button config-button fa fa-cog"
-            on:click|preventDefault|stopPropagation={openLanguageSelectDialog}
+    <section class="section-wrapper">
+        <CustomTagGroup
+            heading="A5E.Languages"
+            options={defaultLanguages}
+            selected={$item.system.proficiencies.languages}
+            name="system.proficiencies.languages"
+            document={item}
         />
-        <ul class="tag-list">
-            {#each prepareLanguageProficiencies($item) as lang}
-                <li class="a5e-tag">{lang}</li>
-            {/each}
-        </ul>
-    </div>
+    </section>
 
-    <div class="config-wrapper">
-        <h3>{localize("A5E.AdditionalLanguages")}</h3>
-        <input
-            class="a5e-input"
-            type="number"
-            value={$item.system.proficiencies.additionalLanguages}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.proficiencies.additionalLanguages",
-                    parseInt(target.value)
-                )}
-        />
-    </div>
-</section>
+    <section class="section-wrapper">
+        <h3 class="section-title">
+            {localize("A5E.AdditionalLanguages")}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--numeric">
+            <input
+                class="a5e-input a5e-input--small"
+                type="number"
+                name="system.proficiencies.additionalLanguages"
+                value={$item.system.proficiencies.additionalLanguages}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        Number(target.value)
+                    )}
+            />
+        </div>
+    </section>
+</article>
 
 <style lang="scss">
-    .main-config-wrapper {
+    article {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding: 0.75rem;
+        padding-inline: 0.5rem;
         overflow-y: auto;
     }
 
-    .tag-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.25rem;
-        list-style: none;
-    }
-
-    .config-wrapper {
-        position: relative;
-        h3 {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            margin-bottom: 0.5rem;
-        }
-    }
-
-    .config-button {
-        position: absolute;
-        top: 0rem;
-        right: 1rem;
-    }
-
-    .drop-area-wrapper {
+    .drop-area__container {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
-        font-family: "Modesto Condensed", serif;
-        font-size: 1rem;
+        gap: 0.5rem;
     }
 
-    .drop-area-list {
+    .section-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+        gap: 0.275rem;
+    }
+    .section-title {
+        font-size: 0.833rem;
+        font-family: "Signika", sans-serif;
+        font-weight: bold;
+        margin-bottom: 0.125rem;
     }
 </style>
