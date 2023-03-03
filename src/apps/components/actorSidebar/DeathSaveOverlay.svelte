@@ -102,7 +102,7 @@
         border-radius: 5px;
         padding: 0.5rem;
 
-        background: rgba(139, 37, 37, 0.95);
+        background: rgba(139, 37, 37, 0.85);
         color: rgba(255 255 255 / 0.75);
 
         &__icon {
