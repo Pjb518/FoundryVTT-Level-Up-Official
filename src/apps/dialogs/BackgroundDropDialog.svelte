@@ -18,8 +18,8 @@
     ].filter(Boolean);
 
     let selectedEquipment = [];
-    let selectedLanguages = [];
-    let selectedSkills = [];
+    let selectedLanguages = [...$item.system.proficiencies.languages.options];
+    let selectedSkills = [...$item.system.proficiencies.skills.options];
     let selectedTools = [];
 
     function updateCustomLanguages(values) {
@@ -89,10 +89,9 @@
     {/if}
 
     {#if languages.count}
-        {selectedLanguages}
         <section class="ability-score-wrapper">
             <h3>
-                {localize("A5E.BackgroundDropLanguageSelect")}
+                {localize("A5E.BackgroundDropLanguagesSelect")}
             </h3>
 
             <div class="u-flex u-flex-wrap u-gap-md">
@@ -116,7 +115,7 @@
                 {/each}
 
                 <input
-                    class="a5e-input"
+                    class="a5e-input a5e-input--slim"
                     type="text"
                     value={customLanguages}
                     disabled={selectedLanguages.length >= languages.count &&
@@ -128,6 +127,35 @@
                 <p class="hint">
                     {localize("A5E.HintSeparateBySemiColon")}
                 </p>
+            </div>
+        </section>
+    {/if}
+
+    {#if skills.count}
+        <section class="ability-score-wrapper">
+            <h3>
+                {localize("A5E.BackgroundDropSkillsSelect")}
+            </h3>
+
+            <div class="u-flex u-flex-wrap u-gap-md">
+                {#each Object.entries(A5E.skills) as [skill, label]}
+                    <input
+                        class="ability-score-input"
+                        type="checkbox"
+                        id={`${$item.id}-skills-${skill}`}
+                        value={skill}
+                        disabled={selectedSkills.length >= skills.count &&
+                            !selectedSkills.includes(skill)}
+                        bind:group={selectedSkills}
+                    />
+
+                    <label
+                        class="ability-score-label"
+                        for={`${$item.id}-skills-${skill}`}
+                    >
+                        {localize(label)}
+                    </label>
+                {/each}
             </div>
         </section>
     {/if}
@@ -178,7 +206,8 @@
         overflow: auto;
 
         h3 {
-            font-size: 1rem;
+            font-size: 0.833rem;
+            font-weight: bold;
             font-family: "Signika", sans-serif;
         }
     }
@@ -201,7 +230,7 @@
         &-label {
             border-radius: 3px;
             border: 1px solid #bbb;
-            font-size: 0.833rem;
+            font-size: 0.694rem;
             padding: 0.25rem 0.5rem;
             cursor: pointer;
             transition: all 0.15s ease-in-out;
