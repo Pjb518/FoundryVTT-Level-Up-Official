@@ -2,12 +2,23 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import prepareAbilityOptions from "../../handlers/prepareAbilityOptions";
+
     import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import DropArea from "../DropArea.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import FormSection from "../FormSection.svelte";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
+
+    const abilityOptions = [
+        ["none", localize("A5E.None")],
+        ...prepareAbilityOptions(),
+    ];
+    const skillOptions = Object.entries(CONFIG.A5E.skills);
 
     function addEquipmentItem(event) {
         const [dragEvent, _] = event.detail;
@@ -110,10 +121,6 @@
 
 <article>
     <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.ASISelection")}
-        </h3>
-
         <div class="u-flex u-align-center u-gap=md">
             <input
                 class="u-pointer"
@@ -128,12 +135,60 @@
                         target.checked
                     )}
             />
+
+            <label class="u-pointer" for={`${$item.id}-includesASI`}>
+                {localize("A5E.ASIIncludes")}
+            </label>
         </div>
     </section>
+
+    {#if $item.system.includesASI}
+        <section class="section-wrapper">
+            <h3 class="section-title">
+                {localize("A5E.ASIDefault")}
+            </h3>
+            <RadioGroup
+                listClasses="u-gap-md u-text-sm"
+                optionClasses="u-p-md u-text-center u-w-12"
+                options={abilityOptions}
+                selected={$item.system.defaultASI}
+                name="system.defaultASI"
+                document={item}
+            />
+        </section>
+    {/if}
     <section class="section-wrapper">
         <h3 class="section-title">
             {localize("A5E.SkillPlural")}
         </h3>
+
+        <CheckboxGroup
+            options={skillOptions}
+            selected={$item.system.proficiencies.skills.options}
+            name="system.proficiencies.skills.options"
+            document={item}
+        />
+    </section>
+
+    <section class="section-wrapper">
+        <h3 class="section-title">
+            {localize("A5E.MaxSkillCount")}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--numeric">
+            <input
+                class="a5e-input a5e-input--small"
+                type="number"
+                name="system.proficiencies.skills.count"
+                value={$item.system.proficiencies.skills.count}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        Number(target.value)
+                    )}
+            />
+        </div>
     </section>
 
     <section class="section-wrapper">
