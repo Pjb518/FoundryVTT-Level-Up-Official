@@ -7,9 +7,9 @@
     import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    import DropArea from "../DropArea.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
 
     const item = getContext("item");
 
@@ -17,6 +17,7 @@
         ["none", localize("A5E.None")],
         ...prepareAbilityOptions(),
     ];
+    const defaultLanguages = Object.entries(CONFIG.A5E.languages);
     const skillOptions = Object.entries(CONFIG.A5E.skills);
 </script>
 
@@ -58,6 +59,38 @@
             />
         </section>
     {/if}
+
+    <section class="section-wrapper">
+        <CustomTagGroup
+            heading="A5E.Languages"
+            options={defaultLanguages}
+            selected={$item.system.proficiencies.languages.options}
+            name="system.proficiencies.languages.options"
+            document={item}
+        />
+    </section>
+
+    <section class="section-wrapper">
+        <h3 class="section-title">
+            {localize("A5E.BackgroundMaxLanguages")}
+        </h3>
+
+        <div class="a5e-input-container a5e-input-container--numeric">
+            <input
+                class="a5e-input a5e-input--small"
+                type="number"
+                name="system.proficiencies.languages.count"
+                value={$item.system.proficiencies.languages.count}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        Number(target.value)
+                    )}
+            />
+        </div>
+    </section>
+
     <section class="section-wrapper">
         <h3 class="section-title">
             {localize("A5E.SkillPlural")}
