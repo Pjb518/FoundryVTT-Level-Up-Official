@@ -43,7 +43,6 @@
         <h3 class="section-title">
             {localize("A5E.DestinyFeatureSource")}
         </h3>
-        {source}
         <DropArea
             uuid={source}
             on:item-dropped={(event) =>
@@ -80,4 +79,23 @@
     </section>
 </article>
 
-<style lang="scss"></style>
+<style lang="scss">
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.275rem;
+        padding-inline: 0.5rem;
+    }
+    .section-title {
+        font-size: 0.833rem;
+        font-family: "Signika", sans-serif;
+        font-weight: bold;
+        margin-bottom: 0.125rem;
+    }
+</style>
