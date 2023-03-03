@@ -50,8 +50,7 @@
     }
 
     .hit-die-label {
-        font-size: 0.833rem;
-        font-weight: bold;
+        font-size: 1rem;
         text-align: center;
         padding-bottom: 0.125rem;
     }

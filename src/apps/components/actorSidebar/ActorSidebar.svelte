@@ -118,7 +118,7 @@
         justify-content: space-evenly;
         align-items: center;
         gap: 0.5rem;
-        font-family: "Signika", sans-serif;
+        font-family: "Modesto Condensed", serif;
         padding: 0;
         list-style: none;
     }
