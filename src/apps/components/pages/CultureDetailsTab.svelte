@@ -77,24 +77,6 @@
 </script>
 
 <article>
-    <section class="section-wraper">
-        <h3 class="section-title">
-            {localize("A5E.TabFeatures")}
-        </h3>
-
-        <div class="drop-area__container">
-            <DropArea uuid={null} on:item-dropped={handleAddFeature} />
-
-            {#each Object.values($item.system.features) as feature (feature.uuid)}
-                <DropArea
-                    uuid={feature.uuid}
-                    on:item-dropped={handleReplaceFeature}
-                    on:item-deleted={handleDeleteFeature}
-                />
-            {/each}
-        </div>
-    </section>
-
     <section class="section-wrapper">
         <CustomTagGroup
             heading="A5E.Languages"
@@ -123,6 +105,24 @@
                         Number(target.value)
                     )}
             />
+        </div>
+    </section>
+
+    <section class="section-wraper">
+        <h3 class="section-title">
+            {localize("A5E.TabFeatures")}
+        </h3>
+
+        <div class="drop-area__container">
+            <DropArea uuid={null} on:item-dropped={handleAddFeature} />
+
+            {#each Object.values($item.system.features) as feature (feature.uuid)}
+                <DropArea
+                    uuid={feature.uuid}
+                    on:item-dropped={handleReplaceFeature}
+                    on:item-deleted={handleDeleteFeature}
+                />
+            {/each}
         </div>
     </section>
 </article>
