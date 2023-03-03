@@ -17,9 +17,11 @@
     let supply = true;
 
     async function rollHitDie(dieSize) {
+        console.log("Here");
         try {
-            await actor.rollHitDice(dieSize);
-        } catch {
+            await $actor.rollHitDice(dieSize);
+        } catch (e) {
+            console.log(e);
             // TODO: Display a useful error to the user when hit die updates fail
             return;
         }
@@ -29,13 +31,13 @@
 
     function updateHitDice(dieSize) {
         if (dieSize === "d6")
-            hitDice[d6].current = Math.max(hitDice[d6].current - 1, 0);
+            hitDice["d6"].current = Math.max(hitDice["d6"].current - 1, 0);
         if (dieSize === "d8")
-            hitDice[d8].current = Math.max(hitDice[d8].current - 1, 0);
+            hitDice["d8"].current = Math.max(hitDice["d8"].current - 1, 0);
         if (dieSize === "d10")
-            hitDice[d10].current = Math.max(hitDice[d10].current - 1, 0);
+            hitDice["d10"].current = Math.max(hitDice["d10"].current - 1, 0);
         if (dieSize === "d12")
-            hitDice[d12].current = Math.max(hitDice[d12].current - 1, 0);
+            hitDice["d12"].current = Math.max(hitDice["d12"].current - 1, 0);
 
         $actor.update({
             "system.attributes.hitDice": hitDice,
