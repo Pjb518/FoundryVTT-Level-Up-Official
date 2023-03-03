@@ -30,16 +30,9 @@
                     <input
                         class="a5e-input"
                         disabled="true"
-                        type="number"
+                        type="text"
                         name={`system.attributes.senses.${sense}.distance`}
-                        value={0}
-                        on:change={({ target }) => {
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                Number(0)
-                            );
-                        }}
+                        value="&mdash;"
                     />
                 {:else}
                     <input
