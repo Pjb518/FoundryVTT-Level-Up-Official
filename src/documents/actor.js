@@ -134,14 +134,14 @@ export default class ActorA5e extends Actor {
       actorData.attributes.prof,
       actorData.bonuses.maneuverDC,
       Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
-    ].join(' + '));
+    ].join(' + '), this.getRollData());
 
     actorData.attributes.spellDC = getDeterministicBonus([
       8,
       actorData.attributes.prof,
       actorData.bonuses?.spell?.dc || 0,
       actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
-    ].join(' + '));
+    ].join(' + '), this.getRollData());
 
     if (this.type === 'character') {
       actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
