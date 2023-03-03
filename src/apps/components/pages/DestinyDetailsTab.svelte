@@ -25,12 +25,12 @@
 
     function deleteFeature(event, path) {
         const [_, feature] = event.detail;
-        feature.setFromUUID(null);
-        console.log(feature);
 
         $item.update({
             [`system.${path}`]: "",
         });
+
+        feature.set();
     }
 
     $: source = $item.system.sourceOfInspiration || null;
