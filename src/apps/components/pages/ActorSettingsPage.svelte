@@ -22,9 +22,7 @@
 >
     <div class="u-flex u-flex-col u-gap-md">
         {#if $actor.type === "character"}
-            <FormSection
-                hint="When enabled, half of your proficiency bonus (rounded down) will be added to all ability checks that do not already include your proficiency bonus."
-            >
+            <FormSection hint="A5E.JackOfAllTrades">
                 <div class="u-align-center u-flex u-gap-md">
                     <div class="u-align-center u-flex u-gap-md">
                         <input
@@ -51,9 +49,7 @@
                 </div>
             </FormSection>
 
-            <FormSection
-                hint="When enabled d20 rolls resulting in a 1 will be automatically rerolled."
-            >
+            <FormSection hint="A5E.SettingsHalflingLuckHint">
                 <div class="u-align-center u-flex u-gap-md">
                     <div class="u-align-center u-flex u-gap-md">
                         <input
@@ -134,9 +130,7 @@
                 </div>
             </FormSection>
 
-            <FormSection
-                hint="If selected, 0.02lbs. per coin will be added to the inventory weight."
-            >
+            <FormSection hint="A5E.Settings.CoinWeightHint">
                 <div class="u-align-center u-flex u-gap-md">
                     <div class="u-align-center u-flex u-gap-md">
                         <input
