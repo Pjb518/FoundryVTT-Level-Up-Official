@@ -28,10 +28,18 @@
     }
 
     function updateHitDice(dieSize) {
-        if (dieSize === "d6") d6.value = Math.max(d6.value - 1, 0);
-        if (dieSize === "d8") d8.value = Math.max(d8.value - 1, 0);
-        if (dieSize === "d10") d10.value = Math.max(d10.value - 1, 0);
-        if (dieSize === "d12") d12.value = Math.max(d12.value - 1, 0);
+        if (dieSize === "d6")
+            hitDice[d6].current = Math.max(hitDice[d6].current - 1, 0);
+        if (dieSize === "d8")
+            hitDice[d8].current = Math.max(hitDice[d8].current - 1, 0);
+        if (dieSize === "d10")
+            hitDice[d10].current = Math.max(hitDice[d10].current - 1, 0);
+        if (dieSize === "d12")
+            hitDice[d12].current = Math.max(hitDice[d12].current - 1, 0);
+
+        $actor.update({
+            "system.attributes.hitDice": hitDice,
+        });
     }
 
     function onSubmit() {
@@ -136,7 +144,7 @@
         </div>
     {/if}
 
-    <button class="a5e-button">
+    <button class="a5e-button" on:click={onSubmit}>
         <i class="fas fa-campground" />
         {localize("A5E.Rest")}
     </button>
