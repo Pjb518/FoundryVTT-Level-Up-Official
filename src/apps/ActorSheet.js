@@ -128,6 +128,7 @@ export default class ActorSheet extends SvelteApplication {
   async #onDropItem(item) {
     if (item.type === 'background') this.#onDropBackground(item);
     else if (item.type === 'culture') this.#onDropCulture(item);
+    else if (item.type === 'destiny') this.#onDropDestiny(item);
 
     this.actor.createEmbeddedDocuments('Item', [item]);
   }
@@ -170,6 +171,25 @@ export default class ActorSheet extends SvelteApplication {
         ...startingEquipment
       ].filter(Boolean));
     }
+  }
+
+  async #onDropDestiny(item) {
+    if (this.actor.type !== 'character') {
+      ui.notifications.warn('Destiny documents cannot be added to NPCs.');
+      return;
+    }
+
+    const uuids = [
+      item.system.sourceOfInspiration,
+      item.system.inspirationFeature,
+      item.system.fulfillmentFeature
+    ];
+    const features = (await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f);
+
+    this.actor.createEmbeddedDocuments('Item', [
+      item,
+      ...features
+    ]);
   }
 
   async #onDropCulture(item) {

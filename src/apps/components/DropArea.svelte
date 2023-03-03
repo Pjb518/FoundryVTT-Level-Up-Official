@@ -26,8 +26,10 @@
 
             <h3>{$feature?.name}</h3>
 
-            <i
-                class="delete-button fas fa-trash"
+            <button
+                class="a5e-button a5e-button--delete delete-button fas fa-trash"
+                data-tooltip="A5E.ButtonToolTipDelete"
+                data-tooltip-direction="UP"
                 on:click={(event) => dispatch("item-deleted", [event, feature])}
             />
         </div>
@@ -38,15 +40,8 @@
 
 <style lang="scss">
     .delete-button {
-        color: #8b2525;
         margin-inline: auto 0.5rem;
         padding: 0.25rem;
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            transform: scale(1.2);
-        }
     }
 
     .drop-area {
@@ -76,6 +71,10 @@
         box-shadow: 0 0 5px #ccc inset;
         border-radius: 3px;
         border: 1px solid #ccc;
+
+        h3 {
+            font-size: 0.833rem;
+        }
     }
 
     .feature-image {
