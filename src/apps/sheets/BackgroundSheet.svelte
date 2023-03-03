@@ -9,6 +9,8 @@
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import BackgroundFeaturesTab from "../components/pages/BackgroundFeaturesTab.svelte";
+    import BackgroundEquipmentTab from "../components/pages/BackgroundEquipmentTab.svelte";
 
     export let { itemDocument } = getContext("#external").application;
     export let elementRoot;
@@ -27,6 +29,16 @@
             name: "details",
             label: "A5E.TabDetails",
             component: BackgroundDetailsTab,
+        },
+        {
+            name: "features",
+            label: "A5E.TabFeatures",
+            component: BackgroundFeaturesTab,
+        },
+        {
+            name: "equipment",
+            label: "A5E.Equipment",
+            component: BackgroundEquipmentTab,
         },
     ];
 

@@ -59,19 +59,6 @@
         }
     }
 
-    async function openLanguageSelectDialog() {
-        const dialog = new LanguageSelectDialog($item.name, {
-            selected: $item.system.proficiencies.languages,
-        });
-
-        dialog.render(true);
-        const newLanguages = await dialog.promise;
-
-        if (newLanguages) {
-            $item.update({ "system.proficiencies.languages": newLanguages });
-        }
-    }
-
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
 </script>
 

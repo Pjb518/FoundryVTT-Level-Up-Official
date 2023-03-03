@@ -9,7 +9,6 @@
 
     import DropArea from "../DropArea.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
@@ -19,104 +18,6 @@
         ...prepareAbilityOptions(),
     ];
     const skillOptions = Object.entries(CONFIG.A5E.skills);
-
-    function addEquipmentItem(event) {
-        const [dragEvent, _] = event.detail;
-
-        try {
-            const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
-            );
-
-            if ($item.system.equipment.includes(uuid)) {
-                ui.notifications.warn(
-                    "Cannot add two items with the same UUID to a Background document's equipment section."
-                );
-
-                throw "Cannot add two items with the same UUID to the Background document's equipment section.";
-            }
-
-            $item.update({
-                "system.equipment": [...$item.system.equipment, uuid],
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    function replaceEquipmentItem(event) {
-        const [dragEvent, feature] = event.detail;
-
-        try {
-            const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
-            );
-
-            if ($item.system.equipment.includes(uuid)) {
-                ui.notifications.warn(
-                    "Cannot add two items with the same UUID to a Background document's equipment section."
-                );
-
-                throw "Cannot add two items with the same UUID to the Background document's equipment section.";
-            }
-
-            $item.system.equipment.splice(
-                $item.system.equipment.findIndex(
-                    (item) => item.uuid === feature.uuid
-                ),
-                1,
-                uuid
-            );
-
-            $item.update({
-                "system.equipment": $item.system.equipment,
-            });
-
-            feature.setFromUUID(uuid);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    function deleteEquipmentItem(event) {
-        const [_, feature] = event.detail;
-
-        const index = $item.system.equipment.findIndex((item) => {
-            return item === feature.get().uuid;
-        });
-
-        $item.system.equipment.splice(index, 1);
-
-        $item.update({
-            "system.equipment": $item.system.equipment,
-        });
-    }
-
-    function updateFeature(event) {
-        const [dragEvent, feature] = event.detail;
-
-        try {
-            const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
-            );
-
-            $item.update({ "system.feature": uuid });
-            feature.setFromUUID(uuid);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    function deleteFeature(event) {
-        const [_, feature] = event.detail;
-
-        try {
-            $item.update({ [`system.feature`]: "" });
-            feature.set();
-        } catch (err) {
-            console.error(err);
-        }
-    }
 </script>
 
 <article>
@@ -136,7 +37,7 @@
                     )}
             />
 
-            <label class="u-pointer" for={`${$item.id}-includesASI`}>
+            <label class="u-pointer u-text-sm" for={`${$item.id}-includesASI`}>
                 {localize("A5E.ASIIncludes")}
             </label>
         </div>
@@ -172,7 +73,7 @@
 
     <section class="section-wrapper">
         <h3 class="section-title">
-            {localize("A5E.MaxSkillCount")}
+            {localize("A5E.BackgroundMaxSkills")}
         </h3>
 
         <div class="a5e-input-container a5e-input-container--numeric">
@@ -195,34 +96,36 @@
         <h3 class="section-title">
             {localize("A5E.ToolPlural")}
         </h3>
-    </section>
 
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.TabFeatures")}
-        </h3>
-
-        <DropArea
-            uuid={$item.system.feature || null}
-            on:item-dropped={updateFeature}
-            on:item-deleted={deleteFeature}
+        <input
+            class="a5e-input"
+            type="text"
+            name="system.proficiencies.tools.options"
+            value={$item.system.proficiencies.tools.options}
+            on:change={({ target }) =>
+                updateDocumentDataFromField($item, target.name, target.value)}
         />
     </section>
 
     <section class="section-wrapper">
         <h3 class="section-title">
-            {localize("A5E.Equipment")}
+            {localize("A5E.BackgroundMaxTools")}
         </h3>
 
-        <DropArea uuid={null} on:item-dropped={null} />
-
-        <ul>
-            {#each $item.system.equipment as [uuid] (`${uuid}`)}
-                <li>
-                    {uuid}
-                </li>
-            {/each}
-        </ul>
+        <div class="a5e-input-container a5e-input-container--numeric">
+            <input
+                class="a5e-input a5e-input--small"
+                type="number"
+                name="system.proficiencies.tools.count"
+                value={$item.system.proficiencies.tools.count}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        Number(target.value)
+                    )}
+            />
+        </div>
     </section>
 </article>
 
@@ -234,13 +137,6 @@
         padding-inline: 0.5rem;
         overflow-y: auto;
     }
-
-    .drop-area__container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
     .section-wrapper {
         display: flex;
         flex-direction: column;
