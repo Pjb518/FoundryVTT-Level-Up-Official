@@ -215,6 +215,8 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+
+        background: rgba(246, 242, 235, 0.5);
     }
 
     .ability-score {

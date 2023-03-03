@@ -53,5 +53,7 @@
         height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
+
+        background: rgba(246, 242, 235, 0.5);
     }
 </style>
