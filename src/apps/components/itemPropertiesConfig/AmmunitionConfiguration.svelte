@@ -49,7 +49,6 @@
                 <CheckboxGroup
                     options={Object.entries(ammunitionProperties)}
                     selected={$item.system.ammunitionProperties}
-                    name="system.ammunitionProperties"
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
                             $item,

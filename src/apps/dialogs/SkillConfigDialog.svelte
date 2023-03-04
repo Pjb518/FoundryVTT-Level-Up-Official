@@ -76,8 +76,12 @@
             heading="A5E.SkillSpecialties"
             options={specialtyOptions}
             selected={skill.specialties}
-            name={`system.skills.${skillKey}.specialties`}
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.specialties`,
+                    event.detail
+                )}
         />
     </FormSection>
 

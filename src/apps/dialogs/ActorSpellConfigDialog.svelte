@@ -25,8 +25,12 @@
             selected={flags?.availableSpellLevels ||
                 [...Array(10).keys()].map((x) => x.toString())}
             showCustomInput={false}
-            name="flags.a5e.availableSpellLevels"
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.availableSpellLevels",
+                    event.detail
+                )}
         />
     </FormSection>
 

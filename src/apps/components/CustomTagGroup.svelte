@@ -1,15 +1,15 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
     import arraysAreEqual from "../../utils/arraysAreEqual";
+
+    import CheckboxGroup from "./CheckboxGroup.svelte";
 
     export let options = [];
     export let selected = [];
     export let showCustomInput = true;
     export let heading;
-    export let name;
-    export let document;
 
     function toggleAll() {
         if (arraysAreEqual(optionKeys, selectedCoreOptions)) {
@@ -21,28 +21,35 @@
         updateCustom(selectedCustomOptions);
     }
 
-    function updateCore(value) {
-        const temp = new Set(selected);
+    function updateCoreSelections(values) {
+        const customSelections = selectedCustomOptions
+            .split(";")
+            .map((option) => {
+                console.log(option);
+                return option.trim();
+            })
+            .filter(Boolean);
 
-        if (temp.has(value)) temp.delete(value);
-        else temp.add(value);
-
-        updateDocumentDataFromField($document, name, [...temp]);
+        dispatch("updateSelection", [...values, ...customSelections]);
     }
 
-    function updateCustom(values) {
+    function updateCustomSelections(values) {
         selected = [
             ...selectedCoreOptions,
             ...values
                 .split(";")
-                .map((option) => option.trim())
+                .map((option) => {
+                    console.log(option);
+                    return option.trim();
+                })
                 .filter(Boolean),
         ];
 
-        updateDocumentDataFromField($document, name, selected);
+        dispatch("updateSelection", selected);
     }
 
     const optionKeys = options.map(([key]) => key);
+    const dispatch = createEventDispatcher();
 
     $: selectedCoreOptions = selected.filter((option) =>
         optionKeys.includes(option)
@@ -61,29 +68,11 @@
     <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
 </header>
 
-<ul
-    class="
-            u-flex
-            u-flex-wrap
-            u-gap-sm
-            u-list-style-none
-            u-m-0
-            u-p-0
-            u-text-xs
-            u-w-full
-"
->
-    {#each options as [value, label]}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <li
-            class="a5e-tag u-pointer"
-            class:a5e-tag--active={selectedCoreOptions.includes(value)}
-            on:click={() => updateCore(value)}
-        >
-            {localize(label)}
-        </li>
-    {/each}
-</ul>
+<CheckboxGroup
+    {options}
+    selected={selectedCoreOptions}
+    on:updateSelection={(event) => updateCoreSelections(event.detail)}
+/>
 
 {#if showCustomInput}
     <div class="u-mt-sm u-w-full">
@@ -91,7 +80,7 @@
             class="a5e-input"
             type="text"
             value={selectedCustomOptions}
-            on:change={({ target }) => updateCustom(target.value)}
+            on:change={({ target }) => updateCustomSelections(target.value)}
         />
     </div>
 
