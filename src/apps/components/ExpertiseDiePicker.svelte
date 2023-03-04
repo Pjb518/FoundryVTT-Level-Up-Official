@@ -36,7 +36,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <label
             class="a5e-tag u-pointer u-p-md u-text-center u-w-12"
-            class:a5e-tag--inactive={diceQuantity !== selected}
+            class:a5e-tag--active={diceQuantity === selected}
             for={`${randomId}-expertise-${dieSize}`}
             on:click={() => dispatch("updateSelection", diceQuantity)}
         >

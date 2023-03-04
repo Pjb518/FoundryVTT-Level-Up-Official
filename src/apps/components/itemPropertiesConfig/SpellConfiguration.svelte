@@ -82,7 +82,7 @@
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <li
                             class="a5e-tag u-pointer"
-                            class:a5e-tag--inactive={!$item.system.components[
+                            class:a5e-tag--active={$item.system.components[
                                 value
                             ]}
                             on:click={({ target }) =>

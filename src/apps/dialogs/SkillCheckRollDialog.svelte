@@ -122,7 +122,7 @@
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
-                    class:a5e-tag--inactive={value !== rollMode}
+                    class:a5e-tag--active={value === rollMode}
                     for={`${$actor.id}-${appId}-rollMode-${id}`}
                 >
                     {name}
@@ -160,7 +160,7 @@
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
-                    class:a5e-tag--inactive={key !== abilityKey}
+                    class:a5e-tag--active={key === abilityKey}
                     for={`${$actor.id}-${appId}-ability-score-${key}`}
                 >
                     {localize(name ?? "A5E.None")}

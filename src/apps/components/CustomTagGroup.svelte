@@ -77,7 +77,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li
             class="a5e-tag u-pointer"
-            class:a5e-tag--inactive={!selectedCoreOptions.includes(value)}
+            class:a5e-tag--active={selectedCoreOptions.includes(value)}
             on:click={() => updateCore(value)}
         >
             {localize(label)}

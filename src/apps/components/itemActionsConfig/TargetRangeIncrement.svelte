@@ -95,9 +95,8 @@
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <li
                     class="a5e-tag u-pointer"
-                    class:a5e-tag--inactive={!(
-                        selected === value || selected?.toString() === value
-                    )}
+                    class:a5e-tag--active={selected === value ||
+                        selected?.toString() === value}
                     on:click={() => updateRangeValue(value)}
                 >
                     {localize(label)}

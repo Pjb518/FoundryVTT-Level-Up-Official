@@ -9,12 +9,12 @@
     export let document;
 
     function update(value) {
-        const temp = new Set(selected);
+        const newSelections = new Set(selected);
 
-        if (temp.has(value)) temp.delete(value);
-        else temp.add(value);
+        if (newSelections.has(value)) newSelections.delete(value);
+        else newSelections.add(value);
 
-        updateDocumentDataFromField($document, name, [...temp]);
+        updateDocumentDataFromField($document, name, [...newSelections]);
     }
 </script>
 
@@ -34,7 +34,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li
             class="a5e-tag u-pointer"
-            class:a5e-tag--inactive={!selected.includes(value)}
+            class:a5e-tag--active={selected.includes(value)}
             on:click={() => update(value)}
         >
             {localize(label)}

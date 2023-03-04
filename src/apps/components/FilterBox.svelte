@@ -77,9 +77,9 @@
                         class:a5e-tag--red={activeFilters?.exclusive?.includes(
                             value
                         )}
-                        class:a5e-tag--inactive={!activeFilters?.inclusive?.includes(
+                        class:a5e-tag--active={activeFilters?.inclusive?.includes(
                             value
-                        ) && !activeFilters?.exclusive?.includes(value)}
+                        )}
                         on:click|stopPropagation={() => onFilterSelect(value)}
                         on:auxclick|stopPropagation={() => removeFilter(value)}
                     >

@@ -85,7 +85,6 @@
                 type="button"
                 on:click={incrementResource}
             >
-                >>>>>>> actor-forms
                 <i class="fas fa-plus" />
             </button>
         {:else}
