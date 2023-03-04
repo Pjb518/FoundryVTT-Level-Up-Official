@@ -36,8 +36,12 @@
             optionClasses="u-p-md u-text-center u-w-12"
             options={Object.entries(abilityAbbreviations)}
             selected={$actor.system.attributes.spellcasting}
-            document={actor}
-            name="system.attributes.spellcasting"
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "system.attributes.spellcasting",
+                    event.detail
+                )}
         />
     </FormSection>
 

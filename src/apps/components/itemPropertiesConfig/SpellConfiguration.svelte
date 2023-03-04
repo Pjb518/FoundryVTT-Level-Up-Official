@@ -51,8 +51,12 @@
                 <RadioGroup
                     options={objectEntriesNumberKeyConverter(A5E.spellLevels)}
                     selected={$item.system.level}
-                    name="system.level"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.level",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -60,8 +64,12 @@
                 <RadioGroup
                     options={Object.entries(A5E.spellSchools.primary)}
                     selected={$item.system.schools.primary}
-                    name="system.schools.primary"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.schools.primary",
+                            event.detail
+                        )}
                 />
             </FormSection>
 

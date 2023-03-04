@@ -51,8 +51,12 @@
                 <RadioGroup
                     options={Object.entries(armorTypes)}
                     selected={$item.system.armorCategory}
-                    name="system.armorCategory"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.armorCategory",
+                            event.detail
+                        )}
                 />
             </FormSection>
 

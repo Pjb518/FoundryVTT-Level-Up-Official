@@ -47,8 +47,12 @@
                 <RadioGroup
                     options={Object.entries(A5E.objectTypes)}
                     selected={$item.system.objectType}
-                    name="system.objectType"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.objectType",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -56,8 +60,12 @@
                 <RadioGroup
                     options={Object.entries(A5E.itemRarity)}
                     selected={$item.system.rarity}
-                    name="system.rarity"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.rarity",
+                            event.detail
+                        )}
                 />
             </FormSection>
 

@@ -51,8 +51,12 @@
                         A5E.maneuverDegrees
                     )}
                     selected={$item.system.degree}
-                    name="system.degree"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.degree",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -61,8 +65,12 @@
                     <RadioGroup
                         options={Object.entries(A5E.maneuverTraditions)}
                         selected={$item.system.tradition}
-                        name="system.tradition"
-                        document={item}
+                        on:updateSelection={(event) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.tradition",
+                                event.detail
+                            )}
                     />
                 </FormSection>
 

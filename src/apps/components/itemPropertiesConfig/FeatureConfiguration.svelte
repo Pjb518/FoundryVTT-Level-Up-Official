@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -46,8 +48,12 @@
                 <RadioGroup
                     options={Object.entries(featureTypes)}
                     selected={$item.system.featureType}
-                    name="system.featureType"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.featureType",
+                            event.detail
+                        )}
                 />
             </FormSection>
         </div>

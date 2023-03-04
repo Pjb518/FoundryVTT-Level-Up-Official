@@ -59,8 +59,12 @@
             <RadioGroup
                 options={recoveryOptions}
                 selected={resource.per}
-                name={`system.resources.${source}.per`}
-                document={actor}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        `system.resources.${source}.per`,
+                        event.detail
+                    )}
             />
         </FormSection>
     </div>

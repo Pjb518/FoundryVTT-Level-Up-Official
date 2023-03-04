@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -16,8 +18,12 @@
         <RadioGroup
             options={creatureSizes}
             selected={$actor.system.traits.size}
-            name="system.traits.size"
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "system.traits.size",
+                    event.detail
+                )}
         />
     </FormSection>
 </article>
