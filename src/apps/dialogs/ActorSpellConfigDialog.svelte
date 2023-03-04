@@ -54,8 +54,8 @@
             <input
                 class="a5e-input"
                 type="text"
-                name="system.bonuses.spell.dc"
-                value={$actor.system.bonuses.spell.dc}
+                name="system.bonuses.spellDC"
+                value={$actor.system.bonuses.spellDC}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,
