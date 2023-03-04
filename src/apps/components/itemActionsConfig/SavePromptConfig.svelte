@@ -7,7 +7,18 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const { abilities } = CONFIG.A5E;
+    const { abilities, saveDCOptions } = CONFIG.A5E;
+
+    function selectSaveDCCalculationType(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+
+        console.log(event.target?.selectedOptions, selectedOption);
+
+        $item.update({
+            [`system.actions.${actionId}.prompts.${promptId}.saveDC.type`]:
+                selectedOption,
+        });
+    }
 
     export let prompt;
     export let promptId;
@@ -87,7 +98,55 @@
         </div>
     </div>
 
-    <div class="a5e-field-group a5e-field-group--formula">
+    <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-xl">
+        <div class="u-flex u-flex-col u-gap-sm">
+            <h3 class="a5e-field-group__heading">
+                {localize("A5E.ItemSavingThrowDC")}
+            </h3>
+
+            <select
+                name={`system.actions.${actionId}.prompts.${promptId}.saveDC.type`}
+                on:change={selectSaveDCCalculationType}
+            >
+                {#each Object.entries(saveDCOptions) as [type, label]}
+                    <option
+                        value={type}
+                        selected={type === prompt?.saveDC?.type}
+                    >
+                        {localize(label)}
+                    </option>
+                {/each}
+            </select>
+        </div>
+
+        <div class="u-flex u-flex-col u-flex-grow u-flex-shrink-0 u-gap-sm">
+            <label
+                class="a5e-field-group__heading"
+                for={`${actionId}.prompts.${promptId}.saveDC.bonus`}
+            >
+                {#if prompt?.saveDC?.type === "custom"}
+                    {localize("A5E.ItemSavingThrowDCCustom")}
+                {:else}
+                    {localize("A5E.ItemSavingThrowDCBonus")}
+                {/if}
+            </label>
+
+            <input
+                id={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
+                name={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
+                type="text"
+                value={prompt?.saveDC?.bonus ?? ""}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
+                        target.value
+                    )}
+            />
+        </div>
+    </div>
+
+    <!-- <div class="a5e-field-group a5e-field-group--formula">
         <label for={`${actionId}-${promptId}-dc`}>
             {localize("A5E.ItemSavingThrowDC")}
         </label>
@@ -104,7 +163,7 @@
                     target.value
                 )}
         />
-    </div>
+    </div> -->
 
     <div class="a5e-field-group ">
         <label for={`${actionId}-${promptId}-save-effect`}>

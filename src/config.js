@@ -516,6 +516,7 @@ A5E.rollModes = {
   disadvantage: 'A5E.RollModeDisadvantage'
 };
 
+// TODO: Add localizations for these roll types.
 A5E.rollTypes = {
   abilityCheck: 'Ability Check',
   attack: 'Attack',
@@ -525,6 +526,13 @@ A5E.rollTypes = {
   savingThrow: 'Saving Throw',
   skillCheck: 'Skill Check',
   toolCheck: 'ToolCheck'
+};
+
+A5E.saveDCOptions = {
+  spellcasting: 'A5E.SpellDC',
+  maneuver: 'A5E.ManeuverDC',
+  ...A5E.abilities,
+  custom: 'A5E.Custom'
 };
 
 /**

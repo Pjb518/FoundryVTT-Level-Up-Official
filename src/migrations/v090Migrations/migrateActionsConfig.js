@@ -95,7 +95,10 @@ export default function migrateActionsConfig(itemData, updateData) {
       [foundry.utils.randomID()]: {
         ability: save.targetAbility,
         onSave: save.onSave,
-        saveDC: save.dc,
+        saveDC: {
+          type: 'custom',
+          bonus: save.dc
+        },
         type: 'savingThrow'
       }
     };
