@@ -1,18 +1,19 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import computeSaveDC from "../../utils/computeSaveDC";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
+    const actor = $item.actor && new TJSDocument($item.actor ?? null);
     const actionId = getContext("actionId");
 
     const { abilities, saveDCOptions } = CONFIG.A5E;
 
     function selectSaveDCCalculationType(event) {
         const selectedOption = event.target?.selectedOptions[0]?.value;
-
-        console.log(event.target?.selectedOptions, selectedOption);
 
         $item.update({
             [`system.actions.${actionId}.prompts.${promptId}.saveDC.type`]:
@@ -22,6 +23,8 @@
 
     export let prompt;
     export let promptId;
+
+    $: saveDC = computeSaveDC($actor, prompt.saveDC);
 </script>
 
 <section class="action-config__wrapper">
@@ -98,8 +101,8 @@
         </div>
     </div>
 
-    <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-xl">
-        <div class="u-flex u-flex-col u-gap-sm">
+    <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md">
+        <div class="u-flex u-flex-col u-gap-sm u-w-30">
             <h3 class="a5e-field-group__heading">
                 {localize("A5E.ItemSavingThrowDC")}
             </h3>
@@ -119,7 +122,9 @@
             </select>
         </div>
 
-        <div class="u-flex u-flex-col u-flex-grow u-flex-shrink-0 u-gap-sm">
+        <div
+            class="u-flex u-flex-col u-flex-grow u-flex-shrink-0 u-justify-space-between"
+        >
             <label
                 class="a5e-field-group__heading"
                 for={`${actionId}.prompts.${promptId}.saveDC.bonus`}
@@ -144,26 +149,13 @@
                     )}
             />
         </div>
+
+        {#if saveDC}
+            <div class="save-dc-preview">
+                <input type="number" value={saveDC} disabled={true} />
+            </div>
+        {/if}
     </div>
-
-    <!-- <div class="a5e-field-group a5e-field-group--formula">
-        <label for={`${actionId}-${promptId}-dc`}>
-            {localize("A5E.ItemSavingThrowDC")}
-        </label>
-
-        <input
-            id={`${actionId}-${promptId}-dc`}
-            name={`${actionId}-${promptId}-dc`}
-            type="text"
-            value={prompt.saveDC ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.saveDC`,
-                    target.value
-                )}
-        />
-    </div> -->
 
     <div class="a5e-field-group ">
         <label for={`${actionId}-${promptId}-save-effect`}>
@@ -211,5 +203,12 @@
             gap: 0.25rem;
             font-size: 0.694rem;
         }
+    }
+
+    .save-dc-preview {
+        display: flex;
+        align-items: flex-end;
+        width: 3rem;
+        text-align: center;
     }
 </style>
