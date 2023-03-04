@@ -17,11 +17,9 @@
     let supply = true;
 
     async function rollHitDie(dieSize) {
-        console.log("Here");
         try {
             await $actor.rollHitDice(dieSize);
         } catch (e) {
-            console.log(e);
             // TODO: Display a useful error to the user when hit die updates fail
             return;
         }
@@ -49,7 +47,6 @@
     }
 
     $: hitDice = $actor.system.attributes.hitDice;
-    console.log(hitDice);
 </script>
 
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">

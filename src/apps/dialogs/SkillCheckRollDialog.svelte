@@ -29,8 +29,6 @@
         ability: localizedSkill,
     });
 
-    console.log(options);
-
     function onSubmit() {
         dialog.submit({ rollFormula, abilityKey });
     }

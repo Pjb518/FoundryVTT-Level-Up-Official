@@ -8,7 +8,6 @@
     export let async = false;
 
     function updateEditorContent(event) {
-        console.log(event);
         const { content } = event.detail;
 
         $document.update({
@@ -32,7 +31,6 @@
 
 <style lang="scss">
     .editor {
-        padding-inline: 0.25rem;
         height: 100%;
 
         // Nudges the edit icon down 1px. Removing this hides the top border for the button.
