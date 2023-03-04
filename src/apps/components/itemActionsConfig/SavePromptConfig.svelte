@@ -7,7 +7,7 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
-    const actor = $item.actor && new TJSDocument($item.actor ?? null);
+    const actor = $item.actor && new TJSDocument($item.actor);
     const actionId = getContext("actionId");
 
     const { abilities, saveDCOptions } = CONFIG.A5E;
