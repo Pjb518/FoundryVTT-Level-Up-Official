@@ -121,7 +121,7 @@
 <style lang="scss">
     :global {
         .a5e-actor-sheet {
-            min-width: 45.625rem;
+            min-width: 47.1875rem;
         }
 
         .a5e-sheet .window-content {
