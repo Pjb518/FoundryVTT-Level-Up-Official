@@ -1,21 +1,20 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let options = [];
     export let selected = [];
-    export let name;
-    export let document;
 
-    function update(value) {
+    function updateSelection(value) {
         const newSelections = new Set(selected);
 
         if (newSelections.has(value)) newSelections.delete(value);
         else newSelections.add(value);
 
-        updateDocumentDataFromField($document, name, [...newSelections]);
+        dispatch("updateSelection", [...newSelections]);
     }
+
+    const dispatch = createEventDispatcher();
 </script>
 
 <ul
@@ -35,7 +34,7 @@
         <li
             class="a5e-tag u-pointer"
             class:a5e-tag--active={selected.includes(value)}
-            on:click={() => update(value)}
+            on:click={() => updateSelection(value)}
         >
             {localize(label)}
         </li>

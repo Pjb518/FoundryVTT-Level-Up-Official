@@ -69,8 +69,12 @@
                 <CheckboxGroup
                     options={Object.entries(A5E.spellSchools.secondary)}
                     selected={$item.system.schools.secondary}
-                    name="system.schools.secondary"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.schools.secondary",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
