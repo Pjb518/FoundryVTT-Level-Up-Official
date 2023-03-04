@@ -41,9 +41,9 @@
             display: none;
 
             &:checked + .area-shape-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                box-shadow: 0 0 10px darken($color: #2b6537, $amount: 10) inset;
+                background: #425f65;
+                border-color: darken($color: #425f65, $amount: 5);
+                box-shadow: 0 0 10px darken($color: #425f65, $amount: 10) inset;
                 color: #f6f2eb;
             }
         }
