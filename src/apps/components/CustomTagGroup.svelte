@@ -11,6 +11,13 @@
     export let showCustomInput = true;
     export let heading;
 
+    function splitCustomSelections(value) {
+        return value
+            .split(";")
+            .map((option) => option.trim())
+            .filter(Boolean);
+    }
+
     function toggleAll() {
         if (arraysAreEqual(optionKeys, selectedCoreOptions)) {
             selectedCoreOptions = [];
@@ -18,32 +25,11 @@
             selectedCoreOptions = optionKeys;
         }
 
-        updateCustom(selectedCustomOptions);
+        updateSelections(selectedCustomOptions);
     }
 
-    function updateCoreSelections(values) {
-        const customSelections = selectedCustomOptions
-            .split(";")
-            .map((option) => {
-                console.log(option);
-                return option.trim();
-            })
-            .filter(Boolean);
-
-        dispatch("updateSelection", [...values, ...customSelections]);
-    }
-
-    function updateCustomSelections(values) {
-        selected = [
-            ...selectedCoreOptions,
-            ...values
-                .split(";")
-                .map((option) => {
-                    console.log(option);
-                    return option.trim();
-                })
-                .filter(Boolean),
-        ];
+    function updateSelections() {
+        selected = [...selectedCoreOptions, ...selectedCustomOptions];
 
         dispatch("updateSelection", selected);
     }
@@ -55,9 +41,11 @@
         optionKeys.includes(option)
     );
 
-    $: selectedCustomOptions = selected
-        .filter((option) => !optionKeys.includes(option))
-        .join("; ");
+    $: selectedCustomOptions = selected.filter(
+        (option) => !optionKeys.includes(option)
+    );
+
+    $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>
 
 <header class="u-align-center u-flex u-gap-lg">
@@ -71,7 +59,7 @@
 <CheckboxGroup
     {options}
     selected={selectedCoreOptions}
-    on:updateSelection={(event) => updateCoreSelections(event.detail)}
+    on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 
 {#if showCustomInput}
@@ -79,8 +67,9 @@
         <input
             class="a5e-input"
             type="text"
-            value={selectedCustomOptions}
-            on:change={({ target }) => updateCustomSelections(target.value)}
+            value={selectedCustomOptions.join("; ")}
+            on:change={({ target }) =>
+                (selectedCustomOptions = splitCustomSelections(target.value))}
         />
     </div>
 
