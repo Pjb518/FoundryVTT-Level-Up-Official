@@ -11,7 +11,7 @@ export default function computeSaveDC(actor, saveDC) {
   } else if (saveDC?.type === 'maneuver') {
     terms.push(actor.system.maneuverDC);
   } else if (Object.keys(CONFIG.A5E.abilities).includes(saveDC?.type)) {
-    terms.push(8, '@prof', actor.system.abilities[saveDC?.type].check.mod);
+    terms.push(8, actor.system.attributes.prof, actor.system.abilities[saveDC?.type].check.mod);
   }
 
   terms.push(saveDC?.bonus);

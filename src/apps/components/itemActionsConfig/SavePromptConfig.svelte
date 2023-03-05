@@ -6,6 +6,9 @@
     import computeSaveDC from "../../utils/computeSaveDC";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    export let prompt;
+    export let promptId;
+
     const item = getContext("item");
     const actor = $item.actor && new TJSDocument($item.actor);
     const actionId = getContext("actionId");
@@ -21,10 +24,30 @@
         });
     }
 
-    export let prompt;
-    export let promptId;
+    function onSaveDCUpdate(actor, { type, bonus }) {
+        try {
+            const saveDC = computeSaveDC(actor, {
+                type: prompt?.saveDC.type,
+                bonus: saveDCBonus,
+            });
 
-    $: saveDC = computeSaveDC($actor, prompt.saveDC);
+            saveDCIsValid = true;
+            return saveDC;
+        } catch {
+            saveDCIsValid = false;
+        }
+    }
+
+    let saveDCIsValid = true;
+    let saveDCBonus = prompt?.saveDC?.bonus ?? "";
+
+    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC.type, saveDCBonus);
+
+    $: updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
+        saveDCBonus
+    );
 </script>
 
 <section class="action-config__wrapper">
@@ -140,19 +163,24 @@
                 id={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
                 name={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
                 type="text"
-                value={prompt?.saveDC?.bonus ?? ""}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
-                        target.value
-                    )}
+                autocomplete="off"
+                bind:value={saveDCBonus}
             />
         </div>
 
-        {#if saveDC}
-            <div class="save-dc-preview">
-                <input type="number" value={saveDC} disabled={true} />
+        {#if saveDC || !saveDCIsValid}
+            <div class="save-dc-preview-wrapper">
+                <span
+                    class="save-dc-preview"
+                    class:invalid={!saveDCIsValid}
+                    type="number"
+                >
+                    {#if saveDCIsValid}
+                        {saveDC}
+                    {:else}
+                        <i class="fa-solid fa-circle-exclamation" />
+                    {/if}
+                </span>
             </div>
         {/if}
     </div>
@@ -205,10 +233,26 @@
         }
     }
 
-    .save-dc-preview {
+    .save-dc-preview-wrapper {
         display: flex;
         align-items: flex-end;
         width: 3rem;
-        text-align: center;
+    }
+
+    .save-dc-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 100%;
+        border-radius: 3px;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .invalid {
+        background: rgba(139, 37, 37, 0.25);
+        border: 1px solid rgba(139, 37, 37, 0.25);
+        color: rgba(139, 37, 37, 0.85);
+        font-size: 1rem;
     }
 </style>

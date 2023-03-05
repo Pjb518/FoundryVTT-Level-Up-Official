@@ -116,32 +116,50 @@ export default class ActorA5e extends Actor {
      */
     Object.values(actorData.abilities).forEach((ability) => {
       ['check', 'save'].forEach((key) => {
-        const deterministicBonus = getDeterministicBonus(
-          `${ability[key].mod} + ${ability[key].bonus} + ${actorData.bonuses.abilities[key]}`,
-          this.getRollData()
-        );
+        let deterministicBonus;
 
-        // Fall back to the base ability mod if no bonus could be calculated.
-        ability[key].deterministicBonus = deterministicBonus ?? ability[key].mod;
+        try {
+          deterministicBonus = getDeterministicBonus(
+            [
+              ability[key].mod,
+              ability[key].bonus,
+              actorData.bonuses.abilities[key]
+            ].filter(Boolean).join(' + '),
+            this.getRollData()
+          );
+        } finally {
+          // Fall back to the base ability mod if no bonus could be calculated.
+          ability[key].deterministicBonus = deterministicBonus ?? ability[key].mod;
+        }
       });
     });
 
     const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
     actorData.attributes.hp.max = baseHP + bonusHP;
 
-    actorData.attributes.maneuverDC = getDeterministicBonus([
-      8,
-      actorData.attributes.prof,
-      actorData.bonuses.maneuverDC,
-      Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
-    ].join(' + '), this.getRollData());
+    try {
+      actorData.attributes.maneuverDC = getDeterministicBonus([
+        8,
+        actorData.attributes.prof,
+        actorData.bonuses.maneuverDC,
+        Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
+      ].join(' + '), this.getRollData());
+    } catch {
+      console.error(`Failed to calculate a maneuver DC for ${this.name}`);
+      actorData.attributes.maneuverDC = null;
+    }
 
-    actorData.attributes.spellDC = getDeterministicBonus([
-      8,
-      actorData.attributes.prof,
-      actorData.bonuses?.spell?.dc || 0,
-      actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
-    ].join(' + '), this.getRollData());
+    try {
+      actorData.attributes.spellDC = getDeterministicBonus([
+        8,
+        actorData.attributes.prof,
+        actorData.bonuses?.spell?.dc || 0,
+        actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
+      ].join(' + '), this.getRollData());
+    } catch {
+      console.error(`Failed to calculate a spell DC for ${this.name}`);
+      actorData.attributes.spellDC = null;
+    }
 
     if (this.type === 'character') {
       actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
@@ -285,16 +303,34 @@ export default class ActorA5e extends Actor {
       else skill.mod = 0;
     });
 
-    Object.values(actorData.skills).forEach((skill) => {
+    Object.entries(actorData.skills).forEach(([key, skill]) => {
+      const skillName = game.i18n.localize(CONFIG.A5E.skills[key]);
       const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
 
-      const deterministicBonus = getDeterministicBonus(
-        `${skill.mod} + ${skill.bonuses.check} + ${globalSkillBonus || 0} + ${globalCheckBonus || 0}`,
-        this.getRollData()
-      );
+      let deterministicBonus;
+
+      try {
+        deterministicBonus = getDeterministicBonus(
+          [
+            skill.mod,
+            skill.bonuses.check,
+            globalSkillBonus,
+            globalCheckBonus
+          ].filter(Boolean).join(' + '),
+          this.getRollData()
+        );
+      } catch {
+        console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
+      }
 
       skill.deterministicBonus = deterministicBonus ?? skill.mod;
-      skill.passive = calculatePassiveScore(skill, this.getRollData());
+
+      try {
+        skill.passive = calculatePassiveScore(skill, this.getRollData());
+      } catch {
+        console.warn(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
+        skill.passive = null;
+      }
     });
   }
 
