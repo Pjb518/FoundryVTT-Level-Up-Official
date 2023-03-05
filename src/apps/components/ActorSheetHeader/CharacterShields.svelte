@@ -39,6 +39,7 @@
             value={$actor.system.details.level}
             placeholder="0"
             min="0"
+            disabled={sheetIsLocked}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $actor,

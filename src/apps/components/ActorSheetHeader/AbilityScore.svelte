@@ -11,6 +11,8 @@
     export let abilityLabel;
 
     const actor = getContext("actor");
+
+    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="ability-score">
@@ -28,6 +30,7 @@
                 Number(target.value)
             )}
         placeholder="10"
+        disabled={sheetIsLocked}
     />
 </div>
 
