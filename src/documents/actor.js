@@ -328,7 +328,7 @@ export default class ActorA5e extends Actor {
       try {
         skill.passive = calculatePassiveScore(skill, this.getRollData());
       } catch {
-        console.warn(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
+        console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
         skill.passive = null;
       }
     });
