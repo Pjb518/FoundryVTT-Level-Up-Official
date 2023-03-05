@@ -16,6 +16,8 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
+            class:initiative-roll-button--shift={$pressedKeysStore.ShiftLeft}
+            class:initiative-roll-button--ctrl={$pressedKeysStore.ControlLeft}
             data-tooltip="A5E.RollInitiative"
             data-tooltip-direction="DOWN"
             on:click={() =>
@@ -54,7 +56,15 @@
 
         &:hover {
             transform: scale(1.2);
-            color: inherit;
+            color: #555;
+        }
+
+        &--ctrl:hover {
+            color: #ffb63b;
+        }
+
+        &--shift:hover {
+            color: #488f9a;
         }
     }
 
