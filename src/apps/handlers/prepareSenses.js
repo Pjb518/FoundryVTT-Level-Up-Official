@@ -10,6 +10,6 @@ export default function prepareSenses(data) {
       const unlimitedLabel = game.i18n.localize(CONFIG.A5E.visionUnits.unlimited);
       return `${label} - ${unlimitedLabel}`;
     }
-    return `${label} - ${senseData.distance} ${unitLabel}`;
+    return `${label} - ${senseData.distance} ${unitLabel || 'ft.'}`;
   });
 }
