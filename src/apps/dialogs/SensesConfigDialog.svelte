@@ -6,7 +6,6 @@
     import FormSection from "../components/FormSection.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
-    import { loop_guard } from "svelte/internal";
 
     export let { actorDocument, appId } = getContext("#external").application;
 
