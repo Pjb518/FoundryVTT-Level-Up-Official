@@ -12,7 +12,7 @@ export default class ActionsManager extends DataProxy {
   }
 
   get count() {
-    return Object.keys(this.#item.system.actions).length;
+    return Object.keys(this.#item.system.actions ?? {}).length;
   }
 
   /**
@@ -20,15 +20,15 @@ export default class ActionsManager extends DataProxy {
    * @returns {Array}
    */
   entries() {
-    return Object.entries(this.#item.system.actions);
+    return Object.entries(this.#item.system.actions ?? {});
   }
 
   keys() {
-    return Object.keys(this.#item.system.actions);
+    return Object.keys(this.#item.system.actions ?? {});
   }
 
   values() {
-    return Object.values(this.#item.system.actions);
+    return Object.values(this.#item.system.actions ?? {});
   }
 
   /** ************************************************ */
@@ -50,7 +50,7 @@ export default class ActionsManager extends DataProxy {
 
   /** ************************************************ */
   get activationTypes() {
-    const actions = Object.values(this.#item.system.actions);
+    const actions = Object.values(this.#item.system.actions ?? {});
 
     return actions.reduce((acc, action) => {
       if (action.activation?.type) acc.add(action.activation.type);

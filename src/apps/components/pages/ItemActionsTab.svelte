@@ -33,7 +33,7 @@
     </header>
 
     <ul class="action-list">
-        {#each Object.entries($item.system.actions) as [id, action] (id)}
+        {#each Object.entries($item.system.actions ?? {}) as [id, action] (id)}
             <li class="action" data-action-id={id}>
                 {action?.name}
                 <div class="action-buttons">
