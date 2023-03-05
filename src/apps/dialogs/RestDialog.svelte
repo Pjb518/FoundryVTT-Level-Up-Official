@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { actorDocument, appId } = getContext("#external").application;
 
@@ -43,7 +44,11 @@
     }
 
     function onSubmit() {
-        application.submit();
+        application.submit({
+            haven,
+            restType,
+            supply,
+        });
     }
 
     $: hitDice = $actor.system.attributes.hitDice;
@@ -51,54 +56,43 @@
 
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
     <section class="a5e-form__section">
-        <h3 class="u-text-bold u-text-sm">
+        <h3 class="u-text-bold u-text-sm u-pb-xs">
             {localize("A5E.RestType")}
         </h3>
 
-        <div class="rest-type__wrapper">
-            {#each Object.entries(restTypeOptions) as [rest, label]}
-                <input
-                    class="rest-type__input"
-                    type="radio"
-                    name="rest-type"
-                    id={`${appId}-rest-type-${rest}`}
-                    value={rest}
-                    bind:group={restType}
-                />
-
-                <label
-                    class="rest-type__label"
-                    for={`${appId}-rest-type-${rest}`}
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            listClasses="u-gap-md u-text-sm"
+            optionClasses="u-p-md u-text-center u-w-20"
+            options={Object.entries(restTypeOptions)}
+            selected={restType}
+            on:updateSelection={({ detail }) => (restType = detail)}
+        />
     </section>
 
     {#if restType === "long"}
         <div class="a5e-form__section a5e-form__section--inline">
-            <!-- svelte-ignore a11y-label-has-associated-control -->
-
-            <div class="a5e-input-container a5e-input-container--inline-wide">
+            <div
+                class="a5e-input-container a5e-input-container--inline-wide u-flex u-align-center"
+            >
                 <input
                     class="a5e-input"
                     for="{appId}-haven"
                     type="checkbox"
                     bind:checked={haven}
                 />
+                <label
+                    for="{appId}-haven"
+                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                >
+                    {localize("A5E.HavenPrompt")}
+                </label>
             </div>
-
-            <label
-                for="{appId}-haven "
-                class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
-            >
-                {localize("A5E.HavenPrompt")}
-            </label>
         </div>
 
         <div class="a5e-form__section a5e-form__section--inline">
-            <div class="a5e-input-container a5e-input-container--inline-wide">
+            <div
+                class="a5e-input-container a5e-input-container--inline-wide u-flex u-align-center"
+            >
                 <input
                     class="a5e-input"
                     id="{appId}-supply"
@@ -117,8 +111,8 @@
     {/if}
 
     {#if restType === "short"}
-        <div class="a5e-form__section">
-            <h3 class="u-text-bold u-text-sm">
+        <div class="a5e-form__section ">
+            <h3 class="u-text-bold u-text-sm u-pb-xs">
                 {localize("hitDiceLabel")}
             </h3>
 
