@@ -36,13 +36,13 @@
                         class="a5e-input"
                         type="number"
                         data-dtype="Number"
-                        name="system.attributes.hp.${updateAttribute}"
+                        name={`system.attributes.hp.${updateAttribute}`}
                         value={hp[updateAttribute]}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $actor,
                                 target.name,
-                                target.value
+                                Number(target.value)
                             )}
                     />
                 </div>
