@@ -1,9 +1,11 @@
 import migrate5ftRange from './migrate5ftRange';
 import migrateItemWeight from './migrateItemWeight';
+import migrateSenses from './migrateSenses';
 
 // FIXME: Remove
 window.testMigrate = {
   actions: migrateActionsConfig,
+  senses: migrateSenses,
   weight: migrateItemWeight
 };
 

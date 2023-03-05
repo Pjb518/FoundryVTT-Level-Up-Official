@@ -433,11 +433,23 @@ A5E.movementAbbreviations = {
 /**
  * @enum {string}
  */
-A5E.movementUnits = {
-  feet: 'A5E.MovementUnitFeet',
-  miles: 'A5E.MovementUnitMiles',
-  meters: 'A5E.MovementUnitMeters',
-  kilometers: 'A5E.MovementUnitKilometers'
+A5E.distanceUnits = {
+  feet: 'A5E.DistanceUnitFeet',
+  miles: 'A5E.DistanceUnitMiles',
+  meters: 'A5E.DistanceUnitMeters',
+  kilometers: 'A5E.DistanceUnitKilometers'
+};
+
+A5E.distanceAbbreviations = {
+  feet: 'A5E.DistanceFeetAbbr',
+  miles: 'A5E.DistanceMilesAbbr',
+  meters: 'A5E.DistanceMetersAbbr',
+  kilometers: 'A5E.DistanceKilometersAbbr'
+};
+
+A5E.visionUnits = {
+  ...A5E.distanceUnits,
+  unlimited: 'A5E.RangeUnlimited'
 };
 
 /**
