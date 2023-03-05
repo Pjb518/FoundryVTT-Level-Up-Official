@@ -10,7 +10,7 @@ export default function migrateSenses(actorData, updateData) {
   const newSenses = Object.entries(old).reduce((acc, [sense, distance]) => {
     for (const [unit, strings] of Object.entries(unitMap)) {
       if (strings.some((el) => distance.includes(el))) {
-        acc[sense] = { distance: (Number(parseInt(distance, 10)) || 0), unit };
+        acc[sense] = { distance: (Number(parseInt(distance, 10))), unit };
         return acc;
       }
     }

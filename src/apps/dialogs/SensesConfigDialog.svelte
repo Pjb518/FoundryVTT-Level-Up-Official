@@ -25,29 +25,22 @@
     {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
         <FormSection heading={headings[sense]} inline={true}>
             <div class="u-w-20">
-                {#if senseData.unit === "unlimited"}
-                    <input
-                        class="a5e-input"
-                        disabled={}
-                        type="text"
-                        name={`system.attributes.senses.${sense}.distance`}
-                        value="&mdash;"
-                    />
-                {:else}
-                    <input
-                        class="a5e-input"
-                        type="number"
-                        name={`system.attributes.senses.${sense}.distance`}
-                        value={senseData.distance || 0}
-                        on:change={({ target }) => {
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                Number(target.value)
-                            );
-                        }}
-                    />
-                {/if}
+                <input
+                    class="a5e-input"
+                    disabled={senseData.unit === "unlimited"}
+                    type={senseData.unit === "unlimited" ? "text" : "number"}
+                    name={`system.attributes.senses.${sense}.distance`}
+                    value={senseData.unit === "unlimited"
+                        ? "—"
+                        : senseData.distance || 0}
+                    on:change={({ target }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value)
+                        );
+                    }}
+                />
             </div>
             <div class="u-w-20">
                 <select
