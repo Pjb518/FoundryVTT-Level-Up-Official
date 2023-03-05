@@ -25,10 +25,10 @@
     {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
         <FormSection heading={headings[sense]} inline={true}>
             <div class="u-w-20">
-                {#if senseData.unit == "unlimited"}
+                {#if senseData.unit === "unlimited"}
                     <input
                         class="a5e-input"
-                        disabled="true"
+                        disabled={}
                         type="text"
                         name={`system.attributes.senses.${sense}.distance`}
                         value="&mdash;"
