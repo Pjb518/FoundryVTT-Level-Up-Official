@@ -13,7 +13,7 @@ export default function migrateMovements(actorData, updateData) {
     }
     // eslint-disable-next-line no-restricted-syntax
     for (const [unit, strings] of Object.entries(unitMap)) {
-      if (Number.isNaN(distance) && strings.some((el) => distance.includes(el))) {
+      if (strings.some((el) => distance.toString(10).includes(el))) {
         acc[mode] = { distance: (Number(parseInt(distance, 10)) || 0), unit };
         return acc;
       }
