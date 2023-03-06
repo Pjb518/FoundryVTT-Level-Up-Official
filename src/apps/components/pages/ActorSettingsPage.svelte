@@ -21,6 +21,34 @@
     style="grid-auto-rows: min-content;"
 >
     <div class="u-flex u-flex-col u-gap-md">
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md">
+                    <input
+                        class="u-pointer"
+                        type="checkbox"
+                        name="flags.a5e.hideGenericResources"
+                        id={`${$actor.id}-hide-generic-resources`}
+                        checked={flags.a5e?.hideGenericResources ??
+                            $actor.type === "npc"}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            )}
+                    />
+
+                    <label
+                        class="u-pointer"
+                        for={`${$actor.id}-hide-generic-resources`}
+                    >
+                        {localize("A5E.HideGenericResources")}
+                    </label>
+                </div>
+            </div>
+        </FormSection>
+
         {#if $actor.type === "character"}
             <FormSection hint="A5E.JackOfAllTrades">
                 <div class="u-align-center u-flex u-gap-md">

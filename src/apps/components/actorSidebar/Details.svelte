@@ -115,9 +115,12 @@
     }
 
     .details-header {
-        font-family: "Modesto Condensed", serif;
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
+        font-family: "Signika", sans-serif;
+        font-size: 0.833rem;
+        // font-weight: bold;
+        padding-left: 0.125rem;
+        padding-bottom: 0.125rem;
+        margin-bottom: 0.275rem;
         border-bottom: 1px solid #ccc;
     }
 

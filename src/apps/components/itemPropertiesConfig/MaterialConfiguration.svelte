@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import localeSort from "../../utils/localeSort";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
@@ -47,8 +48,12 @@
                 <CheckboxGroup
                     options={Object.entries(A5E.materialProperties)}
                     selected={$item.system.materialProperties}
-                    name="system.materialProperties"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.materialProperties",
+                            event.detail
+                        )}
                 />
             </FormSection>
         </div>

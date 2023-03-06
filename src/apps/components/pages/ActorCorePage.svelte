@@ -11,13 +11,16 @@
     const { favorites } = actor;
 
     $: resources = $actor.system.resources;
+    $: flags = $actor.flags;
 </script>
 
-<ol class="resources-container">
-    {#each Object.entries(resources) as [source, resource]}
-        <GenericActorResource {resource} {source} />
-    {/each}
-</ol>
+{#if !(flags.a5e?.hideGenericResources ?? $actor.type === "npc")}
+    <ol class="resources-container">
+        {#each Object.entries(resources) as [source, resource]}
+            <GenericActorResource {resource} {source} />
+        {/each}
+    </ol>
+{/if}
 
 <header class="section-header">
     <i class="fas fa-star heading-icon" />

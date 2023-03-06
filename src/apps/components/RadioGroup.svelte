@@ -1,19 +1,13 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let listClasses = "";
     export let optionClasses = "";
     export let options = [];
     export let selected = "";
-    export let name;
-    export let document;
 
-    function update(value) {
-        value = value === selected ? "" : value;
-        updateDocumentDataFromField($document, name, value);
-    }
+    const dispatch = createEventDispatcher();
 </script>
 
 <ul
@@ -33,10 +27,10 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li
             class={`a5e-tag u-pointer ${optionClasses}`}
-            class:a5e-tag--inactive={!(
-                selected === value || selected?.toString() === value
-            )}
-            on:click={() => update(value)}
+            class:a5e-tag--active={selected === value ||
+                selected?.toString() === value}
+            on:click={() =>
+                dispatch("updateSelection", value === selected ? "" : value)}
         >
             {localize(label)}
         </li>

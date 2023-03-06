@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
     export let { actorDocument, appId } = getContext("#external").application;
@@ -15,8 +17,12 @@
         heading="A5E.Languages"
         options={defaultLanguages}
         selected={$actor.system.proficiencies.languages}
-        name="system.proficiencies.languages"
-        document={actor}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.proficiencies.languages",
+                event.detail
+            )}
     />
 </article>
 

@@ -1,9 +1,11 @@
 import migrate5ftRange from './migrate5ftRange';
 import migrateItemWeight from './migrateItemWeight';
+import migrateSenses from './migrateSenses';
 
 // FIXME: Remove
 window.testMigrate = {
   actions: migrateActionsConfig,
+  senses: migrateSenses,
   weight: migrateItemWeight
 };
 
@@ -95,7 +97,10 @@ export default function migrateActionsConfig(itemData, updateData) {
       [foundry.utils.randomID()]: {
         ability: save.targetAbility,
         onSave: save.onSave,
-        saveDC: save.dc,
+        saveDC: {
+          type: 'custom',
+          bonus: save.dc
+        },
         type: 'savingThrow'
       }
     };

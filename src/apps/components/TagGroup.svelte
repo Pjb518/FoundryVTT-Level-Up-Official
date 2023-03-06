@@ -63,7 +63,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <li
                 class="a5e-tag u-pointer"
-                class:a5e-tag--inactive={!selected.includes(key)}
+                class:a5e-tag--active={selected.includes(key)}
                 on:click={() => toggleTag(key)}
             >
                 {value}

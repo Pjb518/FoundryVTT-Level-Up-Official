@@ -37,13 +37,14 @@
             value={$actor.system.details.cr}
             placeholder="0"
             min="0"
+            disabled={sheetIsLocked}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
                     Number(target.value)
                 )}
-            on:click={({ target }) => target.select()}
+            on:click={({ target }) => !sheetIsLocked && target.select()}
         />
     </div>
 

@@ -55,6 +55,7 @@
             </div>
         {/if}
     </div>
+
     {#if $item.system.broken}
         <i
             class="broken-item-icon fa-solid fa-heart-crack"
@@ -69,6 +70,7 @@
         font-size: 2.25rem;
         color: #8b2525;
         padding-right: 1rem;
+        margin-left: auto;
     }
 
     .sheet-header {

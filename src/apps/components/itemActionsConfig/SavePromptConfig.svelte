@@ -1,16 +1,53 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import computeSaveDC from "../../utils/computeSaveDC";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-
-    const { abilities } = CONFIG.A5E;
 
     export let prompt;
     export let promptId;
+
+    const item = getContext("item");
+    const actor = $item.actor && new TJSDocument($item.actor);
+    const actionId = getContext("actionId");
+
+    const { abilities, saveDCOptions } = CONFIG.A5E;
+
+    function selectSaveDCCalculationType(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+
+        $item.update({
+            [`system.actions.${actionId}.prompts.${promptId}.saveDC.type`]:
+                selectedOption,
+        });
+    }
+
+    function onSaveDCUpdate(actor, { type, bonus }) {
+        try {
+            const saveDC = computeSaveDC(actor, {
+                type: prompt?.saveDC.type,
+                bonus: saveDCBonus,
+            });
+
+            saveDCIsValid = true;
+            return saveDC;
+        } catch {
+            saveDCIsValid = false;
+        }
+    }
+
+    let saveDCIsValid = true;
+    let saveDCBonus = prompt?.saveDC?.bonus ?? "";
+
+    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC.type, saveDCBonus);
+
+    $: updateDocumentDataFromField(
+        $item,
+        `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
+        saveDCBonus
+    );
 </script>
 
 <section class="action-config__wrapper">
@@ -87,23 +124,65 @@
         </div>
     </div>
 
-    <div class="a5e-field-group a5e-field-group--formula">
-        <label for={`${actionId}-${promptId}-dc`}>
-            {localize("A5E.ItemSavingThrowDC")}
-        </label>
+    <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md">
+        <div class="u-flex u-flex-col u-gap-sm u-w-30">
+            <h3 class="a5e-field-group__heading">
+                {localize("A5E.ItemSavingThrowDC")}
+            </h3>
 
-        <input
-            id={`${actionId}-${promptId}-dc`}
-            name={`${actionId}-${promptId}-dc`}
-            type="text"
-            value={prompt.saveDC ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.saveDC`,
-                    target.value
-                )}
-        />
+            <select
+                name={`system.actions.${actionId}.prompts.${promptId}.saveDC.type`}
+                on:change={selectSaveDCCalculationType}
+            >
+                {#each Object.entries(saveDCOptions) as [type, label]}
+                    <option
+                        value={type}
+                        selected={type === prompt?.saveDC?.type}
+                    >
+                        {localize(label)}
+                    </option>
+                {/each}
+            </select>
+        </div>
+
+        <div
+            class="u-flex u-flex-col u-flex-grow u-flex-shrink-0 u-justify-space-between"
+        >
+            <label
+                class="a5e-field-group__heading"
+                for={`${actionId}.prompts.${promptId}.saveDC.bonus`}
+            >
+                {#if prompt?.saveDC?.type === "custom"}
+                    {localize("A5E.ItemSavingThrowDCCustom")}
+                {:else}
+                    {localize("A5E.ItemSavingThrowDCBonus")}
+                {/if}
+            </label>
+
+            <input
+                id={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
+                name={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
+                type="text"
+                autocomplete="off"
+                bind:value={saveDCBonus}
+            />
+        </div>
+
+        {#if saveDC || !saveDCIsValid}
+            <div class="save-dc-preview-wrapper">
+                <span
+                    class="save-dc-preview"
+                    class:invalid={!saveDCIsValid}
+                    type="number"
+                >
+                    {#if saveDCIsValid}
+                        {saveDC}
+                    {:else}
+                        <i class="fa-solid fa-circle-exclamation" />
+                    {/if}
+                </span>
+            </div>
+        {/if}
     </div>
 
     <div class="a5e-field-group ">
@@ -152,5 +231,28 @@
             gap: 0.25rem;
             font-size: 0.694rem;
         }
+    }
+
+    .save-dc-preview-wrapper {
+        display: flex;
+        align-items: flex-end;
+        width: 3rem;
+    }
+
+    .save-dc-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 100%;
+        border-radius: 3px;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .invalid {
+        background: rgba(139, 37, 37, 0.25);
+        border: 1px solid rgba(139, 37, 37, 0.25);
+        color: rgba(139, 37, 37, 0.85);
+        font-size: 1rem;
     }
 </style>

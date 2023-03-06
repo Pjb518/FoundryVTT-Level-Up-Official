@@ -20,8 +20,6 @@
         "a5e",
         "hideDeleteConfirmation"
     );
-
-    $: console.log(hideDeleteConfirmation);
 </script>
 
 <form>

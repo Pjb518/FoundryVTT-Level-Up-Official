@@ -124,7 +124,7 @@
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
-                    class:a5e-tag--inactive={value !== rollMode}
+                    class:a5e-tag--active={value === rollMode}
                     for={`${$actor.id}-${appId}-rollMode-${id}`}
                 >
                     {name}
@@ -174,7 +174,7 @@
                     />
                     <label
                         class="a5e-tag u-pointer u-p-md u-text-center"
-                        class:a5e-tag--inactive={value !== saveType}
+                        class:a5e-tag--active={value === saveType}
                         for={`${$actor.id}-${appId}-save-type-${value}`}
                     >
                         {localize(name)}

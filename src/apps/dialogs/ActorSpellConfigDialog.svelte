@@ -25,8 +25,12 @@
             selected={flags?.availableSpellLevels ||
                 [...Array(10).keys()].map((x) => x.toString())}
             showCustomInput={false}
-            name="flags.a5e.availableSpellLevels"
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.availableSpellLevels",
+                    event.detail
+                )}
         />
     </FormSection>
 
@@ -36,8 +40,12 @@
             optionClasses="u-p-md u-text-center u-w-12"
             options={Object.entries(abilityAbbreviations)}
             selected={$actor.system.attributes.spellcasting}
-            document={actor}
-            name="system.attributes.spellcasting"
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "system.attributes.spellcasting",
+                    event.detail
+                )}
         />
     </FormSection>
 
@@ -46,8 +54,8 @@
             <input
                 class="a5e-input"
                 type="text"
-                name="system.bonuses.spell.dc"
-                value={$actor.system.bonuses.spell.dc}
+                name="system.bonuses.spellDC"
+                value={$actor.system.bonuses.spellDC}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,

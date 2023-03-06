@@ -62,8 +62,12 @@
             optionClasses="u-p-md u-text-center u-w-12"
             options={abilityOptions}
             selected={skill.ability}
-            name={`system.skills.${skillKey}.ability`}
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.ability`,
+                    event.detail
+                )}
         />
     </FormSection>
 
@@ -72,8 +76,12 @@
             heading="A5E.SkillSpecialties"
             options={specialtyOptions}
             selected={skill.specialties}
-            name={`system.skills.${skillKey}.specialties`}
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.specialties`,
+                    event.detail
+                )}
         />
     </FormSection>
 
@@ -83,8 +91,12 @@
             optionClasses="u-p-md u-text-center u-w-12"
             options={expertiseDiceOptions}
             selected={skill.expertiseDice}
-            name={`system.skills.${skillKey}.expertiseDice`}
-            document={actor}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.expertiseDice`,
+                    event.detail
+                )}
         />
     </FormSection>
 

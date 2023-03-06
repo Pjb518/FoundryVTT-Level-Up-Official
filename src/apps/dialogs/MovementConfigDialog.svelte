@@ -40,7 +40,7 @@
                                     updateDocumentDataFromField(
                                         $actor,
                                         target.name,
-                                        target.value
+                                        Number(target.value)
                                     );
                                 }}
                             />
@@ -54,7 +54,7 @@
                                 type="checkbox"
                                 name="system.attributes.movement.traits.hover"
                                 checked={$actor.system.attributes.movement
-                                    .traits.hover}
+                                    .traits?.hover}
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
                                         $actor,

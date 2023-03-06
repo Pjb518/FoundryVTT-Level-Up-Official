@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
     export let { actorDocument, appId } = getContext("#external").application;
@@ -15,8 +17,12 @@
         heading="A5E.CreatureTypePlural"
         options={systemTypes}
         selected={$actor.system.details.creatureTypes}
-        name="system.details.creatureTypes"
-        document={actor}
+        on:updateSelection={(event) =>
+            updateDocumentDataFromField(
+                $actor,
+                "system.details.creatureTypes",
+                event.detail
+            )}
     />
 </article>
 

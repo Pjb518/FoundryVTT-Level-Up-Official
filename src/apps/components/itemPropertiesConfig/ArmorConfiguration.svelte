@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import localeSort from "../../utils/localeSort";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
@@ -50,8 +51,12 @@
                 <RadioGroup
                     options={Object.entries(armorTypes)}
                     selected={$item.system.armorCategory}
-                    name="system.armorCategory"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.armorCategory",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -59,8 +64,12 @@
                 <CheckboxGroup
                     options={Object.entries(armorProperties)}
                     selected={$item.system.armorProperties}
-                    name="system.armorProperties"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.armorProperties",
+                            event.detail
+                        )}
                 />
             </FormSection>
         </div>

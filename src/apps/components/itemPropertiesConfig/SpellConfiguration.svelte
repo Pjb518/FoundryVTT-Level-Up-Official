@@ -51,8 +51,12 @@
                 <RadioGroup
                     options={objectEntriesNumberKeyConverter(A5E.spellLevels)}
                     selected={$item.system.level}
-                    name="system.level"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.level",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -60,8 +64,12 @@
                 <RadioGroup
                     options={Object.entries(A5E.spellSchools.primary)}
                     selected={$item.system.schools.primary}
-                    name="system.schools.primary"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.schools.primary",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -69,8 +77,12 @@
                 <CheckboxGroup
                     options={Object.entries(A5E.spellSchools.secondary)}
                     selected={$item.system.schools.secondary}
-                    name="system.schools.secondary"
-                    document={item}
+                    on:updateSelection={(event) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.schools.secondary",
+                            event.detail
+                        )}
                 />
             </FormSection>
 
@@ -82,7 +94,7 @@
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <li
                             class="a5e-tag u-pointer"
-                            class:a5e-tag--inactive={!$item.system.components[
+                            class:a5e-tag--active={$item.system.components[
                                 value
                             ]}
                             on:click={({ target }) =>
