@@ -4,6 +4,7 @@
 
     export let auxEnabled = true;
     export let color = "orange";
+    export let hint;
     export let options = [];
     export let selected = [[], []];
 
@@ -53,3 +54,17 @@
         />
     {/each}
 </ul>
+
+{#if hint}
+    <p class="hint">
+        {hint}
+    </p>
+{/if}
+
+<style lang="scss">
+    .hint {
+        margin-top: 0.25rem;
+        color: #555;
+        font-size: 0.694rem;
+    }
+</style>
