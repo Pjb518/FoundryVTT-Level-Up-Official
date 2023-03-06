@@ -13,12 +13,12 @@ export default function migrateMovements(actorData, updateData) {
     }
     // eslint-disable-next-line no-restricted-syntax
     for (const [unit, strings] of Object.entries(unitMap)) {
-      if (strings.some((el) => distance.toString(10).includes(el))) {
-        acc[mode] = { distance: (Number(parseInt(distance, 10)) || 0), unit };
+      if (strings.some((el) => distance.toString().includes(el))) {
+        acc[mode] = { distance: parseInt(distance, 10) || 0, unit };
         return acc;
       }
     }
-    acc[mode] = { distance: (Number(parseInt(distance, 10)) || 0), unit: 'feet' };
+    acc[mode] = { distance: parseInt(distance, 10) || 0, unit: 'feet' };
     return acc;
   }, {});
 
