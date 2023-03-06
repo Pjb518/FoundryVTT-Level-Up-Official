@@ -135,6 +135,25 @@
                             {localize("A5E.PlotItem")}
                         </label>
                     </div>
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="system.unidentified"
+                            id="{appId}-unidentified"
+                            checked={$item.system.unidentified}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $item,
+                                    target.name,
+                                    target.checked
+                                )}
+                        />
+
+                        <label class="u-pointer" for="{appId}-unidentified">
+                            {localize("A5E.ItemUnidentified")}
+                        </label>
+                    </div>
                 </div>
             </FormSection>
 
