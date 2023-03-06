@@ -51,7 +51,7 @@
             </h3>
             <RadioGroup
                 listClasses="u-gap-md u-text-sm"
-                optionClasses="u-p-md u-text-center u-w-12"
+                optionStyles="padding:0.5rem; text-align: center; width: 1.85rem"
                 options={abilityOptions}
                 selected={$item.system.defaultASI}
                 name="system.defaultASI"

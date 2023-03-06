@@ -6,26 +6,27 @@
     export let disabled = false;
     export let label;
     export let orange = false;
-    export let optionClasses = "";
+    export let optionStyles = "";
     export let red = false;
     export let value;
-
-    console.log(active);
 
     const dispatch = createEventDispatcher();
 </script>
 
-<button
-    class="tag u-pointer {optionClasses}"
-    class:tag--active={active}
-    class:tag--orange={orange}
-    class:tag--red={red}
-    {disabled}
-    {value}
-    on:click={() => dispatch("tagToggle", value)}
->
-    {localize(label)}
-</button>
+<li>
+    <button
+        class="tag"
+        style={optionStyles}
+        class:tag--active={active}
+        class:tag--orange={orange}
+        class:tag--red={red}
+        {disabled}
+        {value}
+        on:click={() => dispatch("tagToggle", value)}
+    >
+        {localize(label)}
+    </button>
+</li>
 
 <style lang="scss">
     @import "../../scss/base/variables";
@@ -33,13 +34,14 @@
     .tag {
         all: unset;
         background: transparent;
-        width: min-content;
+        display: inline;
         padding: 0.15rem 0.4rem;
         border: 1px solid darken(#7e7960, 5%);
         border-radius: $border-radius-standard;
         color: inherit;
         transition: $standard-transition;
         white-space: nowrap;
+        cursor: pointer;
 
         &:hover,
         &:focus {

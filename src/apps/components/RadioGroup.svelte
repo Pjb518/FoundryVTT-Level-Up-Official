@@ -2,12 +2,18 @@
     import { createEventDispatcher } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Tag from "./Tag.svelte";
+
     export let listClasses = "";
-    export let optionClasses = "";
+    export let optionStyles = "";
     export let options = [];
     export let selected = "";
 
     const dispatch = createEventDispatcher();
+
+    function updateSelection(value) {
+        dispatch("updateSelection", value === selected ? "" : value);
+    }
 </script>
 
 <ul
@@ -25,14 +31,12 @@
 >
     {#each options as [value, label]}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <li
-            class={`a5e-tag u-pointer ${optionClasses}`}
-            class:a5e-tag--active={selected === value ||
-                selected?.toString() === value}
-            on:click={() =>
-                dispatch("updateSelection", value === selected ? "" : value)}
-        >
-            {localize(label)}
-        </li>
+        <Tag
+            active={selected === value || selected?.toString() === value}
+            {optionStyles}
+            {value}
+            {label}
+            on:tagToggle={({ detail }) => updateSelection(detail)}
+        />
     {/each}
 </ul>
