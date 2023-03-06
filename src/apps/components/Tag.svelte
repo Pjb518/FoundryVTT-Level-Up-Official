@@ -22,7 +22,7 @@
         class:tag--red={red}
         {disabled}
         {value}
-        on:click={() => dispatch("tagToggle", value)}
+        on:click|preventDefault={() => dispatch("tagToggle", value)}
     >
         {localize(label)}
     </button>
