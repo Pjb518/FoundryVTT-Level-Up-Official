@@ -8,11 +8,8 @@ export default function getMovementData(actor) {
     if (movementData.distance === 0) { return false; }
     return movementData;
   });
-
-  console.log(distances);
-
+  
   const hoverText = game.i18n.localize('A5E.MovementHover');
-  console.log();
 
   return distances.map(([mode, movementData]) => {
     const modeLabel = game.i18n.localize(CONFIG.A5E.movement[mode]);
