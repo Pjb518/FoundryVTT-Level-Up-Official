@@ -70,7 +70,9 @@
             </FormSection>
 
             <FormSection>
-                <div class="u-flex u-gap-xxxl u-text-sm u-w-full">
+                <div
+                    class="u-flex-wrap u-flex u-gap-xxxl u-text-sm u-w-full properties-container"
+                >
                     <div class="u-align-center u-flex u-gap-md">
                         <input
                             class="u-pointer"
@@ -115,7 +117,7 @@
                             </label>
                         </div>
                     {/if}
-
+                    {#if game.user.isGM}
                     <div class="u-align-center u-flex u-gap-md">
                         <input
                             class="u-pointer"
@@ -154,6 +156,7 @@
                             {localize("A5E.ItemUnidentified")}
                         </label>
                     </div>
+                    {/if}
                 </div>
             </FormSection>
 
@@ -391,3 +394,9 @@
         </dl>
     {/if}
 </section>
+
+<style>
+    .properties-container {
+        gap: 0.5rem 2.225rem;
+    }
+</style>
