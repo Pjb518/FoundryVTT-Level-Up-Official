@@ -2,11 +2,10 @@
     import { createEventDispatcher } from "svelte";
     import Tag from "./Tag.svelte";
 
-    export let aux = true;
+    export let auxEnabled = true;
     export let color = "orange";
     export let options = [];
     export let selected = [[], []];
-    export let showCustomInput = false;
 
     function updateSelection(value, skipDefault = false) {
         let newSelections = selected.map((c) => new Set(c));
@@ -16,7 +15,7 @@
             newSelections[1].add(value);
         } else if (newSelections[1].has(value)) {
             newSelections[1].delete(value);
-        } else if (skipDefault) {
+        } else if (auxEnabled && skipDefault) {
             newSelections[1].add(value);
         } else {
             newSelections[0].add(value);

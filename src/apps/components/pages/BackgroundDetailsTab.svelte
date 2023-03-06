@@ -39,6 +39,7 @@
     const skillOptions = Object.entries(CONFIG.A5E.skills);
 
     $: languages = $item.system.proficiencies.languages;
+    $: skills = $item.system.proficiencies.skills;
 </script>
 
 <article>
@@ -85,20 +86,16 @@
     {/if}
 
     <section class="section-wrapper">
+        <h3 class="section-title">
+            {localize("A5E.Languages")}
+        </h3>
+
         <MultiStateCheckBoxGroup
             options={defaultLanguages}
             selected={[languages.fixed, languages.options]}
             on:updateSelection={({ detail }) =>
                 updateMulti(detail, "languages")}
         />
-
-        <!-- <CustomTagGroup
-            heading="A5E.Languages"
-            options={defaultLanguages}
-            selected={$item.system.proficiencies.languages.options}
-            name="system.proficiencies.languages.options"
-            document={item}
-        /> -->
     </section>
 
     <section class="section-wrapper">
@@ -127,15 +124,10 @@
             {localize("A5E.SkillPlural")}
         </h3>
 
-        <CheckboxGroup
+        <MultiStateCheckBoxGroup
             options={skillOptions}
-            selected={$item.system.proficiencies.skills.options}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.proficiencies.skills.options",
-                    detail
-                )}
+            selected={[skills.fixed, skills.options]}
+            on:updateSelection={({ detail }) => updateMulti(detail, "skills")}
         />
     </section>
 
