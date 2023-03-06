@@ -15,13 +15,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${rollId}-label`}>
+        <label for="{actionId}-{rollId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-label`}
-            name={`${actionId}-${rollId}-label`}
+            id="{actionId}-{rollId}-label"
             type="text"
             value={roll.label ?? ""}
             on:change={({ target }) =>
@@ -35,13 +34,12 @@
 
     <section class="row">
         <div class="a5e-field-group a5e-field-group--formula">
-            <label for={`${actionId}-${rollId}-damage-formula`}>
+            <label for="{actionId}-{rollId}-damage-formula">
                 {localize("A5E.DamageFormula")}
             </label>
 
             <input
-                id={`${actionId}-${rollId}-damage-formula`}
-                name={`${actionId}-${rollId}-damage-formula`}
+                id="{actionId}-{rollId}-damage-formula"
                 type="text"
                 value={roll.formula ?? ""}
                 on:change={({ target }) =>
@@ -54,14 +52,13 @@
         </div>
 
         <div class="a5e-field-group">
-            <label for={`${actionId}-${rollId}-damage-type`}>
+            <label for="{actionId}-{rollId}-damage-type">
                 {localize("A5E.DamageType")}
             </label>
 
             <select
-                id={`${actionId}-${rollId}-damage-type`}
+                id="{actionId}-{rollId}-damage-type"
                 class="u-w-fit"
-                name={`${actionId}-${rollId}-damage-type`}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -84,9 +81,8 @@
 
     <div class="a5e-field-group a5e-field-group--checkbox">
         <input
-            id={`${actionId}-${rollId}-can-crit`}
+            id="{actionId}-{rollId}-can-crit"
             class="checkbox"
-            name={`${actionId}-${rollId}-can-crit`}
             type="checkbox"
             checked={roll.canCrit ?? true}
             on:change={({ target }) =>
@@ -97,14 +93,14 @@
                 )}
         />
 
-        <label for={`${actionId}-${rollId}-can-crit`}>
+        <label for="{actionId}-{rollId}-can-crit">
             {localize("A5E.DamageDoubleOnCrit")}
         </label>
     </div>
 
     {#if roll.canCrit ?? true}
         <div class="a5e-field-group">
-            <label for={`${actionId}-${rollId}-crit-bonus`}>
+            <label for="{actionId}-{rollId}-crit-bonus">
                 {localize("A5E.DamageBonusOnCrit")}
             </label>
 
@@ -114,8 +110,7 @@
             </p>
 
             <input
-                id={`${actionId}-${rollId}-crit-bonus`}
-                name={`${actionId}-${rollId}-crit-bonus`}
+                id="{actionId}-{rollId}-crit-bonus"
                 type="text"
                 value={roll.critBonus ?? ""}
                 on:change={({ target }) =>
@@ -130,9 +125,8 @@
 
     <div class="a5e-field-group a5e-field-group--checkbox">
         <input
-            id={`${actionId}-${rollId}-default`}
+            id="{actionId}-{rollId}-default"
             class="checkbox"
-            name={`${actionId}-${rollId}-default`}
             type="checkbox"
             checked={roll.default ?? true}
             on:change={({ target }) =>
@@ -143,7 +137,7 @@
                 )}
         />
 
-        <label for={`${actionId}-${rollId}-default`}>
+        <label for="{actionId}-{rollId}-default">
             {localize("A5E.DamageDefaultSelection")}
         </label>
     </div>

@@ -21,13 +21,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${rollId}-label`}>
+        <label for="{actionId}-{rollId}-label">
             {localize("Label")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-label`}
-            name={`${actionId}-${rollId}-label`}
+            id="{actionId}-{rollId}-label"
             type="text"
             value={roll.label ?? ""}
             on:change={({ target }) =>
@@ -43,8 +42,6 @@
         <h3>{localize("A5E.Tool")}</h3>
 
         <select
-            name={`${actionId}-${rollId}-tool`}
-            id={`${actionId}-${rollId}-tool`}
             class="u-w-fit"
             on:change={({ target }) =>
                 updateDocumentDataFromField(
@@ -73,8 +70,7 @@
             <input
                 class="option-input"
                 type="radio"
-                name={`${actionId}-${rollId}-ability`}
-                id={`${actionId}-${rollId}-ability-none`}
+                id="{actionId}-{rollId}-ability-none"
                 value=""
                 checked={(roll.ability ?? true) || roll.ability === ""}
                 on:change={() =>
@@ -85,10 +81,7 @@
                     )}
             />
 
-            <label
-                class="option-label"
-                for={`${actionId}-${rollId}-ability-none`}
-            >
+            <label class="option-label" for="{actionId}-{rollId}-ability-none">
                 {localize("A5E.None")}
             </label>
 
@@ -96,8 +89,7 @@
                 <input
                     class="option-input"
                     type="radio"
-                    name={`${actionId}-${rollId}-ability`}
-                    id={`${actionId}-${rollId}-ability-${ability}`}
+                    id="{actionId}-{rollId}-ability-{ability}"
                     value={ability}
                     checked={roll.ability === ability}
                     on:change={({ target }) =>
@@ -110,7 +102,7 @@
 
                 <label
                     class="option-label"
-                    for={`${actionId}-${rollId}-ability-${ability}`}
+                    for="{actionId}-{rollId}-ability-{ability}"
                 >
                     {localize(label)}
                 </label>
@@ -119,13 +111,12 @@
     </div>
 
     <div class="a5e-field-group">
-        <label for={`${actionId}-${rollId}-bonus`}>
+        <label for="{actionId}-{rollId}-bonus">
             {localize("A5E.CheckBonus")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-bonus`}
-            name={`${actionId}-${rollId}-bonus`}
+            id="{actionId}-{rollId}-bonus"
             type="text"
             value={roll.bonus ?? ""}
             on:change={({ target }) =>

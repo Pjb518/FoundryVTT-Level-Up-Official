@@ -31,7 +31,6 @@
                     <input
                         class="small-input"
                         id={`${actionId}-activation-cost`}
-                        name={`${actionId}-activation-cost`}
                         type="number"
                         value={action.activation?.cost ?? 1}
                         on:change={({ target }) =>
@@ -45,7 +44,6 @@
 
                 <select
                     class="u-w-fit"
-                    name={`system.actions.${actionId}.activation.type`}
                     on:change={({ target }) =>
                         updateAssociatedValues(
                             $item,
@@ -75,12 +73,11 @@
                     <input
                         class="full-size-input"
                         type="text"
-                        name={`system.actions.${actionId}.activation.reactionTrigger`}
                         value={action.activation?.reactionTrigger ?? ""}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $item,
-                                target.name,
+                                `system.actions.${actionId}.activation.reactionTrigger`,
                                 target.value
                             )}
                     />
@@ -94,7 +91,6 @@
                     <input
                         class="small-input"
                         id={`${actionId}-duration-value`}
-                        name={`${actionId}-duration-value`}
                         type="number"
                         value={action.duration?.value ?? 1}
                         on:change={({ target }) =>
@@ -108,7 +104,6 @@
 
                 <select
                     class="u-w-fit"
-                    name={`system.actions.${actionId}.duration.unit`}
                     on:change={({ target }) =>
                         updateAssociatedValues(
                             $item,

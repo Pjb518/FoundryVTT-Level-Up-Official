@@ -76,7 +76,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="system.requiresAttunement"
-                            id={`${appId}-attunement-required`}
+                            id="{appId}-attunement-required"
                             checked={$item.system.requiresAttunement}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -88,7 +88,7 @@
 
                         <label
                             class="u-pointer"
-                            for={`${appId}-attunement-required`}
+                            for="{appId}-attunement-required"
                         >
                             {localize("A5E.AttunementRequiredPrompt")}
                         </label>
@@ -100,7 +100,7 @@
                                 class="u-pointer"
                                 type="checkbox"
                                 name="system.attuned"
-                                id={`${appId}-attuned`}
+                                id="{appId}-attuned"
                                 checked={$item.system.attuned}
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
@@ -110,7 +110,7 @@
                                     )}
                             />
 
-                            <label class="u-pointer" for={`${appId}-attuned`}>
+                            <label class="u-pointer" for="{appId}-attuned">
                                 {localize("A5E.AttunementPrompt")}
                             </label>
                         </div>
@@ -121,7 +121,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="system.plotItem"
-                            id={`${appId}-plot-item`}
+                            id="{appId}-plot-item"
                             checked={$item.system.plotItem}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -131,7 +131,7 @@
                                 )}
                         />
 
-                        <label class="u-pointer" for={`${appId}-plot-item`}>
+                        <label class="u-pointer" for="{appId}-plot-item">
                             {localize("A5E.PlotItem")}
                         </label>
                     </div>
@@ -148,7 +148,7 @@
                                 type="number"
                                 data-dtype="Number"
                                 name="system.weight"
-                                id={`${appId}-weight`}
+                                id="{appId}-weight"
                                 value={$item.system.weight}
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
@@ -158,7 +158,7 @@
                                     )}
                             />
 
-                            <label class="u-pointer" for={`${appId}-weight`}>
+                            <label class="u-pointer" for="{appId}-weight">
                                 {localize("A5E.DetailsWeightLbs")}
                             </label>
                         </div>
@@ -168,7 +168,7 @@
                                 class="u-pointer"
                                 type="checkbox"
                                 name="system.bulky"
-                                id={`${appId}-bulky`}
+                                id="{appId}-bulky"
                                 checked={$item.system.bulky}
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
@@ -178,7 +178,7 @@
                                     )}
                             />
 
-                            <label class="u-pointer" for={`${appId}-bulky`}>
+                            <label class="u-pointer" for="{appId}-bulky">
                                 {localize("A5E.ItemBulky")}
                             </label>
                         </div>
@@ -188,11 +188,11 @@
                                 class="u-pointer"
                                 type="checkbox"
                                 name="system.equipped"
-                                id={`${appId}-equipped`}
+                                id="{appId}-equipped"
                                 checked={$item.system.equipped}
                             />
 
-                            <label class="u-pointer" for={`${appId}-equipped`}>
+                            <label class="u-pointer" for="{appId}-equipped">
                                 {localize("A5E.ItemEquipped")}
                             </label>
                         </div>
@@ -276,7 +276,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="system.broken"
-                            id={`${appId}-broken`}
+                            id="{appId}-broken"
                             checked={$item.system.broken}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -286,7 +286,7 @@
                                 )}
                         />
 
-                        <label class="u-pointer" for={`${appId}-broken`}>
+                        <label class="u-pointer" for="{appId}-broken">
                             {localize("A5E.ItemBroken")}
                         </label>
                     </div>

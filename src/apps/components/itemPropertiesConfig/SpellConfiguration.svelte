@@ -137,7 +137,7 @@
                                 class="u-pointer"
                                 type="checkbox"
                                 name="system.concentration"
-                                id={`${appId}-concentration`}
+                                id="{appId}-concentration"
                                 checked={$item.system.concentration}
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
@@ -149,7 +149,7 @@
 
                             <label
                                 class="u-pointer"
-                                for={`${appId}-concentration`}
+                                for="{appId}-concentration"
                             >
                                 {localize("A5E.SpellConcentration")}
                             </label>
@@ -160,7 +160,7 @@
                                 class="u-pointer"
                                 type="checkbox"
                                 name="system.prepared"
-                                id={`${appId}-prepared`}
+                                id="{appId}-prepared"
                                 checked={$item.system.prepared}
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
@@ -170,7 +170,7 @@
                                     )}
                             />
 
-                            <label class="u-pointer" for={`${appId}-prepared`}>
+                            <label class="u-pointer" for="{appId}-prepared">
                                 {localize("A5E.ItemPrepared")}
                             </label>
                         </div>
@@ -181,7 +181,7 @@
                                     class="u-pointer"
                                     type="checkbox"
                                     name="system.ritual"
-                                    id={`${appId}-ritual`}
+                                    id="{appId}-ritual"
                                     checked={$item.system.ritual}
                                     on:change={({ target }) =>
                                         updateDocumentDataFromField(
@@ -191,10 +191,7 @@
                                         )}
                                 />
 
-                                <label
-                                    class="u-pointer"
-                                    for={`${appId}-ritual`}
-                                >
+                                <label class="u-pointer" for="{appId}-ritual">
                                     {localize("A5E.SpellRitual")}
                                 </label>
                             </div>

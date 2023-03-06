@@ -13,13 +13,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${rollId}-label`}>
+        <label for="{actionId}-{rollId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-label`}
-            name={`${actionId}-${rollId}-label`}
+            id="{actionId}-{rollId}-label"
             type="text"
             value={roll.label ?? ""}
             on:change={({ target }) =>
@@ -32,13 +31,12 @@
     </div>
 
     <div class="a5e-field-group a5e-field-group--formula">
-        <label for={`${actionId}-${rollId}-roll-formula`}>
+        <label for="{actionId}-{rollId}-roll-formula">
             {localize("A5E.RollFormula")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-roll-formula`}
-            name={`${actionId}-${rollId}-roll-formula`}
+            id="{actionId}-{rollId}-roll-formula"
             type="text"
             value={roll.formula ?? ""}
             on:change={({ target }) =>

@@ -20,7 +20,7 @@
 
     <input
         class="ability-score-value"
-        name={`system.abilities.${abilityLabel}.value`}
+        name="system.abilities.{abilityLabel}.value"
         type="number"
         value={ability.value}
         on:change={({ target }) =>

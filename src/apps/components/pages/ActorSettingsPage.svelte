@@ -28,7 +28,7 @@
                         class="u-pointer"
                         type="checkbox"
                         name="flags.a5e.hideGenericResources"
-                        id={`${$actor.id}-hide-generic-resources`}
+                        id="{$actor.id}-hide-generic-resources"
                         checked={flags.a5e?.hideGenericResources ??
                             $actor.type === "npc"}
                         on:change={({ target }) =>
@@ -41,7 +41,7 @@
 
                     <label
                         class="u-pointer"
-                        for={`${$actor.id}-hide-generic-resources`}
+                        for="{$actor.id}-hide-generic-resources"
                     >
                         {localize("A5E.HideGenericResources")}
                     </label>
@@ -57,7 +57,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="flags.a5e.jackOfAllTrades"
-                            id={`${$actor.id}-jack-of-all-trades`}
+                            id="{$actor.id}-jack-of-all-trades"
                             checked={flags.a5e?.jackOfAllTrades ?? false}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -69,7 +69,7 @@
 
                         <label
                             class="u-pointer"
-                            for={`${$actor.id}-jack-of-all-trades`}
+                            for="{$actor.id}-jack-of-all-trades"
                         >
                             {localize("A5E.SettingsJackOfAllTrades")}
                         </label>
@@ -84,7 +84,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="flags.a5e.halflingLuck"
-                            id={`${$actor.id}-halfling-luck`}
+                            id="{$actor.id}-halfling-luck"
                             checked={flags.a5e?.halflingLuck ?? false}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -96,7 +96,7 @@
 
                         <label
                             class="u-pointer"
-                            for={`${$actor.id}-halfling-luck`}
+                            for="{$actor.id}-halfling-luck"
                         >
                             {localize("A5E.SettingsHalflingLuck")}
                         </label>
@@ -111,7 +111,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="flags.a5e.trackInventoryWeight"
-                    id={`${$actor.id}-track-inventory-weight`}
+                    id="{$actor.id}-track-inventory-weight"
                     checked={$actor.flags?.a5e?.trackInventoryWeight ?? true}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -123,7 +123,7 @@
 
                 <label
                     class="u-pointer"
-                    for={`${$actor.id}-track-inventory-weight`}
+                    for="{$actor.id}-track-inventory-weight"
                 >
                     {localize("A5E.SettingsTrackInventoryWeight")}
                 </label>
@@ -138,7 +138,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="flags.a5e.doubleCarryCapacity"
-                            id={`${$actor.id}-double-carry-capacity`}
+                            id="{$actor.id}-double-carry-capacity"
                             checked={flags.a5e?.doubleCarryCapacity ?? false}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -150,7 +150,7 @@
 
                         <label
                             class="u-pointer"
-                            for={`${$actor.id}-double-carry-capacity`}
+                            for="{$actor.id}-double-carry-capacity"
                         >
                             {localize("A5E.SettingsDoubleCarryCapacity")}
                         </label>
@@ -165,7 +165,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="flags.a5e.trackCurrencyWeight"
-                            id={`${$actor.id}-track-currency-weight`}
+                            id="{$actor.id}-track-currency-weight"
                             checked={flags.a5e?.trackCurrencyWeight ??
                                 globalCurrencyWeightTrackingSelection}
                             on:change={({ target }) =>
@@ -178,7 +178,7 @@
 
                         <label
                             class="u-pointer"
-                            for={`${$actor.id}-track-currency-weight`}
+                            for="{$actor.id}-track-currency-weight"
                         >
                             {localize("A5E.SettingsTrackCurrencyWeight")}
                         </label>
@@ -194,7 +194,7 @@
                         class="u-pointer"
                         type="checkbox"
                         name="flags.a5e.showXp"
-                        id={`${actor.id}-show-xp`}
+                        id="{actor.id}-show-xp"
                         checked={flags.a5e?.showXP ?? true}
                         on:change={({ target }) => {
                             $actor, target.name, target.checked;
@@ -202,7 +202,7 @@
                     />
                 </div>
 
-                <label for={`${actor.id}-show-xp`} class="u-pointer">
+                <label class="u-pointer" for="{actor.id}-show-xp">
                     {localize("A5E.SettingsShowXP")}
                 </label>
             </FormSection>
@@ -214,7 +214,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="flags.a5e.includeAbilityModifiersForSkills"
-                    id={`${actor.id}-include-ability-mods-for-skills`}
+                    id="{$actor.id}-include-ability-mods-for-skills"
                     checked={flags.a5e?.includeAbilityModifiersForSkills ??
                         $actor.type === "npc"}
                     on:change={({ target }) =>
@@ -227,7 +227,7 @@
 
                 <label
                     class="u-pointer"
-                    for={`${$actor.id}-include-ability-mods-for-skills`}
+                    for="{$actor.id}-include-ability-mods-for-skills"
                 >
                     {localize("A5E.SettingsIncludeAbilityModifiersForSkills")}
                 </label>
@@ -240,7 +240,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="flags.a5e.showManeuverTab"
-                    id={`${$actor.id}-show-maneuver-tab`}
+                    id="{$actor.id}-show-maneuver-tab"
                     checked={flags.a5e?.showManeuverTab ?? true}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -250,7 +250,7 @@
                         )}
                 />
 
-                <label class="u-pointer" for={`${$actor.id}-show-maneuver-tab`}>
+                <label class="u-pointer" for="{$actor.id}-show-maneuver-tab">
                     {localize("A5E.SettingsShowManeuverTab")}
                 </label>
             </div>
@@ -262,7 +262,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="flags.a5e.showSpellTab"
-                    id={`${$actor.id}-show-spell-tab`}
+                    id="{$actor.id}-show-spell-tab"
                     checked={flags.a5e?.showSpellTab ?? true}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -272,7 +272,7 @@
                         )}
                 />
 
-                <label class="u-pointer" for={`${$actor.id}-show-spell-tab`}>
+                <label class="u-pointer" for="{$actor.id}-show-spell-tab">
                     {localize("A5E.SettingsShowSpellTab")}
                 </label>
             </div>

@@ -28,13 +28,13 @@
             <input
                 class="u-pointer"
                 type="checkbox"
-                id={`${appId}-toggle-confirmation-dialog-setting`}
+                id="{appId}-toggle-confirmation-dialog-setting"
                 bind:checked={hideDeleteConfirmation}
             />
 
             <label
                 class="u-pointer"
-                for={`${appId}-toggle-confirmation-dialog-setting`}
+                for="{appId}-toggle-confirmation-dialog-setting"
             >
                 Don't show this dialog again
             </label>

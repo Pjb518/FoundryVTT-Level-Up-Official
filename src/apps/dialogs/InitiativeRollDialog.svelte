@@ -114,14 +114,14 @@
                 <input
                     class="u-hidden"
                     type="radio"
-                    id={`${$actor.id}-${appId}-rollMode-${id}`}
+                    id="{$actor.id}-{appId}-rollMode-{id}"
                     bind:group={rollMode}
                     {value}
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
                     class:a5e-tag--active={value === rollMode}
-                    for={`${$actor.id}-${appId}-rollMode-${id}`}
+                    for="{$actor.id}-{appId}-rollMode-{id}"
                 >
                     {name}
                 </label>
@@ -152,14 +152,14 @@
                 <input
                     class="u-hidden"
                     type="radio"
-                    id={`${$actor.id}-${appId}-ability-score-${key}`}
+                    id="{$actor.id}-{appId}-ability-score-{key}"
                     bind:group={abilityKey}
                     value={key}
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
                     class:a5e-tag--active={key === abilityKey}
-                    for={`${$actor.id}-${appId}-ability-score-${key}`}
+                    for="{$actor.id}-{appId}-ability-score-{key}"
                 >
                     {localize(name ?? "A5E.None")}
                 </label>
@@ -190,14 +190,14 @@
                 <input
                     class="u-hidden"
                     type="radio"
-                    id={`${$actor.id}-${appId}-skill-${key}`}
+                    id="{$actor.id}-{appId}-skill-{key}"
                     bind:group={skillKey}
                     value={key}
                 />
                 <label
                     class="a5e-tag u-pointer u-text-center"
                     class:a5e-tag--active={key === skillKey}
-                    for={`${$actor.id}-${appId}-skill-${key}`}
+                    for="{$actor.id}-{appId}-skill-{key}"
                 >
                     {localize(name ?? "A5E.None")}
                 </label>
@@ -215,14 +215,14 @@
     </FormSection>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <label class="heading" for={`${$actor.id}-${appId}-situational-mods`}>
+        <label class="heading" for="{$actor.id}-{appId}-situational-mods">
             {localize("A5E.SituationalMods")}
         </label>
 
         <input
             class="a5e-input"
             type="text"
-            id={`${$actor.id}-${appId}-situational-mods`}
+            id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
     </section>

@@ -13,13 +13,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${promptId}-label`}>
+        <label for="{actionId}-{promptId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-label`}
-            name={`${actionId}-${promptId}-label`}
+            id="{actionId}-{promptId}-label"
             type="text"
             value={prompt.label ?? ""}
             on:change={({ target }) =>
@@ -32,13 +31,12 @@
     </div>
 
     <div class="a5e-field-group a5e-field-group--formula">
-        <label for={`${actionId}-${promptId}-roll-formula`}>
+        <label for="{actionId}-{promptId}-roll-formula">
             {localize("A5E.RollFormula")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-roll-formula`}
-            name={`${actionId}-${promptId}-roll-formula`}
+            id="{actionId}-{promptId}-roll-formula"
             type="text"
             value={prompt.formula ?? ""}
             on:change={({ target }) =>
@@ -51,13 +49,12 @@
     </div>
 
     <div class="a5e-field-group a5e-field-group--formula">
-        <label for={`${actionId}-${promptId}-dc`}>
+        <label for="{actionId}-{promptId}-dc">
             {localize("A5E.DC")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-dc`}
-            name={`${actionId}-${promptId}-dc`}
+            id="{actionId}-{promptId}-dc"
             type="text"
             value={prompt.dc ?? ""}
             on:change={({ target }) =>
@@ -70,13 +67,12 @@
     </div>
 
     <div class="a5e-field-group ">
-        <label for={`${actionId}-${promptId}-save-effect`}>
+        <label for="{actionId}-{promptId}-save-effect">
             {localize("A5E.ItemEffectOnCheck")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-save-effect`}
-            name={`${actionId}-${promptId}-save-effect`}
+            id="{actionId}-{promptId}-save-effect"
             type="text"
             value={prompt.onSave ?? ""}
             on:change={({ target }) =>

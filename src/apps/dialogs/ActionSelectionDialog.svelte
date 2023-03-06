@@ -21,7 +21,7 @@
                 <input
                     class="u-hidden"
                     type="radio"
-                    id={`${randomId}-action-${id}`}
+                    id="{randomId}-action-{id}"
                     value={id}
                     bind:group={selectedAction}
                 />
@@ -30,7 +30,7 @@
                 <label
                     class="option u-text-center"
                     class:active={selectedAction === id}
-                    for={`${randomId}-action-${id}`}
+                    for="{randomId}-action-{id}"
                 >
                     {action.name}
                 </label>

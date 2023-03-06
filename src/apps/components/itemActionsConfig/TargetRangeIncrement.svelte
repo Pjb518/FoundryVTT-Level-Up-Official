@@ -107,13 +107,12 @@
         {#if selected === "other"}
             <div class="u-flex u-gap-md u-align-center">
                 <input
-                    id={`${actionId}-${id}-include-unit`}
-                    name={`${actionId}-${id}-include-unit`}
+                    id="{actionId}-{id}-include-unit"
                     type="checkbox"
                     bind:checked={includeUnit}
                     on:change={deleteRangeUnit}
                 />
-                <label for={`${actionId}-${id}-include-unit`}>
+                <label for="{actionId}-{id}-include-unit">
                     {localize("A5E.IncludeUnit")}
                 </label>
             </div>

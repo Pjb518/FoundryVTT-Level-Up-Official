@@ -52,13 +52,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${promptId}-label`}>
+        <label for="{actionId}-{promptId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-label`}
-            name={`${actionId}-${promptId}-label`}
+            id="{actionId}-{promptId}-label"
             type="text"
             value={prompt.label ?? ""}
             on:change={({ target }) =>
@@ -79,8 +78,7 @@
             <input
                 class="option-input"
                 type="radio"
-                name={`${actionId}-${promptId}-ability`}
-                id={`${actionId}-${promptId}-ability-none`}
+                id="{actionId}-{promptId}-ability-none"
                 value=""
                 checked={(prompt.ability ?? true) || prompt.ability === ""}
                 on:change={() =>
@@ -93,7 +91,7 @@
 
             <label
                 class="option-label"
-                for={`${actionId}-${promptId}-ability-none`}
+                for="{actionId}-{promptId}-ability-none"
             >
                 {localize("A5E.None")}
             </label>
@@ -102,8 +100,7 @@
                 <input
                     class="option-input"
                     type="radio"
-                    name={`${actionId}-${promptId}-ability`}
-                    id={`${actionId}-${promptId}-ability-${ability}`}
+                    id="{actionId}-{promptId}-ability-{ability}"
                     value={ability}
                     checked={prompt.ability === ability}
                     on:change={({ target }) =>
@@ -116,7 +113,7 @@
 
                 <label
                     class="option-label"
-                    for={`${actionId}-${promptId}-ability-${ability}`}
+                    for="{actionId}-{promptId}-ability-{ability}"
                 >
                     {localize(label)}
                 </label>
@@ -130,10 +127,7 @@
                 {localize("A5E.ItemSavingThrowDC")}
             </h3>
 
-            <select
-                name={`system.actions.${actionId}.prompts.${promptId}.saveDC.type`}
-                on:change={selectSaveDCCalculationType}
-            >
+            <select on:change={selectSaveDCCalculationType}>
                 {#each Object.entries(saveDCOptions) as [type, label]}
                     <option
                         value={type}
@@ -150,7 +144,7 @@
         >
             <label
                 class="a5e-field-group__heading"
-                for={`${actionId}.prompts.${promptId}.saveDC.bonus`}
+                for="{actionId}.prompts.{promptId}.saveDC.bonus"
             >
                 {#if prompt?.saveDC?.type === "custom"}
                     {localize("A5E.ItemSavingThrowDCCustom")}
@@ -160,8 +154,7 @@
             </label>
 
             <input
-                id={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
-                name={`$${actionId}.prompts.${promptId}.saveDC.bonus`}
+                id="{actionId}.prompts.{promptId}.saveDC.bonus"
                 type="text"
                 autocomplete="off"
                 bind:value={saveDCBonus}
@@ -186,13 +179,12 @@
     </div>
 
     <div class="a5e-field-group ">
-        <label for={`${actionId}-${promptId}-save-effect`}>
+        <label for="{actionId}-{promptId}-save-effect">
             {localize("A5E.ItemEffectOnSave")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-save-effect`}
-            name={`${actionId}-${promptId}-save-effect`}
+            id="{actionId}-{promptId}-save-effect"
             type="text"
             value={prompt.onSave ?? ""}
             on:change={({ target }) =>

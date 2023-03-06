@@ -19,7 +19,7 @@
             <input
                 class="a5e-input"
                 type="text"
-                name={`system.resources.${source}.label`}
+                name="system.resources.{source}.label"
                 value={resource.label}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -35,8 +35,8 @@
                 <input
                     class="a5e-input"
                     type="checkbox"
-                    id={`${appId}-resources-${source}-hideMax`}
-                    name={`system.resources.${source}.hideMax`}
+                    id="{appId}-resources-{source}-hideMax"
+                    name="system.resources.{source}.hideMax"
                     checked={resource.hideMax ?? false}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -48,7 +48,7 @@
 
                 <label
                     class="u-pointer u-text-bold u-text-sm"
-                    for={`${appId}-resources-${source}-hideMax`}
+                    for="{appId}-resources-{source}-hideMax"
                 >
                     {localize("A5E.GenericResourceHideMax")}
                 </label>

@@ -67,7 +67,7 @@
                     <input
                         class="a5e-input"
                         type="text"
-                        name={`system.abilities.${abilityKey}.check.bonus`}
+                        name="system.abilities.{abilityKey}.check.bonus"
                         value={ability.check.bonus}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
@@ -108,8 +108,8 @@
                     <input
                         class="u-pointer"
                         type="checkbox"
-                        id={`${appId}-${abilityKey}-proficient`}
-                        name={`system.abilities.${abilityKey}.save.proficient`}
+                        id="{appId}-{abilityKey}-proficient"
+                        name="system.abilities.{abilityKey}.save.proficient"
                         value={$actor.system.abilities[abilityKey].save
                             .proficient}
                         checked={ability.save.proficient}
@@ -123,7 +123,7 @@
 
                     <label
                         class="u-pointer"
-                        for={`${appId}-${abilityKey}-proficient`}
+                        for="{appId}-{abilityKey}-proficient"
                     >
                         {localize("A5E.ProficiencyProficient")}
                     </label>
@@ -150,7 +150,7 @@
                     <input
                         class="a5e-input"
                         type="text"
-                        name={`system.abilities.${abilityKey}.save.bonus`}
+                        name="system.abilities.{abilityKey}.save.bonus"
                         value={ability.save.bonus}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
@@ -171,7 +171,7 @@
                         <input
                             class="a5e-input"
                             type="text"
-                            name={`system.abilities.con.save.concentrationBonus`}
+                            name="system.abilities.con.save.concentrationBonus"
                             value={ability.save?.concentrationBonus ?? 0}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -192,7 +192,7 @@
                     <input
                         class="a5e-input"
                         type="text"
-                        name={`system.bonuses.abilities.save`}
+                        name="system.bonuses.abilities.save"
                         value={$actor.system.bonuses.abilities.save}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(

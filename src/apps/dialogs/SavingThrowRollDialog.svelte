@@ -118,14 +118,14 @@
                 <input
                     class="u-hidden"
                     type="radio"
-                    id={`${$actor.id}-${appId}-rollMode-${id}`}
+                    id="{$actor.id}-{appId}-rollMode-{id}"
                     bind:group={rollMode}
                     {value}
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
                     class:a5e-tag--active={value === rollMode}
-                    for={`${$actor.id}-${appId}-rollMode-${id}`}
+                    for="{$actor.id}-{appId}-rollMode-{id}"
                 >
                     {name}
                 </label>
@@ -168,14 +168,14 @@
                     <input
                         class="u-hidden"
                         type="radio"
-                        id={`${$actor.id}-${appId}-save-type-${value}`}
+                        id="{$actor.id}-{appId}-save-type-{value}"
                         bind:group={saveType}
                         {value}
                     />
                     <label
                         class="a5e-tag u-pointer u-p-md u-text-center"
                         class:a5e-tag--active={value === saveType}
-                        for={`${$actor.id}-${appId}-save-type-${value}`}
+                        for="{$actor.id}-{appId}-save-type-{value}"
                     >
                         {localize(name)}
                     </label>
@@ -185,14 +185,14 @@
     {/if}
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <label class="heading" for={`${$actor.id}-${appId}-situational-mods`}>
+        <label class="heading" for="{$actor.id}-{appId}-situational-mods">
             {localize("A5E.SituationalMods")}
         </label>
 
         <input
             class="a5e-input"
             type="text"
-            id={`${$actor.id}-${appId}-situational-mods`}
+            id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
     </section>

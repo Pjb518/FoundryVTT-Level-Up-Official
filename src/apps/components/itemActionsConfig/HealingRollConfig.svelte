@@ -15,13 +15,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${rollId}-label`}>
+        <label for="{actionId}-{rollId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-label`}
-            name={`${actionId}-${rollId}-label`}
+            id="{actionId}-{rollId}-label"
             type="text"
             value={roll.label ?? ""}
             on:change={({ target }) =>
@@ -35,13 +34,12 @@
 
     <div class="row">
         <div class="a5e-field-group a5e-field-group--formula">
-            <label for={`${actionId}-${rollId}-healing-formula`}>
+            <label for="{actionId}-{rollId}-healing-formula">
                 {localize("A5E.HealingFormula")}
             </label>
 
             <input
-                id={`${actionId}-${rollId}-healing-formula`}
-                name={`${actionId}-${rollId}-healing-formula`}
+                id="{actionId}-{rollId}-healing-formula"
                 type="text"
                 value={roll.formula ?? ""}
                 on:change={({ target }) =>
@@ -54,14 +52,13 @@
         </div>
 
         <div class="a5e-field-group">
-            <label for={`${actionId}-${rollId}-healing-type`}>
+            <label for="{actionId}-{rollId}-healing-type">
                 {localize("A5E.HealingType")}
             </label>
 
             <select
-                id={`${actionId}-${rollId}-healing-type`}
+                id="{actionId}-{rollId}-healing-type"
                 class="u-w-fit"
-                name={`${actionId}-${rollId}-healing-type`}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -80,9 +77,8 @@
 
     <div class="a5e-field-group a5e-field-group--checkbox">
         <input
-            id={`${actionId}-${rollId}-default`}
+            id="{actionId}-{rollId}-default"
             class="checkbox"
-            name={`${actionId}-${rollId}-default`}
             type="checkbox"
             checked={roll.default ?? true}
             on:change={({ target }) =>
@@ -93,7 +89,7 @@
                 )}
         />
 
-        <label for={`${actionId}-${rollId}-default`}>
+        <label for="{actionId}-{rollId}-default">
             {localize("A5E.HealingDefaultSelection")}
         </label>
     </div>

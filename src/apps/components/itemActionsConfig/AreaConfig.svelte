@@ -32,15 +32,15 @@
         <!-- svelte-ignore missing-declaration (foundry)-->
         <input
             class="area-shape-input"
-            id={`area-${actionId}-none}`}
-            name={`${actionId}-area-shape`}
+            id="area-{actionId}-none"
+            name="{actionId}-area-shape"
             value={null}
             type="radio"
             checked={foundry.utils.isEmpty(action.area)}
             on:change={removeArea}
         />
 
-        <label class="area-shape-label" for={`area-${actionId}-none}`}>
+        <label class="area-shape-label" for="area-{actionId}-none">
             <span class="u-text-sm">
                 <i class="fas fa-times-circle" />
             </span>
@@ -57,12 +57,12 @@
         <FormSection>
             <div class="u-flex u-gap-lg u-w-full">
                 <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                    <label for={`${actionId}-area-quantity`}>
+                    <label for="{actionId}-area-quantity">
                         {localize("A5E.ItemQuantity")}
                     </label>
 
                     <input
-                        id={`${actionId}-area-quantity`}
+                        id="{actionId}-area-quantity"
                         type="number"
                         value={action.area?.quantity ?? 1}
                         on:change={({ target }) =>
@@ -76,9 +76,9 @@
 
                 {#if ["cylinder", "sphere"].includes(action.area?.shape)}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for={`${actionId}-area-radius`}>Radius</label>
+                        <label for="{actionId}-area-radius">Radius</label>
                         <input
-                            id={`${actionId}-area-radius`}
+                            id="{actionId}-area-radius"
                             type="number"
                             value={action.area?.radius ?? 0}
                             on:change={({ target }) =>
@@ -93,9 +93,9 @@
 
                 {#if ["cone", "line"].includes(action.area?.shape)}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for={`${actionId}-area-length`}>Length</label>
+                        <label for="{actionId}-area-length">Length</label>
                         <input
-                            id={`${actionId}-area-length`}
+                            id="{actionId}-area-length"
                             type="number"
                             value={action.area?.length ?? 0}
                             on:change={({ target }) =>
@@ -110,9 +110,9 @@
 
                 {#if ["cube", "line"].includes(action.area?.shape)}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for={`${actionId}-area-width`}>Width</label>
+                        <label for="{actionId}-area-width">Width</label>
                         <input
-                            id={`${actionId}-area-width`}
+                            id="{actionId}-area-width"
                             type="number"
                             value={action.area?.width ?? 0}
                             on:change={({ target }) =>
@@ -127,9 +127,9 @@
 
                 {#if action.area?.shape === "cylinder"}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
-                        <label for={`${actionId}-area-height`}>Height</label>
+                        <label for="{actionId}-area-height">Height</label>
                         <input
-                            id={`${actionId}-area-height`}
+                            id="{actionId}-area-height"
                             type="number"
                             value={action.area?.height ?? 0}
                             on:change={({ target }) =>
@@ -150,7 +150,7 @@
             <div class="u-flex u-gap-lg u-w-full u-mt-xs">
                 <div class="u-flex u-gap-md u-align-center">
                     <input
-                        id={`${actionId}-place-template`}
+                        id="{actionId}-place-template"
                         type="checkbox"
                         checked={action.area?.placeTemplate ?? false}
                         on:change={({ target }) =>
@@ -161,7 +161,7 @@
                             )}
                     />
 
-                    <label class="u-pointer" for={`${actionId}-place-template`}>
+                    <label class="u-pointer" for="{actionId}-place-template">
                         {localize("A5E.ItemPlaceTemplate")}
                     </label>
                 </div>

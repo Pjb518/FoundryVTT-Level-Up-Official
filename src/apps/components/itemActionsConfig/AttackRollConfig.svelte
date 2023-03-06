@@ -15,13 +15,13 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${rollId}-label`}>
+        <label for="{actionId}-{rollId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${rollId}-label`}
-            name={`${actionId}-${rollId}-label`}
+            id="{actionId}-{rollId}-label"
+            name="{actionId}-{rollId}-label"
             type="text"
             value={roll.label ?? ""}
             on:change={({ target }) =>
@@ -46,8 +46,7 @@
             <input
                 class="option-input"
                 type="radio"
-                name={`${actionId}-${rollId}-ability`}
-                id={`${actionId}-${rollId}-ability-none`}
+                id="{actionId}-{rollId}-ability-none"
                 value=""
                 checked={(roll.ability ?? true) || roll.ability === ""}
                 on:change={() =>
@@ -58,18 +57,14 @@
                     )}
             />
 
-            <label
-                class="option-label"
-                for={`${actionId}-${rollId}-ability-none`}
-            >
+            <label class="option-label" for="{actionId}-{rollId}-ability-none">
                 {localize("A5E.None")}
             </label>
 
             <input
                 class="option-input"
                 type="radio"
-                name={`${actionId}-${rollId}-ability`}
-                id={`${actionId}-${rollId}-ability-default`}
+                id="{actionId}-{rollId}-ability-default"
                 value="default"
                 checked={roll.ability === "default"}
                 on:change={({ target }) =>
@@ -82,7 +77,7 @@
 
             <label
                 class="option-label"
-                for={`${actionId}-${rollId}-ability-default`}
+                for="{actionId}-{rollId}-ability-default"
             >
                 {localize("A5E.AbilityDefault")}
             </label>
@@ -90,8 +85,7 @@
             <input
                 class="option-input"
                 type="radio"
-                name={`${actionId}-${rollId}-ability`}
-                id={`${actionId}-${rollId}-ability-spellcasting`}
+                id="{actionId}-{rollId}-ability-spellcasting"
                 value="spellcasting"
                 checked={roll.ability === "spellcasting"}
                 on:change={({ target }) =>
@@ -104,7 +98,7 @@
 
             <label
                 class="option-label"
-                for={`${actionId}-${rollId}-ability-spellcasting`}
+                for="{actionId}-{rollId}-ability-spellcasting"
             >
                 {localize("A5E.AbilitySpellcasting")}
             </label>
@@ -113,8 +107,7 @@
                 <input
                     class="option-input"
                     type="radio"
-                    name={`${actionId}-${rollId}-ability`}
-                    id={`${actionId}-${rollId}-ability-${ability}`}
+                    id="{actionId}-{rollId}-ability-{ability}"
                     value={ability}
                     checked={roll.ability === ability}
                     on:change={({ target }) =>
@@ -127,7 +120,7 @@
 
                 <label
                     class="option-label"
-                    for={`${actionId}-${rollId}-ability-${ability}`}
+                    for="{actionId}-{rollId}-ability-{ability}"
                 >
                     {localize(label)}
                 </label>
@@ -137,14 +130,13 @@
 
     <div class="row">
         <div class="a5e-field-group">
-            <label for={`${actionId}-${rollId}-attack-type`}>
+            <label for="{actionId}-{rollId}-attack-type">
                 {localize("A5E.AttackType")}
             </label>
 
             <select
-                id={`${actionId}-${rollId}-attack-type`}
+                id="{actionId}-{rollId}-attack-type"
                 class="u-w-fit"
-                name={`${actionId}-${rollId}-attack-type`}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -161,13 +153,12 @@
         </div>
 
         <div class="a5e-field-group a5e-field-group--formula">
-            <label for={`${actionId}-${rollId}-attack-bonus`}>
+            <label for="{actionId}-{rollId}-attack-bonus">
                 {localize("A5E.AttackBonus")}
             </label>
 
             <input
-                id={`${actionId}-${rollId}-attack-bonus`}
-                name={`${actionId}-${rollId}-attack-bonus`}
+                id="{actionId}-{rollId}-attack-bonus"
                 type="text"
                 value={roll.bonus ?? 0}
                 on:change={({ target }) =>
@@ -180,13 +171,13 @@
         </div>
 
         <div class="a5e-field-group">
-            <label for={`${actionId}-${rollId}-crit-threshold`}>
+            <label for="{actionId}-{rollId}-crit-threshold">
                 {localize("A5E.CriticalHitThreshold")}
             </label>
 
             <input
-                id={`${actionId}-${rollId}-crit-threshold`}
-                name={`${actionId}-${rollId}-crit-threshold`}
+                id="{actionId}-{rollId}-crit-threshold"
+                name="{actionId}-{rollId}-crit-threshold"
                 type="number"
                 value={roll.critThreshold ?? 20}
                 on:change={({ target }) =>
@@ -201,9 +192,8 @@
 
     <div class="a5e-field-group a5e-field-group--checkbox">
         <input
-            id={`${actionId}-${rollId}-proficient`}
+            id="{actionId}-{rollId}-proficient"
             class="checkbox"
-            name={`${actionId}-${rollId}-proficient`}
             type="checkbox"
             checked={roll.proficient ?? true}
             on:change={({ target }) =>
@@ -214,7 +204,7 @@
                 )}
         />
 
-        <label for={`${actionId}-${rollId}-proficient`}>
+        <label for="{actionId}-{rollId}-proficient">
             {localize("A5E.AddProficiency")}
         </label>
     </div>

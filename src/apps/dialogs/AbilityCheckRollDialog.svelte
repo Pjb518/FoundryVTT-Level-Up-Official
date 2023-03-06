@@ -95,14 +95,14 @@
                 <input
                     class="u-hidden"
                     type="radio"
-                    id={`${$actor.id}-${appId}-rollMode-${id}`}
+                    id="{$actor.id}-{appId}-rollMode-{id}"
                     bind:group={rollMode}
                     {value}
                 />
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
                     class:a5e-tag--active={value === rollMode}
-                    for={`${$actor.id}-${appId}-rollMode-${id}`}
+                    for="{$actor.id}-{appId}-rollMode-{id}"
                 >
                     {name}
                 </label>
@@ -120,14 +120,14 @@
     </FormSection>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <label class="heading" for={`${$actor.id}-${appId}-situational-mods`}>
+        <label class="heading" for="{$actor.id}-{appId}-situational-mods">
             {localize("A5E.SituationalMods")}
         </label>
 
         <input
             class="a5e-input"
             type="text"
-            id={`${$actor.id}-${appId}-situational-mods`}
+            id="{$actor.id}-{appId}-situational-mod"
             bind:value={situationalMods}
         />
     </section>

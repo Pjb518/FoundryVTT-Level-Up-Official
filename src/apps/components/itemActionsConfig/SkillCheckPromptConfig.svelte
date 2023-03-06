@@ -15,13 +15,12 @@
 
 <section class="action-config__wrapper">
     <div class="a5e-field-group a5e-field-group--label">
-        <label for={`${actionId}-${promptId}-label`}>
+        <label for="{actionId}-{promptId}-label">
             {localize("A5E.Label")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-label`}
-            name={`${actionId}-${promptId}-label`}
+            id="{actionId}-{promptId}-label"
             type="text"
             value={prompt.label ?? ""}
             on:change={({ target }) =>
@@ -39,8 +38,6 @@
         </h3>
 
         <select
-            name={`${actionId}-${promptId}-skill`}
-            id={`${actionId}-${promptId}-skill`}
             class="u-w-fit"
             on:change={({ target }) =>
                 updateDocumentDataFromField(
@@ -71,8 +68,7 @@
             <input
                 class="option-input"
                 type="radio"
-                name={`${actionId}-${promptId}-ability`}
-                id={`${actionId}-${promptId}-ability-none`}
+                id="{actionId}-{promptId}-ability-none"
                 value=""
                 checked={(prompt.ability ?? true) || prompt.ability === ""}
                 on:change={() =>
@@ -85,7 +81,7 @@
 
             <label
                 class="option-label"
-                for={`${actionId}-${promptId}-ability-none`}
+                for="{actionId}-{promptId}-ability-none"
             >
                 {localize("A5E.None")}
             </label>
@@ -94,8 +90,7 @@
                 <input
                     class="option-input"
                     type="radio"
-                    name={`${actionId}-${promptId}-ability`}
-                    id={`${actionId}-${promptId}-ability-${ability}`}
+                    id="{actionId}-{promptId}-ability-{ability}"
                     value={ability}
                     checked={prompt.ability === ability}
                     on:change={({ target }) =>
@@ -108,7 +103,7 @@
 
                 <label
                     class="option-label"
-                    for={`${actionId}-${promptId}-ability-${ability}`}
+                    for="{actionId}-{promptId}-ability-{ability}"
                 >
                     {localize(label)}
                 </label>
@@ -117,13 +112,12 @@
     </div>
 
     <div class="a5e-field-group a5e-field-group--formula">
-        <label for={`${actionId}-${promptId}-dc`}>
+        <label for="{actionId}-{promptId}-dc">
             {localize("A5E.ItemSkillCheckDC")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-dc`}
-            name={`${actionId}-${promptId}-dc`}
+            id="{actionId}-{promptId}-dc"
             type="text"
             value={prompt.skillDC ?? ""}
             on:change={({ target }) =>
@@ -136,13 +130,12 @@
     </div>
 
     <div class="a5e-field-group ">
-        <label for={`${actionId}-${promptId}-save-effect`}>
+        <label for="{actionId}-{promptId}-save-effect">
             {localize("A5E.ItemEffectOnCheck")}
         </label>
 
         <input
-            id={`${actionId}-${promptId}-save-effect`}
-            name={`${actionId}-${promptId}-save-effect`}
+            id="{actionId}-{promptId}-save-effect"
             type="text"
             value={prompt.onSave ?? ""}
             on:change={({ target }) =>

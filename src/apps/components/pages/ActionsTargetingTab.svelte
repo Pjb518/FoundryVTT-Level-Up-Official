@@ -94,11 +94,7 @@
                     />
                 {/if}
 
-                <select
-                    class="u-w-fit"
-                    name={`system.actions.${actionId}.target.type`}
-                    on:change={selectTarget}
-                >
+                <select class="u-w-fit" on:change={selectTarget}>
                     <!-- svelte-ignore missing-declaration (foundry) -->
                     <option
                         value={null}

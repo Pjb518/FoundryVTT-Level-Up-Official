@@ -14,8 +14,8 @@
 
 <input
     class="area-shape-input"
-    id={`area-${actionId}-${key}`}
-    name={`${actionId}-area-shape`}
+    id="area-{actionId}-{key}"
+    name="{actionId}-area-shape"
     value={key}
     type="radio"
     checked={action?.area?.shape === key}
@@ -27,7 +27,7 @@
         )}
 />
 
-<label class="area-shape-label" for={`area-${actionId}-${key}`}>
+<label class="area-shape-label" for="area-{actionId}-{key}">
     <span class="u-text-sm">
         {@html A5E.areaIcons[key]}
     </span>

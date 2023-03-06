@@ -15,7 +15,7 @@
     <input
         class="a5e-footer-group__input"
         type="number"
-        name={`system.spellResources.slots.${level}.current`}
+        name="system.spellResources.slots.{level}.current"
         value={spellResources.slots[level.toString()].current}
         placeholder="0"
         min="0"
@@ -30,7 +30,7 @@
     <input
         class="a5e-footer-group__input"
         type="number"
-        name={`system.spellResources.slots.${level}.max`}
+        name="system.spellResources.slots.{level}.max"
         value={spellResources.slots[level.toString()].max}
         placeholder="0"
         min="0"

@@ -128,7 +128,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="system.includesASI"
-                    id={`${$item.id}-includesASI`}
+                    id="{$item.id}-includesASI"
                     checked={$item.system.includesASI}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -138,7 +138,7 @@
                         )}
                 />
 
-                <label class="u-pointer" for={`${$item.id}-includesASI`}>
+                <label class="u-pointer" for="{$item.id}-includesASI">
                     Includes ASI
                 </label>
             </div>
@@ -153,7 +153,7 @@
                                 class="ability-score-input"
                                 type="radio"
                                 name="system.defaultASI"
-                                id={`${$item.id}-defaultASI-${ability}`}
+                                id="{$item.id}-defaultASI-{ability}"
                                 value={ability}
                                 checked={$item.system.defaultASI === ability}
                                 on:change={({ target }) =>
@@ -166,7 +166,7 @@
 
                             <label
                                 class="ability-score-label"
-                                for={`${$item.id}-defaultASI-${ability}`}
+                                for="{$item.id}-defaultASI-{ability}"
                             >
                                 {localize(config.abilities[ability])}
                             </label>

@@ -37,7 +37,7 @@
                     class="a5e-input"
                     type="checkbox"
                     name="system.attributes.exertion.recoverOnRest"
-                    id={`${appId}-exertion-recovery`}
+                    id="{appId}-exertion-recover"
                     checked={$actor.system.attributes.exertion.recoverOnRest}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -47,7 +47,7 @@
                         )}
                 />
 
-                <label class="u-pointer" for={`${appId}-exertion-recovery`}>
+                <label class="u-pointer" for="{appId}-exertion-recovery">
                     {localize("A5E.ExertionRecoveryConfigPrompt")}
                 </label>
             </div>

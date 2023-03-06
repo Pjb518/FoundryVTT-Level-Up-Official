@@ -23,13 +23,13 @@
     u-text-sm
 "
     role="radiogroup"
-    id={`${randomId}-expertise`}
+    id="{randomId}-expertise"
 >
     {#each options as [diceQuantity, dieSize]}
         <input
             class="u-hidden"
             type="radio"
-            id={`${randomId}-expertise-${dieSize}`}
+            id="{randomId}-expertise-{dieSize}"
             {diceQuantity}
         />
 
@@ -37,7 +37,7 @@
         <label
             class="a5e-tag u-pointer u-p-md u-text-center u-w-12"
             class:a5e-tag--active={diceQuantity === selected}
-            for={`${randomId}-expertise-${dieSize}`}
+            for="{randomId}-expertise-{dieSize}"
             on:click={() => dispatch("updateSelection", diceQuantity)}
         >
             {dieSize}

@@ -80,7 +80,7 @@
                             class="u-pointer"
                             type="checkbox"
                             name="system.isStance"
-                            id={`${appId}-isStance`}
+                            id="{appId}-isStance"
                             checked={$item.system.isStance}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -90,7 +90,7 @@
                                 )}
                         />
 
-                        <label class="u-pointer" for={`${appId}-isStance`}>
+                        <label class="u-pointer" for="{appId}-isStance">
                             Manuever is a stance
                         </label>
                     </div>
@@ -102,7 +102,7 @@
                     >
                         <label
                             class="u-text-bold u-w-full"
-                            for={`${appId}-exertion-cost`}
+                            for="{appId}-exertion-cost"
                         >
                             {localize("A5E.ItemExertionCost")}
                         </label>
@@ -113,7 +113,7 @@
                                 data-dtype="Number"
                                 name="system.exertionCost"
                                 value={$item.system.exertionCost}
-                                id={`${appId}-exertion-cost`}
+                                id="{appId}-exertion-cost"
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
                                         $item,

@@ -30,16 +30,15 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
+
         {#if prerequisiteTypes.includes($item.type)}
             <div class="prerequisites">
-                <label
-                    class="prerequisite-label"
-                    for={`${appId}-prerequisites`}
-                >
+                <label class="prerequisite-label" for="{appId}-prerequisites">
                     {localize("A5E.Prerequisite")}:
                 </label>
+
                 <input
-                    id={`${appId}-prerequisites`}
+                    id="{appId}-prerequisites"
                     type="text"
                     name="system.prerequisite"
                     value={$item.system.prerequisite}

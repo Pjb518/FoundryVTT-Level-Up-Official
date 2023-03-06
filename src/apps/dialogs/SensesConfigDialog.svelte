@@ -29,7 +29,7 @@
                     class="a5e-input"
                     disabled={senseData.unit === "unlimited"}
                     type={senseData.unit === "unlimited" ? "text" : "number"}
-                    name={`system.attributes.senses.${sense}.distance`}
+                    name="system.attributes.senses.{sense}.distance"
                     value={senseData.unit === "unlimited"
                         ? "—"
                         : senseData.distance || 0}
@@ -45,7 +45,7 @@
             <div class="u-w-20">
                 <select
                     class="u-w-30"
-                    name={`system.attributes.senses.${sense}.unit`}
+                    name="system.attributes.senses.{sense}.unit"
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $actor,

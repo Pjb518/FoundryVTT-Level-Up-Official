@@ -34,7 +34,7 @@
                             <input
                                 class="a5e-input"
                                 type="number"
-                                name={`system.attributes.movement.${mode}`}
+                                name="system.attributes.movement.{mode}"
                                 value={distance || 0}
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
@@ -50,6 +50,7 @@
                     {#if mode === "fly"}
                         <div class="u-align-center u-flex u-gap-md">
                             <input
+                                id="{appId}-hover"
                                 class="u-pointer"
                                 type="checkbox"
                                 name="system.attributes.movement.traits.hover"
@@ -64,10 +65,7 @@
                                 }}
                             />
 
-                            <label
-                                for={`${appId}-${""}-hover`}
-                                class="u-pointer"
-                            >
+                            <label for="{appId}-hover" class="u-pointer">
                                 {localize("A5E.MovementHover")}
                             </label>
                         </div>

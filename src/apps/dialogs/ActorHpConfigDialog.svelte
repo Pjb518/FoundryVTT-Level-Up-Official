@@ -36,7 +36,7 @@
                         class="a5e-input"
                         type="number"
                         data-dtype="Number"
-                        name={`system.attributes.hp.${updateAttribute}`}
+                        name="system.attributes.hp.{updateAttribute}"
                         value={hp[updateAttribute]}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
@@ -64,7 +64,7 @@
                             type="number"
                             data-dtype="Number"
                             min="0"
-                            name={`system.attributes.hitDice.${dieSize}.current`}
+                            name="system.attributes.hitDice.{dieSize}.current"
                             value={current}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
@@ -79,7 +79,7 @@
                             data-dtype="Number"
                             type="number"
                             min="0"
-                            name={`system.attributes.hitDice.${dieSize}.total`}
+                            name="system.attributes.hitDice.{dieSize}.total"
                             value={total}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(

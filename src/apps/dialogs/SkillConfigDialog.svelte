@@ -39,8 +39,8 @@
             <input
                 class="u-pointer"
                 type="checkbox"
-                id={`${appId}-${skillKey}-proficient`}
-                name={`system.skills.${skillKey}.proficient`}
+                id="{appId}-{skillKey}-proficient"
+                name="system.skills.{skillKey}.proficient"
                 checked={skill.proficient}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -50,7 +50,7 @@
                     )}
             />
 
-            <label for={`${appId}-${""}-proficient`} class="u-pointer">
+            <label for="{appId}-{skillKey}-proficient" class="u-pointer">
                 {localize("A5E.ProficiencyProficient")}
             </label>
         </div>
@@ -108,7 +108,7 @@
             <input
                 class="a5e-input"
                 type="text"
-                name={`system.skills.${skillKey}.bonuses.check`}
+                name="system.skills.{skillKey}.bonuses.check"
                 value={skill.bonuses.check}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -126,7 +126,7 @@
                 class="a5e-input"
                 type="number"
                 data-dtype="Number"
-                name={`system.skills.${skillKey}.bonuses.passive`}
+                name="system.skills.{skillKey}.bonuses.passive"
                 value={skill.bonuses.passive}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -146,7 +146,7 @@
             <input
                 class="a5e-input"
                 type="text"
-                name={`system.bonuses.abilities.skill`}
+                name="system.bonuses.abilities.skill"
                 value={$actor.system.bonuses.abilities.skill}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -166,7 +166,7 @@
             <input
                 class="a5e-input"
                 type="text"
-                name={`system.bonuses.abilities.check`}
+                name="system.bonuses.abilities.check"
                 value={$actor.system.bonuses.abilities.check}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -185,7 +185,7 @@
                     class="a5e-input"
                     type="number"
                     data-dtype="Number"
-                    name={`system.skills.${skillKey}.minRoll`}
+                    name="system.skills.{skillKey}.minRoll"
                     value={skill.minRoll}
                     min="0"
                     on:change={({ target }) =>

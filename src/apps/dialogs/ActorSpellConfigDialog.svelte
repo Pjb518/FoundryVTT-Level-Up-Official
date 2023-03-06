@@ -73,7 +73,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="flags.a5e.showSpellSlots"
-                    id={`${appId}-show-spell-slots`}
+                    id="{appId}-show-spell-slots"
                     checked={flags.showSpellSlots ?? true}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -83,7 +83,7 @@
                         )}
                 />
 
-                <label class="u-pointer" for={`${appId}-show-spell-slots`}>
+                <label class="u-pointer" for="{appId}-show-spell-slots">
                     {localize("A5E.SpellShowSpellSlots")}
                 </label>
             </div>
@@ -93,7 +93,7 @@
                     class="u-pointer"
                     type="checkbox"
                     name="flags.a5e.showSpellPoints"
-                    id={`${appId}-show-spell-points`}
+                    id="{appId}-show-spell-points"
                     checked={flags.showSpellPoints ?? false}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
@@ -103,7 +103,7 @@
                         )}
                 />
 
-                <label class="u-pointer" for={`${appId}-show-spell-points`}>
+                <label class="u-pointer" for="{appId}-show-spell-points">
                     {localize("A5E.SpellShowSpellPoints")}
                 </label>
             </div>

@@ -35,7 +35,7 @@
                         class="ability-score-input"
                         type="checkbox"
                         name="ASI"
-                        id={`${$item.id}-ASI-${ability}`}
+                        id="{$item.id}-ASI-{ability}"
                         value={ability}
                         bind:group={selectedAbilityScores}
                         disabled={selectedAbilityScores.length === 2 &&
@@ -44,7 +44,7 @@
 
                     <label
                         class="ability-score-label"
-                        for={`${$item.id}-ASI-${ability}`}
+                        for="{$item.id}-ASI-{ability}"
                     >
                         <!-- svelte-ignore missing-declaration (CONFIG) -->
                         {localize(CONFIG.A5E.abilities[ability])}
@@ -72,14 +72,14 @@
                             class="ability-score-input"
                             type="checkbox"
                             name="ASI"
-                            id={`${$item.id}-equipment-${equipment.uuid}`}
+                            id="{$item.id}-equipment-{equipment.uuid}"
                             value={equipment.uuid}
                             bind:group={selectedEquipment}
                         />
 
                         <label
                             class="ability-score-label"
-                            for={`${$item.id}-equipment-${equipment.uuid}`}
+                            for="{$item.id}-equipment-{equipment.uuid}"
                         >
                             {equipment.name}
                         </label>

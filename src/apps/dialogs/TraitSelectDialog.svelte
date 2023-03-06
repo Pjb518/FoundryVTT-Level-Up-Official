@@ -10,6 +10,7 @@
     export let selectionLimit;
 
     const { application } = getContext("#external");
+    const randomId = foundry.utils.randomID();
 
     // We generate a list of disabled selected traits, since we remove disabled traits from the
     // custom input box, we must keep track them seperately.
@@ -155,7 +156,7 @@
                     {#each Object.entries(group.traits) as [trait, label] (trait)}
                         <input
                             type="checkbox"
-                            id="trait-{trait}"
+                            id="{randomId}-trait-{trait}"
                             checked={selected.includes(trait)}
                             disabled={_disabledTags[trait]}
                             value={trait}
@@ -164,7 +165,7 @@
                             }}
                         />
 
-                        <label for={`trait-${trait}`}>
+                        <label for="{randomId}-trait-{trait}">
                             {localize(label)}
                         </label>
                     {/each}
