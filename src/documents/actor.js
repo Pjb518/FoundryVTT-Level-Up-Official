@@ -14,6 +14,7 @@ import DamageResistancesConfigDialog from '../apps/dialogs/DamageResistancesConf
 import DamageVulnerabilitiesConfigDialog from '../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
 import LanguagesConfigDialog from '../apps/dialogs/LanguagesConfigDialog.svelte';
 import MovementConfigDialog from '../apps/dialogs/MovementConfigDialog.svelte';
+import RestDialog from '../apps/dialogs/RestDialog.svelte';
 import SensesConfigDialog from '../apps/dialogs/SensesConfigDialog.svelte';
 import SkillConfigDialog from '../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../apps/dialogs/ToolProfConfigDialog.svelte';
@@ -1019,17 +1020,15 @@ export default class ActorA5e extends Actor {
   }
 
   async triggerRest() {
-    const dialogTitle = game.i18n.format('A5E.RestConfigurationPrompt', { name: this.name });
-
-    // const restData = await getDialogData(RestDialog, {
-    //   title: dialogTitle, props: { actor: this }
-    // });
-
-    const restData = null;
+    const title = game.i18n.format('A5E.RestConfigurationPrompt', { name: this.name });
+    const dialog = new GenericConfigDialog(this, title, RestDialog);
+    await dialog.render(true);
+    const restData = await dialog?.promise;
 
     if (!restData) return;
-
     const { haven, restType, supply } = restData;
+
+    Hooks.callAll('a5e.triggerRest', this, { haven, restType, supply });
 
     if (restType === 'long') {
       await this.resetHitPoints();
@@ -1040,8 +1039,6 @@ export default class ActorA5e extends Actor {
     await this.restoreExertion();
     await this.restoreItemUses();
     await this.restoreSpellResources(restType);
-
-    Hooks.callAll('a5e.triggerRest', this, { haven, restType, supply });
   }
 
   async updateDeathSavingThrowFigures(roll) {

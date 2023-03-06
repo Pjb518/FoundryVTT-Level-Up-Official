@@ -4,6 +4,7 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import RadioGroup from "../components/RadioGroup.svelte";
 
+    export let { application } = getContext("#external");
     export let { actorDocument, appId } = getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
@@ -71,9 +72,7 @@
 
     {#if restType === "long"}
         <div class="a5e-form__section a5e-form__section--inline">
-            <div
-                class="a5e-input-container a5e-input-container--inline-wide u-flex u-align-center"
-            >
+            <div class="a5e-input-container u-flex u-align-center">
                 <input
                     class="a5e-input"
                     for="{appId}-haven"
@@ -82,7 +81,7 @@
                 />
                 <label
                     for="{appId}-haven"
-                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    class="u-text-sm u-flex-shrink-0 u-mb-0"
                 >
                     {localize("A5E.HavenPrompt")}
                 </label>
@@ -90,9 +89,7 @@
         </div>
 
         <div class="a5e-form__section a5e-form__section--inline">
-            <div
-                class="a5e-input-container a5e-input-container--inline-wide u-flex u-align-center"
-            >
+            <div class="a5e-input-container u-flex u-align-center">
                 <input
                     class="a5e-input"
                     id="{appId}-supply"
@@ -101,7 +98,7 @@
                 />
 
                 <label
-                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    class="u-text-sm u-flex-shrink-0 u-mb-0"
                     for="{appId}-supply"
                 >
                     {localize("A5E.SupplyPrompt")}
@@ -113,7 +110,7 @@
     {#if restType === "short"}
         <div class="a5e-form__section ">
             <h3 class="u-text-bold u-text-sm u-pb-xs">
-                {localize("hitDiceLabel")}
+                {localize("A5E.HitDiceLabel")}
             </h3>
 
             <div class="u-flex u-gap-md u-text-md">
@@ -137,7 +134,7 @@
         </div>
     {/if}
 
-    <button class="a5e-button" on:click={onSubmit}>
+    <button class="a5e-button" on:click|preventDefault={onSubmit}>
         <i class="fas fa-campground" />
         {localize("A5E.Rest")}
     </button>

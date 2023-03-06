@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import RestDialog from "../../dialogs/initializers/RestDialog";
 
     const actor = getContext("actor");
 </script>
@@ -9,7 +8,7 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <i
         class="rest__icon fas fa-campfire"
-        on:click={() => new RestDialog($actor).render(true)}
+        on:click={() => $actor.triggerRest()}
     />
 </div>
 
