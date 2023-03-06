@@ -23,6 +23,7 @@
         {disabled}
         {value}
         on:click|preventDefault={() => dispatch("tagToggle", value)}
+        on:auxclick|preventDefault={() => dispatch("tagToggleAux", value)}
     >
         {localize(label)}
     </button>
@@ -81,8 +82,8 @@
             }
         }
 
-        &--tight {
-            padding: 0.1rem 0.375rem;
-        }
+        // &--tight {
+        //     padding: 0.1rem 0.375rem;
+        // }
     }
 </style>

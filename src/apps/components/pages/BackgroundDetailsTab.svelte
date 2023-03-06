@@ -10,6 +10,7 @@
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import CustomTagGroup from "../CustomTagGroup.svelte";
+    import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
     const item = getContext("item");
 
@@ -17,8 +18,27 @@
         ["none", localize("A5E.None")],
         ...prepareAbilityOptions(),
     ];
+
+    function updateMulti(selection, type) {
+        const [fixed, options] = selection;
+
+        updateDocumentDataFromField(
+            $item,
+            `system.proficiencies.${type}.options`,
+            options
+        );
+
+        updateDocumentDataFromField(
+            $item,
+            `system.proficiencies.${type}.fixed`,
+            fixed
+        );
+    }
+
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
     const skillOptions = Object.entries(CONFIG.A5E.skills);
+
+    $: languages = $item.system.proficiencies.languages;
 </script>
 
 <article>
@@ -51,23 +71,34 @@
             </h3>
             <RadioGroup
                 listClasses="u-gap-md u-text-sm"
-                optionStyles="padding:0.5rem; text-align: center; width: 1.85rem"
+                optionStyles="padding:0.5rem; text-align: center; width: 2rem;"
                 options={abilityOptions}
                 selected={$item.system.defaultASI}
-                name="system.defaultASI"
-                document={item}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.defaultASI",
+                        detail
+                    )}
             />
         </section>
     {/if}
 
     <section class="section-wrapper">
-        <CustomTagGroup
+        <MultiStateCheckBoxGroup
+            options={defaultLanguages}
+            selected={[languages.fixed, languages.options]}
+            on:updateSelection={({ detail }) =>
+                updateMulti(detail, "languages")}
+        />
+
+        <!-- <CustomTagGroup
             heading="A5E.Languages"
             options={defaultLanguages}
             selected={$item.system.proficiencies.languages.options}
             name="system.proficiencies.languages.options"
             document={item}
-        />
+        /> -->
     </section>
 
     <section class="section-wrapper">
@@ -99,8 +130,12 @@
         <CheckboxGroup
             options={skillOptions}
             selected={$item.system.proficiencies.skills.options}
-            name="system.proficiencies.skills.options"
-            document={item}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.proficiencies.skills.options",
+                    detail
+                )}
         />
     </section>
 
