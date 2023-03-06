@@ -47,31 +47,6 @@
                             />
                         </div>
                     </div>
-                    <div class="u-w-20">
-                        <select
-                            class="u-w-30"
-                            name={`system.attributes.movement.${mode}.unit`}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $actor,
-                                    target.name,
-                                    target.value
-                                )}
-                        >
-                            {#each Object.entries(A5E.visionUnits) as [key, name]}
-                                <option
-                                    {key}
-                                    value={key}
-                                    selected={$actor.system.attributes.movement[
-                                        mode
-                                    ].unit === key}
-                                >
-                                    {localize(name)}
-                                </option>
-                            {/each}
-                        </select>
-                    </div>
-
                     {#if mode === "fly"}
                         <div class="u-align-center u-flex u-gap-md">
                             <input
@@ -97,6 +72,30 @@
                             </label>
                         </div>
                     {/if}
+                </div>
+                <div class="u-w-20">
+                    <select
+                        class="u-w-30"
+                        name={`system.attributes.movement.${mode}.unit`}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    >
+                        {#each Object.entries(A5E.distanceUnits) as [key, name]}
+                            <option
+                                {key}
+                                value={key}
+                                selected={$actor.system.attributes.movement[
+                                    mode
+                                ].unit === key}
+                            >
+                                {localize(name)}
+                            </option>
+                        {/each}
+                    </select>
                 </div>
             </FormSection>
         {/if}
