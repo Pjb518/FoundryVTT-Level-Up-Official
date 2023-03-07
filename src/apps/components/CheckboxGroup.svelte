@@ -35,7 +35,7 @@
             active={selected.includes(value)}
             {label}
             {value}
-            {disabled}
+            disabled={disabled && !selected.includes(value)}
             on:tagToggle={({ detail }) => updateSelection(detail)}
         />
     {/each}
