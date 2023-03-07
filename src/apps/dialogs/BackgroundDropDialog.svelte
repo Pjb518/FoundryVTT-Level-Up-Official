@@ -46,13 +46,13 @@
             actorDocument,
             title,
             ToolProfConfigDialog,
-            { submitDialog: true }
+            {
+                max: tools.count,
+                submitDialog: true,
+                dialogTools: selectedTools,
+            }
         ).render(true);
 
-        // const dialog = new BackgroundToolsSelectionDialog(
-        //     selectedTools,
-        //     title
-        // ).render(true);
         const dialogData = await dialog?.promise;
         if (!dialogData) return;
 

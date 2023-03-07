@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import TagGroup from "../components/TagGroup.svelte";
@@ -7,7 +8,9 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, appId } = getContext("#external").application;
+    export let { application } = getContext("#external");
+    export let { actorDocument, appId, max, submitDialog, dialogTools } =
+        getContext("#external").application;
 
     function updateFunction() {
         const proficiencies = [
@@ -22,11 +25,22 @@
                 .filter(Boolean),
         ];
 
+        if (submitDialog) {
+            tools = proficiencies;
+            return;
+        }
+
         updateDocumentDataFromField(
             $actor,
             "system.proficiencies.tools",
             proficiencies
         );
+    }
+
+    function submitForm() {
+        application.submit({
+            tools,
+        });
     }
 
     const actor = new TJSDocument(actorDocument);
@@ -36,7 +50,9 @@
     const miscellaneous = CONFIG.A5E.toolsPlural.miscellaneous;
     const vehicles = CONFIG.A5E.toolsPlural.vehicles;
 
-    $: toolProficiencies = $actor.system.proficiencies.tools.reduce(
+    $: tools = submitDialog ? dialogTools : $actor.system.proficiencies.tools;
+
+    $: toolProficiencies = tools.reduce(
         (acc, curr) => {
             if (Object.keys(artisansTools).includes(curr)) {
                 acc.artisansTools.push(curr);
@@ -72,6 +88,8 @@
         heading="A5E.ToolsArtisanTools"
         tags={artisansTools}
         bind:selected={toolProficiencies.artisansTools}
+        disabled={tools.length >= max}
+        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
 
@@ -79,6 +97,8 @@
         heading="A5E.ToolsGamingSets"
         tags={gamingSets}
         bind:selected={toolProficiencies.gamingSets}
+        disabled={tools.length >= max}
+        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
 
@@ -86,6 +106,8 @@
         heading="A5E.MusicalInstruments"
         tags={musicalInstruments}
         bind:selected={toolProficiencies.musicalInstruments}
+        disabled={tools.length >= max}
+        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
 
@@ -93,6 +115,8 @@
         heading="A5E.ToolsMiscellaneous"
         tags={miscellaneous}
         bind:selected={toolProficiencies.miscellaneous}
+        disabled={tools.length >= max}
+        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
 
@@ -100,6 +124,8 @@
         heading="A5E.ToolsVehicles"
         tags={vehicles}
         bind:selected={toolProficiencies.vehicles}
+        disabled={tools.length >= max}
+        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
 
@@ -107,6 +133,15 @@
         heading="A5E.ToolsOther"
         hint="A5E.HintSeparateBySemiColon"
         bind:fieldValue={otherProficiencies}
+        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
+
+    {#if submitDialog}
+        <div class="u-flex">
+            <button on:click|preventDefault={submitForm}>
+                {localize("A5E.Submit")}
+            </button>
+        </div>
+    {/if}
 </form>

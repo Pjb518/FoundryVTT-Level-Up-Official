@@ -53,6 +53,7 @@
         &[disabled] {
             border: 1px solid #999;
             color: #999;
+            cursor: auto;
         }
 
         &--red {
@@ -63,6 +64,11 @@
             &:hover,
             &:focus {
                 background: #8b2525;
+            }
+
+            &:disabled,
+            &[disabled] {
+                color: lighten(#8b2525, 95%);
             }
         }
 
@@ -75,6 +81,11 @@
             &:focus {
                 background: #8b6225;
             }
+
+            &:disabled,
+            &[disabled] {
+                color: lighten(#8b6225, 95%);
+            }
         }
 
         &--active {
@@ -85,6 +96,11 @@
             &:hover,
             &:focus {
                 background: $color-primary;
+            }
+
+            &:disabled,
+            &[disabled] {
+                color: lighten($color-primary, 95%);
             }
         }
 
