@@ -5,7 +5,6 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    // import BackgroundToolsSelectionDialog from "../dialogs/initializers/BackgroundToolsSelectionDialog";
     import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
 
     import ToolProfConfigDialog from "./ToolProfConfigDialog.svelte";
@@ -69,9 +68,6 @@
     }
 
     function submitForm() {
-        // Perform Validation
-
-        // Submit
         application.submit({
             selectedAbilityScores,
             selectedEquipment,

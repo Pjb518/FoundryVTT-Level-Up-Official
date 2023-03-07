@@ -124,6 +124,7 @@ export default class ActorSheet extends SvelteApplication {
     else if (document.documentName === 'Item') this.#onDropItem(document);
   }
 
+  // eslint-disable-next-line no-unused-vars, no-empty-function
   async #onDropActor(actor) { }
 
   async #onDropItem(item) {
@@ -134,7 +135,6 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
-  // TODO: Implement ability score selection logic.
   async #onDropBackground(item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Background documents cannot be added to NPCs.');
@@ -159,13 +159,41 @@ export default class ActorSheet extends SvelteApplication {
         selectedTools
       } = await dialog.promise);
     } catch (error) {
-      // eslint-disable-next-line consistent-return, no-console
-      return console.error(error);
+      return;
     }
 
-    const { feature, proficiencies } = item.system;
-    const backgroundFeature = await fromUuid(feature);
+    const { feature } = item.system;
+    const updates = {};
 
+    // Setup Ability Scores
+    selectedAbilityScores.forEach((abl) => {
+      updates[`system.abilities.${abl}.value`] = this.actor.system.abilities[abl].value + 1;
+    });
+
+    // Setup Languages
+    const updatedLanguages = [...new Set([
+      ...this.actor.system.proficiencies.languages,
+      ...selectedLanguages
+    ])];
+    updates['system.proficiencies.languages'] = updatedLanguages;
+
+    // Setup Skills
+    selectedSkills.forEach((skill) => {
+      updates[`system.skills.${skill}.proficient`] = true;
+    });
+
+    // Setup Tools
+    const updatedTools = [...new Set([
+      ...this.actor.system.proficiencies.tools,
+      ...selectedTools
+    ])];
+    updates['system.proficiencies.tools'] = updatedTools;
+
+    // Update Actor
+    await this.actor.update(updates);
+
+    // Setup Background Feature and Equipment
+    const backgroundFeature = await fromUuid(feature);
     const startingEquipment = await Promise.all(selectedEquipment.map(
       (equipmentItem) => fromUuid(equipmentItem)
     ));
@@ -226,6 +254,4 @@ export default class ActorSheet extends SvelteApplication {
       ...features
     ]);
   }
-
-  async #combineArrays() { }
 }
