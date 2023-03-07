@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import preparePrompts from "../handlers/preparePrompts";
+    import preparePrompts from "../dataPreparationHelpers/preparePrompts";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";

@@ -8,7 +8,7 @@
 
     import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import prepareLanguageProficiencies from "../../handlers/prepareLanguageProficiencies";
+    import prepareLanguageProficiencies from "../../dataPreparationHelpers/prepareLanguageProficiencies";
 
     import LanguageSelectDialog from "../../dialogs/initializers/LanguageSelectDialog";
 

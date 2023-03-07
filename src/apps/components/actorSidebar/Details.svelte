@@ -2,18 +2,18 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import prepareArmorProficiencies from "../../handlers/prepareArmorProficiencies";
-    import prepareConditionImmunities from "../../handlers/prepareConditionImmunities";
-    import prepareCreatureTypes from "../../handlers/prepareCreatureTypes";
-    import prepareCreatureSize from "../../handlers/prepareCreatureSize";
-    import prepareDamageImmunities from "../../handlers/prepareDamageImmunities";
-    import prepareDamageResistances from "../../handlers/prepareDamageResistances";
-    import prepareDamageVulnerabilities from "../../handlers/prepareDamageVulnerabilities";
-    import prepareLanguageProficiencies from "../../handlers/prepareLanguageProficiencies";
-    import prepareSenses from "../../handlers/prepareSenses";
-    import prepareMovementData from "../../handlers/prepareMovementData";
-    import prepareToolProficiencies from "../../handlers/prepareToolProficiencies";
-    import prepareWeaponProficiencies from "../../handlers/prepareWeaponProficiencies";
+    import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
+    import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
+    import prepareCreatureTypes from "../../dataPreparationHelpers/prepareCreatureTypes";
+    import prepareCreatureSize from "../../dataPreparationHelpers/prepareCreatureSize";
+    import prepareDamageImmunities from "../../dataPreparationHelpers/prepareDamageImmunities";
+    import prepareDamageResistances from "../../dataPreparationHelpers/prepareDamageResistances";
+    import prepareDamageVulnerabilities from "../../dataPreparationHelpers/prepareDamageVulnerabilities";
+    import prepareLanguageProficiencies from "../../dataPreparationHelpers/prepareLanguageProficiencies";
+    import prepareSenses from "../../dataPreparationHelpers/prepareSenses";
+    import prepareMovementData from "../../dataPreparationHelpers/prepareMovementData";
+    import prepareToolProficiencies from "../../dataPreparationHelpers/prepareToolProficiencies";
+    import prepareWeaponProficiencies from "../../dataPreparationHelpers/prepareWeaponProficiencies";
 
     const actor = getContext("actor");
 

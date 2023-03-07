@@ -7,8 +7,8 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import prepareAbilityOptions from "../handlers/prepareAbilityOptions";
-    import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
+    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, skillKey } =
