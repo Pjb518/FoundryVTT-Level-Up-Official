@@ -10,8 +10,6 @@
     export let red = false;
     export let value;
 
-    console.log(disabled);
-
     const dispatch = createEventDispatcher();
 </script>
 

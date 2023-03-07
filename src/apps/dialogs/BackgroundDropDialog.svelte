@@ -18,13 +18,20 @@
     const A5E = CONFIG.A5E;
     const equipmentLength = Object.entries($item.system.equipment).length;
 
-    function updateSkills(value) {
-        const newSelection = new Set(selectedSkills);
+    const updateEquipment = (value) => {
+        selectedEquipment = updateArray(selectedEquipment, value);
+    };
+    const updateSkills = (value) => {
+        selectedSkills = updateArray(selectedSkills, value);
+    };
+
+    function updateArray(arr, value) {
+        const newSelection = new Set(arr);
 
         if (newSelection.has(value)) newSelection.delete(value);
         else newSelection.add(value);
 
-        selectedSkills = [...newSelection];
+        return [...newSelection];
     }
 
     function submitForm() {
@@ -93,9 +100,7 @@
                 {localize("A5E.BackgroundDropSkillsSelect")}
             </h3>
 
-            <ul
-                class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
-            >
+            <ul>
                 {#each Object.entries(A5E.skills) as [skill, label]}
                     <Tag
                         active={selectedSkills.includes(skill)}
@@ -117,28 +122,20 @@
                 {localize("A5E.BackgroundDropEquipmentSelect")}
             </h3>
 
-            <div class="u-flex u-flex-wrap u-gap-md">
+            <ul>
                 <!-- svelte-ignore missing-declaration (fromUuid) -->
                 {#each Object.values($item.system.equipment).map( (e) => fromUuid(e.uuid) ) as promise}
                     {#await promise then equipment}
-                        <input
-                            class="ability-score-input"
-                            type="checkbox"
-                            name="ASI"
-                            id={`${$item.id}-equipment-${equipment.uuid}`}
+                        <Tag
+                            active={selectedEquipment.includes(equipment.uuid)}
+                            label={equipment.name}
                             value={equipment.uuid}
-                            bind:group={selectedEquipment}
+                            on:tagToggle={({ detail }) =>
+                                updateEquipment(detail)}
                         />
-
-                        <label
-                            class="ability-score-label"
-                            for={`${$item.id}-equipment-${equipment.uuid}`}
-                        >
-                            {equipment.name}
-                        </label>
                     {/await}
                 {/each}
-            </div>
+            </ul>
         </section>
     {/if}
 
@@ -163,6 +160,17 @@
             font-weight: bold;
             font-family: "Signika", sans-serif;
         }
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.694rem;
+        width: 100%;
     }
 
     .ability-score {
