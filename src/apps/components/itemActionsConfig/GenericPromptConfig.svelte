@@ -48,39 +48,28 @@
         />
     </div>
 
-    <div class="a5e-field-group a5e-field-group--formula">
-        <label for="{actionId}-{promptId}-dc">
-            {localize("A5E.DC")}
-        </label>
-
+    <div class="a5e-field-group a5e-field-group--checkbox">
         <input
-            id="{actionId}-{promptId}-dc"
-            type="text"
-            value={prompt.dc ?? ""}
+            id="{actionId}-{promptId}-default"
+            class="checkbox"
+            type="checkbox"
+            checked={prompt.default ?? true}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.prompts.${promptId}.dc`,
-                    target.value
+                    `system.actions.${actionId}.rolls.${promptId}.default`,
+                    target.checked
                 )}
         />
-    </div>
 
-    <div class="a5e-field-group ">
-        <label for="{actionId}-{promptId}-save-effect">
-            {localize("A5E.ItemEffectOnCheck")}
+        <label for="{actionId}-{promptId}-default">
+            {localize("A5E.PromptDefaultSelection")}
         </label>
-
-        <input
-            id="{actionId}-{promptId}-save-effect"
-            type="text"
-            value={prompt.onSave ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.onSave`,
-                    target.value
-                )}
-        />
     </div>
 </section>
+
+<style lang="scss">
+    .checkbox {
+        margin: 0;
+    }
+</style>

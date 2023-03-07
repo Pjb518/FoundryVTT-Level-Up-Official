@@ -24,10 +24,10 @@
         });
     }
 
-    function onSaveDCUpdate(actor, { type, bonus }) {
+    function onSaveDCUpdate(actor) {
         try {
             const saveDC = computeSaveDC(actor, {
-                type: prompt?.saveDC.type,
+                type: prompt?.saveDC?.type,
                 bonus: saveDCBonus,
             });
 
@@ -41,7 +41,7 @@
     let saveDCIsValid = true;
     let saveDCBonus = prompt?.saveDC?.bonus ?? "";
 
-    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC.type, saveDCBonus);
+    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
 
     $: updateDocumentDataFromField(
         $item,
@@ -75,27 +75,6 @@
         </h3>
 
         <div class="option-list">
-            <input
-                class="option-input"
-                type="radio"
-                id="{actionId}-{promptId}-ability-none"
-                value=""
-                checked={(prompt.ability ?? true) || prompt.ability === ""}
-                on:change={() =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.prompts.${promptId}`,
-                        { "-=ability": null }
-                    )}
-            />
-
-            <label
-                class="option-label"
-                for="{actionId}-{promptId}-ability-none"
-            >
-                {localize("A5E.None")}
-            </label>
-
             {#each Object.entries(abilities) as [ability, label]}
                 <input
                     class="option-input"
@@ -195,9 +174,32 @@
                 )}
         />
     </div>
+
+    <div class="a5e-field-group a5e-field-group--checkbox">
+        <input
+            id="{actionId}-{promptId}-default"
+            class="checkbox"
+            type="checkbox"
+            checked={prompt.default ?? true}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${promptId}.default`,
+                    target.checked
+                )}
+        />
+
+        <label for="{actionId}-{promptId}-default">
+            {localize("A5E.PromptDefaultSelection")}
+        </label>
+    </div>
 </section>
 
 <style lang="scss">
+    .checkbox {
+        margin: 0;
+    }
+
     .option {
         &-input {
             display: none;
