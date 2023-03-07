@@ -27,10 +27,18 @@
         }
     }
 
+    function getDefaultPromptSelections() {
+        return Object.entries($item.actions[actionId].prompts).reduce(
+            (acc, [key, prompt]) => {
+                if (prompt.default) acc.push(key);
+                return acc;
+            },
+            []
+        );
+    }
+
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
-
-    let selectedPrompts = [];
 
     $: action = $item.actions[actionId];
 
@@ -38,6 +46,8 @@
         key,
         prompt.label ?? getDefaultPromptLabel(prompt),
     ]);
+
+    let selectedPrompts = getDefaultPromptSelections();
 </script>
 
 <form>
