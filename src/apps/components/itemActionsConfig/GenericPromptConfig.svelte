@@ -57,7 +57,7 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${promptId}.default`,
+                    `system.actions.${actionId}.prompts.${promptId}.default`,
                     target.checked
                 )}
         />

@@ -42,7 +42,7 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${promptId}.skill`,
+                    `system.actions.${actionId}.prompts.${promptId}.skill`,
                     target.value
                 )}
         >
@@ -115,7 +115,7 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${promptId}.default`,
+                    `system.actions.${actionId}.prompts.${promptId}.default`,
                     target.checked
                 )}
         />
