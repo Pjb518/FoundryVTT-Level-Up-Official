@@ -1,31 +1,14 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import preparePrompts from "../handlers/preparePrompts";
+
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FormSection from "../components/FormSection.svelte";
 
     export let { actionId, actorDocument, dialog, itemDocument, options } =
         getContext("#external").application;
-
-    function getDefaultPromptLabel(prompt) {
-        switch (prompt.type) {
-            case "savingThrow":
-                return localize("A5E.SavingThrowSpecific", {
-                    ability: localize(CONFIG.A5E.abilities[prompt.ability]),
-                });
-            case "abilityCheck":
-                return localize("A5E.AbilityCheckSpecific", {
-                    ability: localize(CONFIG.A5E.abilities[prompt.ability]),
-                });
-            case "skillCheck":
-                return localize("A5E.SkillCheck", {
-                    skill: localize(CONFIG.A5E.skills[prompt.skill]),
-                });
-            case "generic":
-                return localize("A5E.Other");
-        }
-    }
 
     function getDefaultPromptSelections() {
         return Object.entries($item.actions[actionId].prompts).reduce(
@@ -42,20 +25,19 @@
 
     $: action = $item.actions[actionId];
 
-    $: prompts = Object.entries(action.prompts).map(([key, prompt]) => [
-        key,
-        prompt.label ?? getDefaultPromptLabel(prompt),
-    ]);
+    $: prompts = preparePrompts(action.prompts);
 
     let selectedPrompts = getDefaultPromptSelections();
 </script>
 
 <form>
-    <CheckboxGroup
-        options={prompts}
-        selected={selectedPrompts}
-        on:updateSelection={(event) => (selectedPrompts = event.detail)}
-    />
+    <FormSection heading="A5E.PromptsHeading" hint="A5E.PromptsHint">
+        <CheckboxGroup
+            options={prompts}
+            selected={selectedPrompts}
+            on:updateSelection={(event) => (selectedPrompts = event.detail)}
+        />
+    </FormSection>
 </form>
 
 <style lang="scss">
