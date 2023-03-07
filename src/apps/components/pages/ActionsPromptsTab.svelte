@@ -27,7 +27,7 @@
             };
         }
 
-        if (type === "abilityCheck") {
+        if (type === "skillCheck") {
             promptData.skill = "acr";
         }
 
