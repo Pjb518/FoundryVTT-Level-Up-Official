@@ -8,7 +8,6 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import RadioGroup from "../RadioGroup.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
     import CustomTagGroup from "../CustomTagGroup.svelte";
     import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
@@ -90,11 +89,16 @@
             {localize("A5E.Languages")}
         </h3>
 
-        <MultiStateCheckBoxGroup
+        <CustomTagGroup
             options={defaultLanguages}
-            selected={[languages.fixed, languages.options]}
+            selected={languages.fixed}
+            heading={null}
             on:updateSelection={({ detail }) =>
-                updateMulti(detail, "languages")}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.proficiencies.languages.fixed",
+                    detail
+                )}
         />
     </section>
 
@@ -127,6 +131,7 @@
         <MultiStateCheckBoxGroup
             options={skillOptions}
             selected={[skills.fixed, skills.options]}
+            hint="Hint: Skills marked as green are fixed, and skills marked as orange are options. Right-click a filter to quickly remove it from the selection."
             on:updateSelection={({ detail }) => updateMulti(detail, "skills")}
         />
     </section>

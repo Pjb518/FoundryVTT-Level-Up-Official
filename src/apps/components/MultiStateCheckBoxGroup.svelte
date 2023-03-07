@@ -1,5 +1,7 @@
 <script>
     import { createEventDispatcher } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
     import Tag from "./Tag.svelte";
 
     export let auxEnabled = true;
@@ -57,7 +59,7 @@
 
 {#if hint}
     <p class="hint">
-        {hint}
+        {localize(hint)}
     </p>
 {/if}
 

@@ -48,13 +48,15 @@
     $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>
 
-<header class="u-align-center u-flex u-gap-lg">
-    <h3 class="u-text-bold u-text-sm">{localize(heading)}</h3>
+{#if heading}
+    <header class="u-align-center u-flex u-gap-lg">
+        <h3 class="u-text-bold u-text-sm">{localize(heading)}</h3>
 
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
-</header>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
+    </header>
+{/if}
 
 <CheckboxGroup
     {options}
