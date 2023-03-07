@@ -50,7 +50,7 @@
                     )}
             />
 
-            <label for={`${appId}-${""}-proficient`} class="u-pointer">
+            <label for={`${appId}-${skillKey}-proficient`} class="u-pointer">
                 {localize("A5E.ProficiencyProficient")}
             </label>
         </div>
