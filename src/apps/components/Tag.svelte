@@ -57,17 +57,6 @@
             color: #999;
         }
 
-        &--active {
-            border-color: $color-primary;
-            background: $color-primary;
-            color: lighten($color-primary, 80%);
-
-            &:hover,
-            &:focus {
-                background: $color-primary;
-            }
-        }
-
         &--red {
             border-color: darken(#8b2525, 5%);
             background: #8b2525;
@@ -87,6 +76,17 @@
             &:hover,
             &:focus {
                 background: #8b6225;
+            }
+        }
+
+        &--active {
+            border-color: $color-primary;
+            background: $color-primary;
+            color: lighten($color-primary, 80%);
+
+            &:hover,
+            &:focus {
+                background: $color-primary;
             }
         }
 

@@ -10,7 +10,7 @@
     export let selected = [];
     export let disabled = false;
     export let showCustomInput = true;
-    export let heading;
+    export let heading = "";
 
     function splitCustomSelections(value) {
         return value

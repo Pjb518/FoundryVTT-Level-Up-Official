@@ -5,6 +5,11 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import CustomTagGroup from "../components/CustomTagGroup.svelte";
+    import Tag from "../components/Tag.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import MultiStateCheckBoxGroup from "../components/MultiStateCheckBoxGroup.svelte";
+
     export let { application } = getContext("#external");
     export let { itemDocument } = getContext("#external").application;
 
@@ -13,25 +18,13 @@
     const A5E = CONFIG.A5E;
     const equipmentLength = Object.entries($item.system.equipment).length;
 
-    let selectedAbilityScores = [
-        $item.system.includesASI ? $item.system.defaultASI : null,
-    ].filter(Boolean);
+    function updateSkills(value) {
+        const newSelection = new Set(selectedSkills);
 
-    let selectedEquipment = [];
-    let selectedLanguages = [...$item.system.proficiencies.languages.options];
-    let selectedSkills = [...$item.system.proficiencies.skills.options];
-    let selectedTools = [];
+        if (newSelection.has(value)) newSelection.delete(value);
+        else newSelection.add(value);
 
-    function updateCustomLanguages(values) {
-        selectedLanguages = [
-            ...selectedLanguages.filter((option) =>
-                Object.keys(A5E.languages).includes(option)
-            ),
-            ...values
-                .split(";")
-                .map((option) => option.trim())
-                .filter(Boolean),
-        ];
+        selectedSkills = [...newSelection];
     }
 
     function submitForm() {
@@ -45,11 +38,16 @@
     }
 
     $: languages = $item.system.proficiencies.languages;
-    $: customLanguages = selectedLanguages
-        .filter((option) => !Object.keys(A5E.languages).includes(option))
-        .join("; ");
     $: skills = $item.system.proficiencies.skills;
     $: tools = $item.system.proficiencies.tools;
+
+    $: selectedEquipment = [];
+    $: selectedLanguages = [...languages.fixed];
+    $: selectedSkills = [...skills.fixed];
+    $: selectedTools = [];
+    $: selectedAbilityScores = [
+        $item.system.includesASI ? $item.system.defaultASI : null,
+    ].filter(Boolean);
 </script>
 
 <form>
@@ -59,28 +57,13 @@
                 {localize("A5E.BackgroundDropAbilitySelect")}
             </h3>
 
-            <div class="u-flex u-flex-wrap u-gap-md">
-                {#each ["str", "dex", "con", "int", "wis", "cha"] as ability}
-                    <input
-                        class="ability-score-input"
-                        type="checkbox"
-                        name="ASI"
-                        id={`${$item.id}-ASI-${ability}`}
-                        value={ability}
-                        bind:group={selectedAbilityScores}
-                        disabled={selectedAbilityScores.length === 2 &&
-                            !selectedAbilityScores.includes(ability)}
-                    />
-
-                    <label
-                        class="ability-score-label"
-                        for={`${$item.id}-ASI-${ability}`}
-                    >
-                        <!-- svelte-ignore missing-declaration (CONFIG) -->
-                        {localize(A5E.abilities[ability])}
-                    </label>
-                {/each}
-            </div>
+            <CheckboxGroup
+                options={Object.entries(A5E.abilities)}
+                selected={selectedAbilityScores}
+                disabled={selectedAbilityScores.length === 2}
+                on:updateSelection={({ detail }) =>
+                    (selectedAbilityScores = detail)}
+            />
 
             <p class="hint">
                 {localize("A5E.BackgroundDropAbilitySelectHint")}
@@ -94,40 +77,13 @@
                 {localize("A5E.BackgroundDropLanguagesSelect")}
             </h3>
 
-            <div class="u-flex u-flex-wrap u-gap-md">
-                {#each Object.entries(A5E.languages) as [language, label]}
-                    <input
-                        class="ability-score-input"
-                        type="checkbox"
-                        id={`${$item.id}-languages-${language}`}
-                        value={language}
-                        disabled={selectedLanguages.length >= languages.count &&
-                            !selectedLanguages.includes(language)}
-                        bind:group={selectedLanguages}
-                    />
-
-                    <label
-                        class="ability-score-label"
-                        for={`${$item.id}-languages-${language}`}
-                    >
-                        {localize(label)}
-                    </label>
-                {/each}
-
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="text"
-                    value={customLanguages}
-                    disabled={selectedLanguages.length >= languages.count &&
-                        !customLanguages.length > 2}
-                    on:change={({ target }) =>
-                        updateCustomLanguages(target.value)}
-                />
-
-                <p class="hint">
-                    {localize("A5E.HintSeparateBySemiColon")}
-                </p>
-            </div>
+            <CustomTagGroup
+                options={Object.entries(A5E.languages)}
+                selected={languages.fixed}
+                disabled={selectedLanguages.length >= languages.count}
+                on:updateSelection={({ detail }) =>
+                    (selectedLanguages = detail)}
+            />
         </section>
     {/if}
 
@@ -137,26 +93,21 @@
                 {localize("A5E.BackgroundDropSkillsSelect")}
             </h3>
 
-            <div class="u-flex u-flex-wrap u-gap-md">
+            <ul
+                class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
+            >
                 {#each Object.entries(A5E.skills) as [skill, label]}
-                    <input
-                        class="ability-score-input"
-                        type="checkbox"
-                        id={`${$item.id}-skills-${skill}`}
+                    <Tag
+                        active={selectedSkills.includes(skill)}
+                        {label}
                         value={skill}
                         disabled={selectedSkills.length >= skills.count &&
                             !selectedSkills.includes(skill)}
-                        bind:group={selectedSkills}
+                        orange={skills.options.includes(skill)}
+                        on:tagToggle={({ detail }) => updateSkills(detail)}
                     />
-
-                    <label
-                        class="ability-score-label"
-                        for={`${$item.id}-skills-${skill}`}
-                    >
-                        {localize(label)}
-                    </label>
                 {/each}
-            </div>
+            </ul>
         </section>
     {/if}
 
@@ -192,7 +143,9 @@
     {/if}
 
     <div class="button-container">
-        <button on:click|preventDefault={submitForm}>Submit</button>
+        <button on:click|preventDefault={submitForm}>
+            {localize("A5E.Submit")}
+        </button>
     </div>
 </form>
 
