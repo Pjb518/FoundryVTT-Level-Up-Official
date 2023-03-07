@@ -69,6 +69,9 @@
     }
 
     function submitForm() {
+        // Perform Validation
+
+        // Submit
         application.submit({
             selectedAbilityScores,
             selectedEquipment,
@@ -84,7 +87,9 @@
 
     $: selectedEquipment = [];
     $: selectedLanguages = [...languages.fixed];
-    $: selectedSkills = [...skills.fixed];
+    $: selectedSkills = [
+        ...skills.fixed.filter((s) => !$actor.system.skills[s].proficient),
+    ];
     $: selectedTools = [];
     $: selectedAbilityScores = [
         $item.system.includesASI ? $item.system.defaultASI : null,
@@ -109,6 +114,13 @@
             <p class="hint">
                 {localize("A5E.BackgroundDropAbilitySelectHint")}
             </p>
+
+            {#if selectedAbilityScores.length < 2}
+                <p class="hint" style="color: #8b6225;">
+                    <i class="fa-solid fa-circle-exclamation" />
+                    {2 - selectedAbilityScores.length} Ability Score selections remaining
+                </p>
+            {/if}
         </section>
     {/if}
 
@@ -122,9 +134,18 @@
                 options={Object.entries(A5E.languages)}
                 selected={languages.fixed}
                 disabled={selectedLanguages.length >= languages.count}
+                red={$actor.system.proficiencies.languages}
                 on:updateSelection={({ detail }) =>
                     (selectedLanguages = detail)}
             />
+
+            {#if selectedLanguages.length < languages.count}
+                <p class="hint" style="color: #8b6225;">
+                    <i class="fa-solid fa-circle-exclamation" />
+                    {languages.count - selectedLanguages.length} language selections
+                    remaining
+                </p>
+            {/if}
         </section>
     {/if}
 
@@ -144,9 +165,17 @@
                             !selectedSkills.includes(skill)}
                         orange={skills.options.includes(skill)}
                         on:tagToggle={({ detail }) => updateSkills(detail)}
+                        red={$actor.system.skills[skill].proficient}
                     />
                 {/each}
             </ul>
+
+            {#if selectedSkills.length < skills.count}
+                <p class="hint" style="color: #8b6225;">
+                    <i class="fa-solid fa-circle-exclamation" />
+                    {skills.count - selectedSkills.length} Skill selections remaining
+                </p>
+            {/if}
         </section>
     {/if}
 
@@ -182,6 +211,13 @@
                         />
                     {/each}
                 </ul>
+            {/if}
+
+            {#if selectedTools.length < tools.count}
+                <p class="hint" style="color: #8b6225;">
+                    <i class="fa-solid fa-circle-exclamation" />
+                    {tools.count - selectedTools.length} Tool selections remaining
+                </p>
             {/if}
         </section>
     {/if}

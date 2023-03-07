@@ -133,7 +133,6 @@
         heading="A5E.ToolsOther"
         hint="A5E.HintSeparateBySemiColon"
         bind:fieldValue={otherProficiencies}
-        red={$actor.system.proficiencies.tools}
         {updateFunction}
     />
 

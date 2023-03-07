@@ -5,6 +5,7 @@
     export let options = [];
     export let selected = [];
     export let disabled = false;
+    export let red = false;
 
     function updateSelection(value) {
         const newSelections = new Set(selected);
@@ -35,6 +36,7 @@
             active={selected.includes(value)}
             {label}
             {value}
+            red={red && red?.includes(value)}
             disabled={disabled && !selected.includes(value)}
             on:tagToggle={({ detail }) => updateSelection(detail)}
         />

@@ -9,6 +9,7 @@
     export let options = [];
     export let selected = [];
     export let disabled = false;
+    export let red = false;
     export let showCustomInput = true;
     export let heading = "";
 
@@ -63,6 +64,7 @@
     {options}
     selected={selectedCoreOptions}
     {disabled}
+    {red}
     on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 
