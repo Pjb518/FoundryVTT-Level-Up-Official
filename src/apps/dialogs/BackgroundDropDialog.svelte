@@ -5,15 +5,19 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import BackgroundToolsSelectionDialog from "../dialogs/initializers/BackgroundToolsSelectionDialog";
+    // import BackgroundToolsSelectionDialog from "../dialogs/initializers/BackgroundToolsSelectionDialog";
+    import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
 
+    import ToolProfConfigDialog from "./ToolProfConfigDialog.svelte";
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import Tag from "../components/Tag.svelte";
 
     export let { application } = getContext("#external");
-    export let { itemDocument } = getContext("#external").application;
+    export let { actorDocument, itemDocument } =
+        getContext("#external").application;
 
+    const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
 
     const A5E = CONFIG.A5E;
@@ -24,8 +28,6 @@
         (acc, [key, label]) => ({ ...acc, [key.split(".")[1]]: label }),
         {}
     );
-
-    console.log(toolKeys);
 
     const updateEquipment = (value) => {
         selectedEquipment = updateArray(selectedEquipment, value);
@@ -39,7 +41,18 @@
             "A5E.ToolProficienciesConfigurationPrompt",
             { name: $item.name }
         );
-        const dialog = new BackgroundToolsSelectionDialog(title).render(true);
+
+        const dialog = new GenericConfigDialog(
+            actorDocument,
+            title,
+            ToolProfConfigDialog,
+            { submitDialog: true }
+        ).render(true);
+
+        // const dialog = new BackgroundToolsSelectionDialog(
+        //     selectedTools,
+        //     title
+        // ).render(true);
         const dialogData = await dialog?.promise;
         if (!dialogData) return;
 
@@ -165,6 +178,7 @@
                             active={true}
                             value={tool}
                             label={toolKeys[tool] ?? tool}
+                            optionStyles="cursor: auto;"
                         />
                     {/each}
                 </ul>

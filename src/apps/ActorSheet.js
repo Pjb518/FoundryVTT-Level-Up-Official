@@ -141,23 +141,30 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
-    const { equipment, feature, includesASI } = item.system;
-    const backgroundFeature = await fromUuid(feature);
-
     let selectedAbilityScores = [];
     let selectedEquipment = [];
+    let selectedSkills = [];
+    let selectedLanguages = [];
+    let selectedTools = [];
 
-    // Do not show the dialog if there is no ASI or equipment to select.
-    if (includesASI || equipment.length) {
-      const dialog = new BackgroundDropDialog(item);
-      dialog.render(true);
+    const dialog = new BackgroundDropDialog(this.actor, item);
+    dialog.render(true);
 
-      try {
-        ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
-      } catch (error) {
-        return;
-      }
+    try {
+      ({
+        selectedAbilityScores,
+        selectedEquipment,
+        selectedLanguages,
+        selectedSkills,
+        selectedTools
+      } = await dialog.promise);
+    } catch (error) {
+      // eslint-disable-next-line consistent-return, no-console
+      return console.error(error);
     }
+
+    const { feature, proficiencies } = item.system;
+    const backgroundFeature = await fromUuid(feature);
 
     const startingEquipment = await Promise.all(selectedEquipment.map(
       (equipmentItem) => fromUuid(equipmentItem)
@@ -219,4 +226,6 @@ export default class ActorSheet extends SvelteApplication {
       ...features
     ]);
   }
+
+  async #combineArrays() { }
 }
