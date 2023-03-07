@@ -8,6 +8,7 @@
 
     export let options = [];
     export let selected = [];
+    export let disabled = false;
     export let showCustomInput = true;
     export let heading;
 
@@ -61,6 +62,7 @@
 <CheckboxGroup
     {options}
     selected={selectedCoreOptions}
+    {disabled}
     on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 
