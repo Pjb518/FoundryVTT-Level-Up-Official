@@ -10,6 +10,8 @@
     export let red = false;
     export let value;
 
+    console.log(disabled);
+
     const dispatch = createEventDispatcher();
 </script>
 
@@ -47,6 +49,12 @@
         &:hover,
         &:focus {
             background: darken(#dddace, 2.5%);
+        }
+
+        &:disabled,
+        &[disabled] {
+            border: 1px solid #999;
+            color: #999;
         }
 
         &--active {
