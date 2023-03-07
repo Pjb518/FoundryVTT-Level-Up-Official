@@ -5,10 +5,11 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import BackgroundToolsSelectionDialog from "../dialogs/initializers/BackgroundToolsSelectionDialog";
+
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import Tag from "../components/Tag.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import MultiStateCheckBoxGroup from "../components/MultiStateCheckBoxGroup.svelte";
 
     export let { application } = getContext("#external");
     export let { itemDocument } = getContext("#external").application;
@@ -17,6 +18,14 @@
 
     const A5E = CONFIG.A5E;
     const equipmentLength = Object.entries($item.system.equipment).length;
+    const toolKeys = Object.entries(
+        foundry.utils.flattenObject(CONFIG.A5E.tools)
+    ).reduce(
+        (acc, [key, label]) => ({ ...acc, [key.split(".")[1]]: label }),
+        {}
+    );
+
+    console.log(toolKeys);
 
     const updateEquipment = (value) => {
         selectedEquipment = updateArray(selectedEquipment, value);
@@ -24,6 +33,18 @@
     const updateSkills = (value) => {
         selectedSkills = updateArray(selectedSkills, value);
     };
+
+    async function updateTools() {
+        const title = game.i18n.format(
+            "A5E.ToolProficienciesConfigurationPrompt",
+            { name: $item.name }
+        );
+        const dialog = new BackgroundToolsSelectionDialog(title).render(true);
+        const dialogData = await dialog?.promise;
+        if (!dialogData) return;
+
+        selectedTools = dialogData.tools;
+    }
 
     function updateArray(arr, value) {
         const newSelection = new Set(arr);
@@ -59,7 +80,7 @@
 
 <form>
     {#if $item.system.includesASI}
-        <section class="ability-score-wrapper">
+        <section class="section-wrapper">
             <h3>
                 {localize("A5E.BackgroundDropAbilitySelect")}
             </h3>
@@ -79,7 +100,7 @@
     {/if}
 
     {#if languages.count}
-        <section class="ability-score-wrapper">
+        <section class="section-wrapper">
             <h3>
                 {localize("A5E.BackgroundDropLanguagesSelect")}
             </h3>
@@ -95,7 +116,7 @@
     {/if}
 
     {#if skills.count}
-        <section class="ability-score-wrapper">
+        <section class="section-wrapper">
             <h3>
                 {localize("A5E.BackgroundDropSkillsSelect")}
             </h3>
@@ -116,8 +137,43 @@
         </section>
     {/if}
 
+    {#if tools.options}
+        <section class="ability-score=wrapper">
+            <div class="u-flex u-align-center u-gap-md">
+                <h3>
+                    {localize("A5E.BackgroundDropToolsSelect")}
+                </h3>
+
+                <button
+                    class="tools-config a5e-button a5e-button--add "
+                    on:click|preventDefault={updateTools}
+                >
+                    {localize("A5E.ButtonAdd", {
+                        type: localize("A5E.ToolPlural"),
+                    })}
+                </button>
+            </div>
+
+            <p class="hint u-pb-xs">
+                {tools.options}
+            </p>
+
+            {#if selectedTools.length}
+                <ul>
+                    {#each selectedTools as tool}
+                        <Tag
+                            active={true}
+                            value={tool}
+                            label={toolKeys[tool] ?? tool}
+                        />
+                    {/each}
+                </ul>
+            {/if}
+        </section>
+    {/if}
+
     {#if equipmentLength}
-        <section class="ability-score-wrapper">
+        <section class="section-wrapper">
             <h3>
                 {localize("A5E.BackgroundDropEquipmentSelect")}
             </h3>
@@ -173,39 +229,21 @@
         width: 100%;
     }
 
-    .ability-score {
-        &-input {
-            display: none;
-
-            &:checked + .ability-score-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-
-            &:disabled + .ability-score-label {
-                color: #999;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            font-size: 0.694rem;
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+    .section-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .button-container {
         display: flex;
+    }
+
+    .tools-config {
+        font-size: 0.694rem;
+        margin-left: auto;
+        margin-right: 0.75rem;
     }
 
     .hint {
