@@ -6,7 +6,7 @@
     import computeSaveDC from "../utils/computeSaveDC";
 
     import preparePrompts from "../dataPreparationHelpers/preparePrompts";
-    import prepareDamageRolls from "../dataPreparationHelpers/prepareDamageRolls";
+    import prepareRolls from "../dataPreparationHelpers/prepareRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
@@ -15,7 +15,7 @@
         getContext("#external").application;
 
     function getDefaultPromptSelections() {
-        return Object.entries($item.actions[actionId].prompts).reduce(
+        return Object.entries($item.actions[actionId]?.prompts ?? {}).reduce(
             (acc, [key, prompt]) => {
                 if (prompt.default) acc.push(key);
                 return acc;
@@ -42,6 +42,17 @@
         });
     }
 
+    const rollHeadingMap = {
+        abilityCheck: "Ability Checks",
+        attack: "Attack Rolls",
+        damage: "Damage Rolls",
+        generic: "Generic Rolls",
+        healing: "Healing Rolls",
+        savingThrow: "Saving Throws",
+        skillCheck: "Skill Checks",
+        toolCheck: "Tool Checks",
+    };
+
     const promptHeadingMap = {
         abilityCheck: "Ability Check Prompts",
         savingThrow: "Saving Throw Prompts",
@@ -54,51 +65,60 @@
 
     $: action = $item.actions[actionId];
     $: prompts = preparePrompts(action.prompts);
-    $: damageRolls = prepareDamageRolls(action.rolls);
+    $: rolls = prepareRolls(action.rolls);
 
+    let selectedRolls = [];
     let selectedPrompts = getDefaultPromptSelections();
 </script>
 
 <form>
-    <FormSection>
-        <div class="roll-wrapper">
-            {#each [damageRolls] as rollGroup}
-                {#if rollGroup.length}
-                    <section>
-                        <h3 class="section-subheading">Damage Rolls</h3>
+    <!-- If there are no rolls, hide this section -->
+    {#if Object.values(rolls).flat().length}
+        <FormSection>
+            <div class="roll-wrapper">
+                {#each Object.entries(rolls) as [rollType, _rolls]}
+                    {#if _rolls.length}
+                        <section>
+                            <h3 class="section-subheading">
+                                {rollHeadingMap[rollType]}
+                            </h3>
 
-                        <CheckboxGroup
-                            options={rollGroup}
-                            selected={selectedPrompts}
-                            on:updateSelection={(event) =>
-                                (selectedPrompts = event.detail)}
-                        />
-                    </section>
-                {/if}
-            {/each}
-        </div>
-    </FormSection>
+                            <CheckboxGroup
+                                options={_rolls}
+                                selected={selectedRolls}
+                                on:updateSelection={(event) =>
+                                    (selectedRolls = event.detail)}
+                            />
+                        </section>
+                    {/if}
+                {/each}
+            </div>
+        </FormSection>
+    {/if}
 
-    <FormSection hint="A5E.PromptsHint">
-        <div class="prompt-wrapper">
-            {#each Object.entries(prompts) as [promptType, _prompts]}
-                {#if _prompts.length}
-                    <section>
-                        <h3 class="section-subheading">
-                            {promptHeadingMap[promptType]}
-                        </h3>
+    <!-- If there are no prompts, hide this section -->
+    {#if Object.values(prompts).flat().length}
+        <FormSection hint="A5E.PromptsHint">
+            <div class="prompt-wrapper">
+                {#each Object.entries(prompts) as [promptType, _prompts]}
+                    {#if _prompts.length}
+                        <section>
+                            <h3 class="section-subheading">
+                                {promptHeadingMap[promptType]}
+                            </h3>
 
-                        <CheckboxGroup
-                            options={_prompts}
-                            selected={selectedPrompts}
-                            on:updateSelection={(event) =>
-                                (selectedPrompts = event.detail)}
-                        />
-                    </section>
-                {/if}
-            {/each}
-        </div>
-    </FormSection>
+                            <CheckboxGroup
+                                options={_prompts}
+                                selected={selectedPrompts}
+                                on:updateSelection={(event) =>
+                                    (selectedPrompts = event.detail)}
+                            />
+                        </section>
+                    {/if}
+                {/each}
+            </div>
+        </FormSection>
+    {/if}
 
     <section>
         <button on:click|preventDefault={onSubmit}>

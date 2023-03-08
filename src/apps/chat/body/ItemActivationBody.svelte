@@ -17,19 +17,21 @@
 
     $: description = $message.flags?.a5e?.description;
 
-    $: prompts = $message.flags?.a5e?.prompts.reduce((acc, [key, prompt]) => {
-        acc[prompt.type] ??= [];
-        acc[prompt.type].push([key, prompt]);
+    $: prompts =
+        $message.flags?.a5e?.prompts?.reduce((acc, [key, prompt]) => {
+            acc[prompt.type] ??= [];
+            acc[prompt.type].push([key, prompt]);
 
-        return acc;
-    }, {});
+            return acc;
+        }, {}) ?? [];
 
-    $: rolls = $message.flags?.a5e?.rolls?.reduce((acc, [key, roll]) => {
-        acc[roll.type] ??= [];
-        acc[roll.type].push([key, roll]);
+    $: rolls =
+        $message.flags?.a5e?.rolls?.reduce((acc, [key, roll]) => {
+            acc[roll.type] ??= [];
+            acc[roll.type].push([key, roll]);
 
-        return acc;
-    }, {});
+            return acc;
+        }, {}) ?? [];
 </script>
 
 <article>

@@ -1,10 +1,9 @@
 export default function prepareDamageRolls(rolls) {
   const counts = {};
-  const damageRolls = Object.entries(rolls).filter(([_, roll]) => roll.type === 'damage');
 
-  if (!damageRolls.length) return [];
+  if (!rolls.length) return [];
 
-  return damageRolls.map(([key, roll]) => {
+  return rolls.map(([key, roll]) => {
     if (roll.label) return roll.label;
 
     const label = game.i18n.format('A5E.DamageSpecific', {
