@@ -40,6 +40,13 @@
         on:updateSelection={({ detail }) => (selectedLanguages = detail)}
     />
 
+    {#if selectedLanguages.length < languages.count}
+        <p class="hint" style="color: #8b6225;">
+            <i class="fa-solid fa-circle-exclamation" />
+            {languages.count - selectedLanguages.length} language selections remaining
+        </p>
+    {/if}
+
     <div class="button-container">
         <button on:click|preventDefault={submitForm}>
             {localize("A5E.Submit")}

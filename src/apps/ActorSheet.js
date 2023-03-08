@@ -131,8 +131,7 @@ export default class ActorSheet extends SvelteApplication {
     if (item.type === 'background') this.#onDropBackground(item);
     else if (item.type === 'culture') this.#onDropCulture(item);
     else if (item.type === 'destiny') this.#onDropDestiny(item);
-
-    this.actor.createEmbeddedDocuments('Item', [item]);
+    else this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
   async #onDropBackground(item) {
