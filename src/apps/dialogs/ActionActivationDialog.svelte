@@ -9,6 +9,7 @@
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     export let { actionId, actorDocument, dialog, itemDocument, options } =
@@ -86,19 +87,21 @@
         {}
     );
 
+    let expertiseDie = null;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
 </script>
 
 <form>
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.AttackRollModeHeading")}
-        </h3>
+    <section class="a5e-box u-flex u-flex-col u-gap-lg u-p-md">
+        <section>
+            <h3 class="heading">
+                {localize("A5E.AttackRollModeHeading")}
+            </h3>
 
-        <div
-            class="
+            <div
+                class="
                 u-flex
                 u-flex-wrap
                 u-list-style-none
@@ -108,27 +111,41 @@
                 u-gap-md
                 u-text-sm
             "
-            role="radiogroup"
-            id={`${$actor.id}-${dialog.id}-rollMode`}
-        >
-            {#each rollModeOptions as { id, name, value }}
-                <input
-                    class="u-hidden"
-                    type="radio"
-                    id="{$actor.id}-{dialog.id}-rollMode-{id}"
-                    bind:group={rollMode}
-                    {value}
-                />
+                role="radiogroup"
+                id={`${$actor.id}-${dialog.id}-rollMode`}
+            >
+                {#each rollModeOptions as { id, name, value }}
+                    <input
+                        class="u-hidden"
+                        type="radio"
+                        id="{$actor.id}-{dialog.id}-rollMode-{id}"
+                        bind:group={rollMode}
+                        {value}
+                    />
 
-                <label
-                    class="a5e-tag u-pointer u-p-md u-text-center"
-                    class:a5e-tag--active={value === rollMode}
-                    for="{$actor.id}-{dialog.id}-rollMode-{id}"
-                >
-                    {name}
-                </label>
-            {/each}
-        </div>
+                    <label
+                        class="a5e-tag u-pointer u-p-md u-text-center"
+                        class:a5e-tag--active={value === rollMode}
+                        for="{$actor.id}-{dialog.id}-rollMode-{id}"
+                    >
+                        {name}
+                    </label>
+                {/each}
+            </div>
+        </section>
+
+        <section>
+            <h3 class="heading">
+                {localize("A5E.ExpertiseDie")}
+            </h3>
+
+            <ExpertiseDiePicker
+                selected={expertiseDie}
+                on:updateSelection={(event) => {
+                    expertiseDie = event.detail;
+                }}
+            />
+        </section>
     </section>
 
     <!-- If there are no rolls, hide this section -->
@@ -209,6 +226,7 @@
         display: block;
         font-weight: bold;
         font-size: 0.833rem;
+        margin-bottom: 0.25rem;
     }
 
     .roll-wrapper,
