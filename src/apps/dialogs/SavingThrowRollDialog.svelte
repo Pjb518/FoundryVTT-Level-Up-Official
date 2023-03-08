@@ -19,6 +19,7 @@
         } else {
             return localize("A5E.RollPromptSavingThrow", {
                 ability: localizeSave,
+                dc: options.dc,
             });
         }
     }
