@@ -61,6 +61,7 @@
                 class="option-input"
                 type="radio"
                 id="{actionId}-{rollId}-ability-none"
+                name="{rollId}-ability"
                 value=""
                 checked={(roll.ability ?? true) || roll.ability === ""}
                 on:change={() =>
@@ -79,6 +80,7 @@
                 <input
                     class="option-input"
                     type="radio"
+                    name="{rollId}-ability"
                     id="{actionId}-{rollId}-ability-{ability}"
                     value={ability}
                     checked={roll.ability === ability}

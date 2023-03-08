@@ -11,6 +11,8 @@
 
     export let prompt;
     export let promptId;
+
+    $: prompt = prompt;
 </script>
 
 <section class="action-config__wrapper">
@@ -63,6 +65,7 @@
             <input
                 class="option-input"
                 type="radio"
+                name="{promptId}-ability"
                 id="{actionId}-{promptId}-ability-none"
                 value=""
                 checked={(prompt.ability ?? true) || prompt.ability === ""}
@@ -85,6 +88,7 @@
                 <input
                     class="option-input"
                     type="radio"
+                    name="{promptId}-ability"
                     id="{actionId}-{promptId}-ability-{ability}"
                     value={ability}
                     checked={prompt.ability === ability}
