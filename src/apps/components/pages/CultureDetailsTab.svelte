@@ -5,8 +5,6 @@
     import LinkedDocumentsHelper from "../../utils/LinkedDocumentsHelper";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    import LanguageSelectDialog from "../../dialogs/initializers/LanguageSelectDialog";
-
     import CustomTagGroup from "../CustomTagGroup.svelte";
     import DropArea from "../DropArea.svelte";
 
@@ -60,6 +58,8 @@
     }
 
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
+
+    $: languages = $item.system.proficiencies.languages;
 </script>
 
 <article>
@@ -67,23 +67,27 @@
         <CustomTagGroup
             heading="A5E.Languages"
             options={defaultLanguages}
-            selected={$item.system.proficiencies.languages}
-            name="system.proficiencies.languages"
-            document={item}
+            selected={languages.fixed}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.proficiencies.languages.fixed",
+                    detail
+                )}
         />
     </section>
 
     <section class="section-wrapper">
         <h3 class="section-title">
-            {localize("A5E.AdditionalLanguages")}
+            {localize("A5E.BackgroundMaxLanguages")}
         </h3>
 
         <div class="a5e-input-container a5e-input-container--numeric">
             <input
                 class="a5e-input a5e-input--small"
                 type="number"
-                name="system.proficiencies.additionalLanguages"
-                value={$item.system.proficiencies.additionalLanguages}
+                name="system.proficiencies.languages.count"
+                value={$item.system.proficiencies.languages.count}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
