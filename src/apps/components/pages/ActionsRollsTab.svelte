@@ -16,7 +16,7 @@
     const actionId = getContext("actionId");
 
     function addRoll(type) {
-        const rollData = { type };
+        const rollData = { type, default: true };
 
         if (type === "attack" && attackRolls.length > 0)
             return ui.notifications.error(

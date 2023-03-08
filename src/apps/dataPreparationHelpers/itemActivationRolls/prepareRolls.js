@@ -1,4 +1,3 @@
-import prepareAttackRolls from './prepareAttackRolls';
 import prepareAbilityChecks from './prepareAbilityChecks';
 import prepareDamageRolls from './prepareDamageRolls';
 import prepareGenericRolls from './prepareGenericRolls';
@@ -9,7 +8,6 @@ import prepareToolChecks from './prepareToolChecks';
 
 const rollHandlerMap = {
   abilityCheck: prepareAbilityChecks,
-  attack: prepareAttackRolls,
   damage: prepareDamageRolls,
   generic: prepareGenericRolls,
   healing: prepareHealingRolls,
@@ -18,7 +16,7 @@ const rollHandlerMap = {
   toolCheck: prepareToolChecks
 };
 
-export default function preparePrompts(rolls) {
+export default function prepareRolls(rolls) {
   const rollsByType = Object.entries(rolls ?? {}).reduce((acc, [key, roll]) => {
     acc[roll.type] ??= [];
     acc[roll.type].push([key, roll]);

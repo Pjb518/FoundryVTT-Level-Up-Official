@@ -11,7 +11,6 @@
     function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
-        // Roll Ability Check
         tokenActors.forEach((a) => {
             a.rollAbilityCheck(prompt.ability);
         });

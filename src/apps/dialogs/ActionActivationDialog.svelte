@@ -14,14 +14,11 @@
     export let { actionId, actorDocument, dialog, itemDocument, options } =
         getContext("#external").application;
 
-    function getDefaultPromptSelections() {
-        return Object.entries($item.actions[actionId]?.prompts ?? {}).reduce(
-            (acc, [key, prompt]) => {
-                if (prompt.default) acc.push(key);
-                return acc;
-            },
-            []
-        );
+    function getDefaultSelections(property) {
+        return Object.entries(property ?? {}).reduce((acc, [key, value]) => {
+            if (value.default ?? true) acc.push(key);
+            return acc;
+        }, []);
     }
 
     function onSubmit() {
@@ -44,7 +41,6 @@
 
     const rollHeadingMap = {
         abilityCheck: "Ability Checks",
-        attack: "Attack Rolls",
         damage: "Damage Rolls",
         generic: "Generic Rolls",
         healing: "Healing Rolls",
@@ -62,13 +58,13 @@
 
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
+    const action = $item.actions[actionId];
 
-    $: action = $item.actions[actionId];
     $: prompts = preparePrompts(action.prompts);
     $: rolls = prepareRolls(action.rolls);
 
-    let selectedRolls = [];
-    let selectedPrompts = getDefaultPromptSelections();
+    let selectedRolls = getDefaultSelections(action?.rolls);
+    let selectedPrompts = getDefaultSelections(action?.prompts);
 </script>
 
 <form>
