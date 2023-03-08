@@ -23,7 +23,7 @@
             acc[prompt.type].push([key, prompt]);
 
             return acc;
-        }, {}) ?? [];
+        }, {}) ?? {};
 
     $: rolls =
         $message.flags?.a5e?.rolls?.reduce((acc, [key, roll]) => {
@@ -31,7 +31,7 @@
             acc[roll.type].push([key, roll]);
 
             return acc;
-        }, {}) ?? [];
+        }, {}) ?? {};
 </script>
 
 <article>

@@ -37,7 +37,7 @@
                     return [key, prompt];
                 }),
             rolls: Object.entries(action.rolls ?? {})?.filter(([key]) =>
-                selectedPrompts.includes(key)
+                selectedRolls.includes(key)
             ),
         });
     }
