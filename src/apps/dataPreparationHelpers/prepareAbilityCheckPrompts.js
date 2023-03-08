@@ -4,7 +4,9 @@ export default function prepareAbilityCheckPrompts(prompts) {
   if (!prompts.length) return [];
 
   return prompts.map(([key, prompt]) => {
-    if (prompt.label) return prompt.label;
+    if (prompt.label) return [key, prompt.label];
+
+    prompt.ability ??= 'str';
 
     const label = game.i18n.format('A5E.AbilityCheckSpecific', {
       ability: game.i18n.localize(CONFIG.A5E.abilities[prompt.ability])
