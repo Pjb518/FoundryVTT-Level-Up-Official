@@ -4,6 +4,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+    import CustomTagGroup from "../components/CustomTagGroup.svelte";
 
     export let { application } = getContext("#external");
     export let { actorDocument, itemDocument } =
@@ -12,6 +13,8 @@
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
 
+    const { A5E } = CONFIG;
+
     function submitForm() {
         application.submit({
             selectedLanguages,
@@ -19,11 +22,24 @@
     }
 
     $: languages = $item.system.proficiencies.languages;
-
-    $: selectedLanguages = [];
+    $: selectedLanguages = [...languages.fixed];
 </script>
 
 <form>
+    <section class="section-wrapper">
+        <h3>
+            {localize("A5E.BackgroundDropLanguagesSelect")}
+        </h3>
+    </section>
+
+    <CustomTagGroup
+        options={Object.entries(A5E.languages)}
+        selected={languages.fixed}
+        disabled={selectedLanguages.length >= languages.count}
+        red={$actor.system.proficiencies.languages}
+        on:updateSelection={({ detail }) => (selectedLanguages = detail)}
+    />
+
     <div>
         <button on:click|preventDefault={submitForm}>
             {localize("A5E.Submit")}
