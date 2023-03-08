@@ -1,10 +1,9 @@
 export default function prepareSavingThrowPrompts(prompts) {
   const counts = {};
-  const savingThrowPrompts = Object.entries(prompts).filter(([_, prompt]) => prompt.type === 'savingThrow');
 
-  if (!savingThrowPrompts.length) return [];
+  if (!prompts.length) return [];
 
-  return savingThrowPrompts.map(([key, prompt]) => {
+  return prompts.map(([key, prompt]) => {
     if (prompt.label) return [key, prompt.label];
 
     const label = game.i18n.format('A5E.SavingThrowSpecific', {

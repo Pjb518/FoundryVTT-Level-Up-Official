@@ -1,10 +1,9 @@
 export default function prepareAbilityCheckPrompts(prompts) {
   const counts = {};
-  const abilityCheckPrompts = Object.entries(prompts).filter(([_, prompt]) => prompt.type === 'abilityCheck');
 
-  if (!abilityCheckPrompts.length) return [];
+  if (!prompts.length) return [];
 
-  return abilityCheckPrompts.map(([key, prompt]) => {
+  return prompts.map(([key, prompt]) => {
     if (prompt.label) return prompt.label;
 
     const label = game.i18n.format('A5E.AbilityCheckSpecific', {

@@ -1,10 +1,9 @@
 export default function prepareSkillCheckPrompts(prompts) {
   const counts = {};
-  const skillCheckPrompts = Object.entries(prompts).filter(([_, prompt]) => prompt.type === 'skillCheck');
 
-  if (!skillCheckPrompts.length) return [];
+  if (!prompts.length) return [];
 
-  return skillCheckPrompts.map(([key, prompt]) => {
+  return prompts.map(([key, prompt]) => {
     if (prompt.label) return prompt.label;
 
     const label = game.i18n.format('A5E.SkillCheck', {

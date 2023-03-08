@@ -4,10 +4,9 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import computeSaveDC from "../utils/computeSaveDC";
-    import prepareAbilityCheckPrompts from "../dataPreparationHelpers/prepareAbilityCheckPrompts";
-    import prepareGenericRollPrompts from "../dataPreparationHelpers/prepareGenericRollPrompts";
-    import prepareSavingThrowPrompts from "../dataPreparationHelpers/prepareSavingThrowPrompts";
-    import prepareSkillCheckPrompts from "../dataPreparationHelpers/prepareSkillCheckPrompts";
+
+    import preparePrompts from "../dataPreparationHelpers/preparePrompts";
+    import prepareDamageRolls from "../dataPreparationHelpers/prepareDamageRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
@@ -43,31 +42,54 @@
         });
     }
 
+    const promptHeadingMap = {
+        abilityCheck: "Ability Check Prompts",
+        savingThrow: "Saving Throw Prompts",
+        skillCheck: "Skill Check Prompts",
+        generic: "Generic Roll Prompts",
+    };
+
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
 
     $: action = $item.actions[actionId];
-
-    $: abilityCheckPrompts = prepareAbilityCheckPrompts(action.prompts);
-    $: genericRollPrompts = prepareGenericRollPrompts(action.prompts);
-    $: savingThrowPrompts = prepareSavingThrowPrompts(action.prompts);
-    $: skillCheckPrompts = prepareSkillCheckPrompts(action.prompts);
+    $: prompts = preparePrompts(action.prompts);
+    $: damageRolls = prepareDamageRolls(action.rolls);
 
     let selectedPrompts = getDefaultPromptSelections();
 </script>
 
 <form>
+    <FormSection>
+        <div class="roll-wrapper">
+            {#each [damageRolls] as rollGroup}
+                {#if rollGroup.length}
+                    <section>
+                        <h3 class="section-subheading">Damage Rolls</h3>
+
+                        <CheckboxGroup
+                            options={rollGroup}
+                            selected={selectedPrompts}
+                            on:updateSelection={(event) =>
+                                (selectedPrompts = event.detail)}
+                        />
+                    </section>
+                {/if}
+            {/each}
+        </div>
+    </FormSection>
+
     <FormSection hint="A5E.PromptsHint">
         <div class="prompt-wrapper">
-            {#each [abilityCheckPrompts, savingThrowPrompts, skillCheckPrompts, genericRollPrompts] as promptGroup}
-                {#if promptGroup.length}
+            {#each Object.entries(prompts) as [promptType, _prompts]}
+                {#if _prompts.length}
                     <section>
                         <h3 class="section-subheading">
-                            Ability Check Prompts
+                            {promptHeadingMap[promptType]}
                         </h3>
 
                         <CheckboxGroup
-                            options={promptGroup}
+                            options={_prompts}
                             selected={selectedPrompts}
                             on:updateSelection={(event) =>
                                 (selectedPrompts = event.detail)}
@@ -98,6 +120,7 @@
         margin-top: 0.25rem;
     }
 
+    .roll-wrapper,
     .prompt-wrapper {
         display: flex;
         flex-direction: column;
