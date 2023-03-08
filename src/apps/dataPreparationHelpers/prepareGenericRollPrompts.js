@@ -1,4 +1,4 @@
-export default function prepareSavingThrowPrompts(prompts) {
+export default function prepareGenericRollPrompts(prompts) {
   let count = 0;
 
   if (!prompts.length) return [];
