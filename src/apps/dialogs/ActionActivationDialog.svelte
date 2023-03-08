@@ -56,6 +56,14 @@
         generic: "Generic Roll Prompts",
     };
 
+    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
+        ([key, value]) => ({
+            id: key,
+            name: game.i18n.localize(value),
+            value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+        })
+    );
+
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
     const action = $item.actions[actionId];
@@ -63,11 +71,51 @@
     $: prompts = preparePrompts(action.prompts);
     $: rolls = prepareRolls(action.rolls);
 
+    let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(action?.rolls);
     let selectedPrompts = getDefaultSelections(action?.prompts);
 </script>
 
 <form>
+    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
+        <h3 class="heading">
+            {localize("A5E.AttackRollModeHeading")}
+        </h3>
+
+        <div
+            class="
+                u-flex
+                u-flex-wrap
+                u-list-style-none
+                u-m-0
+                u-p-0
+                u-w-full
+                u-gap-md
+                u-text-sm
+            "
+            role="radiogroup"
+            id={`${$actor.id}-${dialog.id}-rollMode`}
+        >
+            {#each rollModeOptions as { id, name, value }}
+                <input
+                    class="u-hidden"
+                    type="radio"
+                    id="{$actor.id}-{dialog.id}-rollMode-{id}"
+                    bind:group={rollMode}
+                    {value}
+                />
+
+                <label
+                    class="a5e-tag u-pointer u-p-md u-text-center"
+                    class:a5e-tag--active={value === rollMode}
+                    for="{$actor.id}-{dialog.id}-rollMode-{id}"
+                >
+                    {name}
+                </label>
+            {/each}
+        </div>
+    </section>
+
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}
         <FormSection hint="A5E.RollsHint">
@@ -134,6 +182,12 @@
 
     :global(small) {
         margin-top: 0.25rem;
+    }
+
+    .heading {
+        display: block;
+        font-weight: bold;
+        font-size: 0.833rem;
     }
 
     .roll-wrapper,

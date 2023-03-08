@@ -25,6 +25,7 @@
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
     const abilities = { none: null, ...CONFIG.A5E.abilities };
+
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedSkill,
     });
@@ -118,6 +119,7 @@
                     bind:group={rollMode}
                     {value}
                 />
+
                 <label
                     class="a5e-tag u-pointer u-p-md u-text-center"
                     class:a5e-tag--active={value === rollMode}
