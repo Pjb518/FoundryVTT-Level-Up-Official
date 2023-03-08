@@ -27,7 +27,7 @@
     function onSubmit() {
         // TODO: Clean this up. A lot of stuff here is prototyping for the chat cards
         dialog.submit({
-            prompts: Object.entries(action.prompts)
+            prompts: Object.entries(action.prompts ?? {})
                 ?.filter(([key]) => selectedPrompts.includes(key))
                 .map(([key, prompt]) => {
                     if (prompt.type === "savingThrow") {
@@ -36,7 +36,7 @@
 
                     return [key, prompt];
                 }),
-            rolls: Object.entries(action.rolls)?.filter(([key]) =>
+            rolls: Object.entries(action.rolls ?? {})?.filter(([key]) =>
                 selectedPrompts.includes(key)
             ),
         });
