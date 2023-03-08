@@ -12,6 +12,7 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
 
     export let item;
+    export let action = null;
     export let actionId = null;
 
     let showDescription = false;
@@ -41,7 +42,9 @@
         class="item-image"
         class:item-image--shift={$pressedKeysStore.ShiftLeft}
         class:item-image--ctrl={$pressedKeysStore.ControlLeft}
-        style="--background-image: url({item.img ?? 'icons/svg/item-bag.svg'});"
+        style="--background-image: url({action?.img ??
+            item.img ??
+            'icons/svg/item-bag.svg'});"
         on:click|stopPropagation={onItemActivate}
     />
 
@@ -51,10 +54,10 @@
             showDescription = !showDescription;
         }}
     >
-        {item.name}
+        {action?.name ?? item.name}
     </div>
 
-    <ItemActionButtons {item} />
+    <ItemActionButtons action={actionId} {item} />
 </li>
 
 {#if showDescription}
@@ -67,10 +70,10 @@
     </div>
 {/if}
 
-{#if item?.actions?.count > 1}
+{#if !action && item?.actions?.count > 1}
     <ul class="actions-list">
         {#each item?.actions?.entries() as [id, action]}
-            <svelte:self item={action} actionId={id} />
+            <svelte:self {item} {action} actionId={id} />
         {/each}
     </ul>
 {/if}

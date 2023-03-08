@@ -4,9 +4,24 @@
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
 
     export let item;
+    export let action = null;
 
-    async function onDeleteItem() {
+    async function onConfigure() {
+        if (action) {
+            await item.actions.configure(action);
+            return;
+        }
+
+        item.configureItem();
+    }
+
+    async function onDelete() {
         let dialogData;
+
+        if (action) {
+            await item.actions.remove(action);
+            return;
+        }
 
         if (!game.settings.get("a5e", "hideDeleteConfirmation")) {
             const dialog = new DeletionConfirmationDialog(item);
@@ -26,23 +41,32 @@
         item.delete();
     }
 
+    async function onDuplicate() {
+        if (action) {
+            await item.actions.duplicate(action);
+            return;
+        }
+
+        item.duplicateItem();
+    }
+
     const actor = getContext("actor");
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="action-buttons">
-    {#if item?.system?.favorite !== undefined}
+    {#if !action && item?.system?.favorite !== undefined}
         <button
             class="action-button fas fa-star"
             class:active={item.system.favorite}
             data-tooltip="A5E.ButtonToolTipFavorite"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleFavorite()}
+            on:click|stopPropagation={item.toggleFavorite}
         />
     {/if}
 
-    {#if item.type === "object"}
+    {#if !action && item.type === "object"}
         <button
             class="action-button fas fa-shield-alt"
             class:active={item.system.equipped}
@@ -50,7 +74,7 @@
                 ? "A5E.ButtonToolTipUnequip"
                 : "A5E.ButtonToolTipEquip"}
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleEquipped()}
+            on:click|stopPropagation={item.toggleEquipped}
         />
 
         <button
@@ -60,11 +84,11 @@
                 ? "A5E.ButtonToolTipFixBroken"
                 : "A5E.ButtonToolTipBroken"}
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleBroken()}
+            on:click|stopPropagation={item.toggleBroken}
         />
     {/if}
 
-    {#if item.type === "spell"}
+    {#if !action && item.type === "spell"}
         <button
             class="action-button fas fa-book"
             class:active={item.system.prepared}
@@ -72,7 +96,7 @@
                 ? "A5E.ButtonToolTipUnprepare"
                 : "A5E.ButtonToolTipPrepare"}
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.togglePrepared()}
+            on:click|stopPropagation={item.togglePrepared}
         />
     {/if}
 
@@ -81,21 +105,21 @@
             class="action-button fas fa-cog"
             data-tooltip="A5E.ButtonToolTipConfigure"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.configureItem()}
+            on:click|stopPropagation={onConfigure}
         />
 
         <button
             class="action-button fa-solid fa-clone"
             data-tooltip="A5E.ButtonToolTipDuplicate"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.duplicateItem()}
+            on:click|stopPropagation={onDuplicate}
         />
 
         <button
             class="action-button delete-button fas fa-trash"
             data-tooltip="A5E.ButtonToolTipDelete"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={() => onDeleteItem()}
+            on:click|stopPropagation={onDelete}
         />
     {/if}
 </div>
