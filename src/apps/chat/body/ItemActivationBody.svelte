@@ -11,8 +11,6 @@
     $: savingThrowPrompts = prompts?.filter(
         ([_, prompt]) => prompt.type === "savingThrow"
     );
-
-    console.log("PROMPTS!", $message.flags?.a5e?.prompts);
 </script>
 
 <article>
