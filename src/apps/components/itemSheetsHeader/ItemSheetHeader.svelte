@@ -54,31 +54,41 @@
             </div>
         {/if}
     </div>
-    <button
-        class="broken-item-icon fa-solid fa-question"
-        data-tooltip={$item.system.broken
-            ? "A5E.ButtonToolTipFixBroken"
-            : "A5E.ButtonToolTipBroken"}
-        data-tooltip-direction="UP"
-        on:click|stopPropagation={() => $item.toggleUnidentified()}
-    />
-
-    <button
-        class="broken-item-icon fa-solid fa-heart-crack"
-        data-tooltip={$item.system.broken
-            ? "A5E.ButtonToolTipFixBroken"
-            : "A5E.ButtonToolTipBroken"}
-        data-tooltip-direction="UP"
-        on:click|stopPropagation={() => $item.toggleUnidentified()}
-    />
+    <div>
+        <button
+            class="broken-item-icon fa-solid fa-question"
+            data-tooltip={$item.system.unidentified
+                ? "A5E.ButtonToolTipIdentified"
+                : "A5E.ButtonToolTipUnidentified"}
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() => $item.toggleUnidentified()}
+        />
+    </div>
+    <div>
+        <button
+            class="broken-item-icon fa-solid fa-heart-crack"
+            data-tooltip={$item.system.broken
+                ? "A5E.ButtonToolTipFixBroken"
+                : "A5E.ButtonToolTipBroken"}
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() => $item.toggleBroken()}
+        />
+    </div>
 </header>
 
 <style lang="scss">
     .broken-item-icon {
+        display: flex;
         font-size: 2.25rem;
         color: #8b2525;
         padding-right: 1rem;
         margin-left: auto;
+        background: none;
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
     }
 
     .sheet-header {
