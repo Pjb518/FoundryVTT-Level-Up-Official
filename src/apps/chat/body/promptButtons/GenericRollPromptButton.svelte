@@ -10,9 +10,9 @@
     async function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
-        for (const t of tokenActors) {
+        for (const token of tokenActors) {
             const rollFormula = constructGenericRollFormula({
-                actor: t,
+                actor: token,
                 formula: prompt.formula,
             });
 

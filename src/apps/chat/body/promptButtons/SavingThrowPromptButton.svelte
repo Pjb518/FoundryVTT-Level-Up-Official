@@ -11,8 +11,8 @@
     function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
-        tokenActors.forEach((t) => {
-            t.rollSavingThrow(prompt.ability, { dc: prompt.dc });
+        tokenActors.forEach((token) => {
+            token.rollSavingThrow(prompt.ability);
         });
     }
 </script>

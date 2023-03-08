@@ -11,8 +11,8 @@
     function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
-        tokenActors.forEach((t) => {
-            t.rollSkillCheck(prompt.skill, { abilityKey: prompt.ability });
+        tokenActors.forEach((token) => {
+            token.rollSkillCheck(prompt.skill, { abilityKey: prompt.ability });
         });
     }
 </script>
