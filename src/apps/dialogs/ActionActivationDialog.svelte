@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import computeSaveDC from "../utils/computeSaveDC";
     import prepareAbilityCheckPrompts from "../dataPreparationHelpers/prepareAbilityCheckPrompts";
     import prepareGenericRollPrompts from "../dataPreparationHelpers/prepareGenericRollPrompts";
     import prepareSavingThrowPrompts from "../dataPreparationHelpers/prepareSavingThrowPrompts";
@@ -25,7 +26,18 @@
     }
 
     function onSubmit() {
-        dialog.submit({ prompts: selectedPrompts });
+        // TODO: Clean this up. A lot of stuff here is prototyping for the chat cards
+        dialog.submit({
+            prompts: Object.entries(action.prompts)
+                .filter(([key]) => selectedPrompts.includes(key))
+                .map(([key, prompt]) => {
+                    if (prompt.type === "savingThrow") {
+                        prompt.dc = computeSaveDC($actor, prompt.saveDC);
+                    }
+
+                    return [key, prompt];
+                }),
+        });
     }
 
     const actor = new TJSDocument(actorDocument);
