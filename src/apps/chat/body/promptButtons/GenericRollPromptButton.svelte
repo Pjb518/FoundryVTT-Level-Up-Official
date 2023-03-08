@@ -25,6 +25,6 @@
 
 <button on:click={() => rollPrompt()}>
     {localize("A5E.GenericRollPrompt", {
-        label: prompt.label,
+        label: prompt?.label ?? localize("A5E.Other"),
     })}
 </button>
