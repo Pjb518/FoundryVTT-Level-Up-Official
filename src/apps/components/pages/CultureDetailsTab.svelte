@@ -79,7 +79,7 @@
 
     <section class="section-wrapper">
         <h3 class="section-title">
-            {localize("A5E.BackgroundMaxLanguages")}
+            {localize("A5E.AdditionalLanguages")}
         </h3>
 
         <div class="a5e-input-container a5e-input-container--numeric">
@@ -87,12 +87,13 @@
                 class="a5e-input a5e-input--small"
                 type="number"
                 name="system.proficiencies.languages.count"
-                value={$item.system.proficiencies.languages.count}
+                value={$item.system.proficiencies.languages.count -
+                    languages.fixed.length ?? 0}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
                         target.name,
-                        Number(target.value)
+                        Number(target.value) + (languages.fixed.length ?? 0)
                     )}
             />
         </div>
