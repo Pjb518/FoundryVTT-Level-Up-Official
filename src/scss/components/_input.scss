@@ -35,8 +35,7 @@
 
 input[type='text'],
 input[type='number'] {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-inline: 0.5rem;
 }
 
 .a5e-input {
@@ -44,16 +43,14 @@ input[type='number'] {
   &[type=number] { // Required to overcome the specificity of Foundry's UI styles
     width: 100%;
     height: 2rem;
-    padding-right: 2rem;
-    padding-left: 0.5rem;
+    padding-inline: 0.5rem 2rem;
     font-size: $font-size-sm;
     font-weight: 300;
     text-overflow: ellipsis;
   }
 
   &--character-name[type=text] {
-    padding-right: 3px;
-    padding-left: 0;
+    padding-inline: 0 3px;
     border: 0;
     background: transparent;
     font-family: $font-primary;

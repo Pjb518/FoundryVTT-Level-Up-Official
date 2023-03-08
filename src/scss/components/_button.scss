@@ -5,6 +5,55 @@
     cursor: not-allowed;
   }
 
+  &--add {
+    background: none;
+    font-size: 0.833rem;
+    border: 0;
+    padding: 0;
+    width: fit-content;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      text-shadow: 0 0 8px var(--color-shadow-primary);
+    }
+  }
+
+  &--delete {
+    background: none;
+    font-size: 0.833rem;
+    width: fit-content;
+    border: 0;
+    padding: 0;
+    color: #999;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: #8b2525;
+      transform: scale(1.2);
+      box-shadow: none;
+    }
+  }
+
+  &--edit-config {
+    position: absolute;
+    width: fit-content;
+    background: none;
+    font-size: 0.833rem;
+    border: 0;
+    padding: 0;
+    transition: all 0.15s ease-in-out;
+    color: rgba(0, 0, 0, 0.2);
+
+    &:hover,
+    &:focus {
+      color: #555;
+      transform: scale(1.2);
+      box-shadow: none;
+    }
+  }
+
   &--add-item,
   &--chat,
   &--filter-reset {
@@ -38,12 +87,6 @@
 
   &--filter-reset {
     margin-top: auto;
-  }
-
-  &--red {
-    background: #8b2525;
-    color: lighten(#8b2525, 95%);
-    font-family: $font-secondary;
   }
 
   &--right {

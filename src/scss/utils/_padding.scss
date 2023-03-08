@@ -55,8 +55,7 @@ $padding-sizes: (
   &x {
     @each $label, $size in $padding-sizes {
       &-#{$label} {
-        padding-right: $size;
-        padding-left: $size;
+        padding-inline: $size;
       }
     }
   }
@@ -64,8 +63,7 @@ $padding-sizes: (
   &y {
     @each $label, $size in $padding-sizes {
       &-#{$label} {
-        padding-top: $size;
-        padding-bottom: $size;
+        padding-block: $size;
       }
     }
   }

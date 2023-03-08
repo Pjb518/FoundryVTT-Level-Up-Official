@@ -1,57 +1,57 @@
+/* eslint-disable no-underscore-dangle */
+
 import './scss/main.scss';
-import 'remixicon/fonts/remixicon.css';
 
-import handlebarsHelperRange from 'handlebars-helper-range';
+// eslint-disable-next-line no-unused-vars
+import migrateActionsConfig from './migrations/v090Migrations/migrateActionsConfig';
 
-import A5E from './modules/config';
-import Actor5e from './modules/actor/entity';
-import D20Roll from './modules/dice/d20Roll';
-import DamageRoll from './modules/dice/damageRoll';
-import Item5e from './modules/item/entity';
-import ActorSheet5e from './modules/sheets/character';
-import ActiveEffect5e from './modules/activeEffects/entity';
-import ItemSheet5e from './modules/sheets/item';
-import ReactiveDialog from './modules/apps/reactiveDialog';
-import Token5e from './modules/actor/token';
-import TokenDocument5e from './modules/actor/tokenDocument';
+import ActorSheetA5e from './apps/ActorSheet';
+import ItemSheetA5e from './apps/ItemSheet';
 
-import AbilityDialog from './vue/AbilityDialog.vue';
-import DeathSavingThrowDialog from './vue/DeathSavingThrowDialog.vue';
-import InitiativeDialog from './vue/InitiativeDialog.vue';
-import ItemActivationDialog from './vue/ItemActivationDialog.vue';
-import RestDialog from './vue/RestDialog.vue';
+import A5eChatCard from './apps/chat/ChatCard.svelte';
+import KeyPressHandler from './apps/KeyPressHandler.svelte';
 
-import getDialogData from './modules/dice/getDialogData';
-import getInitiativeFormula from './modules/combat/getInitiativeFormula';
-import getInitiativeRoll from './modules/combat/getInitiativeRoll';
-import measureDistances from './modules/pixi/measureDistances';
-import preloadHandlebarsTemplates from './modules/templates';
-import registerSystemSettings from './modules/settings';
-import rollCombatantInitiative from './modules/combat/rollCombatantInitiative';
-import rollInitiative from './modules/combat/rollInitiative';
+import A5E from './config';
+import ActiveEffectA5e from './documents/activeEffects';
+import ActorA5e from './documents/actor';
+import D20Roll from './dice/d20Roll';
+import DamageRoll from './dice/damageRoll';
+import ItemA5e from './documents/item';
+import TokenA5e from './documents/token';
+import TokenDocumentA5e from './documents/tokenDocument';
+import TokenHUDA5e from './documents/tokenHUD';
 
-import setupConditions from './modules/activeEffects/conditions';
+import _onCombatControl from './combat/_onCombatControl';
+import _onCombatantControl from './combat/_onCombatantControl';
+import getInitiativeFormula from './combat/getInitiativeFormula';
+import getInitiativeRoll from './combat/getInitiativeRoll';
+import measureDistances from './pixi/measureDistances';
+import preloadHandlebarsTemplates from './templates';
+import registerSystemSettings from './settings';
+import rollCombatantInitiative from './combat/rollCombatantInitiative';
+import rollInitiative from './combat/rollInitiative';
+
+import setupConditions from './activeEffects/conditions';
 
 // Macros
-import activateItemMacro from './modules/macros/activateItemMacro';
-import createMacro from './modules/macros/createMacro';
+import activateItemMacro from './macros/activateItemMacro';
+import createMacro from './macros/createMacro';
 
 // Migrations
-import migrateWorld from './modules/migrations/migrateWorld';
-import migrateActorData from './modules/migrations/migrateActorData';
-import migrateCompendium from './modules/migrations/migrateCompendium';
-import migrateItemData from './modules/migrations/migrateItemData';
-import migrateMacroData from './modules/migrations/migrateMacroData';
-import migrateSceneData from './modules/migrations/migrateSceneData';
+import migrateWorld from './migrations/migrateWorld';
+import migrateActorData from './migrations/migrateActorData';
+import migrateCompendium from './migrations/migrateCompendium';
+import migrateItemData from './migrations/migrateItemData';
+import migrateMacroData from './migrations/migrateMacroData';
+import migrateSceneData from './migrations/migrateSceneData';
 
-import migrateCurrentHitPoints from './modules/migrations/helpers/migrateCurrentHitPoints';
+import migrateCurrentHitPoints from './migrations/helpers/migrateCurrentHitPoints';
 
 Hooks.once('init', () => {
   game.a5e = {
     applications: {
-      ActorSheet5e,
-      ItemSheet5e,
-      ReactiveDialog
+      ActorSheetA5e,
+      ItemSheetA5e
     },
     config: A5E,
     dice: {
@@ -59,10 +59,10 @@ Hooks.once('init', () => {
       DamageRoll
     },
     entities: {
-      Actor5e,
-      Item5e,
-      TokenDocument5e,
-      Token5e
+      ActorA5e,
+      ItemA5e,
+      TokenDocumentA5e,
+      TokenA5e
     },
     macros: {
       activateItemMacro,
@@ -76,25 +76,15 @@ Hooks.once('init', () => {
       migrateMacroData,
       migrateSceneData,
       migrateCurrentHitPoints
-    },
-    vue: {
-      AbilityDialog,
-      DeathSavingThrowDialog,
-      InitiativeDialog,
-      ItemActivationDialog,
-      RestDialog
-    },
-    utils: {
-      getDialogData
     }
   };
 
   CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffect5e;
-  CONFIG.Actor.documentClass = Actor5e;
-  CONFIG.Item.documentClass = Item5e;
-  CONFIG.Token.documentClass = TokenDocument5e;
-  CONFIG.Token.objectClass = Token5e;
+  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  CONFIG.Actor.documentClass = ActorA5e;
+  CONFIG.Item.documentClass = ItemA5e;
+  CONFIG.Token.documentClass = TokenDocumentA5e;
+  CONFIG.Token.objectClass = TokenA5e;
 
   CONFIG.Dice.D20Roll = D20Roll;
   CONFIG.Dice.DamageRoll = DamageRoll;
@@ -105,26 +95,26 @@ Hooks.once('init', () => {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('a5e', ActorSheet5e, {
+  Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'
   });
 
-  Actors.registerSheet('a5e', ActorSheet5e, {
+  Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['npc'],
     makeDefault: true,
     label: 'A5E.SheetClassNPC'
   });
 
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('a5e', ItemSheet5e, {
+  Items.registerSheet('a5e', ItemSheetA5e, {
     makeDefault: true,
     label: 'A5E.SheetClassItem'
   });
 
-  Handlebars.registerHelper('range', handlebarsHelperRange);
-  Handlebars.registerHelper('contains', (array, value) => Array.isArray(array) && array.includes(value));
+  // TODO: In a future version, this helper can be removed. It is currently needed to support legacy
+  // chat cards as we go into 0.9.0.
   Handlebars.registerHelper('containsSubstring', (string, searchTerm) => string.toString().includes(searchTerm));
 
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula; // eslint-disable-line
@@ -132,6 +122,9 @@ Hooks.once('init', () => {
   Combatant.prototype.rollInitiative = rollCombatantInitiative;
 
   Combat.prototype.rollInitiative = rollInitiative;
+
+  CombatTracker.prototype._onCombatantControl = _onCombatantControl;
+  CombatTracker.prototype._onCombatControl = _onCombatControl;
 
   return preloadHandlebarsTemplates();
 });
@@ -194,29 +187,64 @@ Hooks.once('ready', () => {
   game.user.setFlag('a5e', 'latestAnnouncement', game.system.data.version);
 });
 
+Hooks.once('ready', () => {
+  // eslint-disable-next-line no-new
+  new KeyPressHandler({ target: document.body });
+});
+
 Hooks.on('canvasInit', () => {
   canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
   SquareGrid.prototype.measureDistances = measureDistances;
+  game.canvas.hud.token = new TokenHUDA5e();
 });
 
-Hooks.on('renderChatMessage', (_, html) => Item5e.chatListeners(html));
+Hooks.on('renderChatMessage', (_, html) => ItemA5e.chatListeners(html));
+
+Hooks.on('init', () => {
+  class FastTooltipManager extends TooltipManager {
+    static TOOLTIP_ACTIVATION_MS = 100;
+  }
+
+  game.tooltip = new FastTooltipManager();
+});
 
 // TODO: Move to separate file in 1.0.0
 Hooks.on('createToken', async (token, _, userID) => {
+  const { actor } = token;
   const userPlacingToken = game.users.get(userID);
 
-  if (![game.user.isGM, game.user === userPlacingToken, token.actor.type === 'npc', game.settings.get('a5e', 'randomizeNPCHitPoints')
+  if (![game.user.isGM, game.user === userPlacingToken, actor.type === 'npc', game.settings.get('a5e', 'randomizeNPCHitPoints')
   ].every(Boolean)) return;
 
-  const { hitPointFormula } = token.actor;
+  const { hitPointFormula } = actor;
+
+  if (hitPointFormula === null) return;
+
   const hpRoll = new Roll(hitPointFormula);
   await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
 
   // Update token with new information
-  token.actor.update({
+  actor.update({
     'system.attributes.hp': {
       baseMax: hpRoll.total,
       value: hpRoll.total
     }
   });
+});
+
+Hooks.on('renderChatMessage', (message, html) => {
+  if (['abilityCheck', 'item', 'savingThrow', 'skillCheck'].includes(message.getFlag('a5e', 'cardType'))) {
+    message._svelteComponent = new A5eChatCard({
+      target: $(html).find('.message-content article')[0],
+      props: { messageDocument: message }
+    });
+  }
+});
+
+Hooks.on('preDeleteChatMessage', (message) => {
+  const flagData = message?.flags?.a5e;
+
+  if (typeof flagData === 'object' && typeof message?._svelteComponent?.$destroy === 'function') {
+    message._svelteComponent.$destroy();
+  }
 });

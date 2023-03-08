@@ -325,10 +325,6 @@
         },
         "spellResources": {
           "slots": {
-            "0": {
-              "current": 0,
-              "max": 0
-            },
             "1": {
               "current": 0,
               "max": 0
@@ -406,17 +402,47 @@
             "expertiseDice": 0
           },
           "movement": {
-            "burrow": 0,
-            "climb": 0,
-            "fly": 0,
-            "swim": 0,
-            "walk": 30
+            "burrow": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "climb": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "fly": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "swim": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "walk": {
+              "distance": 30,
+              "unit": "feet"
+            },
+            "traits": {
+              "hover": false
+            }
           },
           "senses": {
-            "blindsight": 0,
-            "darkvision": 0,
-            "tremorsense": 0,
-            "truesight": 0
+            "blindsight": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "darkvision": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "tremorsense": {
+              "distance": 0,
+              "unit": "feet"
+            },
+            "truesight": {
+              "distance": 0,
+              "unit": "feet"
+            }
           },
           "inspiration": false,
           "fatigue": 0,
@@ -430,10 +456,11 @@
             "skill": ""
           },
           "maneuverDC": "",
-          "spell": {
-            "attack": "",
-            "dc": ""
-          }
+          "meleeSpellAttack": "",
+          "meleeWeaponAttack": "",
+          "rangedSpellAttack": "",
+          "rangedWeaponAttack": "",
+          "spellDC": ""
         },
         "currency": {
           "pp": 0,
@@ -457,19 +484,29 @@
             "label": "",
             "value": 0,
             "max": 0,
-            "per": ""
+            "per": "",
+            "hideMax": false
           },
           "secondary": {
             "label": "",
             "value": 0,
             "max": 0,
-            "per": ""
+            "per": "",
+            "hideMax": false
           },
           "tertiary": {
             "label": "",
             "value": 0,
             "max": 0,
-            "per": ""
+            "per": "",
+            "hideMax": false
+          },
+          "quaternary": {
+            "label": "",
+            "value": 0,
+            "max": 0,
+            "per": "",
+            "hideMax": false
           }
         },
         "traits": {
@@ -545,12 +582,16 @@
       "feature",
       "maneuver",
       "object",
-      "spell"
+      "spell",
+      "background",
+      "culture",
+      "destiny"
     ],
     "templates": {
       "base": {
         "ability": "",
         "actionOptions": [],
+        "actions": {},
         "activation": {
           "cost": "",
           "type": "",
@@ -582,6 +623,7 @@
           "onSave": "",
           "targetAbility": ""
         },
+        "secretDescription": "",
         "source": "",
         "target": {
           "quantity": "",
@@ -598,28 +640,49 @@
       "defaultASI": "",
       "includesASI": true,
       "description": "",
-      "features": {
-        "base": "",
-        "advancement": ""
-      },
-      "languages": {
-        "count": 0,
-        "options": []
-      },
-      "skills": {
-        "count": 2,
-        "options": []
-      },
-      "tools": {
-        "count": 0,
-        "options": []
+      "equipment": {},
+      "feature": "",
+      "proficiencies": {
+        "languages": {
+          "count": 0,
+          "fixed": [],
+          "options": []
+        },
+        "skills": {
+          "count": 2,
+          "fixed": [],
+          "options": []
+        },
+        "tools": {
+          "count": 0,
+          "fixed": [],
+          "options": ""
+        }
       }
+    },
+    "culture": {
+      "description": "",
+      "features": {},
+      "proficiencies": {
+        "languages": {
+          "count": 0,
+          "fixed": [],
+          "options": []
+        }
+      }
+    },
+    "destiny": {
+      "description": "",
+      "sourceOfInspiration": "",
+      "inspirationFeature": "",
+      "fulfillmentFeature": ""
     },
     "feature": {
       "templates": [
         "base"
       ],
-      "featureType": ""
+      "featureType": "",
+      "prerequisite": ""
     },
     "maneuver": {
       "templates": [
@@ -627,6 +690,8 @@
       ],
       "degree": 0,
       "exertionCost": 0,
+      "isStance": false,
+      "prerequisite": "",
       "tradition": ""
     },
     "object": {
@@ -637,7 +702,9 @@
       "armorCategory": "",
       "armorProperties": [],
       "attuned": false,
+      "broken": false,
       "bulky": false,
+      "craftingComponents": "",
       "equipped": false,
       "materialProperties": [],
       "objectType": "",

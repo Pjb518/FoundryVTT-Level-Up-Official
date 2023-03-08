@@ -1,32 +1,34 @@
 .a5e-tag {
   padding: 0.15rem 0.4rem;
-  border: 1px solid darken($color-primary, 5%);
-  background: $color-primary;
+  border: 1px solid darken(#7e7960, 5%);
+  background: transparent;
   border-radius: $border-radius-standard;
-  color: lighten($color-primary, 80%);
+  color: inherit;
   transition: $standard-transition;
   white-space: nowrap;
 
-  &--inactive {
-    border-color: #7e7960;
-    background: transparent;
-    color: inherit;
-
-    &:hover {
-      background: darken(#dddace, 2.5%);
-    }
+  &:hover {
+    background: darken(#dddace, 2.5%);
   }
 
-  &--light {
-    border-color: rgba(0, 0, 0, 0.1);
-    background: transparent;
-    color: $color-dark-text;
+  &--active {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: lighten($color-primary, 80%);
+
+    &:hover {
+      background: $color-primary;
+    }
   }
 
   &--red {
     border-color: darken(#8b2525, 5%);
     background: #8b2525;
     color: lighten(#8b2525, 95%);
+
+    &:hover {
+      background: #8b2525;
+    }
   }
 
   &--tight {
