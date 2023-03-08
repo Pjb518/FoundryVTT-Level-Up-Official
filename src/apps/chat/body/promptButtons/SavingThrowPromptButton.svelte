@@ -18,7 +18,7 @@
 </script>
 
 <button on:click={() => rollPrompt()}>
-    {localize("A5E.RollPromptSavingThrow", {
+    {localize("A5E.RollPromptSavingThrowWithDC", {
         ability: localize(abilities[prompt.ability]),
         dc: prompt.dc,
     })}

@@ -17,10 +17,15 @@
         else if (abilityKey === "con" && saveType === "concentration") {
             return localize("A5E.RollConcentrationCheck");
         } else {
-            return localize("A5E.RollPromptSavingThrow", {
-                ability: localizeSave,
-                dc: options.dc,
-            });
+            if (options.dc)
+                return localize("A5E.RollPromptSavingThrowWithDC", {
+                    ability: localizeSave,
+                    dc: options.dc,
+                });
+            else
+                return localize("A5E.RollPromptSavingThrow", {
+                    ability: localizeSave,
+                });
         }
     }
 
