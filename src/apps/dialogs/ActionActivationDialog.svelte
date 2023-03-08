@@ -29,7 +29,7 @@
         // TODO: Clean this up. A lot of stuff here is prototyping for the chat cards
         dialog.submit({
             prompts: Object.entries(action.prompts)
-                .filter(([key]) => selectedPrompts.includes(key))
+                ?.filter(([key]) => selectedPrompts.includes(key))
                 .map(([key, prompt]) => {
                     if (prompt.type === "savingThrow") {
                         prompt.dc = computeSaveDC($actor, prompt.saveDC);
@@ -37,6 +37,9 @@
 
                     return [key, prompt];
                 }),
+            rolls: Object.entries(action.rolls)?.filter(([key]) =>
+                selectedPrompts.includes(key)
+            ),
         });
     }
 
@@ -56,57 +59,22 @@
 <form>
     <FormSection hint="A5E.PromptsHint">
         <div class="prompt-wrapper">
-            {#if abilityCheckPrompts.length}
-                <section>
-                    <h3 class="section-subheading">Ability Check Prompts</h3>
+            {#each [abilityCheckPrompts, savingThrowPrompts, skillCheckPrompts, genericRollPrompts] as promptGroup}
+                {#if promptGroup.length}
+                    <section>
+                        <h3 class="section-subheading">
+                            Ability Check Prompts
+                        </h3>
 
-                    <CheckboxGroup
-                        options={abilityCheckPrompts}
-                        selected={selectedPrompts}
-                        on:updateSelection={(event) =>
-                            (selectedPrompts = event.detail)}
-                    />
-                </section>
-            {/if}
-
-            {#if savingThrowPrompts.length}
-                <section>
-                    <h3 class="section-subheading">Skill Check Prompts</h3>
-
-                    <CheckboxGroup
-                        options={savingThrowPrompts}
-                        selected={selectedPrompts}
-                        on:updateSelection={(event) =>
-                            (selectedPrompts = event.detail)}
-                    />
-                </section>
-            {/if}
-
-            {#if skillCheckPrompts.length}
-                <section>
-                    <h3 class="section-subheading">Skill Check Prompts</h3>
-
-                    <CheckboxGroup
-                        options={skillCheckPrompts}
-                        selected={selectedPrompts}
-                        on:updateSelection={(event) =>
-                            (selectedPrompts = event.detail)}
-                    />
-                </section>
-            {/if}
-
-            {#if genericRollPrompts.length}
-                <section>
-                    <h3 class="section-subheading">Generic Roll Prompts</h3>
-
-                    <CheckboxGroup
-                        options={genericRollPrompts}
-                        selected={selectedPrompts}
-                        on:updateSelection={(event) =>
-                            (selectedPrompts = event.detail)}
-                    />
-                </section>
-            {/if}
+                        <CheckboxGroup
+                            options={promptGroup}
+                            selected={selectedPrompts}
+                            on:updateSelection={(event) =>
+                                (selectedPrompts = event.detail)}
+                        />
+                    </section>
+                {/if}
+            {/each}
         </div>
     </FormSection>
 

@@ -134,7 +134,8 @@ export default class ItemA5e extends Item {
           cardType: 'item',
           img: this.actions[actionId].img ?? 'icons/svg/item-bag.svg',
           name: this.actions[actionId].name,
-          prompts: promise.prompts
+          prompts: promise.prompts,
+          rolls: promise.rolls
         }
       },
       content: '<article></article>'
