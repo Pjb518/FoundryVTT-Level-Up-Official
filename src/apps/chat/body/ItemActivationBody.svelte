@@ -1,24 +1,28 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
+    import GenericRollPromptButton from "./promptButtons/GenericRollPromptButton.svelte";
+    import SavingThrowPromptButton from "./promptButtons/SavingThrowPromptButton.svelte";
+    import SkillCheckPromptButton from "./promptButtons/SkillCheckPromptButton.svelte";
+
     export let message;
 
-    const { abilities, skills } = CONFIG.A5E;
+    const promptComponentMap = {
+        savingThrow: SavingThrowPromptButton,
+        abilityCheck: AbilityCheckPromptButton,
+        skillCheck: SkillCheckPromptButton,
+        generic: GenericRollPromptButton,
+    };
 
     $: description = $message.flags?.a5e?.description;
-    $: prompts = $message.flags?.a5e?.prompts;
 
-    $: abilityCheckPrompts = prompts?.filter(
-        ([_, prompt]) => prompt.type === "abilityCheck"
-    );
+    $: prompts = $message.flags?.a5e?.prompts.reduce((acc, [key, prompt]) => {
+        acc[prompt.type] ??= [];
+        acc[prompt.type].push([key, prompt]);
 
-    $: savingThrowPrompts = prompts?.filter(
-        ([_, prompt]) => prompt.type === "savingThrow"
-    );
-
-    $: skillCheckPrompts = prompts?.filter(
-        ([_, prompt]) => prompt.type === "skillCheck"
-    );
+        return acc;
+    }, {});
 </script>
 
 <article>
@@ -28,48 +32,15 @@
         {@html description}
     {/if}
 
-    {#if savingThrowPrompts}
-        <section class="prompt-button-wrapper">
-            {#each savingThrowPrompts as [key, prompt]}
-                <button>
-                    <p>
-                        {localize("A5E.RollPromptSavingThrow", {
-                            ability: localize(abilities[prompt.ability]),
-                            dc: prompt.dc,
-                        })}
-                    </p>
-                </button>
-            {/each}
-        </section>
-    {/if}
-
-    {#if abilityCheckPrompts}
-        <section class="prompt-button-wrapper">
-            {#each abilityCheckPrompts as [key, prompt]}
-                <button>
-                    <p>
-                        {localize("A5E.AbilityCheckPrompt", {
-                            ability: localize(abilities[prompt.ability]),
-                        })}
-                    </p>
-                </button>
-            {/each}
-        </section>
-    {/if}
-
-    {#if skillCheckPrompts}
-        <section class="prompt-button-wrapper">
-            {#each skillCheckPrompts as [key, prompt]}
-                <button>
-                    <p>
-                        {localize("A5E.SkillCheckPrompt", {
-                            skill: localize(skills[prompt.skill]),
-                        })}
-                    </p>
-                </button>
-            {/each}
-        </section>
-    {/if}
+    {#each Object.entries(promptComponentMap) as [promptType, Component]}
+        {#if prompts[promptType]?.length}
+            <section class="prompt-button-wrapper">
+                {#each prompts.savingThrow as [key, prompt]}
+                    <Component {key} {prompt} />
+                {/each}
+            </section>
+        {/if}
+    {/each}
 </article>
 
 <style lang="scss">
