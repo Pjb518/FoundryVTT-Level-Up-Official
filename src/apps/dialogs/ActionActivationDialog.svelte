@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import prepareAbilityCheckPrompts from "../dataPreparationHelpers/prepareAbilityCheckPrompts";
@@ -21,6 +22,10 @@
             },
             []
         );
+    }
+
+    function onSubmit() {
+        dialog.submit({ prompts: selectedPrompts });
     }
 
     const actor = new TJSDocument(actorDocument);
@@ -92,6 +97,13 @@
             {/if}
         </div>
     </FormSection>
+
+    <section>
+        <button on:click|preventDefault={onSubmit}>
+            <i class="fa-solid fa-dice" />
+            {localize("A5E.DialogSubmitRoll")}
+        </button>
+    </section>
 </form>
 
 <style lang="scss">
