@@ -125,9 +125,7 @@ export default class ItemA5e extends Item {
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
-      rolls: [...(promise.rolls ?? [])],
       flags: {
         a5e: {
           actorId: this.actor.uuid,
