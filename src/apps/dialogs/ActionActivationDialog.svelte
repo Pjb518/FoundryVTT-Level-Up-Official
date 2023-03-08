@@ -15,10 +15,12 @@
         getContext("#external").application;
 
     function getDefaultSelections(property) {
-        return Object.entries(property ?? {}).reduce((acc, [key, value]) => {
-            if (value.default ?? true) acc.push(key);
-            return acc;
-        }, []);
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
     }
 
     function onSubmit() {
@@ -36,6 +38,7 @@
             rolls: Object.entries(action.rolls ?? {})?.filter(([key]) =>
                 selectedRolls.includes(key)
             ),
+            rollMode,
         });
     }
 
@@ -68,12 +71,24 @@
     const item = new TJSDocument(itemDocument);
     const action = $item.actions[actionId];
 
-    $: prompts = preparePrompts(action.prompts);
-    $: rolls = prepareRolls(action.rolls);
+    const prompts = preparePrompts(action.prompts);
+    const rolls = prepareRolls(action.rolls);
+
+    const attackRoll = rolls.attack.length ? rolls.attack[0] : {};
+
+    const otherRolls = Object.entries(rolls).reduce(
+        (acc, [rollType, rolls]) => {
+            if (rollType === "attack") return acc;
+            acc[rollType] = rolls;
+
+            return acc;
+        },
+        {}
+    );
 
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
-    let selectedRolls = getDefaultSelections(action?.rolls);
-    let selectedPrompts = getDefaultSelections(action?.prompts);
+    let selectedRolls = getDefaultSelections(rolls);
+    let selectedPrompts = getDefaultSelections(prompts);
 </script>
 
 <form>
@@ -120,7 +135,7 @@
     {#if Object.values(rolls).flat().length}
         <FormSection hint="A5E.RollsHint">
             <div class="roll-wrapper">
-                {#each Object.entries(rolls) as [rollType, _rolls]}
+                {#each Object.entries(otherRolls) as [rollType, _rolls]}
                     {#if _rolls.length}
                         <section>
                             <h3 class="section-subheading">
@@ -128,7 +143,10 @@
                             </h3>
 
                             <CheckboxGroup
-                                options={_rolls}
+                                options={_rolls.map(([key, roll]) => [
+                                    key,
+                                    roll.label,
+                                ])}
                                 selected={selectedRolls}
                                 on:updateSelection={(event) =>
                                     (selectedRolls = event.detail)}
@@ -152,7 +170,10 @@
                             </h3>
 
                             <CheckboxGroup
-                                options={_prompts}
+                                options={_prompts.map(([key, prompt]) => [
+                                    key,
+                                    prompt.label,
+                                ])}
                                 selected={selectedPrompts}
                                 on:updateSelection={(event) =>
                                     (selectedPrompts = event.detail)}

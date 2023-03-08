@@ -1,4 +1,5 @@
 import prepareAbilityChecks from './prepareAbilityChecks';
+import prepareAttackRolls from './prepareAttackRolls';
 import prepareDamageRolls from './prepareDamageRolls';
 import prepareGenericRolls from './prepareGenericRolls';
 import prepareHealingRolls from './prepareHealingRolls';
@@ -8,6 +9,7 @@ import prepareToolChecks from './prepareToolChecks';
 
 const rollHandlerMap = {
   abilityCheck: prepareAbilityChecks,
+  attack: prepareAttackRolls,
   damage: prepareDamageRolls,
   generic: prepareGenericRolls,
   healing: prepareHealingRolls,

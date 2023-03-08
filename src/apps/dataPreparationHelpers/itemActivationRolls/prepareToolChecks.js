@@ -7,17 +7,19 @@ export default function prepareToolChecks(rolls) {
   if (!rolls.length) return [];
 
   return rolls.map(([key, roll]) => {
-    if (roll.label) return [key, roll.label];
-
     roll.tool ??= 'airVehicles';
 
-    const label = game.i18n.format('A5E.ToolCheckSpecific', {
-      tool: game.i18n.localize(tools[roll.tool])
-    });
+    if (!roll.label) {
+      const label = game.i18n.format('A5E.ToolCheckSpecific', {
+        tool: game.i18n.localize(tools[roll.tool])
+      });
 
-    counts[roll.tool] ??= 0;
-    counts[roll.tool] += 1;
+      counts[roll.tool] ??= 0;
+      counts[roll.tool] += 1;
 
-    return [key, `${label} #${counts[roll.tool]}`];
+      roll.label = `${label} #${counts[roll.tool]}`;
+    }
+
+    return [key, roll];
   });
 }

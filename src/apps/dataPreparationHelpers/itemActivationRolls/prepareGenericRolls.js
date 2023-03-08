@@ -4,11 +4,13 @@ export default function prepareGenericRolls(rolls) {
   if (!rolls.length) return [];
 
   return rolls.map(([key, roll]) => {
-    if (roll.label) return [key, roll.label];
+    if (!roll.label) {
+      const label = game.i18n.localize('A5E.Other');
+      count += 1;
 
-    const label = game.i18n.localize('A5E.Other');
-    count += 1;
+      roll.label = `${label} #${count}`;
+    }
 
-    return [key, `${label} #${count}`];
+    return [key, roll];
   });
 }

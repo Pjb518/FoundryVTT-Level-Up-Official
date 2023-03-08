@@ -4,11 +4,13 @@ export default function prepareGenericRollPrompts(prompts) {
   if (!prompts.length) return [];
 
   return prompts.map(([key, prompt]) => {
-    if (prompt.label) return [key, prompt.label];
+    if (!prompt.label) {
+      const label = game.i18n.localize('A5E.Other');
+      count += 1;
 
-    const label = game.i18n.localize('A5E.Other');
-    count += 1;
+      prompt.label = `${label} #${count}`;
+    }
 
-    return [key, `${label} #${count}`];
+    return [key, prompt];
   });
 }
