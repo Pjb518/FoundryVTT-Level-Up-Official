@@ -5,8 +5,8 @@
 
     import computeSaveDC from "../utils/computeSaveDC";
 
-    import preparePrompts from "../dataPreparationHelpers/preparePrompts";
-    import prepareRolls from "../dataPreparationHelpers/prepareRolls";
+    import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
+    import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
