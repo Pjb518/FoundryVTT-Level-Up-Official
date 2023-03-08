@@ -54,6 +54,14 @@
             </div>
         {/if}
     </div>
+    <button
+        class="broken-item-icon fa-solid fa-question"
+        data-tooltip={$item.system.broken
+            ? "A5E.ButtonToolTipFixBroken"
+            : "A5E.ButtonToolTipBroken"}
+        data-tooltip-direction="UP"
+        on:click|stopPropagation={() => $item.toggleUnidentified()}
+    />
 
     {#if $item.system.broken}
         <i

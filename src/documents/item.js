@@ -297,6 +297,14 @@ export default class ItemA5e extends Item {
     });
   }
 
+  async toggleUnidentified() {
+    if (!this.type === 'object') return;
+
+    await this.update({
+      'system.unidentified': !this.system.unidentified
+    });
+  }
+
   async toggleFavorite() {
     if (!this.actor) return;
 
