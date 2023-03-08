@@ -70,7 +70,7 @@
 <form>
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}
-        <FormSection>
+        <FormSection hint="A5E.RollsHint">
             <div class="roll-wrapper">
                 {#each Object.entries(rolls) as [rollType, _rolls]}
                     {#if _rolls.length}
