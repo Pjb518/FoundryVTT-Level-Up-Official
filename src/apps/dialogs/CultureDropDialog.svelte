@@ -40,7 +40,7 @@
         on:updateSelection={({ detail }) => (selectedLanguages = detail)}
     />
 
-    <div>
+    <div class="button-container">
         <button on:click|preventDefault={submitForm}>
             {localize("A5E.Submit")}
         </button>
@@ -63,16 +63,16 @@
         }
     }
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.375rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        font-size: 0.694rem;
-        width: 100%;
-    }
+    // ul {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     gap: 0.375rem;
+    //     list-style: none;
+    //     margin: 0;
+    //     padding: 0;
+    //     font-size: 0.694rem;
+    //     width: 100%;
+    // }
 
     .section-wrapper {
         position: relative;
@@ -85,14 +85,8 @@
         display: flex;
     }
 
-    .tools-config {
-        font-size: 0.694rem;
-        margin-left: auto;
-        margin-right: 0.75rem;
-    }
-
-    .hint {
-        font-family: "Signika", sans-serif;
-        font-size: 0.694rem;
-    }
+    // .hint {
+    //     font-family: "Signika", sans-serif;
+    //     font-size: 0.694rem;
+    // }
 </style>

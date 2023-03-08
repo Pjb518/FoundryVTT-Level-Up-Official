@@ -4,7 +4,6 @@ import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
-import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
 import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
@@ -216,29 +215,41 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    let selectedLanguages = [];
+
     const dialog = new CultureDropDialog(this.actor, item);
     dialog.render(true);
 
-    // const currentLanguages = await LanguageSelectDialog.createRecommendLanguages(
-    //   this.actor.name,
-    //   this.actor.system.proficiencies.languages,
-    //   item.system.proficiencies.languages,
-    //   item.system.proficiencies.additionalLanguages
-    // );
+    try {
+      ({ selectedLanguages } = await dialog.promise);
+    } catch (error) {
+      return;
+    }
 
-    // this.actor.update({
-    //   'system.proficiencies.languages': currentLanguages
-    // });
+    const { features } = item.system;
+    const updates = {};
 
-    const features = await Promise.all(
-      Object.values(item.system.features)
+    const updatedLanguages = [...new Set([
+      ...this.actor.system.proficiencies.languages,
+      ...selectedLanguages
+    ])];
+    updates['system.proficiencies.languages'] = updatedLanguages;
+
+    // Update Actor
+    this.actor.update(updates);
+
+    // Setup features
+    const cultureFeatures = await Promise.all(
+      Object.values(features)
         .map((f) => fromUuid(f.uuid))
     );
 
-    this.actor.createEmbeddedDocuments('Item', [
-      item,
-      ...features
-    ]);
+    if (cultureFeatures.length) {
+      this.actor.createEmbeddedDocuments('Item', [
+        item,
+        ...cultureFeatures
+      ].filter(Boolean));
+    }
   }
 
   async #onDropDestiny(item) {
