@@ -120,7 +120,27 @@ export default class ItemA5e extends Item {
 
     const promise = await dialog.promise;
 
-    if (!promise?.actionId) return;
+    if (!promise) return;
+
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: [...(promise.rolls ?? [])],
+      flags: {
+        a5e: {
+          actorId: this.actor.uuid,
+          cardType: 'item',
+          img: this.actions[actionId].img ?? 'icons/svg/item-bag.svg',
+          name: this.actions[actionId].name,
+          prompts: promise.prompts
+        }
+      },
+      content: '<article></article>'
+    };
+
+    ChatMessage.create(chatData);
   }
 
   async shareItemDescription() {
