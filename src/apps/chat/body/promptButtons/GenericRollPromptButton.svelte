@@ -1,17 +1,25 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import constructGenericRollFormula from "../../../../dice/constructGenericRollFormula";
     import prepareSelectedTokenActors from "../../../dataPreparationHelpers/prepareSelectedTokenActors";
 
     export let key;
     export let prompt;
 
-    const { skills } = CONFIG.A5E;
-
-    function rollPrompt() {
+    async function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
-        tokenActors.forEach((t) => {});
+        for (const t of tokenActors) {
+            const rollFormula = constructGenericRollFormula({
+                actor: t,
+                formula: prompt.formula,
+            });
+
+            const roll = await new Roll(rollFormula).roll({ async: true });
+
+            // TODO: To Chat message
+        }
     }
 </script>
 
