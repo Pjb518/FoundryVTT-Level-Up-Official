@@ -38,30 +38,10 @@
         </h3>
 
         <div class="option-list">
-            <input
-                class="option-input"
-                type="radio"
-                name="{actionId}-{rollId}-ability"
-                id="{actionId}-{rollId}-ability-none"
-                value=""
-                checked={(roll.ability ?? true) || roll.ability === ""}
-                on:change={() =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}`,
-                        { "-=ability": null }
-                    )}
-            />
-
-            <label class="option-label" for="{actionId}-{rollId}-ability-none">
-                {localize("A5E.None")}
-            </label>
-
             {#each Object.entries(abilities) as [ability, label]}
                 <input
                     class="option-input"
                     type="radio"
-                    name="{actionId}-{rollId}-ability"
                     id="{actionId}-{rollId}-ability-{ability}"
                     value={ability}
                     checked={roll.ability === ability}

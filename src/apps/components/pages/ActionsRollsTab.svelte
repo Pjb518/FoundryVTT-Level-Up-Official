@@ -16,15 +16,29 @@
     const actionId = getContext("actionId");
 
     function addRoll(type) {
+        const rollData = { type };
+
         if (type === "attack" && attackRolls.length > 0)
             return ui.notifications.error(
                 "An action can have no more than 1 attack roll."
             );
 
+        if (type === "abilityCheck" || type === "savingThrow") {
+            rollData.ability = "str";
+        }
+
+        if (type === "skillCheck") {
+            rollData.skill = "acr";
+        }
+
+        if (type === "toolCheck") {
+            rollData.tool = "airVehicles";
+        }
+
         $item.update({
             [`system.actions.${actionId}.rolls`]: {
                 ...action.rolls,
-                [foundry.utils.randomID()]: { type },
+                [foundry.utils.randomID()]: rollData,
             },
         });
     }

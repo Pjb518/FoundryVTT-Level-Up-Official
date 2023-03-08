@@ -50,11 +50,6 @@
                     target.value
                 )}
         >
-            <!-- svelte-ignore missing-declaration -->
-            <option value="" selected={foundry.utils.isEmpty(roll?.tool)}>
-                {localize("A5E.None")}
-            </option>
-
             {#each tools as [tool, label]}
                 <option value={tool} selected={roll?.tool === tool}>
                     {localize(label)}
