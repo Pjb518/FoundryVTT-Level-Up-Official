@@ -75,7 +75,7 @@
     const prompts = preparePrompts(action.prompts);
     const rolls = prepareRolls(action.rolls);
 
-    const attackRoll = rolls.attack.length ? rolls.attack[0] : {};
+    const attackRoll = rolls?.attack?.length ? rolls.attack[0] : {};
 
     const otherRolls = Object.entries(rolls).reduce(
         (acc, [rollType, rolls]) => {
@@ -87,7 +87,7 @@
         {}
     );
 
-    let expertiseDie = null;
+    let expertiseDie = 0;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
