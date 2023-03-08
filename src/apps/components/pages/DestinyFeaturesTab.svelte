@@ -84,13 +84,13 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        padding-inline: 0.5rem;
     }
 
     .section-wrapper {
         display: flex;
         flex-direction: column;
         gap: 0.275rem;
-        padding-inline: 0.5rem;
     }
     .section-title {
         font-size: 0.833rem;

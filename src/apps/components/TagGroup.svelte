@@ -3,10 +3,14 @@
 
     import arraysAreEqual from "../../utils/arraysAreEqual";
 
+    import Tag from "./Tag.svelte";
+
+    export let disabled = false;
+    export let heading = "";
     export let selected = [];
+    export let red = false;
     export let sort = true;
     export let tags = {};
-    export let heading;
     export let updateFunction;
 
     function toggleTag(tag) {
@@ -49,25 +53,19 @@
 
     <ul
         class="
-            u-flex
-            u-flex-wrap
-            u-gap-sm
-            u-list-style-none
-            u-m-0
-            u-p-0
-            u-text-xs
-            u-w-full
+            u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full
         "
     >
-        {#each tags as [key, value]}
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <li
-                class="a5e-tag u-pointer"
-                class:a5e-tag--active={selected.includes(key)}
-                on:click={() => toggleTag(key)}
-            >
+        {#each tags as [value, label]}
+            <Tag
+                active={selected.includes(value)}
+                {label}
                 {value}
-            </li>
+                red={red && red?.includes(value)}
+                disabled={(disabled && !selected.includes(value)) ||
+                    (red && red?.includes(value))}
+                on:tagToggle={({ detail }) => toggleTag(detail)}
+            />
         {/each}
     </ul>
 </section>

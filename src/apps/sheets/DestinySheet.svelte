@@ -5,7 +5,7 @@
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import DestinyDetailsTab from "../components/pages/DestinyDetailsTab.svelte";
+    import DestinyFeaturesTab from "../components/pages/DestinyFeaturesTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
@@ -24,9 +24,9 @@
             component: ItemDescriptionTab,
         },
         {
-            name: "details",
-            label: "A5E.TabDetails",
-            component: DestinyDetailsTab,
+            name: "features",
+            label: "A5E.TabFeatures",
+            component: DestinyFeaturesTab,
         },
     ];
 

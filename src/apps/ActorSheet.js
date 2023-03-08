@@ -1,9 +1,10 @@
+// eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
-import BackgroundDropDialog from './BackgroundDropDialog';
-import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
+import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
+import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -123,6 +124,7 @@ export default class ActorSheet extends SvelteApplication {
     else if (document.documentName === 'Item') this.#onDropItem(document);
   }
 
+  // eslint-disable-next-line no-unused-vars, no-empty-function
   async #onDropActor(actor) { }
 
   async #onDropItem(item) {
@@ -133,31 +135,65 @@ export default class ActorSheet extends SvelteApplication {
     this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
-  // TODO: Implement ability score selection logic.
   async #onDropBackground(item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Background documents cannot be added to NPCs.');
       return;
     }
 
-    const { equipment, feature, includesASI } = item.system;
-    const backgroundFeature = await fromUuid(feature);
-
     let selectedAbilityScores = [];
     let selectedEquipment = [];
+    let selectedSkills = [];
+    let selectedLanguages = [];
+    let selectedTools = [];
 
-    // Do not show the dialog if there is no ASI or equipment to select.
-    if (includesASI || equipment.length) {
-      const dialog = new BackgroundDropDialog(item);
-      dialog.render(true);
+    const dialog = new BackgroundDropDialog(this.actor, item);
+    dialog.render(true);
 
-      try {
-        ({ selectedAbilityScores, selectedEquipment } = await dialog.promise);
-      } catch (error) {
-        return;
-      }
+    try {
+      ({
+        selectedAbilityScores,
+        selectedEquipment,
+        selectedLanguages,
+        selectedSkills,
+        selectedTools
+      } = await dialog.promise);
+    } catch (error) {
+      return;
     }
 
+    const { feature } = item.system;
+    const updates = {};
+
+    // Setup Ability Scores
+    selectedAbilityScores.forEach((abl) => {
+      updates[`system.abilities.${abl}.value`] = this.actor.system.abilities[abl].value + 1;
+    });
+
+    // Setup Languages
+    const updatedLanguages = [...new Set([
+      ...this.actor.system.proficiencies.languages,
+      ...selectedLanguages
+    ])];
+    updates['system.proficiencies.languages'] = updatedLanguages;
+
+    // Setup Skills
+    selectedSkills.forEach((skill) => {
+      updates[`system.skills.${skill}.proficient`] = true;
+    });
+
+    // Setup Tools
+    const updatedTools = [...new Set([
+      ...this.actor.system.proficiencies.tools,
+      ...selectedTools
+    ])];
+    updates['system.proficiencies.tools'] = updatedTools;
+
+    // Update Actor
+    await this.actor.update(updates);
+
+    // Setup Background Feature and Equipment
+    const backgroundFeature = await fromUuid(feature);
     const startingEquipment = await Promise.all(selectedEquipment.map(
       (equipmentItem) => fromUuid(equipmentItem)
     ));
@@ -169,6 +205,49 @@ export default class ActorSheet extends SvelteApplication {
         item,
         backgroundFeature,
         ...startingEquipment
+      ].filter(Boolean));
+    }
+  }
+
+  async #onDropCulture(item) {
+    if (this.actor.type !== 'character') {
+      ui.notifications.warn('Culture documents cannot be added to NPCs.');
+      return;
+    }
+
+    let selectedLanguages = [];
+
+    const dialog = new CultureDropDialog(this.actor, item);
+    dialog.render(true);
+
+    try {
+      ({ selectedLanguages } = await dialog.promise);
+    } catch (error) {
+      return;
+    }
+
+    const { features } = item.system;
+    const updates = {};
+
+    const updatedLanguages = [...new Set([
+      ...this.actor.system.proficiencies.languages,
+      ...selectedLanguages
+    ])];
+    updates['system.proficiencies.languages'] = updatedLanguages;
+
+    // Update Actor
+    this.actor.update(updates);
+
+    // Setup features
+    const cultureFeatures = await Promise.all(
+      Object.values(features)
+        .map((f) => fromUuid(f.uuid))
+    );
+
+    if (cultureFeatures.length) {
+      this.actor.createEmbeddedDocuments('Item', [
+        item,
+        ...cultureFeatures
       ].filter(Boolean));
     }
   }
@@ -185,33 +264,6 @@ export default class ActorSheet extends SvelteApplication {
       item.system.fulfillmentFeature
     ];
     const features = (await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f);
-
-    this.actor.createEmbeddedDocuments('Item', [
-      item,
-      ...features
-    ]);
-  }
-
-  async #onDropCulture(item) {
-    if (this.actor.type !== 'character') {
-      ui.notifications.warn('Culture documents cannot be added to NPCs.');
-      return;
-    }
-    const currentLanguages = await LanguageSelectDialog.createRecommendLanguages(
-      this.actor.name,
-      this.actor.system.proficiencies.languages,
-      item.system.proficiencies.languages,
-      item.system.proficiencies.additionalLanguages
-    );
-
-    this.actor.update({
-      'system.proficiencies.languages': currentLanguages
-    });
-
-    const features = await Promise.all(
-      Object.values(item.system.features)
-        .map((f) => fromUuid(f.uuid))
-    );
 
     this.actor.createEmbeddedDocuments('Item', [
       item,

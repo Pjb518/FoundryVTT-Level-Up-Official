@@ -8,8 +8,10 @@
 
     export let options = [];
     export let selected = [];
+    export let disabled = false;
+    export let red = false;
     export let showCustomInput = true;
-    export let heading;
+    export let heading = "";
 
     function splitCustomSelections(value) {
         return value
@@ -48,17 +50,21 @@
     $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>
 
-<header class="u-align-center u-flex u-gap-lg">
-    <h3 class="u-text-bold u-text-sm">{localize(heading)}</h3>
+{#if heading}
+    <header class="u-align-center u-flex u-gap-lg">
+        <h3 class="u-text-bold u-text-sm">{localize(heading)}</h3>
 
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
-</header>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a on:click={toggleAll} class="u-text-xs"> + Toggle All</a>
+    </header>
+{/if}
 
 <CheckboxGroup
     {options}
     selected={selectedCoreOptions}
+    {disabled}
+    {red}
     on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
 />
 

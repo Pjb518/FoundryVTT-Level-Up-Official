@@ -63,7 +63,7 @@
 
         <RadioGroup
             listClasses="u-gap-md u-text-sm"
-            optionClasses="u-p-md u-text-center u-w-20"
+            optionStyles="padding:0.5rem; text-align: center; width: 5rem"
             options={Object.entries(restTypeOptions)}
             selected={restType}
             on:updateSelection={({ detail }) => (restType = detail)}
