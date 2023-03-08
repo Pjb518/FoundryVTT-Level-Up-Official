@@ -3,8 +3,9 @@ import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
-import BackgroundDropDialog from './BackgroundDropDialog';
+import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
 import LanguageSelectDialog from './dialogs/initializers/LanguageSelectDialog';
+import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -209,6 +210,37 @@ export default class ActorSheet extends SvelteApplication {
     }
   }
 
+  async #onDropCulture(item) {
+    if (this.actor.type !== 'character') {
+      ui.notifications.warn('Culture documents cannot be added to NPCs.');
+      return;
+    }
+
+    const dialog = new CultureDropDialog(this.actor, item);
+    dialog.render(true);
+
+    // const currentLanguages = await LanguageSelectDialog.createRecommendLanguages(
+    //   this.actor.name,
+    //   this.actor.system.proficiencies.languages,
+    //   item.system.proficiencies.languages,
+    //   item.system.proficiencies.additionalLanguages
+    // );
+
+    // this.actor.update({
+    //   'system.proficiencies.languages': currentLanguages
+    // });
+
+    const features = await Promise.all(
+      Object.values(item.system.features)
+        .map((f) => fromUuid(f.uuid))
+    );
+
+    this.actor.createEmbeddedDocuments('Item', [
+      item,
+      ...features
+    ]);
+  }
+
   async #onDropDestiny(item) {
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Destiny documents cannot be added to NPCs.');
@@ -221,33 +253,6 @@ export default class ActorSheet extends SvelteApplication {
       item.system.fulfillmentFeature
     ];
     const features = (await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f);
-
-    this.actor.createEmbeddedDocuments('Item', [
-      item,
-      ...features
-    ]);
-  }
-
-  async #onDropCulture(item) {
-    if (this.actor.type !== 'character') {
-      ui.notifications.warn('Culture documents cannot be added to NPCs.');
-      return;
-    }
-    const currentLanguages = await LanguageSelectDialog.createRecommendLanguages(
-      this.actor.name,
-      this.actor.system.proficiencies.languages,
-      item.system.proficiencies.languages,
-      item.system.proficiencies.additionalLanguages
-    );
-
-    this.actor.update({
-      'system.proficiencies.languages': currentLanguages
-    });
-
-    const features = await Promise.all(
-      Object.values(item.system.features)
-        .map((f) => fromUuid(f.uuid))
-    );
 
     this.actor.createEmbeddedDocuments('Item', [
       item,
