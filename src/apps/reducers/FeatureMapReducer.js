@@ -1,8 +1,9 @@
+// eslint-disable-next-line import/no-unresolved
 import { DynMapReducer } from '@typhonjs-fvtt/runtime/svelte/store';
 
 export default class FeatureMapReducer extends DynMapReducer {
   initialize() {
-    this.filters.add((item) => item.type === 'feature');
+    this.filters.add((item) => ['feature', 'background', 'culture', 'destiny', 'heritage', 'class', 'subclass'].includes(item.type));
     this.sort.set((a, b) => a.sort - b.sort);
 
     this._types = {};
@@ -11,7 +12,7 @@ export default class FeatureMapReducer extends DynMapReducer {
     });
 
     Object.entries(this._types).forEach(([key, reducer]) => {
-      reducer.filters.add((item) => item.system.featureType === key);
+      reducer.filters.add((item) => item.system.featureType === key || item.type === key);
     });
 
     this._types.Uncategorized = this.derived.create('uncategorized');
