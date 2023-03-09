@@ -3,7 +3,8 @@ import ActionsManager from '../managers/ActionsManager';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
-import createTemplateDocument from '../utils/templates/createTemplateDocument';
+import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
+import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
@@ -126,7 +127,9 @@ export default class ItemA5e extends Item {
 
     // TODO: Add template validation and extract template placement to its own function
     if (promise.placeTemplate) {
-      // const templateDocument = createTemplateDocument(this);
+      const templateDocument = createTemplateDocument(this, actionId);
+      if (!templateDocument) console.log('Bad data');
+      else console.log('Good Data');
       // const template = new ItemMeasuredTemplate(templateDocument);
 
       // template.item = this;
