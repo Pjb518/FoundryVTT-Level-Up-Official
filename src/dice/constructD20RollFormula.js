@@ -25,7 +25,7 @@ export default function constructD20RollFormula({
     })
   ];
 
-  const formula = parts.filter((part) => Boolean(part) && part !== '0').join(' + ');
+  const formula = parts.filter((part) => part && part !== '0').join(' + ');
 
   const { terms } = new Roll(formula, rollData);
   const simplifiedTerms = simplifyOperatorTerms(terms);

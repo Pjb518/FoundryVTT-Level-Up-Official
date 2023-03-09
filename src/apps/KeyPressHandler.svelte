@@ -14,8 +14,6 @@
         pressedKeys["Control"] = event.metaKey || event.ctrlKey;
         pressedKeys["Shift"] = event.shiftKey;
 
-        console.log(pressedKeys);
-
         keyBindingStore.update(() => ({ ...pressedKeys }));
     }
 

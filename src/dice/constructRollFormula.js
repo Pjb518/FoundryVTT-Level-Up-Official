@@ -8,10 +8,25 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  *
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
-export default function constructRollFormula({ actor, formula }) {
+export default function constructRollFormula({ actor, formula, modifiers }) {
   const rollData = actor.getRollData();
 
-  const { terms } = new Roll(formula, rollData);
+  const parts = [
+    formula,
+    ...(modifiers ?? []).map(({ label, value }) => {
+      if (value && value !== 0) {
+        return label ? `${value}[${label}]` : value;
+      }
+
+      return null;
+    })
+  ];
+
+  const { terms } = new Roll(
+    parts.filter((part) => part && part !== '0').join(' + '),
+    rollData
+  );
+
   const simplifiedTerms = simplifyOperatorTerms(terms);
 
   return Roll.getFormula(simplifiedTerms);

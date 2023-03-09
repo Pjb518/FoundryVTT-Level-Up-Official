@@ -124,6 +124,8 @@
     let selectedPrompts = getDefaultSelections(prompts);
     let situationalMods = "";
 
+    console.log(selectedPrompts);
+
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
         rollMode,

@@ -35,6 +35,8 @@
 </script>
 
 <article>
+    {@debug prompts}
+
     {#if description}
         <hr class="a5e-rule a5e-rule--card" />
 

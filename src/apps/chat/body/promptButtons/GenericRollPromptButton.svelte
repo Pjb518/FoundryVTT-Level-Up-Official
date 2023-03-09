@@ -16,7 +16,7 @@
                 formula: prompt.formula,
             });
 
-            const roll = await new Roll(rollFormula).roll({ async: true });
+            const roll = await new Roll(rollFormula).toMessage({ async: true });
 
             // TODO: To Chat message
         }
