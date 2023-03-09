@@ -57,9 +57,9 @@
     <div class="button-container">
         <!-- {#if game.user.isGM} -->
         <button
-            class="action-button fa-solid fa-circle-question
-                {$item.system.unidentified ? '' : 'inactive'}
-                {!game.user.isGM ? 'pointer-cursor' : ''}"
+            class="action-button fa-solid fa-circle-question"
+            class:active={$item.system.unidentified}
+            class:locked={!game.user.isGM}
             disabled={!game.user.isGM}
             data-tooltip={$item.system.unidentified
                 ? "A5E.ButtonToolTipUnidentified"
@@ -68,8 +68,8 @@
             on:click|stopPropagation={() => $item.toggleUnidentified()}
         />
         <button
-            class="action-button fa-solid fa-heart-crack
-                {$item.system.broken ? '' : 'inactive'}"
+            class="action-button fa-solid fa-heart-crack"
+            class:active={$item.system.broken}
             data-tooltip={$item.system.broken
                 ? "A5E.ButtonToolTipFixBroken"
                 : "A5E.ButtonToolTipBroken"}
@@ -115,7 +115,11 @@
     }
 
     .locked {
-        pointer-events: none;
+        cursor: default;
+        &:hover {
+            transform: none;
+            color: #999;
+        }
     }
 
     .delete-button:hover {
