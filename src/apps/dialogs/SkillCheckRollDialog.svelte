@@ -8,7 +8,6 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
     export let { actorDocument, dialog, skillKey, options } =

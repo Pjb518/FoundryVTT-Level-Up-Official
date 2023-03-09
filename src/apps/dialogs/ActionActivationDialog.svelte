@@ -7,12 +7,13 @@
     import computeSaveDC from "../utils/computeSaveDC";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
 
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { actionId, actorDocument, dialog, itemDocument, options } =
         getContext("#external").application;
@@ -89,11 +90,10 @@
     };
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => ({
-            id: key,
-            name: game.i18n.localize(value),
-            value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        })
+        ([key, value]) => [
+            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+            game.i18n.localize(value),
+        ]
     );
 
     const actor = new TJSDocument(actorDocument);
@@ -186,38 +186,11 @@
                     {localize("A5E.AttackRollModeHeading")}
                 </h3>
 
-                <div
-                    class="
-                u-flex
-                u-flex-wrap
-                u-list-style-none
-                u-m-0
-                u-p-0
-                u-w-full
-                u-gap-md
-                u-text-sm
-            "
-                    role="radiogroup"
-                    id={`${$actor.id}-${dialog.id}-rollMode`}
-                >
-                    {#each rollModeOptions as { id, name, value }}
-                        <input
-                            class="u-hidden"
-                            type="radio"
-                            id="{$actor.id}-{dialog.id}-rollMode-{id}"
-                            bind:group={rollMode}
-                            {value}
-                        />
-
-                        <label
-                            class="a5e-tag u-pointer u-p-md u-text-center"
-                            class:a5e-tag--active={value === rollMode}
-                            for="{$actor.id}-{dialog.id}-rollMode-{id}"
-                        >
-                            {name}
-                        </label>
-                    {/each}
-                </div>
+                <RadioGroup
+                    options={rollModeOptions}
+                    selected={rollMode}
+                    on:updateSelection={({ detail }) => (rollMode = detail)}
+                />
             </section>
 
             <section>
@@ -225,11 +198,11 @@
                     {localize("A5E.ExpertiseDie")}
                 </h3>
 
-                <ExpertiseDiePicker
+                <RadioGroup
+                    options={prepareExpertiseDiceOptions()}
                     selected={expertiseDie}
-                    on:updateSelection={(event) => {
-                        expertiseDie = event.detail;
-                    }}
+                    optionStyles="min-width:2rem; text-align: center;"
+                    on:updateSelection={({ detail }) => (expertiseDie = detail)}
                 />
             </section>
 
@@ -342,6 +315,8 @@
         flex-direction: column;
         gap: 0.5rem;
         padding: 0.75rem;
+        max-height: 50rem;
+        overflow-y: auto;
     }
 
     :global(small) {
