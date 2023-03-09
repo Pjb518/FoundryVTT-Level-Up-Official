@@ -124,15 +124,15 @@ export default class ItemA5e extends Item {
 
     // TODO: Add template validation and extract template placement to its own function
     if (promise.placeTemplate) {
-      const templateDocument = createTemplateDocument(this);
-      const template = new ItemMeasuredTemplate(templateDocument);
+      // const templateDocument = createTemplateDocument(this);
+      // const template = new ItemMeasuredTemplate(templateDocument);
 
-      template.item = this;
-      template.actorSheet = this.actor?.sheet || null;
+      // template.item = this;
+      // template.actorSheet = this.actor?.sheet || null;
 
-      Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
+      // Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
 
-      if (template) template.drawPreview();
+      // if (template) template.drawPreview();
     }
 
     const chatData = {

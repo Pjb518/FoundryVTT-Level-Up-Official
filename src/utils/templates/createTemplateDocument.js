@@ -11,6 +11,7 @@ const TEMPLATE_FUNCTION_MAP = {
   sphere: getCircleTemplateData
 };
 
+// TODO: Update this helper to work with the new actions system.
 export default function createTemplateDocument(item) {
   const { shape } = item.system.area;
   const templateConfigFunction = TEMPLATE_FUNCTION_MAP[shape];
