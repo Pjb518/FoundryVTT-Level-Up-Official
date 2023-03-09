@@ -338,19 +338,25 @@ export default class ActorA5e extends Actor {
   /** @inheritdoc */
   getRollData() {
     const data = super.getRollData();
-    const { abilities } = this.system;
+    const { abilities, skills } = this.system;
 
     data.prof = this.system.attributes.prof || 0;
 
-    // Add a shortcut for abilities.<ability>.check.mod.
-    data.abilities = Object.entries(abilities).reduce((acc, [key, ability]) => {
-      acc[key] = { ...ability, mod: ability.check.mod };
-      return acc;
-    }, {});
-
-    // Add a shortcut for ability scores.
+    // Add a shortcut for abilities.<ability>.check.mod, abilities.<ability>.mod, and <ability>.mod
     Object.entries(abilities).reduce((acc, [key, ability]) => {
+      acc.abilities ??= {};
+      acc.abilities[key] = { ...ability, mod: ability.check.mod };
       acc[key] = { ...ability, mod: ability.check.mod };
+
+      return acc;
+    }, data);
+
+    // Add similar shortcuts for skills
+    Object.entries(skills).reduce((acc, [key, skill]) => {
+      acc.skills ??= {};
+      acc.skills[key] = skill;
+      acc[key] = skill;
+
       return acc;
     }, data);
 
