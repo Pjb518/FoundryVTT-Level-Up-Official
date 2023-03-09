@@ -90,7 +90,7 @@
                             on:click={() => addPrompt(promptType)}
                         >
                             {localize("A5E.ButtonAddPrompt", {
-                                type: singleLabel,
+                                type: localize(singleLabel),
                             })}
                         </button>
                     </header>
