@@ -3,7 +3,9 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import computeSaveDC from "../utils/computeSaveDC";
+    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
 
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
@@ -75,7 +77,7 @@
     const prompts = preparePrompts(action.prompts);
     const rolls = prepareRolls(action.rolls);
 
-    const attackRoll = rolls?.attack?.length ? rolls.attack[0] : {};
+    const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
 
     const otherRolls = Object.entries(rolls).reduce(
         (acc, [rollType, rolls]) => {
@@ -91,17 +93,67 @@
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
+    let situationalMods = "";
+
+    $: rollFormula = constructD20RollFormula({
+        actor: $actor,
+        rollMode,
+        modifiers: [
+            {
+                value: attackRoll?.proficient && $actor.system.attributes.prof,
+            },
+            {
+                label: localize("A5E.AbilityCheckMod", {
+                    ability: attackRoll?.ability,
+                }),
+                value: $actor.system.abilities[attackRoll?.ability ?? ""]?.mod,
+            },
+            {
+                label: localize("A5E.ExpertiseDie"),
+                value: getExpertiseDieSize(expertiseDie),
+            },
+            {
+                label: localize("A5E.BonusMeleeWeaponAttack"),
+                value:
+                    attackRoll?.attackType === "meleeWeaponAttack" &&
+                    $actor.system.bonuses.mwak,
+            },
+            {
+                label: localize("A5E.BonusRangedWeaponAttack"),
+                value:
+                    attackRoll?.attackType === "rangedWeaponAttack" &&
+                    $actor.system.bonuses.rwak,
+            },
+            {
+                label: localize("A5E.BonusMeleeSpellAttack"),
+                value:
+                    attackRoll?.attackType === "meleeSpellAttack" &&
+                    $actor.system.bonuses.msak,
+            },
+            {
+                label: localize("A5E.BonusRangedSpellAttack"),
+                value:
+                    attackRoll?.attackType === "rangedSpellAttack" &&
+                    $actor.system.bonuses.rsak,
+            },
+            {
+                value: situationalMods,
+            },
+        ],
+    });
 </script>
 
 <form>
-    <section class="a5e-box u-flex u-flex-col u-gap-lg u-p-md">
-        <section>
-            <h3 class="heading">
-                {localize("A5E.AttackRollModeHeading")}
-            </h3>
+    <!-- TODO: Extract this to its own component -->
+    {#if attackRoll}
+        <section class="a5e-box u-flex u-flex-col u-gap-lg u-p-md">
+            <section>
+                <h3 class="heading">
+                    {localize("A5E.AttackRollModeHeading")}
+                </h3>
 
-            <div
-                class="
+                <div
+                    class="
                 u-flex
                 u-flex-wrap
                 u-list-style-none
@@ -111,42 +163,65 @@
                 u-gap-md
                 u-text-sm
             "
-                role="radiogroup"
-                id={`${$actor.id}-${dialog.id}-rollMode`}
-            >
-                {#each rollModeOptions as { id, name, value }}
+                    role="radiogroup"
+                    id={`${$actor.id}-${dialog.id}-rollMode`}
+                >
+                    {#each rollModeOptions as { id, name, value }}
+                        <input
+                            class="u-hidden"
+                            type="radio"
+                            id="{$actor.id}-{dialog.id}-rollMode-{id}"
+                            bind:group={rollMode}
+                            {value}
+                        />
+
+                        <label
+                            class="a5e-tag u-pointer u-p-md u-text-center"
+                            class:a5e-tag--active={value === rollMode}
+                            for="{$actor.id}-{dialog.id}-rollMode-{id}"
+                        >
+                            {name}
+                        </label>
+                    {/each}
+                </div>
+            </section>
+
+            <section>
+                <h3 class="heading">
+                    {localize("A5E.ExpertiseDie")}
+                </h3>
+
+                <ExpertiseDiePicker
+                    selected={expertiseDie}
+                    on:updateSelection={(event) => {
+                        expertiseDie = event.detail;
+                    }}
+                />
+            </section>
+
+            <section>
+                <label
+                    class="heading"
+                    for="{$actor.id}-{dialog.id}-situational-mods"
+                >
+                    {localize("A5E.SituationalMods")}
+                </label>
+
+                <div class="u-flex u-flex-col u-gap-sm">
                     <input
-                        class="u-hidden"
-                        type="radio"
-                        id="{$actor.id}-{dialog.id}-rollMode-{id}"
-                        bind:group={rollMode}
-                        {value}
+                        class="a5e-input"
+                        type="text"
+                        id="{$actor.id}-{dialog.id}-situational-mod"
+                        bind:value={situationalMods}
                     />
 
-                    <label
-                        class="a5e-tag u-pointer u-p-md u-text-center"
-                        class:a5e-tag--active={value === rollMode}
-                        for="{$actor.id}-{dialog.id}-rollMode-{id}"
-                    >
-                        {name}
-                    </label>
-                {/each}
-            </div>
+                    <div class="roll-formula-preview">
+                        {rollFormula}
+                    </div>
+                </div>
+            </section>
         </section>
-
-        <section>
-            <h3 class="heading">
-                {localize("A5E.ExpertiseDie")}
-            </h3>
-
-            <ExpertiseDiePicker
-                selected={expertiseDie}
-                on:updateSelection={(event) => {
-                    expertiseDie = event.detail;
-                }}
-            />
-        </section>
-    </section>
+    {/if}
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}
@@ -234,6 +309,13 @@
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
+    }
+
+    .roll-formula-preview {
+        padding: 0.5rem;
+        font-size: 0.833rem;
+        border: 1px solid #7a7971;
+        border-radius: 4px;
     }
 
     .section-subheading {

@@ -23,6 +23,11 @@
                 "An action can have no more than 1 attack roll."
             );
 
+        if (type === "attack") {
+            rollData.attackType = "meleeWeaponAttack";
+            rollData.proficient = true;
+        }
+
         if (type === "abilityCheck" || type === "savingThrow") {
             rollData.ability = "str";
         }
