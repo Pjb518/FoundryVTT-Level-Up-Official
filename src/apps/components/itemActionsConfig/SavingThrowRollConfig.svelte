@@ -2,15 +2,27 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    import RadioGroup from "../RadioGroup.svelte";
+
+    export let roll;
+
+    export let rollId;
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const { abilities } = CONFIG.A5E;
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            selectedAbility
+        );
+    }
 
-    export let roll;
-    export let rollId;
+    $: selectedAbility = roll.ability ?? "none";
+    $: selectedAbility, updateAbility();
 </script>
 
 <section class="action-config__wrapper">
@@ -37,30 +49,12 @@
             {localize("A5E.ItemSavingThrowType")}
         </h3>
 
-        <div class="option-list">
-            {#each Object.entries(abilities) as [ability, label]}
-                <input
-                    class="option-input"
-                    type="radio"
-                    id="{actionId}-{rollId}-ability-{ability}"
-                    value={ability}
-                    checked={roll.ability === ability}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.rolls.${rollId}.ability`,
-                            target.value
-                        )}
-                />
-
-                <label
-                    class="option-label"
-                    for="{actionId}-{rollId}-ability-{ability}"
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            optionStyles="min-width: 2rem; text-align: center;"
+            options={prepareAbilityOptions()}
+            selected={selectedAbility}
+            on:updateSelection={({ detail }) => (selectedAbility = detail)}
+        />
     </div>
 
     <div class="a5e-field-group">
@@ -84,29 +78,12 @@
 
 <style lang="scss">
     .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
+        &-wrapper {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 0.25rem;
             font-size: 0.694rem;
+            font-family: "Signika", sans-serif;
         }
     }
 </style>
