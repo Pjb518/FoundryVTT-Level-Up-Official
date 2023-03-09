@@ -36,8 +36,7 @@
 
     <FormSection heading="A5E.SpellcastingAbilityScore">
         <RadioGroup
-            listClasses="u-gap-md u-mb-md u-text-sm"
-            optionStyles="padding:0.5rem; text-align: center; width: 1.85rem"
+            optionStyles="min-width:2rem; text-align: center;"
             options={Object.entries(abilityAbbreviations)}
             selected={$actor.system.attributes.spellcasting}
             on:updateSelection={(event) =>
