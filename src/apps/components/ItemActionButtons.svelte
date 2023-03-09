@@ -62,7 +62,7 @@
             class:active={item.system.favorite}
             data-tooltip="A5E.ButtonToolTipFavorite"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={item.toggleFavorite}
+            on:click|stopPropagation={() => item.toggleFavorite()}
         />
     {/if}
 
@@ -74,17 +74,15 @@
                 ? "A5E.ButtonToolTipUnequip"
                 : "A5E.ButtonToolTipEquip"}
             data-tooltip-direction="UP"
-            on:click|stopPropagation={item.toggleEquipped}
+            on:click|stopPropagation={() => item.toggleEquipped()}
         />
 
         <button
             class="action-button fas fa-heart-crack"
             class:active={item.system.broken}
-            data-tooltip={item.system.broken
-                ? "A5E.ButtonToolTipFixBroken"
-                : "A5E.ButtonToolTipBroken"}
+            data-tooltip="A5E.ButtonToolTipToggleBroken"
             data-tooltip-direction="UP"
-            on:click|stopPropagation={item.toggleBroken}
+            on:click|stopPropagation={() => item.toggleBroken()}
         />
     {/if}
 
@@ -96,7 +94,7 @@
                 ? "A5E.ButtonToolTipUnprepare"
                 : "A5E.ButtonToolTipPrepare"}
             data-tooltip-direction="UP"
-            on:click|stopPropagation={item.togglePrepared}
+            on:click|stopPropagation={() => item.togglePrepared()}
         />
     {/if}
 
