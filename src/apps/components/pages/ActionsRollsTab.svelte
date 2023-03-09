@@ -7,6 +7,7 @@
     } from "@typhonjs-fvtt/svelte-standard/component";
 
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
+    import ActionsAddMenu from "../ActionsAddMenu.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
     import DamageRollConfig from "../itemActionsConfig/DamageRollConfig.svelte";
     import GenericRollConfig from "../itemActionsConfig/GenericRollConfig.svelte";
@@ -15,7 +16,6 @@
     import SavingThrowRollConfig from "../itemActionsConfig/SavingThrowRollConfig.svelte";
     import SkillCheckRollConfig from "../itemActionsConfig/SkillCheckRollConfig.svelte";
     import ToolCheckRollConfig from "../itemActionsConfig/ToolCheckRollConfig.svelte";
-    import ActionsAddMenu from "../ActionsAddMenu.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -54,32 +54,47 @@
     }
 
     const rollTypes = {
-        attack: { heading: "A5E.ItemAttackRoll", component: AttackRollConfig },
+        attack: {
+            heading: "A5E.ItemAttackRoll",
+            singleLabel: "A5E.ItemAttackRoll",
+            component: AttackRollConfig,
+        },
         damage: {
             heading: "A5E.ItemDamageRollPlural",
+            buttonLabel: "A5E.Damage",
+            singleLabel: "A5E.ItemDamageRoll",
             component: DamageRollConfig,
         },
         healing: {
             heading: "A5E.ItemHealingRollPlural",
+            singleLabel: "A5E.Healing",
             component: HealingRollConfig,
         },
         abilityCheck: {
             heading: "A5E.AbilityCheckPlural",
+            singleLabel: "A5E.AbilityCheck",
             component: AbilityCheckRollConfig,
         },
         skillCheck: {
             heading: "A5E.SkillCheckPlural",
+            singleLabel: "A5E.SkillCheckSingular",
             component: SkillCheckRollConfig,
         },
         toolCheck: {
             heading: "A5E.ToolCheckPlural",
+            singleLabel: "A5E.ToolCheck",
             component: ToolCheckRollConfig,
         },
         savingThrow: {
             heading: "A5E.SavingThrowPlural",
+            singleLabel: "A5E.SavingThrow",
             component: SavingThrowRollConfig,
         },
-        generic: { heading: "A5E.Other", component: GenericRollConfig },
+        generic: {
+            heading: "A5E.OtherPlural",
+            singleLabel: "A5E.Other",
+            component: GenericRollConfig,
+        },
     };
 
     $: action = $item.actions[actionId];
@@ -89,9 +104,9 @@
     $: rolls = action.rolls ?? {};
 
     $: menuItems = Object.entries(rollTypes).reduce(
-        (acc, [rollType, { heading }]) => {
+        (acc, [rollType, { singleLabel }]) => {
             if (!(rollType === "attack" && attackRolls.length > 0))
-                acc.push({ heading, rollType });
+                acc.push([singleLabel, rollType]);
             return acc;
         },
         []
@@ -100,7 +115,7 @@
 
 <article>
     <ul class="roll-config-list">
-        {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
+        {#each Object.entries(rollTypes) as [rollType, { heading, singleLabel, buttonLabel, component }] (rollType)}
             {#if Object.values(rolls).filter((roll) => roll.type === rollType).length}
                 <li class="roll-config-list__item">
                     <header class="action-config__section-header">
@@ -113,7 +128,13 @@
                                 class="add-button"
                                 on:click={() => addRoll(rollType)}
                             >
-                                {localize("A5E.ButtonAddRoll")}
+                                {localize("A5E.ButtonAddRoll", {
+                                    type: localize(
+                                        rollType === "damage"
+                                            ? buttonLabel
+                                            : singleLabel
+                                    ),
+                                })}
                             </button>
                         {/if}
                     </header>

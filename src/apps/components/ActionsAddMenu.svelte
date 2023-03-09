@@ -8,8 +8,8 @@
 </script>
 
 <div class="something">
-    {#each menuList as { heading, rollType } (rollType)}
-        <button on:click|preventDefault={() => dispatch("press", rollType)}>
+    {#each menuList as [heading, type]}
+        <button on:click|preventDefault={() => dispatch("press", type)}>
             {localize(heading)}
         </button>
     {/each}
@@ -19,7 +19,8 @@
     .something {
         position: relative;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        min-width: 15rem;
+        grid-template-columns: repeat(3, 5rem);
         gap: 0.125rem;
         padding: 0.125rem 0.125rem;
 
