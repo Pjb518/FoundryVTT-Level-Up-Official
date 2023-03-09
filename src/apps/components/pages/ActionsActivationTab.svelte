@@ -14,8 +14,6 @@
     const specialActivationTypes = ["none", "special"];
     const specialTimeTypes = ["instantaneous", "permanent", "special"];
 
-    console.log($item);
-    console.log(actionId);
     $: action = $item.actions[actionId];
 </script>
 
