@@ -75,15 +75,3 @@
         />
     </div>
 </section>
-
-<style lang="scss">
-    .option {
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-            font-family: "Signika", sans-serif;
-        }
-    }
-</style>
