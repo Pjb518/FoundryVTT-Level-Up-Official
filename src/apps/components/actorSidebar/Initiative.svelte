@@ -24,7 +24,12 @@
                 $actor.rollInitiative({
                     createCombatants: true,
                     initiativeOptions: {
-                        rollOptions: getKeyPressAsOptions($pressedKeysStore),
+                        rollOptions: getKeyPressAsOptions($pressedKeysStore, {
+                            reverseAlt: game.settings.get(
+                                "a5e",
+                                "reverseInitiativeAltBehavior"
+                            ),
+                        }),
                     },
                 })}
         />

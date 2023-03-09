@@ -80,6 +80,16 @@ export default function registerSystemSettings() {
     default: false
   });
 
+  game.settings.register('a5e', 'reverseInitiativeAltBehavior', {
+    name: 'Reverse Alt Behavior for Initiative',
+    hint: 'By default, holding the left alt key will skip the roll dialog for initiative rolls. If this setting is checked, the initiative roll dialog will be skipped unless the left key is held when clicking the roll button.',
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: reload
+  });
+
   game.settings.register('a5e', 'terseRollFormulae', {
     name: 'Hide System Roll Annotations',
     hint: 'The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.',
