@@ -54,6 +54,7 @@
             </div>
         {/if}
     </div>
+
     <div class="button-container">
         <button
             class="header-button fa-solid fa-circle-question"
@@ -66,6 +67,7 @@
             data-tooltip-direction="UP"
             on:click|stopPropagation={() => $item.toggleUnidentified()}
         />
+
         <button
             class="header-button fa-solid fa-heart-crack"
             class:active={$item.system.broken}
@@ -85,6 +87,7 @@
         padding-right: 1rem;
         gap: 0.75rem;
     }
+
     .header-button {
         display: flex;
         font-size: 2.25rem;
@@ -92,6 +95,7 @@
         padding: 0;
         background: none;
         color: #999;
+        cursor: pointer;
 
         &:hover {
             color: #555;
