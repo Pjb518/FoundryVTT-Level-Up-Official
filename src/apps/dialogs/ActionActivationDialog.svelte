@@ -67,6 +67,7 @@
             rolls: Object.entries(action.rolls ?? {})?.filter(([key]) =>
                 selectedRolls.includes(key)
             ),
+            placeTemplate,
         });
     }
 
@@ -114,11 +115,10 @@
         {}
     );
 
-    console.log(attackRoll);
-
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
+    let placeTemplate = action?.area?.placeTemplate ?? false;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
@@ -256,6 +256,21 @@
             </section>
         </section>
     {/if}
+
+    <FormSection>
+        <div class="u-align-center u-flex u-gap-md">
+            <input
+                class="u-pointer"
+                type="checkbox"
+                id="{dialog.id}-place-template"
+                bind:checked={placeTemplate}
+            />
+
+            <label class="u-pointer" for="{dialog.id}-place-template">
+                {localize("A5E.ItemPlaceTemplate")}
+            </label>
+        </div>
+    </FormSection>
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}
