@@ -2,16 +2,29 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-    const { abilities, skills } = CONFIG.A5E;
+    import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
     export let rollId;
 
+    const item = getContext("item");
+    const actionId = getContext("actionId");
+    const { skills } = CONFIG.A5E;
+
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            selectedAbility
+        );
+    }
+
     $: roll = $item.system.actions[actionId]?.rolls[rollId];
+    $: selectedAbility = roll.ability ?? "none";
+    $: selectedAbility, updateAbility();
 </script>
 
 <section class="action-config__wrapper">
@@ -56,50 +69,12 @@
     <div class="option-wrapper">
         <h3>{localize("A5E.DefaultAbilityScore")}</h3>
 
-        <div class="option-list">
-            <input
-                class="option-input"
-                type="radio"
-                id="{actionId}-{rollId}-ability-none"
-                name="{rollId}-ability"
-                value=""
-                checked={(roll.ability ?? true) || roll.ability === ""}
-                on:change={() =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}`,
-                        { "-=ability": null }
-                    )}
-            />
-
-            <label class="option-label" for="{actionId}-{rollId}-ability-none">
-                {localize("A5E.None")}
-            </label>
-
-            {#each Object.entries(abilities) as [ability, label]}
-                <input
-                    class="option-input"
-                    type="radio"
-                    name="{rollId}-ability"
-                    id="{actionId}-{rollId}-ability-{ability}"
-                    value={ability}
-                    checked={roll.ability === ability}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.rolls.${rollId}.ability`,
-                            target.value
-                        )}
-                />
-
-                <label
-                    class="option-label"
-                    for="{actionId}-{rollId}-ability-{ability}"
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            optionStyles="min-width: 2rem; text-align: center;"
+            options={prepareAbilityOptions(false, true)}
+            selected={selectedAbility}
+            on:updateSelection={({ detail }) => (selectedAbility = detail)}
+        />
     </div>
 
     <div class="a5e-field-group">

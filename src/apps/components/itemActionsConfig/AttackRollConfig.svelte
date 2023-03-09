@@ -156,33 +156,6 @@
         margin: 0;
     }
 
-    .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-        }
-    }
-
     .row {
         display: flex;
         gap: 0.5rem;
