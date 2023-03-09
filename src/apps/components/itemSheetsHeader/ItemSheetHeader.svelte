@@ -54,19 +54,22 @@
             </div>
         {/if}
     </div>
-    <div>
+    <div class="button-container">
+        <!-- {#if game.user.isGM} -->
         <button
-            class="broken-item-icon fa-solid fa-question"
+            class="action-button fa-solid fa-circle-question
+                {$item.system.unidentified ? '' : 'inactive'}
+                {!game.user.isGM ? 'pointer-cursor' : ''}"
+            disabled={!game.user.isGM}
             data-tooltip={$item.system.unidentified
-                ? "A5E.ButtonToolTipIdentified"
-                : "A5E.ButtonToolTipUnidentified"}
+                ? "A5E.ButtonToolTipUnidentified"
+                : "A5E.ButtonToolTipIdentified"}
             data-tooltip-direction="UP"
             on:click|stopPropagation={() => $item.toggleUnidentified()}
         />
-    </div>
-    <div>
         <button
-            class="broken-item-icon fa-solid fa-heart-crack"
+            class="action-button fa-solid fa-heart-crack
+                {$item.system.broken ? '' : 'inactive'}"
             data-tooltip={$item.system.broken
                 ? "A5E.ButtonToolTipFixBroken"
                 : "A5E.ButtonToolTipBroken"}
@@ -77,18 +80,51 @@
 </header>
 
 <style lang="scss">
-    .broken-item-icon {
+    .button-container {
+        display: flex;
+        margin-left: auto;
+        padding-right: 1rem;
+        gap: 0.75rem;
+    }
+    .action-button {
         display: flex;
         font-size: 2.25rem;
         color: #8b2525;
-        padding-right: 1rem;
-        margin-left: auto;
+        transition: all 0.15s ease-in-out;
+        padding: 0;
         background: none;
+        color: #999;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
 
         &:hover,
         &:focus {
             box-shadow: none;
         }
+    }
+
+    .active {
+        color: #425f65;
+
+        &:hover {
+            color: #425f65;
+            box-shadow: none;
+        }
+    }
+
+    .locked {
+        pointer-events: none;
+    }
+
+    .delete-button:hover {
+        color: #8b2525;
+    }
+
+    .pointer-cursor {
+        cursor: default;
     }
 
     .sheet-header {
