@@ -354,6 +354,10 @@ export default class ActorA5e extends Actor {
       return acc;
     }, data);
 
+    data.finesse = {
+      mod: Math.max(data.dex.mod, data.str.mod)
+    };
+
     data.level = this.system.details.level;
 
     data.spellDC = this.system.attributes.spellDC;
