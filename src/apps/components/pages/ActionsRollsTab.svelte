@@ -1,6 +1,10 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import {
+        TJSMenu,
+        TJSToggleIconButton,
+    } from "@typhonjs-fvtt/svelte-standard/component";
 
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
@@ -11,6 +15,7 @@
     import SavingThrowRollConfig from "../itemActionsConfig/SavingThrowRollConfig.svelte";
     import SkillCheckRollConfig from "../itemActionsConfig/SkillCheckRollConfig.svelte";
     import ToolCheckRollConfig from "../itemActionsConfig/ToolCheckRollConfig.svelte";
+    import ActionsAddMenu from "../ActionsAddMenu.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -78,43 +83,74 @@
     };
 
     $: action = $item.actions[actionId];
-
     $: attackRolls = Object.entries(action.rolls ?? {}).filter(
         ([_, roll]) => roll.type === "attack"
     );
+
+    $: menuItems = Object.entries(rollTypes).map(([rollType, { heading }]) => {
+        return {
+            heading,
+            rollType,
+        };
+    });
 </script>
 
 <ul class="roll-config-list">
     {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
-        <li class="roll-config-list__item">
-            <header class="action-config__section-header">
-                <h2 class="action-config__section-heading">
-                    {localize(heading)}
-                </h2>
+        {#if Object.values(action.rolls ?? {}).filter((roll) => roll.type === rollType).length}
+            <li class="roll-config-list__item">
+                <header class="action-config__section-header">
+                    <h2 class="action-config__section-heading">
+                        {localize(heading)}
+                    </h2>
 
-                {#if !(rollType === "attack" && attackRolls.length > 0)}
-                    <button
-                        class="add-button"
-                        on:click={() => addRoll(rollType)}
-                    >
-                        {localize("A5E.ButtonAddRoll")}
-                    </button>
-                {/if}
-            </header>
+                    {#if !(rollType === "attack" && attackRolls.length > 0)}
+                        <button
+                            class="add-button"
+                            on:click={() => addRoll(rollType)}
+                        >
+                            {localize("A5E.ButtonAddRoll")}
+                        </button>
+                    {/if}
+                </header>
 
-            <ul class="roll-list">
-                {#each Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
-                    <RollConfigWrapper {roll} {rollId}>
-                        <svelte:component this={component} {roll} {rollId} />
-                    </RollConfigWrapper>
-                {:else}
-                    <li class="action-config__none">{localize("A5E.None")}</li>
-                {/each}
-            </ul>
-        </li>
+                <ul class="roll-list">
+                    {#each Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
+                        <RollConfigWrapper {roll} {rollId}>
+                            <svelte:component
+                                this={component}
+                                {roll}
+                                {rollId}
+                            />
+                        </RollConfigWrapper>
+                    {:else}
+                        <li class="action-config__none">
+                            {localize("A5E.None")}
+                        </li>
+                    {/each}
+                </ul>
+            </li>
+        {/if}
     {/each}
 </ul>
 
+<TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
+    <TJSMenu>
+        <ActionsAddMenu
+            menuList={menuItems}
+            on:press={({ detail }) => addRoll(detail)}
+        />
+    </TJSMenu>
+</TJSToggleIconButton>
+
+<!-- {#each Object.entries(rollTypes) as [rollType, { heading }]}
+<div
+style="border: 1px solid red; padding: 0.5rem;"
+on:click|stopPropagation={() => console.log(rollType)}
+    >
+        {localize(heading)}
+    </div>
+{/each} -->
 <style lang="scss">
     .roll-list {
         display: flex;
