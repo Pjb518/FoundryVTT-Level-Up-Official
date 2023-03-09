@@ -86,72 +86,79 @@
     $: attackRolls = Object.entries(action.rolls ?? {}).filter(
         ([_, roll]) => roll.type === "attack"
     );
+    $: rolls = action.rolls ?? {};
 
-    $: menuItems = Object.entries(rollTypes).map(([rollType, { heading }]) => {
-        return {
-            heading,
-            rollType,
-        };
-    });
+    $: menuItems = Object.entries(rollTypes).reduce(
+        (acc, [rollType, { heading }]) => {
+            if (!(rollType === "attack" && attackRolls.length > 0))
+                acc.push({ heading, rollType });
+            return acc;
+        },
+        []
+    );
 </script>
 
-<ul class="roll-config-list">
-    {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
-        {#if Object.values(action.rolls ?? {}).filter((roll) => roll.type === rollType).length}
-            <li class="roll-config-list__item">
-                <header class="action-config__section-header">
-                    <h2 class="action-config__section-heading">
-                        {localize(heading)}
-                    </h2>
+<article>
+    <ul class="roll-config-list">
+        {#each Object.entries(rollTypes) as [rollType, { heading, component }] (rollType)}
+            {#if Object.values(rolls).filter((roll) => roll.type === rollType).length}
+                <li class="roll-config-list__item">
+                    <header class="action-config__section-header">
+                        <h2 class="action-config__section-heading">
+                            {localize(heading)}
+                        </h2>
 
-                    {#if !(rollType === "attack" && attackRolls.length > 0)}
-                        <button
-                            class="add-button"
-                            on:click={() => addRoll(rollType)}
-                        >
-                            {localize("A5E.ButtonAddRoll")}
-                        </button>
-                    {/if}
-                </header>
+                        {#if !(rollType === "attack" && attackRolls.length > 0)}
+                            <button
+                                class="add-button"
+                                on:click={() => addRoll(rollType)}
+                            >
+                                {localize("A5E.ButtonAddRoll")}
+                            </button>
+                        {/if}
+                    </header>
 
-                <ul class="roll-list">
-                    {#each Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
-                        <RollConfigWrapper {roll} {rollId}>
-                            <svelte:component
-                                this={component}
-                                {roll}
-                                {rollId}
-                            />
-                        </RollConfigWrapper>
-                    {:else}
-                        <li class="action-config__none">
-                            {localize("A5E.None")}
-                        </li>
-                    {/each}
-                </ul>
-            </li>
-        {/if}
-    {/each}
-</ul>
+                    <ul class="roll-list">
+                        {#each Object.entries(rolls).filter(([_, roll]) => roll.type === rollType) as [rollId, roll] (rollId)}
+                            <RollConfigWrapper {roll} {rollId}>
+                                <svelte:component
+                                    this={component}
+                                    {roll}
+                                    {rollId}
+                                />
+                            </RollConfigWrapper>
+                        {:else}
+                            <li class="action-config__none">
+                                {localize("A5E.None")}
+                            </li>
+                        {/each}
+                    </ul>
+                </li>
+            {/if}
+        {/each}
+    </ul>
 
-<TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
-    <TJSMenu>
-        <ActionsAddMenu
-            menuList={menuItems}
-            on:press={({ detail }) => addRoll(detail)}
-        />
-    </TJSMenu>
-</TJSToggleIconButton>
-
-<!-- {#each Object.entries(rollTypes) as [rollType, { heading }]}
-<div
-style="border: 1px solid red; padding: 0.5rem;"
-on:click|stopPropagation={() => console.log(rollType)}
-    >
-        {localize(heading)}
+    <div class="sticky-add-button">
+        <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
+            <TJSMenu offset={{ x: -110, y: -140 }}>
+                <ActionsAddMenu
+                    menuList={menuItems}
+                    on:press={({ detail }) => addRoll(detail)}
+                />
+            </TJSMenu>
+        </TJSToggleIconButton>
     </div>
-{/each} -->
+</article>
+
 <style lang="scss">
+    article {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+        overflow: hidden;
+    }
+
     .roll-list {
         display: flex;
         flex-direction: column;
@@ -165,15 +172,23 @@ on:click|stopPropagation={() => console.log(rollType)}
     .roll-config-list {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         gap: 0.75rem;
         list-style: none;
         padding: 0;
         margin: 0;
+        overflow-y: auto;
 
         &__item {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
+    }
+
+    .sticky-add-button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 </style>

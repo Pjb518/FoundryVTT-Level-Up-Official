@@ -14,8 +14,6 @@
         ["item", "A5E.Item"],
     ];
 
-    console.log($item.system.actions[actionId]);
-
     $: content = $item.system.actions[actionId]?.description;
     $: descriptionOutputs =
         $item.system.actions[actionId]?.descriptionOutputs ?? [];

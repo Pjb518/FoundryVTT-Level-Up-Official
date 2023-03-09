@@ -8,7 +8,7 @@
 </script>
 
 <div class="something">
-    {#each menuList as { heading, rollType }}
+    {#each menuList as { heading, rollType } (rollType)}
         <button on:click|preventDefault={() => dispatch("press", rollType)}>
             {localize(heading)}
         </button>
