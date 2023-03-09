@@ -112,6 +112,7 @@
                             color: black;
                             background-color: rgba(0 0 0 / 0.05);
                             max-width: 98%;
+                            border: 1px solid #ccc;
                         "
                         disabled={true}
                     />
