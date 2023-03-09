@@ -14,6 +14,7 @@
     import prepareMovementData from "../../dataPreparationHelpers/prepareMovementData";
     import prepareToolProficiencies from "../../dataPreparationHelpers/prepareToolProficiencies";
     import prepareWeaponProficiencies from "../../dataPreparationHelpers/prepareWeaponProficiencies";
+    import Tag from "../Tag.svelte";
 
     const actor = getContext("actor");
 
@@ -100,9 +101,20 @@
 
             <ul class="details-list">
                 {#each values as tag}
-                    <li class="a5e-tag a5e-tag--tight details-tag">
+                    <!-- <li class="a5e-tag a5e-tag--tight details-tag">
                         {tag}
-                    </li>
+                    </li> -->
+                    <Tag
+                        label={tag}
+                        value={tag}
+                        tight={true}
+                        optionStyles="
+                            color: black;
+                            background-color: rgba(0 0 0 / 0.05);
+                            max-width: 98%;
+                        "
+                        disabled={true}
+                    />
                 {/each}
             </ul>
         </section>
