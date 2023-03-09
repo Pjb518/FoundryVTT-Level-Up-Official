@@ -16,8 +16,8 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="initiative-roll-button fas fa-dice-d20"
-            class:initiative-roll-button--shift={$pressedKeysStore.ShiftLeft}
-            class:initiative-roll-button--ctrl={$pressedKeysStore.ControlLeft}
+            class:initiative-roll-button--shift={$pressedKeysStore.Shift}
+            class:initiative-roll-button--ctrl={$pressedKeysStore.Control}
             data-tooltip="A5E.RollInitiative"
             data-tooltip-direction="DOWN"
             on:click={() =>

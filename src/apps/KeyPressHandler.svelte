@@ -9,11 +9,12 @@
         (value) => (pressedKeys = value)
     );
 
-    function logKey(event, isPressed) {
-        if (!["AltLeft", "ControlLeft", "ShiftLeft"].includes(event.code))
-            return;
+    function logKey(event) {
+        pressedKeys["Alt"] = event.altKey;
+        pressedKeys["Control"] = event.metaKey || event.ctrlKey;
+        pressedKeys["Shift"] = event.shiftKey;
 
-        pressedKeys[event.code] = isPressed;
+        console.log(pressedKeys);
 
         keyBindingStore.update(() => ({ ...pressedKeys }));
     }

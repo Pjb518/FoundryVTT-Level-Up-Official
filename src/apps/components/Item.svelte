@@ -40,8 +40,8 @@
 <li class="item-wrapper" draggable="true">
     <button
         class="item-image"
-        class:item-image--shift={$pressedKeysStore.ShiftLeft}
-        class:item-image--ctrl={$pressedKeysStore.ControlLeft}
+        class:item-image--shift={$pressedKeysStore.Shift}
+        class:item-image--ctrl={$pressedKeysStore.Control}
         style="--background-image: url({action?.img ??
             item.img ??
             'icons/svg/item-bag.svg'});"

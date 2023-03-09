@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import constructGenericRollFormula from "../../../../dice/constructGenericRollFormula";
+    import constructRollFormula from "../../../../dice/constructRollFormula";
     import prepareSelectedTokenActors from "../../../dataPreparationHelpers/prepareSelectedTokenActors";
 
     export let key;
@@ -11,7 +11,7 @@
         const tokenActors = prepareSelectedTokenActors();
 
         for (const token of tokenActors) {
-            const rollFormula = constructGenericRollFormula({
+            const rollFormula = constructRollFormula({
                 actor: token,
                 formula: prompt.formula,
             });

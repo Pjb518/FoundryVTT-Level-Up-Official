@@ -14,7 +14,7 @@ export default async function _onCombatControl(event) {
     ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
     : CONFIG.A5E.ROLL_MODE.NORMAL;
 
-  rollMode = event.ctrlKey ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
+  rollMode = (event.metaKey || event.ctrlKey) ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
 
   if (fn) {
     await fn.bind(combat)({

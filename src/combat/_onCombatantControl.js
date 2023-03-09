@@ -13,7 +13,7 @@ export default async function _onCombatantControl(event) {
     ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
     : CONFIG.A5E.ROLL_MODE.NORMAL;
 
-  rollMode = event.ctrlKey ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
+  rollMode = (event.metaKey || event.ctrlKey) ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
 
   // Switch control action
   // eslint-disable-next-line default-case
