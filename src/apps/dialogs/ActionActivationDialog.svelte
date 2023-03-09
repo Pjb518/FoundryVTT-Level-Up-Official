@@ -89,6 +89,8 @@
         {}
     );
 
+    console.log(attackRoll);
+
     let expertiseDie = 0;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
@@ -100,7 +102,12 @@
         rollMode,
         modifiers: [
             {
+                label: localize("A5E.ProficiencyBonusAbbr"),
                 value: attackRoll?.proficient && $actor.system.attributes.prof,
+            },
+            {
+                label: localize("A5E.AttackBonus"),
+                value: attackRoll?.bonus ?? 0,
             },
             {
                 label: localize("A5E.AbilityCheckMod", {
