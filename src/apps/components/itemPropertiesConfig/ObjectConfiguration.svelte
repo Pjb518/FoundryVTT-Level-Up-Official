@@ -70,7 +70,7 @@
             </FormSection>
 
             <FormSection>
-                <div class="u-flex u-gap-xxxl u-text-sm u-w-full">
+                <div class="properties-container">
                     <div class="u-align-center u-flex u-gap-md">
                         <input
                             class="u-pointer"
@@ -115,26 +115,46 @@
                             </label>
                         </div>
                     {/if}
+                    {#if game.user.isGM}
+                        <div class="u-align-center u-flex u-gap-md">
+                            <input
+                                class="u-pointer"
+                                type="checkbox"
+                                name="system.plotItem"
+                                id="{appId}-plot-item"
+                                checked={$item.system.plotItem}
+                                on:change={({ target }) =>
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        target.name,
+                                        target.checked
+                                    )}
+                            />
 
-                    <div class="u-align-center u-flex u-gap-md">
-                        <input
-                            class="u-pointer"
-                            type="checkbox"
-                            name="system.plotItem"
-                            id="{appId}-plot-item"
-                            checked={$item.system.plotItem}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.checked
-                                )}
-                        />
+                            <label class="u-pointer" for="{appId}-plot-item">
+                                {localize("A5E.PlotItem")}
+                            </label>
+                        </div>
+                        <div class="u-align-center u-flex u-gap-md">
+                            <input
+                                class="u-pointer"
+                                type="checkbox"
+                                name="system.unidentified"
+                                id="{appId}-unidentified"
+                                checked={$item.system.unidentified}
+                                on:change={({ target }) =>
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        target.name,
+                                        target.checked
+                                    )}
+                            />
 
-                        <label class="u-pointer" for="{appId}-plot-item">
-                            {localize("A5E.PlotItem")}
-                        </label>
-                    </div>
+                            <label class="u-pointer" for="{appId}-unidentified">
+                                {localize("A5E.ItemUnidentified")}
+                            </label>
+                        </div>
+                    {/if}
                 </div>
             </FormSection>
 
@@ -372,3 +392,13 @@
         </dl>
     {/if}
 </section>
+
+<style>
+    .properties-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 2.225rem;
+        width: 100%;
+        font-size: 0.833rem;
+    }
+</style>
