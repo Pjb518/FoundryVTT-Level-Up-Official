@@ -31,7 +31,10 @@
         const transferData = event.dataTransfer.getData("text/plain");
         if (!transferData) return;
 
-        const { uuid } = JSON.parse(transferData);
+        const dragData = JSON.parse(transferData);
+        if (dragData?.isFromActor) return;
+
+        const { uuid } = dragData;
         const document = await fromUuid(uuid);
 
         sheet._onDropDocument(document);
