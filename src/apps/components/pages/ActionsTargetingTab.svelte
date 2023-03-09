@@ -28,7 +28,6 @@
 
     function selectTarget(event) {
         const selectedOption = event.target?.selectedOptions[0]?.value;
-
         if (selectedOption === "null") {
             $item.update({
                 [`system.actions.${actionId}`]: {
