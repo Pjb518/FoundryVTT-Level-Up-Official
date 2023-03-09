@@ -4,6 +4,7 @@
 
     export let options = [];
     export let selected = [];
+    export let disabledOptions = [];
     export let disabled = false;
     export let red = false;
 
@@ -37,7 +38,8 @@
             {label}
             {value}
             red={red && red?.includes(value)}
-            disabled={disabled && !selected.includes(value)}
+            disabled={disabledOptions.includes(value) ||
+                (disabled && !selected.includes(value))}
             on:tagToggle={({ detail }) => updateSelection(detail)}
         />
     {/each}

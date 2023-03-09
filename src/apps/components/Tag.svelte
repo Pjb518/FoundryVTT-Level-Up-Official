@@ -51,9 +51,15 @@
 
         &:disabled,
         &[disabled] {
+            background: #aaa;
             border: 1px solid #999;
             color: #999;
             cursor: auto;
+
+            &:hover,
+            &:focus {
+                background: #aaa;
+            }
         }
 
         &--red {

@@ -21,7 +21,29 @@
         return Object.values(property ?? {})
             .flat()
             .reduce((acc, [key, value]) => {
+                if (
+                    ["generic", "healing", "damage"].includes(value.type) &&
+                    !value.formula
+                ) {
+                    acc.push(key);
+                }
+
                 if (value.default ?? true) acc.push(key);
+                return acc;
+            }, []);
+    }
+
+    function getInvalidSelections(property) {
+        return Object.values(property ?? {})
+            .flat()
+            .reduce((acc, [key, value]) => {
+                if (
+                    ["generic", "healing", "damage"].includes(value.type) &&
+                    !value.formula
+                ) {
+                    acc.push(key);
+                }
+
                 return acc;
             }, []);
     }
@@ -94,6 +116,8 @@
 
     console.log(attackRoll);
 
+    let disabledRolls = getInvalidSelections(rolls);
+    let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
     let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
@@ -249,6 +273,7 @@
                                     key,
                                     roll.label,
                                 ])}
+                                disabledOptions={disabledRolls}
                                 selected={selectedRolls}
                                 on:updateSelection={(event) =>
                                     (selectedRolls = event.detail)}
@@ -276,6 +301,7 @@
                                     key,
                                     prompt.label,
                                 ])}
+                                disabledOptions={disabledPrompts}
                                 selected={selectedPrompts}
                                 on:updateSelection={(event) =>
                                     (selectedPrompts = event.detail)}
