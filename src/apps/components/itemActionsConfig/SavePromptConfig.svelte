@@ -4,7 +4,10 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import computeSaveDC from "../../utils/computeSaveDC";
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    import RadioGroup from "../RadioGroup.svelte";
 
     export let prompt;
     export let promptId;
@@ -15,6 +18,14 @@
 
     const { abilities, saveDCOptions } = CONFIG.A5E;
 
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
+            selectedAbility
+        );
+    }
+
     function selectSaveDCCalculationType(event) {
         const selectedOption = event.target?.selectedOptions[0]?.value;
 
@@ -24,10 +35,10 @@
         });
     }
 
-    function onSaveDCUpdate(actor, { type, bonus }) {
+    function onSaveDCUpdate(actor) {
         try {
             const saveDC = computeSaveDC(actor, {
-                type: prompt?.saveDC.type,
+                type: prompt?.saveDC?.type,
                 bonus: saveDCBonus,
             });
 
@@ -41,13 +52,16 @@
     let saveDCIsValid = true;
     let saveDCBonus = prompt?.saveDC?.bonus ?? "";
 
-    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC.type, saveDCBonus);
+    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
 
     $: updateDocumentDataFromField(
         $item,
         `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
         saveDCBonus
     );
+
+    $: selectedAbility = prompt.ability ?? "none";
+    $: selectedAbility, updateAbility();
 </script>
 
 <section class="action-config__wrapper">
@@ -74,51 +88,12 @@
             {localize("A5E.ItemSavingThrowType")}
         </h3>
 
-        <div class="option-list">
-            <input
-                class="option-input"
-                type="radio"
-                id="{actionId}-{promptId}-ability-none"
-                value=""
-                checked={(prompt.ability ?? true) || prompt.ability === ""}
-                on:change={() =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.prompts.${promptId}`,
-                        { "-=ability": null }
-                    )}
-            />
-
-            <label
-                class="option-label"
-                for="{actionId}-{promptId}-ability-none"
-            >
-                {localize("A5E.None")}
-            </label>
-
-            {#each Object.entries(abilities) as [ability, label]}
-                <input
-                    class="option-input"
-                    type="radio"
-                    id="{actionId}-{promptId}-ability-{ability}"
-                    value={ability}
-                    checked={prompt.ability === ability}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.prompts.${promptId}.ability`,
-                            target.value
-                        )}
-                />
-
-                <label
-                    class="option-label"
-                    for="{actionId}-{promptId}-ability-{ability}"
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            optionStyles="min-width: 2rem; text-align: center;"
+            options={prepareAbilityOptions()}
+            selected={selectedAbility}
+            on:updateSelection={({ detail }) => (selectedAbility = detail)}
+        />
     </div>
 
     <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md">
@@ -195,34 +170,30 @@
                 )}
         />
     </div>
+
+    <div class="a5e-field-group a5e-field-group--checkbox">
+        <input
+            id="{actionId}-{promptId}-default"
+            class="checkbox"
+            type="checkbox"
+            checked={prompt.default ?? true}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.prompts.${promptId}.default`,
+                    target.checked
+                )}
+        />
+
+        <label for="{actionId}-{promptId}-default">
+            {localize("A5E.PromptDefaultSelection")}
+        </label>
+    </div>
 </section>
 
 <style lang="scss">
-    .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-        }
+    .checkbox {
+        margin: 0;
     }
 
     .save-dc-preview-wrapper {

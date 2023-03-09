@@ -47,7 +47,7 @@
                     on:change={({ target }) =>
                         updateAssociatedValues(
                             $item,
-                            target.name,
+                            `system.actions.${actionId}.activation.type`,
                             target.value,
                             `system.actions.${actionId}.activation.cost`,
                             specialActivationTypes
@@ -107,7 +107,7 @@
                     on:change={({ target }) =>
                         updateAssociatedValues(
                             $item,
-                            target.name,
+                            `system.actions.${actionId}.duration.unit`,
                             target.value,
                             `system.actions.${actionId}.duration.value`,
                             specialTimeTypes

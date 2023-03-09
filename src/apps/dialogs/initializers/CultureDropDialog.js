@@ -1,17 +1,18 @@
+// eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
-import BackgroundDropDialogComponent from './dialogs/BackgroundDropDialog.svelte';
+import CultureDropDialogComponent from '../CultureDropDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class BackgroundDropDialog extends TJSDialog {
-  constructor(item) {
+export default class CultureDropDialog extends TJSDialog {
+  constructor(actorDocument, itemDocument) {
     super({
       title: 'Test',
       content: {
-        class: BackgroundDropDialogComponent,
-        props: { itemDocument: item }
+        class: CultureDropDialogComponent,
+        props: { actorDocument, itemDocument }
       }
     }, { classes: ['a5e-sheet'], width: 480 });
 

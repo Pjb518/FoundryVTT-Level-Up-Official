@@ -91,7 +91,7 @@
                         />
 
                         <label class="u-pointer" for="{appId}-isStance">
-                            Manuever is a stance
+                            {localize("A5E.ManeuverIsStance")}
                         </label>
                     </div>
                 </FormSection>
@@ -137,7 +137,7 @@
                     {localize(A5E.maneuverDegrees[$item.system.degree])}
 
                     {#if $item.system.degree > 0 && $item.system.isStance}
-                        (Stance)
+                        {localize("A5E.ManeuverStance")}
                     {/if}
                 </dd>
             </div>

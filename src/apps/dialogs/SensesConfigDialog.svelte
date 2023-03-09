@@ -21,7 +21,6 @@
 </script>
 
 <article>
-    <!-- TODO: Possible conversion to number -->
     {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
         <FormSection heading={headings[sense]} inline={true}>
             <div class="u-w-20">
@@ -30,6 +29,7 @@
                     disabled={senseData.unit === "unlimited"}
                     type={senseData.unit === "unlimited" ? "text" : "number"}
                     name="system.attributes.senses.{sense}.distance"
+                    min="0"
                     value={senseData.unit === "unlimited"
                         ? "—"
                         : senseData.distance || 0}
@@ -37,7 +37,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Math.max(Number(target.value), 0)
                         );
                     }}
                 />

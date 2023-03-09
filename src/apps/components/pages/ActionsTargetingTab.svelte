@@ -7,6 +7,7 @@
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
     import FormSection from "../FormSection.svelte";
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
+    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -27,7 +28,6 @@
 
     function selectTarget(event) {
         const selectedOption = event.target?.selectedOptions[0]?.value;
-
         if (selectedOption === "null") {
             $item.update({
                 [`system.actions.${actionId}`]: {
@@ -35,11 +35,12 @@
                 },
             });
         } else {
-            $item.update({
-                [`system.actions.${actionId}.target`]: {
-                    type: selectedOption,
-                },
-            });
+            updateAssociatedValues(
+                $item,
+                `system.actions.${actionId}.target.type`,
+                selectedOption,
+                `system.actions.${actionId}.target.quantity`
+            );
         }
     }
 

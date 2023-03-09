@@ -2,15 +2,27 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    import RadioGroup from "../RadioGroup.svelte";
+
+    export let prompt;
+    export let promptId;
 
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const { abilities } = CONFIG.A5E;
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
+            selectedAbility
+        );
+    }
 
-    export let prompt;
-    export let promptId;
+    $: selectedAbility = prompt.ability ?? "none";
+    $: selectedAbility, updateAbility();
 </script>
 
 <section class="action-config__wrapper">
@@ -38,119 +50,36 @@
             {localize("A5E.ItemAbilityCheckType")}
         </h3>
 
-        <div class="option-list">
-            <input
-                class="option-input"
-                type="radio"
-                name="{actionId}-{promptId}-ability"
-                id="{actionId}-{promptId}-ability-none"
-                value=""
-                checked={(prompt.ability ?? true) || prompt.ability === ""}
-                on:change={() =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.prompts.${promptId}`,
-                        { "-=ability": null }
-                    )}
-            />
-
-            <label
-                class="option-label"
-                for="{actionId}-{promptId}-ability-none"
-            >
-                {localize("A5E.None")}
-            </label>
-
-            {#each Object.entries(abilities) as [ability, label]}
-                <input
-                    class="option-input"
-                    type="radio"
-                    name="{actionId}-{promptId}-ability"
-                    id="{actionId}-{promptId}-ability-{ability}"
-                    value={ability}
-                    checked={prompt.ability === ability}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.prompts.${promptId}.ability`,
-                            target.value
-                        )}
-                />
-
-                <label
-                    class="option-label"
-                    for="{actionId}-{promptId}-ability-{ability}"
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--formula">
-        <label for="{actionId}-{promptId}-dc">
-            {localize("A5E.ItemAbilityCheckDC")}
-        </label>
-
-        <input
-            id="{actionId}-{promptId}-dc"
-            name="{actionId}-{promptId}-dc"
-            type="text"
-            value={prompt.abilityDC ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.abilityDC`,
-                    target.value
-                )}
+        <RadioGroup
+            optionStyles="min-width: 2rem; text-align: center;"
+            options={prepareAbilityOptions()}
+            selected={selectedAbility}
+            on:updateSelection={({ detail }) => (selectedAbility = detail)}
         />
     </div>
 
-    <div class="a5e-field-group ">
-        <label for="{actionId}-{promptId}-save-effect">
-            {localize("A5E.ItemEffectOnCheck")}
-        </label>
-
+    <div class="a5e-field-group a5e-field-group--checkbox">
         <input
-            id="{actionId}-{promptId}-save-effect"
-            name="{actionId}-{promptId}-save-effect"
-            type="text"
-            value={prompt.onSave ?? ""}
+            id="{actionId}-{promptId}-default"
+            class="checkbox"
+            type="checkbox"
+            checked={prompt.default ?? true}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.prompts.${promptId}.onSave`,
-                    target.value
+                    `system.actions.${actionId}.prompts.${promptId}.default`,
+                    target.checked
                 )}
         />
+
+        <label for="{actionId}-{promptId}-default">
+            {localize("A5E.PromptDefaultSelection")}
+        </label>
     </div>
 </section>
 
 <style lang="scss">
-    .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-        }
+    .checkbox {
+        margin: 0;
     }
 </style>

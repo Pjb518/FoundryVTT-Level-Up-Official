@@ -10,6 +10,7 @@
     export let { actorDocument, appId } = getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
+    const A5E = CONFIG.A5E;
 
     const headings = {
         burrow: "A5E.MovementBurrowingSpeed",
@@ -21,7 +22,7 @@
 </script>
 
 <article>
-    {#each Object.entries($actor.system.attributes.movement) as [mode, distance]}
+    {#each Object.entries($actor.system.attributes.movement) as [mode, movementData]}
         {#if mode != "traits"}
             <FormSection>
                 <div class="outer-wrapper">
@@ -34,19 +35,19 @@
                             <input
                                 class="a5e-input"
                                 type="number"
-                                name="system.attributes.movement.{mode}"
-                                value={distance || 0}
+                                name="system.attributes.movement.{mode}.distance"
+                                value={movementData.distance || 0}
+                                min="0"
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
                                         $actor,
                                         target.name,
-                                        Number(target.value)
+                                        Math.max(Number(target.value), 0)
                                     );
                                 }}
                             />
                         </div>
                     </div>
-
                     {#if mode === "fly"}
                         <div class="u-align-center u-flex u-gap-md">
                             <input
@@ -70,6 +71,30 @@
                             </label>
                         </div>
                     {/if}
+                </div>
+                <div class="u-w-20">
+                    <select
+                        class="u-w-30"
+                        name={`system.attributes.movement.${mode}.unit`}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    >
+                        {#each Object.entries(A5E.distanceUnits) as [key, name]}
+                            <option
+                                {key}
+                                value={key}
+                                selected={$actor.system.attributes.movement[
+                                    mode
+                                ].unit === key}
+                            >
+                                {localize(name)}
+                            </option>
+                        {/each}
+                    </select>
                 </div>
             </FormSection>
         {/if}

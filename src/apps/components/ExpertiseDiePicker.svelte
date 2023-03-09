@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
     export let selected;
 
