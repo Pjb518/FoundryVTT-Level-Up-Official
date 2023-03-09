@@ -89,7 +89,6 @@
     .action-button {
         display: flex;
         font-size: 2.25rem;
-        color: #8b2525;
         transition: all 0.15s ease-in-out;
         padding: 0;
         background: none;
