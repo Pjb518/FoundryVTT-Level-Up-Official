@@ -55,7 +55,6 @@
         {/if}
     </div>
     <div class="button-container">
-        <!-- {#if game.user.isGM} -->
         <button
             class="action-button fa-solid fa-circle-question"
             class:active={$item.system.unidentified}
