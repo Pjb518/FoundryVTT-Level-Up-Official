@@ -1,4 +1,4 @@
-export default function getArmorProficiencies(includeNullValue = false) {
+export default function prepareAbilityOptions(includeNullValue = false) {
   const abilities = Object.entries(CONFIG.A5E.abilityAbbreviations).map(
     ([key, value]) => [key, game.i18n.localize(value)]
   );
