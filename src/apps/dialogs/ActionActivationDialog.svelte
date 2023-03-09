@@ -26,7 +26,7 @@
                     ["generic", "healing", "damage"].includes(value.type) &&
                     !value.formula
                 ) {
-                    acc.push(key);
+                    return acc;
                 }
 
                 if (value.default ?? true) acc.push(key);
@@ -123,8 +123,6 @@
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
     let situationalMods = "";
-
-    console.log(selectedPrompts);
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,

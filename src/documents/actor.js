@@ -697,7 +697,7 @@ export default class ActorA5e extends Actor {
   async rollAbilityCheck(abilityKey, options = {}) {
     let dialogData;
 
-    if (options.skipRollDialog) dialogData = this.#getDefaultAbilityCheckData(abilityKey, options);
+    if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
     else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
 
     if (!dialogData) return;
@@ -730,12 +730,12 @@ export default class ActorA5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultAbilityCheckData(abilityKey, options) {
+  getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
 
     const rollFormula = constructD20RollFormula({
       actor: this,
-      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       modifiers: [
         {
           label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
@@ -753,10 +753,10 @@ export default class ActorA5e extends Actor {
         },
         {
           label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? ability.expertiseDice)
+          value: getExpertiseDieSize(options?.expertiseDice ?? ability.expertiseDice)
         },
         {
-          value: options.situationalMods
+          value: options?.situationalMods
         }
       ]
     });
@@ -828,7 +828,7 @@ export default class ActorA5e extends Actor {
   async rollSavingThrow(abilityKey, options = {}) {
     let dialogData;
 
-    if (options.skipRollDialog) dialogData = this.#getDefaultSavingThrowData(abilityKey, options);
+    if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
     else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
 
     if (dialogData === null) return;
@@ -866,12 +866,12 @@ export default class ActorA5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultSavingThrowData(abilityKey, options) {
+  getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
 
     const rollFormula = constructD20RollFormula({
       actor: this,
-      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       modifiers: [
         {
           label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
@@ -896,10 +896,10 @@ export default class ActorA5e extends Actor {
         },
         {
           label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? ability?.expertiseDice)
+          value: getExpertiseDieSize(options?.expertiseDice ?? ability?.expertiseDice)
         },
         {
-          value: options.situationalMods
+          value: options?.situationalMods
         }
       ]
     });
@@ -929,7 +929,7 @@ export default class ActorA5e extends Actor {
   async rollSkillCheck(skillKey, options = {}) {
     let rollData;
 
-    if (options.skipRollDialog) rollData = this.#getDefaultSkillRollData(skillKey, options);
+    if (options.skipRollDialog) rollData = this.getDefaultSkillCheckData(skillKey, options);
     else rollData = await this.#showSkillCheckPrompt(skillKey, options);
 
     if (!rollData) return;
@@ -964,17 +964,17 @@ export default class ActorA5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultSkillRollData(skillKey, options) {
+  getDefaultSkillCheckData(skillKey, options = {}) {
     const skill = this.system.skills[skillKey];
-    const abilityKey = options.abilityKey ?? skill.ability;
+    const abilityKey = options?.abilityKey ?? skill.ability;
     const ability = this.system.abilities[abilityKey];
 
     // TODO: Update the keys below to use format and proper localisations.
 
     const rollFormula = constructD20RollFormula({
       actor: this,
-      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-      minRoll: options.minRoll ?? skill.minRoll,
+      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      minRoll: options?.minRoll ?? skill.minRoll,
       modifiers: [
         {
           label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Mod`,
@@ -1002,10 +1002,10 @@ export default class ActorA5e extends Actor {
         },
         {
           label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? skill.expertiseDice)
+          value: getExpertiseDieSize(options?.expertiseDice ?? skill.expertiseDice)
         },
         {
-          value: options.situationalMods
+          value: options?.situationalMods
         }
       ]
     });

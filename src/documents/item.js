@@ -122,6 +122,8 @@ export default class ItemA5e extends Item {
 
     if (!promise) return;
 
+    const rolls = promise?.rolls?.map(([_, roll]) => this.#prepareItemRoll(roll)).filter(Boolean);
+
     // TODO: Add template validation and extract template placement to its own function
     if (promise.placeTemplate) {
       // const templateDocument = createTemplateDocument(this);
@@ -153,6 +155,18 @@ export default class ItemA5e extends Item {
     };
 
     ChatMessage.create(chatData);
+  }
+
+  #prepareItemRoll(roll) {
+    switch (roll.type) {
+      case 'abilityCheck':
+        return this.actor.getDefaultAbilityCheckData(roll.ability);
+      case 'savingThrow':
+        return this.actor.getDefaultSavingThrowData(roll.ability);
+      case 'skillCheck':
+        return this.actor.getDefaultSkillCheckData(roll.skill, roll.ability);
+      default: return null;
+    }
   }
 
   async shareItemDescription() {
