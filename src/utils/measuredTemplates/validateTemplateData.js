@@ -8,6 +8,7 @@ export default function validateTemplateData(item, actionId) {
   const { area } = item.actions[actionId];
 
   if (!area?.shape) return false;
+  if (!area.quantity || area.quantity <= 0) return false;
 
   if (area.shape === 'cone') {
     const length = Number(area?.length);
