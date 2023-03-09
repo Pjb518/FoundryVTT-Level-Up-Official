@@ -56,7 +56,7 @@
     </div>
     <div class="button-container">
         <button
-            class="action-button fa-solid fa-circle-question"
+            class="header-button fa-solid fa-circle-question"
             class:active={$item.system.unidentified}
             class:locked={!game.user.isGM}
             disabled={!game.user.isGM}
@@ -67,7 +67,7 @@
             on:click|stopPropagation={() => $item.toggleUnidentified()}
         />
         <button
-            class="action-button fa-solid fa-heart-crack"
+            class="header-button fa-solid fa-heart-crack"
             class:active={$item.system.broken}
             data-tooltip={$item.system.broken
                 ? "A5E.ButtonToolTipFixBroken"
@@ -85,7 +85,7 @@
         padding-right: 1rem;
         gap: 0.75rem;
     }
-    .action-button {
+    .header-button {
         display: flex;
         font-size: 2.25rem;
         transition: all 0.15s ease-in-out;
@@ -123,10 +123,6 @@
 
     .delete-button:hover {
         color: #8b2525;
-    }
-
-    .pointer-cursor {
-        cursor: default;
     }
 
     .sheet-header {

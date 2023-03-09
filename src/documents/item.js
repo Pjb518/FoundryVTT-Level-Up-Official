@@ -297,11 +297,11 @@ export default class ItemA5e extends Item {
     });
   }
 
-  async toggleUnidentified() {
-    if (!this.type === 'object') return;
+  async toggleEquipped() {
+    if (!this.type === 'object' || !this.actor) return;
 
     await this.update({
-      'system.unidentified': !this.system.unidentified
+      'system.equipped': !this.system.equipped
     });
   }
 
@@ -313,19 +313,19 @@ export default class ItemA5e extends Item {
     });
   }
 
-  async toggleEquipped() {
-    if (!this.type === 'object' || !this.actor) return;
-
-    await this.update({
-      'system.equipped': !this.system.equipped
-    });
-  }
-
   async togglePrepared() {
     if (!this.type === 'spell' || !this.actor) return;
 
     await this.update({
       'system.prepared': !this.system.prepared
+    });
+  }
+
+  async toggleUnidentified() {
+    if (!this.type === 'object') return;
+
+    await this.update({
+      'system.unidentified': !this.system.unidentified
     });
   }
 
