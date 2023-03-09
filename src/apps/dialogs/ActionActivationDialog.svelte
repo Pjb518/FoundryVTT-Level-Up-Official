@@ -145,7 +145,7 @@
 
 <form>
     <!-- TODO: Extract this to its own component -->
-    {#if attackRoll}
+    {#if !foundry.utils.isEmpty(attackRoll)}
         <section class="a5e-box u-flex u-flex-col u-gap-lg u-p-md">
             <section>
                 <h3 class="heading">
