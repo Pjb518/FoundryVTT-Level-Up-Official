@@ -53,6 +53,7 @@
                 <RadioGroup
                     options={expertiseDiceOptions}
                     selected={ability?.check.expertiseDice}
+                    optionStyles="min-width:2rem; text-align: center;"
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $actor,
@@ -137,6 +138,7 @@
                 <RadioGroup
                     options={expertiseDiceOptions}
                     selected={ability?.save.expertiseDice}
+                    optionStyles="min-width:2rem; text-align: center;"
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $actor,
