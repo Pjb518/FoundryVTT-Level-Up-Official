@@ -16,9 +16,21 @@
 
         const skill = localize(skills[rollData?.roll?.skill ?? ""]);
 
+        console.log(rollData);
+
         switch (rollData.roll.type) {
             case "abilityCheck":
                 return localize("A5E.AbilityCheckSpecific", { ability });
+            case "damage":
+                return rollData?.roll?.damageType
+                    ? localize("A5E.DamageSpecific", {
+                          damageType: rollData?.roll?.damageType,
+                      })
+                    : localize("A5E.Damage");
+            case "healing":
+                return rollData?.roll?.healingType === "temporaryHealing"
+                    ? localize("A5E.HealingTemporary")
+                    : localize("A5E.Healing");
             case "savingThrow":
                 return localize("A5E.SavingThrowSpecific", { ability });
             case "skillCheck":
@@ -69,8 +81,11 @@
             </div>
         {/if}
 
-        {#if rollData[i].roll.type === "damage"}
-            {roll.formula}
+        {#if ["damage", "healing"].includes(rollData[i].roll.type)}
+            <div>
+                <h3 class="roll-label">{getTitle(rollData[i])}</h3>
+                {roll.formula}
+            </div>
         {/if}
     {/each}
 
