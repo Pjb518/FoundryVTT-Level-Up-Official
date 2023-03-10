@@ -3,7 +3,8 @@ import ActionsManager from '../managers/ActionsManager';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
-import createTemplateDocument from '../utils/templates/createTemplateDocument';
+import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
+import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
@@ -144,17 +145,10 @@ export default class ItemA5e extends Item {
       return acc;
     }, []));
 
-    // TODO: Add template validation and extract template placement to its own function
     if (promise.placeTemplate) {
-      // const templateDocument = createTemplateDocument(this);
-      // const template = new ItemMeasuredTemplate(templateDocument);
+      const validTemplate = validateTemplateData(this, actionId);
 
-      // template.item = this;
-      // template.actorSheet = this.actor?.sheet || null;
-
-      // Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
-
-      // if (template) template.drawPreview();
+      if (validTemplate) { this.#placeActionTemplate(actionId); }
     }
 
     const chatData = {
@@ -176,6 +170,18 @@ export default class ItemA5e extends Item {
     };
 
     ChatMessage.create(chatData);
+  }
+
+  async #placeActionTemplate(actionId) {
+    const templateDocument = createTemplateDocument(this, actionId);
+    const template = new ItemMeasuredTemplate(templateDocument);
+
+    template.item = this;
+    template.actorSheet = this.actor?.sheet || null;
+
+    Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
+
+    if (template) template.drawPreview();
   }
 
   #prepareItemRoll(roll) {

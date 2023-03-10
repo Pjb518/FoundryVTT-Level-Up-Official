@@ -34,10 +34,22 @@
         const options = getKeyPressAsOptions($pressedKeysStore);
         item.activate(actionId, options);
     }
+
+    function onDragStart(event) {
+        const dragData = item.toDragData();
+        if (!dragData) return;
+
+        dragData.actorId = item?.parent.id;
+
+        return event.dataTransfer.setData(
+            "text/plain",
+            JSON.stringify(dragData)
+        );
+    }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<li class="item-wrapper" draggable="true">
+<li class="item-wrapper" draggable="true" on:dragstart={onDragStart}>
     <button
         class="item-image"
         class:item-image--shift={$pressedKeysStore.Shift}
