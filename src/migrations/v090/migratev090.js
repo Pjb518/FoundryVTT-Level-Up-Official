@@ -5,8 +5,8 @@ import migrateSenses from './actorData/migrateSenses';
 import migrateActionsConfig from './itemData/migrateActionsConfig';
 import migrateItemWeight from './itemData/migrateItemWeight';
 
-export const migrateActorData = [
+export const actorMigrators = [
   migrateActorBonuses, migrateMovements, migrateSenses
 ];
 
-export const migrateItemData = [migrateActionsConfig, migrateItemWeight];
+export const itemMigrators = [migrateActionsConfig, migrateItemWeight];

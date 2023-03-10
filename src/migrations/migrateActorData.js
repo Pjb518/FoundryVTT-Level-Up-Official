@@ -1,3 +1,5 @@
+import { actorMigrators } from './v090/migratev090';
+
 /**
  * Migrate a single Actor document to incorporate latest data model changes
  * Return an Object of updateData to be applied
@@ -10,6 +12,7 @@ export default function migrateActorData(actor) {
 
   // Actor data updates
   if (actor.system) {
+    actorMigrators.forEach((func) => func(actor, updateData));
   }
 
   return updateData;
