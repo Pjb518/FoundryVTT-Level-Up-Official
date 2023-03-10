@@ -733,7 +733,7 @@ export default class ActorA5e extends Actor {
   getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
 
-    const rollFormula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor: this,
       rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       modifiers: [
@@ -869,7 +869,7 @@ export default class ActorA5e extends Actor {
   getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
 
-    const rollFormula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor: this,
       rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       modifiers: [
@@ -971,7 +971,7 @@ export default class ActorA5e extends Actor {
 
     // TODO: Update the keys below to use format and proper localisations.
 
-    const rollFormula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor: this,
       rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       minRoll: options?.minRoll ?? skill.minRoll,

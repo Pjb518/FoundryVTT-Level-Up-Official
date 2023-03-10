@@ -1,6 +1,7 @@
 import ActionsManager from '../managers/ActionsManager';
 
 import constructRollFormula from '../dice/constructRollFormula';
+import constructD20RollFormula from '../dice/constructD20RollFormula';
 import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
@@ -134,7 +135,7 @@ export default class ItemA5e extends Item {
       if (rollData?.rollFormula) {
         let evaluatedRoll;
 
-        if (['abilityCheck', 'attack', 'savingThrow', 'skillCheck'].includes(roll.type)) {
+        if (['abilityCheck', 'attack', 'savingThrow', 'skillCheck', 'toolCheck'].includes(roll.type)) {
           evaluatedRoll = await new CONFIG.Dice.D20Roll(rollData.rollFormula).roll({ async: true });
         } else {
           evaluatedRoll = await new Roll(rollData.rollFormula).roll({ async: true });
@@ -204,6 +205,8 @@ export default class ItemA5e extends Item {
         return this.actor.getDefaultSavingThrowData(roll.ability);
       case 'skillCheck':
         return this.actor.getDefaultSkillCheckData(roll.skill, roll.ability);
+      case 'toolCheck':
+        return this.#prepareToolCheckRoll(roll);
       default: return null;
     }
   }
@@ -222,6 +225,10 @@ export default class ItemA5e extends Item {
 
   #prepareHealingRoll(roll) {
     return constructRollFormula({ actor: this.actor, formula: roll.formula });
+  }
+
+  #prepareToolCheckRoll(roll) {
+    return constructD20RollFormula({ actor: this.actor });
   }
 
   async shareItemDescription() {

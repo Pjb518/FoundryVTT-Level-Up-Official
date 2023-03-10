@@ -88,7 +88,7 @@
                 value: situationalMods,
             },
         ],
-    });
+    }).rollFormula;
 </script>
 
 <form>

@@ -44,10 +44,19 @@
                 return ability
                     ? localize("A5E.SkillCheckAbility", { skill, ability })
                     : localize("A5E.SkillCheck", { skill });
+            case "toolCheck":
+                return game.i18n.format("A5E.ToolCheckSpecific", {
+                    tool: game.i18n.localize(tools[rollData?.roll?.tool]),
+                });
         }
     }
 
     const { abilities, damageTypes, skills } = CONFIG.A5E;
+
+    const tools = Object.values(CONFIG.A5E.tools).reduce(
+        (acc, curr) => ({ ...acc, ...curr }),
+        {}
+    );
 
     const rollSortKeyMap = {
         attack: 0,
@@ -56,7 +65,8 @@
         abilityCheck: 3,
         skillCheck: 4,
         savingThrow: 5,
-        generic: 6,
+        toolCheck: 6,
+        generic: 7,
     };
 
     const promptComponentMap = {
@@ -81,8 +91,6 @@
             rollSortKeyMap[a[1].roll.type] - rollSortKeyMap[b[1].roll.type]
     );
 
-    console.log(rolls);
-
     const hasRolls = rolls.length;
     const hasPrompts = Object.values(prompts).flat().length;
 </script>
@@ -98,7 +106,7 @@
         <div>
             <h3 class="roll-label">{getTitle(rollData)}</h3>
 
-            {#if ["abilityCheck", "attack", "savingThrow", "skillCheck"].includes(rollData.roll.type)}
+            {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.roll.type)}
                 <D20Roll {roll} />
             {:else}
                 <Roll {roll} />

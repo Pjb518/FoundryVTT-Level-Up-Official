@@ -48,5 +48,5 @@ export default function getDefaultInitiativeFormula(actor, options = {}) {
         value: options.situationalMods
       }
     ]
-  });
+  }).rollFormula;
 }
