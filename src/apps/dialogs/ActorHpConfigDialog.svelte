@@ -4,7 +4,7 @@
 
     import FormSection from "../components/FormSection.svelte";
 
-    import prepareHitDice from "../handlers/prepareHitDice";
+    import prepareHitDice from "../dataPreparationHelpers/prepareHitDice";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId } = getContext("#external").application;

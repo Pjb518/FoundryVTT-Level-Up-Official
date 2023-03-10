@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import prepareXP from "../../handlers/prepareXP";
+    import prepareXP from "../../dataPreparationHelpers/prepareXP";
 
     const actor = getContext("actor");
 

@@ -2,18 +2,19 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import prepareArmorProficiencies from "../../handlers/prepareArmorProficiencies";
-    import prepareConditionImmunities from "../../handlers/prepareConditionImmunities";
-    import prepareCreatureTypes from "../../handlers/prepareCreatureTypes";
-    import prepareCreatureSize from "../../handlers/prepareCreatureSize";
-    import prepareDamageImmunities from "../../handlers/prepareDamageImmunities";
-    import prepareDamageResistances from "../../handlers/prepareDamageResistances";
-    import prepareDamageVulnerabilities from "../../handlers/prepareDamageVulnerabilities";
-    import prepareLanguageProficiencies from "../../handlers/prepareLanguageProficiencies";
-    import prepareSenses from "../../handlers/prepareSenses";
-    import prepareMovementData from "../../handlers/prepareMovementData";
-    import prepareToolProficiencies from "../../handlers/prepareToolProficiencies";
-    import prepareWeaponProficiencies from "../../handlers/prepareWeaponProficiencies";
+    import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
+    import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
+    import prepareCreatureTypes from "../../dataPreparationHelpers/prepareCreatureTypes";
+    import prepareCreatureSize from "../../dataPreparationHelpers/prepareCreatureSize";
+    import prepareDamageImmunities from "../../dataPreparationHelpers/prepareDamageImmunities";
+    import prepareDamageResistances from "../../dataPreparationHelpers/prepareDamageResistances";
+    import prepareDamageVulnerabilities from "../../dataPreparationHelpers/prepareDamageVulnerabilities";
+    import prepareLanguageProficiencies from "../../dataPreparationHelpers/prepareLanguageProficiencies";
+    import prepareSenses from "../../dataPreparationHelpers/prepareSenses";
+    import prepareMovementData from "../../dataPreparationHelpers/prepareMovementData";
+    import prepareToolProficiencies from "../../dataPreparationHelpers/prepareToolProficiencies";
+    import prepareWeaponProficiencies from "../../dataPreparationHelpers/prepareWeaponProficiencies";
+    import Tag from "../Tag.svelte";
 
     const actor = getContext("actor");
 
@@ -100,9 +101,21 @@
 
             <ul class="details-list">
                 {#each values as tag}
-                    <li class="a5e-tag a5e-tag--tight details-tag">
+                    <!-- <li class="a5e-tag a5e-tag--tight details-tag">
                         {tag}
-                    </li>
+                    </li> -->
+                    <Tag
+                        label={tag}
+                        value={tag}
+                        tight={true}
+                        optionStyles="
+                            color: black;
+                            background-color: rgba(0 0 0 / 0.05);
+                            max-width: 98%;
+                            border: 1px solid #ccc;
+                        "
+                        disabled={true}
+                    />
                 {/each}
             </ul>
         </section>

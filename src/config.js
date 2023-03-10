@@ -632,6 +632,7 @@ A5E.spellSchools = {
     poison: 'A5E.SpellSchoolPoison',
     prismatic: 'A5E.SpellSchoolPrismatic',
     protection: 'A5E.SpellSchoolProtection',
+    psionic: 'A5E.SpellSchoolPsionic',
     psychic: 'A5E.SpellSchoolPsychic',
     radiant: 'A5E.SpellSchoolRadiant',
     scrying: 'A5E.SpellSchoolScrying',

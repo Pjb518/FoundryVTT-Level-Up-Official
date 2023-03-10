@@ -12,10 +12,29 @@
     const actionId = getContext("actionId");
 
     function addPrompt(type) {
+        const promptData = {
+            type,
+            default: true,
+        };
+
+        if (type === "savingThrow" || type === "abilityCheck") {
+            promptData.ability = "str";
+        }
+
+        if (type === "savingThrow") {
+            promptData.saveDC = {
+                type: "spellcasting",
+            };
+        }
+
+        if (type === "skillCheck") {
+            promptData.skill = "acr";
+        }
+
         $item.update({
             [`system.actions.${actionId}.prompts`]: {
                 ...action.prompts,
-                [foundry.utils.randomID()]: { type },
+                [foundry.utils.randomID()]: promptData,
             },
         });
     }

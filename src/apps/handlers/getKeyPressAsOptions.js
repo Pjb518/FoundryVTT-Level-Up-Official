@@ -1,14 +1,14 @@
-export default function getKeyPressAsOptions(keyPressStore) {
-  const { ShiftLeft, ControlLeft, AltLeft } = keyPressStore;
+export default function getKeyPressAsOptions(keyPressStore, { reverseAlt = false } = {}) {
+  const { Shift, Control, Alt } = keyPressStore;
 
-  let rollMode = ShiftLeft
+  let rollMode = Shift
     ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
     : CONFIG.A5E.ROLL_MODE.NORMAL;
-  rollMode = ControlLeft ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
+
+  rollMode = Control ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
 
   return {
-    skipRollDialog: AltLeft,
+    skipRollDialog: reverseAlt ? !Alt : Alt,
     rollMode
-
   };
 }

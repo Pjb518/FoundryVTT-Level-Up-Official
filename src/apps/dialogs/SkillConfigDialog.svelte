@@ -7,8 +7,8 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import prepareAbilityOptions from "../handlers/prepareAbilityOptions";
-    import prepareExpertiseDiceOptions from "../handlers/prepareExpertiseDiceOptions";
+    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, skillKey } =
@@ -58,8 +58,7 @@
 
     <FormSection heading="A5E.AbilityScore">
         <RadioGroup
-            listClasses="u-gap-md u-text-sm"
-            optionClasses="u-p-md u-text-center u-w-12"
+            optionStyles="min-width:2rem; text-align: center;"
             options={abilityOptions}
             selected={skill.ability}
             on:updateSelection={(event) =>
@@ -87,8 +86,7 @@
 
     <FormSection heading="A5E.ExpertiseDie">
         <RadioGroup
-            listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
-            optionClasses="u-p-md u-text-center u-w-12"
+            optionStyles="min-width:2rem; text-align: center;"
             options={expertiseDiceOptions}
             selected={skill.expertiseDice}
             on:updateSelection={(event) =>

@@ -3,28 +3,29 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => ({
-            id: key,
-            name: game.i18n.localize(value),
-            value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        })
+        ([key, value]) => [
+            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+            game.i18n.localize(value),
+        ]
     );
 
     const actor = new TJSDocument(actorDocument);
     const appId = dialog.id;
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
-    const abilities = { none: null, ...CONFIG.A5E.abilities };
+    const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
+
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedSkill,
     });
@@ -96,37 +97,11 @@
             {localize("A5E.RollModeHeading")}
         </h3>
 
-        <div
-            class="
-                u-flex
-                u-flex-wrap
-                u-list-style-none
-                u-m-0
-                u-p-0
-                u-w-full
-                u-gap-md
-                u-text-sm
-            "
-            role="radiogroup"
-            id={`${$actor.id}-${appId}-rollMode`}
-        >
-            {#each rollModeOptions as { id, name, value }}
-                <input
-                    class="u-hidden"
-                    type="radio"
-                    id="{$actor.id}-{appId}-rollMode-{id}"
-                    bind:group={rollMode}
-                    {value}
-                />
-                <label
-                    class="a5e-tag u-pointer u-p-md u-text-center"
-                    class:a5e-tag--active={value === rollMode}
-                    for="{$actor.id}-{appId}-rollMode-{id}"
-                >
-                    {name}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            options={rollModeOptions}
+            selected={rollMode}
+            on:updateSelection={({ detail }) => (rollMode = detail)}
+        />
     </section>
 
     <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
@@ -134,45 +109,19 @@
             {localize("A5E.AbilityScore")}
         </h3>
 
-        <div
-            class="
-                u-flex
-                u-flex-wrap
-                u-list-style-none
-                u-m-0
-                u-p-0
-                u-w-full
-                u-gap-md
-                u-text-sm
-            "
-            role="radiogroup"
-            id={`${$actor.id}-${appId}-ability-score`}
-        >
-            {#each Object.entries(abilities) as [key, name]}
-                <input
-                    class="u-hidden"
-                    type="radio"
-                    id="{$actor.id}-{appId}-ability-score-{key}"
-                    bind:group={abilityKey}
-                    value={key}
-                />
-                <label
-                    class="a5e-tag u-pointer u-p-md u-text-center"
-                    class:a5e-tag--active={key === abilityKey}
-                    for="{$actor.id}-{appId}-ability-score-{key}"
-                >
-                    {localize(name ?? "A5E.None")}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            options={Object.entries(abilities)}
+            selected={abilityKey}
+            on:updateSelection={({ detail }) => (abilityKey = detail)}
+        />
     </section>
 
     <FormSection heading="A5E.ExpertiseDie">
-        <ExpertiseDiePicker
+        <RadioGroup
+            options={prepareExpertiseDiceOptions()}
             selected={expertiseDie}
-            on:updateSelection={(event) => {
-                expertiseDie = event.detail;
-            }}
+            optionStyles="min-width:2rem; text-align: center;"
+            on:updateSelection={({ detail }) => (expertiseDie = detail)}
         />
     </FormSection>
 

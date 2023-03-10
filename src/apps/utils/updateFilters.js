@@ -81,9 +81,7 @@ function valueBasedFilter(key, value, type = 'inclusive') {
 
 function actionBasedFilter(key, value, type = 'inclusive') {
   const filter = (item) => {
-    const { actions } = item.system;
-    const actionKeys = Object.values(actions)
-      .map((action) => foundry.utils.getProperty(action, key));
+    const actionKeys = item.actions.activationTypes;
 
     if (type === 'exclusive') {
       return actionKeys.some((actionValue) => value !== actionValue);

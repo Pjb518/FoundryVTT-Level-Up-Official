@@ -51,6 +51,14 @@
 </div>
 
 <style lang="scss">
+    :global(.tjs-editor .tox.tox-tinymce .tox-edit-area) {
+        padding: 0.25rem 0rem;
+    }
+
+    :global(.tjs-editor:not(.editor-active) .editor-content) {
+        --tjs-editor-content-padding: 0rem 0.25rem;
+    }
+
     .editor {
         height: 100%;
 

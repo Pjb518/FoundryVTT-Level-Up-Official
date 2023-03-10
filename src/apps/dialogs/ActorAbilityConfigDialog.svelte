@@ -3,10 +3,11 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, abilityKey } =
@@ -17,6 +18,7 @@
     }
 
     const actor = new TJSDocument(actorDocument);
+    const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
     const tabs = [
         {
@@ -48,13 +50,15 @@
     {#if currentTab.name === "abilityCheck"}
         <div class="u-flex u-flex-col u-gap-md">
             <FormSection heading="A5E.ExpertiseDie">
-                <ExpertiseDiePicker
+                <RadioGroup
+                    options={expertiseDiceOptions}
                     selected={ability?.check.expertiseDice}
-                    on:updateSelection={(event) =>
+                    optionStyles="min-width:2rem; text-align: center;"
+                    on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $actor,
                             `system.abilities.${abilityKey}.check.expertiseDice`,
-                            event.detail
+                            detail
                         )}
                 />
             </FormSection>
@@ -131,13 +135,15 @@
             </FormSection>
 
             <FormSection heading="A5E.ExpertiseDie">
-                <ExpertiseDiePicker
+                <RadioGroup
+                    options={expertiseDiceOptions}
                     selected={ability?.save.expertiseDice}
-                    on:updateSelection={(event) =>
+                    optionStyles="min-width:2rem; text-align: center;"
+                    on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $actor,
                             `system.abilities.${abilityKey}.save.expertiseDice`,
-                            event.detail
+                            detail
                         )}
                 />
             </FormSection>
