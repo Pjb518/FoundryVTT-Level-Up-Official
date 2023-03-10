@@ -84,7 +84,7 @@ export default async function migrateWorld() {
   // Migrate Actor Override Tokens
   for (const scene of game.scenes) {
     try {
-      const updateData = migrateSceneData(scene.data);
+      const updateData = migrateSceneData(scene);
       if (!foundry.utils.isEmpty(updateData)) {
         console.info(`Migrating Scene document ${scene.name}`);
         await scene.update(updateData, { enforceTypes: false });

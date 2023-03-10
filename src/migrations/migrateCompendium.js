@@ -32,7 +32,7 @@ export default async function migrateCompendium(pack) {
     try {
       if (documentName === 'Actor') migrateActorData(doc.toObject());
       else if (documentName === 'Item') migrateItemData(doc.toObject());
-      else if (documentName === 'Scene') migrateSceneData(doc.system);
+      else if (documentName === 'Scene') migrateSceneData(doc.toObject());
 
       // Save the entry, if data was changed
       if (foundry.utils.isEmpty(updateData)) continue;
