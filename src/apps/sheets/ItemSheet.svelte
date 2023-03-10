@@ -56,7 +56,7 @@
     }
 
     if (!game.user.isGM && itemDocument.system.unidentified) {
-        tabs.splice(0, 10, {
+        tabs.splice(0, tabs.length + 1, {
             name: "unidentifiedDescription",
             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
