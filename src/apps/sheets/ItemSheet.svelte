@@ -20,7 +20,7 @@
         currentTab = tabs[event.detail];
     }
 
-    let tabs = [
+    const tabs = [
         {
             name: "description",
             label: "A5E.ItemSheetLabelDescriptionTab",
@@ -56,13 +56,11 @@
     }
 
     if (!game.user.isGM && itemDocument.system.unidentified) {
-        tabs = [
-            {
-                name: "unidentifiedDescription",
-                label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
-                component: ItemUnidentifiedDescriptionTab,
-            },
-        ];
+        tabs.splice(0, 10, {
+            name: "unidentifiedDescription",
+            label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+            component: ItemUnidentifiedDescriptionTab,
+        });
     }
 
     $: currentTab = tabs[0];
