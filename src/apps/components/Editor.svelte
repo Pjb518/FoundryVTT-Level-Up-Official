@@ -30,13 +30,6 @@
     });
 
     $: content = content || newLabel;
-    // if (updatePath.includes("secretDescription")) {
-    //     $: content = content || localize("A5E.NoSecretDescription");
-    // } else if (updatePath.includes("unidentifiedDescription")) {
-    //     $: content = content || localize("A5E.NoUnidentifiedDescription");
-    // } else {
-    //     $: content = content || localize("A5E.NoDescription");
-    // }
     $: enrichedContent = TextEditor.enrichHTML($document[updatePath], {
         async,
     });
