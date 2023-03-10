@@ -122,7 +122,27 @@ export default class ItemA5e extends Item {
 
     if (!promise) return;
 
-    const rolls = promise?.rolls?.map(([_, roll]) => this.#prepareItemRoll(roll)).filter(Boolean);
+    const rolls = await Promise.resolve(promise?.rolls?.reduce(async (accP, [_, roll]) => {
+      const acc = await accP;
+      const rollData = this.#prepareItemRoll(roll);
+
+      if (rollData?.rollFormula) {
+        let evaluatedRoll;
+
+        if (['abilityCheck', 'savingThrow', 'skillCheck'].includes(roll.type)) {
+          evaluatedRoll = await new CONFIG.Dice.D20Roll(rollData.rollFormula).roll({ async: true });
+        } else {
+          evaluatedRoll = await new Roll(rollData.rollFormula).roll({ async: true });
+        }
+
+        acc.push({
+          rollData: { roll, ...rollData },
+          roll: evaluatedRoll
+        });
+      }
+
+      return acc;
+    }, []));
 
     // TODO: Add template validation and extract template placement to its own function
     if (promise.placeTemplate) {
@@ -141,6 +161,7 @@ export default class ItemA5e extends Item {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       sound: CONFIG.sounds.dice,
+      rolls: rolls.map(({ roll }) => roll),
       flags: {
         a5e: {
           actorId: this.actor.uuid,
@@ -148,7 +169,7 @@ export default class ItemA5e extends Item {
           img: this.actions[actionId].img ?? 'icons/svg/item-bag.svg',
           name: this.actions[actionId].name,
           prompts: promise.prompts,
-          rolls: promise.rolls
+          rollData: rolls.flatMap(({ roll, ...rollData }) => Object.values(rollData))
         }
       },
       content: '<article></article>'
