@@ -39,7 +39,7 @@
         const dragData = item.toDragData();
         if (!dragData) return;
 
-        dragData.isFromActor = true;
+        dragData.actorId = item?.parent.id;
 
         return event.dataTransfer.setData(
             "text/plain",
