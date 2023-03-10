@@ -1,15 +1,4 @@
 import migrate5ftRange from './migrate5ftRange';
-import migrateItemWeight from './migrateItemWeight';
-import migrateSenses from '../actorData/migrateSenses';
-import migrateMovements from '../actorData/migrateMovements';
-
-// FIXME: Remove
-window.testMigrate = {
-  actions: migrateActionsConfig,
-  movements: migrateMovements,
-  senses: migrateSenses,
-  weight: migrateItemWeight
-};
 
 export default function migrateActionsConfig(itemData, updateData) {
   const { actions } = itemData.system;
