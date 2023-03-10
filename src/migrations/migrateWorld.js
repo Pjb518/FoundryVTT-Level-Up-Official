@@ -17,7 +17,7 @@ import migrateSceneData from './migrateSceneData';
  * @returns {Promise}  A Promise which resolves once the migration is completed.
  */
 export default async function migrateWorld() {
-  ui.notifications.info(`Applying Level Up system migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, { permanent: true });
+  ui.notifications.info(`Applying Level Up system migration for version ${game.system.version}. Please be patient and do not close your game or shut down your server.`, { permanent: true });
 
   // Migrate World Actors
   for (const actor of game.actors) {
@@ -26,7 +26,7 @@ export default async function migrateWorld() {
       const embeddedDocumentUpdateData = actor.items.reduce((itemUpdates, item) => {
         const itemMigrationData = migrateItemData(item.toObject());
 
-        if (!isObjectEmpty(itemMigrationData)) {
+        if (!foundry.utils.isEmpty(itemMigrationData)) {
           itemMigrationData._id = item.id;
           itemUpdates.push(itemMigrationData);
         }
@@ -36,7 +36,7 @@ export default async function migrateWorld() {
 
       const updateOperations = [];
 
-      if (!foundry.utils.isObjectEmpty(actorUpdateData)) {
+      if (!foundry.utils.isEmpty(actorUpdateData)) {
         console.info(`Migrating Actor document ${actor.name}`);
         updateOperations.push(() => (actor.update(actorUpdateData, { enforceTypes: false })));
       }
@@ -57,7 +57,7 @@ export default async function migrateWorld() {
   for (const item of game.items) {
     try {
       const updateData = migrateItemData(item.toObject());
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         console.info(`Migrating Item document ${item.name}`);
         await item.update(updateData, { enforceTypes: false });
       }
@@ -71,7 +71,7 @@ export default async function migrateWorld() {
   for (const macro of game.macros) {
     try {
       const updateData = migrateMacroData(macro.toObject());
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         console.info(`Migrating Macro document ${macro.name}`);
         await macro.update(updateData, { enforceTypes: false });
       }
@@ -85,7 +85,7 @@ export default async function migrateWorld() {
   for (const scene of game.scenes) {
     try {
       const updateData = migrateSceneData(scene.data);
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         console.info(`Migrating Scene document ${scene.name}`);
         await scene.update(updateData, { enforceTypes: false });
 
