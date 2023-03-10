@@ -162,7 +162,7 @@ Hooks.once('ready', () => {
 });
 
 Hooks.once('ready', () => {
-  const LATEST_ANNOUNCEMENT_VERSION = '0.6.0';
+  const LATEST_ANNOUNCEMENT_VERSION = '0.9.0';
   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
   const showAnnouncement = !lastAnnouncementShown
@@ -172,7 +172,7 @@ Hooks.once('ready', () => {
 
   const announcementWindow = new Application({
     title: 'Test!',
-    template: 'systems/a5e/templates/announcements/0.6.0.hbs',
+    template: 'systems/a5e/templates/announcements/0.9.0.hbs',
     width: 700
   });
 

@@ -16,7 +16,7 @@ export default async () => loadTemplates([
   'systems/a5e/templates/chat/roll-tooltip.hbs',
 
   // Announcements
-  'systems/a5e/templates/announcements/0.6.0.hbs',
+  'systems/a5e/templates/announcements/0.9.0.hbs',
 
   // Settings
   'systems/a5e/templates/conditionAutomationMenu.hbs',
