@@ -7,6 +7,7 @@
 
     const item = getContext("item");
     const prerequisiteTypes = ["maneuver", "feature"];
+    const headerButtonTypes = ["object"];
     const appId = getContext("appId");
 </script>
 
@@ -54,28 +55,30 @@
             </div>
         {/if}
     </div>
-    <div class="button-container">
-        <button
-            class="header-button fa-solid fa-circle-question"
-            class:active={$item.system.unidentified}
-            class:locked={!game.user.isGM}
-            disabled={!game.user.isGM}
-            data-tooltip={$item.system.unidentified
-                ? "A5E.ButtonToolTipUnidentified"
-                : "A5E.ButtonToolTipIdentified"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => $item.toggleUnidentified()}
-        />
-        <button
-            class="header-button fa-solid fa-heart-crack"
-            class:active={$item.system.broken}
-            data-tooltip={$item.system.broken
-                ? "A5E.ButtonToolTipFixBroken"
-                : "A5E.ButtonToolTipBroken"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => $item.toggleBroken()}
-        />
-    </div>
+    {#if headerButtonTypes.includes($item.type)}
+        <div class="button-container">
+            <button
+                class="header-button fa-solid fa-circle-question"
+                class:active={$item.system.unidentified}
+                class:locked={!game.user.isGM}
+                disabled={!game.user.isGM}
+                data-tooltip={$item.system.unidentified
+                    ? "A5E.ButtonToolTipUnidentified"
+                    : "A5E.ButtonToolTipIdentified"}
+                data-tooltip-direction="UP"
+                on:click|stopPropagation={() => $item.toggleUnidentified()}
+            />
+            <button
+                class="header-button fa-solid fa-heart-crack"
+                class:active={$item.system.broken}
+                data-tooltip={$item.system.broken
+                    ? "A5E.ButtonToolTipFixBroken"
+                    : "A5E.ButtonToolTipBroken"}
+                data-tooltip-direction="UP"
+                on:click|stopPropagation={() => $item.toggleBroken()}
+            />
+        </div>
+    {/if}
 </header>
 
 <style lang="scss">
