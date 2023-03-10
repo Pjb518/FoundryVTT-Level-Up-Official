@@ -108,6 +108,6 @@ export default async function migrateWorld() {
   }
 
   // Set the migration as complete
-  game.settings.set('a5e', 'systemMigrationVersion', game.system.data.version);
-  ui.notifications.info(`Level Up system migration to version ${game.system.data.version} completed!`, { permanent: true });
+  game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
+  ui.notifications.info(`Level Up system migration to version ${game.system.version} completed!`, { permanent: true });
 }
