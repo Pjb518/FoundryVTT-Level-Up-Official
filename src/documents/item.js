@@ -191,6 +191,8 @@ export default class ItemA5e extends Item {
         return this.actor.getDefaultAbilityCheckData(roll.ability);
       case 'damage':
         return this.#prepareDamageRoll(roll);
+      case 'generic':
+        return this.#prepareGenericRoll(roll);
       case 'healing':
         return this.#prepareHealingRoll(roll);
       case 'savingThrow':
@@ -202,6 +204,10 @@ export default class ItemA5e extends Item {
   }
 
   #prepareDamageRoll(roll) {
+    return constructRollFormula({ actor: this.actor, formula: roll.formula });
+  }
+
+  #prepareGenericRoll(roll) {
     return constructRollFormula({ actor: this.actor, formula: roll.formula });
   }
 

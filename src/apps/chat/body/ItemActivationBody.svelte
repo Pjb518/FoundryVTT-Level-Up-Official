@@ -104,6 +104,13 @@
                 <Roll {roll} />
             </div>
         {/if}
+
+        {#if rollData.roll.type === "generic"}
+            <div>
+                <h3 class="roll-label">Generic Roll</h3>
+                <Roll {roll} />
+            </div>
+        {/if}
     {/each}
 
     {#if hasRolls && hasPrompts}
