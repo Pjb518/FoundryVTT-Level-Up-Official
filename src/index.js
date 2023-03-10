@@ -151,7 +151,7 @@ Hooks.once('ready', () => {
   const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 
   if (!currentVersion && totalDocuments === 0) {
-    game.settings.set('a5e', 'systemMigrationVersion', game.system.data.version);
+    game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
     return;
   }
 
@@ -178,7 +178,7 @@ Hooks.once('ready', () => {
 
   announcementWindow.render(true);
 
-  game.user.setFlag('a5e', 'latestAnnouncement', game.system.data.version);
+  game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
 });
 
 Hooks.once('ready', () => {
