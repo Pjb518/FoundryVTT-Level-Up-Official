@@ -4,6 +4,7 @@
     import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
     import D20Roll from "../dice/D20Roll.svelte";
     import GenericRollPromptButton from "./promptButtons/GenericRollPromptButton.svelte";
+    import Roll from "../dice/Roll.svelte";
     import SavingThrowPromptButton from "./promptButtons/SavingThrowPromptButton.svelte";
     import SkillCheckPromptButton from "./promptButtons/SkillCheckPromptButton.svelte";
 
@@ -16,15 +17,15 @@
 
         const skill = localize(skills[rollData?.roll?.skill ?? ""]);
 
-        console.log(rollData);
-
         switch (rollData.roll.type) {
             case "abilityCheck":
                 return localize("A5E.AbilityCheckSpecific", { ability });
             case "damage":
                 return rollData?.roll?.damageType
                     ? localize("A5E.DamageSpecific", {
-                          damageType: rollData?.roll?.damageType,
+                          damageType: localize(
+                              damageTypes[rollData?.roll?.damageType]
+                          ),
                       })
                     : localize("A5E.Damage");
             case "healing":
@@ -40,7 +41,7 @@
         }
     }
 
-    const { abilities, skills } = CONFIG.A5E;
+    const { abilities, damageTypes, skills } = CONFIG.A5E;
 
     const promptComponentMap = {
         savingThrow: SavingThrowPromptButton,
@@ -84,7 +85,7 @@
         {#if ["damage", "healing"].includes(rollData[i].roll.type)}
             <div>
                 <h3 class="roll-label">{getTitle(rollData[i])}</h3>
-                {roll.formula}
+                <Roll {roll} />
             </div>
         {/if}
     {/each}
