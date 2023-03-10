@@ -1,3 +1,4 @@
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 import ActionsManager from '../managers/ActionsManager';
 
 import constructRollFormula from '../dice/constructRollFormula';
@@ -228,7 +229,37 @@ export default class ItemA5e extends Item {
   }
 
   #prepareToolCheckRoll(roll) {
-    return constructD20RollFormula({ actor: this.actor });
+    console.log(roll);
+
+    const modifiers = [];
+
+    // Check if ability configured
+    const abilityKey = roll.ability === 'none' ? null : roll.ability;
+    if (abilityKey) {
+      modifiers.push({
+        label: localize('A5E.AbilityCheckMod', {
+          ability: localize(CONFIG.A5E.abilities[abilityKey])
+        }),
+        value: this.actor.system.abilities[abilityKey]?.check.mod
+      });
+    }
+
+    // Check tool prof
+    const isProficient = this.actor.system.proficiencies?.tools?.includes(roll.tool);
+    if (isProficient) {
+      modifiers.push({
+        label: 'Proficient',
+        value: this.actor.system.attributes.prof
+      });
+    }
+
+    // Add Global Ability bonus
+    modifiers.push({
+      label: localize('A5E.AbilityCheckBonusGlobal'),
+      value: this.actor.system.bonuses.abilities.check
+    });
+
+    return constructD20RollFormula({ actor: this.actor, modifiers });
   }
 
   async shareItemDescription() {
