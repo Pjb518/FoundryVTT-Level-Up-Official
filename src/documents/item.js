@@ -1,13 +1,14 @@
 import ActionsManager from '../managers/ActionsManager';
 
+import constructRollFormula from '../dice/constructRollFormula';
+import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
-import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
+import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
 /**
  * Override and extend the basic Item implementation.
@@ -188,12 +189,18 @@ export default class ItemA5e extends Item {
     switch (roll.type) {
       case 'abilityCheck':
         return this.actor.getDefaultAbilityCheckData(roll.ability);
+      case 'damage':
+        return this.#prepareDamageRoll(roll);
       case 'savingThrow':
         return this.actor.getDefaultSavingThrowData(roll.ability);
       case 'skillCheck':
         return this.actor.getDefaultSkillCheckData(roll.skill, roll.ability);
       default: return null;
     }
+  }
+
+  #prepareDamageRoll(roll) {
+    return constructRollFormula({ actor: this.actor, formula: roll.formula });
   }
 
   async shareItemDescription() {

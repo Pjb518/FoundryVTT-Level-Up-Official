@@ -11,7 +11,7 @@
         const tokenActors = prepareSelectedTokenActors();
 
         for (const token of tokenActors) {
-            const rollFormula = constructRollFormula({
+            const { rollFormula } = constructRollFormula({
                 actor: token,
                 formula: prompt.formula,
             });

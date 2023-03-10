@@ -6,7 +6,6 @@
     import GenericRollPromptButton from "./promptButtons/GenericRollPromptButton.svelte";
     import SavingThrowPromptButton from "./promptButtons/SavingThrowPromptButton.svelte";
     import SkillCheckPromptButton from "./promptButtons/SkillCheckPromptButton.svelte";
-    import ActorSkillsPage from "../../components/pages/ActorSkillsPage.svelte";
 
     export let message;
 
@@ -68,6 +67,10 @@
                 <h3 class="roll-label">{getTitle(rollData[i])}</h3>
                 <D20Roll {roll} />
             </div>
+        {/if}
+
+        {#if rollData[i].roll.type === "damage"}
+            {roll.formula}
         {/if}
     {/each}
 
