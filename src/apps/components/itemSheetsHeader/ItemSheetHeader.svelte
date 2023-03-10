@@ -22,15 +22,35 @@
     />
 
     <div>
-        <input
-            type="text"
-            name="name"
-            value={$item.name}
-            class="item-name"
-            placeholder={localize("A5E.Name")}
-            on:change={({ target }) =>
-                updateDocumentDataFromField($item, target.name, target.value)}
-        />
+        {#if $item.system.unidentified}
+            <input
+                type="text"
+                name="system.unidentifiedName"
+                value={$item.system.unidentifiedName}
+                class="item-name"
+                placeholder={localize("A5E.ItemUnidentifiedName")}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value
+                    )}
+            />
+        {:else}
+            <input
+                type="text"
+                name="name"
+                value={$item.name}
+                class="item-name"
+                placehodler={localize("A5E.Name")}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value
+                    )}
+            />
+        {/if}
 
         {#if prerequisiteTypes.includes($item.type)}
             <div class="prerequisites">
