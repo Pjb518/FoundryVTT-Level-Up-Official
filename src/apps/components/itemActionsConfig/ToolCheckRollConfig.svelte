@@ -98,6 +98,25 @@
                 )}
         />
     </div>
+
+    <div class="a5e-field-group a5e-field-group--checkbox">
+        <input
+            id="{actionId}-{rollId}-default"
+            class="checkbox"
+            type="checkbox"
+            checked={roll.default ?? true}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.default`,
+                    target.checked
+                )}
+        />
+
+        <label for="{actionId}-{rollId}-default">
+            {localize("A5E.ToolCheckDefaultSelection")}
+        </label>
+    </div>
 </section>
 
 <style lang="scss">
