@@ -1,4 +1,4 @@
-import migrateCurrentHitPoints from './helpers/migrateCurrentHitPoints';
+import { actorMigrators } from './v090/migratev090';
 
 /**
  * Migrate a single Actor document to incorporate latest data model changes
@@ -11,8 +11,8 @@ export default function migrateActorData(actor) {
   const updateData = {};
 
   // Actor data updates
-  if (actor.data) {
-    migrateCurrentHitPoints(actor, updateData);
+  if (actor.system) {
+    actorMigrators.forEach((func) => func(actor, updateData));
   }
 
   return updateData;

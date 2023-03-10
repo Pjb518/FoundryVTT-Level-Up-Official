@@ -2,9 +2,6 @@
 
 import './scss/main.scss';
 
-// eslint-disable-next-line no-unused-vars
-import migrateActionsConfig from './migrations/v090Migrations/migrateActionsConfig';
-
 import ActorSheetA5e from './apps/ActorSheet';
 import ItemSheetA5e from './apps/ItemSheet';
 
@@ -45,8 +42,6 @@ import migrateItemData from './migrations/migrateItemData';
 import migrateMacroData from './migrations/migrateMacroData';
 import migrateSceneData from './migrations/migrateSceneData';
 
-import migrateCurrentHitPoints from './migrations/helpers/migrateCurrentHitPoints';
-
 Hooks.once('init', () => {
   game.a5e = {
     applications: {
@@ -74,8 +69,7 @@ Hooks.once('init', () => {
       migrateCompendium,
       migrateItemData,
       migrateMacroData,
-      migrateSceneData,
-      migrateCurrentHitPoints
+      migrateSceneData
     }
   };
 

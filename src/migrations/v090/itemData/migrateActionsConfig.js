@@ -1,18 +1,16 @@
 import migrate5ftRange from './migrate5ftRange';
-import migrateItemWeight from './migrateItemWeight';
-import migrateSenses from './migrateSenses';
-import migrateMovements from './migrateMovements';
-
-// FIXME: Remove
-window.testMigrate = {
-  actions: migrateActionsConfig,
-  movements: migrateMovements,
-  senses: migrateSenses,
-  weight: migrateItemWeight
-};
 
 export default function migrateActionsConfig(itemData, updateData) {
   const { actions } = itemData.system;
+
+  // Step 0: Check if action is needed
+  const {
+    actionOptions, activation, duration, range, target
+  } = itemData.system;
+
+  if (!actionOptions.length && !activation.type
+    && !duration.unit && !range.length && !target.type
+  ) return;
 
   // Step 1: Create an action for the item
   const action = {
@@ -20,7 +18,6 @@ export default function migrateActionsConfig(itemData, updateData) {
   };
 
   // Step 2: Get actionOptions and delete it
-  const { actionOptions } = itemData.system;
 
   // Step 3: Migrate activation data
   action.activation = foundry.utils.duplicate(itemData.system.activation);
