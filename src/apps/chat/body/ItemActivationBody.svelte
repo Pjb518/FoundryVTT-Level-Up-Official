@@ -1,6 +1,8 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import zip from "../../../utils/zip";
+
     import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
     import D20Roll from "../dice/D20Roll.svelte";
     import GenericRollPromptButton from "./promptButtons/GenericRollPromptButton.svelte";
@@ -43,6 +45,16 @@
 
     const { abilities, damageTypes, skills } = CONFIG.A5E;
 
+    const rollSortKeyMap = {
+        attack: 0,
+        damage: 1,
+        healing: 2,
+        abilityCheck: 3,
+        skillCheck: 4,
+        savingThrow: 5,
+        generic: 6,
+    };
+
     const promptComponentMap = {
         savingThrow: SavingThrowPromptButton,
         abilityCheck: AbilityCheckPromptButton,
@@ -60,8 +72,12 @@
             return acc;
         }, {}) ?? {};
 
-    const rolls = $message.rolls;
-    const rollData = $message.flags?.a5e?.rollData;
+    const rolls = zip($message.rolls, $message.flags?.a5e?.rollData).sort(
+        (a, b) =>
+            rollSortKeyMap[a[1].roll.type] - rollSortKeyMap[b[1].roll.type]
+    );
+
+    console.log(rolls);
 
     const hasRolls = rolls.length;
     const hasPrompts = Object.values(prompts).flat().length;
@@ -74,17 +90,17 @@
         {@html description}
     {/if}
 
-    {#each rolls ?? [] as roll, i}
-        {#if ["abilityCheck", "savingThrow", "skillCheck"].includes(rollData[i].roll.type)}
+    {#each rolls ?? [] as [roll, rollData]}
+        {#if ["abilityCheck", "savingThrow", "skillCheck"].includes(rollData.roll.type)}
             <div>
-                <h3 class="roll-label">{getTitle(rollData[i])}</h3>
+                <h3 class="roll-label">{getTitle(rollData)}</h3>
                 <D20Roll {roll} />
             </div>
         {/if}
 
-        {#if ["damage", "healing"].includes(rollData[i].roll.type)}
+        {#if ["damage", "healing"].includes(rollData.roll.type)}
             <div>
-                <h3 class="roll-label">{getTitle(rollData[i])}</h3>
+                <h3 class="roll-label">{getTitle(rollData)}</h3>
                 <Roll {roll} />
             </div>
         {/if}
