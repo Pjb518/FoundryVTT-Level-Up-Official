@@ -1,4 +1,5 @@
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 import ActionsManager from '../managers/ActionsManager';
 
 import constructRollFormula from '../dice/constructRollFormula';
@@ -248,7 +249,7 @@ export default class ItemA5e extends Item {
     const isProficient = this.actor.system.proficiencies?.tools?.includes(roll.tool);
     if (isProficient) {
       modifiers.push({
-        label: 'Proficient',
+        label: localize('A5E.Proficiency'),
         value: this.actor.system.attributes.prof
       });
     }
