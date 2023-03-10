@@ -2,16 +2,29 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-    const { abilities, skills } = CONFIG.A5E;
+    import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
     export let rollId;
 
+    const item = getContext("item");
+    const actionId = getContext("actionId");
+    const { skills } = CONFIG.A5E;
+
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.ability`,
+            selectedAbility
+        );
+    }
+
     $: roll = $item.system.actions[actionId]?.rolls[rollId];
+    $: selectedAbility = roll.ability ?? "none";
+    $: selectedAbility, updateAbility();
 </script>
 
 <section class="action-config__wrapper">
@@ -45,11 +58,6 @@
                     target.value
                 )}
         >
-            <!-- svelte-ignore missing-declaration -->
-            <option value="" selected={foundry.utils.isEmpty(roll?.skill)}>
-                {localize("A5E.None")}
-            </option>
-
             {#each Object.entries(skills) as [skill, label]}
                 <option value={skill} selected={roll?.skill === skill}>
                     {localize(label)}
@@ -61,48 +69,12 @@
     <div class="option-wrapper">
         <h3>{localize("A5E.DefaultAbilityScore")}</h3>
 
-        <div class="option-list">
-            <input
-                class="option-input"
-                type="radio"
-                id="{actionId}-{rollId}-ability-none"
-                value=""
-                checked={(roll.ability ?? true) || roll.ability === ""}
-                on:change={() =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}`,
-                        { "-=ability": null }
-                    )}
-            />
-
-            <label class="option-label" for="{actionId}-{rollId}-ability-none">
-                {localize("A5E.None")}
-            </label>
-
-            {#each Object.entries(abilities) as [ability, label]}
-                <input
-                    class="option-input"
-                    type="radio"
-                    id="{actionId}-{rollId}-ability-{ability}"
-                    value={ability}
-                    checked={roll.ability === ability}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.rolls.${rollId}.ability`,
-                            target.value
-                        )}
-                />
-
-                <label
-                    class="option-label"
-                    for="{actionId}-{rollId}-ability-{ability}"
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            optionStyles="min-width: 2rem; text-align: center;"
+            options={prepareAbilityOptions(false, true)}
+            selected={selectedAbility}
+            on:updateSelection={({ detail }) => (selectedAbility = detail)}
+        />
     </div>
 
     <div class="a5e-field-group">
@@ -122,34 +94,29 @@
                 )}
         />
     </div>
+
+    <div class="a5e-field-group a5e-field-group--checkbox">
+        <input
+            id="{actionId}-{rollId}-default"
+            class="checkbox"
+            type="checkbox"
+            checked={roll.default ?? true}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.default`,
+                    target.checked
+                )}
+        />
+
+        <label for="{actionId}-{rollId}-default">
+            {localize("A5E.SkillCheckDefaultSelection")}
+        </label>
+    </div>
 </section>
 
 <style lang="scss">
     .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-        }
-
         &-wrapper {
             display: flex;
             flex-direction: column;

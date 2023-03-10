@@ -55,21 +55,78 @@
         {/if}
     </div>
 
-    {#if $item.system.broken}
-        <i
-            class="broken-item-icon fa-solid fa-heart-crack"
-            data-tooltip="A5E.BrokenItem"
-            data-tooltip-direction="DOWN"
+    <div class="button-container">
+        <button
+            class="header-button fa-solid fa-circle-question"
+            class:active={$item.system.unidentified}
+            class:locked={!game.user.isGM}
+            disabled={!game.user.isGM}
+            data-tooltip={$item.system.unidentified
+                ? "A5E.ButtonToolTipUnidentified"
+                : "A5E.ButtonToolTipIdentified"}
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() => $item.toggleUnidentified()}
         />
-    {/if}
+
+        <button
+            class="header-button fa-solid fa-heart-crack"
+            class:active={$item.system.broken}
+            data-tooltip={$item.system.broken
+                ? "A5E.ButtonToolTipFixBroken"
+                : "A5E.ButtonToolTipBroken"}
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() => $item.toggleBroken()}
+        />
+    </div>
 </header>
 
 <style lang="scss">
-    .broken-item-icon {
-        font-size: 2.25rem;
-        color: #8b2525;
-        padding-right: 1rem;
+    .button-container {
+        display: flex;
         margin-left: auto;
+        padding-right: 1rem;
+        gap: 0.75rem;
+    }
+
+    .header-button {
+        display: flex;
+        font-size: 2.25rem;
+        transition: all 0.15s ease-in-out;
+        padding: 0;
+        background: none;
+        color: #999;
+        cursor: pointer;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .active {
+        color: #425f65;
+
+        &:hover {
+            color: #425f65;
+            box-shadow: none;
+        }
+    }
+
+    .locked {
+        cursor: default;
+        &:hover {
+            transform: none;
+            color: #999;
+        }
+    }
+
+    .delete-button:hover {
+        color: #8b2525;
     }
 
     .sheet-header {

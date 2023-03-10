@@ -4,7 +4,10 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import computeSaveDC from "../../utils/computeSaveDC";
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    import RadioGroup from "../RadioGroup.svelte";
 
     export let prompt;
     export let promptId;
@@ -14,6 +17,14 @@
     const actionId = getContext("actionId");
 
     const { abilities, saveDCOptions } = CONFIG.A5E;
+
+    function updateAbility() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
+            selectedAbility
+        );
+    }
 
     function selectSaveDCCalculationType(event) {
         const selectedOption = event.target?.selectedOptions[0]?.value;
@@ -48,6 +59,9 @@
         `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
         saveDCBonus
     );
+
+    $: selectedAbility = prompt.ability ?? "none";
+    $: selectedAbility, updateAbility();
 </script>
 
 <section class="action-config__wrapper">
@@ -74,30 +88,12 @@
             {localize("A5E.ItemSavingThrowType")}
         </h3>
 
-        <div class="option-list">
-            {#each Object.entries(abilities) as [ability, label]}
-                <input
-                    class="option-input"
-                    type="radio"
-                    id="{actionId}-{promptId}-ability-{ability}"
-                    value={ability}
-                    checked={prompt.ability === ability}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.prompts.${promptId}.ability`,
-                            target.value
-                        )}
-                />
-
-                <label
-                    class="option-label"
-                    for="{actionId}-{promptId}-ability-{ability}"
-                >
-                    {localize(label)}
-                </label>
-            {/each}
-        </div>
+        <RadioGroup
+            optionStyles="min-width: 2rem; text-align: center;"
+            options={prepareAbilityOptions()}
+            selected={selectedAbility}
+            on:updateSelection={({ detail }) => (selectedAbility = detail)}
+        />
     </div>
 
     <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md">
@@ -198,33 +194,6 @@
 <style lang="scss">
     .checkbox {
         margin: 0;
-    }
-
-    .option {
-        &-input {
-            display: none;
-
-            &:checked + .option-label {
-                background: #2b6537;
-                border-color: darken($color: #2b6537, $amount: 5);
-                color: #f6f2eb;
-            }
-        }
-
-        &-label {
-            border-radius: 3px;
-            border: 1px solid #bbb;
-            padding: 0.125rem 0.25rem;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-        }
     }
 
     .save-dc-preview-wrapper {

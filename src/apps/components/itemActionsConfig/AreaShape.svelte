@@ -1,7 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
     export let action;
     export let actionId;
@@ -20,10 +20,11 @@
     type="radio"
     checked={action?.area?.shape === key}
     on:click={({ target }) =>
-        updateDocumentDataFromField(
+        updateAssociatedValues(
             $item,
             `system.actions.${actionId}.area.shape`,
-            target.value
+            target.value,
+            `system.actions.${actionId}.area.quantity`
         )}
 />
 

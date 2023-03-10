@@ -1,3 +1,5 @@
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 import Item5e from './item';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -305,7 +307,7 @@ export default class ActorA5e extends Actor {
     });
 
     Object.entries(actorData.skills).forEach(([key, skill]) => {
-      const skillName = game.i18n.localize(CONFIG.A5E.skills[key]);
+      const skillName = localize(CONFIG.A5E.skills[key]);
       const { check: globalCheckBonus, skill: globalSkillBonus } = actorData.bonuses.abilities;
 
       let deterministicBonus;
@@ -338,21 +340,31 @@ export default class ActorA5e extends Actor {
   /** @inheritdoc */
   getRollData() {
     const data = super.getRollData();
-    const { abilities } = this.system;
+    const { abilities, skills } = this.system;
 
     data.prof = this.system.attributes.prof || 0;
 
-    // Add a shortcut for abilities.<ability>.check.mod.
-    data.abilities = Object.entries(abilities).reduce((acc, [key, ability]) => {
-      acc[key] = { ...ability, mod: ability.check.mod };
-      return acc;
-    }, {});
-
-    // Add a shortcut for ability scores.
+    // Add a shortcut for abilities.<ability>.check.mod, abilities.<ability>.mod, and <ability>.mod
     Object.entries(abilities).reduce((acc, [key, ability]) => {
+      acc.abilities ??= {};
+      acc.abilities[key] = { ...ability, mod: ability.check.mod };
       acc[key] = { ...ability, mod: ability.check.mod };
+
       return acc;
     }, data);
+
+    // Add similar shortcuts for skills
+    Object.entries(skills).reduce((acc, [key, skill]) => {
+      acc.skills ??= {};
+      acc.skills[key] = skill;
+      acc[key] = skill;
+
+      return acc;
+    }, data);
+
+    data.finesse = {
+      mod: Math.max(data.dex.mod, data.str.mod)
+    };
 
     data.level = this.system.details.level;
 
@@ -406,101 +418,101 @@ export default class ActorA5e extends Actor {
   }
 
   configureAbilityScore(data = {}, options = {}) {
-    const title = game.i18n.format(
+    const title = localize(
       'A5E.AbilityCheckPromptTitle',
-      { name: this.name, ability: game.i18n.localize(CONFIG.A5E.abilities[data.abilityKey]) }
+      { name: this.name, ability: localize(CONFIG.A5E.abilities[data.abilityKey]) }
     );
 
     this.#configure('ability', title, data, options);
   }
 
   configureArmorProficiencies(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
     this.#configure('armor', title, data, options);
   }
 
   configureConditionImmunities(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
     this.#configure('conditionImmunities', title, data, options);
   }
 
   configureCreatureTypes(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
     this.#configure('types', title, data, options);
   }
 
   configureDamageImmunities(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
     this.#configure('damageImmunities', title, data, options);
   }
 
   configureDamageResistances(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
     this.#configure('damageResistances', title, data, options);
   }
 
   configureDamageVulnerabilities(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
     this.#configure('damageVulnerabilities', title, data, options);
   }
 
   configureHealth(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.HitPointsConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.HitPointsConfigurationPrompt', { name: this.name });
     options.width ??= 380;
     this.#configure('health', title, data, options);
   }
 
   configureInitiative(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.InitiativeConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
     this.#configure('initiative', title, data, options);
   }
 
   configureLanguages(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.LanguagesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.LanguagesConfigurationPrompt', { name: this.name });
     this.#configure('languages', title, data, options);
   }
 
   configureManeuvers(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.ManeuverConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.ManeuverConfigurationPrompt', { name: this.name });
     this.#configure('maneuvers', title, data, options);
   }
 
   configureMovement(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.MovementConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
     this.#configure('movement', title, data, options);
   }
 
   configureSenses(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.SensesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.SensesConfigurationPrompt', { name: this.name });
     this.#configure('senses', title, data, options);
   }
 
   configureSizeCategory(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
     this.#configure('size', title, data, options);
   }
 
   configureSkill(data = {}, options = {}) {
-    const title = game.i18n.format(
+    const title = localize(
       'A5E.SkillConfigurationPrompt',
-      { name: this.name, skill: game.i18n.localize(CONFIG.A5E.skills[data.skillKey]) }
+      { name: this.name, skill: localize(CONFIG.A5E.skills[data.skillKey]) }
     );
 
     this.#configure('skill', title, data, options);
   }
 
   configureSpellTab(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.SpellTabConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.SpellTabConfigurationPrompt', { name: this.name });
     this.#configure('spells', title, data, options);
   }
 
   configureToolProficiencies(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
     this.#configure('tools', title, data, options);
   }
 
   configureWeaponProficiencies(data = {}, options = {}) {
-    const title = game.i18n.format('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
     this.#configure('weapons', title, data, options);
   }
 
@@ -687,7 +699,7 @@ export default class ActorA5e extends Actor {
   async rollAbilityCheck(abilityKey, options = {}) {
     let dialogData;
 
-    if (options.skipRollDialog) dialogData = this.#getDefaultAbilityCheckData(abilityKey, options);
+    if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
     else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
 
     if (!dialogData) return;
@@ -720,33 +732,35 @@ export default class ActorA5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultAbilityCheckData(abilityKey, options) {
+  getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
 
-    const rollFormula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       modifiers: [
         {
-          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+          label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
           value: ability.check.mod
         },
         {
-          label: `${game.i18n.localize(
-            CONFIG.A5E.abilities[abilityKey]
-          )} Check Bonus`,
+          label: localize('A5E.AbilityCheckBonus', {
+            ability: localize(
+              CONFIG.A5E.abilities[abilityKey]
+            )
+          }),
           value: ability.check.bonus
         },
         {
-          label: 'Global Check Bonus',
+          label: localize('A5E.AbilityCheckBonusGlobal'),
           value: this.system.bonuses.abilities.check
         },
         {
-          label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? ability.expertiseDice)
+          label: localize('A5E.ExpertiseDie'),
+          value: getExpertiseDieSize(options?.expertiseDice ?? ability.expertiseDice)
         },
         {
-          value: options.situationalMods
+          value: options?.situationalMods
         }
       ]
     });
@@ -775,7 +789,7 @@ export default class ActorA5e extends Actor {
 
     if (attributes.hitDice[dieSize].current - quantity < 0) return;
 
-    const title = game.i18n.format('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
+    const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
 
     const conMod = parseInt(actorData.abilities.con.check.mod, 10);
     const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
@@ -818,7 +832,7 @@ export default class ActorA5e extends Actor {
   async rollSavingThrow(abilityKey, options = {}) {
     let dialogData;
 
-    if (options.skipRollDialog) dialogData = this.#getDefaultSavingThrowData(abilityKey, options);
+    if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
     else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
 
     if (dialogData === null) return;
@@ -856,40 +870,42 @@ export default class ActorA5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultSavingThrowData(abilityKey, options) {
+  getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
 
-    const rollFormula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
       modifiers: [
         {
-          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+          label: localize('A5E.AbilityCheckMod', {
+            ability: localize(CONFIG.A5E.abilities[ability])
+          }),
           value: ability?.save.mod
         },
         {
-          label: `${game.i18n.localize(
-            CONFIG.A5E.abilities[abilityKey]
-          )} Save Bonus`,
+          label: localize('A5E.SavingThrowBonus', {
+            ability: localize(CONFIG.A5E.abilities[ability])
+          }),
           value: ability?.save.bonus
         },
         {
-          label: 'Concentration Bonus',
+          label: localize('A5E.ConcentrationBonus'),
           value:
             options.saveType === 'concentration'
               ? ability?.save.concentrationBonus
               : null
         },
         {
-          label: 'Global Save Bonus',
+          label: localize('A5E.SavingThrowBonusGlobal'),
           value: this.system.bonuses.abilities.save
         },
         {
-          label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? ability?.expertiseDice)
+          label: localize('A5E.ExpertiseDie'),
+          value: getExpertiseDieSize(options?.expertiseDice ?? ability?.expertiseDice)
         },
         {
-          value: options.situationalMods
+          value: options?.situationalMods
         }
       ]
     });
@@ -919,7 +935,7 @@ export default class ActorA5e extends Actor {
   async rollSkillCheck(skillKey, options = {}) {
     let rollData;
 
-    if (options.skipRollDialog) rollData = this.#getDefaultSkillRollData(skillKey, options);
+    if (options.skipRollDialog) rollData = this.getDefaultSkillCheckData(skillKey, options);
     else rollData = await this.#showSkillCheckPrompt(skillKey, options);
 
     if (!rollData) return;
@@ -954,48 +970,52 @@ export default class ActorA5e extends Actor {
     ChatMessage.create(chatData);
   }
 
-  #getDefaultSkillRollData(skillKey, options) {
+  getDefaultSkillCheckData(skillKey, options = {}) {
     const skill = this.system.skills[skillKey];
-    const abilityKey = options.abilityKey ?? skill.ability;
+    const abilityKey = options?.abilityKey ?? skill.ability;
     const ability = this.system.abilities[abilityKey];
 
     // TODO: Update the keys below to use format and proper localisations.
 
-    const rollFormula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-      minRoll: options.minRoll ?? skill.minRoll,
+      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      minRoll: options?.minRoll ?? skill.minRoll,
       modifiers: [
         {
-          label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Mod`,
+          label: localize('A5E.SkillCheckMod', { skill: localize(CONFIG.A5E.skills[skillKey]) }),
           value: skill.mod
         },
         {
-          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+          label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
           value: ability?.check.mod
         },
         {
-          label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+          label: localize('A5E.SkillCheckBonus', {
+            skill: localize(CONFIG.A5E.skills[skillKey])
+          }),
           value: skill.bonuses.check
         },
         {
-          label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
+          label: localize('A5E.AbilityCheckBonus', {
+            ability: localize(CONFIG.A5E.abilities[abilityKey])
+          }),
           value: ability?.check.bonus
         },
         {
-          label: 'Global Skill Bonus',
+          label: localize('A5E.SkillCheckBonusGlobal'),
           value: this.system.bonuses.abilities.skill
         },
         {
-          label: 'Global Check Bonus',
+          label: localize('A5E.AbilityCheckBonusGlobal'),
           value: this.system.bonuses.abilities.check
         },
         {
-          label: 'Expertise Die',
-          value: getExpertiseDieSize(options.expertiseDice ?? skill.expertiseDice)
+          label: localize('A5E.ExpertiseDie'),
+          value: getExpertiseDieSize(options?.expertiseDice ?? skill.expertiseDice)
         },
         {
-          value: options.situationalMods
+          value: options?.situationalMods
         }
       ]
     });
@@ -1020,7 +1040,7 @@ export default class ActorA5e extends Actor {
   }
 
   async triggerRest() {
-    const title = game.i18n.format('A5E.RestConfigurationPrompt', { name: this.name });
+    const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
     const dialog = new GenericConfigDialog(this, title, RestDialog);
     await dialog.render(true);
     const restData = await dialog?.promise;

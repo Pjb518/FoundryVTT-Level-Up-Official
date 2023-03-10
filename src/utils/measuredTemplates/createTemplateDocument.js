@@ -11,13 +11,13 @@ const TEMPLATE_FUNCTION_MAP = {
   sphere: getCircleTemplateData
 };
 
-export default function createTemplateDocument(item) {
-  const { shape } = item.system.area;
+export default function createTemplateDocument(item, actionId) {
+  const { shape } = item.actions[actionId].area;
   const templateConfigFunction = TEMPLATE_FUNCTION_MAP[shape];
 
-  if (!templateConfigFunction) return null;
+  const templateData = templateConfigFunction(item, actionId);
+  if (!templateData) return null;
 
-  const templateData = templateConfigFunction(item);
   const TemplateDocument = CONFIG.MeasuredTemplate.documentClass;
 
   return new TemplateDocument(templateData, { parent: canvas.scene });

@@ -8,9 +8,17 @@ export default function updateAssociatedValues(
   excludeFilter = null,
   associatedValue = 1
 ) {
-  updateDocumentDataFromField(document, key, value);
-
   if (excludeFilter && !excludeFilter.includes(value)) {
-    updateDocumentDataFromField(document, associatedKey, Number(associatedValue));
+    document.update({
+      [key]: value,
+      [associatedKey]: associatedValue
+    });
+  } else if (!excludeFilter) {
+    document.update({
+      [key]: value,
+      [associatedKey]: associatedValue
+    });
+  } else {
+    updateDocumentDataFromField(document, key, value);
   }
 }

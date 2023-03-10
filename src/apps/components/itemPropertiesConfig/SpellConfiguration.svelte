@@ -9,6 +9,7 @@
     import FormSection from "../FormSection.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import Tag from "../Tag.svelte";
 
     const item = getContext("item");
     const appId = getContext("appId");
@@ -91,21 +92,18 @@
                     class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
                 >
                     {#each Object.entries(A5E.spellComponents) as [value, label]}
-                        <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <li
-                            class="a5e-tag u-pointer"
-                            class:a5e-tag--active={$item.system.components[
-                                value
-                            ]}
-                            on:click={({ target }) =>
+                        <Tag
+                            {label}
+                            {value}
+                            active={$item.system.components[value]}
+                            on:tagToggle={() =>
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.components.${value}`,
                                     !$item.system.components[value]
                                 )}
-                        >
-                            {localize(label)}
-                        </li>
+                            }
+                        />
                     {/each}
                 </ul>
             </FormSection>

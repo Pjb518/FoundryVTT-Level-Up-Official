@@ -2,9 +2,6 @@
 
 import './scss/main.scss';
 
-// eslint-disable-next-line no-unused-vars
-import migrateActionsConfig from './migrations/v090Migrations/migrateActionsConfig';
-
 import ActorSheetA5e from './apps/ActorSheet';
 import ItemSheetA5e from './apps/ItemSheet';
 
@@ -45,8 +42,6 @@ import migrateItemData from './migrations/migrateItemData';
 import migrateMacroData from './migrations/migrateMacroData';
 import migrateSceneData from './migrations/migrateSceneData';
 
-import migrateCurrentHitPoints from './migrations/helpers/migrateCurrentHitPoints';
-
 Hooks.once('init', () => {
   game.a5e = {
     applications: {
@@ -74,8 +69,7 @@ Hooks.once('init', () => {
       migrateCompendium,
       migrateItemData,
       migrateMacroData,
-      migrateSceneData,
-      migrateCurrentHitPoints
+      migrateSceneData
     }
   };
 
@@ -157,7 +151,7 @@ Hooks.once('ready', () => {
   const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 
   if (!currentVersion && totalDocuments === 0) {
-    game.settings.set('a5e', 'systemMigrationVersion', game.system.data.version);
+    game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
     return;
   }
 
@@ -168,7 +162,7 @@ Hooks.once('ready', () => {
 });
 
 Hooks.once('ready', () => {
-  const LATEST_ANNOUNCEMENT_VERSION = '0.6.0';
+  const LATEST_ANNOUNCEMENT_VERSION = '0.9.0';
   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
   const showAnnouncement = !lastAnnouncementShown
@@ -178,13 +172,13 @@ Hooks.once('ready', () => {
 
   const announcementWindow = new Application({
     title: 'Test!',
-    template: 'systems/a5e/templates/announcements/0.6.0.hbs',
+    template: 'systems/a5e/templates/announcements/0.9.0.hbs',
     width: 700
   });
 
   announcementWindow.render(true);
 
-  game.user.setFlag('a5e', 'latestAnnouncement', game.system.data.version);
+  game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
 });
 
 Hooks.once('ready', () => {

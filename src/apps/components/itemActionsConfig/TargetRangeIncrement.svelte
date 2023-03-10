@@ -7,6 +7,7 @@
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
     export let index;
     export let id;
@@ -88,21 +89,11 @@
 
 <FormSection {heading}>
     <div class="action-config__wrapper">
-        <ul
-            class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
-        >
-            {#each options as [value, label]}
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <li
-                    class="a5e-tag u-pointer"
-                    class:a5e-tag--active={selected === value ||
-                        selected?.toString() === value}
-                    on:click={() => updateRangeValue(value)}
-                >
-                    {localize(label)}
-                </li>
-            {/each}
-        </ul>
+        <RadioGroup
+            {options}
+            {selected}
+            on:updateSelection={({ detail }) => updateRangeValue(detail)}
+        />
 
         {#if selected === "other"}
             <div class="u-flex u-gap-md u-align-center">

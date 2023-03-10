@@ -37,11 +37,12 @@
                                 type="number"
                                 name="system.attributes.movement.{mode}.distance"
                                 value={movementData.distance || 0}
+                                min="0"
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
                                         $actor,
                                         target.name,
-                                        Number(target.value)
+                                        Math.max(Number(target.value), 0)
                                     );
                                 }}
                             />

@@ -19,7 +19,6 @@
             const { uuid } = JSON.parse(
                 dragEvent.dataTransfer.getData("text/plain")
             );
-            console.log(uuid);
 
             linkedEquipment.add({ uuid });
         } catch (err) {

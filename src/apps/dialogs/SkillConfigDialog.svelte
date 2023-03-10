@@ -58,8 +58,7 @@
 
     <FormSection heading="A5E.AbilityScore">
         <RadioGroup
-            listClasses="u-gap-md u-text-sm"
-            optionStyles="padding:0.5rem; text-align: center; width: 1.85rem"
+            optionStyles="min-width:2rem; text-align: center;"
             options={abilityOptions}
             selected={skill.ability}
             on:updateSelection={(event) =>
@@ -87,8 +86,7 @@
 
     <FormSection heading="A5E.ExpertiseDie">
         <RadioGroup
-            listClasses="a5e-radio-group--expertise u-gap-md u-mb-md u-text-sm"
-            optionStyles="padding:0.5rem; text-align: center; width: 1.85rem"
+            optionStyles="min-width:2rem; text-align: center;"
             options={expertiseDiceOptions}
             selected={skill.expertiseDice}
             on:updateSelection={(event) =>

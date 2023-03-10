@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import RadioGroup from "../RadioGroup.svelte";

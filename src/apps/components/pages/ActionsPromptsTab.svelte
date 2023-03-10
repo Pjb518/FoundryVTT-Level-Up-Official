@@ -1,8 +1,13 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import {
+        TJSMenu,
+        TJSToggleIconButton,
+    } from "@typhonjs-fvtt/svelte-standard/component";
 
     import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
+    import ActionsAddMenu from "../ActionsAddMenu.svelte";
     import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
     import PromptsConfigWrapper from "../itemActionsConfig/PromptsConfigWrapper.svelte";
     import SavePromptConfig from "../itemActionsConfig/SavePromptConfig.svelte";
@@ -41,60 +46,96 @@
 
     const promptTypes = {
         savingThrow: {
-            heading: "A5E.ActionConfigSavingThrowPrompt",
+            heading: "A5E.SavingThrowPlural",
+            singleLabel: "A5E.SavingThrow",
             component: SavePromptConfig,
         },
         abilityCheck: {
-            heading: "A5E.ActionConfigAbilityCheckPrompt",
+            heading: "A5E.AbilityCheckPlural",
+            singleLabel: "A5E.AbilityCheck",
             component: AbilityCheckPromptConfig,
         },
         skillCheck: {
-            heading: "A5E.ActionConfigSkillCheckPrompt",
+            heading: "A5E.SkillCheckPlural",
+            singleLabel: "A5E.SkillCheckSingular",
             component: SkillCheckPromptConfig,
         },
         generic: {
-            heading: "A5E.Other",
+            heading: "A5E.OtherPlural",
+            singleLabel: "A5E.Other",
             component: GenericPromptConfig,
         },
     };
 
     $: action = $item.actions[actionId];
+    $: prompts = action.prompts ?? {};
+
+    $: menuItems = Object.entries(promptTypes).map(
+        ([promptType, { heading }]) => [heading, promptType]
+    );
 </script>
 
-<ul class="prompts-config-list">
-    {#each Object.entries(promptTypes) as [promptType, { heading, component }] (promptType)}
-        <li class="prompts-config-list__item">
-            <header class="action-config__section-header">
-                <h2 class="action-config__section-heading">
-                    {localize(heading)}
-                </h2>
+<article>
+    <ul class="prompts-config-list">
+        {#each Object.entries(promptTypes) as [promptType, { heading, singleLabel, component }] (promptType)}
+            {#if Object.values(prompts).filter((prompt) => prompt.type === promptType).length}
+                <li class="prompts-config-list__item">
+                    <header class="action-config__section-header">
+                        <h2 class="action-config__section-heading">
+                            {localize(heading)}
+                        </h2>
 
-                <button
-                    class="add-button"
-                    on:click={() => addPrompt(promptType)}
-                >
-                    {localize("A5E.ButtonAddPrompt")}
-                </button>
-            </header>
+                        <button
+                            class="add-button"
+                            on:click={() => addPrompt(promptType)}
+                        >
+                            {localize("A5E.ButtonAddPrompt", {
+                                type: localize(singleLabel),
+                            })}
+                        </button>
+                    </header>
 
-            <ul class="prompts-list">
-                {#each Object.entries(action.prompts ?? {}).filter(([_, prompt]) => prompt.type === promptType) as [promptId, prompt] (promptId)}
-                    <PromptsConfigWrapper {prompt} {promptId}>
-                        <svelte:component
-                            this={component}
-                            {prompt}
-                            {promptId}
-                        />
-                    </PromptsConfigWrapper>
-                {:else}
-                    <li class="action-config__none">{localize("A5E.None")}</li>
-                {/each}
-            </ul>
-        </li>
-    {/each}
-</ul>
+                    <ul class="prompts-list">
+                        {#each Object.entries(prompts).filter(([_, prompt]) => prompt.type === promptType) as [promptId, prompt] (promptId)}
+                            <PromptsConfigWrapper {prompt} {promptId}>
+                                <svelte:component
+                                    this={component}
+                                    {prompt}
+                                    {promptId}
+                                />
+                            </PromptsConfigWrapper>
+                        {:else}
+                            <li class="action-config__none">
+                                {localize("A5E.None")}
+                            </li>
+                        {/each}
+                    </ul>
+                </li>
+            {/if}
+        {/each}
+    </ul>
+
+    <div class="sticky-add-button">
+        <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
+            <TJSMenu offset={{ x: -110, y: -105 }}>
+                <ActionsAddMenu
+                    menuList={menuItems}
+                    on:press={({ detail }) => addPrompt(detail)}
+                />
+            </TJSMenu>
+        </TJSToggleIconButton>
+    </div>
+</article>
 
 <style lang="scss">
+    article {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+        overflow: hidden;
+    }
+
     .prompts-list {
         display: flex;
         flex-direction: column;
@@ -108,15 +149,23 @@
     .prompts-config-list {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         gap: 0.75rem;
         list-style: none;
         padding: 0;
         margin: 0;
+        overflow-y: auto;
 
         &__item {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
+    }
+
+    .sticky-add-button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 </style>

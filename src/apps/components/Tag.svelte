@@ -8,6 +8,7 @@
     export let orange = false;
     export let optionStyles = "";
     export let red = false;
+    export let tight = false;
     export let value;
 
     const dispatch = createEventDispatcher();
@@ -20,6 +21,7 @@
         class:tag--active={active}
         class:tag--orange={orange}
         class:tag--red={red}
+        class:tag--tight={tight}
         {disabled}
         {value}
         on:click|preventDefault={() => dispatch("tagToggle", value)}
@@ -41,7 +43,7 @@
         border-radius: $border-radius-standard;
         color: inherit;
         transition: $standard-transition;
-        white-space: nowrap;
+        white-space: normal;
         cursor: pointer;
 
         &:hover,
@@ -51,9 +53,15 @@
 
         &:disabled,
         &[disabled] {
+            background: #aaa;
             border: 1px solid #999;
-            color: #999;
+            color: white;
             cursor: auto;
+
+            &:hover,
+            &:focus {
+                background: #aaa;
+            }
         }
 
         &--red {
@@ -104,8 +112,8 @@
             }
         }
 
-        // &--tight {
-        //     padding: 0.1rem 0.375rem;
-        // }
+        &--tight {
+            padding: 0.1rem 0.375rem;
+        }
     }
 </style>

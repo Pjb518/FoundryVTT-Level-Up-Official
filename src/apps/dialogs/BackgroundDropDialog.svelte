@@ -21,10 +21,9 @@
 
     const A5E = CONFIG.A5E;
     const equipmentLength = Object.entries($item.system.equipment).length;
-    const toolKeys = Object.entries(
-        foundry.utils.flattenObject(CONFIG.A5E.tools)
-    ).reduce(
-        (acc, [key, label]) => ({ ...acc, [key.split(".")[1]]: label }),
+
+    const toolKeys = Object.values(CONFIG.A5E.tools).reduce(
+        (acc, curr) => ({ ...acc, ...curr }),
         {}
     );
 

@@ -9,6 +9,12 @@ export default async function _onCombatantControl(event) {
   const combat = this.viewed;
   const c = combat.combatants.get(li.dataset.combatantId);
 
+  let rollMode = event.shiftKey
+    ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
+    : CONFIG.A5E.ROLL_MODE.NORMAL;
+
+  rollMode = (event.metaKey || event.ctrlKey) ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
+
   // Switch control action
   // eslint-disable-next-line default-case
   switch (btn.dataset.control) {
@@ -22,7 +28,11 @@ export default async function _onCombatantControl(event) {
     case 'rollInitiative':
       return combat.rollInitiative([c.id], {
         rollOptions: {
-          skipRollDialog: event.altKey
+          rollMode,
+          skipRollDialog: game.settings.get(
+            'a5e',
+            'reverseInitiativeAltBehavior'
+          ) ? !event.altKey : event.altKey
         }
       });
 
