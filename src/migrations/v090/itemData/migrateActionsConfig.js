@@ -1,7 +1,7 @@
 import migrate5ftRange from './migrate5ftRange';
 import migrateItemWeight from './migrateItemWeight';
-import migrateSenses from './migrateSenses';
-import migrateMovements from './migrateMovements';
+import migrateSenses from '../actorData/migrateSenses';
+import migrateMovements from '../actorData/migrateMovements';
 
 // FIXME: Remove
 window.testMigrate = {

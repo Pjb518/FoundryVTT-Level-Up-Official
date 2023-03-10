@@ -3,7 +3,7 @@
 import './scss/main.scss';
 
 // eslint-disable-next-line no-unused-vars
-import migrateActionsConfig from './migrations/v090Migrations/migrateActionsConfig';
+import migrateActionsConfig from './migrations/v090/migrateActionsConfig';
 
 import ActorSheetA5e from './apps/ActorSheet';
 import ItemSheetA5e from './apps/ItemSheet';
