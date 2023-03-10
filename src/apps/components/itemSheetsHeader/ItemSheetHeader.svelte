@@ -9,6 +9,8 @@
     const prerequisiteTypes = ["maneuver", "feature"];
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
+
+    $: unidentified = $item.system.unidentified;
 </script>
 
 <header class="sheet-header">
@@ -22,35 +24,17 @@
     />
 
     <div>
-        {#if $item.system.unidentified}
-            <input
-                type="text"
-                name="system.unidentifiedName"
-                value={$item.system.unidentifiedName}
-                class="item-name"
-                placeholder={localize("A5E.ItemUnidentifiedName")}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value
-                    )}
-            />
-        {:else}
-            <input
-                type="text"
-                name="name"
-                value={$item.name}
-                class="item-name"
-                placehodler={localize("A5E.Name")}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value
-                    )}
-            />
-        {/if}
+        <input
+            type="text"
+            name={unidentified ? "system.unidentifiedName" : "name"}
+            value={unidentified ? $item.system.unidentifiedName : $item.name}
+            class="item-name"
+            placeholder={localize(
+                unidentified ? "A5E.ItemUnidentifiedName" : "A5E.Name"
+            )}
+            on:change={({ target }) =>
+                updateDocumentDataFromField($item, target.name, target.value)}
+        />
 
         {#if prerequisiteTypes.includes($item.type)}
             <div class="prerequisites">
@@ -141,6 +125,11 @@
         &:hover {
             transform: none;
             color: #999;
+
+            &.active {
+                transform: none;
+                color: #425f65;
+            }
         }
     }
 

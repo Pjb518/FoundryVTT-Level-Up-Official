@@ -20,48 +20,66 @@
         currentTab = tabs[event.detail];
     }
 
+    const isPlayerAndUnidentified =
+        !game.user.isGM && itemDocument.system.unidentified;
+
     const tabs = [
         {
             name: "description",
             label: "A5E.ItemSheetLabelDescriptionTab",
             component: ItemDescriptionTab,
+            display: !isPlayerAndUnidentified,
+        },
+        {
+            name: "unidentifiedDescription",
+            label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+            component: ItemUnidentifiedDescriptionTab,
+            display: isPlayerAndUnidentified,
+        },
+        {
+            name: "gmNotes",
+            label: "GM Notes",
+            component: ItemGmNotesTab,
+            display: game.user.isGM,
         },
         {
             name: "properties",
             label: "A5E.ItemSheetLabelPropertiesTab",
             component: ItemPropertiesTab,
+            display: !isPlayerAndUnidentified,
         },
         {
             name: "actions",
             label: "A5E.ItemSheetLabelActionsTab",
             component: ItemActionsTab,
+            display: !isPlayerAndUnidentified,
         },
     ];
 
-    if (game.user.isGM) {
-        tabs.splice(
-            1,
-            0,
-            {
-                name: "unidentifiedDescription",
-                label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
-                component: ItemUnidentifiedDescriptionTab,
-            },
-            {
-                name: "gmNotes",
-                label: "GM Notes",
-                component: ItemGmNotesTab,
-            }
-        );
-    }
+    // if (game.user.isGM) {
+    //     tabs.splice(
+    //         1,
+    //         0,
+    //         {
+    //             name: "unidentifiedDescription",
+    //             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+    //             component: ItemUnidentifiedDescriptionTab,
+    //         },
+    //         {
+    //             name: "gmNotes",
+    //             label: "GM Notes",
+    //             component: ItemGmNotesTab,
+    //         }
+    //     );
+    // }
 
-    if (!game.user.isGM && itemDocument.system.unidentified) {
-        tabs.splice(0, tabs.length + 1, {
-            name: "unidentifiedDescription",
-            label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
-            component: ItemUnidentifiedDescriptionTab,
-        });
-    }
+    // if (!game.user.isGM && itemDocument.system.unidentified) {
+    //     tabs.splice(0, tabs.length + 1, {
+    //         name: "unidentifiedDescription",
+    //         label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+    //         component: ItemUnidentifiedDescriptionTab,
+    //     });
+    // }
 
     $: currentTab = tabs[0];
 

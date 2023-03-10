@@ -29,7 +29,7 @@
         }
     });
 
-    $: content = content || newLabel;
+    $: (content = content || newLabel) || localize("A5E.NoDescription");
     $: enrichedContent = TextEditor.enrichHTML($document[updatePath], {
         async,
     });
