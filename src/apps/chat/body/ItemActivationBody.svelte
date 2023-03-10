@@ -22,6 +22,8 @@
         switch (rollData.roll.type) {
             case "abilityCheck":
                 return localize("A5E.AbilityCheckSpecific", { ability });
+            case "attack":
+                return "Attack Roll";
             case "damage":
                 return rollData?.roll?.damageType
                     ? localize("A5E.DamageSpecific", {
@@ -30,6 +32,8 @@
                           ),
                       })
                     : localize("A5E.Damage");
+            case "generic":
+                return "Generic Roll";
             case "healing":
                 return rollData?.roll?.healingType === "temporaryHealing"
                     ? localize("A5E.HealingTemporary")
@@ -91,26 +95,15 @@
     {/if}
 
     {#each rolls ?? [] as [roll, rollData]}
-        {#if ["abilityCheck", "savingThrow", "skillCheck"].includes(rollData.roll.type)}
-            <div>
-                <h3 class="roll-label">{getTitle(rollData)}</h3>
+        <div>
+            <h3 class="roll-label">{getTitle(rollData)}</h3>
+
+            {#if ["abilityCheck", "attack", "savingThrow", "skillCheck"].includes(rollData.roll.type)}
                 <D20Roll {roll} />
-            </div>
-        {/if}
-
-        {#if ["damage", "healing"].includes(rollData.roll.type)}
-            <div>
-                <h3 class="roll-label">{getTitle(rollData)}</h3>
+            {:else}
                 <Roll {roll} />
-            </div>
-        {/if}
-
-        {#if rollData.roll.type === "generic"}
-            <div>
-                <h3 class="roll-label">Generic Roll</h3>
-                <Roll {roll} />
-            </div>
-        {/if}
+            {/if}
+        </div>
     {/each}
 
     {#if hasRolls && hasPrompts}

@@ -53,8 +53,9 @@
         // TODO: Clean this up. A lot of stuff here is prototyping for the chat cards
         dialog.submit({
             attack: {
+                ...attackRoll,
                 rollMode,
-                rollFormula,
+                formula: rollFormula,
             },
             prompts: Object.entries(action.prompts ?? {})
                 ?.filter(([key]) => selectedPrompts.includes(key))
@@ -65,9 +66,9 @@
 
                     return [key, prompt];
                 }),
-            rolls: Object.entries(action.rolls ?? {})?.filter(([key]) =>
-                selectedRolls.includes(key)
-            ),
+            rolls: Object.entries(action.rolls ?? {})
+                ?.filter(([key]) => selectedRolls.includes(key))
+                .map(([_, roll]) => roll),
             placeTemplate,
         });
     }

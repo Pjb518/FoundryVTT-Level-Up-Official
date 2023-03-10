@@ -124,14 +124,17 @@ export default class ItemA5e extends Item {
 
     if (!promise) return;
 
-    const rolls = await Promise.resolve(promise?.rolls?.reduce(async (accP, [_, roll]) => {
+    promise.rolls ??= [];
+    promise.rolls.push(promise?.attack ?? {});
+
+    const rolls = await Promise.resolve(promise?.rolls?.reduce(async (accP, roll) => {
       const acc = await accP;
       const rollData = this.#prepareItemRoll(roll);
 
       if (rollData?.rollFormula) {
         let evaluatedRoll;
 
-        if (['abilityCheck', 'savingThrow', 'skillCheck'].includes(roll.type)) {
+        if (['abilityCheck', 'attack', 'savingThrow', 'skillCheck'].includes(roll.type)) {
           evaluatedRoll = await new CONFIG.Dice.D20Roll(rollData.rollFormula).roll({ async: true });
         } else {
           evaluatedRoll = await new Roll(rollData.rollFormula).roll({ async: true });
@@ -186,9 +189,11 @@ export default class ItemA5e extends Item {
   }
 
   #prepareItemRoll(roll) {
-    switch (roll.type) {
+    switch (roll?.type) {
       case 'abilityCheck':
         return this.actor.getDefaultAbilityCheckData(roll.ability);
+      case 'attack':
+        return this.#prepareAttackRoll(roll);
       case 'damage':
         return this.#prepareDamageRoll(roll);
       case 'generic':
@@ -201,6 +206,10 @@ export default class ItemA5e extends Item {
         return this.actor.getDefaultSkillCheckData(roll.skill, roll.ability);
       default: return null;
     }
+  }
+
+  #prepareAttackRoll(roll) {
+    return constructRollFormula({ actor: this.actor, formula: roll.formula });
   }
 
   #prepareDamageRoll(roll) {
