@@ -12,52 +12,6 @@
 
     export let message;
 
-    function getTitle(rollData) {
-        const ability = localize(
-            abilities[rollData?.abilityKey ?? rollData?.roll?.ability ?? ""]
-        );
-
-        const skill = localize(skills[rollData?.roll?.skill ?? ""]);
-
-        switch (rollData.roll.type) {
-            case "abilityCheck":
-                return localize("A5E.AbilityCheckSpecific", { ability });
-            case "attack":
-                return "Attack Roll";
-            case "damage":
-                return rollData?.roll?.damageType
-                    ? localize("A5E.DamageSpecific", {
-                          damageType: localize(
-                              damageTypes[rollData?.roll?.damageType]
-                          ),
-                      })
-                    : localize("A5E.Damage");
-            case "generic":
-                return "Generic Roll";
-            case "healing":
-                return rollData?.roll?.healingType === "temporaryHealing"
-                    ? localize("A5E.HealingTemporary")
-                    : localize("A5E.Healing");
-            case "savingThrow":
-                return localize("A5E.SavingThrowSpecific", { ability });
-            case "skillCheck":
-                return ability
-                    ? localize("A5E.SkillCheckAbility", { skill, ability })
-                    : localize("A5E.SkillCheck", { skill });
-            case "toolCheck":
-                return game.i18n.format("A5E.ToolCheckSpecific", {
-                    tool: game.i18n.localize(tools[rollData?.roll?.tool]),
-                });
-        }
-    }
-
-    const { abilities, damageTypes, skills } = CONFIG.A5E;
-
-    const tools = Object.values(CONFIG.A5E.tools).reduce(
-        (acc, curr) => ({ ...acc, ...curr }),
-        {}
-    );
-
     const rollSortKeyMap = {
         attack: 0,
         damage: 1,
@@ -87,8 +41,7 @@
         }, {}) ?? {};
 
     const rolls = zip($message.rolls, $message.flags?.a5e?.rollData).sort(
-        (a, b) =>
-            rollSortKeyMap[a[1].roll.type] - rollSortKeyMap[b[1].roll.type]
+        (a, b) => rollSortKeyMap[a[1]?.type] - rollSortKeyMap[b[1]?.type]
     );
 
     const hasRolls = rolls.length;
@@ -104,9 +57,9 @@
 
     {#each rolls ?? [] as [roll, rollData]}
         <div>
-            <h3 class="roll-label">{getTitle(rollData)}</h3>
+            <h3 class="roll-label">{rollData.label}</h3>
 
-            {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.roll.type)}
+            {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
                 <D20Roll {roll} />
             {:else}
                 <Roll {roll} />

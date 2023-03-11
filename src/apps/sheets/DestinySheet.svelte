@@ -30,7 +30,7 @@
         },
     ];
 
-    $: currentTab = tabs[0];
+    let currentTab = tabs[0];
 
     setContext("item", new TJSDocument(itemDocument));
 </script>

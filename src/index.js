@@ -162,7 +162,9 @@ Hooks.once('ready', () => {
 });
 
 Hooks.once('ready', () => {
-  const LATEST_ANNOUNCEMENT_VERSION = '0.9.0';
+  // TODO: Upgrade this to 0.9.0 once we're ready for release. If set to 0.9.0, it shows up during
+  // every world load, which is awful for development.
+  const LATEST_ANNOUNCEMENT_VERSION = '0.8.0';
   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
   const showAnnouncement = !lastAnnouncementShown
