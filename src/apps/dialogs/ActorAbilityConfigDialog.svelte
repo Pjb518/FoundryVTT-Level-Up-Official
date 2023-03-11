@@ -31,12 +31,12 @@
         },
     ];
 
-    const checkBonusHeading = game.i18n.format("A5E.AbilityCheckBonus", {
-        ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]),
+    const checkBonusHeading = localize("A5E.AbilityCheckBonus", {
+        ability: localize(CONFIG.A5E.abilities[abilityKey]),
     });
 
-    const saveBonusHeading = game.i18n.format("A5E.SavingThrowBonus", {
-        ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]),
+    const saveBonusHeading = localize("A5E.SavingThrowBonus", {
+        ability: localize(CONFIG.A5E.abilities[abilityKey]),
     });
 
     let currentTab = tabs[0];

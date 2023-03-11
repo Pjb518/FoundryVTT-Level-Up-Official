@@ -1,3 +1,5 @@
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 /**
  * Extends the Token HUD class to add system specific options
  */
@@ -26,8 +28,9 @@ export default class TokenHUDA5e extends TokenHUD {
   /** @override */
   _getStatusEffectChoices() {
     CONFIG.statusEffects = CONFIG.statusEffects.sort((a, b) => {
-      const aid = (a.label !== undefined ? game.i18n.localize(a.label) : a.id || a);
-      const bid = (b.label !== undefined ? game.i18n.localize(b.label) : b.id || b);
+      const aid = (a.label !== undefined ? localize(a.label) : a.id || a);
+      const bid = (b.label !== undefined ? localize(b.label) : b.id || b);
+
       // eslint-disable-next-line no-nested-ternary
       return (aid > bid ? 1 : (aid < bid ? -1 : 0));
     });

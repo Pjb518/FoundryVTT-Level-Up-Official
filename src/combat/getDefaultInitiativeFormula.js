@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 
@@ -17,19 +20,19 @@ export default function getDefaultInitiativeFormula(actor, options = {}) {
         value: initiative.bonus
       },
       {
-        label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
+        label: `${localize(CONFIG.A5E.abilities[abilityKey])} Mod`,
         value: ability?.check.mod
       },
       {
-        label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Mod`,
+        label: `${localize(CONFIG.A5E.skills[skillKey])} Mod`,
         value: skill?.mod
       },
       {
-        label: `${game.i18n.localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
+        label: `${localize(CONFIG.A5E.abilities[abilityKey])} Check Bonus`,
         value: ability?.check.bonus
       },
       {
-        label: `${game.i18n.localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
+        label: `${localize(CONFIG.A5E.skills[skillKey])} Check Bonus`,
         value: skill?.bonuses.check
       },
       {

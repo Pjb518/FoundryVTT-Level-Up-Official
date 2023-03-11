@@ -32,11 +32,7 @@
         updateFunction();
     }
 
-    tags = Object.entries(tags).map(([key, value]) => [
-        key,
-        game.i18n.localize(value),
-    ]);
-
+    tags = Object.entries(tags).map(([key, value]) => [key, localize(value)]);
     tags = sort ? tags.sort((a, b) => a[1] - b[1]) : tags;
 </script>
 

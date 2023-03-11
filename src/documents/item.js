@@ -166,7 +166,7 @@ export default class ItemA5e extends Item {
         a5e: {
           actorId: this.actor.uuid,
           cardType: 'item',
-          img: this.actions[actionId].img ?? 'icons/svg/item-bag.svg',
+          img: this.actions[actionId].img ?? this.img ?? 'icons/svg/item-bag.svg',
           name: this.name,
           actionName: this.actions[actionId].name,
           prompts: promise.prompts,
@@ -232,7 +232,7 @@ export default class ItemA5e extends Item {
   #prepareAttackRoll(roll) {
     const { rollFormula } = constructRollFormula({ actor: this.actor, formula: roll.formula });
 
-    const label = localize(CONFIG.A5E.attackTypes[roll.attackType]);
+    const label = localize(CONFIG.A5E.attackTypes[roll?.attackType ?? 'meleeWeaponAttack']);
 
     return {
       label,
@@ -324,8 +324,8 @@ export default class ItemA5e extends Item {
       {}
     );
 
-    const label = game.i18n.format('A5E.ToolCheckSpecific', {
-      tool: game.i18n.localize(tools[roll?.tool] ?? '')
+    const label = localize('A5E.ToolCheckSpecific', {
+      tool: localize(tools[roll?.tool] ?? '')
     });
 
     // Check if ability configured

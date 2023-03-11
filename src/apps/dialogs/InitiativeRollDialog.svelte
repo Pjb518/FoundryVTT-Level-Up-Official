@@ -15,7 +15,7 @@
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => ({
             id: key,
-            name: game.i18n.localize(value),
+            name: localize(value),
             value: CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
         })
     );

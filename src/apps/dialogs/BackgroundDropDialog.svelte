@@ -35,10 +35,9 @@
     };
 
     async function updateTools() {
-        const title = game.i18n.format(
-            "A5E.ToolProficienciesConfigurationPrompt",
-            { name: $item.name }
-        );
+        const title = localize("A5E.ToolProficienciesConfigurationPrompt", {
+            name: $item.name,
+        });
 
         const dialog = new GenericConfigDialog(
             actorDocument,

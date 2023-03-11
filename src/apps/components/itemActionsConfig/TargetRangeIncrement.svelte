@@ -67,7 +67,7 @@
         });
     }
 
-    const heading = game.i18n.format("A5E.ItemRangeIncrement", {
+    const heading = localize("A5E.ItemRangeIncrement", {
         increment: getOrdinalNumber(index + 1),
     });
 
@@ -75,7 +75,7 @@
         ([value, label]) => {
             if (["short", "medium", "long"].includes(value)) {
                 const range = CONFIG.A5E.rangeValues[value];
-                return [value, `${game.i18n.localize(label)} (${range} ft.)`];
+                return [value, `${localize(label)} (${range} ft.)`];
             }
 
             return [value, label];

@@ -1,6 +1,9 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 import AbilityCheckRollDialogComponent from '../AbilityCheckRollDialog.svelte';
 
 /**
@@ -9,9 +12,9 @@ import AbilityCheckRollDialogComponent from '../AbilityCheckRollDialog.svelte';
 export default class AbilityCheckRollDialog extends TJSDialog {
   constructor(actorDocument, abilityKey, options) {
     super({
-      title: game.i18n.format(
+      title: localize(
         'A5E.AbilityCheckPromptTitle',
-        { name: actorDocument.name, ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]) }
+        { name: actorDocument.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
       ),
       content: {
         class: AbilityCheckRollDialogComponent,
