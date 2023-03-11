@@ -6,6 +6,7 @@
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import computeSaveDC from "../utils/computeSaveDC";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
@@ -231,20 +232,22 @@
         </section>
     {/if}
 
-    <FormSection>
-        <div class="u-align-center u-flex u-gap-md">
-            <input
-                class="u-pointer"
-                type="checkbox"
-                id="{dialog.id}-place-template"
-                bind:checked={placeTemplate}
-            />
+    {#if validateTemplateData($item, actionId)}
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
+                    id="{dialog.id}-place-template"
+                    bind:checked={placeTemplate}
+                />
 
-            <label class="u-pointer" for="{dialog.id}-place-template">
-                {localize("A5E.ItemPlaceTemplate")}
-            </label>
-        </div>
-    </FormSection>
+                <label class="u-pointer" for="{dialog.id}-place-template">
+                    {localize("A5E.ItemPlaceTemplate")}
+                </label>
+            </div>
+        </FormSection>
+    {/if}
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}

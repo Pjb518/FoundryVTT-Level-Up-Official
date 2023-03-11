@@ -50,8 +50,6 @@
     <hr class="a5e-rule a5e-rule--card" />
 
     {#if description}
-        <hr class="a5e-rule a5e-rule--card" />
-
         {@html description}
     {/if}
 
