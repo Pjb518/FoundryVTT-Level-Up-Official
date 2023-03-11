@@ -8,6 +8,8 @@
     const item = getContext("item");
     const prerequisiteTypes = ["maneuver", "feature"];
     const appId = getContext("appId");
+
+    const user = game.user;
 </script>
 
 <header class="sheet-header">
@@ -59,8 +61,8 @@
         <button
             class="header-button fa-solid fa-circle-question"
             class:active={$item.system.unidentified}
-            class:locked={!game.user.isGM}
-            disabled={!game.user.isGM}
+            class:locked={!user.isGM}
+            disabled={!user.isGM}
             data-tooltip={$item.system.unidentified
                 ? "A5E.ButtonToolTipUnidentified"
                 : "A5E.ButtonToolTipIdentified"}
@@ -123,10 +125,6 @@
             transform: none;
             color: #999;
         }
-    }
-
-    .delete-button:hover {
-        color: #8b2525;
     }
 
     .sheet-header {
