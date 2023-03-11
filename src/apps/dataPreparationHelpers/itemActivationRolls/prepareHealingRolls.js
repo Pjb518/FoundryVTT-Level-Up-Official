@@ -12,7 +12,7 @@ export default function prepareHealingRolls(rolls) {
       counts[roll.healingType] ??= 0;
       counts[roll.healingType] += 1;
 
-      roll.label = `${label} #${counts[roll.healingType]}`;
+      roll.defaultLabel = `${label} #${counts[roll.healingType]}`;
     }
     return [key, roll];
   });

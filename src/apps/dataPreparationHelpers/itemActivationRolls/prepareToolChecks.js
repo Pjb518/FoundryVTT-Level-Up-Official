@@ -17,7 +17,7 @@ export default function prepareToolChecks(rolls) {
       counts[roll.tool] ??= 0;
       counts[roll.tool] += 1;
 
-      roll.label = `${label} #${counts[roll.tool]}`;
+      roll.defaultLabel = `${label} #${counts[roll.tool]}`;
     }
 
     return [key, roll];

@@ -12,7 +12,7 @@ export default function prepareDamageRolls(rolls) {
       counts[roll.damageType] ??= 0;
       counts[roll.damageType] += 1;
 
-      roll.label = `${label} #${counts[roll.damageType]}`;
+      roll.defaultLabel = `${label} #${counts[roll.damageType]}`;
     }
 
     return [key, roll];

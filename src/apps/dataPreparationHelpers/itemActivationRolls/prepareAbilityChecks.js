@@ -14,7 +14,7 @@ export default function prepareAbilityChecks(rolls) {
       counts[roll.ability] ??= 0;
       counts[roll.ability] += 1;
 
-      roll.label = `${label} #${counts[roll.ability]}`;
+      roll.defaultLabel = `${label} #${counts[roll.ability]}`;
     }
 
     return [key, roll];

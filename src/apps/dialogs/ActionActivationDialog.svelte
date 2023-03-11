@@ -260,7 +260,7 @@
                             <CheckboxGroup
                                 options={_rolls.map(([key, roll]) => [
                                     key,
-                                    roll.label,
+                                    roll.label ?? roll.defaultLabel,
                                 ])}
                                 disabledOptions={disabledRolls}
                                 selected={selectedRolls}
