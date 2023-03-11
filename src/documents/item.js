@@ -231,9 +231,10 @@ export default class ItemA5e extends Item {
   #prepareAttackRoll(roll) {
     const { rollFormula } = constructRollFormula({ actor: this.actor, formula: roll.formula });
 
-    // TODO: Correct this attack roll label to say the type of attack roll
+    const label = localize(CONFIG.A5E.attackTypes[roll.attackType]);
+
     return {
-      label: 'Attack Roll',
+      label,
       rollFormula,
       type: 'attack'
     };
