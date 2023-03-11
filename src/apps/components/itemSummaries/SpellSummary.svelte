@@ -1,23 +1,13 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import ActivationCost from "./summarySections/ActivationCost.svelte";
+    import Range from "./summarySections/Range.svelte";
+
+    export let actionId = "";
     export let item;
 
-    $: action = item.actions.values()[0];
-
-    $: ranges = Object.values(action?.ranges ?? {}).map(({ range, unit }) => {
-        if (["short", "medium", "long"].includes(range)) {
-            return `${localize(CONFIG.A5E.rangeDescriptors[range])} (${
-                CONFIG.A5E.rangeValues[range]
-            } ft.)`;
-        }
-
-        if (["fiveFeet", "self", "touch"].includes(range)) {
-            return localize(CONFIG.A5E.rangeDescriptors[range]);
-        }
-
-        return `${range} ${localize(CONFIG.A5E.distanceUnits[unit])}`;
-    });
+    $: action = item.actions[actionId] ?? item.actions.values()[0];
 
     $: spellComponents = Object.entries(item.system.components).reduce(
         (acc, [component, hasComponent]) => {
@@ -37,25 +27,21 @@
     ].filter(Boolean);
 </script>
 
-<p class="spell-level">
-    {localize(`A5E.SpellLevel${item.system.level}` ?? "")}
+{#if !actionId}
+    <p class="spell-level">
+        {localize(`A5E.SpellLevel${item.system.level}` ?? "")}
 
-    {#if spellSchools.length}
-        ({spellSchools.join(", ")})
-    {/if}
-</p>
+        {#if spellSchools.length}
+            ({spellSchools.join(", ")})
+        {/if}
+    </p>
+{/if}
 
 <dl class="summary-list">
-    {#if item.actions.count === 1 && ranges.length}
-        <div class="summary-group">
-            <dt>{localize("A5E.ItemRange")}:</dt>
-            <dd>
-                {ranges.join(", ")}
-            </dd>
-        </div>
-    {/if}
+    <ActivationCost {actionId} {item} />
+    <Range {actionId} {item} />
 
-    {#if spellComponents.length}
+    {#if !actionId && spellComponents.length}
         <div class="summary-group">
             <dt>{localize("A5E.SpellComponents")}:</dt>
             <dd>

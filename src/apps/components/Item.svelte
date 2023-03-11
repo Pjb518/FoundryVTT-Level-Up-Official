@@ -74,7 +74,7 @@
 
 {#if showDescription}
     <div class="description-wrapper" transition:slide>
-        <svelte:component this={getSummaryComponent(item)} {item} />
+        <svelte:component this={getSummaryComponent(item)} {actionId} {item} />
 
         {@html item.description ??
             item?.system?.description ??
