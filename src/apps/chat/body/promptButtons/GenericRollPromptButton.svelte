@@ -4,7 +4,6 @@
     import constructRollFormula from "../../../../dice/constructRollFormula";
     import prepareSelectedTokenActors from "../../../dataPreparationHelpers/prepareSelectedTokenActors";
 
-    export let key;
     export let prompt;
 
     async function rollPrompt() {

@@ -58,18 +58,32 @@
                 rollMode,
                 formula: rollFormula,
             },
-            prompts: Object.entries(action.prompts ?? {})
-                ?.filter(([key]) => selectedPrompts.includes(key))
-                .map(([key, prompt]) => {
-                    if (prompt.type === "savingThrow") {
-                        prompt.dc = computeSaveDC($actor, prompt.saveDC);
+            prompts: Object.entries(action.prompts ?? {}).reduce(
+                (acc, [key, prompt]) => {
+                    if (selectedPrompts.includes(key)) {
+                        if (prompt.type === "savingThrow") {
+                            prompt.dc = computeSaveDC($actor, prompt.saveDC);
+                        }
+
+                        acc.push(prompt);
                     }
 
-                    return [key, prompt];
-                }),
-            rolls: Object.entries(action.rolls ?? {})
-                ?.filter(([key]) => selectedRolls.includes(key))
-                .map(([_, roll]) => roll),
+                    return acc;
+                },
+                []
+            ),
+            rolls: Object.entries(action.rolls ?? {}).reduce(
+                (acc, [key, roll]) => {
+                    // Attack rolls are excluded here because they are formatted differently
+                    // and require additional processing.
+                    if (selectedRolls.includes(key) && roll.type !== "attack") {
+                        acc.push(roll);
+                    }
+
+                    return acc;
+                },
+                []
+            ),
             placeTemplate,
         });
     }
