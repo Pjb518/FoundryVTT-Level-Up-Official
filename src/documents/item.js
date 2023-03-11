@@ -167,7 +167,8 @@ export default class ItemA5e extends Item {
           actorId: this.actor.uuid,
           cardType: 'item',
           img: this.actions[actionId].img ?? 'icons/svg/item-bag.svg',
-          name: this.actions[actionId].name,
+          name: this.name,
+          actionName: this.actions[actionId].name,
           prompts: promise.prompts,
           rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }

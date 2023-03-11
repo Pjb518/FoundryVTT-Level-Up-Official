@@ -26,9 +26,9 @@
         {#if item.system.exertionCost}
             ({item.system.exertionCost}
             {localize(
-                `A5E.ExertionPoint${
-                    item.system.exertionCost > 1 ? "Plural" : ""
-                }`
+                item.system.exertionCost > 1
+                    ? "A5E.ExertionPointPlural"
+                    : "A5E.ExertionPoint"
             )})
         {/if}
     </p>

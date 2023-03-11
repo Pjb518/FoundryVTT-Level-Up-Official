@@ -1,6 +1,4 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-
     import zip from "../../../utils/zip";
 
     import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
@@ -49,6 +47,8 @@
 </script>
 
 <article>
+    <hr class="a5e-rule a5e-rule--card" />
+
     {#if description}
         <hr class="a5e-rule a5e-rule--card" />
 

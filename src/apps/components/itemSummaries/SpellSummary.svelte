@@ -3,25 +3,23 @@
 
     export let item;
 
-    const action = item.actions.values()[0];
+    $: action = item.actions.values()[0];
 
-    const ranges = Object.values(action?.ranges ?? {}).map(
-        ({ range, unit }) => {
-            if (["short", "medium", "long"].includes(range)) {
-                return `${localize(CONFIG.A5E.rangeDescriptors[range])} (${
-                    CONFIG.A5E.rangeValues[range]
-                } ft.)`;
-            }
-
-            if (["fiveFeet", "self", "touch"].includes(range)) {
-                return localize(CONFIG.A5E.rangeDescriptors[range]);
-            }
-
-            return `${range} ${localize(CONFIG.A5E.distanceUnits[unit])}`;
+    $: ranges = Object.values(action?.ranges ?? {}).map(({ range, unit }) => {
+        if (["short", "medium", "long"].includes(range)) {
+            return `${localize(CONFIG.A5E.rangeDescriptors[range])} (${
+                CONFIG.A5E.rangeValues[range]
+            } ft.)`;
         }
-    );
 
-    const spellComponents = Object.entries(item.system.components).reduce(
+        if (["fiveFeet", "self", "touch"].includes(range)) {
+            return localize(CONFIG.A5E.rangeDescriptors[range]);
+        }
+
+        return `${range} ${localize(CONFIG.A5E.distanceUnits[unit])}`;
+    });
+
+    $: spellComponents = Object.entries(item.system.components).reduce(
         (acc, [component, hasComponent]) => {
             if (hasComponent)
                 acc.push(
@@ -33,7 +31,7 @@
         []
     );
 
-    const spellSchools = [
+    $: spellSchools = [
         item.system.schools.primary,
         ...item.system.schools.secondary,
     ].filter(Boolean);
