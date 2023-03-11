@@ -4,7 +4,6 @@
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
@@ -31,7 +30,7 @@
         },
     ];
 
-    $: currentTab = tabs[0];
+    let currentTab = tabs[0];
 
     setContext("item", new TJSDocument(itemDocument));
 </script>

@@ -19,6 +19,8 @@
         currentTab = tabs[event.detail];
     }
 
+    const item = new TJSDocument(itemDocument);
+
     const tabs = [
         {
             name: "description",
@@ -45,9 +47,9 @@
         });
     }
 
-    $: currentTab = tabs[0];
+    let currentTab = tabs[0];
 
-    setContext("item", new TJSDocument(itemDocument));
+    setContext("item", item);
     setContext("appId", appId);
 </script>
 

@@ -19,7 +19,6 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     export let { actor, sheet } = getContext("#external").application;
-    export let currentTab;
     export let elementRoot;
 
     function updateCurrentTab(event) {
@@ -40,7 +39,7 @@
         sheet._onDropDocument(document);
     }
 
-    $: tabs = [
+    const tabs = [
         {
             name: "core",
             label: "A5E.TabCore",
@@ -96,7 +95,7 @@
         },
     ];
 
-    $: currentTab =
+    let currentTab =
         tabs.find((tab) => tab.name === $actor.flags?.a5e?.currentTab) ??
         tabs[0];
 

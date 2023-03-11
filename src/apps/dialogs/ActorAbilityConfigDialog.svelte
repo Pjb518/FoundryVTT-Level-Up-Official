@@ -39,8 +39,9 @@
         ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]),
     });
 
+    let currentTab = tabs[0];
+
     $: ability = $actor.system.abilities[abilityKey];
-    $: currentTab = tabs[0];
 </script>
 
 <article>
