@@ -63,7 +63,7 @@
 
 <article>
     <header class="action-header">
-        <img class="item-image" src={$item.img} alt="${$item.name} image" />
+        <img class="item-image" src={$item.img} alt="{$item.name} image" />
 
         <input
             class="a5e-input a5e-input--character-name"
