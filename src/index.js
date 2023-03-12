@@ -79,10 +79,8 @@ Hooks.once('init', () => {
   CONFIG.Token.objectClass = TokenA5e;
 
   CONFIG.Dice.D20Roll = D20Roll;
-  CONFIG.Dice.DamageRoll = DamageRoll;
 
   CONFIG.Dice.rolls.push(D20Roll);
-  CONFIG.Dice.rolls.push(DamageRoll);
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
