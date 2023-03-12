@@ -18,16 +18,16 @@
     const abilityOptions = prepareAbilityOptions();
     const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
-    const checkBonusHeading = game.i18n.format("A5E.SkillCheckBonus", {
-        skill: game.i18n.localize(CONFIG.A5E.skills[skillKey]),
+    const checkBonusHeading = localize("A5E.SkillCheckBonus", {
+        skill: localize(CONFIG.A5E.skills[skillKey]),
     });
 
     const specialtyOptions = Object.entries(
         CONFIG.A5E.skillSpecialties[skillKey]
     );
 
-    const passiveBonusHeading = game.i18n.format("A5E.SkillCheckBonusPassive", {
-        skill: game.i18n.localize(CONFIG.A5E.skills[skillKey]),
+    const passiveBonusHeading = localize("A5E.SkillCheckBonusPassive", {
+        skill: localize(CONFIG.A5E.skills[skillKey]),
     });
 
     $: skill = $actor.system.skills[skillKey];

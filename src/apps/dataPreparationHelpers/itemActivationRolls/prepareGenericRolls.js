@@ -8,7 +8,7 @@ export default function prepareGenericRolls(rolls) {
       const label = game.i18n.localize('A5E.Other');
       count += 1;
 
-      roll.label = `${label} #${count}`;
+      roll.defaultLabel = `${label} #${count}`;
     }
 
     return [key, roll];

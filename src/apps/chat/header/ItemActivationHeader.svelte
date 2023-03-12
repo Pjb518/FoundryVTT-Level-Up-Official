@@ -6,12 +6,13 @@
     export let message;
 
     const dispatch = createEventDispatcher();
-    const { img, name } = $message.flags?.a5e;
+    const { actionName, img, name } = $message.flags?.a5e;
 </script>
 
 <BaseHeader
     {img}
     altText={name}
     title={name}
+    subtitle={actionName}
     on:repeatCard={() => dispatch("repeatCard")}
 />

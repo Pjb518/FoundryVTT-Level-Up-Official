@@ -10,7 +10,9 @@
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
 
+
     $: unidentified = $item.system.unidentified;
+    const user = game.user;
 </script>
 
 <header class="sheet-header">
@@ -59,6 +61,7 @@
             </div>
         {/if}
     </div>
+
     {#if headerButtonTypes.includes($item.type)}
         <div class="button-container">
             <button
@@ -92,6 +95,7 @@
         padding-right: 1rem;
         gap: 0.75rem;
     }
+
     .header-button {
         display: flex;
         font-size: 2.25rem;
@@ -99,6 +103,7 @@
         padding: 0;
         background: none;
         color: #999;
+        cursor: pointer;
 
         &:hover {
             color: #555;
@@ -131,10 +136,6 @@
                 color: #425f65;
             }
         }
-    }
-
-    .delete-button:hover {
-        color: #8b2525;
     }
 
     .sheet-header {

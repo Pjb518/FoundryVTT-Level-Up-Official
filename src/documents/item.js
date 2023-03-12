@@ -1,12 +1,19 @@
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 import ActionsManager from '../managers/ActionsManager';
 
+import constructCritDamageRoll from '../dice/constructCritDamageRoll';
+import constructD20RollFormula from '../dice/constructD20RollFormula';
+import constructRollFormula from '../dice/constructRollFormula';
+import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getChatCardTargets from '../utils/getChatCardTargets';
-import getDeterministicBonus from '../dice/getDeterministicBonus';
-import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
-import createTemplateDocument from '../utils/templates/createTemplateDocument';
+import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
+import D20Roll from '../dice/D20Roll';
+import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
 /**
  * Override and extend the basic Item implementation.
@@ -122,24 +129,269 @@ export default class ItemA5e extends Item {
 
     if (!promise) return;
 
+    promise.rolls ??= [];
+    promise.rolls.push(promise?.attack ?? {});
+
+    const rolls = await this.#prepareItemRolls(promise.rolls);
+
+    if (promise.placeTemplate) {
+      const validTemplate = validateTemplateData(this, actionId);
+
+      if (validTemplate) { this.#placeActionTemplate(actionId); }
+    }
+
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       sound: CONFIG.sounds.dice,
+      rolls: rolls.map(({ roll }) => roll),
       flags: {
         a5e: {
           actorId: this.actor.uuid,
           cardType: 'item',
-          img: this.actions[actionId].img ?? 'icons/svg/item-bag.svg',
-          name: this.actions[actionId].name,
+          img: this.actions[actionId].img ?? this.img ?? 'icons/svg/item-bag.svg',
+          name: this.name,
+          actionName: this.actions[actionId].name,
           prompts: promise.prompts,
-          rolls: promise.rolls
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
       },
       content: '<article></article>'
     };
 
     ChatMessage.create(chatData);
+  }
+
+  async #placeActionTemplate(actionId) {
+    const templateDocument = createTemplateDocument(this, actionId);
+    const template = new ItemMeasuredTemplate(templateDocument);
+
+    template.item = this;
+    template.actorSheet = this.actor?.sheet || null;
+
+    Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
+
+    if (template) template.drawPreview();
+  }
+
+  async #prepareItemRolls(rolls) {
+    const { attack, other } = rolls.reduce((acc, roll) => {
+      if (roll && roll?.type === 'attack') acc.attack = roll;
+      else acc.other.push(roll);
+
+      return acc;
+    }, { attack: null, other: [] });
+
+    const attackRoll = await this.#prepareAttackRoll(attack ?? {});
+
+    const otherRolls = await Promise.all(
+      other.map(async (roll) => this.#prepareItemRoll(roll, attackRoll?.isCrit))
+    );
+
+    return [attackRoll, ...otherRolls].filter(Boolean);
+  }
+
+  #prepareItemRoll(roll, isCrit) {
+    switch (roll?.type) {
+      case 'abilityCheck':
+        return this.#prepareAbilityCheckRoll(roll);
+      case 'damage':
+        return this.#prepareDamageRoll(roll, isCrit);
+      case 'generic':
+        return this.#prepareGenericRoll(roll);
+      case 'healing':
+        return this.#prepareHealingRoll(roll);
+      case 'savingThrow':
+        return this.#prepareSavingThrowRoll(roll);
+      case 'skillCheck':
+        return this.#prepareSkillCheckRoll(roll);
+      case 'toolCheck':
+        return this.#prepareToolCheckRoll(roll);
+      default: return null;
+    }
+  }
+
+  async #prepareAbilityCheckRoll(_roll) {
+    const ability = localize(
+      CONFIG.A5E.abilities[_roll?.ability ?? '']
+    );
+
+    const { rollFormula } = localize('A5E.AbilityCheckSpecific', { ability });
+
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+    const label = localize('A5E.AbilityCheckSpecific', { ability });
+
+    return {
+      label,
+      roll,
+      type: 'abilityCheck'
+    };
+  }
+
+  async #prepareAttackRoll(_roll) {
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
+
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+    const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
+
+    const isCrit = roll.dice[0].total >= (_roll.critThreshold ?? 20);
+
+    return {
+      isCrit,
+      label,
+      roll,
+      type: 'attack'
+    };
+  }
+
+  async #prepareDamageRoll(_roll, isCrit) {
+    const { canCrit, critBonus, damageType } = _roll;
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
+
+    if (!rollFormula) return null;
+
+    let roll = await new Roll(rollFormula).evaluate({ async: true });
+
+    if ((canCrit ?? true) && isCrit) {
+      roll = await constructCritDamageRoll(roll, critBonus);
+    }
+
+    const label = damageType
+      ? localize('A5E.DamageSpecific', {
+        damageType: localize(CONFIG.A5E.damageTypes[damageType])
+      })
+      : localize('A5E.Damage');
+
+    return {
+      canCrit,
+      label,
+      roll,
+      type: 'damage'
+    };
+  }
+
+  async #prepareGenericRoll(_roll) {
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
+
+    if (!rollFormula) return null;
+
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const label = roll.label ?? localize('A5E.GenericRoll');
+
+    return {
+      label,
+      roll,
+      type: 'generic'
+    };
+  }
+
+  async #prepareHealingRoll(_roll) {
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
+
+    if (!rollFormula) return null;
+
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const label = localize(CONFIG.A5E.healingTypes[roll.healingType ?? 'healing']);
+
+    return {
+      label,
+      roll,
+      type: 'healing'
+    };
+  }
+
+  async #prepareSavingThrowRoll(_roll) {
+    const { rollFormula } = this.actor.getDefaultSavingThrowData(_roll.ability);
+
+    if (!rollFormula) return null;
+
+    const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+    const label = localize('A5E.SavingThrowSpecific', { ability });
+
+    return {
+      label,
+      roll,
+      type: 'savingThrow'
+    };
+  }
+
+  async #prepareSkillCheckRoll(_roll) {
+    const skill = localize(CONFIG.A5E.skills[_roll?.skill]);
+
+    const { abilityKey: ability, rollFormula } = this.actor.getDefaultSkillCheckData(
+      _roll.skill,
+      _roll.ability
+    );
+
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+
+    const label = ability
+      ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
+      : localize('A5E.SkillCheck', { skill });
+
+    return {
+      label,
+      roll,
+      type: 'skillCheck'
+    };
+  }
+
+  async #prepareToolCheckRoll(_roll) {
+    const abilityKey = _roll.ability === 'none' ? null : _roll.ability;
+    const isProficient = this.actor.system.proficiencies?.tools?.includes(_roll.tool);
+    const modifiers = [];
+
+    const tools = Object.values(CONFIG.A5E.tools).reduce(
+      (acc, curr) => ({ ...acc, ...curr }),
+      {}
+    );
+
+    const label = localize('A5E.ToolCheckSpecific', {
+      tool: localize(tools[_roll?.tool] ?? '')
+    });
+
+    // Check if ability configured
+    if (abilityKey) {
+      modifiers.push({
+        label: localize('A5E.AbilityCheckMod', {
+          ability: localize(CONFIG.A5E.abilities[abilityKey])
+        }),
+        value: this.actor.system.abilities[abilityKey]?.check.mod
+      });
+    }
+
+    // Check tool prof
+    if (isProficient) {
+      modifiers.push({
+        label: localize('A5E.Proficiency'),
+        value: this.actor.system.attributes.prof
+      });
+    }
+
+    // Add Global Ability bonus
+    modifiers.push({
+      label: localize('A5E.AbilityCheckBonusGlobal'),
+      value: this.actor.system.bonuses.abilities.check
+    });
+
+    const { rollFormula } = constructD20RollFormula({ actor: this.actor, modifiers });
+
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+
+    return {
+      label,
+      roll,
+      type: 'toolCheck'
+    };
   }
 
   async shareItemDescription() {
@@ -160,140 +412,6 @@ export default class ItemA5e extends Item {
 
     ChatMessage.create(chatData);
   }
-
-  // FIXME: Needs complete refactor
-  // async activate(options = {}) {
-  //   const itemData = this.system;
-  //   const rollData = this.actor.getRollData();
-  //   let attack;
-  //   let damage;
-  //   let healing;
-  //   let placeTemplate;
-
-  //   const dialogTitle = game.i18n.format(
-  //     'A5E.ItemActivationPrompt',
-  //     { name: this.actor.name, itemName: this.name }
-  //   );
-
-  //   // const dialog = new ReactiveDialog(ItemActivationDialog, {
-  //   //   title: dialogTitle, props: { actor: this.actor, item: this, rollMode: options.rollMode }
-  //   // });
-
-  //   const data = {
-  //     id: this.id,
-  //     img: this.img,
-  //     title: this.name,
-  //     description: itemData.description,
-  //     actionOptions: itemData.actionOptions,
-  //     isCrit: null,
-  //     isFumble: null,
-  //     attack: null,
-  //     damage: null,
-  //     healing: null,
-  //     abilityCheck: {
-  //       ...itemData.check,
-  //       label: game.i18n.format(
-  //         'A5E.RollPromptAbilityCheck',
-  //         { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.check.ability]) }
-  //       )
-  //     },
-  //     savingThrow: {
-  //       dc: getDeterministicBonus(itemData.save.dc, rollData),
-  //       label: game.i18n.format(
-  //         'A5E.RollPromptSavingThrow',
-  //         { ability: game.i18n.localize(CONFIG.A5E.abilities[itemData.save.targetAbility]) }
-  //       ),
-  //       targetAbility: itemData.save.targetAbility
-  //     }
-  //   };
-
-  //   if (
-  //     ['attack', 'damage', 'healing'].some((option) => itemData.actionOptions.includes(option))
-  //     || this.hasValidTemplateDefinition
-  //   ) {
-  //     // await dialog.render(true);
-
-  //     // try {
-  //     //   const configuration = await dialog.promise;
-  //     //   attack = configuration.attack;
-  //     //   damage = configuration.damage;
-  //     //   healing = configuration.healing;
-  //     //   placeTemplate = configuration.placeTemplate;
-  //     // } catch {
-  //     //   return;
-  //     // }
-  //   }
-
-  //   if (itemData.actionOptions.includes('attack')) {
-  //     const roll = new CONFIG.Dice.D20Roll(attack.formula, rollData);
-  //     await roll.evaluate({ async: true });
-
-  //     data.isCrit = roll.dice[0].total >= itemData.attack.critThreshold;
-  //     data.isFumble = roll.dice[0].total === 1;
-
-  //     const tooltip = await roll.getTooltip();
-
-  //     data.attack = {
-  //       roll,
-  //       tooltip
-  //     };
-  //   }
-
-  //   if (itemData.actionOptions.includes('damage')) {
-  //     data.damage = [];
-
-  //     // TODO: Refactor this to stop eslint complaining
-  //     for (const { canCrit, damageType, formula } of damage) {
-  //       const roll = new CONFIG.Dice.DamageRoll(
-  //         formula || '0',
-  //         rollData,
-  //         { canCrit, isCrit: data.isCrit }
-  //       );
-
-  //       await roll.evaluate({ async: true });
-  //       const tooltip = await roll.getTooltip();
-
-  //       data.damage.push({
-  //         damageType, roll, tooltip
-  //       });
-  //     }
-  //   }
-
-  //   if (itemData.actionOptions.includes('healing')) {
-  //     data.healing = [];
-
-  //     // TODO: Refactor this to stop eslint complaining
-  //     for (const { healingType, formula } of healing) {
-  //       const roll = new CONFIG.Dice.DamageRoll(
-  //         formula || '0',
-  //         rollData,
-  //         { canCrit: false }
-  //       );
-
-  //       await roll.evaluate({ async: true });
-  //       const tooltip = await roll.getTooltip();
-
-  //       data.healing.push({
-  //         healingType, roll, tooltip
-  //       });
-  //     }
-  //   }
-
-  //   // Place template if allowed
-  //   if (placeTemplate) {
-  //     const templateDocument = createTemplateDocument(this);
-  //     const template = new ItemMeasuredTemplate(templateDocument);
-
-  //     template.item = this;
-  //     template.actorSheet = this.actor?.sheet || null;
-
-  //     Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
-
-  //     if (template) template.drawPreview();
-  //   }
-
-  //   this.actor.constructItemCard(data);
-  // }
 
   async configureItem() {
     await this.sheet.render(true);

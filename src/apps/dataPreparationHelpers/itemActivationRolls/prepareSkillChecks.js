@@ -14,7 +14,7 @@ export default function prepareSkillChecks(rolls) {
       counts[roll.skill] ??= 0;
       counts[roll.skill] += 1;
 
-      roll.label = `${label} #${counts[roll.skill]}`;
+      roll.defaultLabel = `${label} #${counts[roll.skill]}`;
     }
 
     return [key, roll];

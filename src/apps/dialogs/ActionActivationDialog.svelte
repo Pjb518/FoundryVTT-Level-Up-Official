@@ -6,6 +6,7 @@
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import computeSaveDC from "../utils/computeSaveDC";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
@@ -26,7 +27,7 @@
                     ["generic", "healing", "damage"].includes(value.type) &&
                     !value.formula
                 ) {
-                    acc.push(key);
+                    return acc;
                 }
 
                 if (value.default ?? true) acc.push(key);
@@ -53,20 +54,35 @@
         // TODO: Clean this up. A lot of stuff here is prototyping for the chat cards
         dialog.submit({
             attack: {
+                ...attackRoll,
                 rollMode,
-                rollFormula,
+                formula: rollFormula,
             },
-            prompts: Object.entries(action.prompts ?? {})
-                ?.filter(([key]) => selectedPrompts.includes(key))
-                .map(([key, prompt]) => {
-                    if (prompt.type === "savingThrow") {
-                        prompt.dc = computeSaveDC($actor, prompt.saveDC);
+            prompts: Object.entries(action.prompts ?? {}).reduce(
+                (acc, [key, prompt]) => {
+                    if (selectedPrompts.includes(key)) {
+                        if (prompt.type === "savingThrow") {
+                            prompt.dc = computeSaveDC($actor, prompt.saveDC);
+                        }
+
+                        acc.push(prompt);
                     }
 
-                    return [key, prompt];
-                }),
-            rolls: Object.entries(action.rolls ?? {})?.filter(([key]) =>
-                selectedRolls.includes(key)
+                    return acc;
+                },
+                []
+            ),
+            rolls: Object.entries(action.rolls ?? {}).reduce(
+                (acc, [key, roll]) => {
+                    // Attack rolls are excluded here because they are formatted differently
+                    // and require additional processing.
+                    if (selectedRolls.includes(key) && roll.type !== "attack") {
+                        acc.push(roll);
+                    }
+
+                    return acc;
+                },
+                []
             ),
             placeTemplate,
         });
@@ -92,7 +108,7 @@
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            game.i18n.localize(value),
+            localize(value),
         ]
     );
 
@@ -123,8 +139,6 @@
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
     let situationalMods = "";
-
-    console.log(selectedPrompts);
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
@@ -176,7 +190,7 @@
                 value: situationalMods,
             },
         ],
-    });
+    }).rollFormula;
 </script>
 
 <form>
@@ -232,20 +246,22 @@
         </section>
     {/if}
 
-    <FormSection>
-        <div class="u-align-center u-flex u-gap-md">
-            <input
-                class="u-pointer"
-                type="checkbox"
-                id="{dialog.id}-place-template"
-                bind:checked={placeTemplate}
-            />
+    {#if validateTemplateData($item, actionId)}
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
+                    id="{dialog.id}-place-template"
+                    bind:checked={placeTemplate}
+                />
 
-            <label class="u-pointer" for="{dialog.id}-place-template">
-                {localize("A5E.ItemPlaceTemplate")}
-            </label>
-        </div>
-    </FormSection>
+                <label class="u-pointer" for="{dialog.id}-place-template">
+                    {localize("A5E.ItemPlaceTemplate")}
+                </label>
+            </div>
+        </FormSection>
+    {/if}
 
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}
@@ -261,7 +277,7 @@
                             <CheckboxGroup
                                 options={_rolls.map(([key, roll]) => [
                                     key,
-                                    roll.label,
+                                    roll.label ?? roll.defaultLabel,
                                 ])}
                                 disabledOptions={disabledRolls}
                                 selected={selectedRolls}

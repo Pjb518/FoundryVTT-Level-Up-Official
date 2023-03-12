@@ -83,7 +83,7 @@ A5E.abilityAbbreviations = {
 };
 
 /**
- * Localized abbreviations for ability scores.
+ * Localized abbreviations for activation costs.
  * @enum {string}
  */
 A5E.abilityActivationTypes = {
@@ -93,6 +93,22 @@ A5E.abilityActivationTypes = {
   lairAction: 'A5E.ActionActivationLairAction',
   legendaryAction: 'A5E.ActionActivationLegendaryAction',
   minute: 'A5E.DurationMinute',
+  none: 'A5E.ActionActivationNone',
+  reaction: 'A5E.ActionActivationReaction',
+  special: 'A5E.ActionActivationSpecial'
+};
+
+/**
+ * Localized abbreviations for plural activation costs.
+ * @enum {string}
+ */
+A5E.abilityActivationTypesPlural = {
+  action: 'A5E.ActionActivationActionPlural',
+  bonusAction: 'A5E.ActionActivationBonusActionPlural',
+  hour: 'A5E.DurationHourPlural',
+  lairAction: 'A5E.ActionActivationLairActionPlural',
+  legendaryAction: 'A5E.ActionActivationLegendaryActionPlural',
+  minute: 'A5E.DurationMinutePlural',
   none: 'A5E.ActionActivationNone',
   reaction: 'A5E.ActionActivationReaction',
   special: 'A5E.ActionActivationSpecial'

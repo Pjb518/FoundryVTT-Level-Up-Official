@@ -29,5 +29,5 @@ export default function constructRollFormula({ actor, formula, modifiers }) {
 
   const simplifiedTerms = simplifyOperatorTerms(terms);
 
-  return Roll.getFormula(simplifiedTerms);
+  return { rollFormula: Roll.getFormula(simplifiedTerms) };
 }

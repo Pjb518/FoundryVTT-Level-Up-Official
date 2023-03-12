@@ -1,6 +1,9 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 import SavingThrowRollDialogComponent from '../SavingThrowRollDialog.svelte';
 
 /**
@@ -21,14 +24,14 @@ export default class SavingThrowRollDialog extends TJSDialog {
 
     function setTitle() {
       if (options?.saveType === 'death') {
-        return game.i18n.format(
+        return localize(
           'A5E.DeathSavingThrowPromptTitle',
           { name: actorDocument.name }
         );
       }
-      return game.i18n.format(
+      return localize(
         'A5E.SavingThrowPromptTitle',
-        { name: actorDocument.name, ability: game.i18n.localize(CONFIG.A5E.abilities[abilityKey]) }
+        { name: actorDocument.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
       );
     }
 

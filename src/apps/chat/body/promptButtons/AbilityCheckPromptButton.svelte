@@ -3,7 +3,6 @@
 
     import prepareSelectedTokenActors from "../../../dataPreparationHelpers/prepareSelectedTokenActors";
 
-    export let key;
     export let prompt;
 
     const { abilities } = CONFIG.A5E;

@@ -16,7 +16,7 @@ export default function constructD20RollFormula({
 
   const parts = [
     constructD20Term({ actor, minRoll, rollMode }),
-    ...modifiers.map(({ label, value }) => {
+    ...(modifiers ?? []).map(({ label, value }) => {
       if (value && value !== 0) {
         return label ? `${value}[${label}]` : value;
       }
@@ -30,5 +30,5 @@ export default function constructD20RollFormula({
   const { terms } = new Roll(formula, rollData);
   const simplifiedTerms = simplifyOperatorTerms(terms);
 
-  return Roll.getFormula(simplifiedTerms);
+  return { rollFormula: Roll.getFormula(simplifiedTerms) };
 }

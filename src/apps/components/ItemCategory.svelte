@@ -48,7 +48,7 @@
                 class="a5e-button a5e-button--add inventory-add-icon"
                 on:click={createItem}
             >
-                {game.i18n.format("A5E.ButtonAdd", {
+                {localize("A5E.ButtonAdd", {
                     type: localize(A5E.itemTypes[itemContext]),
                 })}
             </button>
