@@ -10,6 +10,7 @@ import validateTemplateData from '../utils/measuredTemplates/validateTemplateDat
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
+import D20Roll from '../dice/d20Roll';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
 /**
@@ -129,27 +130,7 @@ export default class ItemA5e extends Item {
     promise.rolls ??= [];
     promise.rolls.push(promise?.attack ?? {});
 
-    const rolls = await Promise.resolve(promise?.rolls?.reduce(async (accP, roll) => {
-      const acc = await accP;
-      const { rollFormula, ...rollData } = this.#prepareItemRoll(roll);
-
-      if (rollFormula) {
-        let evaluatedRoll;
-
-        if (['abilityCheck', 'attack', 'savingThrow', 'skillCheck', 'toolCheck'].includes(roll.type)) {
-          evaluatedRoll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
-        } else {
-          evaluatedRoll = await new Roll(rollFormula).roll({ async: true });
-        }
-
-        acc.push({
-          roll: evaluatedRoll,
-          ...rollData
-        });
-      }
-
-      return acc;
-    }, []));
+    const rolls = await this.#prepareItemRolls(promise.rolls);
 
     if (promise.placeTemplate) {
       const validTemplate = validateTemplateData(this, actionId);
@@ -191,14 +172,29 @@ export default class ItemA5e extends Item {
     if (template) template.drawPreview();
   }
 
-  #prepareItemRoll(roll) {
+  async #prepareItemRolls(rolls) {
+    const { attack, other } = rolls.reduce((acc, roll) => {
+      if (roll && roll?.type === 'attack') acc.attack = roll;
+      else acc.other.push(roll);
+
+      return acc;
+    }, { attack: null, other: [] });
+
+    const attackRoll = await this.#prepareAttackRoll(attack ?? {});
+
+    const otherRolls = await Promise.all(
+      other.map(async (roll) => this.#prepareItemRoll(roll, attackRoll?.isCrit))
+    );
+
+    return [attackRoll, ...otherRolls].filter(Boolean);
+  }
+
+  #prepareItemRoll(roll, isCrit) {
     switch (roll?.type) {
       case 'abilityCheck':
         return this.#prepareAbilityCheckRoll(roll);
-      case 'attack':
-        return this.#prepareAttackRoll(roll);
       case 'damage':
-        return this.#prepareDamageRoll(roll);
+        return this.#prepareDamageRoll(roll, isCrit);
       case 'generic':
         return this.#prepareGenericRoll(roll);
       case 'healing':
@@ -209,41 +205,65 @@ export default class ItemA5e extends Item {
         return this.#prepareSkillCheckRoll(roll);
       case 'toolCheck':
         return this.#prepareToolCheckRoll(roll);
-      default: return {};
+      default: return null;
     }
   }
 
-  #prepareAbilityCheckRoll(roll) {
+  async #prepareAbilityCheckRoll(_roll) {
     const ability = localize(
-      CONFIG.A5E.abilities[roll?.ability ?? '']
+      CONFIG.A5E.abilities[_roll?.ability ?? '']
     );
 
     const { rollFormula } = localize('A5E.AbilityCheckSpecific', { ability });
 
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
     const label = localize('A5E.AbilityCheckSpecific', { ability });
 
     return {
       label,
-      rollFormula,
+      roll,
       type: 'abilityCheck'
     };
   }
 
-  #prepareAttackRoll(roll) {
-    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: roll.formula });
+  async #prepareAttackRoll(_roll) {
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
 
-    const label = localize(CONFIG.A5E.attackTypes[roll?.attackType ?? 'meleeWeaponAttack']);
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+    const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
+
+    const isCrit = roll.dice[0].total >= (_roll.critThreshold ?? 20);
 
     return {
+      isCrit,
       label,
-      rollFormula,
+      roll,
       type: 'attack'
     };
   }
 
-  #prepareDamageRoll(roll) {
-    const { damageType } = roll;
-    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: roll.formula });
+  async #prepareDamageRoll(_roll, isCrit) {
+    const { damageType } = _roll;
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
+
+    if (!rollFormula) return null;
+
+    let roll = await new Roll(rollFormula).evaluate({ async: true });
+
+    if (isCrit) {
+      roll = await Roll.fromTerms([
+        ...roll.terms,
+        await new OperatorTerm({ operator: '+' }).evaluate({ async: true }),
+        await new NumericTerm({
+          number: roll.total,
+          options: { flavor: localize('A5E.CritDamage') }
+        }).evaluate({ async: true })
+      ]);
+    }
 
     const label = damageType
       ? localize('A5E.DamageSpecific', {
@@ -253,55 +273,68 @@ export default class ItemA5e extends Item {
 
     return {
       label,
-      rollFormula,
+      roll,
       type: 'damage'
     };
   }
 
-  #prepareGenericRoll(roll) {
-    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: roll.formula });
+  async #prepareGenericRoll(_roll) {
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
 
+    if (!rollFormula) return null;
+
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
     const label = roll.label ?? localize('A5E.GenericRoll');
 
     return {
       label,
-      rollFormula,
+      roll,
       type: 'generic'
     };
   }
 
-  #prepareHealingRoll(roll) {
-    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: roll.formula });
+  async #prepareHealingRoll(_roll) {
+    const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
 
+    if (!rollFormula) return null;
+
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
     const label = localize(CONFIG.A5E.healingTypes[roll.healingType ?? 'healing']);
 
     return {
       label,
-      rollFormula,
+      roll,
       type: 'healing'
     };
   }
 
-  #prepareSavingThrowRoll(roll) {
-    const { rollFormula } = this.actor.getDefaultSavingThrowData(roll.ability);
+  async #prepareSavingThrowRoll(_roll) {
+    const { rollFormula } = this.actor.getDefaultSavingThrowData(_roll.ability);
 
-    const ability = localize(CONFIG.A5E.abilities[roll?.ability ?? '']);
+    if (!rollFormula) return null;
+
+    const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
     const label = localize('A5E.SavingThrowSpecific', { ability });
 
     return {
       label,
-      rollFormula,
+      roll,
       type: 'savingThrow'
     };
   }
 
-  #prepareSkillCheckRoll(roll) {
-    const skill = localize(CONFIG.A5E.skills[roll?.skill]);
+  async #prepareSkillCheckRoll(_roll) {
+    const skill = localize(CONFIG.A5E.skills[_roll?.skill]);
 
     const { abilityKey: ability, rollFormula } = this.actor.getDefaultSkillCheckData(
-      roll.skill,
-      roll.ability
+      _roll.skill,
+      _roll.ability
     );
+
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
 
     const label = ability
       ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
@@ -309,14 +342,14 @@ export default class ItemA5e extends Item {
 
     return {
       label,
-      rollFormula,
+      roll,
       type: 'skillCheck'
     };
   }
 
-  #prepareToolCheckRoll(roll) {
-    const abilityKey = roll.ability === 'none' ? null : roll.ability;
-    const isProficient = this.actor.system.proficiencies?.tools?.includes(roll.tool);
+  async #prepareToolCheckRoll(_roll) {
+    const abilityKey = _roll.ability === 'none' ? null : _roll.ability;
+    const isProficient = this.actor.system.proficiencies?.tools?.includes(_roll.tool);
     const modifiers = [];
 
     const tools = Object.values(CONFIG.A5E.tools).reduce(
@@ -325,7 +358,7 @@ export default class ItemA5e extends Item {
     );
 
     const label = localize('A5E.ToolCheckSpecific', {
-      tool: localize(tools[roll?.tool] ?? '')
+      tool: localize(tools[_roll?.tool] ?? '')
     });
 
     // Check if ability configured
@@ -354,9 +387,13 @@ export default class ItemA5e extends Item {
 
     const { rollFormula } = constructD20RollFormula({ actor: this.actor, modifiers });
 
+    if (!rollFormula) return null;
+
+    const roll = await new D20Roll(rollFormula).evaluate({ async: true });
+
     return {
       label,
-      rollFormula,
+      roll,
       type: 'toolCheck'
     };
   }
