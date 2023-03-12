@@ -7,8 +7,11 @@
 
     const item = getContext("item");
     const prerequisiteTypes = ["maneuver", "feature"];
+    const headerButtonTypes = ["object"];
     const appId = getContext("appId");
 
+
+    $: unidentified = $item.system.unidentified;
     const user = game.user;
 </script>
 
@@ -25,10 +28,12 @@
     <div>
         <input
             type="text"
-            name="name"
-            value={$item.name}
+            name={unidentified ? "system.unidentifiedName" : "name"}
+            value={unidentified ? $item.system.unidentifiedName : $item.name}
             class="item-name"
-            placeholder={localize("A5E.Name")}
+            placeholder={localize(
+                unidentified ? "A5E.ItemUnidentifiedName" : "A5E.Name"
+            )}
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
@@ -57,29 +62,30 @@
         {/if}
     </div>
 
-    <div class="button-container">
-        <button
-            class="header-button fa-solid fa-circle-question"
-            class:active={$item.system.unidentified}
-            class:locked={!user.isGM}
-            disabled={!user.isGM}
-            data-tooltip={$item.system.unidentified
-                ? "A5E.ButtonToolTipUnidentified"
-                : "A5E.ButtonToolTipIdentified"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => $item.toggleUnidentified()}
-        />
-
-        <button
-            class="header-button fa-solid fa-heart-crack"
-            class:active={$item.system.broken}
-            data-tooltip={$item.system.broken
-                ? "A5E.ButtonToolTipFixBroken"
-                : "A5E.ButtonToolTipBroken"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => $item.toggleBroken()}
-        />
-    </div>
+    {#if headerButtonTypes.includes($item.type)}
+        <div class="button-container">
+            <button
+                class="header-button fa-solid fa-circle-question"
+                class:active={$item.system.unidentified}
+                class:locked={!game.user.isGM}
+                disabled={!game.user.isGM}
+                data-tooltip={$item.system.unidentified
+                    ? "A5E.ButtonToolTipUnidentified"
+                    : "A5E.ButtonToolTipIdentified"}
+                data-tooltip-direction="UP"
+                on:click|stopPropagation={() => $item.toggleUnidentified()}
+            />
+            <button
+                class="header-button fa-solid fa-heart-crack"
+                class:active={$item.system.broken}
+                data-tooltip={$item.system.broken
+                    ? "A5E.ButtonToolTipFixBroken"
+                    : "A5E.ButtonToolTipBroken"}
+                data-tooltip-direction="UP"
+                on:click|stopPropagation={() => $item.toggleBroken()}
+            />
+        </div>
+    {/if}
 </header>
 
 <style lang="scss">
@@ -124,6 +130,11 @@
         &:hover {
             transform: none;
             color: #999;
+
+            &.active {
+                transform: none;
+                color: #425f65;
+            }
         }
     }
 
