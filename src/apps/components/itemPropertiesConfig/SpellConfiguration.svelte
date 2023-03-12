@@ -102,7 +102,6 @@
                                     `system.components.${value}`,
                                     !$item.system.components[value]
                                 )}
-                            }
                         />
                     {/each}
                 </ul>
