@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import Item5e from './item';

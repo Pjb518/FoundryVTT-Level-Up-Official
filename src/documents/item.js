@@ -1,16 +1,18 @@
+// eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActionsManager from '../managers/ActionsManager';
 
-import constructRollFormula from '../dice/constructRollFormula';
+import constructCritDamageRoll from '../dice/constructCritDamageRoll';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
+import constructRollFormula from '../dice/constructRollFormula';
 import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
-import D20Roll from '../dice/d20Roll';
+import D20Roll from '../dice/D20Roll';
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
 /**
@@ -247,22 +249,15 @@ export default class ItemA5e extends Item {
   }
 
   async #prepareDamageRoll(_roll, isCrit) {
-    const { damageType } = _roll;
+    const { canCrit, critBonus, damageType } = _roll;
     const { rollFormula } = constructRollFormula({ actor: this.actor, formula: _roll.formula });
 
     if (!rollFormula) return null;
 
     let roll = await new Roll(rollFormula).evaluate({ async: true });
 
-    if (isCrit) {
-      roll = await Roll.fromTerms([
-        ...roll.terms,
-        await new OperatorTerm({ operator: '+' }).evaluate({ async: true }),
-        await new NumericTerm({
-          number: roll.total,
-          options: { flavor: localize('A5E.CritDamage') }
-        }).evaluate({ async: true })
-      ]);
+    if ((canCrit ?? true) && isCrit) {
+      roll = await constructCritDamageRoll(roll, critBonus);
     }
 
     const label = damageType
@@ -272,6 +267,7 @@ export default class ItemA5e extends Item {
       : localize('A5E.Damage');
 
     return {
+      canCrit,
       label,
       roll,
       type: 'damage'
