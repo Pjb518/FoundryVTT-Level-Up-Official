@@ -229,6 +229,7 @@
                             type="number"
                             data-dtype="Number"
                             min="0"
+                            max="9999"
                             name="system.quantity"
                             id={`${appId}-quantity`}
                             value={$item.system.quantity}
