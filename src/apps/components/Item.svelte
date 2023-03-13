@@ -21,7 +21,6 @@
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
     let backgroundImage = action?.img ?? item.img ?? "icons/svg/item-bag.svg";
-    console.log(backgroundImage);
 
     function getSummaryComponent(item) {
         switch (item?.type) {
