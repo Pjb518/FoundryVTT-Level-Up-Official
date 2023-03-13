@@ -131,6 +131,8 @@
         {}
     );
 
+    console.log(attackRoll);
+
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
@@ -146,7 +148,9 @@
         modifiers: [
             {
                 label: localize("A5E.ProficiencyBonusAbbr"),
-                value: attackRoll?.proficient && $actor.system.attributes.prof,
+                value:
+                    (attackRoll?.proficient ?? true) &&
+                    $actor.system.attributes.prof,
             },
             {
                 label: localize("A5E.AttackBonus"),
