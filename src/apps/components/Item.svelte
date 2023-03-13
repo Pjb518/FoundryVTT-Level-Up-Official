@@ -1,5 +1,5 @@
 <script>
-    import { slide } from "svelte/transition";
+    // import { slide } from "svelte/transition";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
@@ -73,7 +73,7 @@
 </li>
 
 {#if showDescription}
-    <div class="description-wrapper" transition:slide>
+    <div class="description-wrapper">
         <svelte:component this={getSummaryComponent(item)} {actionId} {item} />
 
         {@html (actionId ? action.description : item.system.description) ??
