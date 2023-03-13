@@ -4,6 +4,7 @@
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
@@ -61,12 +62,32 @@
     />
 
     <div
-        class="item-name"
+        class="inner-item-wrapper"
         on:click={() => {
             showDescription = !showDescription;
         }}
     >
-        {action?.name ?? item.name}
+        <div class="item-name">
+            {action?.name ?? item.name}
+        </div>
+
+        {#if !actionId && item.type === "object"}
+            <input
+                class="item-quantity"
+                type="number"
+                name="system.quantity"
+                value={item?.quantity ?? 1}
+                placeholder="1"
+                min="0"
+                max="9999"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        item,
+                        target.name,
+                        Number(target.value)
+                    )}
+            />
+        {/if}
     </div>
 
     <ItemActionButtons action={actionId} {item} />
@@ -102,6 +123,14 @@
         padding: 0.125rem 0.25rem;
     }
 
+    .inner-item-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-grow: 1;
+        cursor: pointer;
+    }
+
     .item-wrapper {
         position: relative;
         display: flex;
@@ -118,10 +147,8 @@
 
     .item-name {
         display: flex;
-        flex-grow: 1;
         height: 1.75rem;
         align-items: center;
-        cursor: pointer;
     }
 
     .item-image {
@@ -147,5 +174,13 @@
             filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
                 brightness(101%) contrast(95%);
         }
+    }
+
+    .item-quantity {
+        height: 1.25rem;
+        width: 7ch;
+        text-align: center;
+        border: 1px solid #bbb;
+        background: transparent;
     }
 </style>

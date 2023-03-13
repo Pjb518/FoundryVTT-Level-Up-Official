@@ -24,6 +24,10 @@
             label = `${activation.cost} ${localize(
                 CONFIG.A5E.abilityActivationTypesPlural[activation.type]
             )}`;
+        } else if (["none", "special"].includes(activation?.type)) {
+            label = localize(
+                CONFIG.A5E.abilityActivationTypes[activation?.type]
+            );
         } else {
             label = `${activation?.cost} ${localize(
                 CONFIG.A5E.abilityActivationTypes[activation?.type]
