@@ -70,7 +70,7 @@
         $actor.setFlag("a5e", "sortMode", newMode);
     }
 
-    $: filters = filterFlag;
+    let filters = filterFlag;
     $: sortMode = $actor.getFlag("a5e", "sortMode") || 0;
 </script>
 

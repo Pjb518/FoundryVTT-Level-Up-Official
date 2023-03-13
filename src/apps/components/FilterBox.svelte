@@ -3,6 +3,7 @@
 
     import arraysAreEqual from "../../utils/arraysAreEqual";
     import toggleFilter from "../utils/toggleFilter";
+    import MultiStateCheckBoxGroup from "./MultiStateCheckBoxGroup.svelte";
 
     export let filterSections;
     export let activeFilters;
@@ -29,25 +30,8 @@
         return onUpdateFilters([...inclusiveFilters], []);
     }
 
-    function onFilterSelect(filter) {
-        const [inclusiveFilters, exclusiveFilters] = toggleFilter(
-            activeFilters,
-            filter
-        );
-
-        onUpdateFilters(inclusiveFilters, exclusiveFilters);
-    }
-
-    function removeFilter(filter) {
-        const inclusiveFilters = activeFilters.inclusive ?? [];
-        const exclusiveFilters = activeFilters.exclusive ?? [];
-
-        if (inclusiveFilters.includes(filter))
-            inclusiveFilters.splice(inclusiveFilters.indexOf(filter), 1);
-        else if (exclusiveFilters.includes(filter))
-            exclusiveFilters.splice(exclusiveFilters.indexOf(filter), 1);
-
-        onUpdateFilters(inclusiveFilters, exclusiveFilters);
+    function updateFilters(newSelections) {
+        onUpdateFilters(newSelections[0], newSelections[1]);
     }
 </script>
 
@@ -70,22 +54,16 @@
             </header>
 
             <ul class="filter-box__filters u-text-xs u-w-full">
-                {#each Object.entries(filters) as [value, { label }]}
-                    <!-- svelte-ignore a11y-click-events-have-key-events -->
-                    <li
-                        class="a5e-tag a5e-tag--tight u-pointer"
-                        class:a5e-tag--red={activeFilters?.exclusive?.includes(
-                            value
-                        )}
-                        class:a5e-tag--active={activeFilters?.inclusive?.includes(
-                            value
-                        )}
-                        on:click|stopPropagation={() => onFilterSelect(value)}
-                        on:auxclick|stopPropagation={() => removeFilter(value)}
-                    >
-                        {localize(label)}
-                    </li>
-                {/each}
+                <MultiStateCheckBoxGroup
+                    options={Object.entries(filters).map(
+                        ([value, { label }]) => [value, label]
+                    )}
+                    selected={[
+                        activeFilters?.inclusive ?? [],
+                        activeFilters?.exclusive ?? [],
+                    ]}
+                    on:updateSelection={({ detail }) => updateFilters(detail)}
+                />
             </ul>
         </div>
     {/each}
@@ -117,12 +95,6 @@
             list-style: none;
             margin: 0;
             padding: 0;
-
-            li:hover {
-                background-color: #5c6066;
-                // color: black;
-                border: 1px solid slategrey;
-            }
         }
     }
 
