@@ -20,6 +20,9 @@
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
+    let backgroundImage = action?.img ?? item.img ?? "icons/svg/item-bag.svg";
+    console.log(backgroundImage);
+
     function getSummaryComponent(item) {
         switch (item?.type) {
             case "feature":
@@ -66,9 +69,7 @@
         class="item-image"
         class:item-image--shift={$pressedKeysStore.Shift}
         class:item-image--ctrl={$pressedKeysStore.Control}
-        style="--background-image: url({action?.img ??
-            item.img ??
-            'icons/svg/item-bag.svg'});"
+        style="--background-image: url(/{backgroundImage});"
         on:click|stopPropagation={onItemActivate}
     />
 

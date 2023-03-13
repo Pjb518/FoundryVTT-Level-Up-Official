@@ -131,7 +131,7 @@
 
     :global {
         .tjs-menu {
-            --tjs-menu-background: url(../ui/denim075.png) repeat;
+            --tjs-menu-background: url("/ui/denim075.png") repeat;
             --tjs-menu-primary-color: #deddd3;
             --tjs-menu-border: 2px solid #555;
 
