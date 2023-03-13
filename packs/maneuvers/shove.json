@@ -1,99 +1,85 @@
 {
-  "name": "Shove",
-  "type": "maneuver",
-  "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "str",
-    "actions": {
-      "uvkBwwL7OQopMMHB": {
-        "name": "Shove",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": null
-        },
-        "ranges": {
-          "j7yuRUD8cu1y0Jia": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": null,
-          "type": "creature",
-          "shape": "",
-          "size": ""
-        },
-        "rolls": {
-          "TcI6WmWSAy0EAxg9": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "1 + @str.mod",
-            "name": "Default",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "UVu9ZVC0beiWNgAV": {
-            "ability": "str",
-            "onSave": "",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@maneuverDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "",
-      "targetAbility": "str"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "degree": 0,
-    "exertionCost": 0,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": ""
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673409908,
-    "modifiedTime": 1678673440385,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Shove",
+	"type": "maneuver",
+	"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+		}
+	},
+	"system": {
+		"ability": "str",
+		"actions": {
+			"uvkBwwL7OQopMMHB": {
+				"name": "Shove",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"ranges": {
+					"j7yuRUD8cu1y0Jia": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": null,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"rolls": {
+					"TcI6WmWSAy0EAxg9": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "1 + @str.mod",
+						"name": "Default",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"UVu9ZVC0beiWNgAV": {
+						"ability": "str",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": "str"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"degree": 0,
+		"exertionCost": 0,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": ""
+	},
+	"_id": "md35qozzy2fxy2o6"
 }

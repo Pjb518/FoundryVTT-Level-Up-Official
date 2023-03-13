@@ -1,123 +1,109 @@
 {
-  "name": "Giant Slayer Scimitar",
-  "type": "object",
-  "img": "icons/weapons/swords/scimitar-worn-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.8smhs88hy5nxzgqz"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "default",
-    "actions": {
-      "1rspunLPYbwlcZo5": {
-        "name": "Giant Slayer Scimitar",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "XQ7ESo8CfpIhR30H": {
-            "bonus": "+1",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "ERGKF5dr1NGSLEIY": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d6 + @finesse.mod + 1",
-            "name": "Scimitar",
-            "type": "damage"
-          },
-          "uEOYR32k9dtxQ0Mn": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "2d6",
-            "name": "Dragon Slayer",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "6uh8q9toYcZFRi94": {
-            "ability": "str",
-            "onSave": "Doesn't fall prone.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "15",
-      "onSave": "Doesn't fall prone.",
-      "targetAbility": "str"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "5,000 gp",
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "finesse",
-      "defensive",
-      "dualWielding"
-    ],
-    "weight": 3
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673226869,
-    "modifiedTime": 1678673271090,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Giant Slayer Scimitar",
+	"type": "object",
+	"img": "icons/weapons/swords/scimitar-worn-blue.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.8smhs88hy5nxzgqz"
+		}
+	},
+	"system": {
+		"ability": "default",
+		"actions": {
+			"1rspunLPYbwlcZo5": {
+				"name": "Giant Slayer Scimitar",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"XQ7ESo8CfpIhR30H": {
+						"bonus": "+1",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"ERGKF5dr1NGSLEIY": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d6 + @finesse.mod + 1",
+						"name": "Scimitar",
+						"type": "damage"
+					},
+					"uEOYR32k9dtxQ0Mn": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "2d6",
+						"name": "Dragon Slayer",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"6uh8q9toYcZFRi94": {
+						"ability": "str",
+						"onSave": "Doesn't fall prone.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "15",
+			"onSave": "Doesn't fall prone.",
+			"targetAbility": "str"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"finesse",
+			"defensive",
+			"dualWielding"
+		],
+		"weight": 3
+	},
+	"_id": "8smhs88hy5nxzgqz"
 }

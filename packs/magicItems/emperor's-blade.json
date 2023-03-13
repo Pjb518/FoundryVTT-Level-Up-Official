@@ -1,121 +1,107 @@
 {
-  "name": "Emperor's Blade",
-  "type": "object",
-  "img": "icons/weapons/swords/sword-guard-flanged.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.4qm13x022apoayyb"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "default",
-    "actions": {
-      "sgdu2QeeVSNROPsa": {
-        "name": "Emperor's Blade",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "5e1J86hCxj3Yyp2o": {
-            "bonus": "1",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "jxSBHAw6Yy7e0Sj0": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d8 +1 +@str.mod",
-            "name": "Emperor's Blade",
-            "type": "damage"
-          },
-          "usVWOW5SGTXYhZns": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d8",
-            "name": "Bleed (Ongoing)",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "Mq6I1pGZbrtMFYvk": {
-            "ability": "con",
-            "onSave": "ends ongoing bleed damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8 +@prof +@str.mod"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<blockquote><p>Defensive (Medium)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>Spiked metal barbs line this +1 longsword, resembling the many rows of a shark’s teeth.</p><p>You can use a bonus action to speak a command word that activates or deactivates the barbs.</p><p>While activated, the barbs rapidly saw back and forth to tear into your foes, making your weapon attacks with the sword deal an extra 1d8 slashing damage.</p><p>When you score a critical hit while the barbs are active, the sawing barbs leave a terrible wound that deals 1d8 ongoing damage. At the start of each of its turns, a wounded creature makes a Constitution saving throw (DC 8 + your proficiency bonus + your Strength modifier) to end the ongoing damage.</p><p></p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "8 +@prof +@str.mod",
-      "onSave": "ends ongoing bleed damage",
-      "targetAbility": "con"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "9,000 gp",
-    "quantity": 1,
-    "rarity": "veryRare",
-    "requiresAttunement": false,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "defensive"
-    ],
-    "weight": 3
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673224609,
-    "modifiedTime": 1678673261907,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Emperor's Blade",
+	"type": "object",
+	"img": "icons/weapons/swords/sword-guard-flanged.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.4qm13x022apoayyb"
+		}
+	},
+	"system": {
+		"ability": "default",
+		"actions": {
+			"sgdu2QeeVSNROPsa": {
+				"name": "Emperor's Blade",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"5e1J86hCxj3Yyp2o": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"jxSBHAw6Yy7e0Sj0": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 +1 +@str.mod",
+						"name": "Emperor's Blade",
+						"type": "damage"
+					},
+					"usVWOW5SGTXYhZns": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8",
+						"name": "Bleed (Ongoing)",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"Mq6I1pGZbrtMFYvk": {
+						"ability": "con",
+						"onSave": "ends ongoing bleed damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 +@prof +@str.mod"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<blockquote><p>Defensive (Medium)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>Spiked metal barbs line this +1 longsword, resembling the many rows of a shark’s teeth.</p><p>You can use a bonus action to speak a command word that activates or deactivates the barbs.</p><p>While activated, the barbs rapidly saw back and forth to tear into your foes, making your weapon attacks with the sword deal an extra 1d8 slashing damage.</p><p>When you score a critical hit while the barbs are active, the sawing barbs leave a terrible wound that deals 1d8 ongoing damage. At the start of each of its turns, a wounded creature makes a Constitution saving throw (DC 8 + your proficiency bonus + your Strength modifier) to end the ongoing damage.</p><p></p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "8 +@prof +@str.mod",
+			"onSave": "ends ongoing bleed damage",
+			"targetAbility": "con"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "9,000 gp",
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": false,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive"
+		],
+		"weight": 3
+	},
+	"_id": "4qm13x022apoayyb"
 }

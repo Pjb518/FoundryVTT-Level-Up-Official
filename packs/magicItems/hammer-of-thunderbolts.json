@@ -1,124 +1,110 @@
 {
-  "name": "Hammer of Thunderbolts",
-  "type": "object",
-  "img": "icons/weapons/hammers/hammer-double-engraved-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.0eevrxxsi5p6qp2l"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "default",
-    "actions": {
-      "MBeEOAODK06L1Ysj": {
-        "name": "Hammer of Thunderbolts",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "fZ9PZ4LHdjheJYgF": {
-            "range": "fiveFeet"
-          },
-          "2aNcMSFjmIqplQbS": {
-            "range": "normal 20ft, maximum 60ft."
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "0dOmoTfZ2gQkEzVV": {
-            "bonus": "1",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "OisFBpj1r7fULTrc": {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "2d6 + @str.mod + 1",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "PPSSAUgt4EMsaJLr": {
-            "ability": "con",
-            "onSave": "Negates effects.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "17"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic maul. This weapon can only be attuned to when you are wearing a belt of giant strength and gauntlets of ogre power. The attunement ends if you remove or change attunement away from either of those items. </p><p>While you are attuned to this weapon and holding it: </p><p>•Your Strength score increases by 4 (and can exceed 20, but not 30). </p><p>• When you make an attack roll with this weapon against a giant and roll a natural 20, the giant makes a DC 17 Constitution saving throw or dies. </p><p>• You can expend 1 charge and make a ranged weapon attack with the maul with a normal range of 20 feet and a maximum range of 60 feet. On a hit, the maul unleashes a thunderclap heard from up to 300 feet away. The target and every creature within 30 feet of it make a DC 17 Constitution saving throw or become stunned until the end of your next turn. </p><p>The maul has 5 charges and regains 1d4+1 charges each dawn.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "17",
-      "onSave": "Negates effects.",
-      "targetAbility": "con"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 5,
-      "max": 5,
-      "per": ""
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "60,000 gp",
-    "quantity": 1,
-    "rarity": "legendary",
-    "requiresAttunement": true,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "breaker",
-      "heavy",
-      "twoHanded"
-    ],
-    "weight": 11
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673222042,
-    "modifiedTime": 1678673253028,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Hammer of Thunderbolts",
+	"type": "object",
+	"img": "icons/weapons/hammers/hammer-double-engraved-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.0eevrxxsi5p6qp2l"
+		}
+	},
+	"system": {
+		"ability": "default",
+		"actions": {
+			"MBeEOAODK06L1Ysj": {
+				"name": "Hammer of Thunderbolts",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"fZ9PZ4LHdjheJYgF": {
+						"range": "fiveFeet"
+					},
+					"2aNcMSFjmIqplQbS": {
+						"range": "normal 20ft, maximum 60ft."
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"0dOmoTfZ2gQkEzVV": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"OisFBpj1r7fULTrc": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "2d6 + @str.mod + 1",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"PPSSAUgt4EMsaJLr": {
+						"ability": "con",
+						"onSave": "Negates effects.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "17"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic maul. This weapon can only be attuned to when you are wearing a belt of giant strength and gauntlets of ogre power. The attunement ends if you remove or change attunement away from either of those items. </p><p>While you are attuned to this weapon and holding it: </p><p>•Your Strength score increases by 4 (and can exceed 20, but not 30). </p><p>• When you make an attack roll with this weapon against a giant and roll a natural 20, the giant makes a DC 17 Constitution saving throw or dies. </p><p>• You can expend 1 charge and make a ranged weapon attack with the maul with a normal range of 20 feet and a maximum range of 60 feet. On a hit, the maul unleashes a thunderclap heard from up to 300 feet away. The target and every creature within 30 feet of it make a DC 17 Constitution saving throw or become stunned until the end of your next turn. </p><p>The maul has 5 charges and regains 1d4+1 charges each dawn.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "17",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 5,
+			"max": 5,
+			"per": ""
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "60,000 gp",
+		"quantity": 1,
+		"rarity": "legendary",
+		"requiresAttunement": true,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"breaker",
+			"heavy",
+			"twoHanded"
+		],
+		"weight": 11
+	},
+	"_id": "0eevrxxsi5p6qp2l"
 }

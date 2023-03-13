@@ -1,119 +1,105 @@
 {
-  "name": "Ice Storm",
-  "type": "spell",
-  "img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.nolt36wjo8dxxuik"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "Bb3QfUO8xdXJr27f": {
-        "name": "Ice Storm",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "acFtAlGJKNUCoxo2": {
-            "range": "300 feet"
-          }
-        },
-        "area": {
-          "shape": "cylinder",
-          "radius": "20",
-          "height": "40",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": null,
-          "type": ""
-        },
-        "rolls": {
-          "nkQD0jd2SYMEuKeP": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "2d8",
-            "name": "",
-            "type": "damage"
-          },
-          "UGHz1XJk3Wy7HxtN": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "4d6",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "8hFDShXeznEfUbUD": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@spellDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "drop of water",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "cold",
-        "nature",
-        "storm"
-      ]
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673679738,
-    "modifiedTime": 1678673726021,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Ice Storm",
+	"type": "spell",
+	"img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.nolt36wjo8dxxuik"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"Bb3QfUO8xdXJr27f": {
+				"name": "Ice Storm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"acFtAlGJKNUCoxo2": {
+						"range": "300 feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "20",
+					"height": "40",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": null,
+					"type": ""
+				},
+				"rolls": {
+					"nkQD0jd2SYMEuKeP": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "2d8",
+						"name": "",
+						"type": "damage"
+					},
+					"UGHz1XJk3Wy7HxtN": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "4d6",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"8hFDShXeznEfUbUD": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@spellDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "drop of water",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"cold",
+				"nature",
+				"storm"
+			]
+		}
+	},
+	"_id": "nolt36wjo8dxxuik"
 }

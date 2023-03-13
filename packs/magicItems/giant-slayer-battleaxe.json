@@ -1,129 +1,115 @@
 {
-  "name": "Giant Slayer Battleaxe",
-  "type": "object",
-  "img": "icons/weapons/axes/axe-broad-worn-yellow.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.f3xmb0pva36bw5sg"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "default",
-    "actions": {
-      "6tgvAOEvsYTLweIf": {
-        "name": "Giant Slayer Battleaxe",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "Iz8Nl4plpdD5nOTR": {
-            "bonus": "+1",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "gQCPulMQmRNPzbza": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d8 + @str.mod + 1",
-            "name": "Battleaxe 1H",
-            "type": "damage"
-          },
-          "rhLQhTCmXC7dX1Ex": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d10 + @str.mod + 1",
-            "name": "Battleaxe 2H",
-            "type": "damage"
-          },
-          "uq57uqaBZcK7nCsa": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "2d6",
-            "name": "Dragon Slayer",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "7vxsaMZN2x1xhAn9": {
-            "ability": "str",
-            "onSave": "Doesn't fall prone.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "15",
-      "onSave": "Doesn't fall prone.",
-      "targetAbility": "str"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "5,000 gp",
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "breaker",
-      "versatile"
-    ],
-    "weight": 6
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673229419,
-    "modifiedTime": 1678673281276,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Giant Slayer Battleaxe",
+	"type": "object",
+	"img": "icons/weapons/axes/axe-broad-worn-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.f3xmb0pva36bw5sg"
+		}
+	},
+	"system": {
+		"ability": "default",
+		"actions": {
+			"6tgvAOEvsYTLweIf": {
+				"name": "Giant Slayer Battleaxe",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"Iz8Nl4plpdD5nOTR": {
+						"bonus": "+1",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"gQCPulMQmRNPzbza": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 + @str.mod + 1",
+						"name": "Battleaxe 1H",
+						"type": "damage"
+					},
+					"rhLQhTCmXC7dX1Ex": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @str.mod + 1",
+						"name": "Battleaxe 2H",
+						"type": "damage"
+					},
+					"uq57uqaBZcK7nCsa": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "2d6",
+						"name": "Dragon Slayer",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"7vxsaMZN2x1xhAn9": {
+						"ability": "str",
+						"onSave": "Doesn't fall prone.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "15",
+			"onSave": "Doesn't fall prone.",
+			"targetAbility": "str"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"breaker",
+			"versatile"
+		],
+		"weight": 6
+	},
+	"_id": "f3xmb0pva36bw5sg"
 }

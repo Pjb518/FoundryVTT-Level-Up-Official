@@ -1,112 +1,98 @@
 {
-  "name": "Instant Fortress",
-  "type": "object",
-  "img": "icons/environment/settlement/watchtower-silhouette-yellow.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.9q1zrs7ddup4d79r"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": null,
-    "actions": {
-      "C2irfzSgZcVeGV7s": {
-        "name": "Instant Fortress",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "ranges": {
-          "ltDHjHWbSyM4aSAc": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "rolls": {
-          "SqyfLr8sHlVWyQu9": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "10d10",
-            "name": "Creatures within area fortress appears.",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "WOZxrf4G47MbCLFz": {
-            "ability": "dex",
-            "onSave": "Half Damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You can use an action to place this 1-inch metal cube on the ground and speak its command word. The cube rapidly grows into a fortress that remains until you use another action to speak the command word that dismisses it. The fortress can only be dismissed when it is empty. </p><p>When activated, the cube transforms into a square tower, 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it, with a small door on the side facing you. The door opens only at your command, which you can speak as a bonus action (it is immune to spells like<em> knock </em>and related magic, such as a <em>chime of opening</em>.) The tower’s interior has two floors, with a ladder connecting them and continuing on to a trapdoor to the roof. </p><p>Each creature in the area where the fortress appears makes a DC 15 Dexterity saving throw, taking 10d10 bludgeoning damage on a failure, or half damage on a success. In either case, the creature is pushed to an unoccupied space next to the fortress. Objects in the area that aren’t being worn or carried take full damage and are pushed automatically. </p><p>The tower is made of adamantine, and its magic prevents it from being tipped over. The roof, the door, and the walls each have AC 20, 100 hit points, immunity to damage from nonmagical weapons (excluding siege weapons), and resistance to all other damage. Only a wish spell can repair the fortress (this use of the spell counts as replicating a spell of 8th-level or lower). Each casting causes the roof, the door, or one wall to regain 50 hit points.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "15",
-      "onSave": "Half Damage",
-      "targetAbility": "dex"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "miscellaneous",
-    "plotItem": false,
-    "price": "15,000 gp",
-    "quantity": 1,
-    "rarity": "veryRare",
-    "requiresAttunement": false,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 0
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673226876,
-    "modifiedTime": 1678673272270,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Instant Fortress",
+	"type": "object",
+	"img": "icons/environment/settlement/watchtower-silhouette-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.9q1zrs7ddup4d79r"
+		}
+	},
+	"system": {
+		"ability": null,
+		"actions": {
+			"C2irfzSgZcVeGV7s": {
+				"name": "Instant Fortress",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"ltDHjHWbSyM4aSAc": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"SqyfLr8sHlVWyQu9": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "10d10",
+						"name": "Creatures within area fortress appears.",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"WOZxrf4G47MbCLFz": {
+						"ability": "dex",
+						"onSave": "Half Damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You can use an action to place this 1-inch metal cube on the ground and speak its command word. The cube rapidly grows into a fortress that remains until you use another action to speak the command word that dismisses it. The fortress can only be dismissed when it is empty. </p><p>When activated, the cube transforms into a square tower, 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it, with a small door on the side facing you. The door opens only at your command, which you can speak as a bonus action (it is immune to spells like<em> knock </em>and related magic, such as a <em>chime of opening</em>.) The tower’s interior has two floors, with a ladder connecting them and continuing on to a trapdoor to the roof. </p><p>Each creature in the area where the fortress appears makes a DC 15 Dexterity saving throw, taking 10d10 bludgeoning damage on a failure, or half damage on a success. In either case, the creature is pushed to an unoccupied space next to the fortress. Objects in the area that aren’t being worn or carried take full damage and are pushed automatically. </p><p>The tower is made of adamantine, and its magic prevents it from being tipped over. The roof, the door, and the walls each have AC 20, 100 hit points, immunity to damage from nonmagical weapons (excluding siege weapons), and resistance to all other damage. Only a wish spell can repair the fortress (this use of the spell counts as replicating a spell of 8th-level or lower). Each casting causes the roof, the door, or one wall to regain 50 hit points.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "15",
+			"onSave": "Half Damage",
+			"targetAbility": "dex"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "15,000 gp",
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": false,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"_id": "9q1zrs7ddup4d79r"
 }

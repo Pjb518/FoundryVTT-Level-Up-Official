@@ -1,111 +1,97 @@
 {
-  "name": "Thunderwave",
-  "type": "spell",
-  "img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.65ksar78lxxp7uol"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "BLV046rNlZUxatIj": {
-        "name": "Thunderwave",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "KW83Ut022mptz02H": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "width": "15",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "U6MTSYXR1GXZKBK1": {
-            "canCrit": false,
-            "damageType": "thunder",
-            "formula": "2d8",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "OUx329JCR0dVwqHS": {
-            "ability": "con",
-            "onSave": "Half damage and negates push",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@spellDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You create a wave of thunderous force, damaging creatures and pushing them back. Creatures in the area take 2d8 thunder damage and are pushed 10 feet away from you.</p><p>Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 1st.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage and negates push",
-      "targetAbility": "con"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "nature",
-        "thunder"
-      ]
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673675489,
-    "modifiedTime": 1678673714858,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Thunderwave",
+	"type": "spell",
+	"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.65ksar78lxxp7uol"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"BLV046rNlZUxatIj": {
+				"name": "Thunderwave",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"KW83Ut022mptz02H": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "15",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"U6MTSYXR1GXZKBK1": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "2d8",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"OUx329JCR0dVwqHS": {
+						"ability": "con",
+						"onSave": "Half damage and negates push",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@spellDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You create a wave of thunderous force, damaging creatures and pushing them back. Creatures in the area take 2d8 thunder damage and are pushed 10 feet away from you.</p><p>Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 1st.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage and negates push",
+			"targetAbility": "con"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"nature",
+				"thunder"
+			]
+		}
+	},
+	"_id": "65ksar78lxxp7uol"
 }

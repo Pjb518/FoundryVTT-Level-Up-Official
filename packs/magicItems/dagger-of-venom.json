@@ -1,128 +1,114 @@
 {
-  "name": "Dagger of Venom",
-  "type": "object",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.7gy8lvf80ph29lq5"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "default",
-    "actions": {
-      "B4XDo1xwgvUy2om6": {
-        "name": "Dagger of Venom",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "tha5VHwGxkSnU7mO": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "uaYc2s7lj8ASiapB": {
-            "bonus": "1",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "pUNjTzpjgBnz00DZ": {
-            "canCrit": true,
-            "damageType": "piercing",
-            "formula": "1d4 + @finesse.mod + 1",
-            "name": "Dagger",
-            "type": "damage"
-          },
-          "T0srTOh0dYBQlZHK": {
-            "canCrit": false,
-            "damageType": "poison",
-            "formula": "2d10",
-            "name": "Poisoned",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "eijYDOZVSzkWLjed": {
-            "ability": "con",
-            "onSave": "Negates effects.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic blade. In addition, once each dawn you can use an action to poison the dagger’s blade for 1 minute or until it is used to damage a creature. When a creature is damaged by the blade’s poison, it makes a DC 15 Constitution saving throw or takes 2d10 poison damage and becomes poisoned for 1 minute.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "15",
-      "onSave": "Negates effects.",
-      "targetAbility": "con"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "2,500 gp",
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "dualWielding",
-      "finesse",
-      "simple"
-    ],
-    "weight": 1
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673224632,
-    "modifiedTime": 1678673267960,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Dagger of Venom",
+	"type": "object",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.7gy8lvf80ph29lq5"
+		}
+	},
+	"system": {
+		"ability": "default",
+		"actions": {
+			"B4XDo1xwgvUy2om6": {
+				"name": "Dagger of Venom",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"tha5VHwGxkSnU7mO": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"uaYc2s7lj8ASiapB": {
+						"bonus": "1",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"pUNjTzpjgBnz00DZ": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod + 1",
+						"name": "Dagger",
+						"type": "damage"
+					},
+					"T0srTOh0dYBQlZHK": {
+						"canCrit": false,
+						"damageType": "poison",
+						"formula": "2d10",
+						"name": "Poisoned",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"eijYDOZVSzkWLjed": {
+						"ability": "con",
+						"onSave": "Negates effects.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic blade. In addition, once each dawn you can use an action to poison the dagger’s blade for 1 minute or until it is used to damage a creature. When a creature is damaged by the blade’s poison, it makes a DC 15 Constitution saving throw or takes 2d10 poison damage and becomes poisoned for 1 minute.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "15",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "2,500 gp",
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"simple"
+		],
+		"weight": 1
+	},
+	"_id": "7gy8lvf80ph29lq5"
 }

@@ -1,90 +1,76 @@
 {
-  "name": "Tidal Parry",
-  "type": "maneuver",
-  "img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-maneuvers.jcf9cbc658ggzmle"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "",
-    "actions": {
-      "KRKVjnEWCydrugft": {
-        "name": "Tidal Parry",
-        "activation": {
-          "cost": 1,
-          "type": "reaction",
-          "reactionTrigger": "When a creature hits you with a melee attack"
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "CIZQdVkLJiqjVsJ8": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature",
-          "shape": "",
-          "size": ""
-        },
-        "prompts": {
-          "cIRpQ1rUtioyIIGX": {
-            "ability": "dex",
-            "onSave": "Avoids effects.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@maneuverDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>An expert parry turns a hit into a miss.</p><p>When a creature hits you with a melee attack, you can use your reaction to evade the attack. The creature makes a Dexterity saving throw, and on a failure its attack becomes a miss. A creature that scored a critical hit has advantage on its save.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Avoids effects.",
-      "targetAbility": "dex"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "degree": 5,
-    "exertionCost": 2,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "rapidCurrent"
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673409904,
-    "modifiedTime": 1678673439338,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Tidal Parry",
+	"type": "maneuver",
+	"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-maneuvers.jcf9cbc658ggzmle"
+		}
+	},
+	"system": {
+		"ability": "",
+		"actions": {
+			"KRKVjnEWCydrugft": {
+				"name": "Tidal Parry",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When a creature hits you with a melee attack"
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"CIZQdVkLJiqjVsJ8": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"prompts": {
+					"cIRpQ1rUtioyIIGX": {
+						"ability": "dex",
+						"onSave": "Avoids effects.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>An expert parry turns a hit into a miss.</p><p>When a creature hits you with a melee attack, you can use your reaction to evade the attack. The creature makes a Dexterity saving throw, and on a failure its attack becomes a miss. A creature that scored a critical hit has advantage on its save.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "dex"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"degree": 5,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "rapidCurrent"
+	},
+	"_id": "jcf9cbc658ggzmle"
 }

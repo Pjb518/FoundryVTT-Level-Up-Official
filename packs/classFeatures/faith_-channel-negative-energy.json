@@ -1,107 +1,93 @@
 {
-  "name": "Faith: Channel Negative Energy",
-  "type": "feature",
-  "img": "icons/svg/item-bag.svg",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-class-features.dcob44rq7qf4vqo2"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "LpURYMiE5KgRFCPH": {
-        "name": "Faith: Channel Negative Energy",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "9I2Bjee7UdDvLNuJ": {
-            "range": "Within line of sight"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "rolls": {
-          "iIjqsSvxPSPanm44": {
-            "canCrit": false,
-            "damageType": "force",
-            "formula": "5d10",
-            "name": "Force",
-            "type": "damage"
-          },
-          "MLTjvcefxVIz4Nmk": {
-            "canCrit": false,
-            "damageType": "necrotic",
-            "formula": "5d10",
-            "name": "Necrotic",
-            "type": "damage"
-          },
-          "i4qfgH64C6NS2TeR": {
-            "formula": "5d10",
-            "healingType": "healing",
-            "name": "Evil healing only",
-            "type": "healing"
-          }
-        },
-        "prompts": {
-          "0fRzJ8PSjaVIB5UL": {
-            "ability": "cha",
-            "onSave": "Half damage and no afflicted condition",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8 + @prof + @wis.mod"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You can use an action to evoke baleful energy from the Lower Planes to harm creatures you are able to see. You choose the creatures. Each creature makes a Charisma saving throw or takes [[/r 5d10 #force]] force damage and [[ /r 5d10 #necrotic]] necrotic damage, or half damage on a success.</p><p>When you use this feature, you also choose one of the following conditions: blinded, confused, deafened, frightened, poisoned, rattled, or slowed. A creature that failed its saving throw also gains the chosen condition. At the end of each of its turns, a creature can repeat the saving throw to end the effect on itself.</p><p>In addition, you can choose any number of creatures you can see that have the Evil alignment trait. Each regains [[/r 5d10 #hit points]] hit points.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "8 + @prof + @wis.mod",
-      "onSave": "Half damage and no afflicted condition",
-      "targetAbility": "cha"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": 1,
-      "max": 1,
-      "per": "longRest"
-    },
-    "featureType": "class",
-    "prerequisite": ""
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678672640052,
-    "modifiedTime": 1678672683203,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Faith: Channel Negative Energy",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-class-features.dcob44rq7qf4vqo2"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"LpURYMiE5KgRFCPH": {
+				"name": "Faith: Channel Negative Energy",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"9I2Bjee7UdDvLNuJ": {
+						"range": "Within line of sight"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"iIjqsSvxPSPanm44": {
+						"canCrit": false,
+						"damageType": "force",
+						"formula": "5d10",
+						"name": "Force",
+						"type": "damage"
+					},
+					"MLTjvcefxVIz4Nmk": {
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "5d10",
+						"name": "Necrotic",
+						"type": "damage"
+					},
+					"i4qfgH64C6NS2TeR": {
+						"formula": "5d10",
+						"healingType": "healing",
+						"name": "Evil healing only",
+						"type": "healing"
+					}
+				},
+				"prompts": {
+					"0fRzJ8PSjaVIB5UL": {
+						"ability": "cha",
+						"onSave": "Half damage and no afflicted condition",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @wis.mod"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You can use an action to evoke baleful energy from the Lower Planes to harm creatures you are able to see. You choose the creatures. Each creature makes a Charisma saving throw or takes [[/r 5d10 #force]] force damage and [[ /r 5d10 #necrotic]] necrotic damage, or half damage on a success.</p><p>When you use this feature, you also choose one of the following conditions: blinded, confused, deafened, frightened, poisoned, rattled, or slowed. A creature that failed its saving throw also gains the chosen condition. At the end of each of its turns, a creature can repeat the saving throw to end the effect on itself.</p><p>In addition, you can choose any number of creatures you can see that have the Evil alignment trait. Each regains [[/r 5d10 #hit points]] hit points.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "8 + @prof + @wis.mod",
+			"onSave": "Half damage and no afflicted condition",
+			"targetAbility": "cha"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "longRest"
+		},
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"_id": "dcob44rq7qf4vqo2"
 }

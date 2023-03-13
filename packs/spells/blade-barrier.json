@@ -1,111 +1,97 @@
 {
-  "name": "Blade Barrier",
-  "type": "spell",
-  "img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.u8e2yij8vcq0puxl"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "SIPtcMRDH3fwnah9": {
-        "name": "Blade Barrier",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "10"
-        },
-        "ranges": {
-          "ZNSAGycDT5WbiTiN": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "wJkbkYoZFjbCFE0c": {
-            "canCrit": false,
-            "damageType": "slashing",
-            "formula": "6d10",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "SivBNCaQifydSJnt": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@spellDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.</p><p>When a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 6th.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 6,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "divine",
-        "protection",
-        "weaponry"
-      ]
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673682398,
-    "modifiedTime": 1678673730143,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Blade Barrier",
+	"type": "spell",
+	"img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.u8e2yij8vcq0puxl"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"SIPtcMRDH3fwnah9": {
+				"name": "Blade Barrier",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"ZNSAGycDT5WbiTiN": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"wJkbkYoZFjbCFE0c": {
+						"canCrit": false,
+						"damageType": "slashing",
+						"formula": "6d10",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"SivBNCaQifydSJnt": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@spellDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.</p><p>When a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 6th.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 6,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"divine",
+				"protection",
+				"weaponry"
+			]
+		}
+	},
+	"_id": "u8e2yij8vcq0puxl"
 }

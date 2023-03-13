@@ -1,120 +1,106 @@
 {
-  "name": "Storm Kick",
-  "type": "spell",
-  "img": "icons/magic/lightning/strike-arrow-spear-red.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.tmhbscn1twt2yghy"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "1UGHvZNyNhE2AvSd": {
-        "name": "Storm Kick",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "574coIRRjWi1FvcU": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "XVXdRtsfv0HN8scH": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack"
-          },
-          "VjVjxBd4GJVuTvGo": {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "1d6+@spellcasting.mod",
-            "name": "",
-            "type": "damage"
-          },
-          "Y2Ushw0g4Ey8nU2O": {
-            "canCrit": true,
-            "damageType": "thunder",
-            "formula": "3d8",
-            "name": "",
-            "type": "damage"
-          },
-          "hHGvraUf7faGSycL": {
-            "canCrit": true,
-            "damageType": "lightning",
-            "formula": "6d8",
-            "name": "",
-            "type": "damage"
-          }
-        }
-      }
-    },
-    "description": "<p>You must be able to move in order to cast this spell.</p><p>You leap into the air and flash across the battlefield, arriving feet-first with the force of a thunderbolt. As part of casting this spell, make a ranged spell attack against a creature you can see within range. If you hit, you instantly flash to an open space of your choosing adjacent to the target, dealing bludgeoning damage equal to 1d6 + your spellcasting modifier plus 3d8 thunder damage and 6d8 lightning damage. If your unarmed strike normally uses a larger die, use that instead of a d6. If you miss, you may still choose to teleport next to the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 6th-level spell slot or higher, if you are able to make more than one attack when you take the Attack action, you may make an additional melee weapon attack against the target. When using a 7th-level spell slot, you may choose an additional target within 30 feet of the target for each spell slot level above 6th, forcing each additional target to make a Dexterity saving throw or take 6d8 lightning damage.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 5,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "lightning",
-        "movement",
-        "thunder",
-        "unarmed"
-      ]
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673682397,
-    "modifiedTime": 1678673730062,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Storm Kick",
+	"type": "spell",
+	"img": "icons/magic/lightning/strike-arrow-spear-red.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.tmhbscn1twt2yghy"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"1UGHvZNyNhE2AvSd": {
+				"name": "Storm Kick",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"574coIRRjWi1FvcU": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"XVXdRtsfv0HN8scH": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack"
+					},
+					"VjVjxBd4GJVuTvGo": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d6+@spellcasting.mod",
+						"name": "",
+						"type": "damage"
+					},
+					"Y2Ushw0g4Ey8nU2O": {
+						"canCrit": true,
+						"damageType": "thunder",
+						"formula": "3d8",
+						"name": "",
+						"type": "damage"
+					},
+					"hHGvraUf7faGSycL": {
+						"canCrit": true,
+						"damageType": "lightning",
+						"formula": "6d8",
+						"name": "",
+						"type": "damage"
+					}
+				}
+			}
+		},
+		"description": "<p>You must be able to move in order to cast this spell.</p><p>You leap into the air and flash across the battlefield, arriving feet-first with the force of a thunderbolt. As part of casting this spell, make a ranged spell attack against a creature you can see within range. If you hit, you instantly flash to an open space of your choosing adjacent to the target, dealing bludgeoning damage equal to 1d6 + your spellcasting modifier plus 3d8 thunder damage and 6d8 lightning damage. If your unarmed strike normally uses a larger die, use that instead of a d6. If you miss, you may still choose to teleport next to the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 6th-level spell slot or higher, if you are able to make more than one attack when you take the Attack action, you may make an additional melee weapon attack against the target. When using a 7th-level spell slot, you may choose an additional target within 30 feet of the target for each spell slot level above 6th, forcing each additional target to make a Dexterity saving throw or take 6d8 lightning damage.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"lightning",
+				"movement",
+				"thunder",
+				"unarmed"
+			]
+		}
+	},
+	"_id": "tmhbscn1twt2yghy"
 }

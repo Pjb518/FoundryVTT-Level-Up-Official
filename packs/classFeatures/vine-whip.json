@@ -1,106 +1,92 @@
 {
-  "name": "Vine Whip",
-  "type": "feature",
-  "img": "icons/svg/item-bag.svg",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-class-features.98chs30l0ma7i8ug"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "ABViPBzBlIwINSp4": {
-        "name": "Vine Whip",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "5bYVmhzK8OPu6EqI": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "line",
-          "size": "10",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "o8JUbbFD0QUh1fM5": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "feBiuwpVFhsXzd4v": {
-            "canCrit": true,
-            "damageType": "force",
-            "formula": "1d6",
-            "name": "Vine Whip (Base)",
-            "type": "damage"
-          },
-          "bmflYQLpzvenmFOW": {
-            "canCrit": true,
-            "damageType": "force",
-            "formula": "2d6",
-            "name": "Vine Whip (10+)",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "An8kJzP9EflAwJZA": {
-            "ability": "str",
-            "onSave": "",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@wis.mod+@prof"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>At 2nd level you can magically summon a spiritual vine that can strike and grab your foes. As a bonus action, you create a 10-foot long vine at a point you can see within 60 feet. The vine lasts for 1 minute, until you dismiss it as a bonus action, or until you use this feature to create another vine. When you create the vine, you can make a melee spell attack against one target within 10 feet of it. On a hit the target takes 1d6 force damage, and it must make a Strength saving throw against your spell save DC. On a failure the target is restrained by the vine (escape DC equal to your spell save DC). </p><p>When you reach 10th level in this class, the damage increases to 2d6. </p><p>As a bonus action on your turn, you can move the vine up to 30 feet and repeat the attack, or if a creature is currently restrained by the vine you may move the vine and the restrained creature 10 feet in any direction.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "8+@wis.mod+@prof",
-      "onSave": "",
-      "targetAbility": "str"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "featureType": "class",
-    "prerequisite": ""
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678672634407,
-    "modifiedTime": 1678672679981,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Vine Whip",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-class-features.98chs30l0ma7i8ug"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"ABViPBzBlIwINSp4": {
+				"name": "Vine Whip",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"5bYVmhzK8OPu6EqI": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"size": "10",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"o8JUbbFD0QUh1fM5": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"feBiuwpVFhsXzd4v": {
+						"canCrit": true,
+						"damageType": "force",
+						"formula": "1d6",
+						"name": "Vine Whip (Base)",
+						"type": "damage"
+					},
+					"bmflYQLpzvenmFOW": {
+						"canCrit": true,
+						"damageType": "force",
+						"formula": "2d6",
+						"name": "Vine Whip (10+)",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"An8kJzP9EflAwJZA": {
+						"ability": "str",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@wis.mod+@prof"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>At 2nd level you can magically summon a spiritual vine that can strike and grab your foes. As a bonus action, you create a 10-foot long vine at a point you can see within 60 feet. The vine lasts for 1 minute, until you dismiss it as a bonus action, or until you use this feature to create another vine. When you create the vine, you can make a melee spell attack against one target within 10 feet of it. On a hit the target takes 1d6 force damage, and it must make a Strength saving throw against your spell save DC. On a failure the target is restrained by the vine (escape DC equal to your spell save DC). </p><p>When you reach 10th level in this class, the damage increases to 2d6. </p><p>As a bonus action on your turn, you can move the vine up to 30 feet and repeat the attack, or if a creature is currently restrained by the vine you may move the vine and the restrained creature 10 feet in any direction.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "8+@wis.mod+@prof",
+			"onSave": "",
+			"targetAbility": "str"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"_id": "98chs30l0ma7i8ug"
 }

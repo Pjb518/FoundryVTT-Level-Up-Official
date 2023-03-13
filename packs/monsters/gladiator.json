@@ -1,2555 +1,2335 @@
 {
-  "name": "Gladiator",
-  "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
-  "items": [
-    {
-      "_id": "EnrlkPwqb3FXGrNT",
-      "name": "Combat Expertise",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "actions": {},
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [
-          {
-            "canCrit": false,
-            "damageType": "",
-            "formula": "1d6",
-            "name": "Combat Expertise"
-          }
-        ],
-        "description": "<p>The damage of the gladiator’s attacks includes a d6 expertise die.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "4z1XItxK6ICKtfWT",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "actions": {},
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "<p>The gladiator makes two melee attacks with their spear or throws two javelins.</p>",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": null,
-        "systemVersion": null,
-        "coreVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null
-      }
-    },
-    {
-      "_id": "ifHgQ8hzV4ynBfBj",
-      "name": "Shield Rush",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "lI5PNQiey2p5VFQX": {
-            "name": "Shield Rush",
-            "activation": {
-              "cost": 1,
-              "type": "bonusAction",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "prompts": {
-              "fx9QHjcpydpNhBaY": {
-                "ability": "dex",
-                "onSave": "None",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "15"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>The gladiator makes an attack with their shield. On a hit, the target makes a DC 15 Dexterity saving throw, falling prone on a failure.</p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "15",
-          "onSave": "None",
-          "targetAbility": "dex"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823719,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "6dMkyvvSDwMarS3m",
-      "name": "Spear, Melee",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "default",
-        "actions": {
-          "gpHgHh4GJx2AuUnB": {
-            "name": "Spear, Melee",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "sobdmvuLTfM2DRQ6": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack"
-              },
-              "u3eY06dsymYBDQRK": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d6 + @str.mod",
-                "name": "One-Handed",
-                "type": "damage"
-              },
-              "uFlTXaRgSmfXjbbV": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d8 + @str.mod",
-                "name": "Two-Handed",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "<p></p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "",
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "defensive",
-          "simple",
-          "thrown",
-          "versatile"
-        ],
-        "weight": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "C9zy6ygDpPdUMi8g",
-      "name": "Spear, Ranged",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "default",
-        "actions": {
-          "Qdm3rfjgw2AbDHFt": {
-            "name": "Spear, Ranged",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "ranges": {
-              "SOQdK9ZPXnTjUnwC": {
-                "range": "20 ft"
-              },
-              "EETZeQ8rhb86YxAn": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "bzIdEEMiIKqUkpPl": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack"
-              },
-              "3QthqA2YHafoemYb": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "1d6 + @str.mod",
-                "name": "Thrown",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": 0,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "defensive",
-          "simple",
-          "thrown",
-          "versatile"
-        ],
-        "weight": 0
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "iJDBYCsFwVgD4MC1",
-      "name": "Shield",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "pltTvrwesyOEm1ny": {
-            "name": "Shield",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "JO7WARCLPpKmXSwD": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack"
-              },
-              "3occry9cJm3w4Rhq": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "2d6 + @str.mod",
-                "name": "Shield Rush",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "15",
-          "onSave": "",
-          "targetAbility": "dex"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": 0,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "L8KVKsWUiS2gqP9P",
-      "name": "Javelin, Melee",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "default",
-        "actions": {
-          "YwFfztUduFxMSw0x": {
-            "name": "Javelin, Melee",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "MeOvlAD71s0oCTWh": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack"
-              },
-              "SeQ1eRnvmnrt7tZ1": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "2d6 + @str.mod",
-                "name": "Pierce",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": 0,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "thrown"
-        ],
-        "weight": 0
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "W0NeHg4F0uWxDwaC",
-      "name": "Javelin, Ranged",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "core": {
-          "sheetClass": "a5e.ItemSheet5e"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "r3z1AF2CktlRhR8n": {
-            "name": "Javelin, Ranged",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "ranges": {
-              "N3Rbq79FDweKtbWi": {
-                "range": "short"
-              },
-              "7yfp1iFaNRkqs1nT": {
-                "range": "long"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "Pwucd1qHYdKfjRAY": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack"
-              },
-              "Jz2FHZWesOjqvcPi": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "2d6 + @str.mod",
-                "name": "Thrown",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": 0,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "xY3NFytu96bTe23c",
-      "name": "Shield Block",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "U7lkunTkrAZCHmP3": {
-            "name": "Shield Block",
-            "activation": {
-              "cost": null,
-              "type": "reaction",
-              "reactionTrigger": "Wielding a shield & can see their attacker"
-            },
-            "duration": {
-              "unit": "special",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            }
-          }
-        },
-        "description": "<p>If the gladiator is wielding a shield and can see their attacker, they add 3 to their AC against one melee or ranged attack that would hit them.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "bQPypei4Vnn78ujj",
-      "name": "VARIANT (Bonus): Disarming Strike",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "imvE6pPyaXikkmRY": {
-            "name": "VARIANT (Bonus): Disarming Strike",
-            "activation": {
-              "cost": null,
-              "type": "bonusAction",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature"
-            },
-            "prompts": {
-              "Op9tmmWc8pchwBTf": {
-                "ability": "str",
-                "onSave": "None",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "15"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>The gladiator makes a melee attack with their spear. On a hit, the target makes a DC 15 Strength saving throw. On a failure, an item of the gladiator’s choice that the target is holding (including a shield) flies from its grip to land in a space of the gladiator’s choice 10 feet away.</p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "15",
-          "onSave": "None",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "siRettPB9WfrA85A",
-      "name": "VARIANT (Bonus): Net Throw",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "czRuMLyRWuzOWAW7": {
-            "name": "VARIANT (Bonus): Net Throw",
-            "activation": {
-              "cost": null,
-              "type": "bonusAction",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "special",
-              "value": ""
-            },
-            "ranges": {
-              "WmLgLhnHo541fP5b": {
-                "range": "fiveFeet"
-              },
-              "us5pmLwWEXSvynN9": {
-                "range": "15 ft"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "prompts": {
-              "NJIA3jYPqqzdpbEA": {
-                "ability": "str",
-                "onSave": "None",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "15"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. The net is an object with AC 10, 5 hit points, and immunity to bludgeoning damage.</p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "15",
-          "onSave": "None",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823720,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "59i8XXTPvj7VaNDU",
-      "name": "VARIANT (Bonus): Wound Foe",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": null,
-        "actions": {
-          "Z8kqs4HcnOCtun4H": {
-            "name": "VARIANT (Bonus): Wound Foe",
-            "activation": {
-              "cost": null,
-              "type": "bonusAction",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "special",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "rolls": {
-              "a6EXAZxChzTcGJiS": {
-                "canCrit": false,
-                "damageType": "piercing",
-                "formula": "1d10",
-                "name": "Ongoing Wound",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "<p>The gladiator makes a melee attack with their spear. On a hit, the target takes a wound that deals 5 (1d10) ongoing piercing damage. A creature can end the ongoing damage by stanching the wound as an action or by giving the target magical healing.&nbsp;</p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "Dwr3RYAafJbhFYnz",
-      "name": "VARIANT (Reaction): Counter Critical",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "default",
-        "actions": {
-          "ygNgVhWtw4Q6JmHM": {
-            "name": "VARIANT (Reaction): Counter Critical",
-            "activation": {
-              "cost": null,
-              "type": "reaction",
-              "reactionTrigger": "A melee weapon attack from a creature the gladiator can see scores a critical hit against them"
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "rolls": {
-              "RUrSF6pGmM3S5AsQ": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack"
-              },
-              "1P4xZABJXmpqAC71": {
-                "canCrit": true,
-                "damageType": "piercing",
-                "formula": "2d6 + @default.mod",
-                "name": "Spear Counter Attack",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "<p>When a creature the gladiator can see scores a critical hit against the gladiator with a melee weapon attack, the gladiator makes a spear attack against it.</p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "KQGXWMQkFTSmnqj7",
-      "name": "VARIANT (Reaction): Dodge and Roll",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "6Z12U4je7djJ099K": {
-            "name": "VARIANT (Reaction): Dodge and Roll",
-            "activation": {
-              "cost": null,
-              "type": "reaction",
-              "reactionTrigger": "A missed melee weapon attack against the gladiator from a creature they can see"
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            }
-          }
-        },
-        "description": "<p>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the gladiator moves 15 feet without provoking opportunity attacks.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "OpwyxMf0Bpnfw5GX",
-      "name": "VARIANT (Reaction): Throw Foe",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "v3D7UFjhyodW4svP": {
-            "name": "VARIANT (Reaction): Throw Foe",
-            "activation": {
-              "cost": null,
-              "type": "reaction",
-              "reactionTrigger": "A missed melee weapon attack against the gladiator from a creature they can see"
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creature"
-            },
-            "prompts": {
-              "FMGeyNjxnI4GDutx": {
-                "ability": "dex",
-                "onSave": "None",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "15"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the creature makes a DC 15 Dexterity saving throw. On a failure, it is pushed up to 15 feet from the gladiator.</p>",
-        "favorite": true,
-        "proficient": true,
-        "save": {
-          "dc": "15",
-          "onSave": "None",
-          "targetAbility": "dex"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "_id": "TRiASQalcbK2s9Xg",
-      "name": "Leather Armor",
-      "type": "object",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "ability": "",
-        "actionOptions": [],
-        "actions": {},
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "description": "",
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "favorite": false,
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "light",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": false,
-        "materialProperties": [],
-        "objectType": "armor",
-        "plotItem": false,
-        "price": "0",
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 0
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "str",
-        "actions": {
-          "R8L4It5T8VoufUzL": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "JnifFS6FWUv1EoXv": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "jJhGxdt1JyZx9fnE": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "5UTfzsn3U01tFRDZ": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "4P9RrVQyCXVSfOWv",
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "str",
-        "actions": {
-          "Z4mN4MNRBnPvtK0E": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "cTvMC96VdqQda5JK": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "J0TjFJ0Uus6pps5Z": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "0t2rYncQfpasvK7R": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "19naUzrM26W5v786",
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "oKy0eX5e4z1aIYsk": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "kPndr72lEDN839br": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "1GkbP3bR2tR3tbUD": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "SvE3pBUEd1utHWEE",
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "LZ3Kr3sgpDMQBUC2": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "QKI0OrD72ESQbDIE": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "RKdNAMKnBKFDpH1Q": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "LzwaIq8KaTIBdRLW",
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823721,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "BC7GQHHHKnp7H3Fa": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "kuvZk2NjzQjS7IO4": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "XAf3HPvKWgDapb0b": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "aC1uhK5K09cHG9HW",
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823722,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        },
-        "a5e": {}
-      },
-      "system": {
-        "ability": "",
-        "actions": {
-          "HFY5wwF7xGjq2i7j": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "gudr2nC1hI0w1ioS": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "4u0JQW0OfTxlgRXz": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": ""
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "76Oafq5OkzgvnTvR",
-      "_stats": {
-        "systemId": "a5e",
-        "systemVersion": "0.8.15",
-        "coreVersion": "10.291",
-        "createdTime": null,
-        "modifiedTime": 1678671823722,
-        "lastModifiedBy": "eunZYRLVMq93MkmD"
-      }
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "availableSpellLevels": [],
-      "showSpellSlots": false,
-      "showSpellPoints": false
-    },
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.jveye0bmlvihfxcx"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 18,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 16,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 105,
-        "baseMax": 105,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 14,
-          "total": 14
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "darkvision": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": 0,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "str"
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": ""
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2 style=\"text-align: start\"><strong>GLADIATOR VARIANTS: GLADIATORIAL MANEUVERS</strong></h2><p style=\"text-align: start\">There are as many gladiatorial fighting styles as there are gladiators. The Narrator can grant the gladiator an additional bonus action, reaction, or both from the lists below.</p><hr class=\"a5e-rule u-my-md\"><p style=\"text-align: start\">BONUS ACTIONS</p><p style=\"text-align: start\"><strong><em>Disarming Strike.</em> </strong>The gladiator makes a melee attack with their spear. On a hit, the target makes a DC 15 Strength saving throw. On a failure, an item of the gladiator’s choice that the target is holding (including a shield) flies from its grip to land in a space of the gladiator’s choice 10 feet away.</p><p style=\"text-align: start\"><strong><em>Net Throw.</em> </strong><em>Ranged Weapon Attack:</em> +7 to hit, range 5/15 ft., one target. <em>Hit:</em> A Large, Medium, or Small target is restrained in a net until it is freed. A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. The net is an object with AC 10, 5 hit points, and immunity to bludgeoning damage.</p><p style=\"text-align: start\"><strong><em>Wound Foe.</em> </strong>The gladiator makes a melee attack with their spear. On a hit, the target takes a wound that deals 5 (1d10) ongoing piercing damage. A creature can end the ongoing damage by stanching the wound as an action or by giving the target magical healing.&nbsp;</p><hr class=\"a5e-rule u-my-md\"><p style=\"text-align: start\">REACTIONS</p><p style=\"text-align: start\"><strong><em>Counter Critical.</em> </strong>When a creature the gladiator can see scores a critical hit against the gladiator with a melee weapon attack, the gladiator makes a spear attack against it.</p><p style=\"text-align: start\"><strong><em>Dodge and Roll.</em> </strong>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the gladiator moves 15 feet without provoking opportunity attacks.</p><p style=\"text-align: start\"><strong><em>Throw Foe.</em> </strong>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the creature makes a DC 15 Dexterity saving throw. On a failure, it is pushed up to 15 feet from the gladiator.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Gladiators battle monsters and each other for the entertainment of the public. Gladiators train with a variety of fighting styles and weapons; their techniques are as flashy as they are deadly.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p style=\"text-align: start\"><em>Settlement</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 5–10</strong> 1 or 2 gladiators; gladiator with 1 or 2 veterans; gladiator with minstrel and 2d10 commoners</p><p><strong>Treasure</strong> 50 pp, topaz ring (750 gp), love note from a noble, <em>+1 shield</em> (emits a shower of sparks when struck)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-      "creatureTypes": [
-        "humanoid"
-      ],
-      "cr": 6,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "Any one"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      }
-    },
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    },
-    "target": {}
-  },
-  "prototypeToken": {
-    "name": "Gladiator",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "icons/svg/mystery-man.svg",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678671403754,
-    "modifiedTime": 1678671823700,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Gladiator",
+	"type": "npc",
+	"img": "icons/svg/mystery-man.svg",
+	"items": [
+		{
+			"_id": "EnrlkPwqb3FXGrNT",
+			"name": "Combat Expertise",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"actions": {},
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [
+					{
+						"canCrit": false,
+						"damageType": "",
+						"formula": "1d6",
+						"name": "Combat Expertise"
+					}
+				],
+				"description": "<p>The damage of the gladiator’s attacks includes a d6 expertise die.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "4z1XItxK6ICKtfWT",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"actions": {},
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "<p>The gladiator makes two melee attacks with their spear or throws two javelins.</p>",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "ifHgQ8hzV4ynBfBj",
+			"name": "Shield Rush",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"lI5PNQiey2p5VFQX": {
+						"name": "Shield Rush",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"prompts": {
+							"fx9QHjcpydpNhBaY": {
+								"ability": "dex",
+								"onSave": "None",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "15"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>The gladiator makes an attack with their shield. On a hit, the target makes a DC 15 Dexterity saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "dex"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "6dMkyvvSDwMarS3m",
+			"name": "Spear, Melee",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actions": {
+					"gpHgHh4GJx2AuUnB": {
+						"name": "Spear, Melee",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"sobdmvuLTfM2DRQ6": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack"
+							},
+							"u3eY06dsymYBDQRK": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "One-Handed",
+								"type": "damage"
+							},
+							"uFlTXaRgSmfXjbbV": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @str.mod",
+								"name": "Two-Handed",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "<p></p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"simple",
+					"thrown",
+					"versatile"
+				],
+				"weight": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "C9zy6ygDpPdUMi8g",
+			"name": "Spear, Ranged",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actions": {
+					"Qdm3rfjgw2AbDHFt": {
+						"name": "Spear, Ranged",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"SOQdK9ZPXnTjUnwC": {
+								"range": "20 ft"
+							},
+							"EETZeQ8rhb86YxAn": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"bzIdEEMiIKqUkpPl": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack"
+							},
+							"3QthqA2YHafoemYb": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "Thrown",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"simple",
+					"thrown",
+					"versatile"
+				],
+				"weight": 0
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "iJDBYCsFwVgD4MC1",
+			"name": "Shield",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"pltTvrwesyOEm1ny": {
+						"name": "Shield",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"JO7WARCLPpKmXSwD": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack"
+							},
+							"3occry9cJm3w4Rhq": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "2d6 + @str.mod",
+								"name": "Shield Rush",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "",
+					"targetAbility": "dex"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "L8KVKsWUiS2gqP9P",
+			"name": "Javelin, Melee",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actions": {
+					"YwFfztUduFxMSw0x": {
+						"name": "Javelin, Melee",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"MeOvlAD71s0oCTWh": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack"
+							},
+							"SeQ1eRnvmnrt7tZ1": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @str.mod",
+								"name": "Pierce",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"thrown"
+				],
+				"weight": 0
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "W0NeHg4F0uWxDwaC",
+			"name": "Javelin, Ranged",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sheetClass": "a5e.ItemSheet5e"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actions": {
+					"r3z1AF2CktlRhR8n": {
+						"name": "Javelin, Ranged",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"N3Rbq79FDweKtbWi": {
+								"range": "short"
+							},
+							"7yfp1iFaNRkqs1nT": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"Pwucd1qHYdKfjRAY": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack"
+							},
+							"Jz2FHZWesOjqvcPi": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @str.mod",
+								"name": "Thrown",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": 0,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "xY3NFytu96bTe23c",
+			"name": "Shield Block",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"U7lkunTkrAZCHmP3": {
+						"name": "Shield Block",
+						"activation": {
+							"cost": null,
+							"type": "reaction",
+							"reactionTrigger": "Wielding a shield & can see their attacker"
+						},
+						"duration": {
+							"unit": "special",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						}
+					}
+				},
+				"description": "<p>If the gladiator is wielding a shield and can see their attacker, they add 3 to their AC against one melee or ranged attack that would hit them.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "bQPypei4Vnn78ujj",
+			"name": "VARIANT (Bonus): Disarming Strike",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"imvE6pPyaXikkmRY": {
+						"name": "VARIANT (Bonus): Disarming Strike",
+						"activation": {
+							"cost": null,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature"
+						},
+						"prompts": {
+							"Op9tmmWc8pchwBTf": {
+								"ability": "str",
+								"onSave": "None",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "15"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>The gladiator makes a melee attack with their spear. On a hit, the target makes a DC 15 Strength saving throw. On a failure, an item of the gladiator’s choice that the target is holding (including a shield) flies from its grip to land in a space of the gladiator’s choice 10 feet away.</p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "siRettPB9WfrA85A",
+			"name": "VARIANT (Bonus): Net Throw",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"czRuMLyRWuzOWAW7": {
+						"name": "VARIANT (Bonus): Net Throw",
+						"activation": {
+							"cost": null,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "special",
+							"value": ""
+						},
+						"ranges": {
+							"WmLgLhnHo541fP5b": {
+								"range": "fiveFeet"
+							},
+							"us5pmLwWEXSvynN9": {
+								"range": "15 ft"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"prompts": {
+							"NJIA3jYPqqzdpbEA": {
+								"ability": "str",
+								"onSave": "None",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "15"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. The net is an object with AC 10, 5 hit points, and immunity to bludgeoning damage.</p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "59i8XXTPvj7VaNDU",
+			"name": "VARIANT (Bonus): Wound Foe",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": null,
+				"actions": {
+					"Z8kqs4HcnOCtun4H": {
+						"name": "VARIANT (Bonus): Wound Foe",
+						"activation": {
+							"cost": null,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "special",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"a6EXAZxChzTcGJiS": {
+								"canCrit": false,
+								"damageType": "piercing",
+								"formula": "1d10",
+								"name": "Ongoing Wound",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "<p>The gladiator makes a melee attack with their spear. On a hit, the target takes a wound that deals 5 (1d10) ongoing piercing damage. A creature can end the ongoing damage by stanching the wound as an action or by giving the target magical healing.&nbsp;</p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "Dwr3RYAafJbhFYnz",
+			"name": "VARIANT (Reaction): Counter Critical",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "default",
+				"actions": {
+					"ygNgVhWtw4Q6JmHM": {
+						"name": "VARIANT (Reaction): Counter Critical",
+						"activation": {
+							"cost": null,
+							"type": "reaction",
+							"reactionTrigger": "A melee weapon attack from a creature the gladiator can see scores a critical hit against them"
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"RUrSF6pGmM3S5AsQ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack"
+							},
+							"1P4xZABJXmpqAC71": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d6 + @default.mod",
+								"name": "Spear Counter Attack",
+								"type": "damage"
+							}
+						}
+					}
+				},
+				"description": "<p>When a creature the gladiator can see scores a critical hit against the gladiator with a melee weapon attack, the gladiator makes a spear attack against it.</p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "KQGXWMQkFTSmnqj7",
+			"name": "VARIANT (Reaction): Dodge and Roll",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"6Z12U4je7djJ099K": {
+						"name": "VARIANT (Reaction): Dodge and Roll",
+						"activation": {
+							"cost": null,
+							"type": "reaction",
+							"reactionTrigger": "A missed melee weapon attack against the gladiator from a creature they can see"
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						}
+					}
+				},
+				"description": "<p>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the gladiator moves 15 feet without provoking opportunity attacks.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "OpwyxMf0Bpnfw5GX",
+			"name": "VARIANT (Reaction): Throw Foe",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actions": {
+					"v3D7UFjhyodW4svP": {
+						"name": "VARIANT (Reaction): Throw Foe",
+						"activation": {
+							"cost": null,
+							"type": "reaction",
+							"reactionTrigger": "A missed melee weapon attack against the gladiator from a creature they can see"
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"prompts": {
+							"FMGeyNjxnI4GDutx": {
+								"ability": "dex",
+								"onSave": "None",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "15"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the creature makes a DC 15 Dexterity saving throw. On a failure, it is pushed up to 15 feet from the gladiator.</p>",
+				"favorite": true,
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "dex"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "TRiASQalcbK2s9Xg",
+			"name": "Leather Armor",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ability": "",
+				"actionOptions": [],
+				"actions": {},
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"description": "",
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"favorite": false,
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "light",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "0",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actions": {
+					"R8L4It5T8VoufUzL": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"JnifFS6FWUv1EoXv": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"jJhGxdt1JyZx9fnE": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"5UTfzsn3U01tFRDZ": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "4P9RrVQyCXVSfOWv"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"ability": "str",
+				"actions": {
+					"Z4mN4MNRBnPvtK0E": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"cTvMC96VdqQda5JK": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"J0TjFJ0Uus6pps5Z": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"0t2rYncQfpasvK7R": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "19naUzrM26W5v786"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actions": {
+					"oKy0eX5e4z1aIYsk": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"kPndr72lEDN839br": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"1GkbP3bR2tR3tbUD": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "SvE3pBUEd1utHWEE"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actions": {
+					"LZ3Kr3sgpDMQBUC2": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"QKI0OrD72ESQbDIE": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"RKdNAMKnBKFDpH1Q": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "LzwaIq8KaTIBdRLW"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actions": {
+					"BC7GQHHHKnp7H3Fa": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"kuvZk2NjzQjS7IO4": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"XAf3HPvKWgDapb0b": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "aC1uhK5K09cHG9HW"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"ability": "",
+				"actions": {
+					"HFY5wwF7xGjq2i7j": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"gudr2nC1hI0w1ioS": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"4u0JQW0OfTxlgRXz": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": ""
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "76Oafq5OkzgvnTvR"
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"availableSpellLevels": [],
+			"showSpellSlots": false,
+			"showSpellPoints": false
+		},
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-monsters.jveye0bmlvihfxcx"
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 16,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 105,
+				"baseMax": 105,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 14,
+					"total": 14
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"darkvision": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "str"
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": ""
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2 style=\"text-align: start\"><strong>GLADIATOR VARIANTS: GLADIATORIAL MANEUVERS</strong></h2><p style=\"text-align: start\">There are as many gladiatorial fighting styles as there are gladiators. The Narrator can grant the gladiator an additional bonus action, reaction, or both from the lists below.</p><hr class=\"a5e-rule u-my-md\"><p style=\"text-align: start\">BONUS ACTIONS</p><p style=\"text-align: start\"><strong><em>Disarming Strike.</em> </strong>The gladiator makes a melee attack with their spear. On a hit, the target makes a DC 15 Strength saving throw. On a failure, an item of the gladiator’s choice that the target is holding (including a shield) flies from its grip to land in a space of the gladiator’s choice 10 feet away.</p><p style=\"text-align: start\"><strong><em>Net Throw.</em> </strong><em>Ranged Weapon Attack:</em> +7 to hit, range 5/15 ft., one target. <em>Hit:</em> A Large, Medium, or Small target is restrained in a net until it is freed. A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. The net is an object with AC 10, 5 hit points, and immunity to bludgeoning damage.</p><p style=\"text-align: start\"><strong><em>Wound Foe.</em> </strong>The gladiator makes a melee attack with their spear. On a hit, the target takes a wound that deals 5 (1d10) ongoing piercing damage. A creature can end the ongoing damage by stanching the wound as an action or by giving the target magical healing.&nbsp;</p><hr class=\"a5e-rule u-my-md\"><p style=\"text-align: start\">REACTIONS</p><p style=\"text-align: start\"><strong><em>Counter Critical.</em> </strong>When a creature the gladiator can see scores a critical hit against the gladiator with a melee weapon attack, the gladiator makes a spear attack against it.</p><p style=\"text-align: start\"><strong><em>Dodge and Roll.</em> </strong>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the gladiator moves 15 feet without provoking opportunity attacks.</p><p style=\"text-align: start\"><strong><em>Throw Foe.</em> </strong>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the creature makes a DC 15 Dexterity saving throw. On a failure, it is pushed up to 15 feet from the gladiator.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Gladiators battle monsters and each other for the entertainment of the public. Gladiators train with a variety of fighting styles and weapons; their techniques are as flashy as they are deadly.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p style=\"text-align: start\"><em>Settlement</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 5–10</strong> 1 or 2 gladiators; gladiator with 1 or 2 veterans; gladiator with minstrel and 2d10 commoners</p><p><strong>Treasure</strong> 50 pp, topaz ring (750 gp), love note from a noble, <em>+1 shield</em> (emits a shower of sparks when struck)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"cr": 6,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"Any one"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			}
+		},
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"target": {}
+	},
+	"prototypeToken": {
+		"name": "Gladiator",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "icons/svg/mystery-man.svg",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "jveye0bmlvihfxcx"
 }

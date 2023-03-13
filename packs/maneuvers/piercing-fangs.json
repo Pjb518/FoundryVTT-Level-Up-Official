@@ -1,96 +1,82 @@
 {
-  "name": "Piercing Fangs",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-maneuvers.hituzwdyd1uxy86n"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "",
-    "actions": {
-      "0lbLKvSZG6yZ0ANJ": {
-        "name": "Piercing Fangs",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "06zDhvWUcOMEhcx2": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "46OjaJwEDlopVUOn": {
-            "canCrit": true,
-            "damageType": "poison",
-            "formula": "2d4",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "lRpejHvCLT49DaDV": {
-            "ability": "con",
-            "onSave": "Negates effects.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@maneuverDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>Make a melee attack against a creature that is grappling you and expend a dose of basic poison. On a hit, the target takes normal weapon damage plus 2d4 poison damage and also takes 1d4 ongoing poison damage for the next minute or until an antitoxin is administered to it. The creature must also make a Constitution save or immediately release the grapple.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Negates effects.",
-      "targetAbility": "con"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "degree": 2,
-    "exertionCost": 2,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "vipersFangs"
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673407852,
-    "modifiedTime": 1678673438308,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Piercing Fangs",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-maneuvers.hituzwdyd1uxy86n"
+		}
+	},
+	"system": {
+		"ability": "",
+		"actions": {
+			"0lbLKvSZG6yZ0ANJ": {
+				"name": "Piercing Fangs",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"06zDhvWUcOMEhcx2": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"46OjaJwEDlopVUOn": {
+						"canCrit": true,
+						"damageType": "poison",
+						"formula": "2d4",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"lRpejHvCLT49DaDV": {
+						"ability": "con",
+						"onSave": "Negates effects.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>Make a melee attack against a creature that is grappling you and expend a dose of basic poison. On a hit, the target takes normal weapon damage plus 2d4 poison damage and also takes 1d4 ongoing poison damage for the next minute or until an antitoxin is administered to it. The creature must also make a Constitution save or immediately release the grapple.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"degree": 2,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "vipersFangs"
+	},
+	"_id": "hituzwdyd1uxy86n"
 }

@@ -1,88 +1,74 @@
 {
-  "name": "Shrouding Haze",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "a5e": {},
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-maneuvers.if1yn8lqrlqfrjz4"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "",
-    "actions": {
-      "6SOrXcOkafJaGLOJ": {
-        "name": "Shrouding Haze",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "5hhbJdH1EUghz0Us": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": 10,
-          "placeTemplate": true
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "prompts": {
-          "uEsPFVhiFZOxQ4dw": {
-            "ability": "con",
-            "onSave": "Negates effects.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@maneuverDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": " Expend a smoke bomb and a dose of basic poison to create a toxic cloud that heavily obscures your space and other spaces within 5 feet and lightly obscures spaces within 10 feet. A creature  that enters the cloud or starts its turn in the cloud must make a Constitution saving throw or become immediately confused and continue to be confused for one minute after it leaves the cloud. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success. The cloud dissipates after one minute or if dispersed by a strong wind such as that produced by the gust of wind spell. You are immune to your own Shrouding Haze.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Negates effects.",
-      "targetAbility": "con"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "degree": 3,
-    "exertionCost": 2,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "vipersFangs"
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673407854,
-    "modifiedTime": 1678673439191,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Shrouding Haze",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-maneuvers.if1yn8lqrlqfrjz4"
+		}
+	},
+	"system": {
+		"ability": "",
+		"actions": {
+			"6SOrXcOkafJaGLOJ": {
+				"name": "Shrouding Haze",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"5hhbJdH1EUghz0Us": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"uEsPFVhiFZOxQ4dw": {
+						"ability": "con",
+						"onSave": "Negates effects.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": " Expend a smoke bomb and a dose of basic poison to create a toxic cloud that heavily obscures your space and other spaces within 5 feet and lightly obscures spaces within 10 feet. A creature  that enters the cloud or starts its turn in the cloud must make a Constitution saving throw or become immediately confused and continue to be confused for one minute after it leaves the cloud. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success. The cloud dissipates after one minute or if dispersed by a strong wind such as that produced by the gust of wind spell. You are immune to your own Shrouding Haze.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"degree": 3,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "vipersFangs"
+	},
+	"_id": "if1yn8lqrlqfrjz4"
 }

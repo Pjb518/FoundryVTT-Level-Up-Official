@@ -1,130 +1,116 @@
 {
-  "name": "Giant Slayer Saber",
-  "type": "object",
-  "img": "icons/weapons/swords/scimitar-guard.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-magic-items.7pfzypghobmuse32"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "default",
-    "actions": {
-      "3dk5PR4269LWN5TV": {
-        "name": "Giant Slayer Saber",
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "hztpyCJ0Hs3UH5EV": {
-            "bonus": "+1",
-            "critThreshold": "20",
-            "type": "attack"
-          },
-          "gArb6iCfp2YDtbxR": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d8 + @finesse.mod + 1",
-            "name": "Saber Melee",
-            "type": "damage"
-          },
-          "x3W4zj6KwYUOCI4G": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "1d10 + @finesse.mod + 1",
-            "name": "Saber Mounted",
-            "type": "damage"
-          },
-          "2sXqR7z3ohnERsMT": {
-            "canCrit": true,
-            "damageType": "slashing",
-            "formula": "2d6",
-            "name": "Dragon Slayer",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "30m1d2tDPJGZm9Dx": {
-            "ability": "str",
-            "onSave": "Doesn't fall prone.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "15",
-      "onSave": "Doesn't fall prone.",
-      "targetAbility": "str"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "broken": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "equipped": false,
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "5,000 gp",
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": false,
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "defensive",
-      "finesse",
-      "mounted"
-    ],
-    "weight": 3
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673224634,
-    "modifiedTime": 1678673269158,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Giant Slayer Saber",
+	"type": "object",
+	"img": "icons/weapons/swords/scimitar-guard.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-magic-items.7pfzypghobmuse32"
+		}
+	},
+	"system": {
+		"ability": "default",
+		"actions": {
+			"3dk5PR4269LWN5TV": {
+				"name": "Giant Slayer Saber",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"hztpyCJ0Hs3UH5EV": {
+						"bonus": "+1",
+						"critThreshold": "20",
+						"type": "attack"
+					},
+					"gArb6iCfp2YDtbxR": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 + @finesse.mod + 1",
+						"name": "Saber Melee",
+						"type": "damage"
+					},
+					"x3W4zj6KwYUOCI4G": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @finesse.mod + 1",
+						"name": "Saber Mounted",
+						"type": "damage"
+					},
+					"2sXqR7z3ohnERsMT": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "2d6",
+						"name": "Dragon Slayer",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"30m1d2tDPJGZm9Dx": {
+						"ability": "str",
+						"onSave": "Doesn't fall prone.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "15",
+			"onSave": "Doesn't fall prone.",
+			"targetAbility": "str"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"broken": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"equipped": false,
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": false,
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"finesse",
+			"mounted"
+		],
+		"weight": 3
+	},
+	"_id": "7pfzypghobmuse32"
 }

@@ -1,117 +1,103 @@
 {
-  "name": "Flame Strike",
-  "type": "spell",
-  "img": "icons/magic/fire/beam-jet-stream-yellow.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.c2mhqi8hbsck0pdy"
-    },
-    "a5e": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.8.15"
-    }
-  },
-  "system": {
-    "ability": "spellcasting",
-    "actions": {
-      "vxd7zMDE5RVl3N6p": {
-        "name": "Flame Strike",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "c3VYdC7AJGsdwPhi": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "cylinder",
-          "radius": "10",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "ldUy2MeoMA0SnmwT": {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "4d6",
-            "name": "",
-            "type": "damage"
-          },
-          "3ABlJIOw8tFTP5MJ": {
-            "canCrit": false,
-            "damageType": "radiant",
-            "formula": "4d6",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "NgTeWV8qagX2l2Xb": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@spellDC"
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
-    "favorite": false,
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 5,
-    "materials": "pinch of sulfur",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "divine",
-        "fire"
-      ]
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.8.15",
-    "coreVersion": "10.291",
-    "createdTime": 1678673677552,
-    "modifiedTime": 1678673719911,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Flame Strike",
+	"type": "spell",
+	"img": "icons/magic/fire/beam-jet-stream-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.c2mhqi8hbsck0pdy"
+		}
+	},
+	"system": {
+		"ability": "spellcasting",
+		"actions": {
+			"vxd7zMDE5RVl3N6p": {
+				"name": "Flame Strike",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"c3VYdC7AJGsdwPhi": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "10",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"ldUy2MeoMA0SnmwT": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "4d6",
+						"name": "",
+						"type": "damage"
+					},
+					"3ABlJIOw8tFTP5MJ": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "4d6",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"NgTeWV8qagX2l2Xb": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@spellDC"
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
+		"favorite": false,
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "pinch of sulfur",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"divine",
+				"fire"
+			]
+		}
+	},
+	"_id": "c2mhqi8hbsck0pdy"
 }

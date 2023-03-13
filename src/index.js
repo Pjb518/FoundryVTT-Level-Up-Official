@@ -157,27 +157,27 @@ Hooks.once('ready', () => {
   game.a5e.migrations.migrateWorld();
 });
 
-Hooks.once('ready', () => {
-  // TODO: Upgrade this to 0.9.0 once we're ready for release. If set to 0.9.0, it shows up during
-  // every world load, which is awful for development.
-  const LATEST_ANNOUNCEMENT_VERSION = '0.8.0';
-  const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
+// Hooks.once('ready', () => {
+//   // TODO: Upgrade this to 0.9.0 once we're ready for release. If set to 0.9.0, it shows up during
+//   // every world load, which is awful for development.
+//   const LATEST_ANNOUNCEMENT_VERSION = '0.8.0';
+//   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
-  const showAnnouncement = !lastAnnouncementShown
-    || isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
+//   const showAnnouncement = !lastAnnouncementShown
+//     || isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
 
-  if (!showAnnouncement) return;
+//   if (!showAnnouncement) return;
 
-  const announcementWindow = new Application({
-    title: 'Test!',
-    template: 'systems/a5e/templates/announcements/0.9.0.hbs',
-    width: 700
-  });
+//   const announcementWindow = new Application({
+//     title: 'Test!',
+//     template: 'systems/a5e/templates/announcements/0.9.0.hbs',
+//     width: 700
+//   });
 
-  announcementWindow.render(true);
+//   announcementWindow.render(true);
 
-  game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
-});
+//   game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
+// });
 
 Hooks.once('ready', () => {
   // eslint-disable-next-line no-new
