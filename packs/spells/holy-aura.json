@@ -1,76 +1,102 @@
 {
-	"name": "Holy Aura",
-	"type": "spell",
-	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"radius": "30"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"self"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Constitution negates.",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 8,
-		"materials": "sacred reliquary worth at least 1, 000 gold",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "abjuration",
-			"secondary": [
-				"divine",
-				"enhancement",
-				"protection"
-			]
-		}
-	},
-	"_id": "ego4vzicfhlcqdcu"
+  "name": "Holy Aura",
+  "type": "spell",
+  "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.ego4vzicfhlcqdcu"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "iU4ZNPMTuNUozPep": {
+        "name": "Holy Aura",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "oA75oRO5HZew8kk4": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "30",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": ""
+        },
+        "prompts": {
+          "tcxN5DNLByRhIInU": {
+            "ability": "con",
+            "onSave": "Constitution negates.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Constitution negates.",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 8,
+    "materials": "sacred reliquary worth at least 1, 000 gold",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "abjuration",
+      "secondary": [
+        "divine",
+        "enhancement",
+        "protection"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677554,
+    "modifiedTime": 1678673720155,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

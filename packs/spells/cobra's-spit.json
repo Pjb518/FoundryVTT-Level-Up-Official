@@ -1,83 +1,104 @@
 {
-	"name": "Cobra's Spit",
-	"type": "spell",
-	"img": "icons/creatures/reptiles/serpent-horned-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": "rangedSpellAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "poison",
-				"formula": "4d8",
-				"name": ""
-			}
-		],
-		"description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"self"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "self"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": false,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "poisonous snake's fang",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"attack",
-				"poison"
-			]
-		}
-	},
-	"_id": "bfkoxk0m52fhckqi"
+  "name": "Cobra's Spit",
+  "type": "spell",
+  "img": "icons/creatures/reptiles/serpent-horned-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.bfkoxk0m52fhckqi"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "pUAWUCRSaeIDfITY": {
+        "name": "Cobra's Spit",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "GUUU8yncu04uazNX": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "rolls": {
+          "0YTHkTluvT2j9s41": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack"
+          },
+          "aEm8qalox09XiWyp": {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "4d8",
+            "name": "",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "poisonous snake's fang",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "attack",
+        "poison"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677549,
+    "modifiedTime": 1678673719037,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

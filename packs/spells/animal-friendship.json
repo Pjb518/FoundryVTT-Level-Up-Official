@@ -1,76 +1,102 @@
 {
-	"name": "Animal Friendship",
-	"type": "spell",
-	"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
-		"duration": {
-			"unit": "hour",
-			"value": "24"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "red ribbon",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"beasts",
-				"compulsion",
-				"nature"
-			]
-		}
-	},
-	"_id": "1laktjzxk5nh1x1r"
+  "name": "Animal Friendship",
+  "type": "spell",
+  "img": "icons/creatures/mammals/elk-moose-marked-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.1laktjzxk5nh1x1r"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "s9x1JS6WRa3uEYAT": {
+        "name": "Animal Friendship",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "hour",
+          "value": "24"
+        },
+        "ranges": {
+          "BZMhYFOzpL6ugFG5": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "r4RTspLikgFHlphG": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "red ribbon",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "beasts",
+        "compulsion",
+        "nature"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673675478,
+    "modifiedTime": 1678673708840,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

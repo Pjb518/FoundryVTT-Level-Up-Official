@@ -1,78 +1,103 @@
 {
-	"name": "Enlarge/Reduce",
-	"type": "spell",
-	"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You cause the target to grow or shrink. An unwilling target may attempt a saving throw to resist the spell.</p><p>If the target is a creature, all items worn or carried by it also change size with it, but an item dropped by the target immediately returns to normal size.</p><ul class=\"indentedSelection\"><li><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</li><li><strong>Reduce:</strong> Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</li></ul></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 4th-level, you can cause the target and its gear to increase by two size categories&mdash;from Medium to Huge, for example. Until the spell ends, the target's size is quadrupled in all dimensions, multiplying its weight twentyfold. The target has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 2d4 damage.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "Negates effect",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "powdered iron",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"enhancement",
-				"transformation"
-			]
-		}
-	},
-	"_id": "ap6klied8mqbclvn"
+  "name": "Enlarge/Reduce",
+  "type": "spell",
+  "img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.ap6klied8mqbclvn"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "VFPDmvCcDbloD9lo": {
+        "name": "Enlarge/Reduce",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "Ykxe25IuIWUOUzwy": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creatureObject"
+        },
+        "prompts": {
+          "bjfobkeOMHBnrG2h": {
+            "ability": "con",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You cause the target to grow or shrink. An unwilling target may attempt a saving throw to resist the spell.</p><p>If the target is a creature, all items worn or carried by it also change size with it, but an item dropped by the target immediately returns to normal size.</p><ul class=\"indentedSelection\"><li><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</li><li><strong>Reduce:</strong> Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</li></ul></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 4th-level, you can cause the target and its gear to increase by two size categories&mdash;from Medium to Huge, for example. Until the spell ends, the target's size is quadrupled in all dimensions, multiplying its weight twentyfold. The target has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 2d4 damage.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "Negates effect",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "powdered iron",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "enhancement",
+        "transformation"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677549,
+    "modifiedTime": 1678673718978,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

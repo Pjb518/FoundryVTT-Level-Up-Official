@@ -1,76 +1,101 @@
 {
-	"name": "Suggestion",
-	"type": "spell",
-	"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
-		"duration": {
-			"unit": "hour",
-			"value": "8"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "miniature bottle of red wine and some soap",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"arcane",
-				"compulsion"
-			]
-		}
-	},
-	"_id": "ml9ls27u9ncms8ko"
+  "name": "Suggestion",
+  "type": "spell",
+  "img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.ml9ls27u9ncms8ko"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "nqh6mUCmHwPs2znt": {
+        "name": "Suggestion",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "hour",
+          "value": "8"
+        },
+        "ranges": {
+          "9D7QDKA6rvjxYZs5": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "03iAWa7U7Wnd1TId": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "miniature bottle of red wine and some soap",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "arcane",
+        "compulsion"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673679736,
+    "modifiedTime": 1678673725147,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

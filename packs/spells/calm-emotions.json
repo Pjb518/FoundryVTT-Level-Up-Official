@@ -1,75 +1,101 @@
 {
-	"name": "Calm Emotions",
-	"type": "spell",
-	"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"radius": "20"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.</p><ul><li><p>Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).</p></li><li><p>Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The spell area increases by 10 feet for each slot level above 2nd.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "cha"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"divine",
-				"negation"
-			]
-		}
-	},
-	"_id": "hnvt4tnuww6o4vvi"
+  "name": "Calm Emotions",
+  "type": "spell",
+  "img": "icons/magic/holy/meditation-chi-focus-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.hnvt4tnuww6o4vvi"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "AfdPhW6ZFrrzBCd8": {
+        "name": "Calm Emotions",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "WoRa8oKqC8T7aYjl": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "20",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "ff0OSKOQPdjguoe6": {
+            "ability": "cha",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.</p><ul><li><p>Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).</p></li><li><p>Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The spell area increases by 10 feet for each slot level above 2nd.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "cha"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "divine",
+        "negation"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677560,
+    "modifiedTime": 1678673721963,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

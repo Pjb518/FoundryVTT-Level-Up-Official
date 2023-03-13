@@ -1,82 +1,99 @@
 {
-	"name": "Mass Cure Wounds",
-	"type": "spell",
-	"img": "icons/magic/life/cross-beam-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"healing"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Glowing energy rushes through the air and each target regains hit points equal to 3d8 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d8 for each slot level above 5th.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [
-			{
-				"defaultSelection": true,
-				"formula": "3d8 + @mod",
-				"healingType": "healing",
-				"name": ""
-			}
-		],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 5,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"divine",
-				"healing"
-			]
-		}
-	},
-	"_id": "bx0gen0hyug93fwr"
+  "name": "Mass Cure Wounds",
+  "type": "spell",
+  "img": "icons/magic/life/cross-beam-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.bx0gen0hyug93fwr"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "uzFygpVTEDVOo2pc": {
+        "name": "Mass Cure Wounds",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "4ESFIWP3ReipDF1S": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "ueLZ4HlANSev6L0b": {
+            "defaultSelection": true,
+            "formula": "3d8 + @spellcasting.mod",
+            "healingType": "healing",
+            "name": "",
+            "type": "healing"
+          }
+        }
+      }
+    },
+    "description": "<p>Glowing energy rushes through the air and each target regains hit points equal to 3d8 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d8 for each slot level above 5th.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 5,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "divine",
+        "healing"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677551,
+    "modifiedTime": 1678673719877,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

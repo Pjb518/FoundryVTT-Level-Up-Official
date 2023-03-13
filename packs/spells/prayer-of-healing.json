@@ -1,83 +1,100 @@
 {
-	"name": "Prayer of Healing",
-	"type": "spell",
-	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"healing"
-		],
-		"activation": {
-			"cost": 10,
-			"type": "minute",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>The targets regain hit points equal to 2d8 + your spellcasting ability modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d8 for each slot level above 2nd.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [
-			{
-				"defaultSelection": true,
-				"formula": "2d8 + @mod",
-				"healingType": "healing",
-				"name": ""
-			}
-		],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"divine",
-				"good",
-				"healing"
-			]
-		}
-	},
-	"_id": "n7bcmq63al484n6k"
+  "name": "Prayer of Healing",
+  "type": "spell",
+  "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.n7bcmq63al484n6k"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "i93tHaFnHGnf9Gid": {
+        "name": "Prayer of Healing",
+        "activation": {
+          "cost": 10,
+          "type": "minute",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "l99Qlo4pToXu7ZF5": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "lcCBxRpBETHe9aVi": {
+            "defaultSelection": true,
+            "formula": "2d8 + @spellcasting.mod",
+            "healingType": "healing",
+            "name": "",
+            "type": "healing"
+          }
+        }
+      }
+    },
+    "description": "<p>The targets regain hit points equal to 2d8 + your spellcasting ability modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d8 for each slot level above 2nd.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "divine",
+        "good",
+        "healing"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673679737,
+    "modifiedTime": 1678673725937,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

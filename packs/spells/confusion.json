@@ -1,76 +1,102 @@
 {
-	"name": "Confusion",
-	"type": "spell",
-	"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"radius": "10"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 4,
-		"materials": "a tangled string",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"affliction",
-				"chaos",
-				"compulsion"
-			]
-		}
-	},
-	"_id": "pdvg7c9emjgnib07"
+  "name": "Confusion",
+  "type": "spell",
+  "img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.pdvg7c9emjgnib07"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "AyuuAjQ2xTxOKTGe": {
+        "name": "Confusion",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "AzuUnuLTh92wiOFL": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "10",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "TV5r37o4JcYkMBgw": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 4,
+    "materials": "a tangled string",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "affliction",
+        "chaos",
+        "compulsion"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673679743,
+    "modifiedTime": 1678673727115,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,85 +1,106 @@
 {
-	"name": "Chill Touch",
-	"type": "spell",
-	"img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": "rangedSpellAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "necrotic",
-				"formula": "(floor((@details.level+1)/6)+1)d8",
-				"name": ""
-			}
-		],
-		"description": "<p>You reach out with a spectral hand that carries the chill of death. Make a ranged spell attack. On a hit, the target takes 1d8 necrotic damage, and it cannot regain hit points until the start of your next turn. The hand remains visibly clutching onto the target for the duration. If the target you hit is undead, it makes attack rolls against you with disadvantage until the end of your next turn.</p><p>The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-		"duration": {
-			"unit": "round",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"attack",
-				"necrotic"
-			]
-		}
-	},
-	"_id": "bpkked98u8mb2q3w"
+  "name": "Chill Touch",
+  "type": "spell",
+  "img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.bpkked98u8mb2q3w"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "KS8C3U7wx1I5Oqd6": {
+        "name": "Chill Touch",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": "1"
+        },
+        "ranges": {
+          "Ichqcry9V3tWHdzo": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "tSBzxpqqERXsvBuQ": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack"
+          },
+          "so9RHe00GsaVofki": {
+            "canCrit": true,
+            "damageType": "necrotic",
+            "formula": "(floor((@details.level+1)/6)+1)d8",
+            "name": "",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>You reach out with a spectral hand that carries the chill of death. Make a ranged spell attack. On a hit, the target takes 1d8 necrotic damage, and it cannot regain hit points until the start of your next turn. The hand remains visibly clutching onto the target for the duration. If the target you hit is undead, it makes attack rolls against you with disadvantage until the end of your next turn.</p><p>The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "attack",
+        "necrotic"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677550,
+    "modifiedTime": 1678673719096,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

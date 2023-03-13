@@ -1,84 +1,111 @@
 {
-	"name": "Vicious Mockery",
-	"type": "spell",
-	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "psychic",
-				"formula": "(floor((@details.level+1)/6)+1)d6",
-				"name": ""
-			}
-		],
-		"description": "<p>You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required) it takes 1d6 psychic damage and has disadvantage on the first attack roll it makes before the end of its next turn.</p><p>The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"arcane",
-				"attack",
-				"psychic"
-			]
-		}
-	},
-	"_id": "ohrkuqnbaeutcwox"
+  "name": "Vicious Mockery",
+  "type": "spell",
+  "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.ohrkuqnbaeutcwox"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "IHQqm5A9SbnHQKxF": {
+        "name": "Vicious Mockery",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "28jJochXOQnZ8dCm": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "bRKWo1IUwcJeesEk": {
+            "canCrit": false,
+            "damageType": "psychic",
+            "formula": "(floor((@details.level+1)/6)+1)d6",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "HM7DY8r5mvRdxCE9": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required) it takes 1d6 psychic damage and has disadvantage on the first attack roll it makes before the end of its next turn.</p><p>The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "arcane",
+        "attack",
+        "psychic"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673679739,
+    "modifiedTime": 1678673726918,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

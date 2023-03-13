@@ -1,77 +1,103 @@
 {
-	"name": "Slow",
-	"type": "spell",
-	"img": "icons/magic/time/hourglass-yellow-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cube",
-			"width": "40"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You alter the flow of time around your targets and they become slowed. On a successful saving throw, a target is rattled until the end of its next turn.</p><p>In addition, if a slowed target casts a spell with a casting time of 1 action, roll a d20. On an 11 or higher, the target doesn't finish casting the spell until its next turn. The target must use its action on that turn to complete the spell or the spell fails.</p><p>At the end of each of its turns, a slowed target repeats the saving throw to end the spell's effect on it.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect and rattled for one round",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "drop of molasses",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"arcane",
-				"movement",
-				"negation",
-				"time"
-			]
-		}
-	},
-	"_id": "yxv1t526gv41a6uc"
+  "name": "Slow",
+  "type": "spell",
+  "img": "icons/magic/time/hourglass-yellow-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.yxv1t526gv41a6uc"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "RDXtwZRDRnJidCx7": {
+        "name": "Slow",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "4nIStzsRVCr2tUq8": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "cube",
+          "width": "40",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "KK9By9XG8oNQ5FEm": {
+            "ability": "wis",
+            "onSave": "Negates effect and rattled for one round",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You alter the flow of time around your targets and they become slowed. On a successful saving throw, a target is rattled until the end of its next turn.</p><p>In addition, if a slowed target casts a spell with a casting time of 1 action, roll a d20. On an 11 or higher, the target doesn't finish casting the spell until its next turn. The target must use its action on that turn to complete the spell or the spell fails.</p><p>At the end of each of its turns, a slowed target repeats the saving throw to end the spell's effect on it.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect and rattled for one round",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "drop of molasses",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "arcane",
+        "movement",
+        "negation",
+        "time"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673682406,
+    "modifiedTime": 1678673732195,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,85 +1,106 @@
 {
-	"name": "Vampiric Touch",
-	"type": "spell",
-	"img": "icons/magic/unholy/hand-light-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": "meleeSpellAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "necrotic",
-				"formula": "3d6",
-				"name": ""
-			}
-		],
-		"description": "<p>Shadows roil about your hand and heal you by siphoning away the life force from others. On the round you cast it, and as an action on subsequent turns until the spell ends, you can make a melee spell attack against a creature within your reach.</p><p>On a hit, you deal 3d6 necrotic damage and regain hit points equal to half the amount of necrotic damage dealt.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"self"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "self"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"arcane",
-				"attack",
-				"healing",
-				"necrotic"
-			]
-		}
-	},
-	"_id": "j4dxhregibkcte2j"
+  "name": "Vampiric Touch",
+  "type": "spell",
+  "img": "icons/magic/unholy/hand-light-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.j4dxhregibkcte2j"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "jNCglmzVdrBJtY1p": {
+        "name": "Vampiric Touch",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "3L8Vt6cFZsMpRz4R": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "rolls": {
+          "pTa8gW6HUlxwPqc1": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack"
+          },
+          "cUTcsGhrv4U67qqT": {
+            "canCrit": true,
+            "damageType": "necrotic",
+            "formula": "3d6",
+            "name": "",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>Shadows roil about your hand and heal you by siphoning away the life force from others. On the round you cast it, and as an action on subsequent turns until the spell ends, you can make a melee spell attack against a creature within your reach.</p><p>On a hit, you deal 3d6 necrotic damage and regain hit points equal to half the amount of necrotic damage dealt.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "arcane",
+        "attack",
+        "healing",
+        "necrotic"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677564,
+    "modifiedTime": 1678673722969,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

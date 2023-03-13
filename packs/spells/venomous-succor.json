@@ -1,85 +1,111 @@
 {
-	"name": "Venomous Succor",
-	"type": "spell",
-	"img": "icons/magic/life/cross-beam-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage",
-			"healing"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "poison",
-				"formula": "1d6",
-				"name": ""
-			}
-		],
-		"description": "<p>You cause a searing poison to burn quickly through the target's wounds, dealing 1d6 poison damage. The target regains 2d4 hit points at the start of each of its turns for the next 1d4+1 rounds.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 2nd, the initial damage increases by 1d6 and target regains an additional 1d4 hit points.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": false,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"healing",
-				"nature",
-				"poison"
-			]
-		}
-	},
-	"_id": "l0xg2yboy5z633pr"
+  "name": "Venomous Succor",
+  "type": "spell",
+  "img": "icons/magic/life/cross-beam-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.l0xg2yboy5z633pr"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "veYB5NZ8VSNhpcNV": {
+        "name": "Venomous Succor",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "Im9L6y0lp0exAoQq": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "Dx7UEAa1P5a2EZlr": {
+            "canCrit": false,
+            "damageType": "poison",
+            "formula": "1d6",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "m6vApB8aWQiaZ6ua": {
+            "ability": "con",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You cause a searing poison to burn quickly through the target's wounds, dealing 1d6 poison damage. The target regains 2d4 hit points at the start of each of its turns for the next 1d4+1 rounds.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 2nd, the initial damage increases by 1d6 and target regains an additional 1d4 hit points.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "healing",
+        "nature",
+        "poison"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673679732,
+    "modifiedTime": 1678673724182,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

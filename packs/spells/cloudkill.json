@@ -1,84 +1,111 @@
 {
-	"name": "Cloudkill",
-	"type": "spell",
-	"img": "icons/magic/air/fog-gas-smoke-dense-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"radius": "20"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "poison",
-				"formula": "5d8",
-				"name": ""
-			}
-		],
-		"description": "<p>You create a sphere of poisonous, sickly green fog, which can spread around corners but not change shape. The area is heavily obscured. A strong wind disperses the fog, ending the spell early.</p><p>Until the spell ends, when a creature enters the area for the first time on its turn or starts its turn there, it takes 5d8 poison damage.</p><p>The fog moves away from you 10 feet at the start of each of your turns, flowing along the ground. The fog is thicker than air, sinks to the lowest level in the land, and can even flow down openings and pits.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "10"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"arcane",
-				"obscurement",
-				"poison"
-			]
-		}
-	},
-	"_id": "764ocg0phxmyw7y2"
+  "name": "Cloudkill",
+  "type": "spell",
+  "img": "icons/magic/air/fog-gas-smoke-dense-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.764ocg0phxmyw7y2"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "qHN18Fl3FvE8MBF8": {
+        "name": "Cloudkill",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "6kEV4IFRZI4aZVCR": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "20",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "9s3xiT0MNkrvN8SN": {
+            "canCrit": false,
+            "damageType": "poison",
+            "formula": "5d8",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "eSNXChTJgHS6EliK": {
+            "ability": "con",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You create a sphere of poisonous, sickly green fog, which can spread around corners but not change shape. The area is heavily obscured. A strong wind disperses the fog, ending the spell early.</p><p>Until the spell ends, when a creature enters the area for the first time on its turn or starts its turn there, it takes 5d8 poison damage.</p><p>The fog moves away from you 10 feet at the start of each of your turns, flowing along the ground. The fog is thicker than air, sinks to the lowest level in the land, and can even flow down openings and pits.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "arcane",
+        "obscurement",
+        "poison"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673675491,
+    "modifiedTime": 1678673715936,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
