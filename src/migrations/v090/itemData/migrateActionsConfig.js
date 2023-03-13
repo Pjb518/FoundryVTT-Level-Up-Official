@@ -47,7 +47,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   if (actionOptions.includes('attack')) {
     const attack = foundry.utils.duplicate(itemData.system.attack);
     attack.type = 'attack';
-    attack.ability = itemData.system.abilityCheck ?? '';
+    attack.ability = replaceMod(itemData, attack.abilityCheck, attack.ability);
     action.rolls = {
       ...action.rolls,
       [foundry.utils.randomID()]: attack
@@ -58,6 +58,7 @@ export default function migrateActionsConfig(itemData, updateData) {
     itemData.system.damage.forEach((d) => {
       const damage = foundry.utils.duplicate(d);
       damage.type = 'damage';
+      damage.formula = replaceMod(itemData, 'default', damage.formula);
       action.rolls = {
         ...action.rolls,
         [foundry.utils.randomID()]: damage
@@ -68,6 +69,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   if (actionOptions.includes('healing')) {
     itemData.system.healing.forEach((h) => {
       const healing = foundry.utils.duplicate(h);
+      healing.formula = replaceMod(itemData, 'default', healing.formula);
       healing.type = 'healing';
       action.rolls = {
         ...action.rolls,
@@ -98,7 +100,7 @@ export default function migrateActionsConfig(itemData, updateData) {
         onSave: save.onSave,
         saveDC: {
           type: 'custom',
-          bonus: save.dc
+          bonus: replaceMod(itemData, save.targetAbility, save.dc)
         },
         type: 'savingThrow'
       }
@@ -125,4 +127,30 @@ export default function migrateActionsConfig(itemData, updateData) {
     ...actions,
     [foundry.utils.randomID()]: action
   };
+}
+
+function replaceMod(itemData, fieldAbility, field) {
+  if (!field) return field;
+  // eslint-disable-next-line no-param-reassign
+  field = String(field);
+
+  const attackType = itemData.system.attack.type;
+  const { ability } = itemData.system;
+
+  if (attackType && ['meleeWeaponAttack', 'rangedWeaponAttack'].includes(attackType)) {
+    if (itemData.system.objectType === 'weapon') {
+      if (itemData.system.weaponProperties.includes('finesse')) {
+        return field.replaceAll('@mod', '@finesse.mod');
+      }
+      return field.replaceAll('@mod', '@str.mod');
+    }
+  }
+
+  if (!ability) return field;
+
+  if (fieldAbility === 'default') {
+    return field.replaceAll('@mod', `@${ability}.mod`);
+  }
+
+  return field.replaceAll('@mod', `@${fieldAbility}.mod`);
 }
