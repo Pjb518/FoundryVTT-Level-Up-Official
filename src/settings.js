@@ -70,7 +70,7 @@ export default function registerSystemSettings() {
     default: ''
   });
 
-  // Diagonal Movement Rule
+  // Critical Hit Damage Modes
   game.settings.register('a5e', 'critCalculationMode', {
     name: 'A5E.SettingsCritCalculationMode',
     hint: 'A5E.SettingsCritCalculationModeHint',
@@ -86,6 +86,15 @@ export default function registerSystemSettings() {
       maxDamage: 'A5E.SettingsCritMaxDamage',
       maxDamagePlusRoll: 'A5E.SettingsCritMaxDamagePlusRoll'
     }
+  });
+
+  game.settings.register('a5e', 'itemRightClickConfigure', {
+    name: 'A5E.SettingsItemRightClickConfigureName',
+    hint: 'A5E.SettingsItemRightClickConfigureHint',
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false
   });
 
   // Default GM Setting for placing templates
@@ -120,8 +129,8 @@ export default function registerSystemSettings() {
 
   // Currency Weight
   game.settings.register('a5e', 'currencyWeight', {
-    name: 'A5E.Settings.CoinWeightName',
-    hint: 'A5E.Settings.CoinWeightHint',
+    name: 'A5E.SettingsCoinWeightName',
+    hint: 'A5E.SettingsCoinWeightHint',
     scope: 'world',
     config: true,
     default: true,
@@ -130,16 +139,16 @@ export default function registerSystemSettings() {
 
   // Diagonal Movement Rule
   game.settings.register('a5e', 'diagonalRule', {
-    name: 'A5E.Settings.DiagName',
-    hint: 'A5E.Settings.DiagHint',
+    name: 'A5E.SettingsDiagName',
+    hint: 'A5E.SettingsDiagHint',
     scope: 'world',
     config: true,
     default: 'normal',
     type: String,
     choices: {
-      normal: 'A5E.Settings.DiagNormal',
-      euclidean: 'A5E.Settings.DiagEuclidean',
-      5105: 'A5E.Settings.Diag5105'
+      normal: 'A5E.SettingsDiagNormal',
+      euclidean: 'A5E.SettingsDiagEuclidean',
+      5105: 'A5E.SettingsDiag5105'
     },
     onChange: (rule) => { canvas.grid.diagonalRule = rule; }
   });
