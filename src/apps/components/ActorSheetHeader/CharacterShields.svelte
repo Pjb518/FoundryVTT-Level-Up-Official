@@ -48,42 +48,46 @@
         />
     </div>
 
-    <div class="xp-box">
-        <label class="xp-label" for="{$actor.id}-current-xp">Current XP</label>
+    {#if $actor.flags?.a5e?.showXP ?? true}
+        <div class="xp-box">
+            <label class="xp-label" for="{$actor.id}-current-xp"
+                >Current XP</label
+            >
 
-        <input
-            id="{$actor.id}-current-xp"
-            class="xp-input"
-            type="number"
-            name="system.details.xp"
-            value={$actor.system.details.xp}
-            placeholder="0"
-            min="0"
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value)
-                )}
-            on:click={({ target }) => target.select()}
-        />
-    </div>
+            <input
+                id="{$actor.id}-current-xp"
+                class="xp-input"
+                type="number"
+                name="system.details.xp"
+                value={$actor.system.details.xp}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value)
+                    )}
+                on:click={({ target }) => target.select()}
+            />
+        </div>
 
-    <div class="xp-box">
-        <label class="xp-label" for="{$actor.id}-required-xp">
-            Required XP
-        </label>
+        <div class="xp-box">
+            <label class="xp-label" for="{$actor.id}-required-xp">
+                Required XP
+            </label>
 
-        <input
-            id="{$actor.id}-required-xp"
-            class="xp-input"
-            type="number"
-            value={requiredXP}
-            placeholder="0"
-            min="0"
-            disabled
-        />
-    </div>
+            <input
+                id="{$actor.id}-required-xp"
+                class="xp-input"
+                type="number"
+                value={requiredXP}
+                placeholder="0"
+                min="0"
+                disabled
+            />
+        </div>
+    {/if}
 </div>
 
 <style lang="scss">
