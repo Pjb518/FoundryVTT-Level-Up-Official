@@ -75,17 +75,17 @@
         });
     }
 
-    $: languages = $item.system.proficiencies.languages;
-    $: skills = $item.system.proficiencies.skills;
-    $: tools = $item.system.proficiencies.tools;
+    let languages = $item.system.proficiencies.languages;
+    let skills = $item.system.proficiencies.skills;
+    let tools = $item.system.proficiencies.tools;
 
-    $: selectedEquipment = [];
-    $: selectedLanguages = [...languages.fixed];
-    $: selectedSkills = [
+    let selectedEquipment = [];
+    let selectedLanguages = [...languages.fixed];
+    let selectedSkills = [
         ...skills.fixed.filter((s) => !$actor.system.skills[s].proficient),
     ];
-    $: selectedTools = [];
-    $: selectedAbilityScores = [
+    let selectedTools = [];
+    let selectedAbilityScores = [
         $item.system.includesASI ? $item.system.defaultASI : null,
     ].filter(Boolean);
 </script>

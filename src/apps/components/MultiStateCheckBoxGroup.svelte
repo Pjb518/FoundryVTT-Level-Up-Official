@@ -6,7 +6,7 @@
 
     export let auxEnabled = true;
     export let color = "orange";
-    export let hint;
+    export let hint = "";
     export let options = [];
     export let selected = [[], []];
 
