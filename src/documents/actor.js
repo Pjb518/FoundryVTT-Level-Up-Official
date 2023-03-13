@@ -795,7 +795,7 @@ export default class ActorA5e extends Actor {
     const conMod = parseInt(actorData.abilities.con.check.mod, 10);
     const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
 
-    const roll = new CONFIG.Dice.DamageRoll(formula);
+    const roll = new Roll(formula);
     await roll.evaluate({ async: true });
     const tooltip = await roll.getTooltip();
 

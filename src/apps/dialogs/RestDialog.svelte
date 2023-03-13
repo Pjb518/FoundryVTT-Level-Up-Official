@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
+
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { application } = getContext("#external");
@@ -23,6 +24,7 @@
             await $actor.rollHitDice(dieSize);
         } catch (e) {
             // TODO: Display a useful error to the user when hit die updates fail
+            console.log(e);
             return;
         }
         // Update hit dice quantities for display purposes only
@@ -52,7 +54,7 @@
         });
     }
 
-    $: hitDice = $actor.system.attributes.hitDice;
+    let hitDice = $actor.system.attributes.hitDice;
 </script>
 
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
