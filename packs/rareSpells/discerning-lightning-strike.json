@@ -1,89 +1,117 @@
 {
-	"name": "Discerning Lightning Strike",
-	"type": "spell",
-	"img": "icons/magic/fire/beam-jet-stream-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "lightning",
-				"formula": "4d6",
-				"name": ""
-			},
-			{
-				"canCrit": false,
-				"damageType": "radiant",
-				"formula": "4d6",
-				"name": ""
-			}
-		],
-		"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Discerning Lightning Strike.</strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage. </p><p></p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 5,
-		"materials": "pinch of sulfur",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "divination",
-			"secondary": [
-				"divine",
-				"fire"
-			]
-		}
-	},
-	"_id": "oa7c7gk83ylwaa4x"
+  "name": "Discerning Lightning Strike",
+  "type": "spell",
+  "img": "icons/magic/fire/beam-jet-stream-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-rare-spells.oa7c7gk83ylwaa4x"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "bupESOvVb56nXHYi": {
+        "name": "Discerning Lightning Strike",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "Jqoc3OK6RYYyMlYV": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "4BD9eWRPtYn2m77a": {
+            "canCrit": false,
+            "damageType": "lightning",
+            "formula": "4d6",
+            "name": "",
+            "type": "damage"
+          },
+          "KLaXcBfCKCN6SYJJ": {
+            "canCrit": false,
+            "damageType": "radiant",
+            "formula": "4d6",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "wBsx8xA08HuMr6Bb": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Discerning Lightning Strike.</strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage. </p><p></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 5,
+    "materials": "pinch of sulfur",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "divination",
+      "secondary": [
+        "divine",
+        "fire"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673596563,
+    "modifiedTime": 1678673612108,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

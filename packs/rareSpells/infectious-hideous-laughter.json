@@ -1,76 +1,102 @@
 {
-	"name": "Infectious Hideous Laughter",
-	"type": "spell",
-	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Infectious Hideous Laughter.</strong> Any creature that touches the target must also succeed on a Wisdom saving throw or be affected by the spell.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 1,
-		"materials": "poppy seed",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"compulsion"
-			]
-		}
-	},
-	"_id": "kl296lx9sxfel8qe"
+  "name": "Infectious Hideous Laughter",
+  "type": "spell",
+  "img": "icons/skills/wounds/injury-face-impact-orange.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-rare-spells.kl296lx9sxfel8qe"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "KfBlrrh2ZqF5vtJk": {
+        "name": "Infectious Hideous Laughter",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "EOieibKEaQkRgNcU": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "QA7vL1sErIQBVZy8": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Infectious Hideous Laughter.</strong> Any creature that touches the target must also succeed on a Wisdom saving throw or be affected by the spell.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 1,
+    "materials": "poppy seed",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "compulsion"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673596561,
+    "modifiedTime": 1678673611800,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
