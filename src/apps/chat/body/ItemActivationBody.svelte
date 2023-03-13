@@ -28,7 +28,7 @@
         generic: GenericRollPromptButton,
     };
 
-    const description = $message.flags?.a5e?.description;
+    const { actionDescription, itemDescription } = $message.flags?.a5e;
 
     const prompts =
         $message.flags?.a5e?.prompts?.reduce((acc, prompt) => {
@@ -47,37 +47,47 @@
 </script>
 
 <article>
-    <hr class="a5e-rule a5e-rule--card" />
-
-    {#if description}
-        {@html description}
-    {/if}
-
-    {#each rolls ?? [] as [roll, rollData]}
-        <div>
-            <h3 class="roll-label">{rollData.label}</h3>
-
-            {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
-                <D20Roll {roll} />
-            {:else}
-                <Roll {roll} />
-            {/if}
-        </div>
-    {/each}
-
-    {#if hasRolls && hasPrompts}
+    {#if itemDescription}
         <hr class="a5e-rule a5e-rule--card" />
+
+        {@html itemDescription}
     {/if}
 
-    {#each Object.entries(promptComponentMap) as [promptType, Component]}
-        {#if prompts[promptType]?.length}
-            <section class="prompt-button-wrapper">
-                {#each prompts[promptType] as prompt}
-                    <Component {prompt} />
-                {/each}
-            </section>
-        {/if}
-    {/each}
+    {#if actionDescription}
+        <hr class="a5e-rule a5e-rule--card" />
+
+        {@html actionDescription}
+    {/if}
+
+    {#if hasRolls}
+        <hr class="a5e-rule a5e-rule--card" />
+
+        {#each rolls ?? [] as [roll, rollData]}
+            <div>
+                <h3 class="roll-label">{rollData.label}</h3>
+
+                {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
+                    <D20Roll {roll} />
+                {:else}
+                    <Roll {roll} />
+                {/if}
+            </div>
+        {/each}
+    {/if}
+
+    {#if hasPrompts}
+        <hr class="a5e-rule a5e-rule--card" />
+
+        {#each Object.entries(promptComponentMap) as [promptType, Component]}
+            {#if prompts[promptType]?.length}
+                <section class="prompt-button-wrapper">
+                    {#each prompts[promptType] as prompt}
+                        <Component {prompt} />
+                    {/each}
+                </section>
+            {/if}
+        {/each}
+    {/if}
 </article>
 
 <style lang="scss">
