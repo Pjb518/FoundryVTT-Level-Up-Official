@@ -47,7 +47,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   if (actionOptions.includes('attack')) {
     const attack = foundry.utils.duplicate(itemData.system.attack);
     attack.type = 'attack';
-    attack.ability = replaceMod(itemData, attack.abilityCheck, attack.ability);
+    attack.ability = itemData.system.ability;
     action.rolls = {
       ...action.rolls,
       [foundry.utils.randomID()]: attack
