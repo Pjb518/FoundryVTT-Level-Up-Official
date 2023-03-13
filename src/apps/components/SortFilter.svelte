@@ -1,5 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import {
         TJSIconButton,
         TJSInput,
@@ -20,6 +21,8 @@
 
     const actor = getContext("actor");
     const reducer = actor[itemType];
+    const { A5E } = CONFIG;
+    const itemContext = itemType.slice(0, -1);
 
     // Create Search Filter
     const searchInput = addSearchFilter(reducer);
@@ -70,8 +73,18 @@
         $actor.setFlag("a5e", "sortMode", newMode);
     }
 
+    // Add Item Logic
+    function createItem() {
+        const updateData = {
+            name: `New ${itemContext}`,
+            type: itemContext,
+        };
+
+        $actor.createEmbeddedDocuments("Item", [updateData]);
+    }
+
     let filters = filterFlag;
-    $: sortMode = $actor.getFlag("a5e", "sortMode") || 0;
+    let sortMode = $actor.getFlag("a5e", "sortMode") || 0;
 </script>
 
 <section class="filters filters__container">
@@ -95,6 +108,14 @@
                 />
             </TJSMenu>
         </TJSToggleIconButton>
+
+        <TJSIconButton
+            title={localize("A5E.ButtonAdd", {
+                type: localize(A5E.itemTypes[itemContext]),
+            })}
+            icon="fas fa-plus"
+            onPress={() => createItem()}
+        />
     </div>
 </section>
 
