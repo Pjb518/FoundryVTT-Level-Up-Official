@@ -7,8 +7,6 @@
     export let actionId = "";
     export let item;
 
-    $: action = item.actions[actionId] ?? item.actions.values()[0];
-
     $: spellComponents = Object.entries(item.system.components).reduce(
         (acc, [component, hasComponent]) => {
             if (hasComponent)
@@ -25,6 +23,8 @@
         item.system.schools.primary,
         ...item.system.schools.secondary,
     ].filter(Boolean);
+
+    let listHeight;
 </script>
 
 {#if !actionId}
@@ -37,7 +37,11 @@
     </p>
 {/if}
 
-<dl class="summary-list">
+<dl
+    bind:clientHeight={listHeight}
+    class="summary-list"
+    class:hide={listHeight === 0}
+>
     <ActivationCost {actionId} {item} />
     <Range {actionId} {item} />
 
@@ -63,18 +67,23 @@
 
     .spell-level {
         font-style: italic;
+        margin-bottom: 0.5rem;
     }
 
     .summary-list {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        margin: 0.5rem 0;
+        margin: 0 0 0.5rem 0;
     }
 
     .summary-group {
         display: flex;
         align-items: flex-start;
         gap: 0.25rem;
+    }
+
+    .hide {
+        display: none;
     }
 </style>

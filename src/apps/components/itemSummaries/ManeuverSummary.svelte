@@ -7,9 +7,11 @@
     export let actionId = "";
     export let item;
 
-    $: action = item.actions[actionId] ?? item.actions.values()[0];
-
     const A5E = CONFIG.A5E;
+
+    let listHeight;
+
+    $: console.log(listHeight);
 </script>
 
 {#if !actionId && item.system.degree === 0}
@@ -39,7 +41,11 @@
     </p>
 {/if}
 
-<dl class="summary-list">
+<dl
+    bind:clientHeight={listHeight}
+    class="summary-list"
+    class:hide={listHeight === 0}
+>
     <ActivationCost {actionId} {item} />
     <Range {actionId} {item} />
 </dl>
@@ -54,6 +60,10 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        margin: 0.5rem 0;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .hide {
+        display: none;
     }
 </style>

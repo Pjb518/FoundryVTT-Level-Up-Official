@@ -4,9 +4,28 @@
 
     export let actionId = "";
     export let item;
+
+    let listHeight;
 </script>
 
-<dl class="summary-list">
+<dl
+    bind:clientHeight={listHeight}
+    class="summary-list"
+    class:hide={listHeight === 0}
+>
     <ActivationCost {actionId} {item} />
     <Range {actionId} {item} />
 </dl>
+
+<style lang="scss">
+    .summary-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
