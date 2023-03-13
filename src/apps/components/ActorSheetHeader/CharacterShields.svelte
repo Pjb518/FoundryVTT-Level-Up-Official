@@ -21,10 +21,8 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <i
             class="fas fa-dice-d20 shield-inspiration"
-            class:shield-inspiration--unlocked={!sheetIsLocked}
             class:shield-inspiration--active={hasInspiration}
-            on:click={() =>
-                !sheetIsLocked ? $actor.toggleInspiration() : null}
+            on:click={() => $actor.toggleInspiration()}
         />
     </div>
 
@@ -142,14 +140,11 @@
         border: 0;
         padding: 0.125rem;
         transition: all 0.15s ease-in-out;
+        cursor: pointer;
 
-        &--unlocked {
-            cursor: pointer;
-
-            &:hover {
-                transform: scale(1.2);
-                color: #555;
-            }
+        &:hover {
+            transform: scale(1.2);
+            color: #555;
         }
 
         &--active {

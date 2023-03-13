@@ -158,10 +158,6 @@
         }
     }
 
-    .locked {
-        pointer-events: none;
-    }
-
     .delete-button:hover {
         color: #8b2525;
     }
