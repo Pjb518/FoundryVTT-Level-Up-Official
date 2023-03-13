@@ -108,6 +108,7 @@
         margin: 0;
         padding-bottom: 0.125rem;
         font-size: 0.833rem;
+        font-weight: bold;
         border: 0;
     }
 </style>

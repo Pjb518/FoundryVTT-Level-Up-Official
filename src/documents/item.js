@@ -154,6 +154,7 @@ export default class ItemA5e extends Item {
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: rolls.length ? CONST.CHAT_MESSAGE_TYPES.ROLL : CONST.CHAT_MESSAGE_TYPES.OTHER,
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       flags: {
