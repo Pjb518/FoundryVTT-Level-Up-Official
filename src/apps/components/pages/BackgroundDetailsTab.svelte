@@ -35,8 +35,8 @@
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
     const skillOptions = Object.entries(CONFIG.A5E.skills);
 
-    $: languages = $item.system.proficiencies.languages;
-    $: skills = $item.system.proficiencies.skills;
+    let languages = $item.system.proficiencies.languages;
+    let skills = $item.system.proficiencies.skills;
 </script>
 
 <article>
@@ -68,8 +68,7 @@
                 {localize("A5E.ASIDefault")}
             </h3>
             <RadioGroup
-                listClasses="u-gap-md u-text-sm"
-                optionStyles="padding:0.5rem; text-align: center; width: 2rem;"
+                optionStyles="min-width:2rem; text-align: center;"
                 options={abilityOptions}
                 selected={$item.system.defaultASI}
                 on:updateSelection={({ detail }) =>
