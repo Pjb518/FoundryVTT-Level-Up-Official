@@ -17,6 +17,8 @@
     export let actionId = null;
 
     let showDescription = false;
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
     function getSummaryComponent(item) {
         switch (item?.type) {
@@ -34,6 +36,15 @@
     function onItemActivate() {
         const options = getKeyPressAsOptions($pressedKeysStore);
         item.activate(actionId, options);
+    }
+
+    async function onConfigure() {
+        if (action) {
+            await item.actions.configure(actionId);
+            return;
+        }
+
+        item.configureItem();
     }
 
     function onDragStart(event) {
@@ -65,6 +76,9 @@
         class="inner-item-wrapper"
         on:click={() => {
             showDescription = !showDescription;
+        }}
+        on:auxclick={() => {
+            if (rightClickConfigure) onConfigure();
         }}
     >
         <div class="item-name">
