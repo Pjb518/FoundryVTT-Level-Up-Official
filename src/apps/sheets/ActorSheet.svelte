@@ -39,61 +39,67 @@
         sheet._onDropDocument(document);
     }
 
-    const tabs = [
-        {
-            name: "core",
-            label: "A5E.TabCore",
-            component: ActorCorePage,
-        },
-        {
-            name: "skills",
-            label: "A5E.TabSkills",
-            component: ActorSkillsPage,
-        },
-        {
-            name: "inventory",
-            label: "A5E.TabInventory",
-            component: ActorInventoryPage,
-        },
-        {
-            name: "features",
-            label: "A5E.TabFeatures",
-            component: ActorFeaturesPage,
-        },
-        {
-            name: "maneuvers",
-            label: "A5E.TabManeuvers",
-            component: ActorManeuversPage,
-            display: $actor.flags?.a5e?.showManeuverTab,
-        },
-        {
-            name: "spells",
-            label: "A5E.TabSpells",
-            component: ActorSpellsPage,
-            display: $actor.flags?.a5e?.showSpellTab,
-        },
-        {
-            name: "biography",
-            label: "A5E.TabBiography",
-            component: ActorBioPage,
-            display: $actor.type === "character",
-        },
-        {
-            name: "notes",
-            label: "A5E.TabNotes",
-            component: ActorNotesPage,
-        },
-        // {
-        //     name: "effects",
-        //     label: "A5E.TabEffects",
-        //     component: ActorEffectsPage,
-        // },
-        {
-            name: "settings",
-            label: "A5E.TabSettings",
-            component: ActorSettingsPage,
-        },
-    ];
+    function getTabs(actor) {
+        return [
+            {
+                name: "core",
+                label: "A5E.TabCore",
+                component: ActorCorePage,
+            },
+            {
+                name: "skills",
+                label: "A5E.TabSkills",
+                component: ActorSkillsPage,
+            },
+            {
+                name: "inventory",
+                label: "A5E.TabInventory",
+                component: ActorInventoryPage,
+            },
+            {
+                name: "features",
+                label: "A5E.TabFeatures",
+                component: ActorFeaturesPage,
+            },
+            {
+                name: "maneuvers",
+                label: "A5E.TabManeuvers",
+                component: ActorManeuversPage,
+                display: actor.flags?.a5e?.showManeuverTab,
+            },
+            {
+                name: "spells",
+                label: "A5E.TabSpells",
+                component: ActorSpellsPage,
+                display: actor.flags?.a5e?.showSpellTab,
+            },
+            {
+                name: "biography",
+                label: "A5E.TabBiography",
+                component: ActorBioPage,
+                display: actor.type === "character",
+            },
+            {
+                name: "notes",
+                label: "A5E.TabNotes",
+                component: ActorNotesPage,
+            },
+            // {
+            //     name: "effects",
+            //     label: "A5E.TabEffects",
+            //     component: ActorEffectsPage,
+            // },
+            {
+                name: "settings",
+                label: "A5E.TabSettings",
+                component: ActorSettingsPage,
+            },
+        ];
+    }
+
+    // Required to get the tabs to update as the actor flags change
+    let tabs = getTabs($actor);
+    $: tabs = getTabs($actor);
 
     let currentTab =
         tabs.find((tab) => tab.name === $actor.flags?.a5e?.currentTab) ??
