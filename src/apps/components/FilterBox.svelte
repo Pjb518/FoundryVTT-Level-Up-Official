@@ -2,7 +2,6 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import arraysAreEqual from "../../utils/arraysAreEqual";
-    import toggleFilter from "../utils/toggleFilter";
     import MultiStateCheckBoxGroup from "./MultiStateCheckBoxGroup.svelte";
 
     export let filterSections;
