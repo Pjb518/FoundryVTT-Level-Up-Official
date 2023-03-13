@@ -6,7 +6,8 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let currentEditor;
+    let currentEditor = "bio";
+
     const actor = getContext("actor");
 
     const charChoicesLabel = {
@@ -33,7 +34,6 @@
         currentEditor = editor;
     }
 
-    $: currentEditor = "bio";
     $: details = $actor.system.details;
 </script>
 
