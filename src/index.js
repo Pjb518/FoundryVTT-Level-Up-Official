@@ -12,7 +12,6 @@ import A5E from './config';
 import ActiveEffectA5e from './documents/activeEffects';
 import ActorA5e from './documents/actor';
 import D20Roll from './dice/d20Roll';
-import DamageRoll from './dice/damageRoll';
 import ItemA5e from './documents/item';
 import TokenA5e from './documents/token';
 import TokenDocumentA5e from './documents/tokenDocument';
@@ -50,8 +49,7 @@ Hooks.once('init', () => {
     },
     config: A5E,
     dice: {
-      D20Roll,
-      DamageRoll
+      D20Roll
     },
     entities: {
       ActorA5e,
@@ -81,10 +79,8 @@ Hooks.once('init', () => {
   CONFIG.Token.objectClass = TokenA5e;
 
   CONFIG.Dice.D20Roll = D20Roll;
-  CONFIG.Dice.DamageRoll = DamageRoll;
 
   CONFIG.Dice.rolls.push(D20Roll);
-  CONFIG.Dice.rolls.push(DamageRoll);
 
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 

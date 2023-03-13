@@ -10,9 +10,17 @@
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
 
+    // TODO: Re-add this in 0.9.1 or later, as there is more work required to make
+    // this useful.
+    //
+    // function getItemName(item) {
+    //     if (game.user.isGM) return item.name;
+    //     if (!item.system.unidentified) return item.name;
 
-    $: unidentified = $item.system.unidentified;
-    const user = game.user;
+    //     return unidentifiedName ?? localize("A5E.ItemUnidentifiedName");
+    // }
+
+    // $: name = getItemName($item);
 </script>
 
 <header class="sheet-header">
@@ -28,12 +36,10 @@
     <div>
         <input
             type="text"
-            name={unidentified ? "system.unidentifiedName" : "name"}
-            value={unidentified ? $item.system.unidentifiedName : $item.name}
+            name="name"
+            value={$item.name}
             class="item-name"
-            placeholder={localize(
-                unidentified ? "A5E.ItemUnidentifiedName" : "A5E.Name"
-            )}
+            placeholder={"A5E.Name"}
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
