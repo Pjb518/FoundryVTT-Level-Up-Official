@@ -1,68 +1,96 @@
 {
-	"name": "Sapping Toxin",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": null,
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "poison",
-				"formula": "1d4",
-				"name": ""
-			}
-		],
-		"description": "<p>You expend a dose of basic poison to splash a creature with a toxin that saps its energy. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or take 1d4 poison damage and gain a level of fatigue. If this would result in the creature having levels of fatigue that exceed your proficiency bonus the creature is rattled until the end of your next turn instead.</p>",
-		"duration": {
-			"unit": "special",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"5ft"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 1,
-		"exertionCost": 1,
-		"tradition": "vipersFangs"
-	},
-	"_id": "sax7n3npc4ggyqtz"
+  "name": "Sapping Toxin",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.sax7n3npc4ggyqtz"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": null,
+    "actions": {
+      "eQevqNa4cTHrqjNa": {
+        "name": "Sapping Toxin",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "ranges": {
+          "6XF4DxlSW8eNaGXk": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "4wqxDf4yrhsoGhP4": {
+            "canCrit": false,
+            "damageType": "poison",
+            "formula": "1d4",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "v0kTBPL9AlNi1MRf": {
+            "ability": "con",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You expend a dose of basic poison to splash a creature with a toxin that saps its energy. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or take 1d4 poison damage and gain a level of fatigue. If this would result in the creature having levels of fatigue that exceed your proficiency bonus the creature is rattled until the end of your next turn instead.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Negates effects.",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 1,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409912,
+    "modifiedTime": 1678673442411,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

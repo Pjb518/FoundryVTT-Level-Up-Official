@@ -1,62 +1,90 @@
 {
-	"name": "Armor Lock",
-	"type": "maneuver",
-	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p><strong>Prerequisites</strong>: Extra Attack </p><p>You swiftly adjust your enemy's armor so that they cannot move.</p><p>Make a Sleight of Hand check against the AC of a creature within reach that is wearing armor, paralyzing it on a success. At the beginning of each of its turns, a creature paralyzed by this maneuver can make a Strength saving throw, ending the effect on itself on a success (unlike normal, the paralyzed creature doesn't automatically fail this save).</p><p>A creature wearing heavy armor has disadvantage on its saving throw.</p>",
-		"duration": {
-			"unit": "special",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Ends paralyzed effect.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 5,
-		"exertionCost": 3,
-		"tradition": "mistAndShade"
-	},
-	"_id": "y7e8zh84f7a0as4l"
+  "name": "Armor Lock",
+  "type": "maneuver",
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.y7e8zh84f7a0as4l"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "tv4TMYDSpZuLLC8C": {
+        "name": "Armor Lock",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "ranges": {
+          "hqMtamdLHOteSbaQ": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "BuyxQtjAs9rgT2OE": {
+            "ability": "str",
+            "onSave": "Ends paralyzed effect.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p><strong>Prerequisites</strong>: Extra Attack </p><p>You swiftly adjust your enemy's armor so that they cannot move.</p><p>Make a Sleight of Hand check against the AC of a creature within reach that is wearing armor, paralyzing it on a success. At the beginning of each of its turns, a creature paralyzed by this maneuver can make a Strength saving throw, ending the effect on itself on a success (unlike normal, the paralyzed creature doesn't automatically fail this save).</p><p>A creature wearing heavy armor has disadvantage on its saving throw.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Ends paralyzed effect.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 5,
+    "exertionCost": 3,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "mistAndShade"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409922,
+    "modifiedTime": 1678673445475,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

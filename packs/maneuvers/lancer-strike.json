@@ -1,71 +1,102 @@
 {
-	"name": "Lancer Strike",
-	"type": "maneuver",
-	"img": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d6",
-				"name": "Default"
-			}
-		],
-		"description": "<p>You knock your opponent prone with a direct hit from your weapon.</p><p>You must be wielding a weapon with the reach property, mounted, and move 20 or more feet in order to use this maneuver.</p><p>Make a melee weapon attack against a creature within your weapon's reach. On a hit, you deal an extra 1d6 damage and the creature makes a Strength saving throw or is knocked prone.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch",
-			"20ft Movement"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 1,
-		"exertionCost": 1,
-		"tradition": "spiritedSteed"
-	},
-	"_id": "v7nyfqb3lcmej66b"
+  "name": "Lancer Strike",
+  "type": "maneuver",
+  "img": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.v7nyfqb3lcmej66b"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "TlfVi5mb4Yv3prpm": {
+        "name": "Lancer Strike",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "D5lOOIIQtBPKmjWJ": {
+            "range": "touch"
+          },
+          "HnHIObYx6JB25tGR": {
+            "range": "20ft Movement"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "rolls": {
+          "d1wi2cVl1tMSbXWT": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6",
+            "name": "Default",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "3FMYVbe5vkcna5f6": {
+            "ability": "str",
+            "onSave": "Avoids effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You knock your opponent prone with a direct hit from your weapon.</p><p>You must be wielding a weapon with the reach property, mounted, and move 20 or more feet in order to use this maneuver.</p><p>Make a melee weapon attack against a creature within your weapon's reach. On a hit, you deal an extra 1d6 damage and the creature makes a Strength saving throw or is knocked prone.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Avoids effects.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 1,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "spiritedSteed"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409915,
+    "modifiedTime": 1678673443546,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,62 +1,90 @@
 {
-	"name": "Saddled Blows",
-	"type": "maneuver",
-	"img": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>From atop your mount, you strike down at your foes with powerful blows.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. You must be mounted to use this maneuver.</p><p>Until the end of your next turn, when you use a melee weapon attack to hit a creature of a size smaller than your mount, it makes a Strength saving throw. On a failure, it suffers one of the following (your choice): confused until the start of your next turn, knocked prone, or slowed until the end of your next turn.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 3,
-		"exertionCost": 3,
-		"tradition": "spiritedSteed"
-	},
-	"_id": "xo1nv4te8l1tinip"
+  "name": "Saddled Blows",
+  "type": "maneuver",
+  "img": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.xo1nv4te8l1tinip"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "jExurUITfhYtTEh4": {
+        "name": "Saddled Blows",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "ItVuovtobXqntdh8": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "jiat9GQjJUidBxzz": {
+            "ability": "str",
+            "onSave": "Avoids effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>From atop your mount, you strike down at your foes with powerful blows.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. You must be mounted to use this maneuver.</p><p>Until the end of your next turn, when you use a melee weapon attack to hit a creature of a size smaller than your mount, it makes a Strength saving throw. On a failure, it suffers one of the following (your choice): confused until the start of your next turn, knocked prone, or slowed until the end of your next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Avoids effects.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 3,
+    "exertionCost": 3,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "spiritedSteed"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409920,
+    "modifiedTime": 1678673445372,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

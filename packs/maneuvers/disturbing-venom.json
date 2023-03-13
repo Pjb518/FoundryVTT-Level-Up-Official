@@ -1,66 +1,91 @@
 {
-	"name": "Disturbing Venom",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": null,
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "psychic",
-				"formula": "2d6",
-				"name": ""
-			}
-		],
-		"description": " Expend a dose of basic poison as part of a melee weapon attack. On a hit, the target must make a Wisdom saving throw, and on a failed save takes an additional 2d6 points of psychic damage and suffers a level of strife. A creature that succeeds on its save takes half damage and does not suffer a level of strife. If this would result in the creature having levels of strife that exceed your proficiency bonus the creature is frightened for one minute instead. A frightened creature may repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": 1
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Half damage and does not suffer a level of strife.",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 4,
-		"exertionCost": 1,
-		"tradition": "vipersFangs"
-	},
-	"_id": "xiibne5089bo6fvx"
+  "name": "Disturbing Venom",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.xiibne5089bo6fvx"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": null,
+    "actions": {
+      "tA321k4THs8OIELo": {
+        "name": "Disturbing Venom",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "CEn9pjmbcnNUh2Pg": {
+            "canCrit": false,
+            "damageType": "psychic",
+            "formula": "2d6",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "UZnFvk6Dn3lurTit": {
+            "ability": "wis",
+            "onSave": "Half damage and does not suffer a level of strife.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": " Expend a dose of basic poison as part of a melee weapon attack. On a hit, the target must make a Wisdom saving throw, and on a failed save takes an additional 2d6 points of psychic damage and suffers a level of strife. A creature that succeeds on its save takes half damage and does not suffer a level of strife. If this would result in the creature having levels of strife that exceed your proficiency bonus the creature is frightened for one minute instead. A frightened creature may repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Half damage and does not suffer a level of strife.",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 4,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409919,
+    "modifiedTime": 1678673444621,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

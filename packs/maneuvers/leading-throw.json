@@ -1,62 +1,90 @@
 {
-	"name": "Leading Throw",
-	"type": "maneuver",
-	"img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "reaction",
-			"reactionTrigger": "When a creature within your reach misses you with a melee weapon attack"
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "line",
-			"size": "15ft"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>An opponent that strikes at you invites peril as they find the momentum from their attack turned against them.</p><p>When a creature within your reach misses you with a melee weapon attack, you can use your reaction to try to throw it. The creature makes a Dexterity saving throw or moves 15 feet in a straight line in a direction of your choice.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 1,
-		"exertionCost": 1,
-		"tradition": "mirrorsGlint"
-	},
-	"_id": "in4j4fk4u1drzsay"
+  "name": "Leading Throw",
+  "type": "maneuver",
+  "img": "icons/skills/melee/spear-tips-quintuple-orange.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.in4j4fk4u1drzsay"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "PbNAaMkYpnT3nTpP": {
+        "name": "Leading Throw",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "When a creature within your reach misses you with a melee weapon attack"
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "sgCAqLPDz9VkX9hl": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "line",
+          "size": "15ft",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "JEnjM3pGJl3cE3S0": {
+            "ability": "dex",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>An opponent that strikes at you invites peril as they find the momentum from their attack turned against them.</p><p>When a creature within your reach misses you with a melee weapon attack, you can use your reaction to try to throw it. The creature makes a Dexterity saving throw or moves 15 feet in a straight line in a direction of your choice.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 1,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "mirrorsGlint"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409903,
+    "modifiedTime": 1678673439245,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,68 +1,96 @@
 {
-	"name": "Blinding Dust",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "poison",
-				"formula": "1d4",
-				"name": "Fails save and becomes blinded"
-			}
-		],
-		"description": " You expend a dose of basic poison to blow blinding dust into an opponent’s eyes. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 1d4 poison damage and be blinded until the end of your next turn.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"5ft"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 1,
-		"exertionCost": 2,
-		"tradition": "vipersFangs"
-	},
-	"_id": "dxir38g6xycrj3co"
+  "name": "Blinding Dust",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.dxir38g6xycrj3co"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "1mTPDlcikomLTH7H": {
+        "name": "Blinding Dust",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "V6h62whB1H7jAvX1": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "nLlfJSM0AmOcN3V5": {
+            "canCrit": false,
+            "damageType": "poison",
+            "formula": "1d4",
+            "name": "Fails save and becomes blinded",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "sMXn5BtECscnCB82": {
+            "ability": "dex",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": " You expend a dose of basic poison to blow blinding dust into an opponent’s eyes. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 1d4 poison damage and be blinded until the end of your next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Negates effects.",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 1,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407840,
+    "modifiedTime": 1678673436296,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,62 +1,90 @@
 {
-	"name": "Spinning Parry",
-	"type": "maneuver",
-	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "reaction",
-			"reactionTrigger": "When a creature makes a melee attack against you"
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>A quick step and suddenly you and your foe exchange places.</p><p>You can use your reaction to make a Sleight of Hand check when a creature makes a melee attack against you, turning it into a miss if your result is higher than the attack roll.</p><p>In addition, you may also swap places with the attacker (no opportunity attacks provoked), forcing it to make a Wisdom saving throw or be stunned until the beginning of its next turn.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids being stunned until the end of its next turn.",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 4,
-		"exertionCost": 2,
-		"tradition": "mistAndShade"
-	},
-	"_id": "gd5rv8epa46xtnwz"
+  "name": "Spinning Parry",
+  "type": "maneuver",
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.gd5rv8epa46xtnwz"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "IZUMrO8kM3eZp7vh": {
+        "name": "Spinning Parry",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "When a creature makes a melee attack against you"
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "wfZWht1h5xIC9Wdy": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "x0q7MauQdh559NIl": {
+            "ability": "wis",
+            "onSave": "Avoids being stunned until the end of its next turn.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>A quick step and suddenly you and your foe exchange places.</p><p>You can use your reaction to make a Sleight of Hand check when a creature makes a melee attack against you, turning it into a miss if your result is higher than the attack roll.</p><p>In addition, you may also swap places with the attacker (no opportunity attacks provoked), forcing it to make a Wisdom saving throw or be stunned until the beginning of its next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Avoids being stunned until the end of its next turn.",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 4,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "mistAndShade"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407852,
+    "modifiedTime": 1678673438156,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

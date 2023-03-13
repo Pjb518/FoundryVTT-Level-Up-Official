@@ -1,62 +1,90 @@
 {
-	"name": "Follow-Up Topple",
-	"type": "maneuver",
-	"img": "icons/skills/melee/weapons-crossed-swords-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "reaction",
-			"reactionTrigger": "When an ally within your reach hits a creature with a melee weapon attack."
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>As your ally strikes an opponent, you seize the moment of imbalance to knock them down.</p><p>When an ally within your reach hits a creature with a melee weapon attack, you can use your reaction to make a melee weapon attack against that creature. On a hit, the creature makes a Dexterity saving throw or is knocked prone.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 3,
-		"exertionCost": 2,
-		"tradition": "sanguineKnot"
-	},
-	"_id": "ahgeox00sea3lcn2"
+  "name": "Follow-Up Topple",
+  "type": "maneuver",
+  "img": "icons/skills/melee/weapons-crossed-swords-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.ahgeox00sea3lcn2"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "sDw8jGwHTzWuL1rd": {
+        "name": "Follow-Up Topple",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "When an ally within your reach hits a creature with a melee weapon attack."
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "w9DryMxqK3yfhZ2r": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "cFhu2CVPOyP4P1Ma": {
+            "ability": "dex",
+            "onSave": "Avoids effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>As your ally strikes an opponent, you seize the moment of imbalance to knock them down.</p><p>When an ally within your reach hits a creature with a melee weapon attack, you can use your reaction to make a melee weapon attack against that creature. On a hit, the creature makes a Dexterity saving throw or is knocked prone.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Avoids effects.",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 3,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "sanguineKnot"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407837,
+    "modifiedTime": 1678673435232,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

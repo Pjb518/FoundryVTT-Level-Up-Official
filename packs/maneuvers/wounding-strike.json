@@ -1,62 +1,90 @@
 {
-	"name": "Wounding Strike",
-	"type": "maneuver",
-	"img": "icons/magic/perception/eye-ringed-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Swinging or thrusting with your weapon like you have thousands of times before, you know precisely where its tip grazes and your swing hits at the smallest flaw in an opponent's armor to deliver a painful wound.</p><p>Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that deals 1d4 ongoing damage (page 448).</p><p>At the start of each of the wounded creature's turns, it makes a Constitution saving throw, ending the effect on itself on a success.</p><p>Alternatively, the wounded creature, or a creature within 5 feet of it, can use an action to make a Medicine check against your maneuver DC, ending the ongoing damage on a success.</p><p>Healing magically or from a trait (such as Regeneration) also ends the effect.</p>",
-		"duration": {
-			"unit": "special",
-			"value": null
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"self"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Effect ends on success.",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "self",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 1,
-		"exertionCost": 2,
-		"tradition": "unendingWheel"
-	},
-	"_id": "d0yb5wjm425eq6j9"
+  "name": "Wounding Strike",
+  "type": "maneuver",
+  "img": "icons/magic/perception/eye-ringed-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.d0yb5wjm425eq6j9"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "EphaDAKn23UI9nZx": {
+        "name": "Wounding Strike",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": null
+        },
+        "ranges": {
+          "dmuooM0BXssIbk6O": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "PvsvOFtnqrP0JMn9": {
+            "ability": "con",
+            "onSave": "Effect ends on success.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Swinging or thrusting with your weapon like you have thousands of times before, you know precisely where its tip grazes and your swing hits at the smallest flaw in an opponent's armor to deliver a painful wound.</p><p>Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that deals 1d4 ongoing damage (page 448).</p><p>At the start of each of the wounded creature's turns, it makes a Constitution saving throw, ending the effect on itself on a success.</p><p>Alternatively, the wounded creature, or a creature within 5 feet of it, can use an action to make a Medicine check against your maneuver DC, ending the ongoing damage on a success.</p><p>Healing magically or from a trait (such as Regeneration) also ends the effect.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Effect ends on success.",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 1,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "unendingWheel"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407839,
+    "modifiedTime": 1678673436151,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

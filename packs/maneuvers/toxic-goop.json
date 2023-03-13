@@ -1,60 +1,83 @@
 {
-	"name": "Toxic Goop",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": " Expend a dose of basic poison and a tanglefoot bag to make a ranged weapon attack against a creature within 20 feet. On a hit, the creature is grappled. It may take an action to make a Strength save at the beginning of each of its turns, freeing itself on a success. While it is grappled, it is also poisoned. The goop dissipates after a minute or can be destroyed (AC 13, hit points equal to your maneuver DC)</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20ft"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 2,
-		"exertionCost": 1,
-		"tradition": "vipersFangs"
-	},
-	"_id": "povrdohte58shqwr"
+  "name": "Toxic Goop",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.povrdohte58shqwr"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "pEcCQrJQ0rILN2j8": {
+        "name": "Toxic Goop",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "LjGEEoE7cJrbSxer": {
+            "range": "20ft"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "wGNu2kcaBGNkCcTN": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          }
+        }
+      }
+    },
+    "description": " Expend a dose of basic poison and a tanglefoot bag to make a ranged weapon attack against a creature within 20 feet. On a hit, the creature is grappled. It may take an action to make a Strength save at the beginning of each of its turns, freeing itself on a success. While it is grappled, it is also poisoned. The goop dissipates after a minute or can be destroyed (AC 13, hit points equal to your maneuver DC)</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 2,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409910,
+    "modifiedTime": 1678673442218,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

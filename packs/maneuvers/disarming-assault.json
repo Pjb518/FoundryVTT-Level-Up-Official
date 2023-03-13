@@ -1,62 +1,90 @@
 {
-	"name": "Disarming Assault",
-	"type": "maneuver",
-	"img": "icons/magic/perception/eye-ringed-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Instead of waiting for an opponent to strike so you can slap their weapon away, you lay into them with attacks that knock it from their hands.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, your strikes can deprive foes of their armaments. In addition to dealing damage, when you hit a creature with a melee weapon attack it makes a Strength saving throw. On a failure, an item of your choice that the creature is holding (including a shield) flies from its grip to land in a randomly determined space 10 feet away.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 3,
-		"exertionCost": 1,
-		"tradition": "unendingWheel"
-	},
-	"_id": "2d2tbptcprl1s5k3"
+  "name": "Disarming Assault",
+  "type": "maneuver",
+  "img": "icons/magic/perception/eye-ringed-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.2d2tbptcprl1s5k3"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "ArOPa107t7v1BCfN": {
+        "name": "Disarming Assault",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "ZFDbq82NjoNBQ4j5": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "YYYQ3T1l8wpNfXFN": {
+            "ability": "str",
+            "onSave": "Avoids effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Instead of waiting for an opponent to strike so you can slap their weapon away, you lay into them with attacks that knock it from their hands.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, your strikes can deprive foes of their armaments. In addition to dealing damage, when you hit a creature with a melee weapon attack it makes a Strength saving throw. On a failure, an item of your choice that the creature is holding (including a shield) flies from its grip to land in a randomly determined space 10 feet away.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Avoids effects.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 3,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "unendingWheel"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407823,
+    "modifiedTime": 1678673431163,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
