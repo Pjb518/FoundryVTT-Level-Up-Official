@@ -52,7 +52,7 @@
                     class="a5e-footer-group__input"
                     type="number"
                     name="system.attributes.exertion.max"
-                    value={exertion.value}
+                    value={exertion.max}
                     placeholder="0"
                     min="0"
                     on:change={({ target }) =>
