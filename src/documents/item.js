@@ -123,6 +123,17 @@ export default class ItemA5e extends Item {
       itemDocument: this
     });
 
+    const action = this.actions[actionId];
+
+    if (
+      foundry.utils.isEmpty(action?.rolls)
+      && foundry.utils.isEmpty(action?.prompts)
+      && !validateTemplateData(this, actionId)
+    ) {
+      await this.shareItemDescription(action);
+      return;
+    }
+
     dialog.render(true);
 
     const promise = await dialog.promise;
@@ -149,13 +160,13 @@ export default class ItemA5e extends Item {
         a5e: {
           actorId: this.actor.uuid,
           cardType: 'item',
-          img: this.actions[actionId].img ?? this.img ?? 'icons/svg/item-bag.svg',
+          img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
           name: this.name,
-          actionName: this.actions[actionId].name,
-          actionDescription: this.actions[actionId]?.descriptionOutputs?.includes('action')
-            ? this.actions[actionId].description
+          actionName: action.name,
+          actionDescription: action?.descriptionOutputs?.includes('action')
+            ? action.description
             : null,
-          itemDescription: this.actions[actionId]?.descriptionOutputs?.includes('item') ?? true
+          itemDescription: action?.descriptionOutputs?.includes('item') ?? true
             ? this.system.description
             : null,
           prompts: promise.prompts,
@@ -400,7 +411,7 @@ export default class ItemA5e extends Item {
     };
   }
 
-  async shareItemDescription() {
+  async shareItemDescription(action) {
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -408,7 +419,12 @@ export default class ItemA5e extends Item {
         a5e: {
           actorId: this.actor.uuid,
           cardType: 'item',
-          itemDescription: this.system.description,
+          actionDescription: action?.descriptionOutputs?.includes('action')
+            ? action.description
+            : null,
+          itemDescription: action?.descriptionOutputs?.includes('item') ?? true
+            ? this.system.description
+            : null,
           img: this.img,
           name: this.name
         }
