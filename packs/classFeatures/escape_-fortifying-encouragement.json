@@ -1,64 +1,82 @@
 {
-	"name": "Escape: Fortifying Encouragement",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "cha",
-		"actionOptions": [
-			"healing"
-		],
-		"activation": {
-			"cost": null,
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<h4>Whenever you succeed on a saving throw, you can choose one friendly creature within 60 feet of you. If the target can see or hear you, the target gains temporary hit points equal to 5 + your Charisma modifier.</h4>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [
-			{
-				"formula": "5 + @mod",
-				"healingType": "temporaryHealing",
-				"name": "Temp HP"
-			}
-		],
-		"proficient": true,
-		"range": [
-			"60 ft. Target must able to see or hear you."
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "hnx3daaesyc97byy"
+  "name": "Escape: Fortifying Encouragement",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.hnx3daaesyc97byy"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "cha",
+    "actions": {
+      "LdRdBv8BFtZPIvGq": {
+        "name": "Escape: Fortifying Encouragement",
+        "activation": {
+          "cost": null,
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "tbWJqn7PtOzBzyiU": {
+            "range": "60 ft. Target must able to see or hear you."
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "dcTzFYWWq6bGldoM": {
+            "formula": "5 + @cha.mod",
+            "healingType": "temporaryHealing",
+            "name": "Temp HP",
+            "type": "healing"
+          }
+        }
+      }
+    },
+    "description": "<h4>Whenever you succeed on a saving throw, you can choose one friendly creature within 60 feet of you. If the target can see or hear you, the target gains temporary hit points equal to 5 + your Charisma modifier.</h4>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672643060,
+    "modifiedTime": 1678672688005,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

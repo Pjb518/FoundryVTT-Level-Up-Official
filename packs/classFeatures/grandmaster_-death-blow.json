@@ -1,56 +1,80 @@
 {
-	"name": "Grandmaster: Death Blow",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You learn how to strike with incredible force at your target’s very life force. When you hit with a melee weapon attack, you can choose to make your attack a critical hit that deals maximum damage. In addition, if the target is a creature it makes a Constitution saving throw or it is reduced to 0 hit points. You can’t use this feature again until you finish a short or long rest.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "8 + @prof + @wis.mod",
-			"onSave": "Not reduced to 0 hit points",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": 1,
-			"max": 1,
-			"per": "shortRest"
-		},
-		"featureType": "class"
-	},
-	"_id": "pdg89u5i5zkz1omm"
+  "name": "Grandmaster: Death Blow",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.pdg89u5i5zkz1omm"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "ngRPYzuj566Tak7Z": {
+        "name": "Grandmaster: Death Blow",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "prompts": {
+          "IvAX4LouxFk9wcnC": {
+            "ability": "con",
+            "onSave": "Not reduced to 0 hit points",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @wis.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You learn how to strike with incredible force at your target’s very life force. When you hit with a melee weapon attack, you can choose to make your attack a critical hit that deals maximum damage. In addition, if the target is a creature it makes a Constitution saving throw or it is reduced to 0 hit points. You can’t use this feature again until you finish a short or long rest.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 + @prof + @wis.mod",
+      "onSave": "Not reduced to 0 hit points",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": 1,
+      "per": "shortRest"
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672654024,
+    "modifiedTime": 1678672694162,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

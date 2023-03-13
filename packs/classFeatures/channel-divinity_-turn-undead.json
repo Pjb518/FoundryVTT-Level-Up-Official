@@ -1,56 +1,80 @@
 {
-	"name": "Channel Divinity: Turn Undead",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<h4>As an action, you present the holy symbol of your greater entity and speak a divine word, rebuking the undead. Each undead creature within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</h4><h4>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</h4>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "8 + @prof + @wis.mod",
-			"onSave": "Not turned",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "zhuf06durl8bnmh3"
+  "name": "Channel Divinity: Turn Undead",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.zhuf06durl8bnmh3"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "NqNdWUsmmFa88F9f": {
+        "name": "Channel Divinity: Turn Undead",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "CoNb7jN9dnj2MgvS": {
+            "ability": "wis",
+            "onSave": "Not turned",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @wis.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<h4>As an action, you present the holy symbol of your greater entity and speak a divine word, rebuking the undead. Each undead creature within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</h4><h4>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</h4>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 + @prof + @wis.mod",
+      "onSave": "Not turned",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672667008,
+    "modifiedTime": 1678672700696,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

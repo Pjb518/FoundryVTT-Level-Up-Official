@@ -1,56 +1,79 @@
 {
-	"name": "Engaging Footwork",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>At 6th level, when you hit a creature with a melee attack, you distract that foe through a mix of repartee and positioning, causing them to move in the direction you want. If they fail a Wisdom saving throw against your trick DC, until the end of your turn when you move, you can move them an equal distance, keeping them within your melee reach the whole time. Their movement doesn’t provoke opportunity attacks, and if you would move them into a space that would cause them damage, they can choose to stop outside it.</p><p style=\"text-align: start\">After you use this feature, you cannot use it against the same creature again until you finish a short rest.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "8+@prof+@int.mod",
-			"onSave": "No effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": 1,
-			"max": 1,
-			"per": "shortRest"
-		},
-		"featureType": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "nm2zmpy9tzooiv4b"
+  "name": "Engaging Footwork",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "ability": "",
+    "actions": {
+      "VTkkzlRbSirw0BJp": {
+        "name": "Engaging Footwork",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "VbGi1ngL9tiosLGA": {
+            "ability": "wis",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8+@prof+@int.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>At 6th level, when you hit a creature with a melee attack, you distract that foe through a mix of repartee and positioning, causing them to move in the direction you want. If they fail a Wisdom saving throw against your trick DC, until the end of your turn when you move, you can move them an equal distance, keeping them within your melee reach the whole time. Their movement doesn’t provoke opportunity attacks, and if you would move them into a space that would cause them damage, they can choose to stop outside it.</p><p style=\"text-align: start\">After you use this feature, you cannot use it against the same creature again until you finish a short rest.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8+@prof+@int.mod",
+      "onSave": "No effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": 1,
+      "per": "shortRest"
+    },
+    "featureType": "",
+    "prerequisite": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.nm2zmpy9tzooiv4b"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672649780,
+    "modifiedTime": 1678672692157,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

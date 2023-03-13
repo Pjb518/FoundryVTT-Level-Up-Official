@@ -1,77 +1,98 @@
 {
-	"name": "Stolen Breath (recharge 5-6)",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cone",
-			"length": 30
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "necrotic",
-				"defaultSelection": true,
-				"formula": "3d6",
-				"name": "Necrotic"
-			},
-			{
-				"canCrit": false,
-				"damageType": "",
-				"defaultSelection": true,
-				"formula": "3d6",
-				"name": "Original dragon breath type"
-			}
-		],
-		"description": "<p>The monster exhales the putrid and infected gullet of a fallen dragon in a 30-foot cone. Each creature in the area makes a Dexterity saving throw. A creature takes 3d6 necrotic damage and 3d6 damage of the type the dragon breathed in life on a failed saving throw, or half damage on a success.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "half damage",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": null,
-			"per": ""
-		},
-		"featureType": "naturalWeapon"
-	},
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"placeTemplate": true
-		}
-	},
-	"_id": "js5aezx7oly5je4t"
+  "name": "Stolen Breath (recharge 5-6)",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "ability": "",
+    "actions": {
+      "aCFibGC80CcU79zK": {
+        "name": "Stolen Breath (recharge 5-6)",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "area": {
+          "shape": "cone",
+          "length": 30,
+          "placeTemplate": true
+        },
+        "target": {
+          "quantity": null,
+          "type": ""
+        },
+        "rolls": {
+          "TmWEtwbDjGfxxXOp": {
+            "canCrit": false,
+            "damageType": "necrotic",
+            "defaultSelection": true,
+            "formula": "3d6",
+            "name": "Necrotic",
+            "type": "damage"
+          },
+          "yaikAbdBDmi3gSn9": {
+            "canCrit": false,
+            "damageType": "",
+            "defaultSelection": true,
+            "formula": "3d6",
+            "name": "Original dragon breath type",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "OdDhaqiX0bJOQTvX": {
+            "ability": "dex",
+            "onSave": "half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>The monster exhales the putrid and infected gullet of a fallen dragon in a 30-foot cone. Each creature in the area makes a Dexterity saving throw. A creature takes 3d6 necrotic damage and 3d6 damage of the type the dragon breathed in life on a failed saving throw, or half damage on a success.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "half damage",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": null,
+      "per": ""
+    },
+    "featureType": "naturalWeapon",
+    "prerequisite": ""
+  },
+  "effects": [],
+  "flags": {
+    "a5e": {},
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.js5aezx7oly5je4t"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672646245,
+    "modifiedTime": 1678672689436,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

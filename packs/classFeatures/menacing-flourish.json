@@ -1,56 +1,79 @@
 {
-	"name": "Menacing Flourish",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>When you hit a creature with a melee attack, you can spend a bonus action to activate this trick and deliver a terrifying threat. The target makes a Wisdom saving throw . If it fails, for the next minute it is frightened of you.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": 1
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "8+@prof+@int.mod",
-			"onSave": "",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "2q7459x9jok76w5a"
+  "name": "Menacing Flourish",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "ability": "",
+    "actions": {
+      "oTnOBS7Y4cOOhboE": {
+        "name": "Menacing Flourish",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "qIaB4m0jYiKcOwT9": {
+            "ability": "wis",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8+@prof+@int.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>When you hit a creature with a melee attack, you can spend a bonus action to activate this trick and deliver a terrifying threat. The target makes a Wisdom saving throw . If it fails, for the next minute it is frightened of you.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8+@prof+@int.mod",
+      "onSave": "",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.2q7459x9jok76w5a"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672629423,
+    "modifiedTime": 1678672675678,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

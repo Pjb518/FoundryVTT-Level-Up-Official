@@ -1,58 +1,85 @@
 {
-	"name": "Critical: Terrifying Force",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You focus your rage, unleashing a fear-inspiring strike. When you score a critical hit, each creature you choose within 60 feet that can see you makes a Wisdom saving throw or is frightened of you for a number of rounds equal to half your proficiency bonus. The effects of this Furious Critical can be combined with any other.</p>",
-		"duration": {
-			"unit": "special",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "8 + @prof + @con.mod",
-			"onSave": "No effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "other"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "3e8xfjdw4e5p8eq4"
+  "name": "Critical: Terrifying Force",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.3e8xfjdw4e5p8eq4"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "exW8IgWIkqy1O7f5": {
+        "name": "Critical: Terrifying Force",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "ranges": {
+          "s3WoYijEwYiZWTvH": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "other"
+        },
+        "prompts": {
+          "17sOJRTqiPyBayxF": {
+            "ability": "wis",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @con.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You focus your rage, unleashing a fear-inspiring strike. When you score a critical hit, each creature you choose within 60 feet that can see you makes a Wisdom saving throw or is frightened of you for a number of rounds equal to half your proficiency bonus. The effects of this Furious Critical can be combined with any other.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 + @prof + @con.mod",
+      "onSave": "No effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672631683,
+    "modifiedTime": 1678672676024,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,67 +1,85 @@
 {
-	"name": "Divine Smite",
-	"type": "feature",
-	"img": "icons/skills/melee/strike-sword-steel-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "radiant",
-				"formula": "1d8",
-				"name": "1d8"
-			}
-		],
-		"description": "<p>Starting at 2nd level, whenever you hit a creature with a weapon attack you can choose to deliver a divine smite that deals an additional 1d8 radiant damage. The amount of extra damage increases as you gain levels in this class, as shown in the Smite Damage column of the Herald table.</p><p>You can use this feature a number of times equal to your proficiency bonus, and regain spent uses upon finishing a long rest.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": null,
-			"per": ""
-		},
-		"featureType": "class"
-	},
-	"_id": "c6aiq8cd90fo3ry1"
+  "name": "Divine Smite",
+  "type": "feature",
+  "img": "icons/skills/melee/strike-sword-steel-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.c6aiq8cd90fo3ry1"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "nmVTPrSmRfLujs3i": {
+        "name": "Divine Smite",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "EggPWRxcXiWIN6XJ": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "rolls": {
+          "JOnm8KDSOSwf7yQg": {
+            "canCrit": true,
+            "damageType": "radiant",
+            "formula": "1d8",
+            "name": "1d8",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>Starting at 2nd level, whenever you hit a creature with a weapon attack you can choose to deliver a divine smite that deals an additional 1d8 radiant damage. The amount of extra damage increases as you gain levels in this class, as shown in the Smite Damage column of the Herald table.</p><p>You can use this feature a number of times equal to your proficiency bonus, and regain spent uses upon finishing a long rest.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": null,
+      "per": ""
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672637337,
+    "modifiedTime": 1678672682086,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

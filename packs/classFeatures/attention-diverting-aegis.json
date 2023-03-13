@@ -1,58 +1,84 @@
 {
-	"name": "Attention Diverting Aegis",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": null,
-			"type": "reaction",
-			"reactionTrigger": "When a creature within 30 feet that can sense you makes an attack that isn’t targeting you"
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>When a creature within 30 feet that can sense you makes an attack that isn’t targeting you, you can use your reaction to try to distract the attacker. If it fails a Wisdom saving throw , until your next turn it has disadvantage on all attack rolls it makes that aren’t against you.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "8+@prof+@int.mod",
-			"onSave": "No effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "3ugbmflq4jmkz7qp"
+  "name": "Attention Diverting Aegis",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "ability": "",
+    "actions": {
+      "jd4EevsW4IzVAA7L": {
+        "name": "Attention Diverting Aegis",
+        "activation": {
+          "cost": null,
+          "type": "reaction",
+          "reactionTrigger": "When a creature within 30 feet that can sense you makes an attack that isn’t targeting you"
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "BVViXnPvO5GuMYph": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "Oqs8sg8wKjy85ZAk": {
+            "ability": "wis",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8+@prof+@int.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>When a creature within 30 feet that can sense you makes an attack that isn’t targeting you, you can use your reaction to try to distract the attacker. If it fails a Wisdom saving throw , until your next turn it has disadvantage on all attack rolls it makes that aren’t against you.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8+@prof+@int.mod",
+      "onSave": "No effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.3ugbmflq4jmkz7qp"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672631685,
+    "modifiedTime": 1678672676181,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

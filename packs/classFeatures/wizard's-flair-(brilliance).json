@@ -1,58 +1,85 @@
 {
-	"name": "Wizard's Flair (Brilliance)",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>At 9th level, you have created a flair that you use when casting spells. Choose a flair from the options below. When you finish a long rest, you may replace your flair with another.</p><p>Whenever you cast a spell of 1st-level or higher, you can choose to cast it with your flair. You can do so again when you finish a short or long rest.</p><h3><strong>Brilliance</strong></h3><p>Choose one creature within 30 feet that can see you when you cast the spell. It must succeed on a Constitution saving throw or be blinded until the end of its next turn.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": 1,
-			"max": 1,
-			"per": "shortRest"
-		},
-		"featureType": "class"
-	},
-	"_id": "ouphupspxieog0bd"
+  "name": "Wizard's Flair (Brilliance)",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.ouphupspxieog0bd"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "IsU8TxkdaEdoMTWR": {
+        "name": "Wizard's Flair (Brilliance)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "ymLfLkUnrbbnHTL2": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "M7Yarih78JTJJSg3": {
+            "ability": "con",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>At 9th level, you have created a flair that you use when casting spells. Choose a flair from the options below. When you finish a long rest, you may replace your flair with another.</p><p>Whenever you cast a spell of 1st-level or higher, you can choose to cast it with your flair. You can do so again when you finish a short or long rest.</p><h3><strong>Brilliance</strong></h3><p>Choose one creature within 30 feet that can see you when you cast the spell. It must succeed on a Constitution saving throw or be blinded until the end of its next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": 1,
+      "per": "shortRest"
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672649786,
+    "modifiedTime": 1678672693467,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

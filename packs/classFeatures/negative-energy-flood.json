@@ -1,56 +1,80 @@
 {
-	"name": "Negative Energy Flood",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"size": "30ft"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>As an action, you can use your Channel Divinity to unleash a flood of negative energy on your foes. Hostile creatures within 30 feet of you make a Constitution saving throw. On a failed save, a hostile creature takes 2d8 necrotic damage and is pushed back 5 feet, or on a success it takes half damage and is not pushed back.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": null,
-			"onSave": "Half damage and not pushed back.",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "epxnd38ps7aw40qa"
+  "name": "Negative Energy Flood",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.epxnd38ps7aw40qa"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "WvrQOMqGcQv8T63A": {
+        "name": "Negative Energy Flood",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "30ft",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "6ieZBLDR7U4vBXod": {
+            "ability": "con",
+            "onSave": "Half damage and not pushed back.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": null
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>As an action, you can use your Channel Divinity to unleash a flood of negative energy on your foes. Hostile creatures within 30 feet of you make a Constitution saving throw. On a failed save, a hostile creature takes 2d8 necrotic damage and is pushed back 5 feet, or on a success it takes half damage and is not pushed back.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": null,
+      "onSave": "Half damage and not pushed back.",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672640062,
+    "modifiedTime": 1678672685276,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

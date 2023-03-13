@@ -1,56 +1,80 @@
 {
-	"name": "Critical: Dazzling Prowess",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p><em>Prerequisite: 6th level</em></p><p>Your show of martial skill is so stunning that the target can only gape. When you score a critical hit, the target makes a Wisdom saving throw or is stunned until the end of your next turn.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "8 + @prof + @con.mod",
-			"onSave": "No effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "t2m2snx1qdjvuju8"
+  "name": "Critical: Dazzling Prowess",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.t2m2snx1qdjvuju8"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "uOxn1vVFURYJAfQO": {
+        "name": "Critical: Dazzling Prowess",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "OLzbVraDa8xEMCRW": {
+            "ability": "wis",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @con.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Prerequisite: 6th level</em></p><p>Your show of martial skill is so stunning that the target can only gape. When you score a critical hit, the target makes a Wisdom saving throw or is stunned until the end of your next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 + @prof + @con.mod",
+      "onSave": "No effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672658256,
+    "modifiedTime": 1678672697301,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
