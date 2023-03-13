@@ -135,7 +135,7 @@
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
     let placeTemplate = action?.area?.placeTemplate ?? false;
-    let rollMode = CONFIG.A5E.ROLL_MODE.NORMAL;
+    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let selectedRolls = getDefaultSelections(rolls);
     let selectedPrompts = getDefaultSelections(prompts);
     let situationalMods = "";

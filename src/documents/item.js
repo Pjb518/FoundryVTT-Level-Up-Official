@@ -111,7 +111,7 @@ export default class ItemA5e extends Item {
       // If no selection is made, cancel the activation.
       if (!promise?.actionId) return;
 
-      this.#activateAction(promise.actionId);
+      this.#activateAction(promise.actionId, options);
     }
   }
 
