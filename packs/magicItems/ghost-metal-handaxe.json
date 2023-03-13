@@ -1,88 +1,126 @@
 {
-	"name": "Ghost Metal Handaxe",
-	"type": "object",
-	"img": "icons/weapons/axes/axe-broad-energy-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d6 + @mod",
-				"name": "Ghost Metal Handaxe"
-			}
-		],
-		"description": "<blockquote><p>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to and wielding this extremely light axe, you are able to see 20 feet into the Ethereal Plane and use it to make melee weapon attacks against creatures on the Ethereal Plane.</p><p>If you are on the Ethereal Plane, you are able to see 20 feet into the Material Plane and use the axe to make melee weapon attacks against creatures on the Material Plane.</p><p>In addition, once per turn when you take the Attack action, you can strike at an undead possessing another creature, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or exit the possessed creature.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20 ft",
-			"medium"
-		],
-		"save": {
-			"dc": "8 +@prof +@cha.mod",
-			"onSave": "continues possessing the creature",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "18,500 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"breaker",
-			"defensive",
-			"dualWielding",
-			"simple",
-			"thrown"
-		],
-		"weight": "0.5 lb"
-	},
-	"_id": "l5g7l6du8s5ie5h6"
+  "name": "Ghost Metal Handaxe",
+  "type": "object",
+  "img": "icons/weapons/axes/axe-broad-energy-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.l5g7l6du8s5ie5h6"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "mYPFQ3jHUimsewE6": {
+        "name": "Ghost Metal Handaxe",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "fNiSQRwdOwQV6WZB": {
+            "range": "20 ft"
+          },
+          "XzcYqvqFfVdivYpK": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "Q9Yjf9WUs9nyP5s1": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "dppHVwbJUIYphg1C": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + @str.mod",
+            "name": "Ghost Metal Handaxe",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "pTy8FxjGI54CF6UR": {
+            "ability": "wis",
+            "onSave": "continues possessing the creature",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 +@prof +@cha.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<blockquote><p>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to and wielding this extremely light axe, you are able to see 20 feet into the Ethereal Plane and use it to make melee weapon attacks against creatures on the Ethereal Plane.</p><p>If you are on the Ethereal Plane, you are able to see 20 feet into the Material Plane and use the axe to make melee weapon attacks against creatures on the Material Plane.</p><p>In addition, once per turn when you take the Attack action, you can strike at an undead possessing another creature, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or exit the possessed creature.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 +@prof +@cha.mod",
+      "onSave": "continues possessing the creature",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "18,500 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "breaker",
+      "defensive",
+      "dualWielding",
+      "simple",
+      "thrown"
+    ],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235470,
+    "modifiedTime": 1678673294944,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

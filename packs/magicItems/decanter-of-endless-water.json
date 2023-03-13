@@ -1,79 +1,107 @@
 {
-	"name": "Decanter of Endless Water",
-	"type": "object",
-	"img": "icons/magic/water/water-drop-swirl-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "line",
-			"size": "30ft long, 1ft wide."
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "bludgeoning",
-				"formula": "1d4",
-				"name": ""
-			}
-		],
-		"description": "<p>This flask sloshes when shaken as if full of water. You can use an action to remove the stopper and speak a command word, causing undrinkable water to flow out of the flask. It stops at the start of your next turn. </p><p><em>Stream</em>. This command word produces 1 gallon of water. </p><p><em>Fountain</em>. This command word produces 5 gallons of water. </p><p><em>Geyser</em>. This command word produces 30 gallons of water that manifests as a geyser 30 feet long and 1 foot wide. As a bonus action, you can aim the geyser at a target within 30 feet, forcing it to make a DC 13 Strength saving throw or take 1d4 bludgeoning damage and be knocked prone. Any object less than 200 pounds is knocked over or pushed up to 15 feet away.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "13",
-			"onSave": "Negates effects.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "450 gp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "9l2bs3b95ogw1hbg"
+  "name": "Decanter of Endless Water",
+  "type": "object",
+  "img": "icons/magic/water/water-drop-swirl-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.9l2bs3b95ogw1hbg"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "DLOB2C2Pw8WZfJgK": {
+        "name": "Decanter of Endless Water",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "area": {
+          "shape": "line",
+          "size": "30ft long, 1ft wide.",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "Z2pglbYgAwODT9so": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "1d4",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "VQBCLcQjjPgxzfi5": {
+            "ability": "str",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "13"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This flask sloshes when shaken as if full of water. You can use an action to remove the stopper and speak a command word, causing undrinkable water to flow out of the flask. It stops at the start of your next turn. </p><p><em>Stream</em>. This command word produces 1 gallon of water. </p><p><em>Fountain</em>. This command word produces 5 gallons of water. </p><p><em>Geyser</em>. This command word produces 30 gallons of water that manifests as a geyser 30 feet long and 1 foot wide. As a bonus action, you can aim the geyser at a target within 30 feet, forcing it to make a DC 13 Strength saving throw or take 1d4 bludgeoning damage and be knocked prone. Any object less than 200 pounds is knocked over or pushed up to 15 feet away.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "13",
+      "onSave": "Negates effects.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "450 gp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226876,
+    "modifiedTime": 1678673272245,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,87 +1,111 @@
 {
-	"name": "Bastard Sword +2",
-	"type": "object",
-	"img": "icons/weapons/swords/greatsword-guard.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "2",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d8 + @mod + 2",
-				"name": "Bastard Sword 1H"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d10 + @mod + 2",
-				"name": "Bastard Sword 2H"
-			}
-		],
-		"description": "<p><em>Parrying, Versatile (1d10)</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "35 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"parrying",
-			"versatile"
-		],
-		"weight": "5 lbs"
-	},
-	"_id": "ezbcuv0xrbm9b7vd"
+  "name": "Bastard Sword +2",
+  "type": "object",
+  "img": "icons/weapons/swords/greatsword-guard.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.ezbcuv0xrbm9b7vd"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "iyDggCch5adA70v0": {
+        "name": "Bastard Sword +2",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "q7vieKOHnAIsEvkp": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "QXnmj1LPlPvQyKhZ": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d8 + @str.mod + 2",
+            "name": "Bastard Sword 1H",
+            "type": "damage"
+          },
+          "80Wtjk26i897Z18d": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d10 + @str.mod + 2",
+            "name": "Bastard Sword 2H",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Parrying, Versatile (1d10)</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "35 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "versatile"
+    ],
+    "weight": 5
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673229418,
+    "modifiedTime": 1678673281146,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

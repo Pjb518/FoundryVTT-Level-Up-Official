@@ -1,82 +1,105 @@
 {
-	"name": "Vorpal Greatsword",
-	"type": "object",
-	"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "3",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "2d6 + @mod + 3",
-				"name": "Greatsword"
-			}
-		],
-		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p><p>You gain a +3 bonus to attack and damage rolls made with this magic sword, and it ignores resistance to slashing damage.</p><p>When you attack a creature with this blade and it has at least one head, rolling a natural 20 on the attack roll causes the sword to make a snicker-snack sound as it efficiently chops off one of the target's heads. If the creature can't survive without its head removed, it dies. This effect does not apply if the target is too big for its head to be removed by the sword (determined at the discretion of the Narrator, it doesn't need a head or have one, has immunity to slashing damage, or has legendary actions. In cases where a creature cannot lose a head, it takes an additional 6d8 slashing damage (unless it is immune to slashing damage; this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "50 gp",
-		"quantity": 1,
-		"rarity": "legendary",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"parrying",
-			"heavy",
-			"twoHanded"
-		],
-		"weight": "7 lbs"
-	},
-	"_id": "d78pzt95rap159ly"
+  "name": "Vorpal Greatsword",
+  "type": "object",
+  "img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.d78pzt95rap159ly"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "CnftfR1dw1tAdNUE": {
+        "name": "Vorpal Greatsword",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "iav5FhjrfM3dmqgN": {
+            "bonus": "3",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "OcQJzwdC0dOXJHML": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d6 + @str.mod + 3",
+            "name": "Greatsword",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Heavy, Parrying, Two-Handed</em></p><p>You gain a +3 bonus to attack and damage rolls made with this magic sword, and it ignores resistance to slashing damage.</p><p>When you attack a creature with this blade and it has at least one head, rolling a natural 20 on the attack roll causes the sword to make a snicker-snack sound as it efficiently chops off one of the target's heads. If the creature can't survive without its head removed, it dies. This effect does not apply if the target is too big for its head to be removed by the sword (determined at the discretion of the Narrator, it doesn't need a head or have one, has immunity to slashing damage, or has legendary actions. In cases where a creature cannot lose a head, it takes an additional 6d8 slashing damage (unless it is immune to slashing damage; this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "50 gp",
+    "quantity": 1,
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "heavy",
+      "twoHanded"
+    ],
+    "weight": 7
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673229411,
+    "modifiedTime": 1678673278343,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,81 +1,112 @@
 {
-	"name": "Horn of Blasting",
-	"type": "object",
-	"img": "icons/containers/misc/horn-drinking-wood-teal.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cone",
-			"size": "30ft."
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "fire",
-				"formula": "10d6",
-				"name": "Self Damage"
-			}
-		],
-		"description": "<p>You can use an action to speak the horn’s command word and blow it, emitting a thunderous blast in a 30-foot cone that is audible 600 feet away. Each creature in the area makes a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half damage and isn’t deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw and take double damage. </p><p>Each use of the horn’s magic has a 20% chance of making it explode, dealing 10d6 fire damage to you and destroying it.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"600ft."
-		],
-		"save": {
-			"dc": "15",
-			"onSave": "Half damage and isn't deafened.",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": null,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "4,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "labbk0uiejurya5g"
+  "name": "Horn of Blasting",
+  "type": "object",
+  "img": "icons/containers/misc/horn-drinking-wood-teal.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.labbk0uiejurya5g"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "NGyYzggIcy8eIv2f": {
+        "name": "Horn of Blasting",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "gIhpe7Lu7u22z59N": {
+            "range": "600ft."
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "size": "30ft.",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "jtHO7k2CkJhozCMV": {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "10d6",
+            "name": "Self Damage",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "KptZIiBKCLebJl7q": {
+            "ability": "con",
+            "onSave": "Half damage and isn't deafened.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You can use an action to speak the horn’s command word and blow it, emitting a thunderous blast in a 30-foot cone that is audible 600 feet away. Each creature in the area makes a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half damage and isn’t deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw and take double damage. </p><p>Each use of the horn’s magic has a 20% chance of making it explode, dealing 10d6 fire damage to you and destroying it.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "Half damage and isn't deafened.",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": null,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "4,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235471,
+    "modifiedTime": 1678673295422,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

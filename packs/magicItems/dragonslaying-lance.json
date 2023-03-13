@@ -1,90 +1,116 @@
 {
-	"name": "Dragonslaying Lance",
-	"type": "object",
-	"img": "icons/weapons/polearms/spear-flared-gold.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "3",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d12 + @mod + 3",
-				"name": "Lance"
-			},
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "3d6",
-				"name": "Against Dragon types"
-			}
-		],
-		"description": "You gain a +3 bonus to attack and damage rolls made with this weapon. Objects hit with this lance take the maximum damage the weapon’s damage dice can deal. Dragons hit by this weapon take an extra 3d6 piercing damage. For the purpose of this weapon, “dragon” refers to any creature with the dragon type, including dragon turtles and wyverns. \n",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"10ft."
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "85,000 gp",
-		"quantity": 1,
-		"rarity": "legendary",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive",
-			"reach"
-		],
-		"weight": "6 lbs."
-	},
-	"_id": "ckssrdepoct7okvu"
+  "name": "Dragonslaying Lance",
+  "type": "object",
+  "img": "icons/weapons/polearms/spear-flared-gold.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.ckssrdepoct7okvu"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "fAu7d7pGK75zNJQz": {
+        "name": "Dragonslaying Lance",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "JyKn7rhBsuSFE4ni": {
+            "range": "10ft."
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "vTyFZd7O95cYk5lg": {
+            "bonus": "3",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "QbNNt5eWkpo4A0oG": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d12 + @str.mod + 3",
+            "name": "Lance",
+            "type": "damage"
+          },
+          "YT0BA4PUcSQ8vdpu": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "3d6",
+            "name": "Against Dragon types",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "You gain a +3 bonus to attack and damage rolls made with this weapon. Objects hit with this lance take the maximum damage the weapon’s damage dice can deal. Dragons hit by this weapon take an extra 3d6 piercing damage. For the purpose of this weapon, “dragon” refers to any creature with the dragon type, including dragon turtles and wyverns. \n",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "85,000 gp",
+    "quantity": 1,
+    "rarity": "legendary",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "reach"
+    ],
+    "weight": 6
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226886,
+    "modifiedTime": 1678673277407,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

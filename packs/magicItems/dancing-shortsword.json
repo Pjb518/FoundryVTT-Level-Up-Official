@@ -1,86 +1,106 @@
 {
-	"name": "Dancing Shortsword",
-	"type": "object",
-	"img": "icons/weapons/swords/shortsword-guard-brass.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sheetClass": "a5e.ItemSheet5e"
-		}
-	},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d6 + @mod",
-				"name": "Shortsword"
-			}
-		],
-		"description": "<p>While you are attuned to this magic sword, you can use a bonus action to speak the command word and throw it into the air. The sword hovers, flies up to 30 feet, and attacks one creature of your choice within 5 feet of it (using your attack roll and ability score modifier to damage rolls). On each of your turns you can use a bonus action to make the sword fly up to 30 feet to attack another creature within 5 feet of it. <br>After the sword attacks for the fourth time, it tries to return to your hand. It flies 30 feet towards you, moving as close as it can before either being caught in your free hand or falling to the ground. The sword ceases to hover if you move more than 30 feet away from it or grasp it.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "8000 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive",
-			"parrying",
-			"finesse"
-		],
-		"weight": "2 lbs"
-	},
-	"_id": "zks9av3t1fkak4wp"
+  "name": "Dancing Shortsword",
+  "type": "object",
+  "img": "icons/weapons/swords/shortsword-guard-brass.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sheetClass": "a5e.ItemSheet5e",
+      "sourceId": "Compendium.a5e.a5e-magic-items.zks9av3t1fkak4wp"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "34VLvVEjXOYmCYH0": {
+        "name": "Dancing Shortsword",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "rfdJiUGB8T0AHmW9": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "WGj10tmIJS5la7ss": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + @finesse.mod",
+            "name": "Shortsword",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>While you are attuned to this magic sword, you can use a bonus action to speak the command word and throw it into the air. The sword hovers, flies up to 30 feet, and attacks one creature of your choice within 5 feet of it (using your attack roll and ability score modifier to damage rolls). On each of your turns you can use a bonus action to make the sword fly up to 30 feet to attack another creature within 5 feet of it. <br>After the sword attacks for the fourth time, it tries to return to your hand. It flies 30 feet towards you, moving as close as it can before either being caught in your free hand or falling to the ground. The sword ceases to hover if you move more than 30 feet away from it or grasp it.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "8000 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "parrying",
+      "finesse"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673245439,
+    "modifiedTime": 1678673320349,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

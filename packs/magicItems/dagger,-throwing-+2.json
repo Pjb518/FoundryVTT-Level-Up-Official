@@ -1,85 +1,113 @@
 {
-	"name": "Dagger, Throwing +2",
-	"type": "object",
-	"img": "icons/weapons/thrown/daggers-kunai-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "2",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d4 + @mod + 2",
-				"name": "Throwing Dagger"
-			}
-		],
-		"description": "<p><em>Dual-Wielding, Finesse, Thrown (30/80)</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short",
-			"80 ft"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "3 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"dualWielding",
-			"finesse",
-			"thrown"
-		],
-		"weight": "0.5 lbs"
-	},
-	"_id": "a62s64s487ha4syz"
+  "name": "Dagger, Throwing +2",
+  "type": "object",
+  "img": "icons/weapons/thrown/daggers-kunai-purple.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.a62s64s487ha4syz"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "VJVX2WMrYLi3mJdN": {
+        "name": "Dagger, Throwing +2",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "SavpvuTcQSNTsK8K": {
+            "range": "short"
+          },
+          "oWPaj6FcWK0Frzdd": {
+            "range": "80 ft"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "ScsWBjO0Giud1me6": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "XgwNsnkh65AmZFmy": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d4 + @finesse.mod + 2",
+            "name": "Throwing Dagger",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Dual-Wielding, Finesse, Thrown (30/80)</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "3 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "dualWielding",
+      "finesse",
+      "thrown"
+    ],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226877,
+    "modifiedTime": 1678673273043,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

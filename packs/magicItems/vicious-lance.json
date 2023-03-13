@@ -1,87 +1,111 @@
 {
-	"name": "Vicious Lance",
-	"type": "object",
-	"img": "icons/weapons/polearms/spear-flared-gold.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d12 + @mod",
-				"name": "Lance"
-			},
-			{
-				"canCrit": false,
-				"damageType": "piercing",
-				"formula": "2d6",
-				"name": "Vicious Damage"
-			}
-		],
-		"description": "<p><em>Defensive (Medium), Reach</em></p><hr class=\"a5e-rule u-my-md\"><p>You have disadvantage when you use a lance to attack a target within 5 feet of you. If you are not mounted, you must use two hands to wield the lance.</p><p></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "10 gp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"defensive",
-			"reach"
-		],
-		"weight": "6 lbs"
-	},
-	"_id": "c97vigg91mw6qpmn"
+  "name": "Vicious Lance",
+  "type": "object",
+  "img": "icons/weapons/polearms/spear-flared-gold.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.c97vigg91mw6qpmn"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "HCNxN437z82XXy66": {
+        "name": "Vicious Lance",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "PKEP3CyjrMEiM7Dg": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "VY7XTViqaTs2LXC7": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d12 + @str.mod",
+            "name": "Lance",
+            "type": "damage"
+          },
+          "20k4cKa0zVBasD0p": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Defensive (Medium), Reach</em></p><hr class=\"a5e-rule u-my-md\"><p>You have disadvantage when you use a lance to attack a target within 5 feet of you. If you are not mounted, you must use two hands to wield the lance.</p><p></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "10 gp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "reach"
+    ],
+    "weight": 6
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226883,
+    "modifiedTime": 1678673277122,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

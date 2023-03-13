@@ -1,85 +1,113 @@
 {
-	"name": "Oathbow",
-	"type": "object",
-	"img": "icons/weapons/bows/longbow-gold-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d8 + @mod",
-				"name": "Longbow"
-			}
-		],
-		"description": "<p style=\"text-align: right\"><em>Heavy, Range (150/600), Two-Handed</em></p><p><strong>Crafting Components: </strong>String from an elven bow and a drop of blood from two different heralds oathed to vengeance</p><hr class=\"a5e-rule u-my-md\"><p>This bow whispers its urgent desire for the quick defeat of your enemies in Elvish when you nock an arrow. When you use this bow to make a ranged weapon attack against a creature, you can swear an oath against the target of your attack and make it your sworn enemy until its death or dawn seven days later. You may choose a new sworn enemy following the next dawn after your current sworn enemy dies.</p><p>Your ranged weapon attacks using this bow have advantage against your sworn enemy, and your sworn enemy cannot gain benefit from cover other than total cover. You do not have disadvantage on ranged weapon attacks with the bow that are at long range as long as your sworn enemy is your target, and on a hit your sworn enemy takes an extra [[/r 3d6 #piercing]] piercing damage.</p><p>You have disadvantage on attacks made with weapons other than this bow while your sworn enemy lives. <br></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"150 ft",
-			"600 ft"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": true,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "6000",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"heavy",
-			"range",
-			"twoHanded"
-		],
-		"weight": "2 lbs"
-	},
-	"_id": "u79m5rqlw5o9gsta"
+  "name": "Oathbow",
+  "type": "object",
+  "img": "icons/weapons/bows/longbow-gold-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.u79m5rqlw5o9gsta"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "V92Ap8B9yGVxA7Ri": {
+        "name": "Oathbow",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "IZWvaT9P7Scs5JeK": {
+            "range": "150 ft"
+          },
+          "p6aoFNwQWZp0nVW7": {
+            "range": "600 ft"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "dewhHAMvFMsfmFhJ": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "pAzDKAyygxMKEHnk": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @str.mod",
+            "name": "Longbow",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>Heavy, Range (150/600), Two-Handed</em></p><p><strong>Crafting Components: </strong>String from an elven bow and a drop of blood from two different heralds oathed to vengeance</p><hr class=\"a5e-rule u-my-md\"><p>This bow whispers its urgent desire for the quick defeat of your enemies in Elvish when you nock an arrow. When you use this bow to make a ranged weapon attack against a creature, you can swear an oath against the target of your attack and make it your sworn enemy until its death or dawn seven days later. You may choose a new sworn enemy following the next dawn after your current sworn enemy dies.</p><p>Your ranged weapon attacks using this bow have advantage against your sworn enemy, and your sworn enemy cannot gain benefit from cover other than total cover. You do not have disadvantage on ranged weapon attacks with the bow that are at long range as long as your sworn enemy is your target, and on a hit your sworn enemy takes an extra [[/r 3d6 #piercing]] piercing damage.</p><p>You have disadvantage on attacks made with weapons other than this bow while your sworn enemy lives. <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": true,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "6000",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "heavy",
+      "range",
+      "twoHanded"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673241957,
+    "modifiedTime": 1678673308783,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

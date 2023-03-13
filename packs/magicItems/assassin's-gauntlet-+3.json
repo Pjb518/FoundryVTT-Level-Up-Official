@@ -1,81 +1,104 @@
 {
-	"name": "Assassin's Gauntlet +3",
-	"type": "object",
-	"img": "icons/weapons/fist/fist-katar-triple-silver.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "3",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d4 + @mod + 3",
-				"name": "Assassin's Gauntlet"
-			}
-		],
-		"description": "<p><em>Finesse, Stealthy</em></p><hr class=\"a5e-rule u-my-md\"><p>At a glance this item seems to be perfectly typical, but it conceals a spring-loaded blade deployed by pressing a switch when it is used to make an attack.</p><p>A creature observing it only realizes that the item is a weapon with a DC 15 Investigation check (made with disadvantage if the weapon is being worn at the time and not deployed).</p><p>Once deployed, a bonus action is required to re-sheathe the blade. You gain an expertise die on your attack roll when you deploy this weapon as part of an attack against a target that is unaware you have it.</p><p></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "50 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"stealthy",
-			"finesse"
-		],
-		"weight": "8 lbs"
-	},
-	"_id": "8lt427yz4qgxqy6q"
+  "name": "Assassin's Gauntlet +3",
+  "type": "object",
+  "img": "icons/weapons/fist/fist-katar-triple-silver.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.8lt427yz4qgxqy6q"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "I8um4lhmG1UH5Fca": {
+        "name": "Assassin's Gauntlet +3",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "maf0Muty64jqmKws": {
+            "bonus": "3",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "2pRCjqW6aPkpvNId": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d4 + @finesse.mod + 3",
+            "name": "Assassin's Gauntlet",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Finesse, Stealthy</em></p><hr class=\"a5e-rule u-my-md\"><p>At a glance this item seems to be perfectly typical, but it conceals a spring-loaded blade deployed by pressing a switch when it is used to make an attack.</p><p>A creature observing it only realizes that the item is a weapon with a DC 15 Investigation check (made with disadvantage if the weapon is being worn at the time and not deployed).</p><p>Once deployed, a bonus action is required to re-sheathe the blade. You gain an expertise die on your attack roll when you deploy this weapon as part of an attack against a target that is unaware you have it.</p><p></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "50 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "stealthy",
+      "finesse"
+    ],
+    "weight": 8
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226868,
+    "modifiedTime": 1678673271034,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

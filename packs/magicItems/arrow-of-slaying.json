@@ -1,78 +1,107 @@
 {
-	"name": "Arrow of Slaying",
-	"type": "object",
-	"img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"damage",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "piercing",
-				"formula": "6d10",
-				"name": "Arrow of Slaying"
-			}
-		],
-		"description": "<p>A particular kind of creature is chosen when this magic arrow is created. When the arrow of slaying damages a creature belonging to the chosen type, heritage, or group, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 piercing damage on a failed save, or half as much extra damage on a successful one. Once the arrow of slaying deals its extra damage to a creature, it loses its magical properties.</p><p>Other types of magic ammunition of this kind exist, such as bolts meant for a crossbow, or bullets for a firearm or sling.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "17",
-			"onSave": "half damage",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "",
-		"plotItem": false,
-		"price": "cost 8,000 gp",
-		"quantity": 1,
-		"rarity": "very rare",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": 0
-	},
-	"_id": "k8x1oyvyzbtt2zar"
+  "name": "Arrow of Slaying",
+  "type": "object",
+  "img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.k8x1oyvyzbtt2zar"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "GZY0LLYj10ZWq2AN": {
+        "name": "Arrow of Slaying",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "zmKBSLwkOfHBqniC": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "6d10",
+            "name": "Arrow of Slaying",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "wBtFjJeKtP5lsWX4": {
+            "ability": "con",
+            "onSave": "half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "17"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>A particular kind of creature is chosen when this magic arrow is created. When the arrow of slaying damages a creature belonging to the chosen type, heritage, or group, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 piercing damage on a failed save, or half as much extra damage on a successful one. Once the arrow of slaying deals its extra damage to a creature, it loses its magical properties.</p><p>Other types of magic ammunition of this kind exist, such as bolts meant for a crossbow, or bullets for a firearm or sling.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "17",
+      "onSave": "half damage",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "",
+    "plotItem": false,
+    "price": "cost 8,000 gp",
+    "quantity": 1,
+    "rarity": "very rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673232622,
+    "modifiedTime": 1678673293635,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

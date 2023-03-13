@@ -1,88 +1,112 @@
 {
-	"name": "Staff of Thunder and Lightning",
-	"type": "object",
-	"img": "icons/weapons/staves/staff-ornate-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "2",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d6 +2 +@mod",
-				"name": "Quarterstaff"
-			},
-			{
-				"canCrit": true,
-				"damageType": "lightning",
-				"formula": "2d6",
-				"name": "Additional Lightning"
-			}
-		],
-		"description": "<p>You gain a +2 bonus to attack and damage rolls with this magic quarterstaff.</p><p>While holding it you can activate one of the following properties, each of which can be used once per dawn.</p><ul><li><p><strong>Lightning</strong>. When you make a successful melee attack with the staff, you deal an extra 2d6 lightning damage.</p></li><li><p>Thunder. When you make a successful melee attack with the staff, you cause it to emit a thunderclap audible up to 300 feet away. The target makes a DC 17 Constitution saving throw or it is stunned until the end of your next turn.</p></li><li><p><strong>Lightning Strike</strong>. You can use an action to fire a 120 feet long and 5 foot wide line of lightning from the staff. Each creature in the area makes a DC 17 Dexterity saving throw, taking 9d6 lightning damage on a failure, or half damage on a success.</p></li><li><p><strong>Thunderclap</strong>. You can use an action to create a thunderous roar audible up to 600 feet away. Each creature other than you within 60 feet makes a DC 17 Constitution saving throw or takes 2d6 thunder damage and becomes deafened for 1 minute. On a successful save, a creature takes half damage and isn’t deafened.</p></li><li><p><strong>Thunder and Lightning</strong>. You can use an action to use the Lightning Strike and Thunderclap properties simultaneously. This doesn’t expend the daily uses of those properties, only this one.</p></li></ul>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "12,000 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"parrying",
-			"simple",
-			"twoHanded"
-		],
-		"weight": "4 lbs"
-	},
-	"_id": "1gtdnb0sxqadfs8b"
+  "name": "Staff of Thunder and Lightning",
+  "type": "object",
+  "img": "icons/weapons/staves/staff-ornate-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.1gtdnb0sxqadfs8b"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "SS4NUxO5AQR3Lk04": {
+        "name": "Staff of Thunder and Lightning",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": ""
+        },
+        "rolls": {
+          "ushkNgOMMce5DMVc": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "dFjZL1WmGSLKLPvw": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d6 +2 +@str.mod",
+            "name": "Quarterstaff",
+            "type": "damage"
+          },
+          "3vgz2CvpkpwAu4tX": {
+            "canCrit": true,
+            "damageType": "lightning",
+            "formula": "2d6",
+            "name": "Additional Lightning",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>You gain a +2 bonus to attack and damage rolls with this magic quarterstaff.</p><p>While holding it you can activate one of the following properties, each of which can be used once per dawn.</p><ul><li><p><strong>Lightning</strong>. When you make a successful melee attack with the staff, you deal an extra 2d6 lightning damage.</p></li><li><p>Thunder. When you make a successful melee attack with the staff, you cause it to emit a thunderclap audible up to 300 feet away. The target makes a DC 17 Constitution saving throw or it is stunned until the end of your next turn.</p></li><li><p><strong>Lightning Strike</strong>. You can use an action to fire a 120 feet long and 5 foot wide line of lightning from the staff. Each creature in the area makes a DC 17 Dexterity saving throw, taking 9d6 lightning damage on a failure, or half damage on a success.</p></li><li><p><strong>Thunderclap</strong>. You can use an action to create a thunderous roar audible up to 600 feet away. Each creature other than you within 60 feet makes a DC 17 Constitution saving throw or takes 2d6 thunder damage and becomes deafened for 1 minute. On a successful save, a creature takes half damage and isn’t deafened.</p></li><li><p><strong>Thunder and Lightning</strong>. You can use an action to use the Lightning Strike and Thunderclap properties simultaneously. This doesn’t expend the daily uses of those properties, only this one.</p></li></ul>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "12,000 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "simple",
+      "twoHanded"
+    ],
+    "weight": 4
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673222051,
+    "modifiedTime": 1678673256570,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

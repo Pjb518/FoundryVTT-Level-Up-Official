@@ -1,70 +1,98 @@
 {
-	"name": "Talisman of Pure Good",
-	"type": "object",
-	"img": "icons/equipment/neck/amulet-engraved-wood.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>This talisman’s purity harms creatures that do not have the Good trait, dealing 6d6 radiant damage when touched (or 8d6 radiant damage to a creature with the Evil trait). A creature carrying or holding this item takes the same damage at the end of each of its turns as long as it does so.</p><p>A cleric or herald with the Good trait can use this talisman as a holy symbol, which grants a +2 bonus to spell attack rolls while held or worn.</p><p>In addition, the talisman has 7 charges.</p><p>While wielded or worn, you can use an action to expend a charge and choose a target within 120 feet that is on the ground. If the creature has the Evil trait, it makes a DC 20 Dexterity saving throw or is destroyed by a flaming pit that appears beneath it. Once the pit closes no trace of it or the target remains.</p><p>Once all charges are expended, the talisman collapses into golden specks of light.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "20",
-			"onSave": "nothing",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": 7,
-			"max": 7,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "75,000 gp",
-		"quantity": 1,
-		"rarity": "legendary",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "zc2ive05ntdzb0mv"
+  "name": "Talisman of Pure Good",
+  "type": "object",
+  "img": "icons/equipment/neck/amulet-engraved-wood.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.zc2ive05ntdzb0mv"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "YbozivUJZA83jk4L": {
+        "name": "Talisman of Pure Good",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "KZQPcpo2ZWMRveP3": {
+            "ability": "dex",
+            "onSave": "nothing",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "20"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This talisman’s purity harms creatures that do not have the Good trait, dealing 6d6 radiant damage when touched (or 8d6 radiant damage to a creature with the Evil trait). A creature carrying or holding this item takes the same damage at the end of each of its turns as long as it does so.</p><p>A cleric or herald with the Good trait can use this talisman as a holy symbol, which grants a +2 bonus to spell attack rolls while held or worn.</p><p>In addition, the talisman has 7 charges.</p><p>While wielded or worn, you can use an action to expend a charge and choose a target within 120 feet that is on the ground. If the creature has the Evil trait, it makes a DC 20 Dexterity saving throw or is destroyed by a flaming pit that appears beneath it. Once the pit closes no trace of it or the target remains.</p><p>Once all charges are expended, the talisman collapses into golden specks of light.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "20",
+      "onSave": "nothing",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 7,
+      "max": 7,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "75,000 gp",
+    "quantity": 1,
+    "rarity": "legendary",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673245437,
+    "modifiedTime": 1678673320156,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

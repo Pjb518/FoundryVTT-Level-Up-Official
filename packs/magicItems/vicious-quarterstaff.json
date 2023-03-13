@@ -1,88 +1,112 @@
 {
-	"name": "Vicious Quarterstaff",
-	"type": "object",
-	"img": "icons/weapons/staves/staff-simple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d6 + @mod",
-				"name": "Quarterstaff"
-			},
-			{
-				"canCrit": false,
-				"damageType": "bludgeoning",
-				"formula": "2d6",
-				"name": "Vicious Damage"
-			}
-		],
-		"description": "<p><em>Parrying, Simple, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "2 sp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"parrying",
-			"simple",
-			"twoHanded"
-		],
-		"weight": "4 lbs"
-	},
-	"_id": "c0re1y8nxf8lgt0z"
+  "name": "Vicious Quarterstaff",
+  "type": "object",
+  "img": "icons/weapons/staves/staff-simple.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.c0re1y8nxf8lgt0z"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "jE4mzNybz2FXSUq3": {
+        "name": "Vicious Quarterstaff",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "yP9NbJYfH06etLml": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "4X0tML9jALUfxRLh": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d6 + @str.mod",
+            "name": "Quarterstaff",
+            "type": "damage"
+          },
+          "IRWNSsFIqflICd3A": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Parrying, Simple, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "2 sp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "simple",
+      "twoHanded"
+    ],
+    "weight": 4
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226882,
+    "modifiedTime": 1678673276345,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

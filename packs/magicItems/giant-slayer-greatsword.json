@@ -1,89 +1,123 @@
 {
-	"name": "Giant Slayer Greatsword",
-	"type": "object",
-	"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "+1",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "2d6 + @mod + 1",
-				"name": "Greatsword"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "2d6",
-				"name": "Dragon Slayer"
-			}
-		],
-		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "15",
-			"onSave": "Doesn't fall prone.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"parrying",
-			"heavy",
-			"twoHanded"
-		],
-		"weight": "7 lbs"
-	},
-	"_id": "pci594xb04rq2mu4"
+  "name": "Giant Slayer Greatsword",
+  "type": "object",
+  "img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.pci594xb04rq2mu4"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "2qnSJEXwUqYVABG5": {
+        "name": "Giant Slayer Greatsword",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "Ju9U7r9Y6vdNxZvl": {
+            "bonus": "+1",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "iZUldcoxI1uIU1MI": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d6 + @str.mod + 1",
+            "name": "Greatsword",
+            "type": "damage"
+          },
+          "82FSFOWfk635qKBZ": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d6",
+            "name": "Dragon Slayer",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "Lniq3dj4ItZzmwmC": {
+            "ability": "str",
+            "onSave": "Doesn't fall prone.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "Doesn't fall prone.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "heavy",
+      "twoHanded"
+    ],
+    "weight": 7
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673238533,
+    "modifiedTime": 1678673299727,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

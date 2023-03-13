@@ -1,94 +1,129 @@
 {
-	"name": "Giant Slayer Bastard Sword",
-	"type": "object",
-	"img": "icons/weapons/swords/greatsword-guard.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "+1",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d8 + @mod + 1",
-				"name": "Bastard Sword 1H"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d10 + @mod + 1",
-				"name": "Bastard Sword 2H"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "2d6",
-				"name": "Dragon Slayer"
-			}
-		],
-		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "15",
-			"onSave": "Doesn't fall prone.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"parrying",
-			"versatile"
-		],
-		"weight": "5 lbs"
-	},
-	"_id": "9bdtfhjy6um7jh02"
+  "name": "Giant Slayer Bastard Sword",
+  "type": "object",
+  "img": "icons/weapons/swords/greatsword-guard.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.9bdtfhjy6um7jh02"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "2LwsCKO0HxtjjZCJ": {
+        "name": "Giant Slayer Bastard Sword",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "c6LEdQz5b81ZWkzT": {
+            "bonus": "+1",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "wlfUHVWliXpcO5k9": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d8 + @str.mod + 1",
+            "name": "Bastard Sword 1H",
+            "type": "damage"
+          },
+          "89Vae85Oj7UUi1zi": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d10 + @str.mod + 1",
+            "name": "Bastard Sword 2H",
+            "type": "damage"
+          },
+          "U4NdJlPZlKa7MM6x": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d6",
+            "name": "Dragon Slayer",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "oIZCJx3hHySfwBZC": {
+            "ability": "str",
+            "onSave": "Doesn't fall prone.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 2d6 damage against giants (including any creature with the giant type, such as ettins and trolls). In addition, when the weapon deals damage to a giant, the giant makes a DC 15 Strength saving throw or falls prone. </p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "Doesn't fall prone.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "versatile"
+    ],
+    "weight": 5
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226874,
+    "modifiedTime": 1678673272027,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

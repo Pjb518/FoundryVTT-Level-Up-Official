@@ -1,72 +1,103 @@
 {
-	"name": "Gallow Hand",
-	"type": "object",
-	"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>This grisly trophy is the hand of a person hung at the gallows, dipped in wax rendered from their own fat and wicked with their own hair.</p><p>The fingers of this strange and complicated remnant of a malcontent can be lit just like a normal candle to shed bright light in a 5-foot radius and dim light for a further 10 feet. The light shed by a gallow hand is only visible to its holder and is completely invisible to all other creatures.</p><p>Alternatively, all five fingers of the hand can be lit as an action. If the hand is lit in this way, it sheds bright light in a 10-foot radius and dim light for a further 20 feet. This light is invisible to the holder but visible to all other creatures.</p><p>Any creature other than the holder that enters this area of light for the first time on its turn or starts its turn there must make a DC 13 Wisdom saving throw or become charmed. While charmed, a creature’s Speeds are reduced to 0 until the start of its next turn.</p><p>Once lit in this way the gallow hand burns for 1 minute, after which it deteriorates into a molten nub.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "13",
-			"onSave": "not charmed",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "other"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "110 gp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "1 lb"
-	},
-	"_id": "jpmo8wxv79r22vf0"
+  "name": "Gallow Hand",
+  "type": "object",
+  "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.jpmo8wxv79r22vf0"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "mGzjXJkAl35nB0ia": {
+        "name": "Gallow Hand",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "0vGlEzjtUE9BqCST": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "other"
+        },
+        "prompts": {
+          "r00qC59vcjrHHdaV": {
+            "ability": "wis",
+            "onSave": "not charmed",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "13"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This grisly trophy is the hand of a person hung at the gallows, dipped in wax rendered from their own fat and wicked with their own hair.</p><p>The fingers of this strange and complicated remnant of a malcontent can be lit just like a normal candle to shed bright light in a 5-foot radius and dim light for a further 10 feet. The light shed by a gallow hand is only visible to its holder and is completely invisible to all other creatures.</p><p>Alternatively, all five fingers of the hand can be lit as an action. If the hand is lit in this way, it sheds bright light in a 10-foot radius and dim light for a further 20 feet. This light is invisible to the holder but visible to all other creatures.</p><p>Any creature other than the holder that enters this area of light for the first time on its turn or starts its turn there must make a DC 13 Wisdom saving throw or become charmed. While charmed, a creature’s Speeds are reduced to 0 until the start of its next turn.</p><p>Once lit in this way the gallow hand burns for 1 minute, after which it deteriorates into a molten nub.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "13",
+      "onSave": "not charmed",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "110 gp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 1
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673232620,
+    "modifiedTime": 1678673293390,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

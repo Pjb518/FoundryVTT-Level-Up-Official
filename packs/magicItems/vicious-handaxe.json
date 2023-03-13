@@ -1,93 +1,122 @@
 {
-	"name": "Vicious Handaxe",
-	"type": "object",
-	"img": "icons/weapons/axes/shortaxe-engraved-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d6 + @mod",
-				"name": "Handaxe"
-			},
-			{
-				"canCrit": false,
-				"damageType": "slashing",
-				"formula": "2d6",
-				"name": "Vicious Damage"
-			}
-		],
-		"description": "<p><em>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20 ft",
-			"medium"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5 gp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"breaker",
-			"defensive",
-			"dualWielding",
-			"simple",
-			"thrown"
-		],
-		"weight": "2 lbs"
-	},
-	"_id": "ll6yes9y8de2txo7"
+  "name": "Vicious Handaxe",
+  "type": "object",
+  "img": "icons/weapons/axes/shortaxe-engraved-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.ll6yes9y8de2txo7"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "IGkJxKFV5sTkrl6f": {
+        "name": "Vicious Handaxe",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "UfLU0neJi5cmrhYI": {
+            "range": "20 ft"
+          },
+          "EQG4l3wIPQwBnTeI": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "BovqGmL3ysxvgRxL": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "F3lzDY38i2i7n7qf": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + @str.mod",
+            "name": "Handaxe",
+            "type": "damage"
+          },
+          "hkcpsM2DAeXqLOos": {
+            "canCrit": false,
+            "damageType": "slashing",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Breaker (Wood), Defensive (Light), Dual-Wielding, Simple, Thrown (20/60)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5 gp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "breaker",
+      "defensive",
+      "dualWielding",
+      "simple",
+      "thrown"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235472,
+    "modifiedTime": 1678673295571,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

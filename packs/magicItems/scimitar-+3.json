@@ -1,82 +1,105 @@
 {
-	"name": "Scimitar +3",
-	"type": "object",
-	"img": "icons/weapons/swords/scimitar-worn-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "3",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d6 + @mod + 3",
-				"name": "SCimitar"
-			}
-		],
-		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "20 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"finesse",
-			"defensive",
-			"dualWielding"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "t0efchuyfepbe77e"
+  "name": "Scimitar +3",
+  "type": "object",
+  "img": "icons/weapons/swords/scimitar-worn-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.t0efchuyfepbe77e"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "Ja0lnMawJUa6e9hz": {
+        "name": "Scimitar +3",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "muJl3SLgWPNHAi0P": {
+            "bonus": "3",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "CqS50skOnWrY4x33": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + @finesse.mod + 3",
+            "name": "SCimitar",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "20 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "finesse",
+      "defensive",
+      "dualWielding"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673238548,
+    "modifiedTime": 1678673306648,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,77 +1,106 @@
 {
-	"name": "Water Charm",
-	"type": "object",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow",
-			"healing"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p style=\"text-align: right\"><em>T&amp;T 315</em></p><p><strong>Crafting Components:</strong> Shell that’s been home to three different sea creatures</p><hr class=\"a5e-rule u-my-md\"><p>While wearing this charm you gain a swim speed equal to your Speed, or you can break the charm to release its power, destroying it to activate one of the following effects.</p><p>• <strong><em>Breathe</em></strong>: Cast @Compendium[a5e.a5e-spells.ibapaaz63sgen1ao]{Water Breathing}.<br>• <strong><em>Cure</em></strong>: Cast @Compendium[a5e.a5e-spells.n38oneuah7io59c9]{Cure Wounds} at 3rd-level (+3 spellcasting ability modifier).<br>• <strong><em>Numb</em></strong>: Cast @Compendium[a5e.a5e-spells.18vcyto3p7wj17cx]{Sleet Storm} (spell save DC 15).</p><p><strong>Curse</strong>. Releasing the charm’s power attracts the attention of a marid or water elemental who seeks you out to recruit you for a task. <br></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [
-			{
-				"formula": "2d8+3",
-				"healingType": "healing",
-				"name": "Cure wounds"
-			}
-		],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "15",
-			"onSave": "",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "500",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "5a35gx1aiguenm4d"
+  "name": "Water Charm",
+  "type": "object",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.5a35gx1aiguenm4d"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "uzrePaszciwWr7Lq": {
+        "name": "Water Charm",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "IJhuF8vaQ7J94RlZ": {
+            "formula": "2d8+3",
+            "healingType": "healing",
+            "name": "Cure wounds",
+            "type": "healing"
+          }
+        },
+        "prompts": {
+          "1fYprDUnjWXCI4nF": {
+            "ability": "dex",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>T&amp;T 315</em></p><p><strong>Crafting Components:</strong> Shell that’s been home to three different sea creatures</p><hr class=\"a5e-rule u-my-md\"><p>While wearing this charm you gain a swim speed equal to your Speed, or you can break the charm to release its power, destroying it to activate one of the following effects.</p><p>• <strong><em>Breathe</em></strong>: Cast @Compendium[a5e.a5e-spells.ibapaaz63sgen1ao]{Water Breathing}.<br>• <strong><em>Cure</em></strong>: Cast @Compendium[a5e.a5e-spells.n38oneuah7io59c9]{Cure Wounds} at 3rd-level (+3 spellcasting ability modifier).<br>• <strong><em>Numb</em></strong>: Cast @Compendium[a5e.a5e-spells.18vcyto3p7wj17cx]{Sleet Storm} (spell save DC 15).</p><p><strong>Curse</strong>. Releasing the charm’s power attracts the attention of a marid or water elemental who seeks you out to recruit you for a task. <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "500",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673224611,
+    "modifiedTime": 1678673262684,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

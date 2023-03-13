@@ -1,70 +1,98 @@
 {
-	"name": "Necklace of Prayer Beads",
-	"type": "object",
-	"img": "icons/equipment/neck/collar-rounded-carved-wood-spiral.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p style=\"text-align: right\"><em>Requires attunement bij a cleric, druid, or herald</em></p><p><strong>Crafting Components:</strong> Holy water, planetar’s feather</p><hr class=\"a5e-rule u-my-md\"><p>This many-beaded necklace helps mark prayers. Of the many types of gemstone beads, [[/r 1d4+2]] are magical and can be removed from the necklace as a bonus action to cast a spell (described on Table: Necklace of Prayer Beads). There are 6 types of magic beads, and which are on the necklace are randomly determined or chosen by the Narrator.</p><p>A necklace can have multiple beads of the same type. To use a bead, you must be wearing the necklace, and if it requires a spell save you use your spell save<br>DC. Once a bead has been used, it loses its magic until the next dawn</p><p style=\"text-align: center\"><strong>TABLE: NECKLACE OF PRAYER BEADS</strong><br><strong>D20 - </strong>BEAD OF  - SPELL</p><p style=\"text-align: center\"><strong>1–6</strong> Blessing - @Compendium[a5e.a5e-spells.iuy8bgmwgvhtgi83]{Bless}<br><strong>7–12 </strong>Curing - @Compendium[a5e.a5e-spells.n38oneuah7io59c9]{Cure Wounds} (2nd-level) or @Compendium[a5e.a5e-spells.g7bleenmf2e7ab6q]{Lesser Restoration}<br><strong>13–16</strong> Favor - @Compendium[a5e.a5e-spells.4funxoycwvh6d5p9]{Greater Restoration}<br><strong>17–18</strong> Invigorating - @Compendium[a5e.a5e-spells.cydwiqcwewvdpsps]{Invigorated Strikes}<br><strong>19</strong> Summons - @Compendium[a5e.a5e-spells.z17kiyvx36jh2tbs]{Planar Ally}<br><strong>20</strong> Wind - @Compendium[a5e.a5e-spells.rsqykeg9uwp6utdb]{Wind Walk}</p><p> <br></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": 3,
-			"max": 3,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "jewelry",
-		"plotItem": false,
-		"price": "3000",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "tz0nf3toinrcbumj"
+  "name": "Necklace of Prayer Beads",
+  "type": "object",
+  "img": "icons/equipment/neck/collar-rounded-carved-wood-spiral.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.tz0nf3toinrcbumj"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "J6tAnhzmLnQtqqdO": {
+        "name": "Necklace of Prayer Beads",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "iMGDhX1qz5IOmQCf": {
+            "ability": "",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>Requires attunement bij a cleric, druid, or herald</em></p><p><strong>Crafting Components:</strong> Holy water, planetar’s feather</p><hr class=\"a5e-rule u-my-md\"><p>This many-beaded necklace helps mark prayers. Of the many types of gemstone beads, [[/r 1d4+2]] are magical and can be removed from the necklace as a bonus action to cast a spell (described on Table: Necklace of Prayer Beads). There are 6 types of magic beads, and which are on the necklace are randomly determined or chosen by the Narrator.</p><p>A necklace can have multiple beads of the same type. To use a bead, you must be wearing the necklace, and if it requires a spell save you use your spell save<br>DC. Once a bead has been used, it loses its magic until the next dawn</p><p style=\"text-align: center\"><strong>TABLE: NECKLACE OF PRAYER BEADS</strong><br><strong>D20 - </strong>BEAD OF  - SPELL</p><p style=\"text-align: center\"><strong>1–6</strong> Blessing - @Compendium[a5e.a5e-spells.iuy8bgmwgvhtgi83]{Bless}<br><strong>7–12 </strong>Curing - @Compendium[a5e.a5e-spells.n38oneuah7io59c9]{Cure Wounds} (2nd-level) or @Compendium[a5e.a5e-spells.g7bleenmf2e7ab6q]{Lesser Restoration}<br><strong>13–16</strong> Favor - @Compendium[a5e.a5e-spells.4funxoycwvh6d5p9]{Greater Restoration}<br><strong>17–18</strong> Invigorating - @Compendium[a5e.a5e-spells.cydwiqcwewvdpsps]{Invigorated Strikes}<br><strong>19</strong> Summons - @Compendium[a5e.a5e-spells.z17kiyvx36jh2tbs]{Planar Ally}<br><strong>20</strong> Wind - @Compendium[a5e.a5e-spells.rsqykeg9uwp6utdb]{Wind Walk}</p><p> <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "jewelry",
+    "plotItem": false,
+    "price": "3000",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673241956,
+    "modifiedTime": 1678673307890,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

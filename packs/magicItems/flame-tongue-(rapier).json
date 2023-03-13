@@ -1,87 +1,111 @@
 {
-	"name": "Flame Tongue (Rapier)",
-	"type": "object",
-	"img": "icons/weapons/swords/greatsword-evil-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d8 + @mod",
-				"name": "Flame Tongue Rapier"
-			},
-			{
-				"canCrit": true,
-				"damageType": "fire",
-				"formula": "2d6",
-				"name": "When Lit"
-			}
-		],
-		"description": "<blockquote><p>Defensive (Light), Finesse</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to this magic sword, you can use a bonus action and speak its command word to make flames erupt from the blade, shedding bright light in a 40-foot radius and dim light for an additional 40 feet.</p><p>While lit, attacks using the sword deal an extra 2d6 fire damage.</p><p>The flames last until you use a bonus action to put them out or until you drop or sheathe the sword.</p>",
-		"duration": {
-			"unit": "special",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive",
-			"finesse"
-		],
-		"weight": "2 lbs"
-	},
-	"_id": "9aisyyk8h3uhccj0"
+  "name": "Flame Tongue (Rapier)",
+  "type": "object",
+  "img": "icons/weapons/swords/greatsword-evil-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.9aisyyk8h3uhccj0"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "5kzwnNXCbenqjtZG": {
+        "name": "Flame Tongue (Rapier)",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "cAWQoZxxsVOv9eeA": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "HblYc0G0Lyi3meWa": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @finesse.mod",
+            "name": "Flame Tongue Rapier",
+            "type": "damage"
+          },
+          "kxfX7Vb9kf5EfL6l": {
+            "canCrit": true,
+            "damageType": "fire",
+            "formula": "2d6",
+            "name": "When Lit",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<blockquote><p>Defensive (Light), Finesse</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to this magic sword, you can use a bonus action and speak its command word to make flames erupt from the blade, shedding bright light in a 40-foot radius and dim light for an additional 40 feet.</p><p>While lit, attacks using the sword deal an extra 2d6 fire damage.</p><p>The flames last until you use a bonus action to put them out or until you drop or sheathe the sword.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "finesse"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226873,
+    "modifiedTime": 1678673271915,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

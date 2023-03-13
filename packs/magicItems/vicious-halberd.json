@@ -1,95 +1,120 @@
 {
-	"name": "Vicious Halberd",
-	"type": "object",
-	"img": "icons/weapons/polearms/halberd-crescent-small-spiked.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d10 + @mod",
-				"name": "Halberd Pierce"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d10 + @mod",
-				"name": "Halberd Slash"
-			},
-			{
-				"canCrit": false,
-				"damageType": "piercing",
-				"formula": "2d6",
-				"name": "Vicious Damage"
-			}
-		],
-		"description": "<p><em>Heavy, Reach, Trip, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "25 gp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"heavy",
-			"reach",
-			"trip",
-			"twoHanded"
-		],
-		"weight": "7 lbs"
-	},
-	"_id": "rj9ifcyg4nsjdpzd"
+  "name": "Vicious Halberd",
+  "type": "object",
+  "img": "icons/weapons/polearms/halberd-crescent-small-spiked.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.rj9ifcyg4nsjdpzd"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "xaXROIjOB4K8gcFa": {
+        "name": "Vicious Halberd",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "mRnQioBjVavRANIS": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "OLP6ZhpUrduYHFsD": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d10 + @str.mod",
+            "name": "Halberd Pierce",
+            "type": "damage"
+          },
+          "M4EZHsf7kmhQF2rr": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d10 + @str.mod",
+            "name": "Halberd Slash",
+            "type": "damage"
+          },
+          "HEpKhmrKy0xaHUq9": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Heavy, Reach, Trip, Two-Handed</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "25 gp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "heavy",
+      "reach",
+      "trip",
+      "twoHanded"
+    ],
+    "weight": 7
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673238543,
+    "modifiedTime": 1678673304669,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,90 +1,127 @@
 {
-	"name": "Mace of Disruption",
-	"type": "object",
-	"img": "icons/weapons/maces/mace-round-spiked-grey.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"damage",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d6 + @mod",
-				"name": "Mace"
-			},
-			{
-				"canCrit": true,
-				"damageType": "radiant",
-				"formula": "2d6",
-				"name": "Extra damage"
-			}
-		],
-		"description": "<p style=\"text-align: right\"><em>Defensive (Medium), Simple</em></p><p><strong>Crafting Components</strong>: Mace of a deva</p><hr class=\"a5e-rule u-my-md\"><p>Fiends and undead take an extra [[/r 2d6 #radiant]] radiant damage when hit with this weapon. When this weapon reduces a fiend or undead to 25 or fewer hit points, the creature makes a DC 15 Wisdom saving throw or it is destroyed. On a successful save the creature becomes frightened of you until the end of your next turn.</p><p>While it is held, this weapon shines bright light in a 20-foot radius and dim light an additional 20 feet. <br></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"5 ft."
-		],
-		"save": {
-			"dc": "15",
-			"onSave": "frightened of you until of of your next turn but not destroyed",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5000",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive",
-			"simple"
-		],
-		"weight": "4 lbs"
-	},
-	"_id": "yzxjzrv13rm36q3q"
+  "name": "Mace of Disruption",
+  "type": "object",
+  "img": "icons/weapons/maces/mace-round-spiked-grey.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.yzxjzrv13rm36q3q"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "iZfMp9FIYTpGLI0q": {
+        "name": "Mace of Disruption",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "ShaRxmUzg5XUoDxy": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "vbb4beUa9eL6LcrX": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "6GOkPeFceVx67VXd": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d6 + @str.mod",
+            "name": "Mace",
+            "type": "damage"
+          },
+          "nDKgBLxqnylt6iIW": {
+            "canCrit": true,
+            "damageType": "radiant",
+            "formula": "2d6",
+            "name": "Extra damage",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "SXLoxm2WiyBFovaY": {
+            "ability": "wis",
+            "onSave": "frightened of you until of of your next turn but not destroyed",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>Defensive (Medium), Simple</em></p><p><strong>Crafting Components</strong>: Mace of a deva</p><hr class=\"a5e-rule u-my-md\"><p>Fiends and undead take an extra [[/r 2d6 #radiant]] radiant damage when hit with this weapon. When this weapon reduces a fiend or undead to 25 or fewer hit points, the creature makes a DC 15 Wisdom saving throw or it is destroyed. On a successful save the creature becomes frightened of you until the end of your next turn.</p><p>While it is held, this weapon shines bright light in a 20-foot radius and dim light an additional 20 feet. <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "frightened of you until of of your next turn but not destroyed",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5000",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "simple"
+    ],
+    "weight": 4
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673245436,
+    "modifiedTime": 1678673319234,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

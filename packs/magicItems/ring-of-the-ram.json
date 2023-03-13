@@ -1,92 +1,120 @@
 {
-	"name": "Ring of the Ram",
-	"type": "object",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "str",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "7",
-			"critThreshold": "20",
-			"type": "rangedSpellAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "force",
-				"formula": "2d10",
-				"name": "1 charge"
-			},
-			{
-				"canCrit": true,
-				"damageType": "force",
-				"formula": "4d10",
-				"name": "2 charges"
-			},
-			{
-				"canCrit": true,
-				"damageType": "force",
-				"formula": "6d10",
-				"name": "3 charges"
-			}
-		],
-		"description": "<p><strong>Crafting Components: </strong>Chimera horns</p><hr class=\"a5e-rule u-my-md\"><p>This ring has 3 charges and regains [[/r 1d3 #charges]] expended charges at dawn. While wearing this ring, you can use an action to expend 1 to 3 charges and choose a creature you can see within 60 feet. A spectral ram’s head launches from the ring to slam into the creature, making its attack roll with a +7 bonus. On a hit, for every expended charge the attack deals 2d10<br>force damage and the creature is pushed 5 feet away.</p><p>Additionally, you can use an action to expend 1 to 3 charges to break an unattended object you can see within 60 feet. The ring makes a Strength check with a +5 bonus for each expended charge.</p><p style=\"text-align: center\"><strong>Charges - Strength check</strong></p><p style=\"text-align: center\">1 - [[/r 1d20+5 #Strength check]]<br>2 - [[/r 1d20+10 #Strength check]]<br>3 - [[/r 1d20+15 #Strength check]]</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": false,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": 3,
-			"max": 3,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "jewelry",
-		"plotItem": false,
-		"price": "8000",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "k8w470dhx5mn6f53"
+  "name": "Ring of the Ram",
+  "type": "object",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.k8w470dhx5mn6f53"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "str",
+    "actions": {
+      "7TBuXh0oOkMbaSIX": {
+        "name": "Ring of the Ram",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "1QNUroTd5yBzygAa": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "4wKjcy0YGRM8o4B1": {
+            "bonus": "7",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "AATPvI0KrhxdjGct": {
+            "canCrit": true,
+            "damageType": "force",
+            "formula": "2d10",
+            "name": "1 charge",
+            "type": "damage"
+          },
+          "sK3kIuCHYdEeRiOY": {
+            "canCrit": true,
+            "damageType": "force",
+            "formula": "4d10",
+            "name": "2 charges",
+            "type": "damage"
+          },
+          "Ef5sJoChoyQ1xvHR": {
+            "canCrit": true,
+            "damageType": "force",
+            "formula": "6d10",
+            "name": "3 charges",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><strong>Crafting Components: </strong>Chimera horns</p><hr class=\"a5e-rule u-my-md\"><p>This ring has 3 charges and regains [[/r 1d3 #charges]] expended charges at dawn. While wearing this ring, you can use an action to expend 1 to 3 charges and choose a creature you can see within 60 feet. A spectral ram’s head launches from the ring to slam into the creature, making its attack roll with a +7 bonus. On a hit, for every expended charge the attack deals 2d10<br>force damage and the creature is pushed 5 feet away.</p><p>Additionally, you can use an action to expend 1 to 3 charges to break an unattended object you can see within 60 feet. The ring makes a Strength check with a +5 bonus for each expended charge.</p><p style=\"text-align: center\"><strong>Charges - Strength check</strong></p><p style=\"text-align: center\">1 - [[/r 1d20+5 #Strength check]]<br>2 - [[/r 1d20+10 #Strength check]]<br>3 - [[/r 1d20+15 #Strength check]]</p>",
+    "favorite": false,
+    "proficient": false,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "jewelry",
+    "plotItem": false,
+    "price": "8000",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673232621,
+    "modifiedTime": 1678673293631,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

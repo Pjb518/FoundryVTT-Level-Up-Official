@@ -1,82 +1,105 @@
 {
-	"name": "Flicker Dagger (Dagger)",
-	"type": "object",
-	"img": "icons/weapons/daggers/dagger-crooked-ice-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d4 + @mod",
-				"name": "Flicker Dagger"
-			}
-		],
-		"description": "<blockquote><p>Dual-Wielding, Finesse, Simple</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to and wielding this dagger, you can use a bonus action to summon a flickering illusion for 1 minute.</p><p>Your flickering illusion shares your space, moves with you, and is treated as another enemy of the target for the purposes of the Sneak Attack feature, but it cannot be targeted with attacks and provides no penalties to creatures attacking you.</p><p>Once you have used this property, you cannot do so again until you finish a long rest.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "object"
-		},
-		"uses": {
-			"value": 1,
-			"max": 1,
-			"per": "longRest"
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"dualWielding",
-			"finesse",
-			"simple"
-		],
-		"weight": "1 lb"
-	},
-	"_id": "fejhss7jhhgw58d3"
+  "name": "Flicker Dagger (Dagger)",
+  "type": "object",
+  "img": "icons/weapons/daggers/dagger-crooked-ice-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.fejhss7jhhgw58d3"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "a8Yx8sidvUfajvsp": {
+        "name": "Flicker Dagger (Dagger)",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "object"
+        },
+        "rolls": {
+          "DtWgoQvrfDZhQfb2": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "p5X77ugdyCoVcYyX": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d4 + @finesse.mod",
+            "name": "Flicker Dagger",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<blockquote><p>Dual-Wielding, Finesse, Simple</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to and wielding this dagger, you can use a bonus action to summon a flickering illusion for 1 minute.</p><p>Your flickering illusion shares your space, moves with you, and is treated as another enemy of the target for the purposes of the Sneak Attack feature, but it cannot be targeted with attacks and provides no penalties to creatures attacking you.</p><p>Once you have used this property, you cannot do so again until you finish a long rest.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": 1,
+      "per": "longRest"
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "dualWielding",
+      "finesse",
+      "simple"
+    ],
+    "weight": 1
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673229419,
+    "modifiedTime": 1678673282075,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

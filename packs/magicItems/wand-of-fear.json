@@ -1,72 +1,103 @@
 {
-	"name": "Wand of Fear",
-	"type": "object",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cone",
-			"size": "60"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p style=\"text-align: right\"><em>T&amp;T 312</em></p><p><strong>Crafting Components:</strong> Grave goods stolen from the tomb of an infamous tyrant</p><hr class=\"a5e-rule u-my-md\"><p>While holding this wand, you can use an action to expend 1 charge and command another creature to flee or grovel (as the @Compendium[a5e.a5e-spells.d1zrayu7x6l0vbsm]{Command} spell, save DC 15).</p><p>Alternatively, you can use an action to expend 2 charges, causing the wand to emit a 60-foot cone of light. Each creature in the area makes a DC 15 Wisdom saving throw or becomes frightened of you for 1 minute. A creature frightened in this way must spend its turns trying to move as far away from you as possible, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. On its turn, the frightened creature can use only the Dash action or try to escape from an effect that prevents it from moving, or if it has nowhere to move then the Dodge action. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>This wand has 7 charges and regains [[/r 1d6+1 #charges]] expended charges each dawn. When the last charge is expended, roll a [[/r 1d20]]. On a 1, the wand releases a chilling wail and crumbles into nothing. <br></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "15",
-			"onSave": "not commanded / not frightened",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": 7,
-			"max": 7,
-			"per": "day"
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "5000",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "0immxbpngswanb5f"
+  "name": "Wand of Fear",
+  "type": "object",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.0immxbpngswanb5f"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "IzoVqpZ9WpBLkCx6": {
+        "name": "Wand of Fear",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "FTCn34YBrMP85qFM": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "size": "60",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "2g2lo1zRGfesQ2NJ": {
+            "ability": "wis",
+            "onSave": "not commanded / not frightened",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>T&amp;T 312</em></p><p><strong>Crafting Components:</strong> Grave goods stolen from the tomb of an infamous tyrant</p><hr class=\"a5e-rule u-my-md\"><p>While holding this wand, you can use an action to expend 1 charge and command another creature to flee or grovel (as the @Compendium[a5e.a5e-spells.d1zrayu7x6l0vbsm]{Command} spell, save DC 15).</p><p>Alternatively, you can use an action to expend 2 charges, causing the wand to emit a 60-foot cone of light. Each creature in the area makes a DC 15 Wisdom saving throw or becomes frightened of you for 1 minute. A creature frightened in this way must spend its turns trying to move as far away from you as possible, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. On its turn, the frightened creature can use only the Dash action or try to escape from an effect that prevents it from moving, or if it has nowhere to move then the Dodge action. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>This wand has 7 charges and regains [[/r 1d6+1 #charges]] expended charges each dawn. When the last charge is expended, roll a [[/r 1d20]]. On a 1, the wand releases a chilling wail and crumbles into nothing. <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "not commanded / not frightened",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 7,
+      "max": 7,
+      "per": "day"
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "5000",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673222043,
+    "modifiedTime": 1678673253188,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

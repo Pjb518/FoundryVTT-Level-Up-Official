@@ -1,83 +1,116 @@
 {
-	"name": "Obsidian Butterfly Knife",
-	"type": "object",
-	"img": "icons/weapons/daggers/dagger-double-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "1",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d4 + @mod +1",
-				"name": "Dagger"
-			}
-		],
-		"description": "<p style=\"text-align: right\"><em>Dual-Wielding, Finesse, Simple</em></p><p><strong>Crafting Components</strong>: Heart of a fey royal</p><hr class=\"a5e-rule u-my-md\"><p>Made of razor-sharp obsidian, this finely-balanced blade glows faintly with deep purple light. You gain a +1 bonus to attack and damage rolls made with this dagger.</p><p>You can use an action to cause the dagger’s inner light to brighten, glowing like the corona of an eclipsed sun. This glow lasts for 1 minute or until you use it to deal damage to a creature. That creature makes a DC 12 Constitution saving throw or it takes [[/r 3d6 #necrotic]] necrotic damage and is unable to regain hit points for 1 minute. If this damage reduces the target to 0 hit points, the target immediately dies and [[/r 1d4 #rounds]] rounds later its body explodes into a swarm of obsidian butterflies that completely eviscerate the corpse, leaving only the heart behind. The dagger can’t be used this way again until it is exposed to a new sunrise. <br></p>",
-		"duration": {
-			"unit": "minute",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "12",
-			"onSave": "No effect",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "object"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "11000",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"dualWielding",
-			"finesse",
-			"simple"
-		],
-		"weight": "1 lb"
-	},
-	"_id": "q22oynz8f8opixmy"
+  "name": "Obsidian Butterfly Knife",
+  "type": "object",
+  "img": "icons/weapons/daggers/dagger-double-red.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.q22oynz8f8opixmy"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "piO3TYG6zu2kMDgA": {
+        "name": "Obsidian Butterfly Knife",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "object"
+        },
+        "rolls": {
+          "DVdsmK9W12Y7wPHS": {
+            "bonus": "1",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "j4kIK9xNbI32IG4J": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d4 + @finesse.mod +1",
+            "name": "Dagger",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "5l6Z7JJpvE8zzRud": {
+            "ability": "con",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "12"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>Dual-Wielding, Finesse, Simple</em></p><p><strong>Crafting Components</strong>: Heart of a fey royal</p><hr class=\"a5e-rule u-my-md\"><p>Made of razor-sharp obsidian, this finely-balanced blade glows faintly with deep purple light. You gain a +1 bonus to attack and damage rolls made with this dagger.</p><p>You can use an action to cause the dagger’s inner light to brighten, glowing like the corona of an eclipsed sun. This glow lasts for 1 minute or until you use it to deal damage to a creature. That creature makes a DC 12 Constitution saving throw or it takes [[/r 3d6 #necrotic]] necrotic damage and is unable to regain hit points for 1 minute. If this damage reduces the target to 0 hit points, the target immediately dies and [[/r 1d4 #rounds]] rounds later its body explodes into a swarm of obsidian butterflies that completely eviscerate the corpse, leaving only the heart behind. The dagger can’t be used this way again until it is exposed to a new sunrise. <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "12",
+      "onSave": "No effect",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "11000",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "dualWielding",
+      "finesse",
+      "simple"
+    ],
+    "weight": 1
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673238536,
+    "modifiedTime": 1678673301599,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
