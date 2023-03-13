@@ -3,7 +3,7 @@ import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActionsManager from '../managers/ActionsManager';
 
-import constructCritDamageRoll from '../dice/constructCritDamageRoll';
+import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import constructRollFormula from '../dice/constructRollFormula';
 import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';

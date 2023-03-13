@@ -70,6 +70,24 @@ export default function registerSystemSettings() {
     default: ''
   });
 
+  // Diagonal Movement Rule
+  game.settings.register('a5e', 'critCalculationMode', {
+    name: 'A5E.SettingsCritCalculationMode',
+    hint: 'A5E.SettingsCritCalculationModeHint',
+    scope: 'world',
+    config: true,
+    default: 'doubleAllDamage',
+    type: String,
+    choices: {
+      doubleAllDamage: 'A5E.SettingsCritDoubleAllDamage',
+      doubleDiceDamage: 'A5E.SettingsCritDoubleDiceDamage',
+      doubleDiceQuantity: 'A5E.SettingsCritDoubleDiceQuantity',
+      doubleDiceQuantityAndMods: 'A5E.SettingsCritDoubleDiceQuantityAndMods',
+      maxDamage: 'A5E.SettingsCritMaxDamage',
+      maxDamagePlusRoll: 'A5E.SettingsCritMaxDamagePlusRoll'
+    }
+  });
+
   // Default GM Setting for placing templates
   game.settings.register('a5e', 'hideDeleteConfirmation', {
     name: 'Hide Deletion Confirmation Dialog',
