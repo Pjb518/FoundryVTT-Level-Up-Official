@@ -10,9 +10,9 @@
     const actor = getContext("actor");
 
     const charChoicesLabel = {
+        classes: "A5E.ClassPlural",
         archetype: "A5E.Archetype",
         // background: "A5E.Background",
-        classes: "A5E.ClassPlural",
         // culture: "A5E.Culture",
         // destiny: "A5E.Destiny",
         // heritage: "A5E.Heritage",
@@ -41,30 +41,32 @@
     <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
         {#each Object.entries(charChoicesLabel) as [key, label]}
             <div
-                class="u-flex u-align-center u-gap-md u-justify-space-between"
+                class="u-flex u-flex-col a5e-input-container u-gap-xs"
                 data-type={key}
             >
-                <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
+                <label
+                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    for="{actor.id}-details-{key}"
+                >
                     {localize(label)}
-                </h3>
+                </label>
 
-                <div class="a5e-input-container a5e-input-container--bio">
-                    <input
-                        class="a5e-input a5e-input--slim"
-                        type="text"
-                        name="system.details.{key}"
-                        value={details[key]}
-                        on:change={({ target }) => {
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                key !== "prestige"
-                                    ? target.value
-                                    : Number(target.value)
-                            );
-                        }}
-                    />
-                </div>
+                <input
+                    class="a5e-input a5e-input--slim u-w-full"
+                    id="{actor.id}-details-{key}"
+                    type="text"
+                    name="system.details.{key}"
+                    value={details[key] ?? ""}
+                    on:change={({ target }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            key === "prestige"
+                                ? Number(target.value)
+                                : target.value
+                        );
+                    }}
+                />
             </div>
         {/each}
     </section>
@@ -72,28 +74,30 @@
     <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
         {#each Object.entries(traitsLabel) as [key, label]}
             <div
-                class="u-flex u-align-center u-gap-md u-justify-space-between"
+                class="u-flex u-flex-col a5e-input-container u-gap-xs"
                 data-type={key}
             >
-                <h3 class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0">
+                <label
+                    class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    for="{actor.id}-details-{key}"
+                >
                     {localize(label)}
-                </h3>
+                </label>
 
-                <div class="a5e-input-container a5e-input-container--bio">
-                    <input
-                        class="a5e-input a5e-input--slim"
-                        type="text"
-                        name="system.details.{key}"
-                        value={details[key]}
-                        on:change={({ target }) => {
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            );
-                        }}
-                    />
-                </div>
+                <input
+                    class="a5e-input a5e-input--slim"
+                    id="{actor.id}-details-{key}"
+                    type="text"
+                    name="system.details.{key}"
+                    value={details[key]}
+                    on:change={({ target }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        );
+                    }}
+                />
             </div>
         {/each}
     </section>
