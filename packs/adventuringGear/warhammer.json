@@ -1,88 +1,111 @@
 {
-	"name": "Warhammer",
-	"type": "object",
-	"img": "icons/weapons/hammers/hammer-drilling-spiked.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d8 + @mod",
-				"name": "Warhammer 1H"
-			},
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d10 + @mod",
-				"name": "Warhammer 2H"
-			}
-		],
-		"description": "<p><em>Breaker, Versatile (1d10)</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "15 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"versatile",
-			"breaker"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "7zqufxbzhih9yfsw"
+  "name": "Warhammer",
+  "type": "object",
+  "img": "icons/weapons/hammers/hammer-drilling-spiked.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.7zqufxbzhih9yfsw"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "SklvqNR4GDNj2lgI": {
+        "name": "Warhammer",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "J0HkOVSAeFroW3vy": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "3JUlye64oLlRuXOO": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d8 + @str.mod",
+            "name": "Warhammer 1H",
+            "type": "damage"
+          },
+          "4jpBI3qkG6z4XYxL": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d10 + @str.mod",
+            "name": "Warhammer 2H",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Breaker, Versatile (1d10)</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "15 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "versatile",
+      "breaker"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672297712,
+    "modifiedTime": 1678672329385,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

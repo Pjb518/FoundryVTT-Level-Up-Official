@@ -1,70 +1,98 @@
 {
-	"name": "Smoke bomb",
-	"type": "object",
-	"img": "icons/commodities/tech/smoke-spout-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cube",
-			"size": "10 feet"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>This metal sphere’s casing is pockmarked with holes and capped with a thick fuse. When lit, it spews suffocating black smoke that heavily obscures a 10-foot cube for 1 minute. Air-breathing creatures within the smoke must make a DC 10 Constitution saving throw, or have disadvantage on ability checks, attack rolls, and saving throws made while breathing the fumes. A wind of moderate or greater speed suppresses the smoke effect for 1 round.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "10",
-			"onSave": "Ignore effects",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "50 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "3 lbs"
-	},
-	"_id": "erxssofi2jlptyv7"
+  "name": "Smoke bomb",
+  "type": "object",
+  "img": "icons/commodities/tech/smoke-spout-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.erxssofi2jlptyv7"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "P7PIbRQQLwQH2KXv": {
+        "name": "Smoke bomb",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "cube",
+          "size": "10 feet",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "1P5z8ZqWmAWdpIKa": {
+            "ability": "con",
+            "onSave": "Ignore effects",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "10"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This metal sphere’s casing is pockmarked with holes and capped with a thick fuse. When lit, it spews suffocating black smoke that heavily obscures a 10-foot cube for 1 minute. Air-breathing creatures within the smoke must make a DC 10 Constitution saving throw, or have disadvantage on ability checks, attack rolls, and saving throws made while breathing the fumes. A wind of moderate or greater speed suppresses the smoke effect for 1 round.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "10",
+      "onSave": "Ignore effects",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "50 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672299796,
+    "modifiedTime": 1678672330734,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,88 +1,111 @@
 {
-	"name": "Battleaxe",
-	"type": "object",
-	"img": "icons/weapons/axes/axe-broad-worn-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d8 + @mod",
-				"name": "Battleaxe 1H"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d10 + @mod",
-				"name": "Battleaxe 2H"
-			}
-		],
-		"description": "<p><em>Breaker (Wood), Versatile (1d10)</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "10 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"breaker",
-			"versatile"
-		],
-		"weight": "6 lbs"
-	},
-	"_id": "2tix2mu9d3gorip7"
+  "name": "Battleaxe",
+  "type": "object",
+  "img": "icons/weapons/axes/axe-broad-worn-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.2tix2mu9d3gorip7"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "0VcUzwRTwCu0XGXt": {
+        "name": "Battleaxe",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "EZZS6YqEvXBjxdes": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "3yPTOR0fVP3cBW75": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d8 + @str.mod",
+            "name": "Battleaxe 1H",
+            "type": "damage"
+          },
+          "xJXxYn2DhqupQxP6": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d10 + @str.mod",
+            "name": "Battleaxe 2H",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Breaker (Wood), Versatile (1d10)</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "10 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "breaker",
+      "versatile"
+    ],
+    "weight": 6
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672297698,
+    "modifiedTime": 1678672327694,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
