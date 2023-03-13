@@ -131,8 +131,6 @@
         {}
     );
 
-    console.log(attackRoll);
-
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;

@@ -10,8 +10,6 @@
     const A5E = CONFIG.A5E;
 
     let listHeight;
-
-    $: console.log(listHeight);
 </script>
 
 {#if !actionId && item.system.degree === 0}
