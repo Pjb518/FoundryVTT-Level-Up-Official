@@ -15,8 +15,8 @@
     ];
 
     $: content = $item.system.actions[actionId]?.description;
-    $: descriptionOutputs =
-        $item.system.actions[actionId]?.descriptionOutputs ?? [];
+    $: descriptionOutputs = $item.system.actions[actionId]
+        ?.descriptionOutputs ?? ["item"];
 </script>
 
 <section>

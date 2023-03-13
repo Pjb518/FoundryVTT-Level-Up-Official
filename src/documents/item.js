@@ -155,7 +155,7 @@ export default class ItemA5e extends Item {
           actionDescription: this.actions[actionId]?.descriptionOutputs?.includes('action')
             ? this.actions[actionId].description
             : null,
-          itemDescription: this.actions[actionId]?.descriptionOutputs?.includes('item')
+          itemDescription: this.actions[actionId]?.descriptionOutputs?.includes('item') ?? true
             ? this.system.description
             : null,
           prompts: promise.prompts,
