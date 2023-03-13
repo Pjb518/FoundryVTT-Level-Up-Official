@@ -1,93 +1,118 @@
 {
-	"name": "Vicious Greatclub",
-	"type": "object",
-	"img": "icons/weapons/clubs/club-banded-barbed-black.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d8 + @mod",
-				"name": "Greatclub 1H"
-			},
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d10 + @mod",
-				"name": "Greatclub 2H"
-			},
-			{
-				"canCrit": false,
-				"damageType": "bludgeoning",
-				"formula": "2d6",
-				"name": "Vicious Damage"
-			}
-		],
-		"description": "<p><em>Simple, Versatile (1d10)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5 sp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"versatile",
-			"simple"
-		],
-		"weight": "10 lbs"
-	},
-	"_id": "q0r0nkn3glse498w"
+  "name": "Vicious Greatclub",
+  "type": "object",
+  "img": "icons/weapons/clubs/club-banded-barbed-black.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.q0r0nkn3glse498w"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "eO7Ju1yPloDiGgY6": {
+        "name": "Vicious Greatclub",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "I2Z6sBWiVnPpgW4R": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "voxWt3i2UwV04XhE": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d8 + @str.mod",
+            "name": "Greatclub 1H",
+            "type": "damage"
+          },
+          "c1IRXtYBq073PFwL": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d10 + @str.mod",
+            "name": "Greatclub 2H",
+            "type": "damage"
+          },
+          "98MXdFPXkqQZ9c6j": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Simple, Versatile (1d10)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5 sp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "versatile",
+      "simple"
+    ],
+    "weight": 10
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673238535,
+    "modifiedTime": 1678673300871,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

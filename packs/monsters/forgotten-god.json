@@ -1,1828 +1,2131 @@
 {
-	"name": "Forgotten God",
-	"type": "npc",
-	"img": "systems/a5e/assets/forgotten-god.webp",
-	"items": [
-		{
-			"_id": "JcgWFMoZN08rNHlc",
-			"name": "Aligned",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The forgotten god radiates a weak alignment aura, most often Lawful and Good, Chaotic and Good, Lawful and Evil, or Chaotic and Evil. Its behavior may not match its alignment. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fvMqi4Fq6qsD9j68",
-			"name": "Flawed Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The god’s innate spellcasting ability is Wisdom (save DC 17).The god can try to cast flame strike or spirit guardians at will with no material component. When the god tries to cast the spell, roll 1d6. On a 1, 2, or 3 on the die, the spell visibly fails and has no effect. The god’s action for the turn is not wasted, but it can’t be used to cast a spell. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7V7GPqoB9UGD1rl1",
-			"name": "Legendary Resistances",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>When the god fails a saving throw, it can choose to succeed instead. When<br>it does so, it seems to flicker and shrink, as if it is using up its essence. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1QX6nwmwNUejmOln",
-			"name": "Stunning Gaze (Gaze)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "3d6",
-						"name": "Stunning Gaze"
-					}
-				],
-				"description": "<p>The god targets a creature within 60 feet. The target makes a DC 17 Charisma saving throw. On a failure, the target takes 10 (3d6) radiant damage and is stunned until the end of its next turn. On a success, the target is immune to Stunning Gaze<br>for 24 hours. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"60 ft."
-				],
-				"save": {
-					"dc": 17,
-					"onSave": "Immunity against the Stunning Gaze for 24 hours.",
-					"targetAbility": "cha"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1uwG6iKiUAZVaSDM",
-			"name": "Divine Wrath (While Bloodied)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "60 ft."
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "8d6",
-						"name": "Divine Wrath"
-					}
-				],
-				"description": "<p>Each creature of the god’s choice within 60 feet makes a DC 17 Constitution saving throw, taking 28 (8d6) radiant damage on a failure or half damage on a success. <br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": 17,
-					"onSave": "Half Damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "T6PMZpxnlPHiitA5",
-			"name": "Divine Weapon",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "",
-						"formula": "1d8 + @mod",
-						"name": "Weapon Attack"
-					},
-					{
-						"canCrit": true,
-						"damageType": "radiant",
-						"formula": "2d6",
-						"name": "Radiant Damage"
-					}
-				],
-				"description": "<p>The Damage Type of this weapon depends on which weapon the God wields. </p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [],
-				"weight": 0
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "HtIWtGbQlCyEmiQT",
-			"name": "Float (Legendary Action)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The god flies up to half its fly speed without provoking opportunity attacks. <br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "aHg7CtFUKJkf4RtM",
-			"name": "Smite (Legendary Action)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The god makes a divine weapon attack. </p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "eBfTtgsiFNhJ2SUp",
-			"name": "Stunning Glance (Legendary Action)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The god uses Stunning Gaze.<br></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ajmS4KmL5LPGeewc",
-			"name": "Flame Strike",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "spellcasting",
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "cylinder",
-					"size": "10 ft. Radius, 40 ft. High"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "4d6",
-						"name": "Fire Damage"
-					},
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "4d6",
-						"name": "Radiant Damage"
-					}
-				],
-				"description": "<p>A 10-foot-radius, 40-foothigh column of divine flame appears centered on a point the god can see within 60 feet. Each creature in the area makes a DC 17 Dexterity saving throw, taking 14 (4d6) fire damage and 14 (4d6) radiant damage on a failed save, or half damage on a success.<br></p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"60 ft."
-				],
-				"save": {
-					"dc": 17,
-					"onSave": "Damage is halved",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 5,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"fire"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "RUvSpZhjhgQUPPUO",
-			"name": "Spirit Guardians",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "spellcasting",
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "10 ft. Radius"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "3d6",
-						"name": "Spirit Guardians"
-					}
-				],
-				"description": "<p>Spirits of former divine servants surround the god in a 10-foot radius for 10 minutes. The god can choose creatures they can see to be unaffected by the spell. Other creatures treat the area as difficult terrain, and when a creature enters the area for the first time on a turn or starts its turn there, it makes a DC DC 17 Wisdom saving throw, taking 10 (3d6) radiant damage on a failed save or half damage on a success. <br></p>",
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": 17,
-					"onSave": "Damage is halved",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"divine",
-						"necrotic",
-						"radiant"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1 + @mod",
-						"name": "Default"
-					}
-				],
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "4iAQcZvrhMkzDXqx"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "",
-						"formula": "1 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "43BJ2muItwW5uCgk"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "syZ6eueDgRHpTs2L"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "u1kHtm4NewdJP9Pc"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "hUB95SEUOCafU4GA"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "NRG8aQBQEXZzR59n"
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"featureActivationCostFilters": {
-				"inclusive": [],
-				"exclusive": []
-			}
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 2,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 17,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 161,
-				"baseMax": 161,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": "",
-				"climb": "",
-				"fly": "40",
-				"swim": "",
-				"walk": "40"
-			},
-			"senses": {
-				"blindsight": "",
-				"darkvision": "",
-				"tremorsense": "",
-				"truesight": "120"
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "wis"
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"spell": {
-				"attack": "",
-				"dc": ""
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2>Combat</h2><p>On its turn, the forgotten god prefers Flawed Spellcasting, surrounding itself with<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/spirit-guardians\"><em>spirit guardians</em></a><em> </em>or blasting creatures with<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/flame-strike\"><em>flame strike</em></a><em> </em>. It tries to be within 10 feet of an enemy so it can attack with its divine weapon if the spell fails. It uses Divine Wrath when available. The god reserves its legendary actions for Stunning Glance, unless most targets have already made their saving throw against it.</p><hr class=\"a5e-rule u-my-md\"><h2>Forgotten God Appearance</h2><p>1 Snake deity</p><p>2 Anthropomorphic horse deity</p><p>3 Wolf-headed goddess</p><p>4 Green-skinned, stag-headed god</p><p>5 Goddess with the body of a goat and a human head</p><p>6 Crab-headed deity</p><p>7 Armless goddess</p><p>8 Fat clay god who holds his severed head in one hand</p><p>9 Dragon deity</p><p>10 Pillar of purple flame</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Religion check, characters can learn the following:</p><p><strong>DC 15</strong> Gods with few or no worshipers live on as a shadow of their former selves. Forgotten gods may be insane or starved for worship and are usually very dangerous.</p><p><strong>DC 20</strong>&nbsp; Though fallen, forgotten gods retain much of their divine power. They wield mighty magic, and even their gaze is enough to freeze weak-willed mortals in their tracks.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>VARIANTS: GODS OF OTHER DOMAINS</strong></h2><p>The forgotten god above was once a fire, light, or war god. The variants below are gods who presided over other divine domains.</p><p><strong><em>Forgotten Death God.</em></strong> Instead of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/flame-strike\"><em>flame strike</em></a><em> </em>, this god casts <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/contagion\"><em>contagion</em></a><em> </em>with Flawed Spellcasting.</p><p><strong><em>Contagion (5th-Level; V, S).</em></strong> <em>Melee Spell Attack:</em> +9 to hit, reach 5 ft., one target. The target contracts a flesh-rotting disease. It has <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/137\">disadvantage</a> on Charisma ability checks and becomes vulnerable to all damage. The target makes a DC 17 Constitution <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/saving-throw\">saving throw</a> at the end of each of its turns. After 3 failures, the target stops making saving throws, and the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/diseases\">disease</a> lasts for 7 days. After 3 successes, the effect ends. Any spell or magical effect that removes disease also ends the effect.</p><p><strong><em>Forgotten Nature God.</em></strong> Instead of<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/flame-strike\"><em>flame strike</em></a><em> </em>, this god casts<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/insect-plague\"><em>insect plague</em></a><em> </em>with Flawed Spellcasting.</p><p><strong><em>Insect Plague (5th-Level; V, S, Concentration).</em></strong> A 20-foot-radius sphere of biting and stinging insects appears centered on a point the god can see within 300 feet and remains for 10 minutes. The cloud spreads around corners and the area is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/environment\">lightly obscured</a> . Each creature in the area when the cloud appears, and each creature which enters it for the first time on its turn, makes a DC 17 Constitution <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/saving-throw\">saving throw</a> , taking 22 (4d10) piercing damage on a failed save, or half damage on a success. The god is immune to this damage.</p><p>Description</p><p>Deities rarely die, but their followers do. A god with few or no worshipers retains only a shred of its former glory. Its remaining powers are undependable, and its mind is weakened. Many forgotten gods, whatever their former nature, are now insane, evil, or hungry for worship.</p><p>Forgotten gods take any form a mortal mind can imagine. Whereas one god might look human, another might possess an animal's head and multiple limbs, or adopt the form of an enormous, anthropomorphic snake.</p><p><strong><em>Shreds of Sovereignty</em>.</strong> Even the dregs of divinity make a forgotten god dangerous. It still commands tremendous martial and magical power, and is imbued with such heavenly splendor that it remains stunning to behold.&nbsp;</p><p><strong><em>Divine Weapon</em>.</strong> Every forgotten god carries with it a weapon or implement—such as a trident, shovel, lightning bolt, or spinning wheel—that symbolizes its former divine role. Regardless of the type of item, the god can use it as a weapon. Most divine weapons deal bludgeoning, piercing, or slashing damage depending on their form, but a lightning bolt, for instance, deals lightning damage.</p><p><strong><em>Resurrection</em>.</strong> A forgotten god that garners enough worshipers regains its old power. Many all-but-abandoned gods still have small cults dedicated to spreading their deity’s fame and restoring its place in the heavens.</p><p><br>&nbsp;</p><p>Behavior</p><p>1 Insane; wishes to end all life</p><p>2 Demands you worship it or be destroyed</p><p>3 Believes it’s at the height of its power thousands of years ago; if you flatter it, it grants you a boon</p><p>4 Demands you utter foul blasphemies, cursing your former gods and worshiping it from now on</p><p>5 Broken mind: each round, it alternates between good and evil alignment</p><p>6 Weeping as it mourns the fallen empires that once worshiped it</p><p>Signs</p><p>1 Chanting cultists inscribing a summoning circle or completing a ritual</p><p>2 A pool or wall of silver liquid; if you disturb it, the forgotten god emerges from it</p><p>3 An ancient altar or statue with unfamiliar symbols which glow when you touch them; if you touch all of them, the god appears</p><p>4 A black door covered with wax seals bearing runes of abjuration; if the seals are broken, the door opens and releases the forgotten god</p><p>5 A pedestal on which nothing remains but a pair of massive feet</p><p>6 An eroded bas-relief depicting a forgotten myth</p><p>Encounters</p><p>Forgotten gods usually hide or lie dormant in deep dungeons and ancient temples.</p><p><strong>CR 11–16</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1613\">Forgotten god</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1850\">cult fanatic</a> and 1d6 + 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1849\">cultists</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1613\">forgotten god</a> with 1d4 + 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1665\">grimlocks</a> or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1805\">troglodytes</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1613\">forgotten god</a> with 2 or 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1873\">priests</a></p><p><strong>Treasure</strong> gold idol (750 gp), 2 gold incense burners (750 gp each), statue or altar set with 2 star rubies (1,000 gp each),<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1043\"><em>necklace of prayer beads</em></a><em> , </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1119\"><em>ring of spell storing</em></a></p><p>Monster Type Description</p><p></p><p>Celestials are creatures native to divine realms or heavens. Celestials have alignments, such as Lawful Good. Most celestials are good, although the servants of evil deities can be evil. Angels are celestials.</p>",
-			"creatureTypes": [
-				"celestial"
-			],
-			"cr": 10,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"abyssal",
-				"aquan",
-				"auran",
-				"celestial",
-				"common",
-				"deep",
-				"draconic",
-				"druidic",
-				"dwarvish",
-				"elvish",
-				"giant",
-				"gnomish",
-				"goblin",
-				"halfling",
-				"ignan",
-				"infernal",
-				"orc",
-				"primordial",
-				"sylvan",
-				"terran",
-				"cant",
-				"undercommon"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			}
-		},
-		"traits": {
-			"size": "lg",
-			"conditionImmunities": [
-				"frightened",
-				"fatigue",
-				"poisoned"
-			],
-			"damageImmunities": [],
-			"damageResistances": [
-				"poison",
-				"radiant",
-				"Damage from nonmagical Weapons"
-			],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Forgotten God",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 2,
-		"height": 2,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/forgotten-god.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "4hi0omxf4dq6pyut"
+  "name": "Forgotten God",
+  "type": "npc",
+  "img": "systems/a5e/assets/forgotten-god.webp",
+  "items": [
+    {
+      "_id": "JcgWFMoZN08rNHlc",
+      "name": "Aligned",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The forgotten god radiates a weak alignment aura, most often Lawful and Good, Chaotic and Good, Lawful and Evil, or Chaotic and Evil. Its behavior may not match its alignment. <br></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "fvMqi4Fq6qsD9j68",
+      "name": "Flawed Spellcasting",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The god’s innate spellcasting ability is Wisdom (save DC 17).The god can try to cast flame strike or spirit guardians at will with no material component. When the god tries to cast the spell, roll 1d6. On a 1, 2, or 3 on the die, the spell visibly fails and has no effect. The god’s action for the turn is not wasted, but it can’t be used to cast a spell. <br></p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "7V7GPqoB9UGD1rl1",
+      "name": "Legendary Resistances",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "05o3OmaPTsWiVzxt": {
+            "name": "Legendary Resistances",
+            "activation": {
+              "cost": "",
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>When the god fails a saving throw, it can choose to succeed instead. When<br>it does so, it seems to flicker and shrink, as if it is using up its essence. <br></p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696695,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "1QX6nwmwNUejmOln",
+      "name": "Stunning Gaze (Gaze)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "SzrugDHU43xpdfMe": {
+            "name": "Stunning Gaze (Gaze)",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "NTb4LT8NOkHtQjsD": {
+                "range": "60 ft."
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "tjfdh8zxfFgLoTAl": {
+                "canCrit": false,
+                "damageType": "radiant",
+                "formula": "3d6",
+                "name": "Stunning Gaze",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "zmc5YtZarPFcPh1b": {
+                "ability": "cha",
+                "onSave": "Immunity against the Stunning Gaze for 24 hours.",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "17"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>The god targets a creature within 60 feet. The target makes a DC 17 Charisma saving throw. On a failure, the target takes 10 (3d6) radiant damage and is stunned until the end of its next turn. On a success, the target is immune to Stunning Gaze<br>for 24 hours. <br></p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 17,
+          "onSave": "Immunity against the Stunning Gaze for 24 hours.",
+          "targetAbility": "cha"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696695,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "1uwG6iKiUAZVaSDM",
+      "name": "Divine Wrath (While Bloodied)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "UWEKapEOOnJU4Gg1": {
+            "name": "Divine Wrath (While Bloodied)",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "60 ft.",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature"
+            },
+            "rolls": {
+              "jOl3q6FB1GANTkDr": {
+                "canCrit": false,
+                "damageType": "radiant",
+                "formula": "8d6",
+                "name": "Divine Wrath",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "l7zrafSkcgE59qYm": {
+                "ability": "con",
+                "onSave": "Half Damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "17"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>Each creature of the god’s choice within 60 feet makes a DC 17 Constitution saving throw, taking 28 (8d6) radiant damage on a failure or half damage on a success. <br></p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 17,
+          "onSave": "Half Damage",
+          "targetAbility": "con"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696695,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "T6PMZpxnlPHiitA5",
+      "name": "Divine Weapon",
+      "type": "object",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "WZoIQo3CensEMsKM": {
+            "name": "Divine Weapon",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "UpcysKCtmsP5CVa7": {
+                "range": "10 ft."
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "lxX892mBWXIqZRjj": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "lBhYnGDkTelrkUTY": {
+                "canCrit": true,
+                "damageType": "",
+                "formula": "1d8 + @str.mod",
+                "name": "Weapon Attack",
+                "type": "damage"
+              },
+              "M3pFg3WO9NpW8RZr": {
+                "canCrit": true,
+                "damageType": "radiant",
+                "formula": "2d6",
+                "name": "Radiant Damage",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>The Damage Type of this weapon depends on which weapon the God wields. </p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": true,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": 0,
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [],
+        "weight": 0
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696695,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "HtIWtGbQlCyEmiQT",
+      "name": "Float (Legendary Action)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "WP9fr4OX5ReC1c4i": {
+            "name": "Float (Legendary Action)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The god flies up to half its fly speed without provoking opportunity attacks. <br></p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696695,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "aHg7CtFUKJkf4RtM",
+      "name": "Smite (Legendary Action)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "7z6oAfDglNgTNf2k": {
+            "name": "Smite (Legendary Action)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The god makes a divine weapon attack. </p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696695,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "eBfTtgsiFNhJ2SUp",
+      "name": "Stunning Glance (Legendary Action)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "ymGKjDSDpzhYHmkX": {
+            "name": "Stunning Glance (Legendary Action)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The god uses Stunning Gaze.<br></p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "ajmS4KmL5LPGeewc",
+      "name": "Flame Strike",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "spellcasting",
+        "actions": {
+          "eqG8w4mvBnvWJRRM": {
+            "name": "Flame Strike",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "96XruaNqKzmHZ9Qs": {
+                "range": "60 ft."
+              }
+            },
+            "area": {
+              "shape": "cylinder",
+              "size": "10 ft. Radius, 40 ft. High",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature"
+            },
+            "rolls": {
+              "474AhD5xGDnxDuPt": {
+                "canCrit": false,
+                "damageType": "fire",
+                "formula": "4d6",
+                "name": "Fire Damage",
+                "type": "damage"
+              },
+              "eidwEubxTltrRUhI": {
+                "canCrit": false,
+                "damageType": "radiant",
+                "formula": "4d6",
+                "name": "Radiant Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "8Cs45BdVuLbs6bop": {
+                "ability": "dex",
+                "onSave": "Damage is halved",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "17"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>A 10-foot-radius, 40-foothigh column of divine flame appears centered on a point the god can see within 60 feet. Each creature in the area makes a DC 17 Dexterity saving throw, taking 14 (4d6) fire damage and 14 (4d6) radiant damage on a failed save, or half damage on a success.<br></p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 17,
+          "onSave": "Damage is halved",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 5,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "divine",
+            "fire"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "RUvSpZhjhgQUPPUO",
+      "name": "Spirit Guardians",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "spellcasting",
+        "actions": {
+          "rPK0moLkJ8oglhgE": {
+            "name": "Spirit Guardians",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 10
+            },
+            "ranges": {
+              "vKan3BE9t8Ee0Tpp": {
+                "range": "self"
+              }
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "10 ft. Radius",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature"
+            },
+            "rolls": {
+              "Ls4vkfVDUWMNgF3a": {
+                "canCrit": false,
+                "damageType": "radiant",
+                "formula": "3d6",
+                "name": "Spirit Guardians",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "mqB8ZFYbn37Wd3cL": {
+                "ability": "wis",
+                "onSave": "Damage is halved",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "17"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>Spirits of former divine servants surround the god in a 10-foot radius for 10 minutes. The god can choose creatures they can see to be unaffected by the spell. Other creatures treat the area as difficult terrain, and when a creature enters the area for the first time on a turn or starts its turn there, it makes a DC DC 17 Wisdom saving throw, taking 10 (3d6) radiant damage on a failed save or half damage on a success. <br></p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 17,
+          "onSave": "Damage is halved",
+          "targetAbility": "wis"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": true,
+        "level": 3,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "conjuration",
+          "secondary": [
+            "divine",
+            "necrotic",
+            "radiant"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "Gc9Ix31mXPU70m2G": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "fc8bh5n0dxTaznBW": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "Q6m7QhiJDQQolv8a": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "rp36uywGU7WESJ3P": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "4iAQcZvrhMkzDXqx",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "QBw1JwJc8232AhWk": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "NmPwXpqDqgCm4YHZ": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "ylo00czazXgEKQXY": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "SQ0KHvTchQ2Akdex": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "43BJ2muItwW5uCgk",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "VrZBGZNGBsBrmwK4": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "yEDpBuPYfuaOn8ro": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "eZZjfLaoCEbys6JZ": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "syZ6eueDgRHpTs2L",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "hotx41fUbhXeA9pe": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "8DJLFD1AwkOe931U": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "VUWydstGotIo9ebO": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "u1kHtm4NewdJP9Pc",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "c0CXiodDo6PD91wr": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "WibiJXm1LGSv38pt": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "gGFbEuPJutuDIWMO": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "hUB95SEUOCafU4GA",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "MgMfXg21ggPVGAMA": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "RRWiic5m9wrwTDM8": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "AiLJzkwgGPC2id4d": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "NRG8aQBQEXZzR59n",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671696696,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "featureActivationCostFilters": {
+        "inclusive": [],
+        "exclusive": []
+      }
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.4hi0omxf4dq6pyut"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 2,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 17,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 161,
+        "baseMax": 161,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 120,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "wis"
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2>Combat</h2><p>On its turn, the forgotten god prefers Flawed Spellcasting, surrounding itself with<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/spirit-guardians\"><em>spirit guardians</em></a><em> </em>or blasting creatures with<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/flame-strike\"><em>flame strike</em></a><em> </em>. It tries to be within 10 feet of an enemy so it can attack with its divine weapon if the spell fails. It uses Divine Wrath when available. The god reserves its legendary actions for Stunning Glance, unless most targets have already made their saving throw against it.</p><hr class=\"a5e-rule u-my-md\"><h2>Forgotten God Appearance</h2><p>1 Snake deity</p><p>2 Anthropomorphic horse deity</p><p>3 Wolf-headed goddess</p><p>4 Green-skinned, stag-headed god</p><p>5 Goddess with the body of a goat and a human head</p><p>6 Crab-headed deity</p><p>7 Armless goddess</p><p>8 Fat clay god who holds his severed head in one hand</p><p>9 Dragon deity</p><p>10 Pillar of purple flame</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With a History or Religion check, characters can learn the following:</p><p><strong>DC 15</strong> Gods with few or no worshipers live on as a shadow of their former selves. Forgotten gods may be insane or starved for worship and are usually very dangerous.</p><p><strong>DC 20</strong>&nbsp; Though fallen, forgotten gods retain much of their divine power. They wield mighty magic, and even their gaze is enough to freeze weak-willed mortals in their tracks.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>VARIANTS: GODS OF OTHER DOMAINS</strong></h2><p>The forgotten god above was once a fire, light, or war god. The variants below are gods who presided over other divine domains.</p><p><strong><em>Forgotten Death God.</em></strong> Instead of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/flame-strike\"><em>flame strike</em></a><em> </em>, this god casts <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/contagion\"><em>contagion</em></a><em> </em>with Flawed Spellcasting.</p><p><strong><em>Contagion (5th-Level; V, S).</em></strong> <em>Melee Spell Attack:</em> +9 to hit, reach 5 ft., one target. The target contracts a flesh-rotting disease. It has <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/137\">disadvantage</a> on Charisma ability checks and becomes vulnerable to all damage. The target makes a DC 17 Constitution <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/saving-throw\">saving throw</a> at the end of each of its turns. After 3 failures, the target stops making saving throws, and the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/diseases\">disease</a> lasts for 7 days. After 3 successes, the effect ends. Any spell or magical effect that removes disease also ends the effect.</p><p><strong><em>Forgotten Nature God.</em></strong> Instead of<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/flame-strike\"><em>flame strike</em></a><em> </em>, this god casts<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/spell/insect-plague\"><em>insect plague</em></a><em> </em>with Flawed Spellcasting.</p><p><strong><em>Insect Plague (5th-Level; V, S, Concentration).</em></strong> A 20-foot-radius sphere of biting and stinging insects appears centered on a point the god can see within 300 feet and remains for 10 minutes. The cloud spreads around corners and the area is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/environment\">lightly obscured</a> . Each creature in the area when the cloud appears, and each creature which enters it for the first time on its turn, makes a DC 17 Constitution <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/rules/saving-throw\">saving throw</a> , taking 22 (4d10) piercing damage on a failed save, or half damage on a success. The god is immune to this damage.</p><p>Description</p><p>Deities rarely die, but their followers do. A god with few or no worshipers retains only a shred of its former glory. Its remaining powers are undependable, and its mind is weakened. Many forgotten gods, whatever their former nature, are now insane, evil, or hungry for worship.</p><p>Forgotten gods take any form a mortal mind can imagine. Whereas one god might look human, another might possess an animal's head and multiple limbs, or adopt the form of an enormous, anthropomorphic snake.</p><p><strong><em>Shreds of Sovereignty</em>.</strong> Even the dregs of divinity make a forgotten god dangerous. It still commands tremendous martial and magical power, and is imbued with such heavenly splendor that it remains stunning to behold.&nbsp;</p><p><strong><em>Divine Weapon</em>.</strong> Every forgotten god carries with it a weapon or implement—such as a trident, shovel, lightning bolt, or spinning wheel—that symbolizes its former divine role. Regardless of the type of item, the god can use it as a weapon. Most divine weapons deal bludgeoning, piercing, or slashing damage depending on their form, but a lightning bolt, for instance, deals lightning damage.</p><p><strong><em>Resurrection</em>.</strong> A forgotten god that garners enough worshipers regains its old power. Many all-but-abandoned gods still have small cults dedicated to spreading their deity’s fame and restoring its place in the heavens.</p><p><br>&nbsp;</p><p>Behavior</p><p>1 Insane; wishes to end all life</p><p>2 Demands you worship it or be destroyed</p><p>3 Believes it’s at the height of its power thousands of years ago; if you flatter it, it grants you a boon</p><p>4 Demands you utter foul blasphemies, cursing your former gods and worshiping it from now on</p><p>5 Broken mind: each round, it alternates between good and evil alignment</p><p>6 Weeping as it mourns the fallen empires that once worshiped it</p><p>Signs</p><p>1 Chanting cultists inscribing a summoning circle or completing a ritual</p><p>2 A pool or wall of silver liquid; if you disturb it, the forgotten god emerges from it</p><p>3 An ancient altar or statue with unfamiliar symbols which glow when you touch them; if you touch all of them, the god appears</p><p>4 A black door covered with wax seals bearing runes of abjuration; if the seals are broken, the door opens and releases the forgotten god</p><p>5 A pedestal on which nothing remains but a pair of massive feet</p><p>6 An eroded bas-relief depicting a forgotten myth</p><p>Encounters</p><p>Forgotten gods usually hide or lie dormant in deep dungeons and ancient temples.</p><p><strong>CR 11–16</strong> <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1613\">Forgotten god</a> with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1850\">cult fanatic</a> and 1d6 + 4 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1849\">cultists</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1613\">forgotten god</a> with 1d4 + 2 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1665\">grimlocks</a> or <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1805\">troglodytes</a> ; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1613\">forgotten god</a> with 2 or 3 <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1873\">priests</a></p><p><strong>Treasure</strong> gold idol (750 gp), 2 gold incense burners (750 gp each), statue or altar set with 2 star rubies (1,000 gp each),<em> </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1043\"><em>necklace of prayer beads</em></a><em> , </em><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://a5e.tools/node/1119\"><em>ring of spell storing</em></a></p><p>Monster Type Description</p><p></p><p>Celestials are creatures native to divine realms or heavens. Celestials have alignments, such as Lawful Good. Most celestials are good, although the servants of evil deities can be evil. Angels are celestials.</p>",
+      "creatureTypes": [
+        "celestial"
+      ],
+      "cr": 10,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "abyssal",
+        "aquan",
+        "auran",
+        "celestial",
+        "common",
+        "deep",
+        "draconic",
+        "druidic",
+        "dwarvish",
+        "elvish",
+        "giant",
+        "gnomish",
+        "goblin",
+        "halfling",
+        "ignan",
+        "infernal",
+        "orc",
+        "primordial",
+        "sylvan",
+        "terran",
+        "cant",
+        "undercommon"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "lg",
+      "conditionImmunities": [
+        "frightened",
+        "fatigue",
+        "poisoned"
+      ],
+      "damageImmunities": [],
+      "damageResistances": [
+        "poison",
+        "radiant",
+        "Damage from nonmagical Weapons"
+      ],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Forgotten God",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 2,
+    "height": 2,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/forgotten-god.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678671282564,
+    "modifiedTime": 1678671696685,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

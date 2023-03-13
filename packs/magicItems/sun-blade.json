@@ -1,87 +1,111 @@
 {
-	"name": "Sun Blade",
-	"type": "object",
-	"img": "icons/weapons/swords/sword-gold-holy.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "2",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "radiant",
-				"formula": "1d8 +2 +@mod",
-				"name": "Sun Blade"
-			},
-			{
-				"canCrit": true,
-				"damageType": "radiant",
-				"formula": "2d8 +2 +@mod",
-				"name": "Sun Blade vs Undead"
-			}
-		],
-		"description": "<p><em>Defensive (Medium), Finesse</em></p><hr class=\"a5e-rule u-my-md\"><p>This weapon first appears to be nothing more than a sword hilt.</p><p>While holding the hilt, you can use a bonus action to make a blade of sunlight appear or disappear.</p><p>Being proficient in shortswords or longswords grants proficiency with this magic sword, which also has the finesse property as long as the blade is in existence.</p><p>While the blade is ignited, you gain +2 bonus to attack and damage rolls made with it, dealing 1d8 radiant damage on a hit (instead of slashing damage), or 2d8 radiant damage if your target is undead.</p><p>The blade shines with bright sunlight in a 15-foot radius and dim sunlight for an additional 15 feet.</p><p>You can use an action to increase or decrease the bright sunlight and dim sunlight radiuses by 5 feet, up to a maximum of 30 feet each or down to a minimum of 10 feet each.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive",
-			"finesse"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "lewd268xpx8boaao"
+  "name": "Sun Blade",
+  "type": "object",
+  "img": "icons/weapons/swords/sword-gold-holy.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.lewd268xpx8boaao"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "3cgEI2xhqeWbQQUQ": {
+        "name": "Sun Blade",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "T1h9RujEtkHpgFMF": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "GYXR2Hs5wgTSZhbs": {
+            "canCrit": true,
+            "damageType": "radiant",
+            "formula": "1d8 +2 +@finesse.mod",
+            "name": "Sun Blade",
+            "type": "damage"
+          },
+          "7QugEbAV1w2iTXTZ": {
+            "canCrit": true,
+            "damageType": "radiant",
+            "formula": "2d8 +2 +@finesse.mod",
+            "name": "Sun Blade vs Undead",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Defensive (Medium), Finesse</em></p><hr class=\"a5e-rule u-my-md\"><p>This weapon first appears to be nothing more than a sword hilt.</p><p>While holding the hilt, you can use a bonus action to make a blade of sunlight appear or disappear.</p><p>Being proficient in shortswords or longswords grants proficiency with this magic sword, which also has the finesse property as long as the blade is in existence.</p><p>While the blade is ignited, you gain +2 bonus to attack and damage rolls made with it, dealing 1d8 radiant damage on a hit (instead of slashing damage), or 2d8 radiant damage if your target is undead.</p><p>The blade shines with bright sunlight in a 15-foot radius and dim sunlight for an additional 15 feet.</p><p>You can use an action to increase or decrease the bright sunlight and dim sunlight radiuses by 5 feet, up to a maximum of 30 feet each or down to a minimum of 10 feet each.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "finesse"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235471,
+    "modifiedTime": 1678673295454,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

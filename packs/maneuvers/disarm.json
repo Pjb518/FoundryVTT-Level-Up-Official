@@ -1,70 +1,99 @@
 {
-	"name": "Disarm",
-	"type": "maneuver",
-	"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "str",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "",
-				"formula": "1 + @mod",
-				"name": ""
-			}
-		],
-		"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": null
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 0,
-		"exertionCost": 0,
-		"tradition": ""
-	},
-	"_id": "c0bv7fsy2akld5lp"
+  "name": "Disarm",
+  "type": "maneuver",
+  "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "str",
+    "actions": {
+      "xN5ZLHIjo9cHRWrK": {
+        "name": "Disarm",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": null
+        },
+        "ranges": {
+          "dFgwvnjjgmzR7vlN": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "rolls": {
+          "FDMYIPcl2LveduMw": {
+            "canCrit": false,
+            "damageType": "",
+            "formula": "1 + @str.mod",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "xs1KlWtLXswqrVKY": {
+            "ability": "str",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 0,
+    "exertionCost": 0,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407838,
+    "modifiedTime": 1678673435349,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,1584 +1,1865 @@
 {
-	"name": "Dread Knight",
-	"type": "npc",
-	"img": "systems/a5e/assets/dread-knight.webp",
-	"items": [
-		{
-			"_id": "BHgaVvKnw7EckUyW",
-			"name": "Undead Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A dread knight doesn’t require air, sustenance, or sleep</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "siwxWFFX6D9WC553",
-			"name": "Unholy Aura",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "30 ft. Radius"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The dread knight and allies within 30 feet have advantage on saving throws against spells and other magic effects and against features that turn undead. Other creatures of the dread knight’s choice within 30 feet have disadvantage on saving throws against spells and other magic effects</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "SbvUXQuLUcf8s5mz",
-			"name": "Cursed Greatsword",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "2d6+@mod",
-						"name": "Slash Damage"
-					},
-					{
-						"canCrit": true,
-						"damageType": "necrotic",
-						"formula": "4d6",
-						"name": "Necrotic Damage"
-					}
-				],
-				"description": "<p>On hit, slashing damage plus necrotic damage, and the target’s hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "W187gTEFKyh5w4WR",
-			"name": "Fire Blast",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "20 ft. Radius"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "18d6",
-						"name": "Fire Blast"
-					}
-				],
-				"description": "<p>A fiery mote streaks from the dread knight’s finger to a point within 120 feet and blossoms into a 20-foot-radius sphere of black fire which spreads around corners. Each creature within the area makes a DC 16 Dexterity saving throw, taking 6fire damage on a failed saving throw or half damage on a success. This damage ignores fire resistance and treats immunity to fire damage as fire resistance.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"20 ft."
-				],
-				"save": {
-					"dc": 16,
-					"onSave": "Half Damage",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8lxgMzLQrt4caYus",
-			"name": "Cursed Greatsword (Bonus)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 500000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.SbvUXQuLUcf8s5mz"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "2d6+@mod",
-						"name": "Slash Damage"
-					},
-					{
-						"canCrit": true,
-						"damageType": "necrotic",
-						"formula": "4d6",
-						"name": "Necrotic Damage"
-					}
-				],
-				"description": "<p>The dread knight makes a cursed greatsword attack as a bonus action.</p><p></p><p>(On hit, slashing damage plus necrotic damage, and the target’s hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.)</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "gJyhcydEPj5Tz3dZ",
-			"name": "Ice Wall",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "line",
-					"size": "1 foot thick, 50 feet long, and 15 feet high."
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "cold",
-						"formula": "14d6",
-						"name": "Cold Damage"
-					}
-				],
-				"description": "<p>The dread knight magically creates a wall of ice on a solid surface it can see within 60 feet. The wall is flat, 1 foot thick, and can be up to 50 feet long and 15 feet high. The wall lasts for 1 minute or until destroyed. Each 10-foot section has AC 12, 30 hit points, vulnerability to fire damage, and immunity to cold, necrotic, poison, and psychic damage.&nbsp;</p><p style=\"text-align: start\">If the wall enters a creature’s space when it appears, the creature is pushed to one side of the wall (creature’s choice). The creature then makes a DC 16 Dexterity saving throw, taking cold damage on a successful save or half damage on a success.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 16,
-					"onSave": "Half damage",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "thuG4QFOXdI0WkWD",
-			"name": "Soul Wrack",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "necrotic",
-						"formula": "20d6",
-						"name": "Soul Wrack"
-					}
-				],
-				"description": "<p>A creature within 60 feet makes a DC 16 Constitution saving throw, taking 70 necrotic damage and falling prone on a failed save or taking half damage on a success.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 16,
-					"onSave": "Half damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8SwwWHQMLnX11ODH",
-			"name": "Break Magic",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The dread knight ends all spell effects created by a 5th-level or lower spell slot on a creature, object, or point within 30 feet.&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1 + @mod",
-						"name": "Default"
-					}
-				],
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ft9RcGeTSol6WuEd"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "",
-						"formula": "1 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "7dbgM0n0uRDNrnBO"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "pTBL6K6kMNLS16MI"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "o0lrA9ddOz4sS1KA"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "hFsJqw5naX3SGFsF"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "v6dMC1cE6xPNDiGk"
-		}
-	],
-	"effects": [],
-	"flags": {},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 22,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 22,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 20,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 18,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 262,
-				"baseMax": 262,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 25,
-					"total": 25
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": 0,
-				"climb": 0,
-				"fly": 0,
-				"swim": 0,
-				"walk": 30
-			},
-			"senses": {
-				"blindsight": "",
-				"darkvision": "",
-				"tremorsense": "",
-				"truesight": "60"
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int"
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"spell": {
-				"attack": "",
-				"dc": ""
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>The dread knight uses its bonus action to duel the strongest melee combatant with its cursed greatsword, while using Fire Blast, Soul Wrack, and Wall of Ice to eliminate or cut off those who interfere. If it is bloodied and without allies, it uses Summon Fiendish Steed and tries to escape.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With a History or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Tragic figures, dread knights were once honorable warriors who suffered a fall from grace.</p><p><strong>DC 15</strong> Dread knights are gifted leaders, even in undeath. Under a dread knight’s command, the restless dead are bolstered against the power of the gods.</p><p><strong>DC 20</strong> In addition to their prowess on the battlefield, dread knights possess powerful magic. They can summon walls of ice and hurl balls of hellfire to divide and incinerate their foes.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Roll once on the Title table and once on the Sinister Name table.</p><p><strong>Title</strong></p><p>1–5 None</p><p>6 Lord/Lady</p><p>7 Baron/Baroness</p><p>8 Prince/Princess</p><p>9 Sir/Lady</p><p>10 Roll on the Sinister Name table</p><p><strong>Sinister Name</strong></p><p>1 Gaunt</p><p>2 Vainglory</p><p>3 Wormwood</p><p>4 Bleakstone</p><p>5 Riven</p><p>6 Ember</p><p>7 Darkthorn</p><p>8 Aquilon</p><p>9 Tharn</p><p>10 Leda</p><p>11 Bitterbane</p><p>12 Wrack</p><p>13 Fell</p><p>14 Mourn</p><p>15 Talon</p><p>16 Ire</p><p>17 Chillgrave</p><p>18 Scorpius</p><p>19 Alphigor</p><p>20 Greyblood</p><p><strong>DESCRIPTION</strong></p><p>Queen Cir was a beloved monarch and holy knight dedicated to the sun god. When invasion imperiled her nation, she accepted a gift from a mysterious stranger: a magical sword named <em>Legion</em>. Anyone slain by this sword rose as a zombie under Cir's control. With <em>Legion</em>'s help, Queen Cir slaughtered invaders and transformed them into undead defenders, winning a grisly victory. Not yet content, she then massacred a surrendering army to swell her zombie horde.&nbsp;</p><p>Cir's religious order turned against her. In a mighty battle, she was slain by her former knightly peers. With her dying breath, she vowed revenge from beyond the grave—a promise she fulfilled when she rose from the dead as a dread knight. Feared by the people she once ruled, she now haunts the wilderness, biding her time until she sweeps away the living and rules a nation of the obedient dead.</p><p><strong>BEHAVIOR</strong></p><p>1 In its lair, marshaling its forces for an assault on the living</p><p>2 Kneeling before an altar (praying? mourning? reporting to its overlord?)</p><p>3 Aloft on its fiendish steed, scouting</p><p>4 Marching at the head of an army of the dead</p><p><strong>SIGNS</strong></p><p>1 Wraiths scout or deliver threatening ultimatums</p><p>2 Hundreds of skulls on spikes</p><p>3 The prints of many marching boots and skeletal feet</p><p>4 An aura of dread; chill winds and a pale, dim sun</p><p>5 Skeletal griffins circle overhead</p><p>6 Skeletons claw their way out of old graves and begin marching towards some distant rallying point</p><p><strong>ENCOUNTERS</strong></p><p>Dread knights brood in ancient castles and necropolises in once-populated lands.</p><p><strong>CR 17–22</strong> Dread knight; dread knight with 10 skeletons; dread knight riding nightmare</p><p><strong>Treasure</strong> 1,000 pp, signet ring (50 gp), <em>potion of invisibility</em>, <em>dancing sword</em> (greatsword) named <em>Ruin</em>, <em>horseshoes of speed</em></p><p><strong>CR 23–30</strong> Dread knight riding corrupted unicorn, fell nightmare, skeletal tyrannosaurus, or wyvern; dread knight with 3 skeletal champions, wights, or zombie knights; dread knight with 2 ghosts, skeleton hordes, or wraiths</p><p><strong>Treasure </strong>5,000 gp<strong>, </strong>golden prosthetic hand (10,000 gp), star sapphire ring (2,500 gp), <em>potion of storm giant strength</em>, <em>spell scroll</em> of <em>earthquake</em>, <em>flame tongue</em> (greatsword) named <em>Balor</em></p><p><strong>CR 31+</strong> Queen Cir riding young shadow dragon; dread knight riding fell nightmare with mage and 20 zombies; dread knight with 1d4 + 3 wraiths&nbsp;</p><p><strong>Treasure</strong> ruby necklace (7,500 gp), 10 black sapphires (5,000 gp each), twisted gold wedding ring (10 gp), adamantium plate armor, <em>javelin of slaying</em> (as <em>arrow of slaying</em> vs. humanoids), <em>holy avenger</em> (greatsword) named <em>Dusk</em> which deals necrotic instead of radiant damage while attuned to the dread knight</p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as skeletons. Others, like vampires, are the products of an evil ritual or curse.</p>",
-			"creatureTypes": [
-				"undead"
-			],
-			"cr": 19,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"the languages it knew in life"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			}
-		},
-		"traits": {
-			"size": "med",
-			"conditionImmunities": [
-				"charmed",
-				"fatigue",
-				"frightened",
-				"poisoned",
-				"stunned"
-			],
-			"damageImmunities": [
-				"poison",
-				"necrotic",
-				"cold",
-				"fire"
-			],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Dread Knight",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 1,
-		"height": 1,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"color": null,
-			"attenuation": 0.5
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/dread-knight.webp",
-			"tint": null,
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "yiw4rpmo1thduxj8"
+  "name": "Dread Knight",
+  "type": "npc",
+  "img": "systems/a5e/assets/dread-knight.webp",
+  "items": [
+    {
+      "_id": "BHgaVvKnw7EckUyW",
+      "name": "Undead Nature",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>A dread knight doesn’t require air, sustenance, or sleep</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "siwxWFFX6D9WC553",
+      "name": "Unholy Aura",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "F49FooYF8j4Wg5MJ": {
+            "name": "Unholy Aura",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "2JT1qSBMAAJqIQfz": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "30 ft. Radius",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "self"
+            }
+          }
+        },
+        "description": "<p>The dread knight and allies within 30 feet have advantage on saving throws against spells and other magic effects and against features that turn undead. Other creatures of the dread knight’s choice within 30 feet have disadvantage on saving throws against spells and other magic effects</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968183,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "SbvUXQuLUcf8s5mz",
+      "name": "Cursed Greatsword",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "YSbx6Te8vSglXNnC": {
+            "name": "Cursed Greatsword",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "9brSpsxr06Pm31Ap": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "ZUOjo9JoowdL1nXQ": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "T6OfHXk76ZLISDPw": {
+                "canCrit": true,
+                "damageType": "slashing",
+                "formula": "2d6+@str.mod",
+                "name": "Slash Damage",
+                "type": "damage"
+              },
+              "FBgLUua9kmQZP6X9": {
+                "canCrit": true,
+                "damageType": "necrotic",
+                "formula": "4d6",
+                "name": "Necrotic Damage",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>On hit, slashing damage plus necrotic damage, and the target’s hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968183,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "W187gTEFKyh5w4WR",
+      "name": "Fire Blast",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "RdWZR8wZHdFkKlWu": {
+            "name": "Fire Blast",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "QifpTwDs5lgzmzaj": {
+                "range": "20 ft."
+              }
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "20 ft. Radius",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "self"
+            },
+            "rolls": {
+              "sfQRxpCzBDLNBneq": {
+                "canCrit": false,
+                "damageType": "fire",
+                "formula": "18d6",
+                "name": "Fire Blast",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "L65agn2l22KerKfE": {
+                "ability": "dex",
+                "onSave": "Half Damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "16"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>A fiery mote streaks from the dread knight’s finger to a point within 120 feet and blossoms into a 20-foot-radius sphere of black fire which spreads around corners. Each creature within the area makes a DC 16 Dexterity saving throw, taking 6fire damage on a failed saving throw or half damage on a success. This damage ignores fire resistance and treats immunity to fire damage as fire resistance.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 16,
+          "onSave": "Half Damage",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968183,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "8lxgMzLQrt4caYus",
+      "name": "Cursed Greatsword (Bonus)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 500000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.SbvUXQuLUcf8s5mz"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "rd177feO9YskUHnf": {
+            "name": "Cursed Greatsword (Bonus)",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "Q3bAt5cGKmueOBYo": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "jD1WHMQIlqdtBfRu": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "Rj4d0j48spNBkysB": {
+                "canCrit": true,
+                "damageType": "slashing",
+                "formula": "2d6+@str.mod",
+                "name": "Slash Damage",
+                "type": "damage"
+              },
+              "NsbNsFXuVIRGcHEl": {
+                "canCrit": true,
+                "damageType": "necrotic",
+                "formula": "4d6",
+                "name": "Necrotic Damage",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>The dread knight makes a cursed greatsword attack as a bonus action.</p><p></p><p>(On hit, slashing damage plus necrotic damage, and the target’s hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.)</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968183,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "gJyhcydEPj5Tz3dZ",
+      "name": "Ice Wall",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "0ItCc8F4b5sU3ajd": {
+            "name": "Ice Wall",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 1
+            },
+            "ranges": {
+              "0qdDRCnbmp5cChCd": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "line",
+              "size": "1 foot thick, 50 feet long, and 15 feet high.",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "wLSSXe25EyqUgJJk": {
+                "canCrit": false,
+                "damageType": "cold",
+                "formula": "14d6",
+                "name": "Cold Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "PZVFUCRk8PIwbGoY": {
+                "ability": "dex",
+                "onSave": "Half damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "16"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>The dread knight magically creates a wall of ice on a solid surface it can see within 60 feet. The wall is flat, 1 foot thick, and can be up to 50 feet long and 15 feet high. The wall lasts for 1 minute or until destroyed. Each 10-foot section has AC 12, 30 hit points, vulnerability to fire damage, and immunity to cold, necrotic, poison, and psychic damage.&nbsp;</p><p style=\"text-align: start\">If the wall enters a creature’s space when it appears, the creature is pushed to one side of the wall (creature’s choice). The creature then makes a DC 16 Dexterity saving throw, taking cold damage on a successful save or half damage on a success.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 16,
+          "onSave": "Half damage",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "thuG4QFOXdI0WkWD",
+      "name": "Soul Wrack",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "2pwwo24aazGr0GPW": {
+            "name": "Soul Wrack",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "xt4yHYB6N8LElRFk": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "1rvZwgFwJMtSusRM": {
+                "canCrit": false,
+                "damageType": "necrotic",
+                "formula": "20d6",
+                "name": "Soul Wrack",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "qecJ22BuYelr6MAJ": {
+                "ability": "con",
+                "onSave": "Half damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "16"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>A creature within 60 feet makes a DC 16 Constitution saving throw, taking 70 necrotic damage and falling prone on a failed save or taking half damage on a success.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 16,
+          "onSave": "Half damage",
+          "targetAbility": "con"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "8SwwWHQMLnX11ODH",
+      "name": "Break Magic",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "XvLDaQkd0Jtf0LDj": {
+            "name": "Break Magic",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "CHHtKuJCCc7wQ1v9": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The dread knight ends all spell effects created by a 5th-level or lower spell slot on a creature, object, or point within 30 feet.&nbsp;</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "vf2MKOayFUP36m2T": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "7w0itGUgINfIEfD9": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "JnshEpKI7sA3Gm7y": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "JHBr3VvRtYAN8unT": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ft9RcGeTSol6WuEd",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "gZeTbQOWrwzjnppt": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "uTKeJJfSNWkjQR3g": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "QkaYg98lzwpd6Wai": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "018jVpUvKTVtnfJ9": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "7dbgM0n0uRDNrnBO",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "h7wxmbJ4LExAeIyW": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "6U3e9l3xyZNAmGKl": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "gqkFlefH8XocFYVP": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "pTBL6K6kMNLS16MI",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "lKwGT7sJot6UXFj9": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "0dlJDGC1cHbRiwmS": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "afKXZAvyNfWh9EdO": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "o0lrA9ddOz4sS1KA",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "SBXrZ8SmqvEXOZ5h": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "PKOK6ujj4ZSYozLh": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "hAcV3LRphsH3N6JF": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "hFsJqw5naX3SGFsF",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "4P4HmlXR9ULJReBd": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "u0l7Of8hzCVOCCCv": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "OXWTgMJBNX7zehDi": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "v6dMC1cE6xPNDiGk",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671968184,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.yiw4rpmo1thduxj8"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 22,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 22,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 20,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 18,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 262,
+        "baseMax": 262,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 25,
+          "total": 25
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 30,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 60,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int"
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>The dread knight uses its bonus action to duel the strongest melee combatant with its cursed greatsword, while using Fire Blast, Soul Wrack, and Wall of Ice to eliminate or cut off those who interfere. If it is bloodied and without allies, it uses Summon Fiendish Steed and tries to escape.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With a History or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Tragic figures, dread knights were once honorable warriors who suffered a fall from grace.</p><p><strong>DC 15</strong> Dread knights are gifted leaders, even in undeath. Under a dread knight’s command, the restless dead are bolstered against the power of the gods.</p><p><strong>DC 20</strong> In addition to their prowess on the battlefield, dread knights possess powerful magic. They can summon walls of ice and hurl balls of hellfire to divide and incinerate their foes.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Roll once on the Title table and once on the Sinister Name table.</p><p><strong>Title</strong></p><p>1–5 None</p><p>6 Lord/Lady</p><p>7 Baron/Baroness</p><p>8 Prince/Princess</p><p>9 Sir/Lady</p><p>10 Roll on the Sinister Name table</p><p><strong>Sinister Name</strong></p><p>1 Gaunt</p><p>2 Vainglory</p><p>3 Wormwood</p><p>4 Bleakstone</p><p>5 Riven</p><p>6 Ember</p><p>7 Darkthorn</p><p>8 Aquilon</p><p>9 Tharn</p><p>10 Leda</p><p>11 Bitterbane</p><p>12 Wrack</p><p>13 Fell</p><p>14 Mourn</p><p>15 Talon</p><p>16 Ire</p><p>17 Chillgrave</p><p>18 Scorpius</p><p>19 Alphigor</p><p>20 Greyblood</p><p><strong>DESCRIPTION</strong></p><p>Queen Cir was a beloved monarch and holy knight dedicated to the sun god. When invasion imperiled her nation, she accepted a gift from a mysterious stranger: a magical sword named <em>Legion</em>. Anyone slain by this sword rose as a zombie under Cir's control. With <em>Legion</em>'s help, Queen Cir slaughtered invaders and transformed them into undead defenders, winning a grisly victory. Not yet content, she then massacred a surrendering army to swell her zombie horde.&nbsp;</p><p>Cir's religious order turned against her. In a mighty battle, she was slain by her former knightly peers. With her dying breath, she vowed revenge from beyond the grave—a promise she fulfilled when she rose from the dead as a dread knight. Feared by the people she once ruled, she now haunts the wilderness, biding her time until she sweeps away the living and rules a nation of the obedient dead.</p><p><strong>BEHAVIOR</strong></p><p>1 In its lair, marshaling its forces for an assault on the living</p><p>2 Kneeling before an altar (praying? mourning? reporting to its overlord?)</p><p>3 Aloft on its fiendish steed, scouting</p><p>4 Marching at the head of an army of the dead</p><p><strong>SIGNS</strong></p><p>1 Wraiths scout or deliver threatening ultimatums</p><p>2 Hundreds of skulls on spikes</p><p>3 The prints of many marching boots and skeletal feet</p><p>4 An aura of dread; chill winds and a pale, dim sun</p><p>5 Skeletal griffins circle overhead</p><p>6 Skeletons claw their way out of old graves and begin marching towards some distant rallying point</p><p><strong>ENCOUNTERS</strong></p><p>Dread knights brood in ancient castles and necropolises in once-populated lands.</p><p><strong>CR 17–22</strong> Dread knight; dread knight with 10 skeletons; dread knight riding nightmare</p><p><strong>Treasure</strong> 1,000 pp, signet ring (50 gp), <em>potion of invisibility</em>, <em>dancing sword</em> (greatsword) named <em>Ruin</em>, <em>horseshoes of speed</em></p><p><strong>CR 23–30</strong> Dread knight riding corrupted unicorn, fell nightmare, skeletal tyrannosaurus, or wyvern; dread knight with 3 skeletal champions, wights, or zombie knights; dread knight with 2 ghosts, skeleton hordes, or wraiths</p><p><strong>Treasure </strong>5,000 gp<strong>, </strong>golden prosthetic hand (10,000 gp), star sapphire ring (2,500 gp), <em>potion of storm giant strength</em>, <em>spell scroll</em> of <em>earthquake</em>, <em>flame tongue</em> (greatsword) named <em>Balor</em></p><p><strong>CR 31+</strong> Queen Cir riding young shadow dragon; dread knight riding fell nightmare with mage and 20 zombies; dread knight with 1d4 + 3 wraiths&nbsp;</p><p><strong>Treasure</strong> ruby necklace (7,500 gp), 10 black sapphires (5,000 gp each), twisted gold wedding ring (10 gp), adamantium plate armor, <em>javelin of slaying</em> (as <em>arrow of slaying</em> vs. humanoids), <em>holy avenger</em> (greatsword) named <em>Dusk</em> which deals necrotic instead of radiant damage while attuned to the dread knight</p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as skeletons. Others, like vampires, are the products of an evil ritual or curse.</p>",
+      "creatureTypes": [
+        "undead"
+      ],
+      "cr": 19,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "the languages it knew in life"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "med",
+      "conditionImmunities": [
+        "charmed",
+        "fatigue",
+        "frightened",
+        "poisoned",
+        "stunned"
+      ],
+      "damageImmunities": [
+        "poison",
+        "necrotic",
+        "cold",
+        "fire"
+      ],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Dread Knight",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "color": null,
+      "attenuation": 0.5
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/dread-knight.webp",
+      "tint": null,
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678671508864,
+    "modifiedTime": 1678671968160,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

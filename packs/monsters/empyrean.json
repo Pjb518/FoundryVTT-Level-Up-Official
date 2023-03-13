@@ -1,2638 +1,3066 @@
 {
-	"name": "Empyrean",
-	"type": "npc",
-	"img": "systems/a5e/assets/empyrean.webp",
-	"items": [
-		{
-			"_id": "U5GeGYLG1hYGuW95",
-			"name": "Divine Grace",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>If the empyrean makes a saving throw against an effect that deals half damage on a success, it takes no damage on a success and half damage on a failure. Furthermore, while wearing medium armor, the empyrean adds its full Dexterity bonus to its Armor Class (already included).</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "BXqAf14zcaxcIepa",
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 200000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean’s innate spellcasting ability is Charisma (spell save DC 23). It can innately cast the following spells, requiring no material components:</p><p></p><p>At will: <em>charm person</em>, <em>command</em>,<em> telekinesis</em></p><p style=\"text-align: start\">3/day:<em> flame strike</em>,<em> hold monster</em>,<em> lightning bolt</em></p><p style=\"text-align: start\">1/day: <em>commune</em>, <em>greater restoration</em>, <em>heroes’ feast</em>,<em> plane shift</em> (self only, can’t travel to or from the Material Plane)</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">(these spells can be found in the spells section)</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "MJx3wizsSAbde3T2",
-			"name": "Charm Person",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.SRO0l2YbvBXJ9yZa"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.&nbsp;</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
-				"duration": {
-					"unit": "hour",
-					"value": 1
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "No effect on successful save",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "K2R80Z5AJkKiHe8f",
-			"name": "Magic Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "OI4SgqMXxXBOgaTp",
-			"name": "Regeneration",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 400000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean regains 10 hit points at the beginning of its turn as long as it has at least 1 hit point.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "DSxEKkIpbzcl1s69",
-			"name": "Immortal Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 500000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>A titan doesn’t require air, sustenance, or sleep.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "cHfDEsyv6ak6m1JO",
-			"name": "Maul",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 600000,
-			"flags": {},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "8d6+@mod",
-						"name": "Maul Bludgeoning"
-					},
-					{
-						"canCrit": true,
-						"damageType": "radiant",
-						"formula": "4d6",
-						"name": "Maul Radiant"
-					}
-				],
-				"description": "<p>On hit, target takes bludgeoning damage plus radiant damage, and the target makes a DC 25 Strength saving throw. On a failure, the target is pushed up to 30 feet away and knocked prone.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft"
-				],
-				"save": {
-					"dc": 25,
-					"onSave": "Avoid falling prone",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Zho7eOA9cnHPI8We",
-			"name": "Command",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator’s discretion you may give any one-word command.&nbsp;</p><p><strong><em>Approach | Come | Here:</em></strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p><p><strong><em>Bow | Grovel | Kneel: </em></strong>The target falls prone and ends its turn.</p><p><strong><em>Drop: </em></strong>The target drops anything it is holding and ends its turn.</p><p><strong><em>Flee | Run: </em></strong>The target uses its action to Dash and moves away from you as far as it can.</p><p><strong><em>Halt: </em></strong>The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p><p><br></p>",
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Negates",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"compulsion",
-						"divine"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Q9H2opi9clK9wqBO",
-			"name": "Telekinesis",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You move the target with the power of your mind. Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p><p><strong><em>Creature: </em></strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p><strong><em>Object:</em></strong> You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself—you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong>Cast at Higher Levels</strong></p><p>When using an 8th-level spell slot, this spell does not require your concentration</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "not moved, or keeps the object being held",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"movement"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "R7mnXTXmn6XpWuOF",
-			"name": "Flame Strike",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "rangedSpellAttack"
-				},
-				"area": {
-					"shape": "cylinder",
-					"size": "10 ft radius, 40 ft high"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "4d6",
-						"name": "Fire Damage"
-					},
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "4d6",
-						"name": "Radiant Damage"
-					}
-				],
-				"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong>Area: </strong>10-foot radius, 40-foot high cylinder</p><p><strong>Cast at Higher Levels</strong></p><p>Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><p><strong>Rare Versions</strong></p><p><strong><em>Kreven’s Discerning Lightning Strike.</em></strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Halves",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "pinch of sulfur",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"fire",
-						"divine"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "WgxH5ByoD5QFwCwi",
-			"name": "Greater Restoration",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li><p>a level of fatigue.</p></li><li><p>a level of strife.</p></li><li><p>a charm or petrification effect.</p></li><li><p>a curse or cursed item attunement.</p></li><li><p>any reduction to a single ability score.</p></li><li><p>an effect that has reduced the target’s hit point maximum.</p></li></ul>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "100 gold of diamond dust, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "mT9XdAZ67aL9nFiH",
-			"name": "Immortal Form",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 625000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean magically changes its size between Gargantuan and Medium. While Medium, the empyrean has disadvantage on Strength checks. Its statistics are otherwise unchanged</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "dAERhJJhPrLC8L6w",
-			"name": "Legendary Actions",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 650000,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The empyrean can take 1 legendary action, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p></p><ul><li><p>Attack</p></li><li><p>Cast Spell</p></li><li><p>Fly</p></li><li><p>Shout</p></li></ul>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "round"
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "numOucL5uumRi4hc",
-			"name": "Heroes' Feast",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.rk2oUmIZQuHQXa37"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 10,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished—it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast’s participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanav’s Final Heroes’ Feast.</em></strong> Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you take 8d10 necrotic damage.</p><p><strong><em>Sidoneth’s Fantabulous Heroes’ Feast. </em></strong>For 24 hours afterward, you gain advantage on Charisma checks made against creatures that participate in the feast.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "beautifully crafted bowl worth at least 1,000 gold, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"enhancement"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "6mYE9HmjBBQthsmi",
-			"name": "Lightning Bolt",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.8Mh4DD0kaCSaxeUB"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "line",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "lightning",
-						"formula": "8d6",
-						"name": "Lightning damage"
-					}
-				],
-				"description": "<p>A bolt of lightning arcs out from you in a direction you choose in a line 100 feet long and 5 feet wide.&nbsp;Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren’t worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong>Cast at Higher Levels</strong></p><p>Damage increases by 1d6 for every slot level above 3rd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Gabal’s Conductive Lightning Bolt.</em></strong><em> </em>Metallic creatures and creatures wearing metal armor make their saving throw with disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"100 ft."
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Halves",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "small metal rod and rain water",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"lightning",
-						"nature"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "jiQ9zQdb01vUeXfQ",
-			"name": "Commune",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.eiZj4jijBUpUfi7d"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p style=\"text-align: start\">When you cast this spell again before finishing a long rest, the chance of getting a no answer increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "incense and vial of holy or unholy water",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"knowledge",
-						"planar",
-						"divine"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1BdoZYcdamw9mns9",
-			"name": "Plane Shift",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.fKfsH4qOzXwMi3Jb"
-				}
-			},
-			"system": {
-				"ability": "cha",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeSpellAttack"
-				},
-				"area": {
-					"shape": null,
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle, you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).&nbsp;</p><p style=\"text-align: start\">Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">Empyreans can only use it on themselves, and can’t travel to or from the Material Plane</p><p style=\"text-align: start\"><strong>Duration:</strong> Instantaneous or Concentration (1 minute)</p>",
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "7",
-				"materials": "metal rod attuned to a particular plane of existence worth 250 gold",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"planar",
-						"teleportation",
-						"utility"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "YI8smvsfYEFNWXIY",
-			"name": "Hold Monster",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.BJOV7yMs1Vnf1IfW"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell’s effects on it on a successful save.</p><p><strong>Cast at Higher Levels</strong></p><p>Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 23,
-					"onSave": "Negates",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "5",
-				"materials": "piece of iron",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"affliction",
-						"arcane"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "I83AP9XRbOahDZ2N",
-			"name": "Shout (Recharge 5-6)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.7BofWww6JrM4ENom"
-				}
-			},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "thunder",
-						"formula": "7d6",
-						"name": ""
-					}
-				],
-				"description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": 25,
-					"onSave": "Half Damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fQDQGLXYQExVt7xH",
-			"name": "Fly (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 1000000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.aaBPFABQKmnR8bVu"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>(Legendary Action)</p><p>The empyrean flies up to half its fly speed.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1DvqaWn7IF8KuYcd",
-			"name": "Attack (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 800000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Uedw5bJIRCQomPdz"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Empyrean makes a weapon attack (see: Maul)</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "TNtPPzeSguw9l54C",
-			"name": "Cast Spell (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 900000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.J1miuWSK6yAsdDBy"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "legendaryAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>(Legendary Action)</p><p></p><p>The empyrean casts a spell. The empyrean can’t use this option if it has cast a spell since the start of its last turn</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1 + @mod",
-						"name": "Default"
-					}
-				],
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "WurvkOB8SQGWJ0LE"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "",
-						"formula": "1 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "VOFb3RofrJBONEbd"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "OjtY1r5ZlcxNh7fL"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "MRmOpZADwh7qXhjc"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "mAGEdm04YFw7Rtfr"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "5CmHQ8PVxgEFCYaP"
-		}
-	],
-	"effects": [],
-	"flags": {},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 30,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 30,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 22,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 24,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 26,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 21,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 328,
-				"baseMax": 328,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": "",
-				"climb": "",
-				"fly": "60",
-				"swim": "",
-				"walk": "60"
-			},
-			"senses": {
-				"blindsight": "",
-				"darkvision": "",
-				"tremorsense": "",
-				"truesight": "120"
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "cha"
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"spell": {
-				"attack": "",
-				"dc": ""
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>The empyrean flies at least 50 feet in the air, raining <em>lightning bolts</em> and <em>flame strikes</em> on land-bound foes. It attacks flying enemies with its maul. It uses Shout whenever it can and then attacks stunned creatures with its maul. If not on the Material Plane, it uses <em>plane shift</em> when reduced to 100 hit points or fewer.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Titans are semi-divine creatures from the dawn of time.</p><p><strong>DC 15</strong> The literal children of gods, empyrean titans are mighty warriors and powerful spellcasters. Their wounds heal with supernatural speed.</p><p><strong>DC 20</strong> Eons ago, King Fomorian and his many degenerate children were banished to the Dreaming. Each fomorian has a bulging eye that is both the source of their magic and their greatest vulnerability.</p><p><strong>DESCRIPTION</strong></p><p>Empyreans are godlike beings that stand 50 feet tall in their true forms, though they can take on humanoid stature to mingle with mortals. Their divine strength, combined with mortal will and foibles, make them unpredictable and dangerous. The flaws of even a well-intentioned empyrean are magnified by its power.&nbsp;</p><p>Each empyrean bears the mark of the god that gave it life. The offspring of a storm god might bear a weapon that crackles with electricity, while the child of a nature god might leave footprints that burst with flowers and tree shoots. An empyrean’s innate spell list might also vary depending on its parentage.</p><p><strong>BEHAVIOR</strong></p><p><strong>Material Plane Empyrean Behavior</strong></p><p>1 Sitting on a throne, staring at beautifully gilded prison walls, longing for distraction</p><p>2 In a rage, hammering futilely on an indestructible stone door</p><p>3 Summoning and dismissing illusions of worshipful mortals, magnificent architecture, and forgiving parents</p><p>4 Escaped from its prison and on its way to reclaim its power&nbsp;</p><hr class=\"a5e-rule u-my-md\"><p><strong>Planar Traveler Empyrean Behavior</strong></p><p>1 Dictating a message to a ball of light, which then races off; several more balls of light wait patiently to receive messages</p><p>2 Looking for battle with opponents of equal power</p><p>3 On a holy quest</p><p>4 Holding a feast, festival, or dance for locals</p><p><strong>ENCOUNTERS</strong></p><p>Some empyreans maintain a semblance of rulership within dungeon prisons, while others wander in exile far from the Material Plane. Fomorians and their ilk inhabit underground palaces in the Dreaming.</p><p><strong>CR 5–10</strong> fomorian</p><p><strong>Treasure</strong> 200 gp, silver mask (750 gp), <em>rope of climbing</em></p><p><strong>CR 11–16</strong> 2 fomorians; fomorian with night hag, ogre mage, or 3 ogres</p><p><strong>Treasure</strong> 1,500 gp, defaced jade statuette of a god (750 gp), <em>potion of flying</em>, a silver-clasped book with an eye on the cover (a <em>tome of understanding</em>)</p><p><strong>CR 17–22</strong> empyrean</p><p><strong>Treasure</strong> 5,000 gp, gold and emerald bracers (7,500 gp), <em>hammer of thunderbolts</em></p><p><strong>CR 23–30</strong> empyrean with high priest, holy knight, or khalkos; 3 fomorians</p><p><strong>Treasure</strong> 1,000 pp, magic platinum mirror that shows shapechangers in their true form (7,500 gp), <em>potion of invisibility</em>, <em>sovereign glue</em>, <em>+3 maul</em> (a legendary weapon named <em>Farstep</em>; an attuned wielder can cast <em>dimension door</em> and <em>teleport </em>once per day each)&nbsp;</p><p><strong>CR 31+</strong> Aklea; King Fomor; King Fomor with 1 to 3 fomorians; 2 or 3 empyreans; 4 or 5 fomorians</p><p><strong>Treasure</strong> 30,000 gp, 20 suits of fine clothes that magically resize to fit the wearer (1,000 gp each), 10 sets of gold tableware (500 gp each), 10 gold chalices that magically refill with fine wine three times each day (2,500 gp each), <em>ring of earth elemental command</em>, <em>staff of withering</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Celestials are creatures native to divine realms or heavens. Celestials have alignments, such as Lawful Good. Most celestials are good, although the servants of evil deities can be evil. Angels are celestials.</p>",
-			"creatureTypes": [
-				"celestial"
-			],
-			"cr": 22,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"celestial",
-				"common",
-				"Six more languages"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			}
-		},
-		"traits": {
-			"size": "grg",
-			"conditionImmunities": [],
-			"damageImmunities": [
-				"radiant",
-				"damage from non-magical weapons"
-			],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Empyrean",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 4,
-		"height": 4,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/empyrean.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "1qk6bz2iwxochp69"
+  "name": "Empyrean",
+  "type": "npc",
+  "img": "systems/a5e/assets/empyrean.webp",
+  "items": [
+    {
+      "_id": "U5GeGYLG1hYGuW95",
+      "name": "Divine Grace",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>If the empyrean makes a saving throw against an effect that deals half damage on a success, it takes no damage on a success and half damage on a failure. Furthermore, while wearing medium armor, the empyrean adds its full Dexterity bonus to its Armor Class (already included).</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "BXqAf14zcaxcIepa",
+      "name": "Innate Spellcasting",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The empyrean’s innate spellcasting ability is Charisma (spell save DC 23). It can innately cast the following spells, requiring no material components:</p><p></p><p>At will: <em>charm person</em>, <em>command</em>,<em> telekinesis</em></p><p style=\"text-align: start\">3/day:<em> flame strike</em>,<em> hold monster</em>,<em> lightning bolt</em></p><p style=\"text-align: start\">1/day: <em>commune</em>, <em>greater restoration</em>, <em>heroes’ feast</em>,<em> plane shift</em> (self only, can’t travel to or from the Material Plane)</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">(these spells can be found in the spells section)</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "MJx3wizsSAbde3T2",
+      "name": "Charm Person",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.SRO0l2YbvBXJ9yZa"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "8GNXhVvKE4vsGU8M": {
+            "name": "Charm Person",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "hour",
+              "value": 1
+            },
+            "ranges": {
+              "qcZwG4om5FlRV79Q": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "prompts": {
+              "9aVzbr7SSoSdAV5B": {
+                "ability": "wis",
+                "onSave": "No effect on successful save",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "23"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.&nbsp;</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 23,
+          "onSave": "No effect on successful save",
+          "targetAbility": "wis"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": null,
+          "per": ""
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 1,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "enchantment",
+          "secondary": [
+            "arcane",
+            "compulsion"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "K2R80Z5AJkKiHe8f",
+      "name": "Magic Resistance",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The empyrean has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "OI4SgqMXxXBOgaTp",
+      "name": "Regeneration",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The empyrean regains 10 hit points at the beginning of its turn as long as it has at least 1 hit point.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "DSxEKkIpbzcl1s69",
+      "name": "Immortal Nature",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 500000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>A titan doesn’t require air, sustenance, or sleep.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "cHfDEsyv6ak6m1JO",
+      "name": "Maul",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 600000,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "4CzRf1PbPcJR9wO2": {
+            "name": "Maul",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "EU5x0NdGtYkt7qQO": {
+                "range": "10 ft"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "90zzO1atap2KVJOi": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "JxnQ5T1gvfeusrCK": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "8d6+@str.mod",
+                "name": "Maul Bludgeoning",
+                "type": "damage"
+              },
+              "ttgCjbBEdAwG0sl9": {
+                "canCrit": true,
+                "damageType": "radiant",
+                "formula": "4d6",
+                "name": "Maul Radiant",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "d2nEO3Vh2WHbOtTH": {
+                "ability": "str",
+                "onSave": "Avoid falling prone",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "25"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>On hit, target takes bludgeoning damage plus radiant damage, and the target makes a DC 25 Strength saving throw. On a failure, the target is pushed up to 30 feet away and knocked prone.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 25,
+          "onSave": "Avoid falling prone",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "Zho7eOA9cnHPI8We",
+      "name": "Command",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "Dss53yycYLpl4EAy": {
+            "name": "Command",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "round",
+              "value": 1
+            },
+            "ranges": {
+              "eTCPhhnhlT1azPcO": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "prompts": {
+              "i9sGsfUue17U8eEh": {
+                "ability": "wis",
+                "onSave": "Negates",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "23"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator’s discretion you may give any one-word command.&nbsp;</p><p><strong><em>Approach | Come | Here:</em></strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p><p><strong><em>Bow | Grovel | Kneel: </em></strong>The target falls prone and ends its turn.</p><p><strong><em>Drop: </em></strong>The target drops anything it is holding and ends its turn.</p><p><strong><em>Flee | Run: </em></strong>The target uses its action to Dash and moves away from you as far as it can.</p><p><strong><em>Halt: </em></strong>The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p><p><br></p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 23,
+          "onSave": "Negates",
+          "targetAbility": "wis"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": false,
+          "material": false
+        },
+        "concentration": false,
+        "level": 1,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "enchantment",
+          "secondary": [
+            "compulsion",
+            "divine"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "Q9H2opi9clK9wqBO",
+      "name": "Telekinesis",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "j2N6GwxypHC2JlxA": {
+            "name": "Telekinesis",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 10
+            },
+            "ranges": {
+              "YC8KdJCJTVd4WB82": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "prompts": {
+              "NTjFCNkYe7HMOynS": {
+                "ability": "str",
+                "onSave": "not moved, or keeps the object being held",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "23"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You move the target with the power of your mind. Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p><p><strong><em>Creature: </em></strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p><strong><em>Object:</em></strong> You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself—you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong>Cast at Higher Levels</strong></p><p>When using an 8th-level spell slot, this spell does not require your concentration</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 23,
+          "onSave": "not moved, or keeps the object being held",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": true,
+        "level": 1,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "transmutation",
+          "secondary": [
+            "arcane",
+            "movement"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "R7mnXTXmn6XpWuOF",
+      "name": "Flame Strike",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "E9Jyeez3p0Bj7IRV": {
+            "name": "Flame Strike",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "NwTjZowrzFCPEIny": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "cylinder",
+              "size": "10 ft radius, 40 ft high",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "5tLxt2jh3H31Up72": {
+                "canCrit": false,
+                "damageType": "fire",
+                "formula": "4d6",
+                "name": "Fire Damage",
+                "type": "damage"
+              },
+              "UT5hokIvGynl2HWN": {
+                "canCrit": false,
+                "damageType": "radiant",
+                "formula": "4d6",
+                "name": "Radiant Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "o6SveAPxHOlyUYq8": {
+                "ability": "dex",
+                "onSave": "Halves",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "23"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong>Area: </strong>10-foot radius, 40-foot high cylinder</p><p><strong>Cast at Higher Levels</strong></p><p>Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><p><strong>Rare Versions</strong></p><p><strong><em>Kreven’s Discerning Lightning Strike.</em></strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 23,
+          "onSave": "Halves",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": "5",
+        "materials": "pinch of sulfur",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "fire",
+            "divine"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "WgxH5ByoD5QFwCwi",
+      "name": "Greater Restoration",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "2P2JLK5nAZL8dFDN": {
+            "name": "Greater Restoration",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "SHm5pNPrHaW0EYVi": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            }
+          }
+        },
+        "description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li><p>a level of fatigue.</p></li><li><p>a level of strife.</p></li><li><p>a charm or petrification effect.</p></li><li><p>a curse or cursed item attunement.</p></li><li><p>any reduction to a single ability score.</p></li><li><p>an effect that has reduced the target’s hit point maximum.</p></li></ul>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": "5",
+        "materials": "100 gold of diamond dust, consumed by the spell",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "abjuration",
+          "secondary": [
+            "divine",
+            "healing"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "mT9XdAZ67aL9nFiH",
+      "name": "Immortal Form",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 625000,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "urJXKWCRdlCSxEtv": {
+            "name": "Immortal Form",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The empyrean magically changes its size between Gargantuan and Medium. While Medium, the empyrean has disadvantage on Strength checks. Its statistics are otherwise unchanged</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "dAERhJJhPrLC8L6w",
+      "name": "Legendary Actions",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 650000,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The empyrean can take 1 legendary action, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p></p><ul><li><p>Attack</p></li><li><p>Cast Spell</p></li><li><p>Fly</p></li><li><p>Shout</p></li></ul>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "round"
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "numOucL5uumRi4hc",
+      "name": "Heroes' Feast",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.rk2oUmIZQuHQXa37"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "rLUFdLKGHGFMBfqP": {
+            "name": "Heroes' Feast",
+            "activation": {
+              "cost": 10,
+              "type": "minute",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "ODU21wVcqi8OIskt": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished—it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast’s participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanav’s Final Heroes’ Feast.</em></strong> Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you take 8d10 necrotic damage.</p><p><strong><em>Sidoneth’s Fantabulous Heroes’ Feast. </em></strong>For 24 hours afterward, you gain advantage on Charisma checks made against creatures that participate in the feast.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": 6,
+        "materials": "beautifully crafted bowl worth at least 1,000 gold, consumed by the spell",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "conjuration",
+          "secondary": [
+            "enhancement"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "6mYE9HmjBBQthsmi",
+      "name": "Lightning Bolt",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.8Mh4DD0kaCSaxeUB"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "apIHdN7WX3TtVo0Z": {
+            "name": "Lightning Bolt",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "dERtRjOZeOtwIgrj": {
+                "range": "100 ft."
+              }
+            },
+            "area": {
+              "shape": "line",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "Xop3xB4g0x1fWQsL": {
+                "canCrit": false,
+                "damageType": "lightning",
+                "formula": "8d6",
+                "name": "Lightning damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "hUzP8gpz8bSRdJtL": {
+                "ability": "dex",
+                "onSave": "Halves",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "23"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>A bolt of lightning arcs out from you in a direction you choose in a line 100 feet long and 5 feet wide.&nbsp;Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren’t worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong>Cast at Higher Levels</strong></p><p>Damage increases by 1d6 for every slot level above 3rd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Gabal’s Conductive Lightning Bolt.</em></strong><em> </em>Metallic creatures and creatures wearing metal armor make their saving throw with disadvantage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 23,
+          "onSave": "Halves",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": 3,
+        "materials": "small metal rod and rain water",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "arcane",
+            "lightning",
+            "nature"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683149,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "jiQ9zQdb01vUeXfQ",
+      "name": "Commune",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.eiZj4jijBUpUfi7d"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "0RAf3qX9nyfbMa0R": {
+            "name": "Commune",
+            "activation": {
+              "cost": 1,
+              "type": "minute",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 1
+            },
+            "ranges": {
+              "q4Dt2qhycH44R2Iw": {
+                "range": "self"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p style=\"text-align: start\">When you cast this spell again before finishing a long rest, the chance of getting a no answer increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": "5",
+        "materials": "incense and vial of holy or unholy water",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": true,
+        "schools": {
+          "primary": "divination",
+          "secondary": [
+            "knowledge",
+            "planar",
+            "divine"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "1BdoZYcdamw9mns9",
+      "name": "Plane Shift",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.fKfsH4qOzXwMi3Jb"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "cha",
+        "actions": {
+          "Al1hDdMVg1iLZqPg": {
+            "name": "Plane Shift",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "special",
+              "value": ""
+            },
+            "ranges": {
+              "04p6RmjiGiUnYOyn": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": null,
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "other"
+            }
+          }
+        },
+        "description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle, you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).&nbsp;</p><p style=\"text-align: start\">Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">Empyreans can only use it on themselves, and can’t travel to or from the Material Plane</p><p style=\"text-align: start\"><strong>Duration:</strong> Instantaneous or Concentration (1 minute)</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": true,
+        "level": "7",
+        "materials": "metal rod attuned to a particular plane of existence worth 250 gold",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "conjuration",
+          "secondary": [
+            "arcane",
+            "divine",
+            "nature",
+            "planar",
+            "teleportation",
+            "utility"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "YI8smvsfYEFNWXIY",
+      "name": "Hold Monster",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.BJOV7yMs1Vnf1IfW"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "DbzjHF0Icjs7MShG": {
+            "name": "Hold Monster",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 1
+            },
+            "ranges": {
+              "4u3HGKFTsEdUpsyg": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "prompts": {
+              "cHtQIkmvOOwplsPV": {
+                "ability": "wis",
+                "onSave": "Negates",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "23"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell’s effects on it on a successful save.</p><p><strong>Cast at Higher Levels</strong></p><p>Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 23,
+          "onSave": "Negates",
+          "targetAbility": "wis"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 3,
+          "max": 3,
+          "per": "day"
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": true,
+        "level": "5",
+        "materials": "piece of iron",
+        "materialsConsumed": false,
+        "prepared": false,
+        "ritual": false,
+        "schools": {
+          "primary": "enchantment",
+          "secondary": [
+            "affliction",
+            "arcane"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "I83AP9XRbOahDZ2N",
+      "name": "Shout (Recharge 5-6)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 1100000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.7BofWww6JrM4ENom"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "QApOKHSdWXio1TjH": {
+            "name": "Shout (Recharge 5-6)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "4o9Te6Co2QCKWOWL": {
+                "range": "long"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "rEc9NFyzjggg0McW": {
+                "canCrit": false,
+                "damageType": "thunder",
+                "formula": "7d6",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "kZ5nD9MjBTC1GGIQ": {
+                "ability": "con",
+                "onSave": "Half Damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "25"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 25,
+          "onSave": "Half Damage",
+          "targetAbility": "con"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": null,
+          "per": ""
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "fQDQGLXYQExVt7xH",
+      "name": "Fly (Legendary)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 1000000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.aaBPFABQKmnR8bVu"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "ZUS49HKPRAwLq9Wf": {
+            "name": "Fly (Legendary)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>(Legendary Action)</p><p>The empyrean flies up to half its fly speed.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "1DvqaWn7IF8KuYcd",
+      "name": "Attack (Legendary)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 800000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Uedw5bJIRCQomPdz"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "KmqcIUwMP4ZanDHi": {
+            "name": "Attack (Legendary)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>Empyrean makes a weapon attack (see: Maul)</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "TNtPPzeSguw9l54C",
+      "name": "Cast Spell (Legendary)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 900000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.J1miuWSK6yAsdDBy"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "rDoiUMA9Q5PUunpa": {
+            "name": "Cast Spell (Legendary)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>(Legendary Action)</p><p></p><p>The empyrean casts a spell. The empyrean can’t use this option if it has cast a spell since the start of its last turn</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "D7tUKHEW85QajP3B": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "V5JvD0F2Nz0retgG": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "8tCwe2VVkxGEQrrQ": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "6ww1wYxG22AXlPbw": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "WurvkOB8SQGWJ0LE",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683150,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "8tnIJjnnKbs6sW7y": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "wuyrU1B4sUI8qsf2": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "boHt30ANFmBaQpx2": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "70fpCdSRO7vV2vrL": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "VOFb3RofrJBONEbd",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683151,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "avHk5Y11kYyJmZHU": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "oXiAkN2MpscUtmZC": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "tIEo2JRx1QTAACr8": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "OjtY1r5ZlcxNh7fL",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683151,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "Nnt6vniIzyM5odDD": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "1pO3mX7LBKjxey0W": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "csEyUDewLD417Gbs": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "MRmOpZADwh7qXhjc",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683151,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "tf5QHU2wlvfM0EM1": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "j9CYYtRxx9L9sYgh": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "vfoqwsgVWIXjcYiN": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "mAGEdm04YFw7Rtfr",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683151,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "dT5wEaY2C12zuPvg": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "dHWGAcglIdbLZ5tj": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "zMm4dBpBAtqCCkmf": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "5CmHQ8PVxgEFCYaP",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671683151,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.1qk6bz2iwxochp69"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 30,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 24,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 30,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 22,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 24,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 26,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 21,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 328,
+        "baseMax": 328,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 120,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "cha"
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>The empyrean flies at least 50 feet in the air, raining <em>lightning bolts</em> and <em>flame strikes</em> on land-bound foes. It attacks flying enemies with its maul. It uses Shout whenever it can and then attacks stunned creatures with its maul. If not on the Material Plane, it uses <em>plane shift</em> when reduced to 100 hit points or fewer.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Titans are semi-divine creatures from the dawn of time.</p><p><strong>DC 15</strong> The literal children of gods, empyrean titans are mighty warriors and powerful spellcasters. Their wounds heal with supernatural speed.</p><p><strong>DC 20</strong> Eons ago, King Fomorian and his many degenerate children were banished to the Dreaming. Each fomorian has a bulging eye that is both the source of their magic and their greatest vulnerability.</p><p><strong>DESCRIPTION</strong></p><p>Empyreans are godlike beings that stand 50 feet tall in their true forms, though they can take on humanoid stature to mingle with mortals. Their divine strength, combined with mortal will and foibles, make them unpredictable and dangerous. The flaws of even a well-intentioned empyrean are magnified by its power.&nbsp;</p><p>Each empyrean bears the mark of the god that gave it life. The offspring of a storm god might bear a weapon that crackles with electricity, while the child of a nature god might leave footprints that burst with flowers and tree shoots. An empyrean’s innate spell list might also vary depending on its parentage.</p><p><strong>BEHAVIOR</strong></p><p><strong>Material Plane Empyrean Behavior</strong></p><p>1 Sitting on a throne, staring at beautifully gilded prison walls, longing for distraction</p><p>2 In a rage, hammering futilely on an indestructible stone door</p><p>3 Summoning and dismissing illusions of worshipful mortals, magnificent architecture, and forgiving parents</p><p>4 Escaped from its prison and on its way to reclaim its power&nbsp;</p><hr class=\"a5e-rule u-my-md\"><p><strong>Planar Traveler Empyrean Behavior</strong></p><p>1 Dictating a message to a ball of light, which then races off; several more balls of light wait patiently to receive messages</p><p>2 Looking for battle with opponents of equal power</p><p>3 On a holy quest</p><p>4 Holding a feast, festival, or dance for locals</p><p><strong>ENCOUNTERS</strong></p><p>Some empyreans maintain a semblance of rulership within dungeon prisons, while others wander in exile far from the Material Plane. Fomorians and their ilk inhabit underground palaces in the Dreaming.</p><p><strong>CR 5–10</strong> fomorian</p><p><strong>Treasure</strong> 200 gp, silver mask (750 gp), <em>rope of climbing</em></p><p><strong>CR 11–16</strong> 2 fomorians; fomorian with night hag, ogre mage, or 3 ogres</p><p><strong>Treasure</strong> 1,500 gp, defaced jade statuette of a god (750 gp), <em>potion of flying</em>, a silver-clasped book with an eye on the cover (a <em>tome of understanding</em>)</p><p><strong>CR 17–22</strong> empyrean</p><p><strong>Treasure</strong> 5,000 gp, gold and emerald bracers (7,500 gp), <em>hammer of thunderbolts</em></p><p><strong>CR 23–30</strong> empyrean with high priest, holy knight, or khalkos; 3 fomorians</p><p><strong>Treasure</strong> 1,000 pp, magic platinum mirror that shows shapechangers in their true form (7,500 gp), <em>potion of invisibility</em>, <em>sovereign glue</em>, <em>+3 maul</em> (a legendary weapon named <em>Farstep</em>; an attuned wielder can cast <em>dimension door</em> and <em>teleport </em>once per day each)&nbsp;</p><p><strong>CR 31+</strong> Aklea; King Fomor; King Fomor with 1 to 3 fomorians; 2 or 3 empyreans; 4 or 5 fomorians</p><p><strong>Treasure</strong> 30,000 gp, 20 suits of fine clothes that magically resize to fit the wearer (1,000 gp each), 10 sets of gold tableware (500 gp each), 10 gold chalices that magically refill with fine wine three times each day (2,500 gp each), <em>ring of earth elemental command</em>, <em>staff of withering</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Celestials are creatures native to divine realms or heavens. Celestials have alignments, such as Lawful Good. Most celestials are good, although the servants of evil deities can be evil. Angels are celestials.</p>",
+      "creatureTypes": [
+        "celestial"
+      ],
+      "cr": 22,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "celestial",
+        "common",
+        "Six more languages"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "grg",
+      "conditionImmunities": [],
+      "damageImmunities": [
+        "radiant",
+        "damage from non-magical weapons"
+      ],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Empyrean",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 4,
+    "height": 4,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/empyrean.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678671282319,
+    "modifiedTime": 1678671683136,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

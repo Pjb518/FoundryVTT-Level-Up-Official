@@ -1,85 +1,112 @@
 {
-	"name": "Geas",
-	"type": "spell",
-	"img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "minute",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "psychic",
-				"formula": "5d10",
-				"name": ""
-			}
-		],
-		"description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p><p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is 1 year when using a 7th-level spell slot, or permanent until dispelled when using a 9th-level spell slot.</p>",
-		"duration": {
-			"unit": "day",
-			"value": "30"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 5,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"arcane",
-				"compulsion",
-				"divine",
-				"law"
-			]
-		}
-	},
-	"_id": "a64cea2ij2t33xva"
+  "name": "Geas",
+  "type": "spell",
+  "img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.a64cea2ij2t33xva"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "dILGvecg09SqGS5b": {
+        "name": "Geas",
+        "activation": {
+          "cost": 1,
+          "type": "minute",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "day",
+          "value": "30"
+        },
+        "ranges": {
+          "YJgrS7BKwj2Q94l7": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "JonCDmAfZYMy3awO": {
+            "canCrit": false,
+            "damageType": "psychic",
+            "formula": "5d10",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "dyLe19VRucf8TUty": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p><p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is 1 year when using a 7th-level spell slot, or permanent until dispelled when using a 9th-level spell slot.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 5,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "arcane",
+        "compulsion",
+        "divine",
+        "law"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673675496,
+    "modifiedTime": 1678673718839,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

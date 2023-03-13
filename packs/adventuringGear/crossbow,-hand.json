@@ -1,86 +1,113 @@
 {
-	"name": "Crossbow, Hand",
-	"type": "object",
-	"img": "icons/weapons/crossbows/crossbow-simple-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d6 + @mod",
-				"name": "Hand Crossbow"
-			}
-		],
-		"description": "<p><em>Dual-Wielding, Loading, Range (30/120)</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short",
-			"long"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "60 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"dualWielding",
-			"loading",
-			"range"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "y5b8gyl8oekwj44y"
+  "name": "Crossbow, Hand",
+  "type": "object",
+  "img": "icons/weapons/crossbows/crossbow-simple-red.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.y5b8gyl8oekwj44y"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "03RzPEUUJ2VPsxyr": {
+        "name": "Crossbow, Hand",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "USDD83WHKBg3a3Im": {
+            "range": "short"
+          },
+          "YOsOl3k1q0Oicluu": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "81LsaUlUWiPnpSK8": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "aDjTpCWCOIjBbvTQ": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6 + @str.mod",
+            "name": "Hand Crossbow",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Dual-Wielding, Loading, Range (30/120)</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "60 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "dualWielding",
+      "loading",
+      "range"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672302215,
+    "modifiedTime": 1678672335255,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

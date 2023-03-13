@@ -1,86 +1,110 @@
 {
-	"name": "Vicious War Pick",
-	"type": "object",
-	"img": "icons/weapons/hammers/shorthammer-claw-stone.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d8 + @mod",
-				"name": "War Pick"
-			},
-			{
-				"canCrit": false,
-				"damageType": "piercing",
-				"formula": "2d6",
-				"name": "Vicious Damage"
-			}
-		],
-		"description": "<p><em>Breaker (Stone)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "5 gp",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"breaker"
-		],
-		"weight": "2 lbs"
-	},
-	"_id": "insxuhbl0oj4jvqf"
+  "name": "Vicious War Pick",
+  "type": "object",
+  "img": "icons/weapons/hammers/shorthammer-claw-stone.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.insxuhbl0oj4jvqf"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "qRxmyarLerBU8mNu": {
+        "name": "Vicious War Pick",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "sfiCdPIlY6b8Jit6": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "i5udgUCPFXqo9DNJ": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @str.mod",
+            "name": "War Pick",
+            "type": "damage"
+          },
+          "4Pf5DriIW9WbWj4j": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "2d6",
+            "name": "Vicious Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Breaker (Stone)</em></p><p>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon's type (this extra damage does not double).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "5 gp",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "breaker"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673232615,
+    "modifiedTime": 1678673290277,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

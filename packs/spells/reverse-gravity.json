@@ -1,74 +1,100 @@
 {
-	"name": "Reverse Gravity",
-	"type": "spell",
-	"img": "icons/magic/unholy/barrier-fire-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cylinder",
-			"radius": "50"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Gravity reverses in the area. Any creatures or objects not anchored to the ground fall upward until they reach the top of the area. A creature may make a Dexterity saving throw to prevent the fall by grabbing hold of something. If a solid object (such as a ceiling) is encountered, the affected creatures and objects impact against it with the same force as a downward fall. When an object or creature reaches the top of the area, it remains suspended there until the spell ends.</p><p>When the spell ends, all affected objects and creatures fall back down.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 7,
-		"materials": "lodestone and iron filings",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"arcane"
-			]
-		}
-	},
-	"_id": "zjy35hgxx2gkv5ja"
+  "name": "Reverse Gravity",
+  "type": "spell",
+  "img": "icons/magic/unholy/barrier-fire-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.zjy35hgxx2gkv5ja"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "THdjr4DSOl8V5W3P": {
+        "name": "Reverse Gravity",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "s4nY2sMEkrE11oX0": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "radius": "50",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "G5EoOn8tRHGeEgQy": {
+            "ability": "dex",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Gravity reverses in the area. Any creatures or objects not anchored to the ground fall upward until they reach the top of the area. A creature may make a Dexterity saving throw to prevent the fall by grabbing hold of something. If a solid object (such as a ceiling) is encountered, the affected creatures and objects impact against it with the same force as a downward fall. When an object or creature reaches the top of the area, it remains suspended there until the spell ends.</p><p>When the spell ends, all affected objects and creatures fall back down.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 7,
+    "materials": "lodestone and iron filings",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "arcane"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673682408,
+    "modifiedTime": 1678673733049,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

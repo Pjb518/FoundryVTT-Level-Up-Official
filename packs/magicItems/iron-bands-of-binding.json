@@ -1,74 +1,110 @@
 {
-	"name": "Iron Bands of Binding",
-	"type": "object",
-	"img": "icons/commodities/metal/clasp-steel-braid.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"savingThrow",
-			"attack"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>This smooth iron sphere conceals a formidable set of restraints that unfolds into metal bands when thrown. Once between long rests you can use an action to throw it at a creature within 60 feet, treating it as if it were a ranged weapon attack with which you are proficient. On a hit, if the creature is Huge-sized or smaller it becomes restrained until you use a bonus action to speak a different command word and release it. </p><p>A creature can try to break the bands by using an action to make a DC 20 Strength Check. On a success, the bands are broken and the restrained creature is freed. On a failure, the creature cannot try again until 24 hours have passed.</p>",
-		"duration": {
-			"unit": "special",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "20",
-			"onSave": "Bands are broken and restrained creature is freed.",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "1,000 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "apgjl6og9x4uyg3v"
+  "name": "Iron Bands of Binding",
+  "type": "object",
+  "img": "icons/commodities/metal/clasp-steel-braid.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.apgjl6og9x4uyg3v"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "Y6hARx8ALT62Bv2d": {
+        "name": "Iron Bands of Binding",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "ranges": {
+          "GHCusutM1xzlllnB": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "rolls": {
+          "Uykg1P4JALs12JXt": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          }
+        },
+        "prompts": {
+          "fnOGuuTCSzAvJ0h0": {
+            "ability": "str",
+            "onSave": "Bands are broken and restrained creature is freed.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "20"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This smooth iron sphere conceals a formidable set of restraints that unfolds into metal bands when thrown. Once between long rests you can use an action to throw it at a creature within 60 feet, treating it as if it were a ranged weapon attack with which you are proficient. On a hit, if the creature is Huge-sized or smaller it becomes restrained until you use a bonus action to speak a different command word and release it. </p><p>A creature can try to break the bands by using an action to make a DC 20 Strength Check. On a success, the bands are broken and the restrained creature is freed. On a failure, the creature cannot try again until 24 hours have passed.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "20",
+      "onSave": "Bands are broken and restrained creature is freed.",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "1,000 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673226879,
+    "modifiedTime": 1678673273196,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

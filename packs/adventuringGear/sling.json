@@ -1,85 +1,112 @@
 {
-	"name": "Sling",
-	"type": "object",
-	"img": "icons/commodities/cloth/ribbon-worn-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "1d4 + @mod",
-				"name": "Sling Bullet"
-			}
-		],
-		"description": "<p><em>Range (30/120), Simple</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short",
-			"long"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "2 sp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"range",
-			"simple"
-		],
-		"weight": "0"
-	},
-	"_id": "ar70p2c2w6lkwsh2"
+  "name": "Sling",
+  "type": "object",
+  "img": "icons/commodities/cloth/ribbon-worn-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.ar70p2c2w6lkwsh2"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "h9iBfvICcTboC6uI": {
+        "name": "Sling",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "hxFTjUvZnrQ5zfK4": {
+            "range": "short"
+          },
+          "SsNY32DrkGz9EaCs": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "McTELRuQixWz7Dd7": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "fEgDQza1T1K0WxL1": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d4 + @str.mod",
+            "name": "Sling Bullet",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Range (30/120), Simple</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "2 sp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "range",
+      "simple"
+    ],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672297719,
+    "modifiedTime": 1678672329906,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

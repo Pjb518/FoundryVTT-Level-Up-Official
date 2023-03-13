@@ -1,74 +1,110 @@
 {
-	"name": "Tanglefoot Bag",
-	"type": "object",
-	"img": "icons/weapons/thrown/bomb-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<blockquote><p>Unguents and adhesives fill this airtight sack.</p></blockquote><p>You can use an action to throw this bag at a target within 20 feet, treating it as a ranged weapon attack with an improvised weapon. On a hit, rapidly hardening sap covers the target and it makes a DC 13 Strength check or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success.</p><p>The sap can also be destroyed (AC 13, 6 hit points).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20 feet"
-		],
-		"save": {
-			"dc": "13",
-			"onSave": "Ends grapple",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "50 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "3 lbs"
-	},
-	"_id": "ukcav3i8dudpalir"
+  "name": "Tanglefoot Bag",
+  "type": "object",
+  "img": "icons/weapons/thrown/bomb-purple.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.ukcav3i8dudpalir"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "8vKj3hyqjICFKNIn": {
+        "name": "Tanglefoot Bag",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "mtI4dqBKJRSiIpFd": {
+            "range": "20 feet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "rolls": {
+          "Gto3041wI1YwzgMh": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          }
+        },
+        "prompts": {
+          "XMEm7qx3s2ea6xcu": {
+            "ability": "str",
+            "onSave": "Ends grapple",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "13"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<blockquote><p>Unguents and adhesives fill this airtight sack.</p></blockquote><p>You can use an action to throw this bag at a target within 20 feet, treating it as a ranged weapon attack with an improvised weapon. On a hit, rapidly hardening sap covers the target and it makes a DC 13 Strength check or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success.</p><p>The sap can also be destroyed (AC 13, 6 hit points).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "13",
+      "onSave": "Ends grapple",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "50 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672302206,
+    "modifiedTime": 1678672334291,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

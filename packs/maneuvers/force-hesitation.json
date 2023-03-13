@@ -1,62 +1,90 @@
 {
-	"name": "Force Hesitation",
-	"type": "maneuver",
-	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>After working your way into an opponent's guard you convince them that every step will lead to a disastrous end, and that to divert their attention away from you for even a moment invites devastation.</p><p>A creature within your reach makes an Intelligence saving throw. On a failure, it reacts to a strike from you that never comes. As long as you remain within the target's reach, until the start of your next turn it cannot attack any creature other than you.</p><p>After you have used this maneuver against a creature, until the end of combat it has advantage on saving throws against Force Hesitation.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "int"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 2,
-		"exertionCost": 2,
-		"tradition": "mistAndShade"
-	},
-	"_id": "ol84yi2dytw861bb"
+  "name": "Force Hesitation",
+  "type": "maneuver",
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.ol84yi2dytw861bb"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "6YccCGibdR3zaCl9": {
+        "name": "Force Hesitation",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "8GUI7Zs5uyHxhzwb": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "okSsZedC5TQnBtL8": {
+            "ability": "int",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>After working your way into an opponent's guard you convince them that every step will lead to a disastrous end, and that to divert their attention away from you for even a moment invites devastation.</p><p>A creature within your reach makes an Intelligence saving throw. On a failure, it reacts to a strike from you that never comes. As long as you remain within the target's reach, until the start of your next turn it cannot attack any creature other than you.</p><p>After you have used this maneuver against a creature, until the end of combat it has advantage on saving throws against Force Hesitation.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "",
+      "targetAbility": "int"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 2,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "mistAndShade"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673409910,
+    "modifiedTime": 1678673441434,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

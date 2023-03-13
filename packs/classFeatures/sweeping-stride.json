@@ -1,56 +1,79 @@
 {
-	"name": "Sweeping Stride",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>When you move at least 10 feet and enter a space adjacent to a creature no more than one size larger than you, you can try to trip it. If the creature fails a Dexterity saving throw , it falls prone . If it succeeds, instead your movement ends in the space you entered to use this ability.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "8+@prof+@int.mod",
-			"onSave": "Not prone",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "nd9r8bgj96om9rl2"
+  "name": "Sweeping Stride",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "ability": "",
+    "actions": {
+      "KcJkydfU33MIVY4A": {
+        "name": "Sweeping Stride",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "2xGvQQ5y5qXmYDSd": {
+            "ability": "dex",
+            "onSave": "Not prone",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8+@prof+@int.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>When you move at least 10 feet and enter a space adjacent to a creature no more than one size larger than you, you can try to trip it. If the creature fails a Dexterity saving throw , it falls prone . If it succeeds, instead your movement ends in the space you entered to use this ability.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8+@prof+@int.mod",
+      "onSave": "Not prone",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.nd9r8bgj96om9rl2"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672649779,
+    "modifiedTime": 1678672692106,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,70 +1,98 @@
 {
-	"name": "Flask of Inebriation",
-	"type": "object",
-	"img": "icons/sundries/gaming/playing-cards-grey.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>This plain and rough old steel flask hides one’s vices most inconspicuously.</p><p>Any liquid poured into the flask instantly becomes intoxicating and remains so even if poured out of the flask.</p><p>The flask has no effect on any form of magical liquids poured into it.</p><p>You can use an action to expend 1 charge, spraying a 10-foot cone that empties the flask of its contents. Creatures within the area make a DC 10 Constitution saving throw or are poisoned by the potent alcohol. At the end of each of its turns, a creature poisoned by the flask can repeat the saving throw, ending the effect on itself on a success.</p><p>The flask has 2 charges and regains 1 charge each dawn.</p><p>If you expend the last charge, roll a d20. On a result of 5 or less, the flask loses its potency and becomes a mundane item.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "10",
-			"onSave": "end poisoned effect",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": 2,
-			"max": 2,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "container",
-		"plotItem": false,
-		"price": "90 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "1 lb"
-	},
-	"_id": "l4v1ex3vulknw7q4"
+  "name": "Flask of Inebriation",
+  "type": "object",
+  "img": "icons/sundries/gaming/playing-cards-grey.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.l4v1ex3vulknw7q4"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "TsIZtYyYmQH1xMCH": {
+        "name": "Flask of Inebriation",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "SxFZgtUqz4eLcuVk": {
+            "ability": "con",
+            "onSave": "end poisoned effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "10"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This plain and rough old steel flask hides one’s vices most inconspicuously.</p><p>Any liquid poured into the flask instantly becomes intoxicating and remains so even if poured out of the flask.</p><p>The flask has no effect on any form of magical liquids poured into it.</p><p>You can use an action to expend 1 charge, spraying a 10-foot cone that empties the flask of its contents. Creatures within the area make a DC 10 Constitution saving throw or are poisoned by the potent alcohol. At the end of each of its turns, a creature poisoned by the flask can repeat the saving throw, ending the effect on itself on a success.</p><p>The flask has 2 charges and regains 1 charge each dawn.</p><p>If you expend the last charge, roll a d20. On a result of 5 or less, the flask loses its potency and becomes a mundane item.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "10",
+      "onSave": "end poisoned effect",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 2,
+      "max": 2,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "container",
+    "plotItem": false,
+    "price": "90 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 1
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235470,
+    "modifiedTime": 1678673294683,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

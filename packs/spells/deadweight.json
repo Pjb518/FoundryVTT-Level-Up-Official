@@ -1,76 +1,107 @@
 {
-	"name": "Deadweight",
-	"type": "spell",
-	"img": "icons/magic/control/hypnosis-mesmerism-watch.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"abilityCheck",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>The target object's weight is greatly increased. Any creature holding the object must succeed on a Strength saving throw or drop it. A creature which doesn't drop the object has disadvantage on attack rolls until the start of your next turn as it figures out the object's new balance.</p><p>Creatures that attempt to push, drag, or lift the object must succeed on a Strength check against your spell save DC to do so.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "object"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"mobility",
-				"transformation"
-			]
-		}
-	},
-	"_id": "9mdbn49lbvsc3r01"
+  "name": "Deadweight",
+  "type": "spell",
+  "img": "icons/magic/control/hypnosis-mesmerism-watch.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.9mdbn49lbvsc3r01"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "LOKKSoGJmHHrlCKs": {
+        "name": "Deadweight",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "W7iHf8577WihH1Fl": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "object"
+        },
+        "rolls": {
+          "eQf6oBCkgCFLg1pS": {
+            "ability": "str",
+            "type": "abilityCheck"
+          }
+        },
+        "prompts": {
+          "87C9Kq968WIiROkh": {
+            "ability": "str",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>The target object's weight is greatly increased. Any creature holding the object must succeed on a Strength saving throw or drop it. A creature which doesn't drop the object has disadvantage on attack rolls until the start of your next turn as it figures out the object's new balance.</p><p>Creatures that attempt to push, drag, or lift the object must succeed on a Strength check against your spell save DC to do so.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "mobility",
+        "transformation"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673675495,
+    "modifiedTime": 1678673718089,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

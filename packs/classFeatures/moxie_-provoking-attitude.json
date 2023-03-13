@@ -1,58 +1,85 @@
 {
-	"name": "Moxie: Provoking Attitude",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You know how to piss people off. You can expend one use of Rage and choose a creature within 60 feet that can hear or see you. The creature makes a Charisma saving throw against your Furious Critical DC. On a failure, it makes or accepts a challenge. The nature of this challenge is at the Narrator’s discretion but is usually a duel or opposed check: archery with Dexterity,&nbsp;arm-wrestling with Strength, competing with a gaming set, distance running with Constitution, wrestling with Athletics, and so on.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "8 + @prof + @con.mod",
-			"onSave": "Not goaded",
-			"targetAbility": "cha"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "ag4x6x6921ilwo3i"
+  "name": "Moxie: Provoking Attitude",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.ag4x6x6921ilwo3i"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "4JUeHaH6GEL4o54P": {
+        "name": "Moxie: Provoking Attitude",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "E97FijufVA5BXnKQ": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "TX8SXqjdZxAQLvCJ": {
+            "ability": "cha",
+            "onSave": "Not goaded",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @con.mod"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You know how to piss people off. You can expend one use of Rage and choose a creature within 60 feet that can hear or see you. The creature makes a Charisma saving throw against your Furious Critical DC. On a failure, it makes or accepts a challenge. The nature of this challenge is at the Narrator’s discretion but is usually a duel or opposed check: archery with Dexterity,&nbsp;arm-wrestling with Strength, competing with a gaming set, distance running with Constitution, wrestling with Athletics, and so on.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 + @prof + @con.mod",
+      "onSave": "Not goaded",
+      "targetAbility": "cha"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672637327,
+    "modifiedTime": 1678672680992,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

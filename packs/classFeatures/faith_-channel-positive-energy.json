@@ -1,64 +1,82 @@
 {
-	"name": "Faith: Channel Positive Energy",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"healing"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You can use an action to evoke energy from the Upper Planes to heal creatures you are able to see. You choose the creatures and divide 200 hit points of healing among them.</p><p>A creature that regains hit points from this feature is also healed of one level of fatigue and one level of strife, and if it is blinded, charmed, confused, deafened, doomed, frightened, paralyzed, petrified, poisoned, rattled, slowed, or stunned those conditions end for it. This feature cannot be used on undead or constructs.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [
-			{
-				"formula": "200",
-				"healingType": "healing",
-				"name": "Shared healing pool"
-			}
-		],
-		"proficient": true,
-		"range": [
-			"Within line of sight"
-		],
-		"save": {
-			"dc": "8 + @prof + @wis.mod",
-			"onSave": "Half damage and no afflicted condition",
-			"targetAbility": "cha"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": 1,
-			"max": 1,
-			"per": "longRest"
-		},
-		"featureType": "class"
-	},
-	"_id": "9rpezi87rt7j7buv"
+  "name": "Faith: Channel Positive Energy",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.9rpezi87rt7j7buv"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "0yqzL4yvUiAjDDQ9": {
+        "name": "Faith: Channel Positive Energy",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "apA1zz5xtGHuTpav": {
+            "range": "Within line of sight"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "CAtrJ10UFD8njDcE": {
+            "formula": "200",
+            "healingType": "healing",
+            "name": "Shared healing pool",
+            "type": "healing"
+          }
+        }
+      }
+    },
+    "description": "<p>You can use an action to evoke energy from the Upper Planes to heal creatures you are able to see. You choose the creatures and divide 200 hit points of healing among them.</p><p>A creature that regains hit points from this feature is also healed of one level of fatigue and one level of strife, and if it is blinded, charmed, confused, deafened, doomed, frightened, paralyzed, petrified, poisoned, rattled, slowed, or stunned those conditions end for it. This feature cannot be used on undead or constructs.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8 + @prof + @wis.mod",
+      "onSave": "Half damage and no afflicted condition",
+      "targetAbility": "cha"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": 1,
+      "per": "longRest"
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672637324,
+    "modifiedTime": 1678672680804,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

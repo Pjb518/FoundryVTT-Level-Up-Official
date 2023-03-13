@@ -1,58 +1,85 @@
 {
-	"name": "Flourish: Bloody",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"size": "20 ft."
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Whenever you score a critical hit with a weapon attack you may choose to do a Bloody Flourish.</p><p><strong><em>&nbsp; &nbsp;Bloody Flourish</em></strong>.&nbsp;You make sure your strike is as bloody and gruesome as possible, making an Intimidation check.&nbsp; Each hostile creature within 20 feet of you makes a Wisdom saving throw against a DC equal to the result of your Intimidation check. On a failure, a creature becomes frightened of you until the end of your next turn.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"self"
-		],
-		"save": {
-			"dc": null,
-			"onSave": "No effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "zzdc327nm5e3mfbt"
+  "name": "Flourish: Bloody",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.zzdc327nm5e3mfbt"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "lLx3xaUHc7i8UaLv": {
+        "name": "Flourish: Bloody",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "0itrLTDDxnryVf2b": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "20 ft.",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "VZJODNjomt02fEqi": {
+            "ability": "wis",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": null
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Whenever you score a critical hit with a weapon attack you may choose to do a Bloody Flourish.</p><p><strong><em>&nbsp; &nbsp;Bloody Flourish</em></strong>.&nbsp;You make sure your strike is as bloody and gruesome as possible, making an Intimidation check.&nbsp; Each hostile creature within 20 feet of you makes a Wisdom saving throw against a DC equal to the result of your Intimidation check. On a failure, a creature becomes frightened of you until the end of your next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": null,
+      "onSave": "No effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672667014,
+    "modifiedTime": 1678672700873,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

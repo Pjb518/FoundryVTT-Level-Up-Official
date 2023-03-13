@@ -1,90 +1,128 @@
 {
-	"name": "Alchemical Grenade (Arcane Payload)",
-	"type": "object",
-	"img": "icons/weapons/thrown/grenade-round.webp",
-	"system": {
-		"ability": "int",
-		"actionOptions": [
-			"attack",
-			"damage",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "force",
-				"defaultSelection": true,
-				"formula": "(floor((@details.level+1)/6)+1)d6",
-				"name": "Force"
-			},
-			{
-				"canCrit": true,
-				"damageType": "force",
-				"defaultSelection": true,
-				"formula": "(floor((@details.level+1)/6)+1)d12",
-				"name": "Additional Force"
-			}
-		],
-		"description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Arcane Payload</strong></h3><p>A target hit by this grenade takes additional force damage and makes an Intelligence saving throw or is rattled until the end of its next turn.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20 ft.",
-			"medium"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "0",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "i1xkvegj33eayc17"
+  "name": "Alchemical Grenade (Arcane Payload)",
+  "type": "object",
+  "img": "icons/weapons/thrown/grenade-round.webp",
+  "system": {
+    "ability": "int",
+    "actions": {
+      "HfRVTj7jVYHsn90G": {
+        "name": "Alchemical Grenade (Arcane Payload)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "O0Cgql8ubqo87hXP": {
+            "range": "20 ft."
+          },
+          "S7CwlN00gTOUjhIl": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "z6ZJHkcKh1c6rVFG": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "8nSlirDbzTuORn5F": {
+            "canCrit": true,
+            "damageType": "force",
+            "defaultSelection": true,
+            "formula": "(floor((@details.level+1)/6)+1)d6",
+            "name": "Force",
+            "type": "damage"
+          },
+          "YHIQHUqIYlQYVQM8": {
+            "canCrit": true,
+            "damageType": "force",
+            "defaultSelection": true,
+            "formula": "(floor((@details.level+1)/6)+1)d12",
+            "name": "Additional Force",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "soXg8MwkdjVEztj3": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Arcane Payload</strong></h3><p>A target hit by this grenade takes additional force damage and makes an Intelligence saving throw or is rattled until the end of its next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "0",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.i1xkvegj33eayc17"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672643062,
+    "modifiedTime": 1678672688149,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

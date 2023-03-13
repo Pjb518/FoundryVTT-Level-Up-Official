@@ -1,88 +1,121 @@
 {
-	"name": "Javelin of Lightning",
-	"type": "object",
-	"img": "icons/magic/lightning/bolt-beam-strike-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "line",
-			"size": "5 ft.  x 120 ft."
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "lightning",
-				"formula": "4d6",
-				"name": "Lightning"
-			},
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d6 + @mod",
-				"name": "Javelin"
-			}
-		],
-		"description": "<p>Once per dawn, when you throw this magic weapon and speak its command word it transforms into a 5-foot wide line of electricity that is 120 feet long.</p><p>Each creature in the area (excluding you) makes a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, or half damage on a success. The target of your attack takes the javelin’s normal damage plus 4d6 lightning damage.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "13",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": 1,
-			"max": 1,
-			"per": "day"
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "500",
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"thrown"
-		],
-		"weight": "2"
-	},
-	"_id": "o9wryvmzi4itppx3"
+  "name": "Javelin of Lightning",
+  "type": "object",
+  "img": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.o9wryvmzi4itppx3"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "fc3J0IzyGIOeweo0": {
+        "name": "Javelin of Lightning",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "swnTytZatwfxfIJJ": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "line",
+          "size": "5 ft.  x 120 ft.",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "rolls": {
+          "gXW1g3pPacwtw95h": {
+            "canCrit": true,
+            "damageType": "lightning",
+            "formula": "4d6",
+            "name": "Lightning",
+            "type": "damage"
+          },
+          "cuPlO5dM0qASk1PH": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6 + @mod",
+            "name": "Javelin",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "o5A66s0TyuLsxPpx": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "13"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Once per dawn, when you throw this magic weapon and speak its command word it transforms into a 5-foot wide line of electricity that is 120 feet long.</p><p>Each creature in the area (excluding you) makes a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, or half damage on a success. The target of your attack takes the javelin’s normal damage plus 4d6 lightning damage.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "13",
+      "onSave": "Half damage",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": 1,
+      "per": "day"
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "500",
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "thrown"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235482,
+    "modifiedTime": 1678673298483,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,1414 +1,1654 @@
 {
-	"name": "Satyr",
-	"type": "npc",
-	"img": "systems/a5e/assets/satyr.webp",
-	"items": [
-		{
-			"_id": "gkdZJKRe5F8clppa",
-			"name": "Rapier",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "WFjKMfXQnfS49Hqh",
-			"sort": 600000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.EB2Lvx6XYv9yakEg"
-				}
-			},
-			"system": {
-				"ability": "dex",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d8 + @mod",
-						"name": "Rapier Attack!"
-					}
-				],
-				"description": "<p>Rapier</p>\n<p>&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [
-					"defensive",
-					"finesse"
-				],
-				"weight": "2"
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Ogs7icKo8oNeFC0a",
-			"name": "Shortbow",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.DNpI9AybYOPxt2sl"
-				}
-			},
-			"system": {
-				"ability": "dex",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "rangedWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6+@mod",
-						"name": "Bow damage"
-					}
-				],
-				"description": "",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"80",
-					"320"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "25 gp",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [
-					"range",
-					"twoHanded"
-				],
-				"weight": "2"
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fmztNg6zxIkHduTN",
-			"name": "Ram",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.YD02OvbKhIgoUXJ2"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d6+@mod",
-						"name": "Ram (normal)"
-					},
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "2d6+@mod",
-						"name": "Ram (movement assisted)"
-					}
-				],
-				"description": "<p>Does additional damage if Satyr moves at least 20 feet straight towards target prior to the attack.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7Hnh0cK9KwJ02zmc",
-			"name": "Dance Tune",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.hhKW35lwIiek8NVc"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "30 ft. radius"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Each humanoid, fey, or giant within 30 feet that can hear the satyr makes a DC 13 Wisdom saving throw. On a failure, it is magically charmed and must dance until the beginning of the satyr’s next turn. While dancing, its movement speed is halved, and it has disadvantage on attack rolls. Satyrs don’t suffer the negative consequences of dancing</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": 13,
-					"onSave": "avoids dancing",
-					"targetAbility": "wis"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7oSE5u7B5hnY5RlK",
-			"name": "Magic Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.VIx9reHmkXxJls2W"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The satyr has advantage on saving throws against spells and other magical effects.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1 + @mod",
-						"name": "Default"
-					}
-				],
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "tyWVlkX7w2sui9KD"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "",
-						"formula": "1 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "Gac77Q7mRmt6wAmv"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "JzVapaGWIUgpF3tz"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "kRBrCill27DE3313"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "VG01OLeYuX6XZWyO"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "XMvq4Lns0Wzgjamt"
-		}
-	],
-	"effects": [],
-	"flags": {},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 13,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 22,
-				"baseMax": 22,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 5,
-					"total": 5
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": "",
-				"climb": "",
-				"fly": "",
-				"swim": "",
-				"walk": "40"
-			},
-			"senses": {
-				"blindsight": 0,
-				"darkvision": 0,
-				"tremorsense": 0,
-				"truesight": 0
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int"
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"spell": {
-				"attack": "",
-				"dc": ""
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>If a satyr is alone, it rams and fights with its rapier. In a group of satyrs, one uses Lullaby or Dance Tune while the others fight in melee.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Aravale, Bocacchio, Gracchus, Hoddypeak, Rumpus, Windermere</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Satyrs are fey creatures with the torsos of humans and the cloven hooves of goats.</p><p><strong>DC 15</strong> Their fey nature makes satyrs resistant to mortal magic.</p><p><strong>DC 20</strong> If you ever encounter a satyr, cover your ears: their music makes mortals dance uncontrollably or fall into an enchanted slumber.</p><p><strong>DESCRIPTION</strong></p><p>Satyrs are boisterous, forest-dwelling fey that resemble humans with furry lower bodies and the cloven hooves of goats. Rams’ horns sprout from their brows, ranging in size from tiny nubs to impressive spirals.&nbsp;</p><p>Satyrs live in the moment. They relentlessly pursue beauty and pleasure, hosting raucous celebrations that can last for weeks at a time.</p><p><strong><em>Instinctive Musicians.</em> </strong>Musical virtuosos, satyrs are said to be able to play any instrument. Their music, woven with fey magic, incites merriment and other enchantments in anyone who hears it.</p><p><strong><em>Infectious Hedonists.</em> </strong>When a revel of satyrs descends upon a village or town, the inhabitants often find themselves caught up in the wild celebration. Satyrs give no thought to the consequences of their hedonism. A lengthy revel can devastate a community as chores are forgotten and winter stores consumed. When a revel finally ends, it leaves in its wake folk mystified at their own behaviour.</p><p><strong>BEHAVIOR</strong></p><p>1–3 Reveling</p><p>4 Staggering drunk</p><p>5 Planning to steal revelers away to a sinister forest</p><p>6 Arriving for an unannounced visit and with no intention to leave</p><p>7 Sneaking past guards to steal something, kidnap someone, or rescue someone</p><p>8 Broke and willing to rob travelers</p><p><strong>SIGNS</strong></p><p>1–3 Distant music</p><p>4 Cloven hoof print</p><p>5 Empty wine jugs</p><p>6 Drunk or passed-out revelers</p><p><strong>ENCOUNTERS</strong></p><p>Satyrs dwell in woodlands in the Faerie Realm and on the Material Plane.</p><p><strong>CR 0–2</strong> 1 or 2 satyrs</p><p><strong>Treasure</strong> 50 gp, sheet music for a variety of dance tunes (25 gp), 2 <em>potions of healing</em></p><p><strong>CR 3–4</strong> 3 or 4 satyrs; 2 satyrs with 2 dryads, pixies, or sprites; 2 or 3 satyrs with 1d6 + 6 commoners</p><p><strong>Treasure</strong> 6 bottles of excellent wine (25 gp each), <em>potion of growth</em>, <em>pipes of the sewers</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Fey are creatures that are native to Fairyland, also called the Dreaming. These creatures live in a verdant realm of heightened natural beauty and combine grace and danger. Sprites and pixies are fey.</p>",
-			"creatureTypes": [
-				"fey"
-			],
-			"cr": 0.5,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"common",
-				"elvish",
-				"sylvan"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			}
-		},
-		"traits": {
-			"size": "med",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Satyr",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 1,
-		"height": 1,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/satyr.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "iamul5uu30d60e9j"
+  "name": "Satyr",
+  "type": "npc",
+  "img": "systems/a5e/assets/satyr.webp",
+  "items": [
+    {
+      "_id": "gkdZJKRe5F8clppa",
+      "name": "Rapier",
+      "type": "object",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "WFjKMfXQnfS49Hqh",
+      "sort": 600000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.EB2Lvx6XYv9yakEg"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "dex",
+        "actions": {
+          "CYrwSYOm1Yi56F5t": {
+            "name": "Rapier",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "lRaF5ukWdOQbPqYH": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "z0OuHCtEUHim62Ar": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d8 + @finesse.mod",
+                "name": "Rapier Attack!",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>Rapier</p>\n<p>&nbsp;</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": true,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": "0",
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "defensive",
+          "finesse"
+        ],
+        "weight": 2
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807226,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "Ogs7icKo8oNeFC0a",
+      "name": "Shortbow",
+      "type": "object",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.DNpI9AybYOPxt2sl"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "dex",
+        "actions": {
+          "SsXeScLJ7l4A516Q": {
+            "name": "Shortbow",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "bWDPPTEykaaAiIwL": {
+                "range": "80"
+              },
+              "XCSIp6qwlnVvz3oG": {
+                "range": "320"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "fp3UMfteR689qQEb": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "uwjmQqV3qLnH6FQp": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d6+@str.mod",
+                "name": "Bow damage",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": true,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": "25 gp",
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "range",
+          "twoHanded"
+        ],
+        "weight": 2
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807226,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "fmztNg6zxIkHduTN",
+      "name": "Ram",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.YD02OvbKhIgoUXJ2"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "w0ZbspVJKTrzUrkE": {
+            "name": "Ram",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "D9fJL8VtjWgtI1jA": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "o5l0lHPEVE0EOrAQ": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "BrmFPM61sOdbNcIm": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "1d6+@str.mod",
+                "name": "Ram (normal)",
+                "type": "damage"
+              },
+              "ILYMAzGO8PkNjdaA": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "2d6+@str.mod",
+                "name": "Ram (movement assisted)",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>Does additional damage if Satyr moves at least 20 feet straight towards target prior to the attack.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "7Hnh0cK9KwJ02zmc",
+      "name": "Dance Tune",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.hhKW35lwIiek8NVc"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "YAuyZmx6QpUimpvX": {
+            "name": "Dance Tune",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "2Tmh568abxls1xZM": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "30 ft. radius",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "self"
+            },
+            "prompts": {
+              "x62qrubagq3LHKBc": {
+                "ability": "wis",
+                "onSave": "avoids dancing",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "13"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>Each humanoid, fey, or giant within 30 feet that can hear the satyr makes a DC 13 Wisdom saving throw. On a failure, it is magically charmed and must dance until the beginning of the satyr’s next turn. While dancing, its movement speed is halved, and it has disadvantage on attack rolls. Satyrs don’t suffer the negative consequences of dancing</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 13,
+          "onSave": "avoids dancing",
+          "targetAbility": "wis"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "7oSE5u7B5hnY5RlK",
+      "name": "Magic Resistance",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.VIx9reHmkXxJls2W"
+        }
+      },
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The satyr has advantage on saving throws against spells and other magical effects.</p>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "zsVRdIjn6JwE2EcX": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "5HCJVWEuKh9zHJmX": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "HHOlbwtg8JlQrQUi": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "m0Mt9KE4wKX0iJ0O": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "tyWVlkX7w2sui9KD",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "SQfESed12wfVxxNu": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "dssIuFeaRR80eYMu": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "ixWE5sQSxpTzBCxM": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "eJrpm4RxUHyhEHcI": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "Gac77Q7mRmt6wAmv",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "0NOlu1dxbMzFwjMX": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "0ZSMQjgu65jan4d9": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "SGXD7gj5PWCquTAX": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "JzVapaGWIUgpF3tz",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "9pQc6QbbKJp1IP7k": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "gx3MoIMYofPsjaor": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "2kH1HSz9uC7P0u8B": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "kRBrCill27DE3313",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "6nElLPVtmpYVLdVf": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "bYDyOtWjUtcXIGxx": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "pGbwHR3u2uaUBbGD": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "VG01OLeYuX6XZWyO",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "ks645ipdDWTQMlGr": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "Ywvc3mPW81WVjMf3": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "HD1Oa2oZpjReOVD7": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "XMvq4Lns0Wzgjamt",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671807227,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.iamul5uu30d60e9j"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 13,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 22,
+        "baseMax": 22,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 5,
+          "total": 5
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 0,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int"
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>If a satyr is alone, it rams and fights with its rapier. In a group of satyrs, one uses Lullaby or Dance Tune while the others fight in melee.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Aravale, Bocacchio, Gracchus, Hoddypeak, Rumpus, Windermere</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Satyrs are fey creatures with the torsos of humans and the cloven hooves of goats.</p><p><strong>DC 15</strong> Their fey nature makes satyrs resistant to mortal magic.</p><p><strong>DC 20</strong> If you ever encounter a satyr, cover your ears: their music makes mortals dance uncontrollably or fall into an enchanted slumber.</p><p><strong>DESCRIPTION</strong></p><p>Satyrs are boisterous, forest-dwelling fey that resemble humans with furry lower bodies and the cloven hooves of goats. Rams’ horns sprout from their brows, ranging in size from tiny nubs to impressive spirals.&nbsp;</p><p>Satyrs live in the moment. They relentlessly pursue beauty and pleasure, hosting raucous celebrations that can last for weeks at a time.</p><p><strong><em>Instinctive Musicians.</em> </strong>Musical virtuosos, satyrs are said to be able to play any instrument. Their music, woven with fey magic, incites merriment and other enchantments in anyone who hears it.</p><p><strong><em>Infectious Hedonists.</em> </strong>When a revel of satyrs descends upon a village or town, the inhabitants often find themselves caught up in the wild celebration. Satyrs give no thought to the consequences of their hedonism. A lengthy revel can devastate a community as chores are forgotten and winter stores consumed. When a revel finally ends, it leaves in its wake folk mystified at their own behaviour.</p><p><strong>BEHAVIOR</strong></p><p>1–3 Reveling</p><p>4 Staggering drunk</p><p>5 Planning to steal revelers away to a sinister forest</p><p>6 Arriving for an unannounced visit and with no intention to leave</p><p>7 Sneaking past guards to steal something, kidnap someone, or rescue someone</p><p>8 Broke and willing to rob travelers</p><p><strong>SIGNS</strong></p><p>1–3 Distant music</p><p>4 Cloven hoof print</p><p>5 Empty wine jugs</p><p>6 Drunk or passed-out revelers</p><p><strong>ENCOUNTERS</strong></p><p>Satyrs dwell in woodlands in the Faerie Realm and on the Material Plane.</p><p><strong>CR 0–2</strong> 1 or 2 satyrs</p><p><strong>Treasure</strong> 50 gp, sheet music for a variety of dance tunes (25 gp), 2 <em>potions of healing</em></p><p><strong>CR 3–4</strong> 3 or 4 satyrs; 2 satyrs with 2 dryads, pixies, or sprites; 2 or 3 satyrs with 1d6 + 6 commoners</p><p><strong>Treasure</strong> 6 bottles of excellent wine (25 gp each), <em>potion of growth</em>, <em>pipes of the sewers</em></p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Fey are creatures that are native to Fairyland, also called the Dreaming. These creatures live in a verdant realm of heightened natural beauty and combine grace and danger. Sprites and pixies are fey.</p>",
+      "creatureTypes": [
+        "fey"
+      ],
+      "cr": 0.5,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "common",
+        "elvish",
+        "sylvan"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "med",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Satyr",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/satyr.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678671403628,
+    "modifiedTime": 1678671807219,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

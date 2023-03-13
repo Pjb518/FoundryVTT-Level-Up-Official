@@ -1,82 +1,99 @@
 {
-	"name": "Mass Healing Word",
-	"type": "spell",
-	"img": "icons/magic/life/heart-cross-strong-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"healing"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>Healing energy flows from you in a wash of restorative power and each target regains hit points equal to 1d4 + your spellcasting ability modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 3rd.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [
-			{
-				"defaultSelection": true,
-				"formula": "1d4 + @mod",
-				"healingType": "healing",
-				"name": ""
-			}
-		],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 3,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"divine",
-				"healing"
-			]
-		}
-	},
-	"_id": "ubzeov7qutgmtecs"
+  "name": "Mass Healing Word",
+  "type": "spell",
+  "img": "icons/magic/life/heart-cross-strong-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.ubzeov7qutgmtecs"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "2QrVFjyEyCJbsosf": {
+        "name": "Mass Healing Word",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "knB1mINf1nb4gFAI": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "AYadqzk0wFUY3WQz": {
+            "defaultSelection": true,
+            "formula": "1d4 + @spellcasting.mod",
+            "healingType": "healing",
+            "name": "",
+            "type": "healing"
+          }
+        }
+      }
+    },
+    "description": "<p>Healing energy flows from you in a wash of restorative power and each target regains hit points equal to 1d4 + your spellcasting ability modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 3,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "divine",
+        "healing"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673682398,
+    "modifiedTime": 1678673730168,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

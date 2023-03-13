@@ -1,78 +1,103 @@
 {
-	"name": "Soulwrought Fists",
-	"type": "spell",
-	"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>The target's hands harden with inner power, turning dexterous fingers into magical iron cudgels.</p><p>Until the spell ends, the target drops anything it is holding and cannot use its hands to grasp objects or perform complex tasks. A target can still cast any spell that does not specifically require its hands.</p><p>When making unarmed strikes, the target can use its spellcasting ability or Dexterity (its choice) instead of Strength for the attack and damage rolls of unarmed strikes. In addition, the target's unarmed strikes deal 1d8 bludgeoning damage and count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"touch"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "Negates effect",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "handful of iron filings",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"enhancement",
-				"transformation",
-				"unarmed",
-				"weaponry"
-			]
-		}
-	},
-	"_id": "igcos86w2ic9bqd4"
+  "name": "Soulwrought Fists",
+  "type": "spell",
+  "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.igcos86w2ic9bqd4"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "svDOhMp4JDU4l3gp": {
+        "name": "Soulwrought Fists",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "hSYTfsQVaMCbxhh3": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "ztpyqurysIiywSC8": {
+            "ability": "con",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>The target's hands harden with inner power, turning dexterous fingers into magical iron cudgels.</p><p>Until the spell ends, the target drops anything it is holding and cannot use its hands to grasp objects or perform complex tasks. A target can still cast any spell that does not specifically require its hands.</p><p>When making unarmed strikes, the target can use its spellcasting ability or Dexterity (its choice) instead of Strength for the attack and damage rolls of unarmed strikes. In addition, the target's unarmed strikes deal 1d8 bludgeoning damage and count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "Negates effect",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "handful of iron filings",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "enhancement",
+        "transformation",
+        "unarmed",
+        "weaponry"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673677562,
+    "modifiedTime": 1678673722868,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

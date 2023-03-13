@@ -1,77 +1,108 @@
 {
-	"name": "Ray of Enfeeblement",
-	"type": "spell",
-	"img": "icons/magic/unholy/projectile-missile-green.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"attack",
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": "rangedSpellAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Special",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"arcane",
-				"necrotic"
-			]
-		}
-	},
-	"_id": "9eojtnhu5ptcipov"
+  "name": "Ray of Enfeeblement",
+  "type": "spell",
+  "img": "icons/magic/unholy/projectile-missile-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.9eojtnhu5ptcipov"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "wfYmq5hNVsStzU33": {
+        "name": "Ray of Enfeeblement",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "O0Tn4OK9eCt4xRUQ": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "xdkBo6pMZtypf2c5": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack"
+          }
+        },
+        "prompts": {
+          "91RruV5bTemhsZNu": {
+            "ability": "str",
+            "onSave": "Special",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Special",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "arcane",
+        "necrotic"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673675494,
+    "modifiedTime": 1678673718052,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

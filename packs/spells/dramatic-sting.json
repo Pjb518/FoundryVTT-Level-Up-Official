@@ -1,84 +1,111 @@
 {
-	"name": "Dramatic Sting",
-	"type": "spell",
-	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "psychic",
-				"formula": "1d4",
-				"name": ""
-			}
-		],
-		"description": "<p>You frighten the target by echoing its movements with ominous music and terrifying sound effects. It takes 1d4 psychic damage and becomes frightened of you until the spell ends.</p><p>At the end of each of the creature's turns, it can make another Wisdom saving throw, ending the effect on itself on a success. On a failed save, the creature takes 1d4 psychic damage.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for each slot level above 1st.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 1,
-		"materials": "broken violin string and a wasp's stinger",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"fear",
-				"psychic",
-				"sound"
-			]
-		}
-	},
-	"_id": "sy2a5qu1t4ilj67y"
+  "name": "Dramatic Sting",
+  "type": "spell",
+  "img": "icons/skills/trades/music-notes-sound-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.sy2a5qu1t4ilj67y"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "oyJ2kextdY9dREPw": {
+        "name": "Dramatic Sting",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "sR6caO7XcRQKhZZ6": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "7TgEzOEfbuI4LpWy": {
+            "canCrit": false,
+            "damageType": "psychic",
+            "formula": "1d4",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "HQXhvCM7gxaTK8R2": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You frighten the target by echoing its movements with ominous music and terrifying sound effects. It takes 1d4 psychic damage and becomes frightened of you until the spell ends.</p><p>At the end of each of the creature's turns, it can make another Wisdom saving throw, ending the effect on itself on a success. On a failed save, the creature takes 1d4 psychic damage.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for each slot level above 1st.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Negates effect",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 1,
+    "materials": "broken violin string and a wasp's stinger",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "fear",
+        "psychic",
+        "sound"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673682395,
+    "modifiedTime": 1678673729172,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

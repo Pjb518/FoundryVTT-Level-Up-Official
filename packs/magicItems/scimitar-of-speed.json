@@ -1,82 +1,105 @@
 {
-	"name": "Scimitar of Speed",
-	"type": "object",
-	"img": "icons/weapons/swords/scimitar-guard-gold.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "2",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d6 + 2 + @mod",
-				"name": "Scimitar of Speed"
-			}
-		],
-		"description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><p>You gain a +2 bonus to attack and damage rolls made with this magic scimitar.</p><p>On each of your turns you can use a bonus action to make one attack with it.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "6,000 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive",
-			"dualWielding",
-			"finesse"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "vegbgrjktnueje6o"
+  "name": "Scimitar of Speed",
+  "type": "object",
+  "img": "icons/weapons/swords/scimitar-guard-gold.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.vegbgrjktnueje6o"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "VlKj1UdFIDR2s4dJ": {
+        "name": "Scimitar of Speed",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "WWscUhxg7TgHPeUg": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "ysD5cFHwsgOX79I3": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + 2 + @finesse.mod",
+            "name": "Scimitar of Speed",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><p>You gain a +2 bonus to attack and damage rolls made with this magic scimitar.</p><p>On each of your turns you can use a bonus action to make one attack with it.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "6,000 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "dualWielding",
+      "finesse"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673241963,
+    "modifiedTime": 1678673311140,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

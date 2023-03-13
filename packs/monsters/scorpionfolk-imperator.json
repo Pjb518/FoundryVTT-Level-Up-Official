@@ -1,2001 +1,2333 @@
 {
-	"name": "Scorpionfolk Imperator",
-	"type": "npc",
-	"img": "systems/a5e/assets/scorpionfolk.webp",
-	"items": [
-		{
-			"_id": "5Yc9QSpP0UfkiczE",
-			"name": "Javelin",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6+@mod",
-						"name": "Javelin"
-					}
-				],
-				"description": "<p></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short",
-					"long"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "5 sp",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"weaponProperties": [
-					"thrown"
-				],
-				"weight": "2"
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "w2HwcqZ5sZoOIcZ2",
-			"name": "Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>The imperator is a 5th level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). It has the following cleric and wizard spells prepared:</p><ul><li><p>Cantrips (at will): <em>light</em>,<em> sacred flame</em></p></li><li><p>1st-level (4 slots): <em>create or destroy water</em>,<em> healing word</em></p></li><li><p style=\"text-align: start\">2nd-level (3 slots): <em>burning gust of wind</em>, <em>lesser restoration</em></p></li><li><p style=\"text-align: start\">3rd-level (2 slots): <em>major image, venomous fireball</em></p></li></ul>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zbD8sdJL049QC9Rw",
-			"name": "Major Image",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "JOAqdt5omDWAbzHA",
-			"sort": -100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.KIe2Mo5gATFWLig1"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "cube",
-					"size": "20 Ft"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p style=\"text-align: start\">While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p style=\"text-align: start\">Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": 18,
-					"onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
-					"targetAbility": "int"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "3",
-				"materials": "tinderbox and small mirror",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "rJdz13oHEluFwWSA",
-			"name": "Venomous Fireball",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "20 ft radius"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "poison",
-						"formula": "6d6",
-						"name": ""
-					}
-				],
-				"description": "<p>Green fire streaks from the imperator to a point within 120 feet and explodes in a 20-foot radius, spreading around corners. Each creature in the area makes a DC 14 Dexterity saving throw, taking 21 (6d6) poison damage on a failed save or half damage on a success. A creature that fails the save is also poisoned until the end of its next turn.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"long"
-				],
-				"save": {
-					"dc": 14,
-					"onSave": "halves, avoids being poisoned",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"poison",
-						"arcane",
-						"fire"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "iNzPU0QKbn4mAtNx",
-			"name": "Burning Gust of Wind",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "line",
-					"size": "10 feet wide, 60 feet long"
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "2d6",
-						"name": ""
-					}
-				],
-				"description": "<p>A hot blast of wind erupts from the imperator’s claw in a line 10 feet wide and 60 feet long. It extinguishes small fires and disperses vapors. For 1 minute or until the imperator’s concentration is broken, each creature that starts its turn in the area or moves into the area must succeed on a DC 14 Strength saving throw or be pushed 15 feet directly away and take 7 (2d6) fire damage. A creature in the area must spend 2 feet of movement for every foot moved towards the imperator. The imperator can change the direction of the gust with a bonus action.</p>",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"self"
-				],
-				"save": {
-					"dc": 14,
-					"onSave": "avoid being moved and avoid taking damage",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "seed",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"air",
-						"fire",
-						"nature"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Qsag2iP43qsAJSdk",
-			"name": "Light",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
-				"duration": {
-					"unit": "hour",
-					"value": 1
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "small tinderbox",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"utility",
-						"arcane"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Rr2Zsk1eapYlRi5A",
-			"name": "Sacred Flame",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": null,
-				"actionOptions": [
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "2d8",
-						"name": "Sacred Flame"
-					}
-				],
-				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanov’s Purifying Flame. </em></strong>When a target damaged by this spell is undead, has the Evil trait, or is vulnerable to radiant damage, it is rattled for the next minute. At the end of each of its turns, the target may make a Wisdom saving throw to end the effect on itself.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": 14,
-					"onSave": "No damage",
-					"targetAbility": "dex"
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"attack",
-						"divine",
-						"radiant"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8s4IiJp8dU2ov1KI",
-			"name": "Healing Word",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 375000,
-			"flags": {},
-			"system": {
-				"ability": "int",
-				"actionOptions": [
-					"healing"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong>Cast at Higher Levels</strong></p><p>The hit points regained increase by 1d4 for each slot level above 1st.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [
-					{
-						"formula": "1d4 + @mod+@prof",
-						"healingType": "healing",
-						"name": "Healing word"
-					}
-				],
-				"proficient": true,
-				"range": [
-					"medium"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "CGR7LV7jwA6MkSso",
-			"name": "Create or Destroy Water",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Choose one of the following.</p><p><strong><em>Create Water:</em></strong> You fill the target with up to 10 gallons of nonpotable water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p><p><strong><em>Destroy Water:</em></strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 fee</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"short"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "other"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "drop of water to create water or grains of sand to destroy it",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"divine",
-						"water",
-						"utility"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "JTuVW0X1bALAzXl8",
-			"name": "Lesser Restoration",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator’s discretion, some diseases might not be curable with this spell.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"divine",
-						"good",
-						"healing"
-					]
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Dkt93c4UouEFImLZ",
-			"name": "Claw",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.ciVWPjgjyq29kv0c"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d6+@mod",
-						"name": ""
-					}
-				],
-				"description": "<p>On hit, target is grappled. Until this grapple ends, the scorpionfolk can't attack a different target with its claws</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5 ft."
-				],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon"
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "xMNrPuaoESIcbmQb",
-			"name": "Sting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.brs4PWLdtVP9Yfhj"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"attack",
-					"damage",
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": "20",
-					"type": "meleeWeaponAttack"
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6+@mod",
-						"name": "Claw attack"
-					},
-					{
-						"canCrit": true,
-						"damageType": "poison",
-						"formula": "3d10",
-						"name": "Poison Damage"
-					}
-				],
-				"description": "<p>On hit, target makes a DC 12 Constitution saving throw, taking half poison damage on success.</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"favorite": true,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"10 ft."
-				],
-				"save": {
-					"dc": 12,
-					"onSave": "Half Poison Damage",
-					"targetAbility": "con"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"featureType": "naturalWeapon"
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1 + @mod",
-						"name": "Default"
-					}
-				],
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"5ft"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": null,
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "YzzzoMmodFXm4zEY"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"ability": "str",
-				"actionOptions": [
-					"savingThrow",
-					"damage"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [
-					{
-						"canCrit": false,
-						"damageType": "",
-						"formula": "1 + @mod",
-						"name": ""
-					}
-				],
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "0eEQre8fooP1ccQZ"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "RmEhpA7MUB8bsl0N"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "qPGSxQcAvm1wiZUC"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "DjjnBidxl1suZQlR"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"ability": "",
-				"actionOptions": [
-					"savingThrow"
-				],
-				"activation": {
-					"cost": 1,
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"duration": {
-					"unit": "instantaneous",
-					"value": null
-				},
-				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [
-					"touch"
-				],
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
-				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "creature",
-					"shape": "",
-					"size": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"tradition": ""
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "iMR8t7hUGv9medPi"
-		}
-	],
-	"effects": [],
-	"flags": {},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 18,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 4,
-					"max": 4
-				},
-				"2": {
-					"current": 3,
-					"max": 3
-				},
-				"3": {
-					"current": 2,
-					"max": 2
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 15,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 52,
-				"baseMax": 52,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 7,
-					"total": 7
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": "",
-				"climb": "",
-				"fly": "",
-				"swim": "",
-				"walk": "40"
-			},
-			"senses": {
-				"blindsight": 0,
-				"darkvision": 0,
-				"tremorsense": 0,
-				"truesight": 0
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int"
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"spell": {
-				"attack": "",
-				"dc": ""
-			}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>THE SCORPIONFOLK HAS ONE JAVELIN, WHICH IT HURLS AS IT RUSHES INTO BATTLE. IT GRIPS A FOE WITH ITS CLAW AND THEN STINGS THAT OPPONENT. SCORPIONFOLK OFFER TRUCES BUT RARELY FLEE FROM BATTLE.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Mauras, Ozra, Rixx, Visporas</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Scorpionfolk are fearsome warriors who attack their foes with both mundane weapons and poisonous, scorpion-like stingers.</p><p><strong>DC 15</strong> Scorpionfolk scavenge magic from ancient desert ruins.</p><p><strong>DC 20</strong> Skilled spellcasters known as imperators lead many scorpionfolk clans. They are said to possess magic that humanoid mages forgot centuries ago.</p><p><strong>DESCRIPTION</strong></p><p>Many scorpionfolk clans are led by spellcasting warrior-mages. Called imperators, these scorpionfolk champions study a unique blend of arcane and divine magic. Imperators search for rare spells in ruins underneath the desert sands. They regard this pursuit as a sacred quest, though outsiders don’t know its ultimate aim.</p><p>The scorpionfolk imperator possesses a spellbook containing rare spells. By studying this book, a wizard can learn <em>venomous fireball</em> and <em>burning gust of wind</em>.</p><p><strong>BEHAVIOR</strong></p><p>1 Returning from a dungeoneering expedition with treasure</p><p>2 Attack on sight</p><p>3 Demand food and water on pain of death</p><p>4 In ambush, hidden under sand</p><p>5 Excavating buried ruins</p><p>6 Battling a monster such as a bulette</p><p><strong>SIGNS</strong></p><p>1 A humanoid corpse. DC 14 Medicine check: The creature was killed by an envenomed wound</p><p>2 Large eggs half-buried in sand (the eggs are poisonous to touch)</p><p>3 A torn map marking the location of several ancient ruins</p><p>4 A proliferation of normal-sized scorpions</p><p><strong>ENCOUNTERS</strong></p><p>Scorpionfolk range deserts and explore the ruins of ancient cities.</p><p><strong>CR 3–4</strong> scorpionfolk</p><p><strong>Treasure</strong> <em>periapt of wound closure</em></p><p><strong>CR 5–10</strong> 2 or 3 scorpionfolk; scorpionfolk with 1 or 2 giant scorpions</p><p><strong>Treasure</strong> 2 <em>potions of greater healing</em>, <em>potion of invisibility</em>, <em>staff of swarming insects</em>&nbsp;</p><p><strong>CR 11–16</strong> scorpionfolk imperator with 2 or 3 scorpionfolk; 4 or 5 scorpionfolk</p><p><strong>Treasure</strong> 2 <em>spell scrolls</em> of <em>mirror image</em>, <em>+1 whip</em> that deals an additional 1d6 lightning damage on a hit, <em>Ioun stone of doubling</em> (gains the appearance and powers of the last <em>Ioun stone</em> to touch it within the last 24 hours)</p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like centaurs. Others have bizarre or unnatural appearances, like many-tentacled ropers. Monstrosities could only arise in a world suffused with magic</p>",
-			"creatureTypes": [
-				"monstrosity"
-			],
-			"cr": 5,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"common",
-				"Scorpionfolk"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": ""
-			}
-		},
-		"traits": {
-			"size": "lg",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Scorpionfolk",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 2,
-		"height": 2,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/scorpionfolk.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "tnqetcrgt4s1gqps"
+  "name": "Scorpionfolk Imperator",
+  "type": "npc",
+  "img": "systems/a5e/assets/scorpionfolk.webp",
+  "items": [
+    {
+      "_id": "5Yc9QSpP0UfkiczE",
+      "name": "Javelin",
+      "type": "object",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "PhayJwBQOThFccCv": {
+            "name": "Javelin",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "1m9lLmTREY65bWZx": {
+                "range": "short"
+              },
+              "OLiDaCiYoq24LNXE": {
+                "range": "long"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "9P9ToxyVnbD6XdGU": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "CQVuKYzdu3t7akUQ": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d6+@str.mod",
+                "name": "Javelin",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p></p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": false,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": "5 sp",
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "thrown"
+        ],
+        "weight": 2
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "w2HwcqZ5sZoOIcZ2",
+      "name": "Spellcasting",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "ability": "",
+        "actionOptions": [],
+        "actions": {},
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "description": "<p>The imperator is a 5th level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). It has the following cleric and wizard spells prepared:</p><ul><li><p>Cantrips (at will): <em>light</em>,<em> sacred flame</em></p></li><li><p>1st-level (4 slots): <em>create or destroy water</em>,<em> healing word</em></p></li><li><p style=\"text-align: start\">2nd-level (3 slots): <em>burning gust of wind</em>, <em>lesser restoration</em></p></li><li><p style=\"text-align: start\">3rd-level (2 slots): <em>major image, venomous fireball</em></p></li></ul>",
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "favorite": false,
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "zbD8sdJL049QC9Rw",
+      "name": "Major Image",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "JOAqdt5omDWAbzHA",
+      "sort": -100000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.KIe2Mo5gATFWLig1"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "f2Or2azk0aOO2Dtn": {
+            "name": "Major Image",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 10
+            },
+            "ranges": {
+              "IgvmgU9Nd1RzzlXi": {
+                "range": "long"
+              }
+            },
+            "area": {
+              "shape": "cube",
+              "size": "20 Ft",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "other"
+            },
+            "prompts": {
+              "imIG7wAn20bLFyMx": {
+                "ability": "int",
+                "onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "18"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p style=\"text-align: start\">While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p style=\"text-align: start\">Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 18,
+          "onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
+          "targetAbility": "int"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": true,
+        "level": "3",
+        "materials": "tinderbox and small mirror",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "illusion",
+          "secondary": [
+            "arcane",
+            "chaos"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "rJdz13oHEluFwWSA",
+      "name": "Venomous Fireball",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "70x71B8tyVecm4rF": {
+            "name": "Venomous Fireball",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "ga1tX9M8zhPasSiE": {
+                "range": "long"
+              }
+            },
+            "area": {
+              "shape": "sphere",
+              "size": "20 ft radius",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": ""
+            },
+            "rolls": {
+              "gnSEq9ELG51HqIRY": {
+                "canCrit": false,
+                "damageType": "poison",
+                "formula": "6d6",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "bWhTBzO9oEXraS1W": {
+                "ability": "dex",
+                "onSave": "halves, avoids being poisoned",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>Green fire streaks from the imperator to a point within 120 feet and explodes in a 20-foot radius, spreading around corners. Each creature in the area makes a DC 14 Dexterity saving throw, taking 21 (6d6) poison damage on a failed save or half damage on a success. A creature that fails the save is also poisoned until the end of its next turn.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "halves, avoids being poisoned",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": 3,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "poison",
+            "arcane",
+            "fire"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "iNzPU0QKbn4mAtNx",
+      "name": "Burning Gust of Wind",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "xHb4JPsWiTeHZQoy": {
+            "name": "Burning Gust of Wind",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 1
+            },
+            "ranges": {
+              "Z689ZQbYlgsiQpbU": {
+                "range": "self"
+              }
+            },
+            "area": {
+              "shape": "line",
+              "size": "10 feet wide, 60 feet long",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "eTQicmijXRUfZgth": {
+                "canCrit": false,
+                "damageType": "fire",
+                "formula": "2d6",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "pggQ1kM5icqZbCuF": {
+                "ability": "str",
+                "onSave": "avoid being moved and avoid taking damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>A hot blast of wind erupts from the imperator’s claw in a line 10 feet wide and 60 feet long. It extinguishes small fires and disperses vapors. For 1 minute or until the imperator’s concentration is broken, each creature that starts its turn in the area or moves into the area must succeed on a DC 14 Strength saving throw or be pushed 15 feet directly away and take 7 (2d6) fire damage. A creature in the area must spend 2 feet of movement for every foot moved towards the imperator. The imperator can change the direction of the gust with a bonus action.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "avoid being moved and avoid taking damage",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": true,
+        "level": 2,
+        "materials": "seed",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "air",
+            "fire",
+            "nature"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "Qsag2iP43qsAJSdk",
+      "name": "Light",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "DMQb5m0CriBnKZv5": {
+            "name": "Light",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "hour",
+              "value": 1
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": false,
+          "material": true
+        },
+        "concentration": false,
+        "level": 0,
+        "materials": "small tinderbox",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "utility",
+            "arcane"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "Rr2Zsk1eapYlRi5A",
+      "name": "Sacred Flame",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": null,
+        "actions": {
+          "uulljmBpGXe3kofF": {
+            "name": "Sacred Flame",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "Ge6eOIkb5AO5W5DM": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "nZ8rK5vYsul9wYjP": {
+                "canCrit": false,
+                "damageType": "radiant",
+                "formula": "2d8",
+                "name": "Sacred Flame",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "lWc23JZ8b3EbzD4a": {
+                "ability": "dex",
+                "onSave": "No damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanov’s Purifying Flame. </em></strong>When a target damaged by this spell is undead, has the Evil trait, or is vulnerable to radiant damage, it is rattled for the next minute. At the end of each of its turns, the target may make a Wisdom saving throw to end the effect on itself.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "No damage",
+          "targetAbility": "dex"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 0,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "attack",
+            "divine",
+            "radiant"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "8s4IiJp8dU2ov1KI",
+      "name": "Healing Word",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 375000,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "int",
+        "actions": {
+          "lQo1gQyD2P9ZVQ9K": {
+            "name": "Healing Word",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "jHg24GAQ4bN0Fmwf": {
+                "range": "medium"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            },
+            "rolls": {
+              "ovPjLhztDQRcIoHK": {
+                "formula": "1d4 + @int.mod+@prof",
+                "healingType": "healing",
+                "name": "Healing word",
+                "type": "healing"
+              }
+            }
+          }
+        },
+        "description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong>Cast at Higher Levels</strong></p><p>The hit points regained increase by 1d4 for each slot level above 1st.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": false,
+          "material": false
+        },
+        "concentration": false,
+        "level": 1,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "evocation",
+          "secondary": [
+            "divine",
+            "healing"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "CGR7LV7jwA6MkSso",
+      "name": "Create or Destroy Water",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "CbPxedP4LvJKMpiG": {
+            "name": "Create or Destroy Water",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "88mNW1K7kCmq1XtI": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "other"
+            }
+          }
+        },
+        "description": "<p>Choose one of the following.</p><p><strong><em>Create Water:</em></strong> You fill the target with up to 10 gallons of nonpotable water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p><p><strong><em>Destroy Water:</em></strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 fee</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": true
+        },
+        "concentration": false,
+        "level": 1,
+        "materials": "drop of water to create water or grains of sand to destroy it",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "transmutation",
+          "secondary": [
+            "divine",
+            "water",
+            "utility"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "JTuVW0X1bALAzXl8",
+      "name": "Lesser Restoration",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "10fdpem7m0zY3eB3": {
+            "name": "Lesser Restoration",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": ""
+            },
+            "ranges": {
+              "zd5q7zxmHRnM59ds": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creature"
+            }
+          }
+        },
+        "description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator’s discretion, some diseases might not be curable with this spell.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "components": {
+          "vocalized": true,
+          "seen": true,
+          "material": false
+        },
+        "concentration": false,
+        "level": 2,
+        "materials": "",
+        "materialsConsumed": false,
+        "prepared": true,
+        "ritual": false,
+        "schools": {
+          "primary": "abjuration",
+          "secondary": [
+            "divine",
+            "good",
+            "healing"
+          ]
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919040,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "Dkt93c4UouEFImLZ",
+      "name": "Claw",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.ciVWPjgjyq29kv0c"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "l2P2rgW8IF4Qkg9E": {
+            "name": "Claw",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "aBwZ3G0emvcfo4NX": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "CslJiud0LwtKHpgI": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "iQPs0yf46XCht6HU": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "1d6+@str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>On hit, target is grappled. Until this grapple ends, the scorpionfolk can't attack a different target with its claws</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "_id": "xMNrPuaoESIcbmQb",
+      "name": "Sting",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "core": {
+          "sourceId": "Item.brs4PWLdtVP9Yfhj"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "jv3g8AJY2kl8DlWF": {
+            "name": "Sting",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "I7QkWyzrZnsPrtUb": {
+                "range": "10 ft."
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "PaHPZW0uNddCoDen": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack"
+              },
+              "FNjOJSAoyDvdKagm": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d6+@str.mod",
+                "name": "Claw attack",
+                "type": "damage"
+              },
+              "RoevMI4CI1waShwi": {
+                "canCrit": true,
+                "damageType": "poison",
+                "formula": "3d10",
+                "name": "Poison Damage",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "Kry5I9fT5Eg27TJf": {
+                "ability": "con",
+                "onSave": "Half Poison Damage",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "12"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>On hit, target makes a DC 12 Constitution saving throw, taking half poison damage on success.</p>",
+        "favorite": true,
+        "proficient": true,
+        "save": {
+          "dc": 12,
+          "onSave": "Half Poison Damage",
+          "targetAbility": "con"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": null,
+          "per": ""
+        },
+        "featureType": "naturalWeapon",
+        "prerequisite": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "0c9lav3E22PNkfFI": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "YLHZX9DJPTDL7BVn": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "KtNc0Bfa3fxvtCaU": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "nvLLqLVmDF6MMZ3F": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "YzzzoMmodFXm4zEY",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "str",
+        "actions": {
+          "SjAGxbLsuQbYmUHn": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "u1py69XsrXRWn02K": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "qNzUQRq4as0gdKhB": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "6axdTROBorosyAGh": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "0eEQre8fooP1ccQZ",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "iGg9JgvZZeVtzHdo": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "lnkk7R8XEeNVAua4": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "j9ugomz7pF2fR9fM": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "RmEhpA7MUB8bsl0N",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "1ORUupTB2ngBkZIa": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "RjUoLij0b5X5ZJN8": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "ZOyLYv6SHxQsh76D": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "qPGSxQcAvm1wiZUC",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "02CtLP0qmsG91am1": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "4U1WT5YkZuhSki5x": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "Mva8mSVHv4Wr1W8L": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "DjjnBidxl1suZQlR",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        },
+        "a5e": {}
+      },
+      "system": {
+        "ability": "",
+        "actions": {
+          "HIDWy2s45xYpmjEu": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "UnuhD1UNq7wKR1Gl": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "uyyO3uCDT8DnTzlQ": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": ""
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "iMR8t7hUGv9medPi",
+      "_stats": {
+        "systemId": "a5e",
+        "systemVersion": "0.8.15",
+        "coreVersion": "10.291",
+        "createdTime": null,
+        "modifiedTime": 1678671919041,
+        "lastModifiedBy": "eunZYRLVMq93MkmD"
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.tnqetcrgt4s1gqps"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 18,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 4,
+          "max": 4
+        },
+        "2": {
+          "current": 3,
+          "max": 3
+        },
+        "3": {
+          "current": 2,
+          "max": 2
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 15,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 52,
+        "baseMax": 52,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 7,
+          "total": 7
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 40,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 0,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int"
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>THE SCORPIONFOLK HAS ONE JAVELIN, WHICH IT HURLS AS IT RUSHES INTO BATTLE. IT GRIPS A FOE WITH ITS CLAW AND THEN STINGS THAT OPPONENT. SCORPIONFOLK OFFER TRUCES BUT RARELY FLEE FROM BATTLE.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Mauras, Ozra, Rixx, Visporas</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Scorpionfolk are fearsome warriors who attack their foes with both mundane weapons and poisonous, scorpion-like stingers.</p><p><strong>DC 15</strong> Scorpionfolk scavenge magic from ancient desert ruins.</p><p><strong>DC 20</strong> Skilled spellcasters known as imperators lead many scorpionfolk clans. They are said to possess magic that humanoid mages forgot centuries ago.</p><p><strong>DESCRIPTION</strong></p><p>Many scorpionfolk clans are led by spellcasting warrior-mages. Called imperators, these scorpionfolk champions study a unique blend of arcane and divine magic. Imperators search for rare spells in ruins underneath the desert sands. They regard this pursuit as a sacred quest, though outsiders don’t know its ultimate aim.</p><p>The scorpionfolk imperator possesses a spellbook containing rare spells. By studying this book, a wizard can learn <em>venomous fireball</em> and <em>burning gust of wind</em>.</p><p><strong>BEHAVIOR</strong></p><p>1 Returning from a dungeoneering expedition with treasure</p><p>2 Attack on sight</p><p>3 Demand food and water on pain of death</p><p>4 In ambush, hidden under sand</p><p>5 Excavating buried ruins</p><p>6 Battling a monster such as a bulette</p><p><strong>SIGNS</strong></p><p>1 A humanoid corpse. DC 14 Medicine check: The creature was killed by an envenomed wound</p><p>2 Large eggs half-buried in sand (the eggs are poisonous to touch)</p><p>3 A torn map marking the location of several ancient ruins</p><p>4 A proliferation of normal-sized scorpions</p><p><strong>ENCOUNTERS</strong></p><p>Scorpionfolk range deserts and explore the ruins of ancient cities.</p><p><strong>CR 3–4</strong> scorpionfolk</p><p><strong>Treasure</strong> <em>periapt of wound closure</em></p><p><strong>CR 5–10</strong> 2 or 3 scorpionfolk; scorpionfolk with 1 or 2 giant scorpions</p><p><strong>Treasure</strong> 2 <em>potions of greater healing</em>, <em>potion of invisibility</em>, <em>staff of swarming insects</em>&nbsp;</p><p><strong>CR 11–16</strong> scorpionfolk imperator with 2 or 3 scorpionfolk; 4 or 5 scorpionfolk</p><p><strong>Treasure</strong> 2 <em>spell scrolls</em> of <em>mirror image</em>, <em>+1 whip</em> that deals an additional 1d6 lightning damage on a hit, <em>Ioun stone of doubling</em> (gains the appearance and powers of the last <em>Ioun stone</em> to touch it within the last 24 hours)</p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like centaurs. Others have bizarre or unnatural appearances, like many-tentacled ropers. Monstrosities could only arise in a world suffused with magic</p>",
+      "creatureTypes": [
+        "monstrosity"
+      ],
+      "cr": 5,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "common",
+        "Scorpionfolk"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "lg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Scorpionfolk",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 2,
+    "height": 2,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/scorpionfolk.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678671508448,
+    "modifiedTime": 1678671919018,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

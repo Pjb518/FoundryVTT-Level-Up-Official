@@ -1,72 +1,103 @@
 {
-	"name": "Sea Witch’s Amulet",
-	"type": "object",
-	"img": "icons/equipment/neck/necklace-simple-engraved-stone.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p><em>Wondrous</em></p><hr class=\"a5e-rule u-my-md\"><p>This locket was dredged from the remains of a long-dead sea monster.</p><p>The amulet has 3 charges.</p><p>While wearing this strange oyster-shaped pendant, you can use an action to expend a charge and choose one creature within 30 feet that is laughing, singing, or speaking. The target makes a DC 15 Wisdom saving throw or you steal its voice.</p><p>As long as you are wearing the amulet, you can speak with the target’s voice.</p><p>For as long as you possess a target’s voice in the amulet, the target is unable to speak. At the end of every 24 hours, the amulet expends 1 charge per voice stored inside of it. When the amulet has no charges to expend, the stolen voice is released and returns to the target.</p><p>You can use a bonus action to release a voice stored in the amulet. When the amulet has no voices stored in it and is soaked in sea water for 24 hours, it regains 1 charge.</p><p>Destroying the amulet releases any stolen voices stored inside and creates a brief piercing shriek in a 100-foot radius. Each creature in the area must make a DC 10 Constitution saving throw or be stunned until the start of its next turn.</p>",
-		"duration": {
-			"unit": "special",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"short"
-		],
-		"save": {
-			"dc": "15",
-			"onSave": "none",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "jewelry",
-		"plotItem": false,
-		"price": "3,150 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "1jhppeq3yzvvu42j"
+  "name": "Sea Witch’s Amulet",
+  "type": "object",
+  "img": "icons/equipment/neck/necklace-simple-engraved-stone.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.1jhppeq3yzvvu42j"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "b4zMW5Fzaqqwqe1Y": {
+        "name": "Sea Witch’s Amulet",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "ranges": {
+          "YNsMQMFFJUJmbLe8": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "AySBFhM7LH5AsNPr": {
+            "ability": "wis",
+            "onSave": "none",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Wondrous</em></p><hr class=\"a5e-rule u-my-md\"><p>This locket was dredged from the remains of a long-dead sea monster.</p><p>The amulet has 3 charges.</p><p>While wearing this strange oyster-shaped pendant, you can use an action to expend a charge and choose one creature within 30 feet that is laughing, singing, or speaking. The target makes a DC 15 Wisdom saving throw or you steal its voice.</p><p>As long as you are wearing the amulet, you can speak with the target’s voice.</p><p>For as long as you possess a target’s voice in the amulet, the target is unable to speak. At the end of every 24 hours, the amulet expends 1 charge per voice stored inside of it. When the amulet has no charges to expend, the stolen voice is released and returns to the target.</p><p>You can use a bonus action to release a voice stored in the amulet. When the amulet has no voices stored in it and is soaked in sea water for 24 hours, it regains 1 charge.</p><p>Destroying the amulet releases any stolen voices stored inside and creates a brief piercing shriek in a 100-foot radius. Each creature in the area must make a DC 10 Constitution saving throw or be stunned until the start of its next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "none",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "jewelry",
+    "plotItem": false,
+    "price": "3,150 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673222051,
+    "modifiedTime": 1678673256790,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

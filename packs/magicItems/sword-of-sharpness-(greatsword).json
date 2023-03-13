@@ -1,82 +1,105 @@
 {
-	"name": "Sword of Sharpness (Greatsword)",
-	"type": "object",
-	"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "2d6 +@mod",
-				"name": "Greatsword of Sharpness"
-			}
-		],
-		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p><hr class=\"a5e-rule u-my-md\"><p>Objects hit with this sword take the maximum damage the weapon’s damage dice can deal.</p><p>When you use this sword to make an attack against a creature and roll a natural 20, the target takes an extra 4d6 slashing damage.</p><p>Then roll an additional d20, and on a natural 20 you chop off one of the target’s limbs (or a portion of its body if it has no limbs). The Narrator determines what effect (if any) the result of this severing off is.</p><p>You may also speak this sword’s command word to make the blade emit bright light in a 10-foot radius and dim light an additional 10 feet. Repeating the command word or sheathing the sword extinguishes the blade’s light.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "7,000 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"parrying",
-			"heavy",
-			"twoHanded"
-		],
-		"weight": "7 lbs"
-	},
-	"_id": "x3u1rlaxg2igum0v"
+  "name": "Sword of Sharpness (Greatsword)",
+  "type": "object",
+  "img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.x3u1rlaxg2igum0v"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "bSLLzcH2DzKw0uQ9": {
+        "name": "Sword of Sharpness (Greatsword)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "FTSDEC776VA33Tgs": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "Y7xcZKq49eetqrfV": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d6 +@str.mod",
+            "name": "Greatsword of Sharpness",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Heavy, Parrying, Two-Handed</em></p><hr class=\"a5e-rule u-my-md\"><p>Objects hit with this sword take the maximum damage the weapon’s damage dice can deal.</p><p>When you use this sword to make an attack against a creature and roll a natural 20, the target takes an extra 4d6 slashing damage.</p><p>Then roll an additional d20, and on a natural 20 you chop off one of the target’s limbs (or a portion of its body if it has no limbs). The Narrator determines what effect (if any) the result of this severing off is.</p><p>You may also speak this sword’s command word to make the blade emit bright light in a 10-foot radius and dim light an additional 10 feet. Repeating the command word or sheathing the sword extinguishes the blade’s light.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "7,000 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "heavy",
+      "twoHanded"
+    ],
+    "weight": 7
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673245427,
+    "modifiedTime": 1678673314890,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

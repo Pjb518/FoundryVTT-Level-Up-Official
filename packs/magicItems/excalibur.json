@@ -1,86 +1,110 @@
 {
-	"name": "Excalibur",
-	"type": "object",
-	"img": "icons/weapons/swords/sword-gold-holy.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "4",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d8 +4 +@mod",
-				"name": "Excalibur"
-			},
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "4d6",
-				"name": "Natural 20"
-			}
-		],
-		"description": "<blockquote><p>Defensive (Medium)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>This legendary weapon is said to grant powerful magic to its wielder and that only the rightful ruler of the land is suitable to carry it into battle.</p><p>While you are attuned to it, Excalibur grants you the following benefits:</p><ul><li><p>If you are the rightful wielder of Excalibur, it instantly attunes to you and does not take up an attunement slot.</p><p></p></li><li><p>You gain a +4 bonus to attack and damage rolls made with this weapon.</p><p></p></li><li><p>When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.</p><p></p></li><li><p>When you attack a creature with this weapon and roll a 20 on the attack roll, that target takes an extra 4d6 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target’s limbs, with the effect of such loss determined by the Narrator. If the creature has no limb to sever, you lop off a portion of its body instead.</p><p></p></li><li><p>You can speak the sword’s command word to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light.</p><p></p></li><li><p>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this property again until you finish a long rest.</p><p></p></li><li><p>You have advantage on Insight and Persuasion checks made against anyone but creatures you consider to be your close allies and companions.</p></li></ul>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": true,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "150,000 gp",
-		"quantity": 1,
-		"rarity": "legendary",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "l0pme1mzesjqyewr"
+  "name": "Excalibur",
+  "type": "object",
+  "img": "icons/weapons/swords/sword-gold-holy.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.l0pme1mzesjqyewr"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "WlfisdYYixRLuVN7": {
+        "name": "Excalibur",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "Sur83vrHqpN8IFX2": {
+            "bonus": "4",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "4W3TJbmzKVEe6cdq": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d8 +4 +@str.mod",
+            "name": "Excalibur",
+            "type": "damage"
+          },
+          "uVTbQ6AZOUfYepOV": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "4d6",
+            "name": "Natural 20",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<blockquote><p>Defensive (Medium)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>This legendary weapon is said to grant powerful magic to its wielder and that only the rightful ruler of the land is suitable to carry it into battle.</p><p>While you are attuned to it, Excalibur grants you the following benefits:</p><ul><li><p>If you are the rightful wielder of Excalibur, it instantly attunes to you and does not take up an attunement slot.</p><p></p></li><li><p>You gain a +4 bonus to attack and damage rolls made with this weapon.</p><p></p></li><li><p>When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.</p><p></p></li><li><p>When you attack a creature with this weapon and roll a 20 on the attack roll, that target takes an extra 4d6 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target’s limbs, with the effect of such loss determined by the Narrator. If the creature has no limb to sever, you lop off a portion of its body instead.</p><p></p></li><li><p>You can speak the sword’s command word to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light.</p><p></p></li><li><p>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this property again until you finish a long rest.</p><p></p></li><li><p>You have advantage on Insight and Persuasion checks made against anyone but creatures you consider to be your close allies and companions.</p></li></ul>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": true,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "150,000 gp",
+    "quantity": 1,
+    "rarity": "legendary",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673235469,
+    "modifiedTime": 1678673294629,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

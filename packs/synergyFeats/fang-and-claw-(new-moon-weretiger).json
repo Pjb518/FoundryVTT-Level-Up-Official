@@ -1,87 +1,112 @@
 {
-	"name": "Fang and Claw (New Moon Weretiger)",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"defaultSelection": true,
-				"formula": "1d6 + @mod",
-				"name": "Fang and Claw"
-			},
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"defaultSelection": false,
-				"formula": "1d8 + @mod",
-				"name": "Frenzied Bite"
-			},
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"defaultSelection": false,
-				"formula": "1d10 + @mod",
-				"name": "Deadly Implements (Bite)"
-			},
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"defaultSelection": false,
-				"formula": "1d8 + @mod",
-				"name": "Deadly Implements (Claws)"
-			}
-		],
-		"description": "<p>You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"5ft"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "naturalWeapon"
-	},
-	"_id": "7unyrtbtrhuxay4f"
+  "name": "Fang and Claw (New Moon Weretiger)",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-synergy-feats.7unyrtbtrhuxay4f"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "7HhzPLKCve7RNjLN": {
+        "name": "Fang and Claw (New Moon Weretiger)",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "KJKYeJCYGfnbpFob": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "uyhFkSLSBCZ5yUHq": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "Wp7C6weaX0wuE0Qn": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": true,
+            "formula": "1d6 + @default.mod",
+            "name": "Fang and Claw",
+            "type": "damage"
+          },
+          "WtxLpEYEUabTuiUb": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": false,
+            "formula": "1d8 + @default.mod",
+            "name": "Frenzied Bite",
+            "type": "damage"
+          },
+          "RxYmI8ZCNAbSGsz2": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": false,
+            "formula": "1d10 + @default.mod",
+            "name": "Deadly Implements (Bite)",
+            "type": "damage"
+          },
+          "ENTbEGgRpb7EqxJq": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "defaultSelection": false,
+            "formula": "1d8 + @default.mod",
+            "name": "Deadly Implements (Claws)",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "naturalWeapon",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673697681,
+    "modifiedTime": 1678673733182,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,72 +1,103 @@
 {
-	"name": "Robe of Scintillating Colors",
-	"type": "object",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p><strong>Crafting Components</strong>: Sign of favor from a noble fey</p><hr class=\"a5e-rule u-my-md\"><p>While wearing and attuned to this robe of stimulating and lively colors, you can use an action to expend 1 charge and make the garment to emit bright kaleidoscopic light for 30 feet and dim light for an additional 30 feet. The light  lasts until the end of your next turn. Creatures that can see you have disadvantage on attack rolls against you, and creatures within 30 feet that can see you when the light is emitted make a DC 15 Wisdom saving throw<br>or are stunned until the end of your next turn. </p><p>The robe has 3 charges and regains [[/r 1d3 #charges]] expended charges at dawn. <br></p>",
-		"duration": {
-			"unit": "turn",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"30 ft. bright light and another 30 ft. dim light centered on you"
-		],
-		"save": {
-			"dc": "15",
-			"onSave": "not stunned",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": 3,
-			"max": 3,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "clothing",
-		"plotItem": false,
-		"price": "8000",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "3bz43wuu11lz0i92"
+  "name": "Robe of Scintillating Colors",
+  "type": "object",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.3bz43wuu11lz0i92"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "mFNtHyI3hGwtr8ab": {
+        "name": "Robe of Scintillating Colors",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "turn",
+          "value": 1
+        },
+        "ranges": {
+          "IPrvTCIgBSadfECq": {
+            "range": "30 ft. bright light and another 30 ft. dim light centered on you"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "0Ykp2G125wC0VXie": {
+            "ability": "wis",
+            "onSave": "not stunned",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p><strong>Crafting Components</strong>: Sign of favor from a noble fey</p><hr class=\"a5e-rule u-my-md\"><p>While wearing and attuned to this robe of stimulating and lively colors, you can use an action to expend 1 charge and make the garment to emit bright kaleidoscopic light for 30 feet and dim light for an additional 30 feet. The light  lasts until the end of your next turn. Creatures that can see you have disadvantage on attack rolls against you, and creatures within 30 feet that can see you when the light is emitted make a DC 15 Wisdom saving throw<br>or are stunned until the end of your next turn. </p><p>The robe has 3 charges and regains [[/r 1d3 #charges]] expended charges at dawn. <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "not stunned",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "clothing",
+    "plotItem": false,
+    "price": "8000",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673222059,
+    "modifiedTime": 1678673260720,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

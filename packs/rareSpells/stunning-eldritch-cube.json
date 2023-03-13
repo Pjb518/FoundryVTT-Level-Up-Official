@@ -1,82 +1,109 @@
 {
-	"name": "Stunning Eldritch Cube",
-	"type": "spell",
-	"img": "icons/magic/unholy/hand-light-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "psychic",
-				"formula": "5d6",
-				"name": ""
-			}
-		],
-		"description": "<p>A black, nonreflective, incorporeal 10-foot cube appears in an unoccupied space that you can see. Its space can be in midair if you so desire. When a creature starts its turn in the cube or enters the cube for the first time on its turn it must make an Intelligence saving throw, taking 5d6 psychic damage on a failed save, or half damage on a success.</p><p>As a bonus action, you can move the cube up to 10 feet in any direction to a space you can see. The cube cannot be made to pass through other creatures in this way.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Stunning Eldritch Cube.</strong> A creature that takes 20 or more damage from this spell is stunned until the end of its next turn. </p><p></p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "",
-			"targetAbility": "int"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "none"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"psychic"
-			]
-		}
-	},
-	"_id": "4iqkkb0ludfa672l"
+  "name": "Stunning Eldritch Cube",
+  "type": "spell",
+  "img": "icons/magic/unholy/hand-light-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-rare-spells.4iqkkb0ludfa672l"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "AICf6Z9bjeOR0Uep": {
+        "name": "Stunning Eldritch Cube",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "JlNCedy83ySrN8Px": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "none"
+        },
+        "rolls": {
+          "rl0IuEx2C0UTQHYs": {
+            "canCrit": false,
+            "damageType": "psychic",
+            "formula": "5d6",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "OFGNAe85ncLRq3rU": {
+            "ability": "int",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>A black, nonreflective, incorporeal 10-foot cube appears in an unoccupied space that you can see. Its space can be in midair if you so desire. When a creature starts its turn in the cube or enters the cube for the first time on its turn it must make an Intelligence saving throw, taking 5d6 psychic damage on a failed save, or half damage on a success.</p><p>As a bonus action, you can move the cube up to 10 feet in any direction to a space you can see. The cube cannot be made to pass through other creatures in this way.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Stunning Eldritch Cube.</strong> A creature that takes 20 or more damage from this spell is stunned until the end of its next turn. </p><p></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "",
+      "targetAbility": "int"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "psychic"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673596551,
+    "modifiedTime": 1678673606626,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

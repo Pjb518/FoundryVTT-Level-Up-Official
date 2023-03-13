@@ -1,83 +1,105 @@
 {
-	"name": "Scythe",
-	"type": "object",
-	"img": "icons/weapons/sickles/scythe-curved-steel.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d10 + @mod",
-				"name": "Scythe"
-			}
-		],
-		"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "1 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"heavy",
-			"parrying",
-			"twoHanded"
-		],
-		"weight": "12 lbs"
-	},
-	"_id": "zyhm36efl89xfdac"
+  "name": "Scythe",
+  "type": "object",
+  "img": "icons/weapons/sickles/scythe-curved-steel.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.zyhm36efl89xfdac"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "0jLQYeFJOL3HtKEN": {
+        "name": "Scythe",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "51YWWUa0kxccquoI": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "t2cvthrSd6fgo1UL": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d10 + @str.mod",
+            "name": "Scythe",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Heavy, Parrying, Two-Handed</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "1 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "heavy",
+      "parrying",
+      "twoHanded"
+    ],
+    "weight": 12
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672304029,
+    "modifiedTime": 1678672335625,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

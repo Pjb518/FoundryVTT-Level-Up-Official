@@ -1,60 +1,85 @@
 {
-	"name": "Lean Into It",
-	"type": "maneuver",
-	"img": "icons/skills/melee/strike-hammer-destructive-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": " Not just commiting to an assault, you shoulder into it with all the strength you can bear and deliver hits that resonate in the very bones of your foes.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you hit a creature with a melee weapon attack it makes a Strength saving throw or it is knocked prone.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "str"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "",
-			"shape": "",
-			"size": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"degree": 1,
-		"exertionCost": 2,
-		"tradition": "adamantMountain"
-	},
-	"_id": "3u54zviexav9aub7"
+  "name": "Lean Into It",
+  "type": "maneuver",
+  "img": "icons/skills/melee/strike-hammer-destructive-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.3u54zviexav9aub7"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "yCgH8oNs8Wn9BtPP": {
+        "name": "Lean Into It",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "",
+          "shape": "",
+          "size": ""
+        },
+        "prompts": {
+          "02hOfpUPfmItzVeQ": {
+            "ability": "str",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": " Not just commiting to an assault, you shoulder into it with all the strength you can bear and deliver hits that resonate in the very bones of your foes.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you hit a creature with a melee weapon attack it makes a Strength saving throw or it is knocked prone.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "",
+      "targetAbility": "str"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "degree": 1,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "adamantMountain"
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673407825,
+    "modifiedTime": 1678673432015,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

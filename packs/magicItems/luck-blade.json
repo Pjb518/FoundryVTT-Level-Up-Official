@@ -1,80 +1,103 @@
 {
-	"name": "Luck blade",
-	"type": "object",
-	"img": "icons/weapons/swords/sword-guard-bronze.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "special",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "+1",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "1d8 +1 + @mod",
-				"name": "Luck Blade"
-			}
-		],
-		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and holding it, you gain a +1 bonus to saving throws. In addition, it has the following properties:</p><p><strong>Luck. </strong>Once per dawn, while the sword is on your person you may reroll one attack roll, ability check, or saving throw. You must use the new roll.</p><p><strong>Wish. </strong>Once per dawn, while holding the weapon you can use an action to expend 1 charge and cast wish. The weapon has 1d4 – 1 charges and loses this property when there are no charges left.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "150,000 gp",
-		"quantity": 1,
-		"rarity": "legendary",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"defensive"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "gsct45mvumhobfju"
+  "name": "Luck blade",
+  "type": "object",
+  "img": "icons/weapons/swords/sword-guard-bronze.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.gsct45mvumhobfju"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "5e4af59LPMVuhQQ8": {
+        "name": "Luck blade",
+        "activation": {
+          "cost": "",
+          "type": "special",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "OhHbxbJZTYjKVMFO": {
+            "bonus": "+1",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "psd35GaSEHJTCGKV": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d8 +1 + @str.mod",
+            "name": "Luck Blade",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and holding it, you gain a +1 bonus to saving throws. In addition, it has the following properties:</p><p><strong>Luck. </strong>Once per dawn, while the sword is on your person you may reroll one attack roll, ability check, or saving throw. You must use the new roll.</p><p><strong>Wish. </strong>Once per dawn, while holding the weapon you can use an action to expend 1 charge and cast wish. The weapon has 1d4 – 1 charges and loses this property when there are no charges left.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "150,000 gp",
+    "quantity": 1,
+    "rarity": "legendary",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673229426,
+    "modifiedTime": 1678673285249,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

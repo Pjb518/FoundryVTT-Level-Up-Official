@@ -1,64 +1,82 @@
 {
-	"name": "Battle Hymn: Rise and Fight",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"healing"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>A dying creature regains hit points equal to your Bardic Inspiration die. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a long rest.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [
-			{
-				"formula": "1d10",
-				"healingType": "healing",
-				"name": "Default"
-			}
-		],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": null,
-			"per": "longRest"
-		},
-		"featureType": "class"
-	},
-	"_id": "lzwwsy22m9xg67ie"
+  "name": "Battle Hymn: Rise and Fight",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.lzwwsy22m9xg67ie"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "1n9lk8FsZlie2C9U": {
+        "name": "Battle Hymn: Rise and Fight",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "0HVfcp1XehkpgKf8": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "DmlDCXJ9jR1WfpGV": {
+            "formula": "1d10",
+            "healingType": "healing",
+            "name": "Default",
+            "type": "healing"
+          }
+        }
+      }
+    },
+    "description": "<p>A dying creature regains hit points equal to your Bardic Inspiration die. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a long rest.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": null,
+      "per": "longRest"
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672646255,
+    "modifiedTime": 1678672691089,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

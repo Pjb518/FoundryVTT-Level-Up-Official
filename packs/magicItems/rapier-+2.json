@@ -1,81 +1,104 @@
 {
-	"name": "Rapier +2",
-	"type": "object",
-	"img": "icons/weapons/swords/swords-sharp-worn.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "2",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "piercing",
-				"formula": "1d8 + @mod + 2",
-				"name": "Rapier"
-			}
-		],
-		"description": "<p><em>Defensive (Light), Finesse</em></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "25 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"defensive",
-			"finesse"
-		],
-		"weight": "2 lbs"
-	},
-	"_id": "zb2kczgqnbrs30py"
+  "name": "Rapier +2",
+  "type": "object",
+  "img": "icons/weapons/swords/swords-sharp-worn.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.zb2kczgqnbrs30py"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "SWSlvgtBIXyBdTHd": {
+        "name": "Rapier +2",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "s85Az1jYaOzJ9FFj": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "DTtS7RSV9ktABeCl": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @finesse.mod + 2",
+            "name": "Rapier",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Defensive (Light), Finesse</em></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "25 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "finesse"
+    ],
+    "weight": 2
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673245437,
+    "modifiedTime": 1678673320078,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

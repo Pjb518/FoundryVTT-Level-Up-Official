@@ -1,84 +1,111 @@
 {
-	"name": "Shadowed Finger of Death",
-	"type": "spell",
-	"img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "necrotic",
-				"formula": "7d8+30",
-				"name": ""
-			}
-		],
-		"description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shadowed Finger of Death.</strong> This spell’s duration is 1 hour. You can store the spell harmlessly on a willing creature, causing an inky stain to appear on its finger. That creature can touch or make an unarmed melee attack to deliver the spell to a target, triggering the damage on a hit. The spell ends on a hit or miss.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 7,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"arcane",
-				"necrotic",
-				"undead"
-			]
-		}
-	},
-	"_id": "zm7mc5ahu2d4k7xv"
+  "name": "Shadowed Finger of Death",
+  "type": "spell",
+  "img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-rare-spells.zm7mc5ahu2d4k7xv"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "1ImTqFa6YVfsLdA4": {
+        "name": "Shadowed Finger of Death",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "de6CCZ3hs6kKoOgD": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "W7QYzn5aIkKs6orY": {
+            "canCrit": false,
+            "damageType": "necrotic",
+            "formula": "7d8+30",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "FMyNQ52bfs2M2aLN": {
+            "ability": "con",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shadowed Finger of Death.</strong> This spell’s duration is 1 hour. You can store the spell harmlessly on a willing creature, causing an inky stain to appear on its finger. That creature can touch or make an unarmed melee attack to deliver the spell to a target, triggering the damage on a hit. The spell ends on a hit or miss.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 7,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "arcane",
+        "necrotic",
+        "undead"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673596568,
+    "modifiedTime": 1678673614024,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,56 +1,80 @@
 {
-	"name": "Greater Empowered Smite: Taunting Smite",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "none",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>The target makes a Wisdom saving throw. On a failed save, it takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. This effect lasts up to 1 minute, and the target can repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": null,
-			"onSave": "Ends effect.",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "zrhw2o9nkju0vrsy"
+  "name": "Greater Empowered Smite: Taunting Smite",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.zrhw2o9nkju0vrsy"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "rnnVVy5i2in1RAog": {
+        "name": "Greater Empowered Smite: Taunting Smite",
+        "activation": {
+          "cost": "",
+          "type": "none",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "FN5Uev7gku7iUAqq": {
+            "ability": "wis",
+            "onSave": "Ends effect.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": null
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>The target makes a Wisdom saving throw. On a failed save, it takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. This effect lasts up to 1 minute, and the target can repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": null,
+      "onSave": "Ends effect.",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672667012,
+    "modifiedTime": 1678672700799,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

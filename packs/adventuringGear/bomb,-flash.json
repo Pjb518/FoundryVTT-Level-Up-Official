@@ -1,84 +1,115 @@
 {
-	"name": "Bomb, Flash",
-	"type": "object",
-	"img": "icons/skills/ranged/bomb-grenade-thrown-stars-orange.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"attack",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "rangedWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "con"
-		},
-		"damage": [
-			{
-				"name": "",
-				"formula": "",
-				"canCrit": true,
-				"damageType": ""
-			}
-		],
-		"description": "<p>You can use an action to throw this glass bauble, making a ranged weapon attack against a creature within 20 feet and treating the flash bomb as an improvised weapon. The target makes a DC 14 Constitution saving throw or it is blinded until the end of your next turn.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"favorite": false,
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20 ft",
-			"self"
-		],
-		"save": {
-			"dc": "14",
-			"onSave": "Save or be blinded until end of your next turn",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "50 gp",
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"weaponProperties": [
-			"thrown"
-		],
-		"weight": "3 lbs"
-	},
-	"_id": "adapajgfwi8wio20"
+  "name": "Bomb, Flash",
+  "type": "object",
+  "img": "icons/skills/ranged/bomb-grenade-thrown-stars-orange.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-adventuring-gear.adapajgfwi8wio20"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "HAhCh8YAnK68iYTi": {
+        "name": "Bomb, Flash",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "Rbz3oswJhe379y2D": {
+            "range": "20 ft"
+          },
+          "EOgaRJw79OSFIqW3": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "008TEULWUlomQLg8": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          }
+        },
+        "prompts": {
+          "IxnGAKdtxpBuVTP7": {
+            "ability": "con",
+            "onSave": "Save or be blinded until end of your next turn",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "14"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You can use an action to throw this glass bauble, making a ranged weapon attack against a creature within 20 feet and treating the flash bomb as an improvised weapon. The target makes a DC 14 Constitution saving throw or it is blinded until the end of your next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "14",
+      "onSave": "Save or be blinded until end of your next turn",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "50 gp",
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "thrown"
+    ],
+    "weight": 3
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672297718,
+    "modifiedTime": 1678672329819,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

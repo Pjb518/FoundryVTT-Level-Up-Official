@@ -1,83 +1,110 @@
 {
-	"name": "Moonbeam",
-	"type": "spell",
-	"img": "icons/magic/light/beams-strike-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow",
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cylinder",
-			"radius": "5"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "radiant",
-				"formula": "2d10",
-				"name": ""
-			}
-		],
-		"description": "<p>A beam of moonlight fills the area with dim light.</p><p>When a creature enters the area for the first time on a turn or begins its turn in the area, it is struck by silver flames and makes a Constitution saving throw, taking 2d10 radiant damage on a failed save, or half as much on a success.</p><p>Shapechangers have disadvantage on this saving throw. On a failed save, a shapechanger is forced to take its original form while within the spell's light.</p><p>On your turn, you may use an action to move the beam 60 feet in any direction.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 2nd.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "moonseed seeds and a piece of feldspar",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"nature",
-				"radiant"
-			]
-		}
-	},
-	"_id": "wbbjargj0lf23adk"
+  "name": "Moonbeam",
+  "type": "spell",
+  "img": "icons/magic/light/beams-strike-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.wbbjargj0lf23adk"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "W8qLnLcslWbRpkyc": {
+        "name": "Moonbeam",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "3triZd6iuhBQqPXu": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "radius": "5",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "BuOqperK8eU62QsR": {
+            "canCrit": false,
+            "damageType": "radiant",
+            "formula": "2d10",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "ezYnSVO3jkEtKdpm": {
+            "ability": "con",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>A beam of moonlight fills the area with dim light.</p><p>When a creature enters the area for the first time on a turn or begins its turn in the area, it is struck by silver flames and makes a Constitution saving throw, taking 2d10 radiant damage on a failed save, or half as much on a success.</p><p>Shapechangers have disadvantage on this saving throw. On a failed save, a shapechanger is forced to take its original form while within the spell's light.</p><p>On your turn, you may use an action to move the beam 60 feet in any direction.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 2nd.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "moonseed seeds and a piece of feldspar",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "nature",
+        "radiant"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673682403,
+    "modifiedTime": 1678673731985,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,75 +1,101 @@
 {
-	"name": "Power Word Stun",
-	"type": "spell",
-	"img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You utter a powerful word that stuns a target with 150 hit points or less. At the end of the target's turn, it makes a Constitution saving throw to end the effect. If the target has more than 150 hit points, it is instead rattled until the end of its next turn.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"medium"
-		],
-		"save": {
-			"dc": "",
-			"onSave": "Special",
-			"targetAbility": "con"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 8,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"affliction",
-				"arcane"
-			]
-		}
-	},
-	"_id": "742mibetr67php5i"
+  "name": "Power Word Stun",
+  "type": "spell",
+  "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.742mibetr67php5i"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "DzNe85iL11YiQ9Ny": {
+        "name": "Power Word Stun",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "5OLSNmWSSVW1Hgv9": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "nO05E92EmiCd9woN": {
+            "ability": "con",
+            "onSave": "Special",
+            "saveDC": {
+              "type": "custom",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You utter a powerful word that stuns a target with 150 hit points or less. At the end of the target's turn, it makes a Constitution saving throw to end the effect. If the target has more than 150 hit points, it is instead rattled until the end of its next turn.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "Special",
+      "targetAbility": "con"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 8,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "affliction",
+        "arcane"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673675491,
+    "modifiedTime": 1678673715932,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

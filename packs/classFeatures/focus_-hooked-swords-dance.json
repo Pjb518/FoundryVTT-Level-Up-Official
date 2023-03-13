@@ -1,63 +1,78 @@
 {
-	"name": "Focus: Hooked Swords Dance",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": null,
-		"actionOptions": [
-			"damage"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "slashing",
-				"formula": "1d10",
-				"name": "Extra slashing"
-			}
-		],
-		"description": "<p>When you are fighting with a shortsword in each hand, you can use a bonus action and spend 2 exertion to hook them together to start a hooked swords dance. Until the end of your next turn, your shortswords gain the reach property. If you hit a target with both swords in the same turn, the target takes an additional [[/r 1d10 #slashing]] slashing damage.</p>",
-		"duration": {
-			"unit": "round",
-			"value": 1
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "k8uj2f82cqnwv9ny"
+  "name": "Focus: Hooked Swords Dance",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.k8uj2f82cqnwv9ny"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": null,
+    "actions": {
+      "4FNgvPqrAIYscxqV": {
+        "name": "Focus: Hooked Swords Dance",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "qn4ajzDNdUo1q740": {
+            "canCrit": false,
+            "damageType": "slashing",
+            "formula": "1d10",
+            "name": "Extra slashing",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p>When you are fighting with a shortsword in each hand, you can use a bonus action and spend 2 exertion to hook them together to start a hooked swords dance. Until the end of your next turn, your shortswords gain the reach property. If you hit a target with both swords in the same turn, the target takes an additional [[/r 1d10 #slashing]] slashing damage.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672646246,
+    "modifiedTime": 1678672690036,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

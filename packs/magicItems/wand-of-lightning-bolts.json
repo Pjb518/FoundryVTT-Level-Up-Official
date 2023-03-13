@@ -1,70 +1,98 @@
 {
-	"name": "Wand of Lightning Bolts",
-	"type": "object",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "line",
-			"size": "100"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p style=\"text-align: right\"><em>T&amp;T 312</em></p><p><strong>Crafting Components</strong>: Any item struck twice by nonmagical lightning</p><hr class=\"a5e-rule u-my-md\"><p><em>Requires attunement by a spellcaster</em></p><p>While holding this wand, you can use an action to expend 1 or more charges to cast @Compendium[a5e.a5e-spells.k72653sury5yomzn]{Lightning Bolt} (save DC 15). For 1 charge, you cast the spell’s 3rd-level version. Increase the spell slot level by one for each additional expended charge.</p><p>This wand has 7 charges and regains [[/r 1d6+1 #charges]] expended charges each dawn. When the last charge is expended, roll a [[/r 1d20]]. On a 1, the wand emits sparks of electricity and disappears in a flash <br></p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "15",
-			"onSave": "half damage",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": 7,
-			"max": 7,
-			"per": ""
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "5000",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [],
-		"weight": "0"
-	},
-	"_id": "ksctzus4k4pldxdm"
+  "name": "Wand of Lightning Bolts",
+  "type": "object",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.ksctzus4k4pldxdm"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "zJzJojDftYMWLYmX": {
+        "name": "Wand of Lightning Bolts",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "area": {
+          "shape": "line",
+          "size": "100",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "sYEmdZqzwXcsd6Js": {
+            "ability": "dex",
+            "onSave": "half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p style=\"text-align: right\"><em>T&amp;T 312</em></p><p><strong>Crafting Components</strong>: Any item struck twice by nonmagical lightning</p><hr class=\"a5e-rule u-my-md\"><p><em>Requires attunement by a spellcaster</em></p><p>While holding this wand, you can use an action to expend 1 or more charges to cast @Compendium[a5e.a5e-spells.k72653sury5yomzn]{Lightning Bolt} (save DC 15). For 1 charge, you cast the spell’s 3rd-level version. Increase the spell slot level by one for each additional expended charge.</p><p>This wand has 7 charges and regains [[/r 1d6+1 #charges]] expended charges each dawn. When the last charge is expended, roll a [[/r 1d20]]. On a 1, the wand emits sparks of electricity and disappears in a flash <br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "15",
+      "onSave": "half damage",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 7,
+      "max": 7,
+      "per": ""
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "5000",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673232623,
+    "modifiedTime": 1678673294441,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,78 +1,104 @@
 {
-	"name": "Sleet Storm",
-	"type": "spell",
-	"img": "icons/magic/water/snowflake-ice-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "spellcasting",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "action",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "cylinder",
-			"radius": "40",
-			"height": "20"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>You conjure a storm of freezing rain and sleet in the area. The ground in the area is covered with slick ice that makes it difficult terrain, exposed flames in the area are doused, and the area is heavily obscured.</p><p>When a creature enters the area for the first time on a turn or starts its turn there, it makes a Dexterity saving throw or falls prone.</p><p>When a creature concentrating on a spell starts its turn in the area or first enters into the area on a turn, it makes a Constitution saving throw or loses concentration.</p>",
-		"duration": {
-			"unit": "minute",
-			"value": "1"
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"long"
-		],
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 2,
-		"materials": "few drops of melted snow",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"cold",
-				"nature",
-				"terrain",
-				"weather"
-			]
-		}
-	},
-	"_id": "qvi9ra3gzxi3sd28"
+  "name": "Sleet Storm",
+  "type": "spell",
+  "img": "icons/magic/water/snowflake-ice-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.qvi9ra3gzxi3sd28"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "spellcasting",
+    "actions": {
+      "6NepcNhNC4Ct4pWZ": {
+        "name": "Sleet Storm",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "ne693Hor3hxG3Fx4": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "radius": "40",
+          "height": "20",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "RME0pVvq68hI8Bc5": {
+            "ability": "dex",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@spellDC"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You conjure a storm of freezing rain and sleet in the area. The ground in the area is covered with slick ice that makes it difficult terrain, exposed flames in the area are doused, and the area is heavily obscured.</p><p>When a creature enters the area for the first time on a turn or starts its turn there, it makes a Dexterity saving throw or falls prone.</p><p>When a creature concentrating on a spell starts its turn in the area or first enters into the area on a turn, it makes a Constitution saving throw or loses concentration.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 2,
+    "materials": "few drops of melted snow",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "cold",
+        "nature",
+        "terrain",
+        "weather"
+      ]
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673679747,
+    "modifiedTime": 1678673728026,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

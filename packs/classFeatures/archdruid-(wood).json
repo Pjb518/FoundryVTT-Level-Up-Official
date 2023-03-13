@@ -1,66 +1,94 @@
 {
-	"name": "Archdruid (Wood)",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"damage",
-			"savingThrow"
-		],
-		"activation": {
-			"cost": 1,
-			"type": "bonusAction",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": null,
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": false,
-				"damageType": "piercing",
-				"formula": "4d6",
-				"name": "Wood"
-			}
-		],
-		"description": "<p>You can turn nature in its rawest elements into deadly weapons no matter your form. Once each turn, you can use a bonus action to choose a target point within 30 feet and one of the following element options. If the element you choose is not present at or near the target point, any damage dealt by this feature is halved, you have disadvantage on your spell attack, and creatures have advantage on any saving throws made to resist it.</p><p style=\"text-align: start\"><strong>Wood.</strong> Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p><p><br></p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [
-			"20 ft"
-		],
-		"save": {
-			"dc": "8+@wis.mod+@prof",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
-		"source": "",
-		"target": {
-			"quantity": "",
-			"type": ""
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "g3j1gv9ho1ignryw"
+  "name": "Archdruid (Wood)",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.g3j1gv9ho1ignryw"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "vU76XFc4TFM6GGxr": {
+        "name": "Archdruid (Wood)",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "jlXJIaSMmrRqrIbG": {
+            "range": "20 ft"
+          }
+        },
+        "area": {
+          "shape": null,
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "9iLxhkj5E0179ozE": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "4d6",
+            "name": "Wood",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "kLL5ytaRsU13Sm3N": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8+@wis.mod+@prof"
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>You can turn nature in its rawest elements into deadly weapons no matter your form. Once each turn, you can use a bonus action to choose a target point within 30 feet and one of the following element options. If the element you choose is not present at or near the target point, any damage dealt by this feature is halved, you have disadvantage on your spell attack, and creatures have advantage on any saving throws made to resist it.</p><p style=\"text-align: start\"><strong>Wood.</strong> Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p><p><br></p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "8+@wis.mod+@prof",
+      "onSave": "Half damage",
+      "targetAbility": "dex"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672643054,
+    "modifiedTime": 1678672686317,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

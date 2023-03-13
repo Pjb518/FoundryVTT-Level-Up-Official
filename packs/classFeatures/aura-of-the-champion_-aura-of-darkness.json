@@ -1,56 +1,80 @@
 {
-	"name": "Aura of the Champion: Aura of Darkness",
-	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "",
-		"actionOptions": [
-			"savingThrow"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": 20,
-			"type": ""
-		},
-		"area": {
-			"shape": "sphere",
-			"size": "15ft"
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [],
-		"description": "<p>After initiative is rolled, when a hostile creature starts its turn in your aura or first enters into it on a turn, it makes a Wisdom saving throw or becomes frightened of you for 1 minute. Once a creature has been frightened by this aura, it is immune to the aura’s effects for 24 hours.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": null,
-			"onSave": "",
-			"targetAbility": "wis"
-		},
-		"source": "",
-		"target": {
-			"quantity": null,
-			"type": "creature"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"featureType": "class"
-	},
-	"_id": "a9m3vhe9x3tho5o6"
+  "name": "Aura of the Champion: Aura of Darkness",
+  "type": "feature",
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.a9m3vhe9x3tho5o6"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "",
+    "actions": {
+      "m7H84zlkJu42tDc9": {
+        "name": "Aura of the Champion: Aura of Darkness",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "15ft",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": "creature"
+        },
+        "prompts": {
+          "nlVHGF4t0au3oXZE": {
+            "ability": "wis",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": null
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>After initiative is rolled, when a hostile creature starts its turn in your aura or first enters into it on a turn, it makes a Wisdom saving throw or becomes frightened of you for 1 minute. Once a creature has been frightened by this aura, it is immune to the aura’s effects for 24 hours.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": null,
+      "onSave": "",
+      "targetAbility": "wis"
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "featureType": "class",
+    "prerequisite": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678672637326,
+    "modifiedTime": 1678672680933,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

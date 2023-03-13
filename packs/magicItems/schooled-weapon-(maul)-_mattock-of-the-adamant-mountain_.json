@@ -1,88 +1,112 @@
 {
-	"name": "Schooled Weapon (Maul) \"Mattock of the Adamant Mountain\"",
-	"type": "object",
-	"img": "icons/weapons/hammers/hammer-double-steel-embossed.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "1",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "2d6 + 1 + @mod",
-				"name": "Schooled Maul"
-			},
-			{
-				"canCrit": true,
-				"damageType": "bludgeoning",
-				"formula": "2d6 + 2 + @mod",
-				"name": "Schooled Maneuver"
-			}
-		],
-		"description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><p><em>Breaker, Heavy, Two-Handed</em></p><hr class=\"a5e-rule u-my-md\"><p>Each of these weapons comes in a different form depending on the combat tradition it is associated with. You are proficient with this magic weapon as long as you are attuned to it, and you gain a +1 bonus on attack and damage rolls with it.</p><p>You cannot attune to this weapon if you do not know at least one combat maneuver from the tradition it is associated with. When you attune to this weapon, choose a combat maneuver from its associated tradition that you meet the prerequisites for. While you remain attuned to the weapon, you have access to that combat maneuver.</p><p>In addition, any attacks you make with the weapon as part of a combat maneuver from the associated tradition gains an additional +1 bonus to attack and damage.</p>",
-		"duration": {
-			"unit": "",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "2,500 gp",
-		"quantity": 1,
-		"rarity": "rare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"breaker",
-			"heavy",
-			"twoHanded"
-		],
-		"weight": "11 lbs"
-	},
-	"_id": "zsm8dx3ch2o5iqyx"
+  "name": "Schooled Weapon (Maul) \"Mattock of the Adamant Mountain\"",
+  "type": "object",
+  "img": "icons/weapons/hammers/hammer-double-steel-embossed.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.zsm8dx3ch2o5iqyx"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "G1TDhvhUX2IrYcjm": {
+        "name": "Schooled Weapon (Maul) \"Mattock of the Adamant Mountain\"",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "oU7T86nb5RVAIMHm": {
+            "bonus": "1",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "oCJA6Iaeiiv3BrWU": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "2d6 + 1 + @str.mod",
+            "name": "Schooled Maul",
+            "type": "damage"
+          },
+          "zy6Jza8HvRdQdvKa": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "2d6 + 2 + @str.mod",
+            "name": "Schooled Maneuver",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><p><em>Breaker, Heavy, Two-Handed</em></p><hr class=\"a5e-rule u-my-md\"><p>Each of these weapons comes in a different form depending on the combat tradition it is associated with. You are proficient with this magic weapon as long as you are attuned to it, and you gain a +1 bonus on attack and damage rolls with it.</p><p>You cannot attune to this weapon if you do not know at least one combat maneuver from the tradition it is associated with. When you attune to this weapon, choose a combat maneuver from its associated tradition that you meet the prerequisites for. While you remain attuned to the weapon, you have access to that combat maneuver.</p><p>In addition, any attacks you make with the weapon as part of a combat maneuver from the associated tradition gains an additional +1 bonus to attack and damage.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "2,500 gp",
+    "quantity": 1,
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "breaker",
+      "heavy",
+      "twoHanded"
+    ],
+    "weight": 11
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673245440,
+    "modifiedTime": 1678673321174,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

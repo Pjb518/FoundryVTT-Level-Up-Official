@@ -1,88 +1,112 @@
 {
-	"name": "Frost Brand (Greatsword)",
-	"type": "object",
-	"img": "icons/weapons/swords/sword-broad-serrated-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ability": "default",
-		"actionOptions": [
-			"damage",
-			"attack"
-		],
-		"activation": {
-			"cost": "",
-			"type": "none",
-			"reactionTrigger": ""
-		},
-		"attack": {
-			"bonus": "",
-			"critThreshold": "20",
-			"type": "meleeWeaponAttack"
-		},
-		"area": {
-			"shape": "",
-			"size": ""
-		},
-		"check": {
-			"ability": "str"
-		},
-		"damage": [
-			{
-				"canCrit": true,
-				"damageType": "slashing",
-				"formula": "2d6 + @mod",
-				"name": "Frost Brand Greatsword"
-			},
-			{
-				"canCrit": true,
-				"damageType": "cold",
-				"formula": "1d6",
-				"name": "Attuned Damage"
-			}
-		],
-		"description": "<blockquote><p>Heavy, Parrying, Two-Handed</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>When exposed to freezing temperatures the blade of this magic sword sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>While you are attuned to the sword, attacks using it deal an extra 1d6 cold damage and you gain resistance to fire damage.</p><p>Once per hour, when you draw the sword you can choose to extinguish all nonmagical flames within 30 feet.</p>",
-		"duration": {
-			"unit": "instantaneous",
-			"value": ""
-		},
-		"healing": [],
-		"proficient": true,
-		"range": [],
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
-		"source": "",
-		"target": {
-			"quantity": 1,
-			"type": "creatureObject"
-		},
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "8,000 gp",
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"weaponProperties": [
-			"parrying",
-			"heavy",
-			"twoHanded"
-		],
-		"weight": "7 lbs"
-	},
-	"_id": "6dffpqyjvh6xy0bd"
+  "name": "Frost Brand (Greatsword)",
+  "type": "object",
+  "img": "icons/weapons/swords/sword-broad-serrated-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-magic-items.6dffpqyjvh6xy0bd"
+    },
+    "a5e": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.8.15"
+    }
+  },
+  "system": {
+    "ability": "default",
+    "actions": {
+      "tvU0ogTSFcqEzozW": {
+        "name": "Frost Brand (Greatsword)",
+        "activation": {
+          "cost": "",
+          "type": "none",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "wJpVhdLUHK5E3Dwy": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack"
+          },
+          "TtsRVeNhhOOdxTjM": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "2d6 + @str.mod",
+            "name": "Frost Brand Greatsword",
+            "type": "damage"
+          },
+          "hsN5rx4j0XIzAYRo": {
+            "canCrit": true,
+            "damageType": "cold",
+            "formula": "1d6",
+            "name": "Attuned Damage",
+            "type": "damage"
+          }
+        }
+      }
+    },
+    "description": "<blockquote><p>Heavy, Parrying, Two-Handed</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>When exposed to freezing temperatures the blade of this magic sword sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>While you are attuned to the sword, attacks using it deal an extra 1d6 cold damage and you gain resistance to fire damage.</p><p>Once per hour, when you draw the sword you can choose to extinguish all nonmagical flames within 30 feet.</p>",
+    "favorite": false,
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "8,000 gp",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "parrying",
+      "heavy",
+      "twoHanded"
+    ],
+    "weight": 7
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.8.15",
+    "coreVersion": "10.291",
+    "createdTime": 1678673224626,
+    "modifiedTime": 1678673265778,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
