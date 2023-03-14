@@ -16,7 +16,7 @@
     const actor = $item.actor && new TJSDocument($item.actor);
     const actionId = getContext("actionId");
 
-    const { abilities, saveDCOptions } = CONFIG.A5E;
+    const { saveDCOptions } = CONFIG.A5E;
 
     function updateAbility() {
         updateDocumentDataFromField(
@@ -50,7 +50,7 @@
     }
 
     let saveDCIsValid = true;
-    let saveDCBonus = prompt?.saveDC?.bonus ?? "";
+    let saveDCBonus = prompt?.saveDC?.bonus;
 
     $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
 

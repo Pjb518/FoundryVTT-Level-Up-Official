@@ -8,11 +8,11 @@
     $: passiveFields = [
         {
             label: "Maneuver DC",
-            value: $actor.system.maneuverDC,
+            value: $actor.system.attributes.maneuverDC,
         },
         {
             label: "Spell DC",
-            value: $actor.system.spellDC,
+            value: $actor.system.attributes.spellDC,
         },
         {
             label: "Passive Percep.",
