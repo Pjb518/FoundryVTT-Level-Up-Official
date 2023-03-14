@@ -798,7 +798,6 @@ export default class ActorA5e extends Actor {
     const roll = await new Roll(formula).roll({ async: true });
 
     const chatData = {
-      title,
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
@@ -807,10 +806,13 @@ export default class ActorA5e extends Actor {
       flags: {
         a5e: {
           actorId: this.uuid,
-          img: this.token?.img ?? this,
-          name: this.name
+          cardType: 'hitDice',
+          img: this.token?.img ?? this.img,
+          name: this.name,
+          title
         }
-      }
+      },
+      content: '<article></article>'
     };
 
     // const roll = new Roll(formula);
@@ -835,6 +837,7 @@ export default class ActorA5e extends Actor {
     this.update({
       'data.attributes': {
         [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
+        // TODO: Convert to use applyHealing
         'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
       }
     });

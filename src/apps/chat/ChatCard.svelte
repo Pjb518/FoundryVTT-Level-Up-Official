@@ -12,6 +12,7 @@
             case "item":
                 return ItemActivationHeader;
             case "abilityCheck":
+            case "hitDice":
             case "savingThrow":
             case "skillCheck":
                 return CheckHeader;
@@ -23,6 +24,7 @@
             case "item":
                 return ItemActivationBody;
             case "abilityCheck":
+            case "hitDice":
             case "savingThrow":
             case "skillCheck":
                 return CheckBody;

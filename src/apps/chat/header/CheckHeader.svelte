@@ -12,6 +12,8 @@
         switch ($message?.flags?.a5e?.cardType) {
             case "abilityCheck":
                 return localize("A5E.AbilityCheckSpecific", { ability });
+            case "hitDice":
+                return $message?.flags?.a5e?.title;
             case "savingThrow":
                 return localize("A5E.SavingThrowSpecific", { ability });
             case "skillCheck":
