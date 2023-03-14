@@ -48,6 +48,20 @@
         />
     </div>
 
+    <div class="character-shields__box">
+        <label class="xp-label" for="{$actor.id}-prof"> Prof. </label>
+
+        <input
+            id="{$actor.id}-prof"
+            class="xp-input"
+            type="number"
+            value={$actor.system.prof}
+            placeholder="0"
+            min="0"
+            disabled
+        />
+    </div>
+
     {#if $actor.flags?.a5e?.showXP ?? true}
         <div class="xp-box">
             <label class="xp-label" for="{$actor.id}-current-xp"
