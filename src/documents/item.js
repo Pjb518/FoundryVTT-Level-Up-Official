@@ -164,10 +164,14 @@ export default class ItemA5e extends Item {
           name: this.name,
           actionName: action.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
-            ? action.description
+            ? TextEditor.enrichHTML(action.description, {
+              async: false
+            })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? this.system.description
+            ? TextEditor.enrichHTML(this.system.description, {
+              async: false
+            })
             : null,
           prompts: promise.prompts,
           rollData: rolls.map(({ roll, ...rollData }) => rollData)
@@ -420,10 +424,14 @@ export default class ItemA5e extends Item {
           actorId: this.actor.uuid,
           cardType: 'item',
           actionDescription: action?.descriptionOutputs?.includes('action')
-            ? action.description
+            ? TextEditor.enrichHTML(action.description, {
+              async: false
+            })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? this.system.description
+            ? TextEditor.enrichHTML(this.system.description, {
+              async: false
+            })
             : null,
           img: this.img,
           name: this.name
