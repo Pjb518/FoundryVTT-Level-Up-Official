@@ -220,6 +220,17 @@ A5E.carryCapacityMultiplier = {
 };
 
 /**
+ *
+ */
+A5E.chatCardTypes = [
+  'abilityCheck',
+  'hitDice',
+  'item',
+  'savingThrow',
+  'skillCheck'
+];
+
+/**
  * The set of core conditions in the system.
  * @enum {string}
  */

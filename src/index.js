@@ -225,7 +225,7 @@ Hooks.on('createToken', async (token, _, userID) => {
 });
 
 Hooks.on('renderChatMessage', (message, html) => {
-  if (['abilityCheck', 'item', 'savingThrow', 'skillCheck'].includes(message.getFlag('a5e', 'cardType'))) {
+  if (CONFIG.A5E.chatCardTypes.includes(message.getFlag('a5e', 'cardType'))) {
     message._svelteComponent = new A5eChatCard({
       target: $(html).find('.message-content article')[0],
       props: { messageDocument: message }
