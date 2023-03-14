@@ -6,6 +6,9 @@
  */
 export default function validateTemplateData(item, actionId) {
   const { area } = item.actions[actionId];
+
+  if (foundry.utils.isEmpty(area)) return false;
+
   area.quantity ??= 1;
 
   if (!area?.shape) return false;
