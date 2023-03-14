@@ -517,61 +517,6 @@ export default class ActorA5e extends Actor {
     this.#configure('weapons', title, data, options);
   }
 
-  async constructItemCard(data) {
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-      content: await renderTemplate(
-        'systems/a5e/templates/chat/item-card.hbs',
-        {
-          config: CONFIG.A5E,
-          title: data.title,
-          img: data.img,
-          attack: data.attack,
-          description: data.description,
-          damage: data.damage,
-          healing: data.healing,
-          abilityCheck: data.abilityCheck,
-          savingThrow: data.savingThrow,
-          hasAttack: data.actionOptions?.includes('attack'),
-          hasDamage: data.actionOptions?.includes('damage'),
-          hasHealing: data.actionOptions?.includes('healing'),
-          hasDescription: data.description?.toString().trim(),
-          hasAbilityCheck: data.actionOptions?.includes('abilityCheck'),
-          hasSavingThrow: data.actionOptions?.includes('savingThrow'),
-          isCrit: data.isCrit,
-          isFumble: data.isFumble
-        }
-      ),
-      flags: {
-        itemId: data.id ?? null
-      }
-    };
-
-    if (data.attack?.roll) {
-      chatData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
-      chatData.sound = CONFIG.sounds.dice;
-      chatData.roll = data.attack.roll;
-    }
-
-    ChatMessage.create(chatData);
-
-    if (data.damage?.length) {
-      data.damage.forEach((damageSource) => {
-        // eslint-disable-next-line max-len
-        game.dice3d?.showForRoll(damageSource.roll, game.user, false, null, false, null, chatData.speaker);
-      });
-    }
-
-    if (data.healing?.length) {
-      data.healing.forEach((healingSource) => {
-        // eslint-disable-next-line max-len
-        game.dice3d?.showForRoll(healingSource.roll, game.user, false, null, false, null, chatData.speaker);
-      });
-    }
-  }
-
   get isBloodied() {
     const { max, value } = this.system.attributes.hp;
     return (value / max) * 100 <= 50;
@@ -814,22 +759,6 @@ export default class ActorA5e extends Actor {
       },
       content: '<article></article>'
     };
-
-    // const roll = new Roll(formula);
-    // await roll.evaluate({ async: true });
-    // const tooltip = await roll.getTooltip();
-
-    // const data = {
-    //   title,
-    //   img: this.img,
-    //   attack: null,
-    //   healing: [{ healingType: 'healing', roll, tooltip }],
-    //   actionOptions: ['healing'],
-    //   isCrit: false,
-    //   isFumble: false
-    // };
-
-    // this.constructItemCard(data);
 
     const hpDelta = Math.max(roll.total, 0);
     const maxHp = attributes.hp.baseMax + attributes.hp.bonus;
