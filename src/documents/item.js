@@ -181,6 +181,10 @@ export default class ItemA5e extends Item {
     };
 
     ChatMessage.create(chatData);
+
+    Hooks.callAll('a5e.itemActivate', this, {
+      actionId, action, dialog: promise, options, rolls
+    });
   }
 
   async #placeActionTemplate(actionId) {
@@ -441,6 +445,8 @@ export default class ItemA5e extends Item {
     };
 
     ChatMessage.create(chatData);
+
+    Hooks.callAll('a5e.itemActivate', this, { action });
   }
 
   async configureItem() {
