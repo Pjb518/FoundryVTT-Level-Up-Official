@@ -23,6 +23,7 @@
         grid-template-columns: repeat(3, 5rem);
         gap: 0.125rem;
         padding: 0.125rem 0.125rem;
+        white-space: nowrap;
 
         button {
             background: transparent;
