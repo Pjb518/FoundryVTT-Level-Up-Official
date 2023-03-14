@@ -340,7 +340,7 @@ export default class ActorA5e extends Actor {
 
   /** @inheritdoc */
   getRollData() {
-    const data = super.getRollData();
+    const data = { ...super.getRollData() };
     const { abilities, skills } = this.system;
 
     data.prof = this.system.attributes.prof || 0;

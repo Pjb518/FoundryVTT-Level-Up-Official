@@ -5,6 +5,7 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import computeSaveDC from "../utils/computeSaveDC";
+    import getAttackAbility from "../../utils/getAttackAbility";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
@@ -120,6 +121,9 @@
     const rolls = prepareRolls(action.rolls);
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
+    const attackAbility = getAttackAbility($actor, $item, attackRoll);
+
+    console.log(attackAbility);
 
     const otherRolls = Object.entries(rolls).reduce(
         (acc, [rollType, rolls]) => {
@@ -151,14 +155,14 @@
                     $actor.system.attributes.prof,
             },
             {
-                label: localize("A5E.AttackBonus"),
-                value: attackRoll?.bonus ?? 0,
+                label: localize("A5E.AbilityCheckMod", {
+                    ability: attackAbility,
+                }),
+                value: $actor.system.abilities[attackAbility ?? ""]?.mod,
             },
             {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: attackRoll?.ability,
-                }),
-                value: $actor.system.abilities[attackRoll?.ability ?? ""]?.mod,
+                label: localize("A5E.AttackBonus"),
+                value: attackRoll?.bonus ?? 0,
             },
             {
                 label: localize("A5E.ExpertiseDie"),
