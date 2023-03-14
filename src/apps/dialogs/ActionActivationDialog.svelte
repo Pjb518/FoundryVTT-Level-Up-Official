@@ -117,13 +117,13 @@
     const item = new TJSDocument(itemDocument);
     const action = $item.actions[actionId];
 
+    const { abilities } = CONFIG.A5E;
+
     const prompts = preparePrompts(action.prompts);
     const rolls = prepareRolls(action.rolls);
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
     const attackAbility = getAttackAbility($actor, $item, attackRoll);
-
-    console.log(attackAbility);
 
     const otherRolls = Object.entries(rolls).reduce(
         (acc, [rollType, rolls]) => {
@@ -156,7 +156,9 @@
             },
             {
                 label: localize("A5E.AbilityCheckMod", {
-                    ability: attackAbility,
+                    ability: localize(
+                        abilities[attackAbility] ?? attackAbility
+                    ),
                 }),
                 value: $actor.system.abilities[attackAbility ?? ""]?.mod,
             },
