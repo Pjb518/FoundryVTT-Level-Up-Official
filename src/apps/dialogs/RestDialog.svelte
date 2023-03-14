@@ -40,10 +40,6 @@
             hitDice["d10"].current = Math.max(hitDice["d10"].current - 1, 0);
         if (dieSize === "d12")
             hitDice["d12"].current = Math.max(hitDice["d12"].current - 1, 0);
-
-        $actor.update({
-            "system.attributes.hitDice": hitDice,
-        });
     }
 
     function onSubmit() {

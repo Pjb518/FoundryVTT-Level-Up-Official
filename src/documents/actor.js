@@ -795,24 +795,42 @@ export default class ActorA5e extends Actor {
     const conMod = parseInt(actorData.abilities.con.check.mod, 10);
     const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
 
-    const roll = new Roll(formula);
-    await roll.evaluate({ async: true });
-    const tooltip = await roll.getTooltip();
+    const roll = await new Roll(formula).roll({ async: true });
 
-    const data = {
+    const chatData = {
       title,
-      img: this.img,
-      attack: null,
-      healing: [{ healingType: 'healing', roll, tooltip }],
-      actionOptions: ['healing'],
-      isCrit: false,
-      isFumble: false
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          img: this.token?.img ?? this,
+          name: this.name
+        }
+      }
     };
+
+    // const roll = new Roll(formula);
+    // await roll.evaluate({ async: true });
+    // const tooltip = await roll.getTooltip();
+
+    // const data = {
+    //   title,
+    //   img: this.img,
+    //   attack: null,
+    //   healing: [{ healingType: 'healing', roll, tooltip }],
+    //   actionOptions: ['healing'],
+    //   isCrit: false,
+    //   isFumble: false
+    // };
+
+    // this.constructItemCard(data);
 
     const hpDelta = Math.max(roll.total, 0);
     const maxHp = attributes.hp.baseMax + attributes.hp.bonus;
-
-    this.constructItemCard(data);
 
     this.update({
       'data.attributes': {
@@ -820,6 +838,8 @@ export default class ActorA5e extends Actor {
         'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
       }
     });
+
+    ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.rollHitDice', this, {
       dieSize,
