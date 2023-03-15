@@ -147,7 +147,7 @@
                 </div>
             </FormSection>
 
-            <FormSection hint="A5E.Settings.CoinWeightHint">
+            <FormSection hint="A5E.SettingsCoinWeightHint">
                 <div class="u-align-center u-flex u-gap-md">
                     <input
                         class="u-pointer"
