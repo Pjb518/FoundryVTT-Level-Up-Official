@@ -118,6 +118,7 @@
             <NavigationBar
                 {currentTab}
                 {tabs}
+                showLock={true}
                 on:tab-change={updateCurrentTab}
             />
 

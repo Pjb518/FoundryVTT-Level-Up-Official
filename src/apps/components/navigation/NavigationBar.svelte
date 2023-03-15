@@ -4,6 +4,7 @@
 
     export let currentTab;
     export let tabs;
+    export let showLock = false;
 </script>
 
 <nav class="nav-wrapper">
@@ -14,7 +15,9 @@
             {/if}
         {/each}
 
-        <LockButton />
+        {#if showLock}
+            <LockButton />
+        {/if}
     </ul>
 </nav>
 
