@@ -221,22 +221,6 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * Given a list of items to add to the Actor.
-   *
-   * @param {Item5e[]} items         The items being added to the Actor.
-   *
-   * @returns {Promise<Item5e[]>}
-   */
-  async addEmbeddedItems(items) {
-    if (!items.length) return [];
-
-    return Item5e.createDocuments(
-      items.map((item) => item.toObject()),
-      { parent: this }
-    );
-  }
-
-  /**
    * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
    * Negative damage values will have no effect.
    *
