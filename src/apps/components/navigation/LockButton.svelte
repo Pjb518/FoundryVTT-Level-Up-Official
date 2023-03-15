@@ -10,32 +10,34 @@
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<i
-    class="sheet-lock fas {sheetIsLocked
-        ? 'fa-lock sheet-lock-locked'
-        : 'fa-unlock sheet-lock-unlocked'}"
-    on:click={() => toggleSheetLockedState($actor)}
+<button
+    class="sheet-lock fas {sheetIsLocked ? 'fa-lock' : 'fa-unlock'}"
+    on:click={({ target }) => {
+        toggleSheetLockedState($actor);
+        target.blur();
+    }}
 />
 
 <style lang="scss">
     .sheet-lock {
         display: flex;
         align-items: center;
-        font-size: 1.728rem;
+        height: 100%;
+        width: fit-content;
+        padding: 0 0.125rem;
+        margin-left: auto;
+        font-size: 1rem;
+        color: inherit;
+        opacity: 0.85;
+        background: transparent;
         cursor: pointer;
 
         transition: all 0.15s ease-in-out;
 
+        &:focus,
         &:hover {
             transform: scale(1.1);
-        }
-
-        &-locked {
-            color: #8b2525;
-        }
-
-        &-unlocked {
-            color: #2b6537;
+            box-shadow: none;
         }
     }
 </style>

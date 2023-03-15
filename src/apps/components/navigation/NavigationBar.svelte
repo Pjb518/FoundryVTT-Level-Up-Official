@@ -1,4 +1,5 @@
 <script>
+    import LockButton from "./LockButton.svelte";
     import NavigationItem from "./NavigationItem.svelte";
 
     export let currentTab;
@@ -12,6 +13,8 @@
                 <NavigationItem on:tab-change {tab} {index} {currentTab} />
             {/if}
         {/each}
+
+        <LockButton />
     </ul>
 </nav>
 
