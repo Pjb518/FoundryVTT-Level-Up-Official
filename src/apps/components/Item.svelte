@@ -130,7 +130,7 @@
 
 {#if !action && item?.actions?.count > 1}
     <ul class="actions-list">
-        {#each item?.actions?.entries() as [id, action]}
+        {#each item?.actions?.entries() as [id, action] (id)}
             <svelte:self {item} {action} actionId={id} />
         {/each}
     </ul>

@@ -2,6 +2,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import ActivationCost from "./summarySections/ActivationCost.svelte";
+    import Area from "./summarySections/Area.svelte";
     import Range from "./summarySections/Range.svelte";
     import Targets from "./summarySections/Targets.svelte";
 
@@ -46,6 +47,7 @@
     <ActivationCost {actionId} {item} />
     <Range {actionId} {item} />
     <Targets {actionId} {item} />
+    <Area {actionId} {item} />
 
     {#if !actionId && spellComponents.length}
         <div class="summary-group">

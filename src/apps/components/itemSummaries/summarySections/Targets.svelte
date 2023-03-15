@@ -5,7 +5,9 @@
     export let item;
 
     function getTargetLabel({ target } = {}) {
-        if (!target || foundry.utils.isEmpty(target)) return null;
+        if (!target || !target.type || foundry.utils.isEmpty(target)) {
+            return null;
+        }
 
         if (target?.type === "self") return localize("A5E.TargetSelf");
         if (target?.type === "other") return localize("A5E.TargetOther");
