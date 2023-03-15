@@ -67,6 +67,18 @@
     {/if}
 
     {#if !action && item.type === "object"}
+        {#if item.system.requiresAttunement}
+            <button
+                class="action-button fa-solid fa-hand-sparkles"
+                class:active={item.system.attuned}
+                data-tooltip={item.system.attuned
+                    ? "A5E.ButtonToolTipBreakAttunement"
+                    : "A5E.ButtonToolTipAttune"}
+                data-tooltip-direction="UP"
+                on:click|stopPropagation={() => item.toggleAttunement()}
+            />
+        {/if}
+
         <button
             class="action-button fas fa-shield-alt"
             class:active={item.system.equipped}

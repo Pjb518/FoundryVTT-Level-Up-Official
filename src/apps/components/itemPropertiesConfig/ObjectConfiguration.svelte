@@ -94,7 +94,7 @@
                         </label>
                     </div>
 
-                    {#if $item.system.requiresAttunement}
+                    {#if $item.actor && $item.system.requiresAttunement}
                         <div class="u-align-center u-flex u-gap-md">
                             <input
                                 class="u-pointer"

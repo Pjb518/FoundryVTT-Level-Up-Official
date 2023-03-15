@@ -81,6 +81,19 @@
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => $item.toggleUnidentified()}
             />
+
+            {#if $item.actor && $item.system.requiresAttunement}
+                <button
+                    class="header-button fa-solid fa-hand-sparkles"
+                    class:active={$item.system.attuned}
+                    data-tooltip={$item.system.attuned
+                        ? "A5E.ButtonToolTipBreakAttunement"
+                        : "A5E.ButtonToolTipAttune"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => $item.toggleAttunement()}
+                />
+            {/if}
+
             <button
                 class="header-button fa-solid fa-heart-crack"
                 class:active={$item.system.broken}
