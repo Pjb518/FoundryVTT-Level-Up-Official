@@ -33,7 +33,7 @@
         on:click={() => editDocumentImage($item)}
     />
 
-    <div>
+    <div class="name-wrapper">
         <input
             type="text"
             name="name"
@@ -162,6 +162,7 @@
         font-size: 1.728rem;
         border: 0;
         background: transparent;
+        text-overflow: ellipsis;
 
         &:active,
         &:focus {
@@ -195,5 +196,9 @@
         font-family: "Modesto Condensed", serif;
         font-size: 1rem;
         align-items: center;
+    }
+
+    .name-wrapper {
+        width: 100%;
     }
 </style>
