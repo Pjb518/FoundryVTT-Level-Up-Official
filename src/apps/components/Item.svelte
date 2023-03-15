@@ -65,15 +65,23 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <li class="item-wrapper" draggable="true" on:dragstart={onDragStart}>
     <button
-        class="item-image"
-        class:item-image--shift={$pressedKeysStore.Shift}
-        class:item-image--ctrl={$pressedKeysStore.Control}
+        class="item-roll-button"
+        class:item-roll-button--shift={$pressedKeysStore.Shift}
+        class:item-roll-button--ctrl={$pressedKeysStore.Control}
         style="--background-image: url(/{backgroundImage});"
         on:click|stopPropagation={({ target }) => {
             target.blur();
             onItemActivate();
         }}
-    />
+    >
+        <img
+            class="item-image"
+            src={backgroundImage}
+            alt={action?.name ?? item.name}
+        />
+
+        <img class="item-image--die" src="/icons/svg/d20.svg" alt="Roll" />
+    </button>
 
     <div
         class="inner-item-wrapper"
@@ -169,17 +177,35 @@
     }
 
     .item-image {
-        position: relative;
-        height: 1.75rem;
-        width: 1.75rem;
-        background: no-repeat center/100% var(--background-image);
-        border-radius: 3px;
-        transition: all 0.15s ease-in-out;
+        display: block;
+        height: 100%;
+        width: auto;
 
-        &:hover,
-        &:focus {
+        &--die {
+            display: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .item-roll-button {
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border-radius: 3px;
+
+        &:hover {
             box-shadow: none;
-            background: no-repeat center/100% url("/icons/svg/d20.svg");
+
+            .item-image {
+                display: none;
+            }
+
+            .item-image--die {
+                display: block;
+            }
         }
 
         &--shift:hover {
