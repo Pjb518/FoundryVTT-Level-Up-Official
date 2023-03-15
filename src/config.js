@@ -911,6 +911,21 @@ A5E.timePeriods = {
   special: 'A5E.DurationSpecial'
 };
 
+A5E.timePeriodsPlural = {
+  instantaneous: 'A5E.DurationInstantaneous',
+  round: 'A5E.DurationRoundPlural',
+  turn: 'A5E.DurationTurnPlural',
+  second: 'A5E.DurationSecondPlural',
+  minute: 'A5E.DurationMinutePlural',
+  hour: 'A5E.DurationHourPlural',
+  day: 'A5E.DurationDayPlural',
+  week: 'A5E.DurationWeekPlural',
+  month: 'A5E.DurationMonthPlural',
+  year: 'A5E.DurationYearPlural',
+  permanent: 'A5E.DurationPermanent',
+  special: 'A5E.DurationSpecial'
+};
+
 /**
  * Colors used to visualize temporary and temporary maximum HP in token health bars.
  * @enum {number}

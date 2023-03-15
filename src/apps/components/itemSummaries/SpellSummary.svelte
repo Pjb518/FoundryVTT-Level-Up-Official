@@ -3,6 +3,7 @@
 
     import ActivationCost from "./summarySections/ActivationCost.svelte";
     import Area from "./summarySections/Area.svelte";
+    import Duration from "./summarySections/Duration.svelte";
     import Range from "./summarySections/Range.svelte";
     import Targets from "./summarySections/Targets.svelte";
 
@@ -61,6 +62,8 @@
             </dd>
         </div>
     {/if}
+
+    <Duration {actionId} {item} />
 </dl>
 
 <style lang="scss">
