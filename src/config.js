@@ -888,6 +888,14 @@ A5E.targetTypes = {
   other: 'A5E.TargetOther'
 };
 
+A5E.targetTypesPlural = {
+  self: 'A5E.TargetSelf',
+  creature: 'A5E.TargetCreaturePlural',
+  object: 'A5E.TargetObjectPlural',
+  creatureObject: 'A5E.TargetCreatureObjectPlural',
+  other: 'A5E.TargetOther'
+};
+
 A5E.timePeriods = {
   instantaneous: 'A5E.DurationInstantaneous',
   round: 'A5E.DurationRound',

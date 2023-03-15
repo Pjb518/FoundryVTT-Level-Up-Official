@@ -3,6 +3,7 @@
 
     import ActivationCost from "./summarySections/ActivationCost.svelte";
     import Range from "./summarySections/Range.svelte";
+    import Targets from "./summarySections/Targets.svelte";
 
     export let actionId = "";
     export let item;
@@ -44,6 +45,7 @@
 >
     <ActivationCost {actionId} {item} />
     <Range {actionId} {item} />
+    <Targets {actionId} {item} />
 
     {#if !actionId && spellComponents.length}
         <div class="summary-group">

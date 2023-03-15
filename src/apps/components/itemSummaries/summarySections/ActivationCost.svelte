@@ -1,17 +1,14 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import A5E from "../../../../config";
 
     export let actionId;
     export let item;
 
     function getActivationCostLabel({ activation } = {}) {
-        if (!activation) return null;
-
-        let label = "";
+        if (!activation || foundry.utils.isEmpty(activation)) return null;
 
         if (activation?.type === "reaction") {
-            label = localize("A5E.ActionActivationReaction");
+            let label = localize("A5E.ActionActivationReaction");
 
             if (activation.reactionTrigger) {
                 label += ` (${reactionTrigger})`;
@@ -21,20 +18,18 @@
         }
 
         if (activation?.cost === 0 || activation?.cost > 1) {
-            label = `${activation.cost} ${localize(
+            return `${activation.cost} ${localize(
                 CONFIG.A5E.abilityActivationTypesPlural[activation.type]
             )}`;
         } else if (["none", "special"].includes(activation?.type)) {
-            label = localize(
+            return localize(
                 CONFIG.A5E.abilityActivationTypes[activation?.type]
             );
         } else {
-            label = `${activation?.cost} ${localize(
+            return `${activation?.cost} ${localize(
                 CONFIG.A5E.abilityActivationTypes[activation?.type]
             )}`;
         }
-
-        return label;
     }
 
     $: action = item.actions[actionId] ?? item.actions.values()[0];
