@@ -637,8 +637,6 @@ export default class ActorA5e extends Actor {
     const { rollFormula } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
-    // TODO: Review the code below this point as it is part of the 0.8.x implementation.
-
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -712,7 +710,6 @@ export default class ActorA5e extends Actor {
     this.rollSavingThrow(null, options);
   }
 
-  // TODO: Refactor this to use its own card constructor
   async rollHitDice(dieSize, quantity = 1) {
     const actorData = this.system;
     const { attributes } = actorData;
@@ -749,11 +746,12 @@ export default class ActorA5e extends Actor {
 
     this.update({
       'data.attributes': {
-        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
-        // TODO: Convert to use applyHealing
-        'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
+        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
       }
     });
+
+    // Apply healing
+    this.applyHealing(hpDelta);
 
     ChatMessage.create(chatData);
 
