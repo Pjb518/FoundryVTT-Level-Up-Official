@@ -92,6 +92,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        height: 100%;
         width: 4rem;
         padding: 0.125rem 0;
         color: #7e7960;
@@ -126,7 +127,7 @@
     }
 
     .shield-elite {
-        font-size: 1rem;
+        font-size: 0.95rem;
         border: 0;
         padding: 0.125rem;
         transition: all 0.15s ease-in-out;
