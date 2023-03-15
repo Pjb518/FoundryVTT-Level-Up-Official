@@ -57,18 +57,6 @@ export default class ItemA5e extends Item {
     return itemData.ability || 'str';
   }
 
-  get hasValidTemplateDefinition() {
-    const { area } = this.system;
-
-    if (!area.shape) return false;
-
-    if (area.shape === 'line' || area.shape === 'cone') return !!area.length;
-    if (area.shape === 'sphere' || area.shape === 'cylinder') return !!area.radius;
-    if (area.shape === 'cube') return !!area.width;
-
-    return false;
-  }
-
   get actions() {
     return new ActionsManager(this);
   }

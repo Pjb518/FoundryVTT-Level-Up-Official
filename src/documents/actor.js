@@ -1008,7 +1008,7 @@ export default class ActorA5e extends Actor {
     await this.restoreSpellResources(restType);
 
     Hooks.callAll('a5e.restCompleted', this, {
-      consumeSupply, haven, restType, restoreStrifeAndFatigue
+      consumeSupply, haven, restType, recoverStrifeAndFatigue
     });
   }
 
