@@ -84,11 +84,15 @@
 
             {#if $item.actor && $item.system.requiresAttunement}
                 <button
-                    class="header-button fa-solid fa-hand-sparkles"
+                    class="header-button fa-solid fa-link"
                     class:active={$item.system.attuned}
                     data-tooltip={$item.system.attuned
-                        ? "A5E.ButtonToolTipBreakAttunement"
-                        : "A5E.ButtonToolTipAttune"}
+                        ? localize("A5E.ButtonToolTipBreakAttunement", {
+                              item: $item.name,
+                          })
+                        : localize("A5E.ButtonToolTipAttune", {
+                              item: $item.name,
+                          })}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => $item.toggleAttunement()}
                 />

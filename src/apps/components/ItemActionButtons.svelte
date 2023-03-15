@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
 
@@ -69,11 +70,15 @@
     {#if !action && item.type === "object"}
         {#if item.system.requiresAttunement}
             <button
-                class="action-button fa-solid fa-hand-sparkles"
+                class="action-button fa-solid fa-link"
                 class:active={item.system.attuned}
                 data-tooltip={item.system.attuned
-                    ? "A5E.ButtonToolTipBreakAttunement"
-                    : "A5E.ButtonToolTipAttune"}
+                    ? localize("A5E.ButtonToolTipBreakAttunement", {
+                          item: item.name,
+                      })
+                    : localize("A5E.ButtonToolTipAttune", {
+                          item: item.name,
+                      })}
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => item.toggleAttunement()}
             />
