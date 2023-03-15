@@ -29,7 +29,6 @@
 
     $: showDuration =
         (actionId && duration) || (item.actions.count === 1 && duration);
-    console.log(action);
 </script>
 
 {#if showDuration}
