@@ -989,19 +989,27 @@ export default class ActorA5e extends Actor {
     const restData = await dialog?.promise;
 
     if (!restData) return;
-    const { haven, restType, supply } = restData;
-
-    Hooks.callAll('a5e.triggerRest', this, { haven, restType, supply });
+    const {
+      consumeSupply, haven, restType, restoreStrifeAndFatigue
+    } = restData;
 
     if (restType === 'long') {
       await this.resetHitPoints();
       await this.restoreHitDice();
-      await this.adjustTrackedConditions(haven, supply);
+      await this.adjustTrackedConditions(haven, restoreStrifeAndFatigue);
+
+      if (consumeSupply) {
+        await this.update({ 'system.supply': Math.max(this.system.supply - 1, 0) });
+      }
     }
 
     await this.restoreExertion();
     await this.restoreItemUses();
     await this.restoreSpellResources(restType);
+
+    Hooks.callAll('a5e.restCompleted', this, {
+      consumeSupply, haven, restType, restoreStrifeAndFatigue
+    });
   }
 
   async updateDeathSavingThrowFigures(roll) {
