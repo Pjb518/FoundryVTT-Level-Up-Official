@@ -760,7 +760,8 @@ export default class ActorA5e extends Actor {
       dieCount: (attributes.hitDice[dieSize].current - quantity),
       formula,
       newHp: Math.min(attributes.hp.value + hpDelta, maxHp),
-      roll
+      roll,
+      quantity
     });
   }
 
@@ -971,7 +972,14 @@ export default class ActorA5e extends Actor {
   }
 
   toggleInspiration() {
-    this.update({ 'system.attributes.inspiration': !this.system.attributes.inspiration });
+    const currentState = this.system.attributes.inspiration;
+    this.update({ 'system.attributes.inspiration': !currentState });
+
+    if (currentState) {
+      Hooks.callAll('a5e.inspirationUsed', this);
+    } else {
+      Hooks.callAll('a5e.inspirationGained', this);
+    }
   }
 
   async triggerRest() {
