@@ -105,6 +105,7 @@
                 placeholder="1"
                 min="0"
                 max="9999"
+                on:click|stopPropagation
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         item,
@@ -174,6 +175,7 @@
         display: flex;
         height: 1.75rem;
         align-items: center;
+        font-size: 0.833rem;
     }
 
     .item-image {
