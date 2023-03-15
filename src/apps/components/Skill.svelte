@@ -15,9 +15,9 @@
     const label = CONFIG.A5E.skills[key];
     const { skillSpecialties } = CONFIG.A5E;
 
-    const showDeterministicBonus =
+    let showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ??
-        $actor.system.type;
+        $actor.type === "npc";
 
     $: abilityBonus =
         $actor.system.abilities[skill.ability].check.deterministicBonus;
