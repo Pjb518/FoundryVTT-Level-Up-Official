@@ -64,11 +64,11 @@ export default class ItemA5e extends Item {
   // *****************************************************************************************
 
   /**
-   * A handler for acivating an item. An actionId can be passed to this method to use a specific
+   * A handler for activating an item. An actionId can be passed to this method to use a specific
    * action defined on the item. If there are no actions defined, this method defaults to
    * outputting the item's description.
    *
-   * This method accepts an options object to further customise the activation process.
+  //  * This method accepts an options object to further customize the activation process.
    *
    * @param {string} actionId
    * @param {object options
@@ -83,7 +83,7 @@ export default class ItemA5e extends Item {
       this.shareItemDescription();
     } else if (this.actions.count === 1) {
       // If there is a single defined action, use that action.
-      this.#activateAction(this.actions.keys()[0]);
+      this.#activateAction(this.actions.keys()[0], options);
     } else if (actionId) {
       // If an action is provided, use the provided action
       this.#activateAction(actionId, options);
@@ -132,9 +132,9 @@ export default class ItemA5e extends Item {
 
     const rolls = await this.#prepareItemRolls(promise.rolls);
 
+    let validTemplate = false;
     if (promise.placeTemplate) {
-      const validTemplate = validateTemplateData(this, actionId);
-
+      validTemplate = validateTemplateData(this, actionId);
       if (validTemplate) { this.#placeActionTemplate(actionId); }
     }
 
@@ -171,7 +171,7 @@ export default class ItemA5e extends Item {
     ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, {
-      actionId, action, dialog: promise, options, rolls
+      actionId, action, dialog: promise, options, rolls, validTemplate
     });
   }
 
