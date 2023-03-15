@@ -5,7 +5,13 @@
     export let item;
 
     function getActivationCostLabel({ activation } = {}) {
-        if (!activation || foundry.utils.isEmpty(activation)) return null;
+        if (
+            !activation ||
+            !activation.type ||
+            foundry.utils.isEmpty(activation)
+        ) {
+            return null;
+        }
 
         if (activation?.type === "reaction") {
             let label = localize("A5E.ActionActivationReaction");
