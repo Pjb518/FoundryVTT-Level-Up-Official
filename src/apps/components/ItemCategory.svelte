@@ -34,33 +34,35 @@
 
 <section class="category-container">
     <!-- svelte-ignore missing-declaration -->
-    <span class="category-header">
-        <h3>
-            {localize(CONFIG.A5E[type][label] || label)}
+    {#if !(type === "featureTypes" && $actor.type === "npc")}
+        <span class="category-header">
+            <h3>
+                {localize(CONFIG.A5E[type][label] || label)}
 
-            {#if type === "spellLevels" && !showSpellSlots && showSpellPoints}
-                {localize("A5E.SpellPointsCost", {
-                    cost: A5E.spellLevelCost[level],
-                })}
+                {#if type === "spellLevels" && !showSpellSlots && showSpellPoints}
+                    {localize("A5E.SpellPointsCost", {
+                        cost: A5E.spellLevelCost[level],
+                    })}
+                {/if}
+            </h3>
+
+            {#if type === "spellLevels" && showSpellSlots}
+                <SpellSlots {level} />
             {/if}
-        </h3>
 
-        {#if type === "spellLevels" && showSpellSlots}
-            <SpellSlots {level} />
-        {/if}
-
-        {#if !sheetIsLocked}
-            <i class="inventory-add-icon a5e-config-button" />
-            <button
-                class="a5e-button a5e-button--add inventory-add-icon"
-                on:click={createItem}
-            >
-                {localize("A5E.ButtonAdd", {
-                    type: localize(A5E.itemTypes[itemContext]),
-                })}
-            </button>
-        {/if}
-    </span>
+            {#if !sheetIsLocked}
+                <i class="inventory-add-icon a5e-config-button" />
+                <button
+                    class="a5e-button a5e-button--add inventory-add-icon"
+                    on:click={createItem}
+                >
+                    {localize("A5E.ButtonAdd", {
+                        type: localize(A5E.itemTypes[itemContext]),
+                    })}
+                </button>
+            {/if}
+        </span>
+    {/if}
 
     <ul class="items-container">
         {#each [...items] as item}
