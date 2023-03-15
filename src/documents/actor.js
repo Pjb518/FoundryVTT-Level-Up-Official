@@ -625,6 +625,7 @@ export default class ActorA5e extends Actor {
    * @async
    * @method
    * @param {string} abilityKey A key that can be used to reference a given ability score.
+   * @returns {Object}
    */
   async rollAbilityCheck(abilityKey, options = {}) {
     let dialogData;
@@ -632,7 +633,7 @@ export default class ActorA5e extends Actor {
     if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
     else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
 
-    if (!dialogData) return;
+    if (!dialogData) return null;
 
     const { rollFormula } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
@@ -657,7 +658,9 @@ export default class ActorA5e extends Actor {
 
     const hookData = { abilityKey, rollFormula };
     Hooks.callAll('a5e.rollAbilityCheck', this, hookData, roll);
-    ChatMessage.create(chatData);
+
+    const chatCard = await ChatMessage.create(chatData);
+    return chatCard;
   }
 
   getDefaultAbilityCheckData(abilityKey, options = {}) {
@@ -714,7 +717,7 @@ export default class ActorA5e extends Actor {
     const actorData = this.system;
     const { attributes } = actorData;
 
-    if (attributes.hitDice[dieSize].current - quantity < 0) return;
+    if (attributes.hitDice[dieSize].current - quantity < 0) return null;
 
     const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
 
@@ -752,8 +755,7 @@ export default class ActorA5e extends Actor {
 
     // Apply healing
     this.applyHealing(hpDelta);
-
-    ChatMessage.create(chatData);
+    const chatCard = await ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.rollHitDice', this, {
       dieSize,
@@ -763,6 +765,8 @@ export default class ActorA5e extends Actor {
       roll,
       quantity
     });
+
+    return chatCard;
   }
 
   async rollSavingThrow(abilityKey, options = {}) {
@@ -771,7 +775,7 @@ export default class ActorA5e extends Actor {
     if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
     else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
 
-    if (dialogData === null) return;
+    if (dialogData === null) return null;
 
     const { rollFormula } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
@@ -803,7 +807,8 @@ export default class ActorA5e extends Actor {
       Hooks.callAll('a5e.rollSavingThrow', this, hookData, roll);
     }
 
-    ChatMessage.create(chatData);
+    const chatCard = await ChatMessage.create(chatData);
+    return chatCard;
   }
 
   getDefaultSavingThrowData(abilityKey, options = {}) {
@@ -874,7 +879,7 @@ export default class ActorA5e extends Actor {
     if (options.skipRollDialog) rollData = this.getDefaultSkillCheckData(skillKey, options);
     else rollData = await this.#showSkillCheckPrompt(skillKey, options);
 
-    if (!rollData) return;
+    if (!rollData) return null;
 
     const { rollFormula, abilityKey } = rollData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
@@ -903,7 +908,9 @@ export default class ActorA5e extends Actor {
     };
 
     Hooks.callAll('a5e.rollSkillCheck', this, hookData, roll);
-    ChatMessage.create(chatData);
+
+    const chatCard = await ChatMessage.create(chatData);
+    return chatCard;
   }
 
   getDefaultSkillCheckData(skillKey, options = {}) {
