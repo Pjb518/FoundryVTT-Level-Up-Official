@@ -75,7 +75,10 @@
             }
 
             &:disabled,
-            &[disabled] {
+            &[disabled],
+            &:disabled:hover,
+            &[disabled]:hover {
+                background: #8b2525;
                 color: lighten(#8b2525, 95%);
             }
         }
@@ -91,7 +94,10 @@
             }
 
             &:disabled,
-            &[disabled] {
+            &[disabled],
+            &:disabled:hover,
+            &[disabled]:hover {
+                background: #8b6225;
                 color: lighten(#8b6225, 95%);
             }
         }
