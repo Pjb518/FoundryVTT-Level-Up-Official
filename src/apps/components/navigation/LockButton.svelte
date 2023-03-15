@@ -20,6 +20,7 @@
 
 <style lang="scss">
     .sheet-lock {
+        position: relative;
         display: flex;
         align-items: center;
         height: 100%;
@@ -31,6 +32,9 @@
         opacity: 0.85;
         background: transparent;
         cursor: pointer;
+
+        // Nudge the button down 1px so that it _looks_ centred
+        top: 1px;
 
         transition: all 0.15s ease-in-out;
 
