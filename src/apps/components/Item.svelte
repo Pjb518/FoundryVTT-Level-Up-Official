@@ -69,7 +69,10 @@
         class:item-image--shift={$pressedKeysStore.Shift}
         class:item-image--ctrl={$pressedKeysStore.Control}
         style="--background-image: url(/{backgroundImage});"
-        on:click|stopPropagation={onItemActivate}
+        on:click|stopPropagation={({ target }) => {
+            target.blur();
+            onItemActivate();
+        }}
     />
 
     <div
