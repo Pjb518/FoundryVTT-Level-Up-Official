@@ -29,6 +29,7 @@
 
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
+    $: showSpellPoints = $actor.flags?.a5e?.showSpellPoints ?? false;
 </script>
 
 <section class="category-container">
@@ -36,6 +37,12 @@
     <span class="category-header">
         <h3>
             {localize(CONFIG.A5E[type][label] || label)}
+
+            {#if type === "spellLevels" && !showSpellSlots && showSpellPoints}
+                {localize("A5E.SpellPointsCost", {
+                    cost: A5E.spellLevelCost[level],
+                })}
+            {/if}
         </h3>
 
         {#if type === "spellLevels" && showSpellSlots}
