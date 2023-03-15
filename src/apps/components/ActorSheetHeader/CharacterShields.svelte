@@ -55,7 +55,7 @@
             id="{$actor.id}-prof"
             class="xp-input"
             type="number"
-            value={$actor.system.prof}
+            value={$actor.system.attributes.prof}
             placeholder="0"
             min="0"
             disabled
