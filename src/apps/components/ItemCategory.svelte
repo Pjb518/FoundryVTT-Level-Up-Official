@@ -65,7 +65,7 @@
     {/if}
 
     <ul class="items-container">
-        {#each [...items] as item}
+        {#each [...items] as item (item.id)}
             <Item {item} />
         {/each}
     </ul>
