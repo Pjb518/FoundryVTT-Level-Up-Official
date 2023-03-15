@@ -221,22 +221,6 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * Given a list of items to add to the Actor.
-   *
-   * @param {Item5e[]} items         The items being added to the Actor.
-   *
-   * @returns {Promise<Item5e[]>}
-   */
-  async addEmbeddedItems(items) {
-    if (!items.length) return [];
-
-    return Item5e.createDocuments(
-      items.map((item) => item.toObject()),
-      { parent: this }
-    );
-  }
-
-  /**
    * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
    * Negative damage values will have no effect.
    *
@@ -653,8 +637,6 @@ export default class ActorA5e extends Actor {
     const { rollFormula } = dialogData;
     const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
 
-    // TODO: Review the code below this point as it is part of the 0.8.x implementation.
-
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -728,7 +710,6 @@ export default class ActorA5e extends Actor {
     this.rollSavingThrow(null, options);
   }
 
-  // TODO: Refactor this to use its own card constructor
   async rollHitDice(dieSize, quantity = 1) {
     const actorData = this.system;
     const { attributes } = actorData;
@@ -765,11 +746,12 @@ export default class ActorA5e extends Actor {
 
     this.update({
       'data.attributes': {
-        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
-        // TODO: Convert to use applyHealing
-        'hp.value': Math.min(attributes.hp.value + hpDelta, maxHp)
+        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
       }
     });
+
+    // Apply healing
+    this.applyHealing(hpDelta);
 
     ChatMessage.create(chatData);
 
@@ -778,7 +760,8 @@ export default class ActorA5e extends Actor {
       dieCount: (attributes.hitDice[dieSize].current - quantity),
       formula,
       newHp: Math.min(attributes.hp.value + hpDelta, maxHp),
-      roll
+      roll,
+      quantity
     });
   }
 
@@ -989,7 +972,14 @@ export default class ActorA5e extends Actor {
   }
 
   toggleInspiration() {
-    this.update({ 'system.attributes.inspiration': !this.system.attributes.inspiration });
+    const currentState = this.system.attributes.inspiration;
+    this.update({ 'system.attributes.inspiration': !currentState });
+
+    if (currentState) {
+      Hooks.callAll('a5e.inspirationUsed', this);
+    } else {
+      Hooks.callAll('a5e.inspirationGained', this);
+    }
   }
 
   async triggerRest() {
@@ -999,19 +989,27 @@ export default class ActorA5e extends Actor {
     const restData = await dialog?.promise;
 
     if (!restData) return;
-    const { haven, restType, supply } = restData;
-
-    Hooks.callAll('a5e.triggerRest', this, { haven, restType, supply });
+    const {
+      consumeSupply, haven, restType, recoverStrifeAndFatigue
+    } = restData;
 
     if (restType === 'long') {
       await this.resetHitPoints();
       await this.restoreHitDice();
-      await this.adjustTrackedConditions(haven, supply);
+      await this.adjustTrackedConditions(haven, recoverStrifeAndFatigue);
+
+      if (consumeSupply) {
+        await this.update({ 'system.supply': Math.max(this.system.supply - 1, 0) });
+      }
     }
 
     await this.restoreExertion();
     await this.restoreItemUses();
     await this.restoreSpellResources(restType);
+
+    Hooks.callAll('a5e.restCompleted', this, {
+      consumeSupply, haven, restType, recoverStrifeAndFatigue
+    });
   }
 
   async updateDeathSavingThrowFigures(roll) {

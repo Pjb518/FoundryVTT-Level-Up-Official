@@ -17,7 +17,8 @@
 
     let restType = "short";
     let haven = true;
-    let supply = true;
+    let recoverStrifeAndFatigue = true;
+    let consumeSupply = false;
 
     async function rollHitDie(dieSize) {
         try {
@@ -44,9 +45,10 @@
 
     function onSubmit() {
         application.submit({
+            consumeSupply,
             haven,
             restType,
-            supply,
+            recoverStrifeAndFatigue,
         });
     }
 
@@ -90,19 +92,39 @@
             <div class="a5e-input-container u-flex u-align-center">
                 <input
                     class="a5e-input"
-                    id="{appId}-supply"
+                    id="{appId}-recover-strife-and-fatigue"
                     type="checkbox"
-                    bind:checked={supply}
+                    bind:checked={recoverStrifeAndFatigue}
                 />
 
                 <label
                     class="u-text-sm u-flex-shrink-0 u-mb-0"
-                    for="{appId}-supply"
+                    for="{appId}-recover-strife-and-fatigue"
                 >
-                    {localize("A5E.SupplyPrompt")}
+                    {localize("A5E.SupplyFatigueStrifePrompt")}
                 </label>
             </div>
         </div>
+
+        {#if $actor.type === "character"}
+            <div class="a5e-form__section a5e-form__section--inline">
+                <div class="a5e-input-container u-flex u-align-center">
+                    <input
+                        class="a5e-input"
+                        id="{appId}-consume-supply"
+                        type="checkbox"
+                        bind:checked={consumeSupply}
+                    />
+
+                    <label
+                        class="u-text-sm u-flex-shrink-0 u-mb-0"
+                        for="{appId}-consume-supply"
+                    >
+                        {localize("A5E.SupplyConsume")}
+                    </label>
+                </div>
+            </div>
+        {/if}
     {/if}
 
     {#if restType === "short"}

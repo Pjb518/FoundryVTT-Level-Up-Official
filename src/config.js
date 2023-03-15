@@ -614,6 +614,19 @@ A5E.spellLevels = {
   9: 'A5E.SpellLevel9'
 };
 
+A5E.spellLevelCost = {
+  0: 0,
+  1: 2,
+  2: 3,
+  3: 5,
+  4: 6,
+  5: 7,
+  6: 9,
+  7: 10,
+  8: 11,
+  9: 13
+};
+
 A5E.spellSchools = {
   primary: {
     abjuration: 'A5E.SpellSchoolAbjuration',

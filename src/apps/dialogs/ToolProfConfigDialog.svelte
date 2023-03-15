@@ -89,7 +89,7 @@
         tags={artisansTools}
         bind:selected={toolProficiencies.artisansTools}
         disabled={tools.length >= max}
-        red={$actor.system.proficiencies.tools}
+        red={submitDialog ? $actor.system.proficiencies.tools : false}
         {updateFunction}
     />
 
@@ -98,7 +98,7 @@
         tags={gamingSets}
         bind:selected={toolProficiencies.gamingSets}
         disabled={tools.length >= max}
-        red={$actor.system.proficiencies.tools}
+        red={submitDialog ? $actor.system.proficiencies.tools : false}
         {updateFunction}
     />
 
@@ -107,7 +107,7 @@
         tags={musicalInstruments}
         bind:selected={toolProficiencies.musicalInstruments}
         disabled={tools.length >= max}
-        red={$actor.system.proficiencies.tools}
+        red={submitDialog ? $actor.system.proficiencies.tools : false}
         {updateFunction}
     />
 
@@ -116,7 +116,7 @@
         tags={miscellaneous}
         bind:selected={toolProficiencies.miscellaneous}
         disabled={tools.length >= max}
-        red={$actor.system.proficiencies.tools}
+        red={submitDialog ? $actor.system.proficiencies.tools : false}
         {updateFunction}
     />
 
@@ -125,7 +125,7 @@
         tags={vehicles}
         bind:selected={toolProficiencies.vehicles}
         disabled={tools.length >= max}
-        red={$actor.system.proficiencies.tools}
+        red={submitDialog ? $actor.system.proficiencies.tools : false}
         {updateFunction}
     />
 
