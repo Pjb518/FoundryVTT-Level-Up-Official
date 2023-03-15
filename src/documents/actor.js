@@ -990,13 +990,13 @@ export default class ActorA5e extends Actor {
 
     if (!restData) return;
     const {
-      consumeSupply, haven, restType, restoreStrifeAndFatigue
+      consumeSupply, haven, restType, recoverStrifeAndFatigue
     } = restData;
 
     if (restType === 'long') {
       await this.resetHitPoints();
       await this.restoreHitDice();
-      await this.adjustTrackedConditions(haven, restoreStrifeAndFatigue);
+      await this.adjustTrackedConditions(haven, recoverStrifeAndFatigue);
 
       if (consumeSupply) {
         await this.update({ 'system.supply': Math.max(this.system.supply - 1, 0) });

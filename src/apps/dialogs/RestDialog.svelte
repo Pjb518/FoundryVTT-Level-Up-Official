@@ -17,7 +17,7 @@
 
     let restType = "short";
     let haven = true;
-    let restoreStrifeAndFatigue = true;
+    let recoverStrifeAndFatigue = true;
     let consumeSupply = false;
 
     async function rollHitDie(dieSize) {
@@ -48,7 +48,7 @@
             consumeSupply,
             haven,
             restType,
-            restoreStrifeAndFatigue,
+            recoverStrifeAndFatigue,
         });
     }
 
@@ -92,14 +92,14 @@
             <div class="a5e-input-container u-flex u-align-center">
                 <input
                     class="a5e-input"
-                    id="{appId}-restore-strife-and-fatigue"
+                    id="{appId}-recover-strife-and-fatigue"
                     type="checkbox"
-                    bind:checked={restoreStrifeAndFatigue}
+                    bind:checked={recoverStrifeAndFatigue}
                 />
 
                 <label
                     class="u-text-sm u-flex-shrink-0 u-mb-0"
-                    for="{appId}-restore-strife-and-fatigue"
+                    for="{appId}-recover-strife-and-fatigue"
                 >
                     {localize("A5E.SupplyFatigueStrifePrompt")}
                 </label>
