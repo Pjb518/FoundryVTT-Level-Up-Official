@@ -90,7 +90,7 @@
                 class="item-quantity"
                 type="number"
                 name="system.quantity"
-                value={item?.quantity ?? 1}
+                value={item?.system?.quantity ?? 1}
                 placeholder="1"
                 min="0"
                 max="9999"
