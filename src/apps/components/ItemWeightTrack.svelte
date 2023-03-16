@@ -46,7 +46,7 @@
             u-text-sm"
         >
             <span>
-                {inventoryWeight.toFixed(1)}
+                {inventoryWeight?.toFixed(1)}
                 {localize("A5E.MeasurementPoundsAbbr")}
             </span>
 
