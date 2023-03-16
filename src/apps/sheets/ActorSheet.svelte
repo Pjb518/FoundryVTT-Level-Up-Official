@@ -11,7 +11,7 @@
     import ActorInventoryPage from "../components/pages/ActorInventoryPage.svelte";
     import ActorManeuversPage from "../components/pages/ActorManeuversPage.svelte";
     import ActorNotesPage from "../components/pages/ActorNotesPage.svelte";
-    import ActorSheetHeader from "../components/actorSheetHeader/actorSheetHeader.svelte";
+    import ActorSheetHeader from "../components/ActorSheetHeader/ActorSheetHeader.svelte";
     import ActorSettingsPage from "../components/pages/ActorSettingsPage.svelte";
     import ActorSidebar from "../components/actorSidebar/ActorSidebar.svelte";
     import ActorSkillsPage from "../components/pages/ActorSkillsPage.svelte";
