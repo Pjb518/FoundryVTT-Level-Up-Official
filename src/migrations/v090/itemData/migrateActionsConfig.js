@@ -8,8 +8,8 @@ export default function migrateActionsConfig(itemData, updateData) {
     actionOptions, activation, duration, range, target
   } = itemData.system;
 
-  if (!actionOptions.length && !activation.type
-    && !duration.unit && !range.length && !target.type
+  if (!actionOptions?.length && !activation?.type
+    && !duration?.unit && !range?.length && !target?.type
   ) return;
 
   // Step 1: Create an action for the item
@@ -26,7 +26,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   action.duration = foundry.utils.duplicate(itemData.system.duration);
 
   // Step 5: Migrate range
-  if (itemData.system.range.length) {
+  if (itemData.system.range?.length) {
     action.ranges = {};
     itemData.system.range.forEach((r) => {
       // eslint-disable-next-line no-param-reassign
@@ -41,11 +41,11 @@ export default function migrateActionsConfig(itemData, updateData) {
   updateData['flags.a5e'] = { '-=placeTemplate': null };
 
   // Step 7: Migrate target data
-  action.target = foundry.utils.duplicate(itemData.system.target);
+  action.target = foundry.utils.duplicate(itemData.system.target ?? {});
 
   // Step 8: Rolls & Prompts
   if (actionOptions.includes('attack')) {
-    const attack = foundry.utils.duplicate(itemData.system.attack);
+    const attack = foundry.utils.duplicate(itemData.system.attack ?? {});
     attack.type = 'attack';
     attack.ability = itemData.system.ability;
     action.rolls = {

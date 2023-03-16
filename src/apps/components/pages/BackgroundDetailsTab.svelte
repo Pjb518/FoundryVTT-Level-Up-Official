@@ -18,7 +18,6 @@
 
     function updateMulti(selection, type) {
         const [fixed, options] = selection;
-
         updateDocumentDataFromField(
             $item,
             `system.proficiencies.${type}.options`,
@@ -35,8 +34,8 @@
     const defaultLanguages = Object.entries(CONFIG.A5E.languages);
     const skillOptions = Object.entries(CONFIG.A5E.skills);
 
-    let languages = $item.system.proficiencies.languages;
-    let skills = $item.system.proficiencies.skills;
+    $: languages = $item.system.proficiencies.languages;
+    $: skills = $item.system.proficiencies.skills;
 </script>
 
 <article>
