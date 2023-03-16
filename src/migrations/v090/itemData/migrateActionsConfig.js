@@ -8,8 +8,8 @@ export default function migrateActionsConfig(itemData, updateData) {
     actionOptions, activation, duration, range, target
   } = itemData.system;
 
-  if (!actionOptions.length && !activation.type
-    && !duration.unit && !range.length && !target.type
+  if (!actionOptions?.length && !activation?.type
+    && !duration?.unit && !range?.length && !target?.type
   ) return;
 
   // Step 1: Create an action for the item
