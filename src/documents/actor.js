@@ -218,6 +218,17 @@ export default class ActorA5e extends Actor {
       foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
       foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
     }
+
+    // Update prototype token sizes to reflect the actor's token size
+    if (foundry.utils.getProperty(changed, 'system.traits.size')) {
+      const newSize = changed.system.traits.size;
+
+      // If titanic token is already larger than 5, don't change it
+      if (newSize !== 'titan' || this.prototypeToken.width < 5) {
+        foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
+        foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
+      }
+    }
   }
 
   /**

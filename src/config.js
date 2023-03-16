@@ -136,6 +136,16 @@ A5E.actorSizes = {
   titan: 'A5E.SizeTitanic'
 };
 
+A5E.tokenDimensions = {
+  tiny: 0.5,
+  sm: 0.5,
+  med: 1,
+  lg: 2,
+  huge: 3,
+  grg: 4,
+  titan: 5
+};
+
 A5E.ammunitionProperties = {
   explosive: 'A5E.AmmunitionPropertyExplosive',
   flaming: 'A5E.AmmunitionPropertyFlaming',
