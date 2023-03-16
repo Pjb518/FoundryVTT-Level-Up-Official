@@ -143,7 +143,7 @@ Hooks.once('ready', () => {
   if (!game.user.isGM) return;
 
   const currentVersion = game.settings.get('a5e', 'systemMigrationVersion');
-  const NEEDS_MIGRATION_VERSION = '0.8.20';
+  const NEEDS_MIGRATION_VERSION = '0.9.0';
   const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 
   if (!currentVersion && totalDocuments === 0) {
@@ -158,8 +158,6 @@ Hooks.once('ready', () => {
 });
 
 // Hooks.once('ready', () => {
-//   // TODO: Upgrade this to 0.9.0 once we're ready for release. If set to 0.9.0, it shows up during
-//   // every world load, which is awful for development.
 //   const LATEST_ANNOUNCEMENT_VERSION = '0.8.0';
 //   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
