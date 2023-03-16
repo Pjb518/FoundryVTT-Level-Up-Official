@@ -1,10 +1,12 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
+    import FormSection from "../components/FormSection.svelte";
 
     export let { actorDocument, appId } = getContext("#external").application;
 
@@ -24,6 +26,28 @@
                 event.detail
             )}
     />
+
+    <FormSection>
+        <div class="u-align-center u-flex u-gap-md">
+            <input
+                class="u-pointer"
+                type="checkbox"
+                id="{appId}-is-swarm"
+                name="system.details.isSwarm"
+                checked={$actor.system.details.isSwarm}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.checked
+                    )}
+            />
+
+            <label class="u-pointer" for="{appId}-is-swarm">
+                {localize("A5E.CreatureSwarm")}
+            </label>
+        </div>
+    </FormSection>
 </article>
 
 <style lang="scss">

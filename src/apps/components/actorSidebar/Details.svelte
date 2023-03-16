@@ -152,13 +152,4 @@
         padding: 0;
         list-style: none;
     }
-
-    .details-tag {
-        border: 1px solid #ccc;
-        background-color: rgba(0 0 0 / 0.05);
-        border-radius: 3px;
-        color: black;
-        max-width: 98%;
-        white-space: normal;
-    }
 </style>
