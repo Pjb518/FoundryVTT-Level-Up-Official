@@ -117,15 +117,14 @@ export default class ItemA5e extends Item {
       && foundry.utils.isEmpty(action?.prompts)
       && !validateTemplateData(this, actionId)
     ) {
-      await this.shareItemDescription(action);
-      return;
+      return await this.shareItemDescription(action);
     }
 
     dialog.render(true);
 
     const promise = await dialog.promise;
 
-    if (!promise) return;
+    if (!promise) return null;
 
     promise.rolls ??= [];
     promise.rolls.push(promise?.attack ?? {});
@@ -168,11 +167,13 @@ export default class ItemA5e extends Item {
       content: '<article></article>'
     };
 
-    ChatMessage.create(chatData);
+    const chatCard = await ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, {
       actionId, action, dialog: promise, options, rolls, validTemplate
     });
+
+    return chatCard;
   }
 
   async #placeActionTemplate(actionId) {
@@ -432,9 +433,10 @@ export default class ItemA5e extends Item {
       content: '<article></article>'
     };
 
-    ChatMessage.create(chatData);
+    const chatCard = ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, { action });
+    return chatCard;
   }
 
   async configureItem() {
