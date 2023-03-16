@@ -6,7 +6,7 @@ export default function migrateMovements(actorData, updateData) {
     meters: ['meter', 'meters', 'm.', 'm']
   };
 
-  const newMovements = Object.entries(old).reduce((acc, [mode, distance]) => {
+  const newMovements = Object.entries(old ?? {}).reduce((acc, [mode, distance]) => {
     if (mode === 'traits') {
       acc[mode] = { hover: distance.hover };
       return acc;

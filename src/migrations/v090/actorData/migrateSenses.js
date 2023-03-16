@@ -7,7 +7,7 @@ export default function migrateSenses(actorData, updateData) {
     unlimited: ['unlimited', 'infinite']
   };
 
-  const newSenses = Object.entries(old).reduce((acc, [sense, distance]) => {
+  const newSenses = Object.entries(old ?? {}).reduce((acc, [sense, distance]) => {
     // eslint-disable-next-line no-restricted-syntax
     for (const [unit, strings] of Object.entries(unitMap)) {
       if (strings.some((el) => distance.toString().includes(el))) {
