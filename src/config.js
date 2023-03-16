@@ -136,16 +136,6 @@ A5E.actorSizes = {
   titan: 'A5E.SizeTitanic'
 };
 
-A5E.tokenDimensions = {
-  tiny: 0.5,
-  sm: 0.5,
-  med: 1,
-  lg: 2,
-  huge: 3,
-  grg: 4,
-  titan: 5
-};
-
 A5E.ammunitionProperties = {
   explosive: 'A5E.AmmunitionPropertyExplosive',
   flaming: 'A5E.AmmunitionPropertyFlaming',
@@ -595,6 +585,79 @@ A5E.senses = {
   truesight: 'A5E.SenseTruesight'
 };
 
+A5E.scrollData = {
+  0: {
+    attackBonus: 5,
+    cost: '10 gp',
+    craftingComponent: 'Magical inks',
+    saveDC: 13,
+    rarity: 'common'
+  },
+  1: {
+    attackBonus: 5,
+    cost: '25 gp',
+    craftingComponent: 'Magical inks',
+    saveDC: 13,
+    rarity: 'common'
+  },
+  2: {
+    attackBonus: 5,
+    cost: '75 gp',
+    craftingComponent: 'Magical inks',
+    saveDC: 13,
+    rarity: 'common'
+  },
+  3: {
+    attackBonus: 7,
+    cost: '175 gp',
+    craftingComponent: 'Dire wolf hide',
+    saveDC: 15,
+    rarity: 'uncommon'
+  },
+  4: {
+    attackBonus: 7,
+    cost: '500 gp',
+    craftingComponent: 'Dire wolf hide',
+    saveDC: 15,
+    rarity: 'uncommon'
+  },
+  5: {
+    attackBonus: 9,
+    cost: '1250 gp',
+    craftingComponent: 'Parchment infused with planar energy',
+    saveDC: 17,
+    rarity: 'rare'
+  },
+  6: {
+    attackBonus: 9,
+    cost: '3000 gp',
+    craftingComponent: 'Parchment infused with planar energy',
+    saveDC: 17,
+    rarity: 'rare'
+  },
+  7: {
+    attackBonus: 10,
+    cost: '8000 gp',
+    craftingComponent: 'Blank pages from a lich\'s spellbook',
+    saveDC: 18,
+    rarity: 'veryRare'
+  },
+  8: {
+    attackBonus: 10,
+    cost: '20000 gp',
+    craftingComponent: 'Blank pages from a lich\'s spellbook',
+    saveDC: 18,
+    rarity: 'veryRare'
+  },
+  9: {
+    attackBonus: 11,
+    cost: '55000 gp',
+    craftingComponent: 'Parchment made from a dragon\'s hide',
+    saveDC: 19,
+    rarity: 'legendary'
+  }
+};
+
 A5E.spellComponents = {
   vocalized: 'A5E.SpellComponentVocalized',
   seen: 'A5E.SpellComponentSeen',
@@ -934,6 +997,16 @@ A5E.timePeriodsPlural = {
   year: 'A5E.DurationYearPlural',
   permanent: 'A5E.DurationPermanent',
   special: 'A5E.DurationSpecial'
+};
+
+A5E.tokenDimensions = {
+  tiny: 0.5,
+  sm: 0.5,
+  med: 1,
+  lg: 2,
+  huge: 3,
+  grg: 4,
+  titan: 5
 };
 
 /**

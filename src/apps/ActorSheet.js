@@ -131,6 +131,7 @@ export default class ActorSheet extends SvelteApplication {
     if (item.type === 'background') this.#onDropBackground(item);
     else if (item.type === 'culture') this.#onDropCulture(item);
     else if (item.type === 'destiny') this.#onDropDestiny(item);
+    else if (item.type === 'spell') this.#onDropSpell(item);
     else this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
@@ -268,5 +269,66 @@ export default class ActorSheet extends SvelteApplication {
       item,
       ...features
     ]);
+  }
+
+  #onDropSpell(item) {
+    if (this.actor?.flags?.a5e?.currentTab !== 'inventory') {
+      this.actor.createEmbeddedDocuments('Item', [item]);
+      return;
+    }
+
+    const spellLevel = item.system.level;
+
+    const {
+      attackBonus, cost, craftingComponent, saveDC, rarity
+    } = CONFIG.A5E.scrollData[spellLevel];
+
+    const scroll = {
+      name: `Spell Scroll (${item.name})`,
+      img: 'icons/sundries/scrolls/scroll-writing-brown-gold.webp',
+      type: 'object',
+      system: {
+        actions: {},
+        craftingComponents: craftingComponent,
+        description: item.system.description,
+        price: cost,
+        objectType: 'consumable',
+        rarity
+      }
+    };
+
+    scroll.system.actions = item.actions.values().reduce((actions, _action) => {
+      const action = { ..._action };
+
+      action.prompts = Object.entries(action?.prompts ?? {}).reduce((prompts, [key, _prompt]) => {
+        const prompt = { ..._prompt };
+
+        if (prompt.type === 'savingThrow') {
+          prompt.saveDC.type = 'custom';
+          prompt.saveDC.bonus = saveDC;
+        }
+
+        prompts[key] = prompt;
+
+        return prompts;
+      }, {});
+
+      action.rolls = Object.entries(action?.rolls ?? {}).reduce((rolls, [key, _roll]) => {
+        const roll = { ..._roll };
+
+        if (roll.type === 'attack') {
+          roll.ability = 'none';
+          roll.bonus = attackBonus.toString(10);
+        }
+
+        rolls[key] = roll;
+
+        return rolls;
+      }, {});
+      actions[foundry.utils.randomID()] = action;
+      return actions;
+    }, {});
+
+    this.actor.createEmbeddedDocuments('Item', [scroll]);
   }
 }

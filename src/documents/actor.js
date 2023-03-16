@@ -1,8 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-import Item5e from './item';
-
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
 import ActorHpConfigDialog from '../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../apps/dialogs/ActorInitConfigDialog.svelte';
