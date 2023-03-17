@@ -40,7 +40,8 @@
 <BaseHeader
     {img}
     altText={name}
-    title={getTitle()}
+    clickableHeader={false}
     subtitle={getSubtitle()}
+    title={getTitle()}
     on:repeatCard={() => dispatch("repeatCard")}
 />

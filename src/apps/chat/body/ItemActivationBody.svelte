@@ -9,6 +9,7 @@
     import SkillCheckPromptButton from "./promptButtons/SkillCheckPromptButton.svelte";
 
     export let message;
+    export let hideDescription = false;
 
     const rollSortKeyMap = {
         attack: 0,
@@ -48,15 +49,29 @@
 
 <article>
     {#if itemDescription}
-        <hr class="a5e-rule a5e-rule--card" />
+        <section
+            class="description-block"
+            class:description-block--hidden={hideDescription}
+        >
+            <hr class="a5e-rule a5e-rule--card" />
 
-        {@html itemDescription}
+            <div>
+                {@html itemDescription}
+            </div>
+        </section>
     {/if}
 
     {#if actionDescription}
-        <hr class="a5e-rule a5e-rule--card" />
+        <section
+            class="description-block"
+            class:description-block--hidden={hideDescription}
+        >
+            <hr class="a5e-rule a5e-rule--card" />
 
-        {@html actionDescription}
+            <div>
+                {@html actionDescription}
+            </div>
+        </section>
     {/if}
 
     {#if hasRolls}
@@ -96,6 +111,12 @@
         flex-direction: column;
         gap: 0.25rem;
         padding-top: 0.5rem;
+    }
+
+    .description-block {
+        &--hidden {
+            display: none;
+        }
     }
 
     .prompt-button-wrapper {

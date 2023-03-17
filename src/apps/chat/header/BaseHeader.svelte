@@ -2,6 +2,7 @@
     import { createEventDispatcher } from "svelte";
 
     export let altText;
+    export let clickableHeader;
     export let img;
     export let subtitle = null;
     export let title;
@@ -9,7 +10,12 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<header class="card-header">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<header
+    class="card-header"
+    class:card-header--clickable={clickableHeader}
+    on:click={() => dispatch("toggleDescription")}
+>
     <img class="card-image" src={img} alt={altText} />
 
     <div>
@@ -37,7 +43,7 @@
     </div>
 </header>
 
-<style>
+<style lang="scss">
     .card-image {
         border: 0;
         width: 2.5rem;
@@ -51,6 +57,10 @@
         gap: 0.5rem;
         padding: 0.25rem;
         padding-bottom: 0;
+
+        &--clickable {
+            cursor: pointer;
+        }
     }
 
     .card-title {

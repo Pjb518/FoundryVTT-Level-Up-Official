@@ -37,6 +37,9 @@
 
     export let messageDocument;
 
+    let hideDescription =
+        game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
+
     const message = new TJSDocument(messageDocument);
 </script>
 
@@ -45,6 +48,7 @@
     {message}
     on:modifyRolls={() => modifyRolls()}
     on:repeatCard={() => repeatCard()}
+    on:toggleDescription={() => (hideDescription = !hideDescription)}
 />
 
-<svelte:component this={getBodyComponent()} {message} />
+<svelte:component this={getBodyComponent()} {message} {hideDescription} />

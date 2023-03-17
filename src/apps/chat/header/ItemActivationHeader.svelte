@@ -12,7 +12,9 @@
 <BaseHeader
     {img}
     altText={name}
-    title={name}
+    clickableHeader={true}
     subtitle={actionName}
+    title={name}
     on:repeatCard={() => dispatch("repeatCard")}
+    on:toggleDescription
 />

@@ -117,6 +117,16 @@ export default function registerSystemSettings() {
     onChange: reload
   });
 
+  game.settings.register('a5e', 'hideChatDescriptionsByDefault', {
+    name: 'Hide Descriptions in Chat Cards',
+    hint: 'When this setting is enabled, the description sections of Item chat cards will be hidden by default. You can still reveal the description sections by clicking on the header of the chat card.',
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: reload
+  });
+
   game.settings.register('a5e', 'terseRollFormulae', {
     name: 'Hide System Roll Annotations',
     hint: 'The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.',
