@@ -1,4 +1,6 @@
 <script>
+    import { slide } from "svelte/transition";
+
     import zip from "../../../utils/zip";
 
     import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
@@ -48,29 +50,27 @@
 </script>
 
 <article>
-    {#if itemDescription}
-        <section
-            class="description-block"
-            class:description-block--hidden={hideDescription}
-        >
-            <hr class="a5e-rule a5e-rule--card" />
+    {#if !hideDescription}
+        <section in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
+            {#if itemDescription}
+                <section class="description-block">
+                    <hr class="a5e-rule a5e-rule--card" />
 
-            <div>
-                {@html itemDescription}
-            </div>
-        </section>
-    {/if}
+                    <div>
+                        {@html itemDescription}
+                    </div>
+                </section>
+            {/if}
 
-    {#if actionDescription}
-        <section
-            class="description-block"
-            class:description-block--hidden={hideDescription}
-        >
-            <hr class="a5e-rule a5e-rule--card" />
+            {#if actionDescription}
+                <section class="description-block">
+                    <hr class="a5e-rule a5e-rule--card" />
 
-            <div>
-                {@html actionDescription}
-            </div>
+                    <div>
+                        {@html actionDescription}
+                    </div>
+                </section>
+            {/if}
         </section>
     {/if}
 
@@ -111,12 +111,6 @@
         flex-direction: column;
         gap: 0.25rem;
         padding-top: 0.5rem;
-    }
-
-    .description-block {
-        &--hidden {
-            display: none;
-        }
     }
 
     .prompt-button-wrapper {
