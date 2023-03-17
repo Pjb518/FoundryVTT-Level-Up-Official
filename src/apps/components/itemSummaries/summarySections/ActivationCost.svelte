@@ -16,8 +16,8 @@
         if (activation?.type === "reaction") {
             let label = localize("A5E.ActionActivationReaction");
 
-            if (activation.reactionTrigger) {
-                label += ` (${reactionTrigger})`;
+            if (activation?.reactionTrigger) {
+                label += ` (${activation.reactionTrigger})`;
             }
 
             return label;
