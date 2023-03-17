@@ -19,5 +19,7 @@ export default class ActionConfigDialog extends TJSDialog {
       width: 555,
       height: 592
     });
+
+    this.data.content.props.dialog = this;
   }
 }

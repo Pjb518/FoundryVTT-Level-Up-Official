@@ -1,4 +1,4 @@
-export default async function editDocumentImage(document) {
+export default async function editDocumentImage(document, actionId = null) {
   // Add support for tokenizer
   if (game.modules.get('vtta-tokenizer')?.active) {
     if (['character', 'npc'].includes(document.type)) {
@@ -9,12 +9,17 @@ export default async function editDocumentImage(document) {
     }
   }
 
-  const current = document.img;
+  const current = document?.actions?.[actionId]?.img ?? document.img;
+
   const filePicker = new FilePicker({
     type: 'image',
     current,
     callback: async (path) => {
-      await document.update({ img: path });
+      if (actionId) {
+        await document.update({ [`system.actions.${actionId}.img`]: path });
+      } else {
+        await document.update({ img: path });
+      }
     }
   });
 

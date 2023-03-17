@@ -20,8 +20,6 @@
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
-    let backgroundImage = action?.img ?? item.img ?? "icons/svg/item-bag.svg";
-
     function getSummaryComponent(item) {
         switch (item?.type) {
             case "feature":
@@ -68,7 +66,6 @@
         class="item-roll-button"
         class:item-roll-button--shift={$pressedKeysStore.Shift}
         class:item-roll-button--ctrl={$pressedKeysStore.Control}
-        style="--background-image: url(/{backgroundImage});"
         on:click|stopPropagation={({ target }) => {
             target.blur();
             onItemActivate();
@@ -76,10 +73,9 @@
     >
         <img
             class="item-image"
-            src={backgroundImage}
+            src={action?.img ?? item.img ?? "icons/svg/item-bag.svg"}
             alt={action?.name ?? item.name}
         />
-
         <img class="item-image--die" src="/icons/svg/d20.svg" alt="Roll" />
     </button>
 

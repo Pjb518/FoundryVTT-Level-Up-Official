@@ -12,9 +12,11 @@
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
+    import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    export let { actionId, itemDocument } = getContext("#external").application;
+    export let { actionId, dialog, itemDocument } =
+        getContext("#external").application;
 
     const item = new TJSDocument(itemDocument);
 
@@ -63,7 +65,13 @@
 
 <article>
     <header class="action-header">
-        <img class="item-image" src={$item.img} alt="{$item.name} image" />
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <img
+            class="item-image"
+            src={$item?.actions[actionId]?.img ?? $item.img}
+            alt="{$item.name} image"
+            on:click={() => editDocumentImage($item, actionId, dialog)}
+        />
 
         <input
             class="a5e-input a5e-input--character-name"
