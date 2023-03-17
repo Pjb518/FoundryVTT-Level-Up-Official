@@ -282,6 +282,7 @@ export default class ItemA5e extends Item {
 
     return {
       canCrit,
+      damageType,
       label,
       roll,
       type: 'damage'
@@ -313,6 +314,7 @@ export default class ItemA5e extends Item {
 
     return {
       label,
+      healingType: roll?.healingType,
       roll,
       type: 'healing'
     };
