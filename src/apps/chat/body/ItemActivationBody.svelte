@@ -51,25 +51,25 @@
 
 <article>
     {#if !hideDescription}
-        <section in:slide={{ duration: 150 }} out:slide={{ duration: 150 }}>
+        <section
+            class="description-block"
+            in:slide={{ duration: 150 }}
+            out:slide={{ duration: 150 }}
+        >
             {#if itemDescription}
-                <section class="description-block">
-                    <hr class="a5e-rule a5e-rule--card" />
+                <hr class="a5e-rule a5e-rule--card" />
 
-                    <div>
-                        {@html itemDescription}
-                    </div>
-                </section>
+                <div>
+                    {@html itemDescription}
+                </div>
             {/if}
 
             {#if actionDescription}
-                <section class="description-block">
-                    <hr class="a5e-rule a5e-rule--card" />
+                <hr class="a5e-rule a5e-rule--card" />
 
-                    <div>
-                        {@html actionDescription}
-                    </div>
-                </section>
+                <div>
+                    {@html actionDescription}
+                </div>
             {/if}
         </section>
     {/if}
@@ -111,6 +111,12 @@
         flex-direction: column;
         gap: 0.25rem;
         padding-top: 0.5rem;
+    }
+
+    .description-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
     }
 
     .prompt-button-wrapper {
