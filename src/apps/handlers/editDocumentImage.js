@@ -9,7 +9,7 @@ export default async function editDocumentImage(document, actionId = null) {
     }
   }
 
-  const current = document?.actions?.[actionId]?.img ?? document.img;
+  const current = foundry.utils.getProperty(document, `actions.${actionId}.img`) ?? document.img;
 
   const filePicker = new FilePicker({
     type: 'image',
