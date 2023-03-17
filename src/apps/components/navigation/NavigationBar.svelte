@@ -1,6 +1,9 @@
 <script>
+    import { getContext } from "svelte";
     import LockButton from "./LockButton.svelte";
     import NavigationItem from "./NavigationItem.svelte";
+
+    const actor = getContext("actor");
 
     export let currentTab;
     export let tabs;
@@ -15,7 +18,7 @@
             {/if}
         {/each}
 
-        {#if showLock}
+        {#if showLock && !$actor?.pack}
             <LockButton />
         {/if}
     </ul>

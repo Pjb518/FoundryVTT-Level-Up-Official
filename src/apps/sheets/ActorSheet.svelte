@@ -96,6 +96,7 @@
                 name: "settings",
                 label: "A5E.TabSettings",
                 component: ActorSettingsPage,
+                display: !actor.pack,
             },
         ];
     }
