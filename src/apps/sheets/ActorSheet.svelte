@@ -23,7 +23,10 @@
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
-        $actor.update({ "flags.a5e.currentTab": currentTab.name });
+
+        if (!$actor.pack) {
+            $actor.update({ "flags.a5e.currentTab": currentTab.name });
+        }
     }
 
     async function onDrop(event) {
