@@ -16,6 +16,7 @@
 {#if level && level !== "0"}
     <input
         class="a5e-footer-group__input"
+        class:disable-pointer-events={!$actor.isOwner}
         type="number"
         name="system.spellResources.slots.{level}.current"
         value={spellResources.slots[level.toString()].current}
@@ -45,3 +46,9 @@
             )}
     />
 {/if}
+
+<style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+</style>

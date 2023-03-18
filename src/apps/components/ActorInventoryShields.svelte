@@ -6,6 +6,10 @@
 
     const actor = getContext("actor");
 
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
     $: attunement = $actor.system.attributes.attunement;
     $: currency = $actor.system.currency;
     $: supply = $actor.system.supply;
@@ -25,16 +29,15 @@
             </span>
             /
             <input
-                class="
-				shield-input
-				a5e-footer-group__input
-			"
+                class="shield-input a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
                 type="number"
                 name="system.attributes.attunement.max"
                 value={attunement.max}
                 placeholder="0"
                 min="0"
                 max="9"
+                disabled={sheetIsLocked}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,
@@ -52,6 +55,7 @@
 
             <input
                 class="shield-input a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
                 type="number"
                 name="system.supply"
                 value={supply}
@@ -80,12 +84,17 @@
         <ol class="currency__list">
             {#each Object.entries(currency) as [label, value]}
                 <li class="currency__item" data-type={label}>
-                    <label class="currency__label" for="currency-{label}">
+                    <label
+                        class="currency__label"
+                        class:disable-pointer-events={!$actor.isOwner}
+                        for="currency-{label}"
+                    >
                         {localize(label)}
                     </label>
 
                     <input
                         class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                        class:disable-pointer-events={!$actor.isOwner}
                         id="currency-{label}"
                         type="number"
                         name="system.currency.{label}"
@@ -105,12 +114,38 @@
 </section>
 
 <style lang="scss">
-    .shield-container {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-around;
-        gap: 0.5rem;
+    .currency {
+        &__item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+        }
+
+        &__label {
+            margin-bottom: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        &__list {
+            display: flex;
+            gap: 0.25rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    }
+
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
+    .footer-shield-header {
+        flex: 0 0 100%;
+        text-align: center;
+        font-size: 0.833rem;
+        font-weight: bold;
     }
 
     .shield {
@@ -125,30 +160,11 @@
         }
     }
 
-    .footer-shield-header {
-        flex: 0 0 100%;
-        text-align: center;
-        font-size: 0.833rem;
-        font-weight: bold;
-    }
-
-    .currency__list {
+    .shield-container {
         display: flex;
-        gap: 0.25rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .currency__item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.125rem;
-    }
-    .currency__label {
-        margin-bottom: 0;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-align: center;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        gap: 0.5rem;
     }
 </style>

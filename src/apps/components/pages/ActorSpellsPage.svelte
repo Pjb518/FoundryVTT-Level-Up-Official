@@ -51,6 +51,7 @@
 
                 <input
                     class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
                     type="number"
                     name="system.spellResources.points.current"
                     value={spellResources.points.current}
@@ -98,6 +99,10 @@
 </div>
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .spells-page {
         display: flex;
         flex-direction: column;

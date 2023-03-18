@@ -39,6 +39,7 @@
 
                 <input
                     class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
                     type="number"
                     name="system.attributes.exertion.current"
                     value={exertion.current}
@@ -86,6 +87,10 @@
 </div>
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .maneuvers-page {
         display: flex;
         flex-direction: column;
