@@ -58,100 +58,110 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<div class="action-buttons">
-    {#if !action && item?.system?.favorite !== undefined}
-        <button
-            class="action-button fas fa-star"
-            class:active={item.system.favorite}
-            data-tooltip="A5E.ButtonToolTipFavorite"
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleFavorite()}
-        />
-    {/if}
+<div class="track" data-tooltip-direction="DOWN">
+    <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
-    {#if !action && item.type === "object"}
-        {#if item.system.requiresAttunement}
+    <ul class="track-items">
+        {#if !action && item?.system?.favorite !== undefined}
             <button
-                class="action-button fa-solid fa-link"
-                class:active={item.system.attuned}
-                data-tooltip={item.system.attuned
-                    ? localize("A5E.ButtonToolTipBreakAttunement", {
-                          item: item.name,
-                      })
-                    : localize("A5E.ButtonToolTipAttune", {
-                          item: item.name,
-                      })}
+                class="action-button fas fa-star"
+                class:active={item.system.favorite}
+                data-tooltip="A5E.ButtonToolTipFavorite"
                 data-tooltip-direction="UP"
-                on:click|stopPropagation={() => item.toggleAttunement()}
+                on:click|stopPropagation={() => item.toggleFavorite()}
             />
         {/if}
 
-        <button
-            class="action-button fas fa-shield-alt"
-            class:active={item.system.equipped}
-            data-tooltip={item.system.equipped
-                ? "A5E.ButtonToolTipUnequip"
-                : "A5E.ButtonToolTipEquip"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleEquipped()}
-        />
+        {#if !action && item.type === "object"}
+            {#if item.system.requiresAttunement}
+                <li>
+                    <button
+                        class="action-button fa-solid fa-link"
+                        class:active={item.system.attuned}
+                        data-tooltip={item.system.attuned
+                            ? localize("A5E.ButtonToolTipBreakAttunement", {
+                                  item: item.name,
+                              })
+                            : localize("A5E.ButtonToolTipAttune", {
+                                  item: item.name,
+                              })}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() => item.toggleAttunement()}
+                    />
+                </li>
+            {/if}
 
-        <button
-            class="action-button fas fa-heart-crack"
-            class:active={item.system.broken}
-            data-tooltip={item.system.broken
-                ? "A5E.ButtonToolTipFixBroken"
-                : "A5E.ButtonToolTipBroken"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleBroken()}
-        />
-    {/if}
+            <li>
+                <button
+                    class="action-button fas fa-shield-alt"
+                    class:active={item.system.equipped}
+                    data-tooltip={item.system.equipped
+                        ? "A5E.ButtonToolTipUnequip"
+                        : "A5E.ButtonToolTipEquip"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => item.toggleEquipped()}
+                />
+            </li>
 
-    {#if !action && item.type === "spell"}
-        <button
-            class="action-button fas fa-book"
-            class:active={item.system.prepared}
-            data-tooltip={item.system.prepared
-                ? "A5E.ButtonToolTipUnprepare"
-                : "A5E.ButtonToolTipPrepare"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.togglePrepared()}
-        />
-    {/if}
+            <li>
+                <button
+                    class="action-button fas fa-heart-crack"
+                    class:active={item.system.broken}
+                    data-tooltip={item.system.broken
+                        ? "A5E.ButtonToolTipFixBroken"
+                        : "A5E.ButtonToolTipBroken"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => item.toggleBroken()}
+                />
+            </li>
+        {/if}
 
-    {#if !sheetIsLocked}
-        <button
-            class="action-button fas fa-cog"
-            data-tooltip="A5E.ButtonToolTipConfigure"
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={onConfigure}
-        />
+        {#if !action && item.type === "spell"}
+            <li>
+                <button
+                    class="action-button fas fa-book"
+                    class:active={item.system.prepared}
+                    data-tooltip={item.system.prepared
+                        ? "A5E.ButtonToolTipUnprepare"
+                        : "A5E.ButtonToolTipPrepare"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => item.togglePrepared()}
+                />
+            </li>
+        {/if}
 
-        <button
-            class="action-button fa-solid fa-clone"
-            data-tooltip="A5E.ButtonToolTipDuplicate"
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={onDuplicate}
-        />
+        {#if !sheetIsLocked}
+            <li>
+                <button
+                    class="action-button fas fa-cog"
+                    data-tooltip="A5E.ButtonToolTipConfigure"
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={onConfigure}
+                />
+            </li>
 
-        <button
-            class="action-button delete-button fas fa-trash"
-            data-tooltip="A5E.ButtonToolTipDelete"
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={onDelete}
-        />
-    {/if}
+            <li>
+                <button
+                    class="action-button fa-solid fa-clone"
+                    data-tooltip="A5E.ButtonToolTipDuplicate"
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={onDuplicate}
+                />
+            </li>
+
+            <li>
+                <button
+                    class="action-button delete-button fas fa-trash"
+                    data-tooltip="A5E.ButtonToolTipDelete"
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={onDelete}
+                />
+            </li>
+        {/if}
+    </ul>
 </div>
 
 <style lang="scss">
-    .action-buttons {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        margin-left: auto;
-        color: #999;
-    }
-
     .action-button {
         padding: 0.25rem;
         background: none;
@@ -181,5 +191,68 @@
 
     .delete-button:hover {
         color: #8b2525;
+    }
+
+    .track {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        overflow: hidden;
+        width: 1.75rem;
+        height: 1.75rem;
+        align-items: center;
+        border-radius: 50%;
+        color: #999;
+
+        transition: width 0.3s ease;
+
+        &-icon {
+            z-index: 1;
+            display: flex;
+            width: 1.75rem;
+            height: 1.75rem;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            background: #f6f2eb;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transform: translateX(-1px);
+
+            transition: all 0.15s ease-in-out;
+        }
+
+        &-items {
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            height: 1.75rem;
+            padding: 0 1.25rem 0 0.75rem;
+            border: 1px solid #ccc;
+            border-left: 0;
+            margin: 0;
+            background: #f6f2eb;
+            border-radius: 0.75rem 0 0 0.75rem;
+            list-style: none;
+            opacity: 0;
+            transform: translateX(calc(-100% - 1rem));
+
+            transition: all 0.15s ease-in-out;
+        }
+
+        &:hover {
+            overflow: initial;
+
+            .track-items {
+                opacity: 1;
+            }
+
+            .track-icon {
+                color: #555;
+            }
+        }
     }
 </style>
