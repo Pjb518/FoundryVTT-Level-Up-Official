@@ -58,7 +58,8 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<div class="track" data-tooltip-direction="DOWN">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="track" data-tooltip-direction="DOWN" on:click|stopPropagation>
     <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
     <ul class="track-items">
@@ -197,12 +198,13 @@
         position: relative;
         z-index: 2;
         display: flex;
-        overflow: hidden;
+        align-items: center;
         width: 1.75rem;
         height: 1.75rem;
-        align-items: center;
+        margin-inline: 2rem 0.5rem;
         border-radius: 50%;
         color: #999;
+        grid-area: actionButtons;
 
         transition: width 0.3s ease;
 
@@ -215,7 +217,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background: #f6f2eb;
+            background: #ebe9e0;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.2rem;
@@ -226,7 +228,7 @@
 
         &-items {
             z-index: 0;
-            display: flex;
+            display: none;
             align-items: center;
             gap: 0.25rem;
             height: 1.75rem;
@@ -234,7 +236,7 @@
             border: 1px solid #ccc;
             border-left: 0;
             margin: 0;
-            background: #f6f2eb;
+            background: #ebe9e0;
             border-radius: 0.75rem 0 0 0.75rem;
             list-style: none;
             opacity: 0;
@@ -247,6 +249,7 @@
             overflow: initial;
 
             .track-items {
+                display: flex;
                 opacity: 1;
             }
 

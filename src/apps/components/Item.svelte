@@ -64,7 +64,17 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<li class="item-wrapper" draggable="true" on:dragstart={onDragStart}>
+<li
+    class="item-wrapper"
+    draggable="true"
+    on:dragstart={onDragStart}
+    on:click={() => {
+        showDescription = !showDescription;
+    }}
+    on:auxclick={() => {
+        if (rightClickConfigure) onConfigure();
+    }}
+>
     <button
         class="item-roll-button"
         class:item-roll-button--shift={$pressedKeysStore.Shift}
@@ -83,17 +93,7 @@
         <img class="item-image--die" src="/icons/svg/d20.svg" alt="Roll" />
     </button>
 
-    <div
-        class="inner-wrapper"
-        on:click={() => {
-            showDescription = !showDescription;
-        }}
-        on:auxclick={() => {
-            if (rightClickConfigure) onConfigure();
-        }}
-    >
-        <ItemInnerWrapper {actionId} {action} {item} />
-    </div>
+    <ItemInnerWrapper {actionId} {action} {item} />
 
     {#if !$actor.pack && $actor.isOwner}
         <ItemActionButtons action={actionId} {item} />
@@ -138,22 +138,17 @@
         pointer-events: none;
     }
 
-    .inner-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        flex-grow: 1;
-        cursor: pointer;
-    }
-
     .item-wrapper {
         position: relative;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-areas:
+            "icon name quantityLabel usesLabel actionButtons"
+            "icon name quantity      uses      actionButtons";
+        grid-template-columns: min-content 1fr min-content 100px min-content;
+        column-gap: 0.75rem;
+        row-gap: 0.125rem;
         align-items: center;
-        height: fit-content;
         width: 100%;
-        gap: 0.5rem;
         padding: 0.125rem;
         padding-right: 0.5rem;
         border: 1px solid #ccc;
@@ -174,12 +169,14 @@
     }
 
     .item-roll-button {
-        width: 2.438rem;
-        height: 2.438rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        flex-shrink: 0;
         padding: 0;
         margin: 0;
         background: transparent;
         border-radius: 3px;
+        grid-area: icon;
 
         &:hover {
             box-shadow: none;
