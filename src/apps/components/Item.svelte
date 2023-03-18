@@ -22,6 +22,7 @@
     let showDescription = false;
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+    let isGM = game.user.isGM;
 
     function getSummaryComponent(item) {
         switch (item?.type) {
@@ -102,10 +103,19 @@
 
 {#if showDescription}
     <div class="description-wrapper">
-        <svelte:component this={getSummaryComponent(item)} {actionId} {item} />
+        {#if !isGM && item.type === "object" && item.system.unidentified}
+            {@html item.system.unidentifiedDescription ??
+                localize("A5E.NoUnidentifiedDescription")}
+        {:else}
+            <svelte:component
+                this={getSummaryComponent(item)}
+                {actionId}
+                {item}
+            />
 
-        {@html (actionId ? action.description : item.system.description) ??
-            localize("A5E.NoDescription")}
+            {@html (actionId ? action.description : item.system.description) ??
+                localize("A5E.NoDescription")}
+        {/if}
     </div>
 {/if}
 

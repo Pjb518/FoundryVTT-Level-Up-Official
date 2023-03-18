@@ -54,7 +54,8 @@
         },
     ];
 
-    let currentTab = tabs[0];
+    let currentTab =
+        $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
 
     setContext("item", item);
     setContext("appId", appId);
