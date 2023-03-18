@@ -9,6 +9,14 @@
     export let actionId;
 
     const actor = getContext("actor");
+
+    function updateField(event) {
+        event.preventDefault();
+
+        const { target } = event;
+        updateDocumentDataFromField(item, target.name, Number(target.value));
+    }
+
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
@@ -29,12 +37,8 @@
             name="system.quantity"
             value={item.system.quantity}
             min="0"
-            on:click={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value)
-                )}
+            on:click|stopPropagation
+            on:change={updateField}
         />
     </div>
 {/if}
@@ -52,12 +56,8 @@
                 type="number"
                 name="system.uses.value"
                 value={item.system.uses.value}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        item,
-                        target.name,
-                        Number(target.value)
-                    )}
+                on:click|stopPropagation
+                on:change={updateField}
             />
 
             <span> / </span>
@@ -68,12 +68,8 @@
                 name="system.uses.max"
                 value={item.system.uses.max}
                 disabled={sheetIsLocked}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        item,
-                        target.name,
-                        Number(target.value)
-                    )}
+                on:click|stopPropagation
+                on:change={updateField}
             />
         </div>
     </div>
