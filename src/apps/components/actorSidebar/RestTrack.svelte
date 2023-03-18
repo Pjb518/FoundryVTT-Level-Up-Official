@@ -4,15 +4,25 @@
     const actor = getContext("actor");
 </script>
 
-<div class="rest" data-tooltip="A5E.Rest" data-tooltip-direction="DOWN">
+<div
+    class="rest"
+    class:disable-pointer-events={!$actor.isOwner}
+    data-tooltip="A5E.Rest"
+    data-tooltip-direction="DOWN"
+>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <i
         class="rest__icon fas fa-campfire"
+        class:disable-pointer-events={!$actor.isOwner}
         on:click={() => $actor.triggerRest()}
     />
 </div>
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .rest {
         position: absolute;
         z-index: 4;

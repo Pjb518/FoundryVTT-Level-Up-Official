@@ -22,6 +22,7 @@
         <i
             class="fas fa-dice-d20 shield-inspiration"
             class:shield-inspiration--active={hasInspiration}
+            class:disable-pointer-events={!$actor.isOwner}
             on:click={() => $actor.toggleInspiration()}
         />
     </div>
@@ -64,13 +65,14 @@
 
     {#if $actor.flags?.a5e?.showXP ?? true}
         <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-current-xp"
-                >Current XP</label
-            >
+            <label class="xp-label" for="{$actor.id}-current-xp">
+                Current XP
+            </label>
 
             <input
                 id="{$actor.id}-current-xp"
                 class="xp-input"
+                class:disable-pointer-events={!$actor.isOwner}
                 type="number"
                 name="system.details.xp"
                 value={$actor.system.details.xp}
@@ -132,6 +134,10 @@
 
     .character-shields__box {
         width: 3rem;
+    }
+
+    .disable-pointer-events {
+        pointer-events: none;
     }
 
     .xp-input {

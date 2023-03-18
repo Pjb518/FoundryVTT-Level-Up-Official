@@ -23,9 +23,9 @@
         {#each [0, 1, 2, 3, 4, 5, 6, 7] as degree}
             <li>
                 <button
-                    class="track-item a5e-js-track-item {value === degree
-                        ? 'track-item-selected'
-                        : ''}"
+                    class="track-item a5e-js-track-item"
+                    class:track-item-selected={value === degree}
+                    class:disable-pointer-events={!$actor.isOwner}
                     data-degree={degree}
                     on:click={() =>
                         updateDocumentDataFromField(
@@ -51,6 +51,10 @@
         "6": #d63f00,
         "7": #e00006,
     );
+
+    .disable-pointer-events {
+        pointer-events: none;
+    }
 
     .track {
         position: absolute;
