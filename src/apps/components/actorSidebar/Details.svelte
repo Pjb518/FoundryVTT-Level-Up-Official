@@ -81,7 +81,9 @@
         },
     ];
 
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 {#each details as { label, values, dialogMethod }}

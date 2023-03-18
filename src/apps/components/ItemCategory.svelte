@@ -27,7 +27,9 @@
         $actor.createEmbeddedDocuments("Item", [updateData]);
     }
 
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
     $: showSpellPoints = $actor.flags?.a5e?.showSpellPoints ?? false;
 </script>

@@ -12,7 +12,9 @@
     const { maneuvers } = actor;
 
     $: exertion = $actor.system.attributes.exertion;
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="maneuvers-page">

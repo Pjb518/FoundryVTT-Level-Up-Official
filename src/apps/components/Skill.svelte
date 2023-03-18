@@ -23,7 +23,9 @@
         $actor.system.abilities[skill.ability].check.deterministicBonus;
     $: jackOfAllTrades = $actor.flags.a5e?.jackOfAllTrades;
     $: skillBonus = skill.deterministicBonus;
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li class="a5e-item a5e-item--skill" data-skill={skill}>

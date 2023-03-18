@@ -8,7 +8,9 @@
     export let level = 0;
 
     $: spellResources = $actor.system.spellResources;
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 {#if level && level !== "0"}

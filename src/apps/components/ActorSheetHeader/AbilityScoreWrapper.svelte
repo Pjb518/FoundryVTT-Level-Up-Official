@@ -9,7 +9,7 @@
 <li class="container">
     <slot />
 
-    {#if !($actor.flags?.a5e?.sheetIsLocked ?? true)}
+    {#if !(!$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true)}
         <button
             on:click={() =>
                 $actor.configureAbilityScore({ abilityKey: abilityLabel })}

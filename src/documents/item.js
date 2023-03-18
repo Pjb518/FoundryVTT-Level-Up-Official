@@ -75,8 +75,9 @@ export default class ItemA5e extends Item {
    * @returns
    */
   async activate(actionId, options = {}) {
-    // Do not allow an item to activate if it not attached to an actor.
-    if (!this.actor) return;
+    // Do not allow an item to activate if it not attached to an actor or if the user does
+    // not have owner permissions for the actor.
+    if (!this.actor || !this?.actor.isOwner) return;
 
     if (this.actions.count === 0) {
       // If no actions are defined, default to outputting just the item description.
@@ -117,7 +118,7 @@ export default class ItemA5e extends Item {
       && foundry.utils.isEmpty(action?.prompts)
       && !validateTemplateData(this, actionId)
     ) {
-      return await this.shareItemDescription(action);
+      return this.shareItemDescription(action);
     }
 
     dialog.render(true);

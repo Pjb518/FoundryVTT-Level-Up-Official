@@ -393,6 +393,8 @@ export default class ActorA5e extends Actor {
   }
 
   #configure(key, title, data, options) {
+    if (!this.isOwner) return;
+
     const component = this.#configDialogMap[key];
     let dialog = null;
 
