@@ -62,11 +62,18 @@
             JSON.stringify(dragData)
         );
     }
+
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <li
     class="item-wrapper"
+    class:item-wrapper--locked={sheetIsLocked}
+    class:item-wrapper--object={item.type === "object"}
+    class:item-wrapper--locked-object={sheetIsLocked && item.type === "object"}
     draggable="true"
     on:dragstart={onDragStart}
     on:click={() => {
@@ -152,11 +159,11 @@
         position: relative;
         display: grid;
         grid-template-areas:
-            "icon name quantityLabel usesLabel actionButtons"
-            "icon name quantity      uses      actionButtons";
-        grid-template-columns: min-content 1fr min-content 100px min-content;
+            "icon name       usesLabel menu"
+            "icon indicators uses      menu";
+        grid-template-columns: min-content 1fr 100px min-content;
         column-gap: 0.75rem;
-        row-gap: 0.125rem;
+        row-gap: 0;
         align-items: center;
         width: 100%;
         padding: 0.125rem;
@@ -164,6 +171,27 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
+
+        &--locked {
+            grid-template-areas:
+                "icon name       usesLabel"
+                "icon indicators uses";
+            grid-template-columns: min-content 1fr 100px;
+        }
+
+        &--object {
+            grid-template-areas:
+                "icon name       usesLabel quantityLabel menu"
+                "icon indicators uses      quantity      menu";
+            grid-template-columns: min-content 1fr 100px min-content min-content;
+        }
+
+        &--locked-object {
+            grid-template-areas:
+                "icon name        usesLabel quantityLabel"
+                "icon indicators  uses      quantity";
+            grid-template-columns: min-content 1fr 100px min-content;
+        }
     }
 
     .item-image {

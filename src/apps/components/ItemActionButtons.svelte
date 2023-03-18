@@ -58,80 +58,12 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="track" data-tooltip-direction="DOWN" on:click|stopPropagation>
-    <i class="track-icon fa-solid fa-ellipsis-vertical" />
+{#if !sheetIsLocked}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="track" on:click|stopPropagation>
+        <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
-    <ul class="track-items">
-        {#if !action && item?.system?.favorite !== undefined}
-            <button
-                class="action-button fas fa-star"
-                class:active={item.system.favorite}
-                data-tooltip="A5E.ButtonToolTipFavorite"
-                data-tooltip-direction="UP"
-                on:click|stopPropagation={() => item.toggleFavorite()}
-            />
-        {/if}
-
-        {#if !action && item.type === "object"}
-            {#if item.system.requiresAttunement}
-                <li>
-                    <button
-                        class="action-button fa-solid fa-link"
-                        class:active={item.system.attuned}
-                        data-tooltip={item.system.attuned
-                            ? localize("A5E.ButtonToolTipBreakAttunement", {
-                                  item: item.name,
-                              })
-                            : localize("A5E.ButtonToolTipAttune", {
-                                  item: item.name,
-                              })}
-                        data-tooltip-direction="UP"
-                        on:click|stopPropagation={() => item.toggleAttunement()}
-                    />
-                </li>
-            {/if}
-
-            <li>
-                <button
-                    class="action-button fas fa-shield-alt"
-                    class:active={item.system.equipped}
-                    data-tooltip={item.system.equipped
-                        ? "A5E.ButtonToolTipUnequip"
-                        : "A5E.ButtonToolTipEquip"}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleEquipped()}
-                />
-            </li>
-
-            <li>
-                <button
-                    class="action-button fas fa-heart-crack"
-                    class:active={item.system.broken}
-                    data-tooltip={item.system.broken
-                        ? "A5E.ButtonToolTipFixBroken"
-                        : "A5E.ButtonToolTipBroken"}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleBroken()}
-                />
-            </li>
-        {/if}
-
-        {#if !action && item.type === "spell"}
-            <li>
-                <button
-                    class="action-button fas fa-book"
-                    class:active={item.system.prepared}
-                    data-tooltip={item.system.prepared
-                        ? "A5E.ButtonToolTipUnprepare"
-                        : "A5E.ButtonToolTipPrepare"}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.togglePrepared()}
-                />
-            </li>
-        {/if}
-
-        {#if !sheetIsLocked}
+        <ul class="track-items">
             <li>
                 <button
                     class="action-button fas fa-cog"
@@ -158,9 +90,9 @@
                     on:click|stopPropagation={onDelete}
                 />
             </li>
-        {/if}
-    </ul>
-</div>
+        </ul>
+    </div>
+{/if}
 
 <style lang="scss">
     .action-button {
@@ -201,10 +133,10 @@
         align-items: center;
         width: 1.75rem;
         height: 1.75rem;
-        margin-inline: 2rem 0.5rem;
+        margin-inline: 0.5rem 0.5rem;
         border-radius: 50%;
         color: #999;
-        grid-area: actionButtons;
+        grid-area: menu;
 
         transition: width 0.3s ease;
 
