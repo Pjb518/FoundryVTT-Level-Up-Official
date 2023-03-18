@@ -210,6 +210,10 @@
         &--quantity {
             grid-area: quantity;
         }
+
+        &:hover {
+            border: 1px solid #bbb;
+        }
     }
 
     .quantity-label {

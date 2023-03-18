@@ -35,32 +35,56 @@
 					"quantity": "",
 					"type": "Area"
 				},
+				"rolls": {},
+				"prompts": {}
+			},
+			"RAYVX02ARezo5IC6": {
+				"name": "Lightning Strike",
 				"rolls": {
-					"DjbuRprSiyktFjxI": {
+					"Fq42qgoSd8VxEEYI": {
+						"type": "damage",
+						"default": true,
+						"label": "Normal Damage",
 						"canCrit": false,
 						"damageType": "lightning",
-						"formula": "3d10",
-						"name": "Normal damage",
-						"type": "damage"
+						"formula": "3d10"
 					},
-					"1GxSlXWT9N5M65xb": {
-						"canCrit": false,
-						"damageType": "lightning",
+					"EpeaYATHSBXgH3Xh": {
+						"type": "damage",
+						"default": false,
+						"label": "Damage in Stormy Weather",
 						"formula": "4d10",
-						"name": "Stormy damage",
-						"type": "damage"
+						"damageType": "lightning",
+						"canCrit": false
 					}
 				},
+				"area": {
+					"shape": "cylinder",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1
+				},
 				"prompts": {
-					"SpsFVQm03Vo2sD9x": {
+					"QmnmyXb5smTrAgD9": {
+						"type": "savingThrow",
+						"default": true,
 						"ability": "dex",
-						"onSave": "Half damage",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "@spellDC"
+							"type": "spellcasting"
 						},
-						"type": "savingThrow"
+						"onSave": "Half damage"
 					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
 				}
 			}
 		},
