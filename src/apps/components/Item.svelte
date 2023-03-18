@@ -233,7 +233,6 @@
     .name-wrapper {
         display: flex;
         height: 1.75rem;
-        align-items: center;
         font-size: 0.833rem;
     }
 
@@ -241,10 +240,9 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        display: block;
+        align-items: center;
         height: 1.75rem;
         width: 14.908rem;
-        align-items: center;
         font-size: 0.833rem;
     }
 
