@@ -11,7 +11,7 @@ import KeyPressHandler from './apps/KeyPressHandler.svelte';
 import A5E from './config';
 import ActiveEffectA5e from './documents/activeEffects';
 import ActorA5e from './documents/actor';
-import D20Roll from './dice/d20Roll';
+import D20Roll from './dice/D20Roll';
 import ItemA5e from './documents/item';
 import TokenA5e from './documents/token';
 import TokenDocumentA5e from './documents/tokenDocument';

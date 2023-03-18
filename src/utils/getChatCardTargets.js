@@ -4,10 +4,10 @@
  * @returns {Actor[]} An Array of Actor documents, if any
  */
 export default function getChatCardTargets() {
-  let targets = canvas.tokens.controlled.filter((target) => !!target.actor);
+  let targets = canvas.tokens.controlled?.filter((target) => !!target.actor) ?? [];
 
   if (!targets.length && game.user.character) {
-    targets = targets.concat(game.user.character.getActiveTokens());
+    targets = targets.concat(game.user.character?.getActiveTokens() ?? []);
   }
 
   if (!targets.length) {
