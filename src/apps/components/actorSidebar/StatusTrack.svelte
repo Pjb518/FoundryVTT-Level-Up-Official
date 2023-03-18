@@ -12,18 +12,18 @@
 </script>
 
 <div
-    class="track a5e-js-track {`track-${trackProperty}`}"
+    class="track track-{trackProperty}"
     data-track={trackProperty}
     data-tooltip={tooltipText}
     data-tooltip-direction="DOWN"
 >
-    <i class="track-icon fas {icon} {`track-icon-level-${value}`}" />
+    <i class="track-icon fas {icon} track-icon-level-{value}" />
 
     <ul class="track-items">
         {#each [0, 1, 2, 3, 4, 5, 6, 7] as degree}
             <li>
                 <button
-                    class="track-item a5e-js-track-item"
+                    class="track-item"
                     class:track-item-selected={value === degree}
                     class:disable-pointer-events={!$actor.isOwner}
                     data-degree={degree}

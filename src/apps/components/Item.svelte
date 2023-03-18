@@ -155,6 +155,7 @@
         width: 100%;
         gap: 0.5rem;
         padding: 0.125rem;
+        padding-right: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
