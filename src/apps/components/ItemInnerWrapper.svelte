@@ -42,34 +42,32 @@
 {/if}
 
 {#if !actionId && item.system.uses?.max}
-    <div class="input-wrapper">
-        <label for="{actor.id}-{item.id}-current-uses">
-            {localize("A5E.Uses")}
-        </label>
+    <label class="uses-label" for="{actor.id}-{item.id}-current-uses">
+        {localize("A5E.Uses")}
+    </label>
 
-        <div class="uses-wrapper">
-            <input
-                class="number-input"
-                id="{actor.id}-{item.id}-current-uses"
-                type="number"
-                name="system.uses.value"
-                value={item.system.uses.value}
-                on:click|stopPropagation
-                on:change={updateField}
-            />
+    <div class="uses-wrapper">
+        <input
+            class="number-input"
+            id="{actor.id}-{item.id}-current-uses"
+            type="number"
+            name="system.uses.value"
+            value={item.system.uses.value}
+            on:click|stopPropagation
+            on:change={updateField}
+        />
 
-            <span> / </span>
+        <span> / </span>
 
-            <input
-                class="number-input"
-                type="number"
-                name="system.uses.max"
-                value={item.system.uses.max}
-                disabled={sheetIsLocked}
-                on:click|stopPropagation
-                on:change={updateField}
-            />
-        </div>
+        <input
+            class="number-input"
+            type="number"
+            name="system.uses.max"
+            value={item.system.uses.max}
+            disabled={sheetIsLocked}
+            on:click|stopPropagation
+            on:change={updateField}
+        />
     </div>
 {/if}
 
