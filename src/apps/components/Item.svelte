@@ -104,11 +104,13 @@
 
         {#if !actionId && item.type === "object"}
             <div class="wrapper-text label-wrapper">
-                <label for=`${actor.id}-${item-id}-quantity`> Quantity </label>
+                <label for="${actor.id}-${item.id}-quantity">
+                    {localize("A5E.ItemQuantity")}
+                </label>
                 <input
                     class="item-quantity"
                     type="number"
-                    id=`${actor.id}-${item-id}-quantity`
+                    id="${actor.id}-${item.id}-quantity"
                     name="system.quantity"
                     value={item?.system?.quantity ?? 1}
                     placeholder="1"
@@ -126,11 +128,13 @@
         {/if}
         {#if item.system.uses.max && !actionId}
             <div class="wrapper-text label-wrapper">
-                <label for=`${actor.id}-${item-id}-current-uses`> Uses </label>
+                <label for="${actor.id}-${item.id}-current-uses">
+                    {localize("A5E.Uses")}
+                </label>
                 <div class="input-wrapper">
                     <input
                         class="item-quantity"
-                        id=`${actor.id}-${item-id}-current-uses`
+                        id="${actor.id}-${item.id}-current-uses"
                         type="number"
                         name="system.uses.value"
                         value={item.system.uses.value}
