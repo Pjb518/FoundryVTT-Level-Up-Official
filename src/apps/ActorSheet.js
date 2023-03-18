@@ -1,10 +1,15 @@
 // eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
+
 import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
+import LimitedActorSheetComponent from './sheets/LimitedActorSheet.svelte';
+
 import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
 import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
+
+import userHasLimitedAccess from './utils/userHasLimitedAccess';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -31,6 +36,12 @@ export default class ActorSheet extends SvelteApplication {
       { delete: this.close.bind(this) }
     );
 
+    if (userHasLimitedAccess(game.user, actor)) {
+      this.options.svelte.class = LimitedActorSheetComponent;
+    } else {
+      this.options.svelte.class = ActorSheetComponent;
+    }
+
     this.options.svelte.props.sheet = this;
   }
 
@@ -49,7 +60,6 @@ export default class ActorSheet extends SvelteApplication {
       height: 708,
 
       svelte: {
-        class: ActorSheetComponent,
         target: document.body
       }
     });
