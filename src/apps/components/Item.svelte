@@ -5,13 +5,13 @@
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
     import ManeuverSummary from "./itemSummaries/ManeuverSummary.svelte";
     import ObjectSummary from "./itemSummaries/ObjectSummary.svelte";
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
+    import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
 
     export let item;
     export let action = null;
@@ -84,7 +84,7 @@
     </button>
 
     <div
-        class="inner-item-wrapper"
+        class="inner-wrapper"
         on:click={() => {
             showDescription = !showDescription;
         }}
@@ -92,28 +92,7 @@
             if (rightClickConfigure) onConfigure();
         }}
     >
-        <div class="item-name">
-            {action?.name ?? item.name}
-        </div>
-
-        {#if !actionId && item.type === "object"}
-            <input
-                class="item-quantity"
-                type="number"
-                name="system.quantity"
-                value={item?.system?.quantity ?? 1}
-                placeholder="1"
-                min="0"
-                max="9999"
-                on:click|stopPropagation
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        item,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-        {/if}
+        <ItemInnerWrapper {actionId} {action} {item} />
     </div>
 
     {#if !$actor.pack && $actor.isOwner}
@@ -155,7 +134,11 @@
         pointer-events: none;
     }
 
-    .inner-item-wrapper {
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
+    .inner-wrapper {
         display: flex;
         align-items: center;
         gap: 0.75rem;
@@ -175,13 +158,6 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
-    }
-
-    .item-name {
-        display: flex;
-        height: 1.75rem;
-        align-items: center;
-        font-size: 0.833rem;
     }
 
     .item-image {
@@ -225,13 +201,5 @@
             filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
                 brightness(101%) contrast(95%);
         }
-    }
-
-    .item-quantity {
-        height: 1.25rem;
-        width: 7ch;
-        text-align: center;
-        border: 1px solid #bbb;
-        background: transparent;
     }
 </style>
