@@ -97,7 +97,12 @@
 {/if}
 
 {#if !actionId && item?.type === "object"}
-    <label class="quantity-label" for="{actor.id}-{item.id}-quantity">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <label
+        class="quantity-label"
+        for="{actor.id}-{item.id}-quantity"
+        on:click|stopPropagation
+    >
         {localize("A5E.ItemQuantity")}
     </label>
 
@@ -114,7 +119,12 @@
 {/if}
 
 {#if !actionId && item.system.uses?.max}
-    <label class="uses-label" for="{actor.id}-{item.id}-current-uses">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <label
+        class="uses-label"
+        for="{actor.id}-{item.id}-current-uses"
+        on:click|stopPropagation
+    >
         {localize("A5E.Uses")}
     </label>
 

@@ -173,6 +173,7 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
 
         &--locked {
             grid-template-areas:
