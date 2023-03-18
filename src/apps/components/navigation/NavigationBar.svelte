@@ -18,7 +18,7 @@
             {/if}
         {/each}
 
-        {#if showLock && !$actor?.pack}
+        {#if showLock && !$actor?.pack && $actor.permission !== CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER}
             <LockButton />
         {/if}
     </ul>

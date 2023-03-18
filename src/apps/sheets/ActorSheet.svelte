@@ -26,7 +26,10 @@
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
 
-        if (!$actor.pack) {
+        if (
+            !$actor.pack &&
+            $actor.permission !== CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER
+        ) {
             $actor.update({ "flags.a5e.currentTab": currentTab.name });
         }
     }
@@ -98,7 +101,10 @@
                 name: "settings",
                 label: "A5E.TabSettings",
                 component: ActorSettingsPage,
-                display: !actor.pack,
+                display:
+                    !actor.pack &&
+                    actor.permission !==
+                        CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER,
             },
         ];
     }
