@@ -24,7 +24,9 @@
 </script>
 
 <div class="spells-page">
-    <SortFilter itemType="spells" />
+    {#if $actor.isOwner}
+        <SortFilter itemType="spells" />
+    {/if}
 
     <section class="spells-main-container">
         {#each Object.entries(spellLevels) as [level, label]}

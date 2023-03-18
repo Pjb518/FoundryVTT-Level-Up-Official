@@ -12,7 +12,9 @@
 </script>
 
 <div class="inventory-page">
-    <SortFilter itemType="objects" />
+    {#if $actor.isOwner}
+        <SortFilter itemType="objects" />
+    {/if}
 
     <section class="inventory-main-container">
         {#each Object.entries($objects._types) as [label, items]}

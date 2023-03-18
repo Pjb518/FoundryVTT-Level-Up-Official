@@ -9,7 +9,9 @@
 </script>
 
 <div class="features-page">
-    <SortFilter itemType="features" />
+    {#if $actor.isOwner}
+        <SortFilter itemType="features" />
+    {/if}
 
     <section class="features-main-container">
         {#if $actor.type === "npc"}

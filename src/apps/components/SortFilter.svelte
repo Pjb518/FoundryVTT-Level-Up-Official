@@ -1,6 +1,7 @@
 <script>
     import { getContext, onDestroy } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
     import {
         TJSIconButton,
         TJSInput,
@@ -12,6 +13,7 @@
         addSearchFilter,
         removeSearchFilter,
     } from "../handlers/handleSearchFilter";
+
     import { sortAscending, sortDescending } from "../handlers/sortingHandlers";
     import updateFilters from "../utils/updateFilters";
 

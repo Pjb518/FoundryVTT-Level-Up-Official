@@ -18,7 +18,9 @@
 </script>
 
 <div class="maneuvers-page">
-    <SortFilter itemType="maneuvers" />
+    {#if $actor.isOwner}
+        <SortFilter itemType="maneuvers" />
+    {/if}
 
     <section class="maneuvers-main-container">
         {#each Object.entries($maneuvers._degrees) as [label, items]}

@@ -1,5 +1,6 @@
 <script>
     // import { slide } from "svelte/transition";
+    import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
@@ -15,6 +16,8 @@
     export let item;
     export let action = null;
     export let actionId = null;
+
+    const actor = getContext("actor");
 
     let showDescription = false;
     let rightClickConfigure =
@@ -66,6 +69,7 @@
         class="item-roll-button"
         class:item-roll-button--shift={$pressedKeysStore.Shift}
         class:item-roll-button--ctrl={$pressedKeysStore.Control}
+        class:disable-pointer-events={!$actor.isOwner}
         on:click|stopPropagation={({ target }) => {
             target.blur();
             onItemActivate();
@@ -143,6 +147,10 @@
 
     .description-wrapper {
         padding: 0.125rem 0.25rem;
+    }
+
+    .disable-pointer-events {
+        pointer-events: none;
     }
 
     .inner-item-wrapper {
