@@ -24,75 +24,77 @@
     {action?.name ?? item.name}
 </div>
 
-<div class="button-wrapper">
-    {#if !action && item?.system?.favorite !== undefined}
-        <button
-            class="action-button fas fa-star"
-            class:active={item.system.favorite}
-            data-tooltip="A5E.ButtonToolTipFavorite"
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() => item.toggleFavorite()}
-        />
-    {/if}
+{#if !action}
+    <div class="button-wrapper">
+        {#if item?.system?.favorite !== undefined}
+            <button
+                class="action-button fas fa-star"
+                class:active={item.system.favorite}
+                data-tooltip="A5E.ButtonToolTipFavorite"
+                data-tooltip-direction="UP"
+                on:click|stopPropagation={() => item.toggleFavorite()}
+            />
+        {/if}
 
-    {#if !action && item.type === "object"}
-        {#if item.system.requiresAttunement}
+        {#if item.type === "object"}
+            {#if item.system.requiresAttunement}
+                <li>
+                    <button
+                        class="action-button fa-solid fa-link"
+                        class:active={item.system.attuned}
+                        data-tooltip={item.system.attuned
+                            ? localize("A5E.ButtonToolTipBreakAttunement", {
+                                  item: item.name,
+                              })
+                            : localize("A5E.ButtonToolTipAttune", {
+                                  item: item.name,
+                              })}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() => item.toggleAttunement()}
+                    />
+                </li>
+            {/if}
+
             <li>
                 <button
-                    class="action-button fa-solid fa-link"
-                    class:active={item.system.attuned}
-                    data-tooltip={item.system.attuned
-                        ? localize("A5E.ButtonToolTipBreakAttunement", {
-                              item: item.name,
-                          })
-                        : localize("A5E.ButtonToolTipAttune", {
-                              item: item.name,
-                          })}
+                    class="action-button fas fa-shield-alt"
+                    class:active={item.system.equipped}
+                    data-tooltip={item.system.equipped
+                        ? "A5E.ButtonToolTipUnequip"
+                        : "A5E.ButtonToolTipEquip"}
                     data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleAttunement()}
+                    on:click|stopPropagation={() => item.toggleEquipped()}
+                />
+            </li>
+
+            <li>
+                <button
+                    class="action-button fas fa-heart-crack"
+                    class:active={item.system.broken}
+                    data-tooltip={item.system.broken
+                        ? "A5E.ButtonToolTipFixBroken"
+                        : "A5E.ButtonToolTipBroken"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => item.toggleBroken()}
                 />
             </li>
         {/if}
 
-        <li>
-            <button
-                class="action-button fas fa-shield-alt"
-                class:active={item.system.equipped}
-                data-tooltip={item.system.equipped
-                    ? "A5E.ButtonToolTipUnequip"
-                    : "A5E.ButtonToolTipEquip"}
-                data-tooltip-direction="UP"
-                on:click|stopPropagation={() => item.toggleEquipped()}
-            />
-        </li>
-
-        <li>
-            <button
-                class="action-button fas fa-heart-crack"
-                class:active={item.system.broken}
-                data-tooltip={item.system.broken
-                    ? "A5E.ButtonToolTipFixBroken"
-                    : "A5E.ButtonToolTipBroken"}
-                data-tooltip-direction="UP"
-                on:click|stopPropagation={() => item.toggleBroken()}
-            />
-        </li>
-    {/if}
-
-    {#if !action && item.type === "spell"}
-        <li>
-            <button
-                class="action-button fas fa-book"
-                class:active={item.system.prepared}
-                data-tooltip={item.system.prepared
-                    ? "A5E.ButtonToolTipUnprepare"
-                    : "A5E.ButtonToolTipPrepare"}
-                data-tooltip-direction="UP"
-                on:click|stopPropagation={() => item.togglePrepared()}
-            />
-        </li>
-    {/if}
-</div>
+        {#if item.type === "spell"}
+            <li>
+                <button
+                    class="action-button fas fa-book"
+                    class:active={item.system.prepared}
+                    data-tooltip={item.system.prepared
+                        ? "A5E.ButtonToolTipUnprepare"
+                        : "A5E.ButtonToolTipPrepare"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => item.togglePrepared()}
+                />
+            </li>
+        {/if}
+    </div>
+{/if}
 
 {#if !actionId && item?.type === "object"}
     <label class="quantity-label" for="{actor.id}-{item.id}-quantity">
@@ -186,7 +188,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        flex-grow: 1;
         grid-area: name;
     }
 
