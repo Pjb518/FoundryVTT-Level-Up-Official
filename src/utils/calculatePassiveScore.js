@@ -7,7 +7,7 @@ export default function calculatePassiveScore(skill, rollData) {
     10,
     skill.deterministicBonus,
     skill.bonuses.passive,
-    rollData.abilities[ability].check.deterministicBonus,
+    rollData.abilities[ability]?.check?.deterministicBonus ?? 0,
 
     // Remove the double addition of the global check bonus
     `- ${getDeterministicBonus(rollData.bonuses.abilities.check, rollData)}`
