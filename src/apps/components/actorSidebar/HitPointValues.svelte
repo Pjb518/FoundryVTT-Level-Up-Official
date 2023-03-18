@@ -48,6 +48,7 @@
                 <input
                     id="{$actor.id}-hp-{key}"
                     class="hp-input"
+                    class:disable-pointer-events={!$actor.isOwner}
                     type="number"
                     name="system.attributes.hp.{key}"
                     {value}
@@ -75,6 +76,10 @@
 {/if}
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .hp-container {
         display: flex;
         gap: 0.25rem;
