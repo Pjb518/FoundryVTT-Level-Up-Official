@@ -116,7 +116,9 @@
         {/if}
     </div>
 
-    <ItemActionButtons action={actionId} {item} />
+    {#if !$actor.pack && $actor.isOwner}
+        <ItemActionButtons action={actionId} {item} />
+    {/if}
 </li>
 
 {#if showDescription}

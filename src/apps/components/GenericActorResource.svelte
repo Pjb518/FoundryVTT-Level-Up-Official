@@ -68,6 +68,7 @@
 
         <input
             class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
+            class:disable-pointer-events={!$actor.isOwner}
             type="number"
             name="system.resources.{source}.value"
             value={resource.value}
@@ -121,6 +122,10 @@
 </li>
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .resource {
         position: relative;
         padding: 0.125rem;

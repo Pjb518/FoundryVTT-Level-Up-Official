@@ -46,6 +46,7 @@
             >
                 <label
                     class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    class:disable-pointer-events={!$actor.isOwner}
                     for="{actor.id}-details-{key}"
                 >
                     {localize(label)}
@@ -53,6 +54,7 @@
 
                 <input
                     class="a5e-input a5e-input--slim u-w-full"
+                    class:disable-pointer-events={!$actor.isOwner}
                     id="{actor.id}-details-{key}"
                     type="text"
                     name="system.details.{key}"
@@ -79,6 +81,7 @@
             >
                 <label
                     class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
+                    class:disable-pointer-events={!$actor.isOwner}
                     for="{actor.id}-details-{key}"
                 >
                     {localize(label)}
@@ -86,6 +89,7 @@
 
                 <input
                     class="a5e-input a5e-input--slim"
+                    class:disable-pointer-events={!$actor.isOwner}
                     id="{actor.id}-details-{key}"
                     type="text"
                     name="system.details.{key}"
@@ -180,5 +184,9 @@
         flex: 1;
         gap: 0.5rem;
         overflow-y: auto;
+    }
+
+    .disable-pointer-events {
+        pointer-events: none;
     }
 </style>

@@ -33,6 +33,7 @@
     <span
         class="a5e-skill__value"
         class:a5e-skill__value--green={skill.proficient}
+        class:disable-pointer-events={!$actor.isOwner}
         on:click={$actor.rollSkillCheck(
             key,
             getKeyPressAsOptions($pressedKeysStore)
@@ -112,6 +113,10 @@
 </li>
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .skill-proficiency-icon {
         color: rgba(0, 0, 0, 0.25);
     }

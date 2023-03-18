@@ -18,6 +18,7 @@
                 name="name"
                 value={$actor.name}
                 class="a5e-input a5e-input--character-name"
+                class:disable-pointer-events={!$actor.isOwner}
                 placeholder="Name"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
@@ -43,6 +44,10 @@
 </header>
 
 <style>
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .sheet-header {
         display: flex;
         flex-direction: column;

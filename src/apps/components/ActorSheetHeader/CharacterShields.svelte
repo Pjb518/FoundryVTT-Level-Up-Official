@@ -33,6 +33,7 @@
         <input
             id="{$actor.id}-level"
             class="xp-input"
+            class:disable-pointer-events={!$actor.isOwner}
             type="number"
             name="system.details.level"
             value={$actor.system.details.level}
