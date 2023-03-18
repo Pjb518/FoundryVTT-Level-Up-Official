@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"4M3CoOlZXprhVaZ4": {
-				"name": "Sunburst",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>Oozes and undead have disadvantage on saving throws made to resist this spell. You create a burst of radiant sunlight that fills the area. Each creature in the area takes 12d6 radiant damage and is blinded for 1 minute. A creature blinded by this spell repeats its saving throw at the end of each of its turns, ending the blindness on a successful save.</p><p>This spell dispels any magical darkness in its area.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 9th-level spell slot the damage increases by 2d6.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage and negates blindness",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -90,6 +83,13 @@
 				"arcane",
 				"radiant"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage and negates blindness",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "46wyf7rw3rm5kstu"

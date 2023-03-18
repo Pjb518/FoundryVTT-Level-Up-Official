@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"qHN18Fl3FvE8MBF8": {
-				"name": "Cloudkill",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>You create a sphere of poisonous, sickly green fog, which can spread around corners but not change shape. The area is heavily obscured. A strong wind disperses the fog, ending the spell early.</p><p>Until the spell ends, when a creature enters the area for the first time on its turn or starts its turn there, it takes 5d8 poison damage.</p><p>The fog moves away from you 10 feet at the start of each of your turns, flowing along the ground. The fog is thicker than air, sinks to the lowest level in the land, and can even flow down openings and pits.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"obscurement",
 				"poison"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "764ocg0phxmyw7y2"

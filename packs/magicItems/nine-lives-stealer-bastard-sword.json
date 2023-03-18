@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"OH47adZrOPEfI54p": {
-				"name": "Nine Lives Stealer Bastard Sword",
+				"name": "Attack",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -68,12 +67,6 @@
 		},
 		"description": "<p style=\"text-align: right\"><em>Parrying, Versatile (1d10)</em></p><p><strong>Crafting Components:</strong> Nine vampire fangs</p><hr class=\"a5e-rule u-my-md\"><p>You gain a +2 bonus to attack and damage rolls made with this magic sword.</p><p>The sword has [[/r 1d8+1 #charges]] charges. When you use the sword to score a critical hit against a creature that is not a construct or undead, if it has less than 100 hit points it makes a DC 15 Constitution saving throw or it instantly dies as the sword rips the life force out of it. Each time a creature is killed in this manner the sword expends a charge. When all its charges are gone, the sword loses this property. </p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "15",
-			"onSave": "No effect",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -93,6 +86,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "10000",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": true,
@@ -103,7 +97,13 @@
 			"parrying",
 			"versatile"
 		],
-		"weight": 5
+		"weight": 5,
+		"ability": "default",
+		"save": {
+			"dc": "15",
+			"onSave": "No effect",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "am1vewmyshx34fhp"
 }

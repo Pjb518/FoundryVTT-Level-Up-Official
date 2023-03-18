@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"pxwqlCQeXX1wIX6x": {
-				"name": "Mace of Terror",
+				"name": "Attack",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -66,12 +65,6 @@
 		},
 		"description": "<p style=\"text-align: right\"><em>Defensive (Medium), Simple</em></p><p><strong>Crafting Components:</strong> Shard of a broken mirror that once reflected a banshee’s horrifying visage</p><hr class=\"a5e-rule u-my-md\"><p>This weapon has 3 charges and regains [[/r 1d3 #charges]] charges􀀃 each dawn. While you hold it, you can use an action􀀃 to expend 1 charge and emanate terror in a 30-foot􀀃 radius. Each creature you choose within the area􀀃 makes a DC 15 Wisdom saving throw or it becomes􀀃 frightened of you for 1 minute, moving away from􀀃 you as fast as possible on its turns (it can only use􀀃 the Dash action, try to escape anything preventing􀀃 it from moving, or use the Dodge action if it cannot􀀃 move or attempt escape) and remaining at least 30􀀃 feet from you. The creature cannot take reactions.􀀃 At the end of each of its turns, a frightened creature􀀃 can repeat the saving throw, ending the effect on􀀃a success.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "15",
-			"onSave": "no effect or effect ends",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "5000",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
@@ -101,7 +95,13 @@
 			"defensive",
 			"simple"
 		],
-		"weight": 4
+		"weight": 4,
+		"ability": "default",
+		"save": {
+			"dc": "15",
+			"onSave": "no effect or effect ends",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "qorptyj64vjjfwn2"
 }

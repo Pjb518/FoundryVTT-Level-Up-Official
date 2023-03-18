@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"ikNMkM8TC3XePofn": {
-				"name": "Grease",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>Grease erupts from a point that you can see within range and coats the ground in the area, turning it into difficult terrain until the spell ends.</p><p>When the grease appears, each creature within the area must succeed on a Dexterity saving throw or fall prone. A creature that enters or ends its turn in the area must also succeed on a Dexterity saving throw or fall prone.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Dexterity negates.",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -81,6 +74,13 @@
 				"arcane",
 				"earth"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Dexterity negates.",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "2u5jeuyp9tya031k"

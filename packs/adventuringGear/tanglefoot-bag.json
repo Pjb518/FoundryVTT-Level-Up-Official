@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"8vKj3hyqjICFKNIn": {
 				"name": "Tanglefoot Bag",
@@ -59,12 +58,6 @@
 		},
 		"description": "<blockquote><p>Unguents and adhesives fill this airtight sack.</p></blockquote><p>You can use an action to throw this bag at a target within 20 feet, treating it as a ranged weapon attack with an improvised weapon. On a hit, rapidly hardening sap covers the target and it makes a DC 13 Strength check or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success.</p><p>The sap can also be destroyed (AC 13, 6 hit points).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "13",
-			"onSave": "Ends grapple",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -84,6 +77,7 @@
 		"objectType": "miscellaneous",
 		"plotItem": false,
 		"price": "50 gp",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
@@ -91,7 +85,13 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 3
+		"weight": 3,
+		"ability": "default",
+		"save": {
+			"dc": "13",
+			"onSave": "Ends grapple",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "ukcav3i8dudpalir"
 }

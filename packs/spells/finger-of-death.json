@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"x6jm242yZNbZkzkq": {
-				"name": "Finger of Death",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"necrotic",
 				"undead"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "j8fzqjvq0ht2z1y0"

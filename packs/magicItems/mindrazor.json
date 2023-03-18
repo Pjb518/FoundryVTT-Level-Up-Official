@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"37lupGB7alsqQiIP": {
-				"name": "Mindrazor",
+				"name": "Attack",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -66,12 +65,6 @@
 		},
 		"description": "<p style=\"text-align: right\"><em>Dual-Wielding, Finesse, Simple</em></p><p><strong>Crafting Components:</strong> Vitrified brain </p><hr class=\"a5e-rule u-my-md\"><p>This dagger carves through minds as easily as flesh. You gain a +3 bonus to attack and damage rolls made with this magic weapon.</p><p>Weapon attacks using <em>mindrazor </em>deal an extra [[/r 2d6 #psychic]] psychic damage against creatures. When you roll a natural 20 on an attack with this weapon, the target becomes confused for 1 minute. At theend of each of its turns, a confused creature makes a DC 15 Intelligence saving throw, ending the effect on itself on a success.</p><p>You can use an action to work <em>mindrazor </em>upon the memories of a restrained or incapacited creature within 5 feet (as @Compendium[a5e.a5e-spells.2gcyh1jcj71nbb1y]{Modify Memory} cast at 9th-level). Once you have used this property, you cannot do so again until you have finished a short rest.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "15",
-			"onSave": "ends confusion effect",
-			"targetAbility": "cha"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "100000",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "legendary",
 		"requiresAttunement": true,
@@ -102,7 +96,13 @@
 			"finesse",
 			"simple"
 		],
-		"weight": 1
+		"weight": 1,
+		"ability": "default",
+		"save": {
+			"dc": "15",
+			"onSave": "ends confusion effect",
+			"targetAbility": "cha"
+		}
 	},
 	"_id": "vsxpocumd94u4m0s"
 }

@@ -67,7 +67,7 @@
                     )}
             >
                 {#each Object.entries(A5E.healingTypes) as [key, name] (key)}
-                    <option value={key} selected={roll.healingTypes === key}>
+                    <option value={key} selected={roll.healingType === key}>
                         {localize(name)}
                     </option>
                 {/each}

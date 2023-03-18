@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"B4XDo1xwgvUy2om6": {
-				"name": "Dagger of Venom",
+				"name": "Attack",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -73,12 +72,6 @@
 		},
 		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic blade. In addition, once each dawn you can use an action to poison the dagger’s blade for 1 minute or until it is used to damage a creature. When a creature is damaged by the blade’s poison, it makes a DC 15 Constitution saving throw or takes 2d10 poison damage and becomes poisoned for 1 minute.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "15",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -98,6 +91,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "2,500 gp",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
@@ -109,7 +103,13 @@
 			"finesse",
 			"simple"
 		],
-		"weight": 1
+		"weight": 1,
+		"ability": "default",
+		"save": {
+			"dc": "15",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "7gy8lvf80ph29lq5"
 }

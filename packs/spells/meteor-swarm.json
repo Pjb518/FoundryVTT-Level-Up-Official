@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"uE3dRC3b5nOlK62T": {
-				"name": "Meteor Swarm",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -67,12 +66,6 @@
 		},
 		"description": "<p>Scorching spheres of flame strike the ground at 4 different points within range. The effects of a sphere reach around corners. Creatures and objects in the area take 14d6 fire damage and 14d6 bludgeoning damage, and flammable unattended objects catch on fire. If a creature is in the area of more than one sphere, it is affected only once.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -100,6 +93,13 @@
 				"fire",
 				"storm"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "o3dkq4760a8g4w1j"

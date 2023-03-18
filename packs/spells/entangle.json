@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"lVyiKdUYHxFIgsrp": {
-				"name": "Entangle",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -57,12 +56,6 @@
 		},
 		"description": "<p>Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain.</p><p>A creature in the area when you cast the spell makes a Strength saving throw or it becomes restrained as the plants wrap around it. A creature restrained in this way can use its action to make a Strength check against your spell save DC, freeing itself on a success.</p><p>When the spell ends, the plants wither away.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -88,6 +81,13 @@
 				"plants",
 				"terrain"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "str"
 		}
 	},
 	"_id": "cvrja4dkrr0zoerp"

@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"aB0JupPwKlouZH1A": {
-				"name": "Shatter",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>An ear-splitting ringing sound emanates through the area. Creatures in the area take 3d8 thunder damage. A creature made of stone, metal, or other inorganic material has disadvantage on its saving throw.</p><p>Any nonmagical items within the area that are not worn or carried also take damage.</p><p><strong>Cast at Higher Levels. </strong>The damage increases by 1d8 for each slot level above 2nd.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Constitution halves.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"arcane",
 				"thunder"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Constitution halves.",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "7e9cvnpmbg3knm9l"

@@ -209,6 +209,7 @@ export function fixIds() {
         }
       } catch (e) {
         console.warn(`[ERROR] - ${file} failed to parse.`);
+        console.warn(e);
       }
     });
   });

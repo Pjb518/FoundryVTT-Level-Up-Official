@@ -3,10 +3,9 @@
 	"type": "spell",
 	"img": "icons/magic/light/projectile-beam-yellow.webp",
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"50p44UBlJejlTVVt": {
-				"name": "Sacred Flame",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -55,12 +54,6 @@
 		},
 		"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -86,6 +79,13 @@
 				"divine",
 				"radiant"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "dex"
 		}
 	},
 	"effects": [],

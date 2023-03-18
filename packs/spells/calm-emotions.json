@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"AfdPhW6ZFrrzBCd8": {
-				"name": "Calm Emotions",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.</p><ul><li><p>Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).</p></li><li><p>Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The spell area increases by 10 feet for each slot level above 2nd.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "cha"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -81,6 +74,13 @@
 				"divine",
 				"negation"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "cha"
 		}
 	},
 	"_id": "hnvt4tnuww6o4vvi"

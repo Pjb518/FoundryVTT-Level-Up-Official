@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"Fl0mrdjPsUxkHfZb": {
-				"name": "Chain Lightning",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>You fire a bolt of electricity at the primary target that deals 10d8 lightning damage. Electricity arcs to up to 3 additional targets you choose that are within 30 feet of the primary target.</p><p><strong><em>Cast at Higher Levels.</em></strong> An extra arc leaps from the primary target to an additional target for each slot level above 6th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -90,6 +83,13 @@
 				"arcane",
 				"lightning"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "v2bva71qkpbi3dhd"

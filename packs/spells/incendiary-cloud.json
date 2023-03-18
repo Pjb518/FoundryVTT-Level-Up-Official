@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"OxXsK4n3Iegjqk5p": {
-				"name": "Incendiary Cloud",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>A cloud of burning embers, smoke, and roiling flame appears within range. The cloud heavily obscures its area, spreading around corners and through cracks. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Dexterity saving throw, taking 10d8 fire damage on a failed save, or half as much on a successful one.</p><p>The cloud can be dispelled by a wind of at least 10 miles per hour. After it is cast, the cloud moves 10 feet away from you in a direction that you choose at the start of each of your turns.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -90,6 +83,13 @@
 				"arcane",
 				"fire"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "jgf01d6mjuovnsyp"

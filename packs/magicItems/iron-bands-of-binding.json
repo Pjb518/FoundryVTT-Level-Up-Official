@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"Y6hARx8ALT62Bv2d": {
 				"name": "Iron Bands of Binding",
@@ -59,12 +58,6 @@
 		},
 		"description": "<p>This smooth iron sphere conceals a formidable set of restraints that unfolds into metal bands when thrown. Once between long rests you can use an action to throw it at a creature within 60 feet, treating it as if it were a ranged weapon attack with which you are proficient. On a hit, if the creature is Huge-sized or smaller it becomes restrained until you use a bonus action to speak a different command word and release it. </p><p>A creature can try to break the bands by using an action to make a DC 20 Strength Check. On a success, the bands are broken and the restrained creature is freed. On a failure, the creature cannot try again until 24 hours have passed.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "20",
-			"onSave": "Bands are broken and restrained creature is freed.",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -84,6 +77,7 @@
 		"objectType": "miscellaneous",
 		"plotItem": false,
 		"price": "1,000 gp",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
@@ -91,7 +85,13 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"ability": "default",
+		"save": {
+			"dc": "20",
+			"onSave": "Bands are broken and restrained creature is freed.",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "apgjl6og9x4uyg3v"
 }
