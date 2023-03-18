@@ -5,13 +5,13 @@
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import FeatureSummary from "./itemSummaries/FeatureSummary.svelte";
     import ManeuverSummary from "./itemSummaries/ManeuverSummary.svelte";
     import ObjectSummary from "./itemSummaries/ObjectSummary.svelte";
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
+    import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
 
     export let item;
     export let action = null;
@@ -85,7 +85,7 @@
     </button>
 
     <div
-        class="inner-item-wrapper"
+        class="inner-wrapper"
         on:click={() => {
             showDescription = !showDescription;
         }}
@@ -93,76 +93,7 @@
             if (rightClickConfigure) onConfigure();
         }}
     >
-        <div class="name-wrapper">
-            <div
-                class="item-name"
-                class:item-name-object={!actionId && item.type === "object"}
-            >
-                {action?.name ?? item.name}
-            </div>
-        </div>
-
-        {#if !actionId && item.type === "object"}
-            <div class="wrapper-text label-wrapper">
-                <label for="${actor.id}-${item.id}-quantity">
-                    {localize("A5E.ItemQuantity")}
-                </label>
-                <input
-                    class="item-quantity"
-                    type="number"
-                    id="${actor.id}-${item.id}-quantity"
-                    name="system.quantity"
-                    value={item?.system?.quantity ?? 1}
-                    placeholder="1"
-                    min="0"
-                    max="9999"
-                    on:click|stopPropagation
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            item,
-                            target.name,
-                            Number(target.value)
-                        )}
-                />
-            </div>
-        {/if}
-        {#if item.system.uses.max && !actionId}
-            <div class="wrapper-text label-wrapper">
-                <label for="${actor.id}-${item.id}-current-uses">
-                    {localize("A5E.Uses")}
-                </label>
-                <div class="input-wrapper">
-                    <input
-                        class="item-quantity"
-                        id="${actor.id}-${item.id}-current-uses"
-                        type="number"
-                        name="system.uses.value"
-                        value={item.system.uses.value}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                item,
-                                target.name,
-                                Number(target.value)
-                            )}
-                    />
-                    <span>/</span>
-                    <input
-                        class="item-quantity"
-                        type="number"
-                        d-type="Number"
-                        disabled={sheetIsLocked}
-                        name="system.uses.max"
-                        value={item.system.uses.max}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                item,
-                                target.name,
-                                Number(target.value)
-                            )}
-                    />
-                </div>
-            </div>
-        {/if}
+        <ItemInnerWrapper {actionId} {action} {item} />
     </div>
 
     <ItemActionButtons action={actionId} {item} />
@@ -186,21 +117,6 @@
 {/if}
 
 <style lang="scss">
-    .wrapper-text {
-        text-align: center;
-        font-size: 0.694rem;
-    }
-    .label-wrapper {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        font-size: 0.694rem;
-        padding: 0.15rem;
-        gap: 0.1rem;
-    }
-    .input-wrapper {
-        flex-direction: row;
-    }
     .actions-list {
         display: flex;
         flex-direction: column;
@@ -213,7 +129,7 @@
         padding: 0.125rem 0.25rem;
     }
 
-    .inner-item-wrapper {
+    .inner-wrapper {
         display: flex;
         align-items: center;
         gap: 0.75rem;
@@ -233,26 +149,6 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
-    }
-
-    .name-wrapper {
-        display: flex;
-        align-items: center;
-        height: 100%;
-    }
-
-    .item-name {
-        display: block;
-        font-size: 0.833rem;
-        min-width: 0;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 14.908rem;
-    }
-
-    .item-name-object {
-        width: 8rem;
     }
 
     .item-image {
@@ -296,13 +192,5 @@
             filter: invert(15%) sepia(27%) saturate(4731%) hue-rotate(338deg)
                 brightness(101%) contrast(95%);
         }
-    }
-
-    .item-quantity {
-        height: 1.25rem;
-        width: 7ch;
-        text-align: center;
-        border: 1px solid #bbb;
-        background: transparent;
     }
 </style>
