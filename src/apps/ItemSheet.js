@@ -1,31 +1,51 @@
 // eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
+// eslint-disable-next-line import/no-unresolved
+import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
+
 import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
 import CultureSheetComponent from './sheets/CultureSheet.svelte';
 import DestinySheetComponent from './sheets/DestinySheet.svelte';
 import ItemSheetComponent from './sheets/ItemSheet.svelte';
+import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
 export default class ItemSheet extends SvelteApplication {
   /**
    * @inheritDoc
    */
   constructor(item, options = {}) {
+    options.svelte ??= {};
+
+    if (item.permission === CONST.DOCUMENT_PERMISSION_LEVELS.LIMITED) {
+      options.classes = ['a5e-sheet', 'a5e-item-sheet', 'a5e-actor-sheet--limited'];
+      options.svelte.class = LimitedSheetComponent;
+      options.width = 512;
+      options.resizable = false;
+    } else {
+      options.svelte.class = ItemSheet.getSheetComponent(item.type);
+      options.width = 555;
+      options.height = 592;
+      options.resizable = true;
+    }
+
     super(foundry.utils.mergeObject(
       options,
       {
         id: `item-sheet-${item.id}`,
         title: item.name,
         svelte: {
-          class: ItemSheet.getSheetComponent(item.type),
-          props: {
-            itemDocument: item
-          }
+          props: {}
         }
       }
     ));
 
     this.item = item;
+
+    this.options.svelte.props.document = new TJSDocument(
+      this.item,
+      { delete: this.close.bind(this) }
+    );
   }
 
   /**
@@ -37,13 +57,8 @@ export default class ItemSheet extends SvelteApplication {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-item-sheet'],
-      resizable: true,
       minimizable: true,
-      width: 555,
-      height: 592,
-
       svelte: {
-        class: ItemSheetComponent,
         target: document.body
       }
     });

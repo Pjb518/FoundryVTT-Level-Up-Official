@@ -3,15 +3,16 @@
 <script>
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import CultureDetailsTab from "../components/pages/CultureDetailsTab.svelte";
 
-    export let { itemDocument } = getContext("#external").application;
+    export let { document } = getContext("#external").application;
     export let elementRoot;
+
+    const item = document;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
@@ -32,7 +33,7 @@
 
     let currentTab = tabs[0];
 
-    setContext("item", new TJSDocument(itemDocument));
+    setContext("item", item);
 </script>
 
 <ApplicationShell bind:elementRoot>

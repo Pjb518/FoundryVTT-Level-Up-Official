@@ -1,9 +1,8 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { getContext, setContext } from "svelte";
+    import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
 
     import ItemActionsTab from "../components/pages/ItemActionsTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
@@ -13,27 +12,27 @@
     import ItemGmNotesTab from "../components/pages/ItemGmNotesTab.svelte";
     import ItemUnidentifiedDescriptionTab from "../components/pages/ItemUnidentifiedDescriptionTab.svelte";
 
-    export let { appId, itemDocument } = getContext("#external").application;
+    export let { appId, document } = getContext("#external").application;
     export let elementRoot;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
     }
 
-    const item = new TJSDocument(itemDocument);
+    const item = document;
 
     const tabs = [
         {
             name: "description",
             label: "A5E.ItemSheetLabelDescriptionTab",
             component: ItemDescriptionTab,
-            display: !itemDocument.system.unidentified || game.user.isGM,
+            display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "unidentifiedDescription",
             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
-            display: itemDocument.system.unidentified || game.user.isGM,
+            display: $item.system.unidentified || game.user.isGM,
         },
         {
             name: "gmNotes",
@@ -45,13 +44,13 @@
             name: "properties",
             label: "A5E.ItemSheetLabelPropertiesTab",
             component: ItemPropertiesTab,
-            display: !itemDocument.system.unidentified || game.user.isGM,
+            display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "actions",
             label: "A5E.ItemSheetLabelActionsTab",
             component: ItemActionsTab,
-            display: !itemDocument.system.unidentified || game.user.isGM,
+            display: !$item.system.unidentified || game.user.isGM,
         },
     ];
 

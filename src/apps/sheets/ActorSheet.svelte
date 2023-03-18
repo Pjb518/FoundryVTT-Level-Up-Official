@@ -18,8 +18,10 @@
     import ActorSpellsPage from "../components/pages/ActorSpellsPage.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { actor, sheet } = getContext("#external").application;
+    export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
+
+    const actor = document;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];

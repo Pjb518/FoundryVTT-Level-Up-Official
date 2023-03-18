@@ -4,12 +4,10 @@ import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 import ActorDocument from './ActorDocument';
 
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
-import LimitedActorSheetComponent from './sheets/LimitedActorSheet.svelte';
+import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
 import BackgroundDropDialog from './dialogs/initializers/BackgroundDropDialog';
 import CultureDropDialog from './dialogs/initializers/CultureDropDialog';
-
-import userHasLimitedAccess from './utils/userHasLimitedAccess';
 
 export default class ActorSheet extends SvelteApplication {
   /**
@@ -18,9 +16,9 @@ export default class ActorSheet extends SvelteApplication {
   constructor(actor, options = {}) {
     options.svelte ??= {};
 
-    if (userHasLimitedAccess(game.user, actor)) {
+    if (actor.permission === CONST.DOCUMENT_PERMISSION_LEVELS.LIMITED) {
       options.classes = ['a5e-sheet', 'a5e-actor-sheet', 'a5e-actor-sheet--limited'];
-      options.svelte.class = LimitedActorSheetComponent;
+      options.svelte.class = LimitedSheetComponent;
       options.width = 512;
       options.resizable = false;
     } else {
@@ -45,7 +43,7 @@ export default class ActorSheet extends SvelteApplication {
 
     this.actor = actor.isToken ? actor.parent.actor : actor;
 
-    this.options.svelte.props.actor = new ActorDocument(
+    this.options.svelte.props.document = new ActorDocument(
       this.actor,
       { delete: this.close.bind(this) }
     );

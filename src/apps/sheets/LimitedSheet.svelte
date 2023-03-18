@@ -1,27 +1,25 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
+    import { getContext } from "svelte";
     import { ApplicationShell } from "@typhonjs-fvtt/runtime/svelte/component/core";
 
-    export let { actor, sheet } = getContext("#external").application;
+    export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
-
-    setContext("actor", actor);
 </script>
 
 <ApplicationShell bind:elementRoot>
     <main>
         <div class="image-wrapper">
             <img
-                class="actor-image"
-                src={$actor.img}
-                alt={$actor.name}
-                title={$actor.name}
+                class="document-image"
+                src={$document.img}
+                alt={$document.name}
+                title={$document.name}
             />
         </div>
 
-        <h1 class="actor-name">{$actor.name}</h1>
+        <h1 class="document-name">{$document.name}</h1>
     </main>
 </ApplicationShell>
 
@@ -38,7 +36,7 @@
         padding: 0.25rem;
     }
 
-    .actor-img {
+    .document-image {
         width: 100%;
         height: auto;
         border-radius: 5px;
