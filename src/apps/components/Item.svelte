@@ -1,5 +1,6 @@
 <script>
     // import { slide } from "svelte/transition";
+    import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
@@ -58,6 +59,10 @@
             JSON.stringify(dragData)
         );
     }
+
+    const actor = getContext("actor");
+
+    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -88,27 +93,70 @@
             if (rightClickConfigure) onConfigure();
         }}
     >
-        <div class="item-name">
-            {action?.name ?? item.name}
+        <div class="name-wrapper">
+            <div
+                class="item-name"
+                class:item-name-object={!actionId && item.type === "object"}
+            >
+                {action?.name ?? item.name}
+            </div>
         </div>
 
         {#if !actionId && item.type === "object"}
-            <input
-                class="item-quantity"
-                type="number"
-                name="system.quantity"
-                value={item?.system?.quantity ?? 1}
-                placeholder="1"
-                min="0"
-                max="9999"
-                on:click|stopPropagation
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        item,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
+            <div class="wrapper-text label-wrapper">
+                <label for="current"> Quantity </label>
+                <input
+                    class="item-quantity"
+                    type="number"
+                    name="system.quantity"
+                    value={item?.system?.quantity ?? 1}
+                    placeholder="1"
+                    min="0"
+                    max="9999"
+                    on:click|stopPropagation
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            item,
+                            target.name,
+                            Number(target.value)
+                        )}
+                />
+            </div>
+        {/if}
+        {#if item.system.uses.max && !actionId}
+            <div class="wrapper-text label-wrapper">
+                <label for="current"> Uses </label>
+                <div class="input-wrapper">
+                    <input
+                        class="item-quantity"
+                        id="current"
+                        type="number"
+                        name="system.uses.value"
+                        value={item.system.uses.value}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                item,
+                                target.name,
+                                Number(target.value)
+                            )}
+                    />
+                    <span>/</span>
+                    <input
+                        class="item-quantity"
+                        type="number"
+                        d-type="Number"
+                        disabled={sheetIsLocked}
+                        name="system.uses.max"
+                        value={item.system.uses.max}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                item,
+                                target.name,
+                                Number(target.value)
+                            )}
+                    />
+                </div>
+            </div>
         {/if}
     </div>
 
@@ -133,6 +181,21 @@
 {/if}
 
 <style lang="scss">
+    .wrapper-text {
+        text-align: center;
+        font-size: 0.694rem;
+    }
+    .label-wrapper {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.694rem;
+        padding: 0.15rem;
+        gap: 0.1rem;
+    }
+    .input-wrapper {
+        flex-direction: row;
+    }
     .actions-list {
         display: flex;
         flex-direction: column;
@@ -167,11 +230,26 @@
         background: rgba(0, 0, 0, 0.05);
     }
 
-    .item-name {
+    .name-wrapper {
         display: flex;
         height: 1.75rem;
         align-items: center;
         font-size: 0.833rem;
+    }
+
+    .item-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: block;
+        height: 1.75rem;
+        width: 14.908rem;
+        align-items: center;
+        font-size: 0.833rem;
+    }
+
+    .item-name-object {
+        width: 8rem;
     }
 
     .item-image {
@@ -187,8 +265,8 @@
     }
 
     .item-roll-button {
-        width: 1.75rem;
-        height: 1.75rem;
+        width: 2.438rem;
+        height: 2.438rem;
         padding: 0;
         margin: 0;
         background: transparent;
