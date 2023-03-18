@@ -20,6 +20,7 @@
             class="initiative-roll-button fas fa-dice-d20"
             class:initiative-roll-button--shift={$pressedKeysStore.Shift}
             class:initiative-roll-button--ctrl={$pressedKeysStore.Control}
+            class:disable-pointer-events={!$actor.isOwner}
             data-tooltip="A5E.RollInitiative"
             data-tooltip-direction="DOWN"
             on:click={() =>
@@ -47,6 +48,10 @@
 </li>
 
 <style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
     .initiative-roll-button {
         display: flex;
         align-items: center;
