@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"XYl2TiUF28PX1sxl": {
-				"name": "Lightning Bolt",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -61,12 +60,6 @@
 		},
 		"description": "<p>A bolt of lightning arcs out from you in a direction you choose. Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren't worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Damage increases by 1d6 for every slot level above 3rd.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -93,6 +86,13 @@
 				"nature",
 				"storm"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "idachh0qpbbyne7c"

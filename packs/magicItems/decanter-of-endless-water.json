@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"DLOB2C2Pw8WZfJgK": {
 				"name": "Decanter of Endless Water",
@@ -55,12 +54,6 @@
 		},
 		"description": "<p>This flask sloshes when shaken as if full of water. You can use an action to remove the stopper and speak a command word, causing undrinkable water to flow out of the flask. It stops at the start of your next turn. </p><p><em>Stream</em>. This command word produces 1 gallon of water. </p><p><em>Fountain</em>. This command word produces 5 gallons of water. </p><p><em>Geyser</em>. This command word produces 30 gallons of water that manifests as a geyser 30 feet long and 1 foot wide. As a bonus action, you can aim the geyser at a target within 30 feet, forcing it to make a DC 13 Strength saving throw or take 1d4 bludgeoning damage and be knocked prone. Any object less than 200 pounds is knocked over or pushed up to 15 feet away.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "13",
-			"onSave": "Negates effects.",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -80,6 +73,7 @@
 		"objectType": "miscellaneous",
 		"plotItem": false,
 		"price": "450 gp",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
@@ -87,7 +81,13 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"ability": "default",
+		"save": {
+			"dc": "13",
+			"onSave": "Negates effects.",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "9l2bs3b95ogw1hbg"
 }

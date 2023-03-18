@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"C13ESz6IC1xiNpiQ": {
-				"name": "Flesh to Stone",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>The target becomes restrained as it begins to turn to stone. On a successful saving throw, the target is instead slowed until the end of its next turn and the spell ends.</p><p>A creature restrained by this spell makes a second saving throw at the end of its turn. On a success, the spell ends. On a failure, the target is petrified for the duration. If you maintain concentration for the maximum duration of the spell, this petrification is permanent.</p><p>Any pieces removed from a petrified creature are missing when the petrification ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature when you cast this spell with an 8th-level spell slot.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Special",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -82,6 +75,13 @@
 				"earth",
 				"transformation"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Special",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "i130d76fifd75hv5"

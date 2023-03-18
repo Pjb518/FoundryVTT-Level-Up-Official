@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"QPSeTdCNdwQoOFCD": {
-				"name": "Grappling Gun",
+				"name": "Attack",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -69,12 +68,6 @@
 		},
 		"description": "<p>This device resembles a crossbow with a grappling hook fixed onto a spear that emerges from the front of it.</p><ul><li><p>You can use an action to fire it at a perch within 120 feet—<em>a crux of tree boughs, the corner of a building, the top of a street light, a cluster of rocks across a chasm</em> — and make a ranged weapon attack roll against AC 13.</p><p>On a successful hit the device’s grappling hook affixes itself to the perch and you can use a bonus action to retract the line, moving to a square adjacent to the grappling hook.</p><p>When you are within 10 feet of the grappling hook you can use a reaction to return it to the grappling gun.</p><p></p></li><li><p>A grappling gun that has its line obstructed by another creature or broken (AC 20, 20 hit points) becomes inoperable until it is reloaded with an action.</p><p>In addition, you can fire the grappling gun as an attack against a creature (range 60/120 ft.), dealing 1d4 bludgeoning damage.</p><p>On a hit the creature makes a DC 10 Strength saving throw or is knocked prone.</p></li></ul>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "10",
-			"onSave": "not knocked prone",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -94,6 +87,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "25,000 gp",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": false,
@@ -101,7 +95,13 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 9
+		"weight": 9,
+		"ability": "default",
+		"save": {
+			"dc": "10",
+			"onSave": "not knocked prone",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "wvxxl07wkpo1qqfw"
 }

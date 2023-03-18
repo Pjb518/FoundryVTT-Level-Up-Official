@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"ExxZfFpdeAVPUe2p": {
-				"name": "Fear",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>You project a phantasmal image into the minds of each creature in the area showing them what they fear most. On a failed save, a creature becomes frightened until the spell ends and must drop whatever it is holding.</p><p>On each of its turns, a creature frightened by this spell uses its action to take the Dash action and move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can repeat the saving throw, ending the spell's effects on it on a successful save.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -81,6 +74,13 @@
 				"arcane",
 				"fear"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "wis"
 		}
 	},
 	"_id": "crjcunjc1r21w2mv"

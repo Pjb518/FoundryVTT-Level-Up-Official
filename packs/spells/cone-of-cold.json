@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"EXA0OYGGYCw0m4fL": {
-				"name": "Cone of Cold",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>Frigid cold blasts from your hands. Each creature in the area takes 8d8 cold damage. Creatures killed by this spell become frozen statues until they thaw.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"attack",
 				"cold"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "snowk91mknqnjde5"

@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"oyJ2kextdY9dREPw": {
-				"name": "Dramatic Sting",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "bonusAction",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>You frighten the target by echoing its movements with ominous music and terrifying sound effects. It takes 1d4 psychic damage and becomes frightened of you until the spell ends.</p><p>At the end of each of the creature's turns, it can make another Wisdom saving throw, ending the effect on itself on a success. On a failed save, the creature takes 1d4 psychic damage.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for each slot level above 1st.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"psychic",
 				"sound"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "wis"
 		}
 	},
 	"_id": "sy2a5qu1t4ilj67y"

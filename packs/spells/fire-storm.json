@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"ZxJdNkJhOzCjiuqh": {
-				"name": "Fire Storm",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>Flames roar, dealing 7d10 fire damage to creatures and objects in the area and igniting unattended flammable objects. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 7th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"fire",
 				"storm"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "1ueqga5yu55bntti"

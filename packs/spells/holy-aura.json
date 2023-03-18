@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"iU4ZNPMTuNUozPep": {
-				"name": "Holy Aura",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Constitution negates.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -82,6 +75,13 @@
 				"enhancement",
 				"protection"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Constitution negates.",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "ego4vzicfhlcqdcu"

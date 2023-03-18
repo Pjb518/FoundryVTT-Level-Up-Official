@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"DvSDZ200lzIzRCjq": {
-				"name": "Imprisoning Forcecage",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>An opaque cube of banded force surrounds the area, preventing any matter or spells from passing through it, though creatures can breathe inside it. Creatures that make a Dexterity saving throw and creatures that are only partially inside the area are pushed out of the area. Any other creature is trapped and can't leave by nonmagical means. The cage also traps creatures on the Ethereal Plane, and can only be destroyed by being dealt at least 25 force damage at once or by a <em>dispel magic</em> spell cast using an 8th-level or higher spell slot.</p><p>If a trapped creature tries to teleport or travel to another plane, it makes a Charisma saving throw. On a failure, the attempt fails and the spell or effect is wasted.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases to a 20-foot cube when using a 9th-level spell slot.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Imprisoning Forcecage.</strong> The spell’s duration is 1 day. You can pass in and out of the cage freely, and you can dispel it at any time. If you cast this spell on the same area for 3 consecutive days, it is permanent until dispelled. Each time you cast the spell, any imprisoned creature can repeat its Dexterity saving throw to escape. </p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Pushed out of the area",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -83,6 +76,13 @@
 				"planar",
 				"teleportation"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Pushed out of the area",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "odjmnb8heizp2w4r"

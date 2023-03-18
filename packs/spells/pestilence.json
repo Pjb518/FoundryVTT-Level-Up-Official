@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"ciHEjqkBKo8V2VSG": {
-				"name": "Pestilence",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -61,12 +60,6 @@
 		},
 		"description": "<p>A swarm of insects fills the area. Creatures that begin their turn within the spell's area or who enter the area for the first time on their turn must make a Constitution saving throw or take 1d4 piercing damage. The pests also ravage any unattended organic material within their radius, such as plant, wood, or fabric.</p><p>This spell's damage increases by 1d4 when you reach 5th level (2d4), 10th level (3d4), and 15th level (4d4).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -91,6 +84,13 @@
 				"nature",
 				"summoning"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "wb05jikqneh34h1s"

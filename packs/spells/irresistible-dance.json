@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"ldtJkuIEApsIJJJH": {
-				"name": "Irresistible Dance",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within 30 feet for each slot level above 6th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -81,6 +74,13 @@
 				"arcane",
 				"compulsion"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "wis"
 		}
 	},
 	"_id": "348wy8nml3a7tdwr"

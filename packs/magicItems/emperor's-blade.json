@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"sgdu2QeeVSNROPsa": {
-				"name": "Emperor's Blade",
+				"name": "Attack",
 				"activation": {
 					"cost": 1,
 					"type": "bonusAction",
@@ -68,12 +67,6 @@
 		},
 		"description": "<blockquote><p>Defensive (Medium)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>Spiked metal barbs line this +1 longsword, resembling the many rows of a shark’s teeth.</p><p>You can use a bonus action to speak a command word that activates or deactivates the barbs.</p><p>While activated, the barbs rapidly saw back and forth to tear into your foes, making your weapon attacks with the sword deal an extra 1d8 slashing damage.</p><p>When you score a critical hit while the barbs are active, the sawing barbs leave a terrible wound that deals 1d8 ongoing damage. At the start of each of its turns, a wounded creature makes a Constitution saving throw (DC 8 + your proficiency bonus + your Strength modifier) to end the ongoing damage.</p><p></p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "8 +@prof +@str.mod",
-			"onSave": "ends ongoing bleed damage",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -93,6 +86,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "9,000 gp",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": false,
@@ -102,7 +96,13 @@
 		"weaponProperties": [
 			"defensive"
 		],
-		"weight": 3
+		"weight": 3,
+		"ability": "default",
+		"save": {
+			"dc": "8 +@prof +@str.mod",
+			"onSave": "ends ongoing bleed damage",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "4qm13x022apoayyb"
 }

@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"wKFMMxl2RBwdrPuR": {
-				"name": "Acid Splash",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -90,6 +83,13 @@
 				"acid",
 				"arcane"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "z3y2a7pwy9gzcv45"

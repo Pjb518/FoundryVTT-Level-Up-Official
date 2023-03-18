@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"3QV8aXeMbJDkltv5": {
-				"name": "Despairing Hideous Laughter",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -51,12 +50,6 @@
 		},
 		"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Despairing Hideous Laughter.</strong> When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check, attack roll, or saving throw it makes after the spell ends.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Negates effect",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -82,6 +75,13 @@
 				"arcane",
 				"compulsion"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "wis"
 		}
 	},
 	"_id": "4tn3jxhf3pqv5o1l"

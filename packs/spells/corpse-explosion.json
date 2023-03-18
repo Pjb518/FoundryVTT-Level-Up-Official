@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"LpyBSPi16Blw8kxg": {
-				"name": "Corpse Explosion",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -60,12 +59,6 @@
 		},
 		"description": "<p>A corpse explodes in a poisonous cloud. Each creature in a 10-foot radius of the corpse must make a Constitution saving throw. A creature takes 3d6 thunder damage and is poisoned for 1 minute on a failed save, or it takes half as much damage and is not poisoned on a successful one. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect for itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional corpse for every 2 slot levels above 1st.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage and negates poisoned",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -90,6 +83,13 @@
 				"poison",
 				"thunder"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage and negates poisoned",
+			"targetAbility": "con"
 		}
 	},
 	"_id": "0tqlw209xugpzidv"

@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"iZfMp9FIYTpGLI0q": {
-				"name": "Mace of Disruption",
+				"name": "Attack",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -73,12 +72,6 @@
 		},
 		"description": "<p style=\"text-align: right\"><em>Defensive (Medium), Simple</em></p><p><strong>Crafting Components</strong>: Mace of a deva</p><hr class=\"a5e-rule u-my-md\"><p>Fiends and undead take an extra [[/r 2d6 #radiant]] radiant damage when hit with this weapon. When this weapon reduces a fiend or undead to 25 or fewer hit points, the creature makes a DC 15 Wisdom saving throw or it is destroyed. On a successful save the creature becomes frightened of you until the end of your next turn.</p><p>While it is held, this weapon shines bright light in a 20-foot radius and dim light an additional 20 feet. <br></p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "15",
-			"onSave": "frightened of you until of of your next turn but not destroyed",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -98,6 +91,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "5000",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
@@ -108,7 +102,13 @@
 			"defensive",
 			"simple"
 		],
-		"weight": 4
+		"weight": 4,
+		"ability": "default",
+		"save": {
+			"dc": "15",
+			"onSave": "frightened of you until of of your next turn but not destroyed",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "yzxjzrv13rm36q3q"
 }

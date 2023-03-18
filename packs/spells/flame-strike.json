@@ -9,10 +9,9 @@
 		}
 	},
 	"system": {
-		"ability": "spellcasting",
 		"actions": {
 			"vxd7zMDE5RVl3N6p": {
-				"name": "Flame Strike",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -67,12 +66,6 @@
 		},
 		"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -97,6 +90,13 @@
 				"divine",
 				"fire"
 			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
 		}
 	},
 	"_id": "c2mhqi8hbsck0pdy"
