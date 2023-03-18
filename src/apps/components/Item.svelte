@@ -104,10 +104,11 @@
 
         {#if !actionId && item.type === "object"}
             <div class="wrapper-text label-wrapper">
-                <label for="current"> Quantity </label>
+                <label for=`${actor.id}-${item-id}-quantity`> Quantity </label>
                 <input
                     class="item-quantity"
                     type="number"
+                    id=`${actor.id}-${item-id}-quantity`
                     name="system.quantity"
                     value={item?.system?.quantity ?? 1}
                     placeholder="1"
@@ -125,11 +126,11 @@
         {/if}
         {#if item.system.uses.max && !actionId}
             <div class="wrapper-text label-wrapper">
-                <label for="current"> Uses </label>
+                <label for=`${actor.id}-${item-id}-current-uses`> Uses </label>
                 <div class="input-wrapper">
                     <input
                         class="item-quantity"
-                        id="current"
+                        id=`${actor.id}-${item-id}-current-uses`
                         type="number"
                         name="system.uses.value"
                         value={item.system.uses.value}
@@ -232,18 +233,18 @@
 
     .name-wrapper {
         display: flex;
-        height: 1.75rem;
-        font-size: 0.833rem;
+        align-items: center;
+        height: 100%;
     }
 
     .item-name {
+        display: block;
+        font-size: 0.833rem;
+        min-width: 0;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        align-items: center;
-        height: 1.75rem;
         width: 14.908rem;
-        font-size: 0.833rem;
     }
 
     .item-name-object {
