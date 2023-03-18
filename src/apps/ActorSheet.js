@@ -16,6 +16,20 @@ export default class ActorSheet extends SvelteApplication {
    * @inheritDoc
    */
   constructor(actor, options = {}) {
+    options.svelte ??= {};
+
+    if (userHasLimitedAccess(game.user, actor)) {
+      options.classes = ['a5e-sheet', 'a5e-actor-sheet', 'a5e-actor-sheet--limited'];
+      options.svelte.class = LimitedActorSheetComponent;
+      options.width = 512;
+      options.resizable = false;
+    } else {
+      options.svelte.class = ActorSheetComponent;
+      options.width = 755;
+      options.height = 708;
+      options.resizable = true;
+    }
+
     super(foundry.utils.mergeObject(
       options,
       {
@@ -36,12 +50,6 @@ export default class ActorSheet extends SvelteApplication {
       { delete: this.close.bind(this) }
     );
 
-    if (userHasLimitedAccess(game.user, actor)) {
-      this.options.svelte.class = LimitedActorSheetComponent;
-    } else {
-      this.options.svelte.class = ActorSheetComponent;
-    }
-
     this.options.svelte.props.sheet = this;
   }
 
@@ -54,11 +62,7 @@ export default class ActorSheet extends SvelteApplication {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-actor-sheet'],
-      resizable: true,
       minimizable: true,
-      width: 755,
-      height: 708,
-
       svelte: {
         target: document.body
       }
