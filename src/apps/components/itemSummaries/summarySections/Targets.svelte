@@ -38,6 +38,10 @@
 {/if}
 
 <style lang="scss">
+    dt {
+        white-space: nowrap;
+    }
+
     dd {
         margin: 0;
         padding: 0;
