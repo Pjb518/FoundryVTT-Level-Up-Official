@@ -17,9 +17,8 @@
 				}
 			},
 			"system": {
-				"ability": "dex",
 				"actions": {
-					"FgsXCVO9biiSAoUL": {
+					"J0iNQs65EMK05OOB": {
 						"name": "Stone",
 						"activation": {
 							"cost": 1,
@@ -31,7 +30,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"JLuQZCTmqsfxmeKp": {
+							"CN4zjrlHiffXm0HZ": {
 								"range": "10/30 ft"
 							}
 						},
@@ -47,20 +46,21 @@
 							"size": ""
 						},
 						"rolls": {
-							"oggj8DVEx4tPpUUC": {
+							"8bvvnXA0R4K9XyfG": {
 								"bonus": "",
 								"critThreshold": 20,
 								"type": "attack",
+								"attackType": "rangedWeaponAttack",
 								"ability": "dex"
 							},
-							"BoCI9dY1y5p564GX": {
+							"VlR58KFwrf7POFG6": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "4d4 + @str.mod",
 								"name": "Base",
 								"type": "damage"
 							},
-							"okQtpKThjb1Dpp6l": {
+							"Wz9CMZZVPZXTXaFC": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "2d4 + @str.mod",
@@ -72,12 +72,6 @@
 				},
 				"description": "<p><em>Ranged Weapon Attack:</em> +2 to hit, range 10/30 ft., up to two targets. <em>Hit:</em> 10 (4d4) bludgeoning damage, or half damage if the mob is bloodied.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -97,6 +91,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "0",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -107,7 +102,13 @@
 					"thrown",
 					"simple"
 				],
-				"weight": 0
+				"weight": 0,
+				"ability": "dex",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -127,9 +128,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"ghwS1Z1LEI2fOMRy": {
+					"hIq6kTEp7PTxFY2h": {
 						"name": "Club",
 						"activation": {
 							"cost": 1,
@@ -141,7 +141,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"0JSWoBRabnMciC30": {
+							"rTeD2qADE8sKwBzK": {
 								"range": "fiveFeet"
 							}
 						},
@@ -157,20 +157,21 @@
 							"size": ""
 						},
 						"rolls": {
-							"aL1O3gJ4gix4HQ5F": {
+							"3RlxWRd4hFF1OG6u": {
 								"bonus": "",
 								"critThreshold": 20,
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"fvcUyIQ1ZVOmahBn": {
+							"VIVTtXUKty6uck1R": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "4d4+ @str.mod",
 								"name": "Base",
 								"type": "damage"
 							},
-							"M5uEiG5SRcQSSsrV": {
+							"28HTNvW1bvXTvCV8": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "2d4 + @str.mod",
@@ -182,12 +183,6 @@
 				},
 				"description": "<p><em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft., up to two targets. <em>Hit:</em> 10 (4d4) bludgeoning damage, or half damage if the mob is bloodied.</p><p><em>Simple</em></p><p><strong>Simple.</strong> This weapon can be used with very little skill or training, and all creatures gain proficiency with it.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -207,6 +202,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "1 sp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -216,7 +212,13 @@
 				"weaponProperties": [
 					"simple"
 				],
-				"weight": 2
+				"weight": 2,
+				"ability": "str",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -236,9 +238,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The mob takes double damage from any effect that targets an area.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -257,12 +270,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The mob takes double damage from any effect that targets an area.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -271,19 +282,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -303,9 +305,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>When the mob is reduced to 0 hit points, it turns into 5 (1d6 + 2) commoners with 2 hit points.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -324,12 +337,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>When the mob is reduced to 0 hit points, it turns into 5 (1d6 + 2) commoners with 2 hit points.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -338,19 +349,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -370,9 +372,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The mob is composed of 10 or more commoners. If it is subjected to a spell, attack, or other effect that affects only one target, it takes any damage but ignores other effects. It can share its space with Medium or smaller creatures or objects. The mob can move through any opening large enough for one Medium creature.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -391,12 +404,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The mob is composed of 10 or more commoners. If it is subjected to a spell, attack, or other effect that affects only one target, it takes any damage but ignores other effects. It can share its space with Medium or smaller creatures or objects. The mob can move through any opening large enough for one Medium creature.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -405,19 +416,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -434,9 +436,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"5ybfBbmqnxFUIeW0": {
+					"sus7ye2SCtEhl7Q7": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -448,7 +449,7 @@
 							"value": null
 						},
 						"ranges": {
-							"yYHVNBZszAmhljLE": {
+							"8fcgT9ZzvuPGiiD3": {
 								"range": "fiveFeet"
 							}
 						},
@@ -464,7 +465,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"dKc9leCCYcLznxBD": {
+							"nDyzSZPTuPkzwC7P": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -473,7 +474,7 @@
 							}
 						},
 						"prompts": {
-							"zYxnFcc0UA4s24xD": {
+							"LAtbgnetLLDGvTAI": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -487,12 +488,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -504,7 +499,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -524,9 +526,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"XUk4DdLsJb8WLPp0": {
+					"E3LVrTvMsZBxm0yE": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -538,7 +539,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Hm3LiEHJrYfW6ZrT": {
+							"d1o0mcWymLQw3ELf": {
 								"range": "touch"
 							}
 						},
@@ -554,7 +555,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"9zpcRjkmIYaJx96I": {
+							"WwcJ7zuJTKx2vMWA": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -563,7 +564,7 @@
 							}
 						},
 						"prompts": {
-							"rrCdgXqCk0CIOI0y": {
+							"b0lSrkhZxyLsikxu": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -577,12 +578,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -594,7 +589,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -614,9 +616,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"KRASagEtaI7JTxBs": {
+					"ehkyPHS3tSt92xq6": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -628,7 +629,7 @@
 							"value": null
 						},
 						"ranges": {
-							"rpuTvubMAi89dj4Q": {
+							"hFOkk3vDRzv8jGLm": {
 								"range": "touch"
 							}
 						},
@@ -644,7 +645,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"7XIfOUbEpqOHZLsW": {
+							"7HwblkM1HuTgAC4P": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -658,12 +659,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -675,7 +670,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -695,9 +697,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"iCJp06R26CzjsalN": {
+					"997SLAs3QKufivyk": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -709,7 +710,7 @@
 							"value": null
 						},
 						"ranges": {
-							"IOdkBEFXWGY1R4VD": {
+							"bwRUSf09IrKSmwel": {
 								"range": "touch"
 							}
 						},
@@ -725,7 +726,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"lQ7zVeAEMaOcOgHx": {
+							"4DGuPjOE0BODuoTH": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -739,12 +740,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -756,7 +751,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -776,9 +778,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"rhsyz5irhsHf2KjW": {
+					"jgqLQPAlYKO8VMCd": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -790,7 +791,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ocCBxrqWrMiS4IIP": {
+							"PC52VmBfVb6rTiHJ": {
 								"range": "touch"
 							}
 						},
@@ -806,7 +807,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"OvPYcAZeUKW1zcuu": {
+							"kpbHzmzCuC3pDD5m": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -820,12 +821,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -837,7 +832,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -857,9 +859,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"9ZkhH7rKnBqWqwR0": {
+					"QSudCjHw49eAL9IH": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -871,7 +872,7 @@
 							"value": null
 						},
 						"ranges": {
-							"USDsvx7hzW2JRXKc": {
+							"yAvS14jhohbJuAfr": {
 								"range": "touch"
 							}
 						},
@@ -887,7 +888,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"e3URoWsvhJd9XPKt": {
+							"A1n1nIEAExjk4Ox3": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -901,12 +902,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -918,7 +913,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1419,6 +1421,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": "0",
 			"elite": false,
 			"privateNotes": "<p><strong>ENCOUNTERS</strong></p><p><strong>CR 0–2</strong> 1d10 commoners; 1 or 2 commoners with 1 or 2 camels, draft horses, mastiffs, or mules</p><p><strong>Treasure</strong> 50 sp, 50 cp; commoner mob</p><p><strong>CR 3–4</strong> 2d20 commoners or commoner mob with acolyte, minstrel, or noble</p><p><strong>Treasure</strong> 500 sp, 500 cp</p>"

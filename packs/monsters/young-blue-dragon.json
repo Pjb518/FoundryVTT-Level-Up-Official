@@ -17,9 +17,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -38,12 +49,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -52,19 +61,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -84,9 +84,8 @@
 				}
 			},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"fzMEXyiyRq2fucl2": {
+					"a30SFZdDIa3kQjez": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -98,7 +97,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"5pztcfqbEF2S9FAV": {
+							"WHxQs1NTCsusNX4O": {
 								"range": "Reach: 10ft."
 							}
 						},
@@ -112,20 +111,21 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"w11EBYJPLOlFSPgj": {
+							"1qjScZLoYbKs8h0J": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"UsqV0a78Uh6POVLR": {
+							"DdpBA8qdx9HWDdLk": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "3d10 + @default.mod",
 								"name": "",
 								"type": "damage"
 							},
-							"boe7dpCNt0BDy6zf": {
+							"aDr8zWRGEjnwLaho": {
 								"canCrit": true,
 								"damageType": "lightning",
 								"formula": "1d8",
@@ -137,12 +137,6 @@
 				},
 				"description": "<p>The dragon makes a bite attack.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Escapes grapple",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -151,7 +145,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 23,
+					"onSave": "Escapes grapple",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -167,9 +168,8 @@
 			"sort": 500000,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"PCCSHH4eh1rIu0FR": {
+					"NzaK7Y1sunww9sAs": {
 						"name": "Claw",
 						"activation": {
 							"cost": 1,
@@ -181,7 +181,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"9Drj0IwG7L9OgOQa": {
+							"x5Rd3Kh3hGeIx3eS": {
 								"range": "fiveFeet"
 							}
 						},
@@ -195,13 +195,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"F3nC0OmZy5wn4Elo": {
+							"fVuh2DNYgtMHIhkg": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"M7xeI4iC6113re7Z": {
+							"Tnf7cT0y67CIocE6": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "2d8 + @default.mod",
@@ -213,12 +214,6 @@
 				},
 				"description": "<p>The Dragon makes a claw attack.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -227,7 +222,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -243,9 +245,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon ignores difficult terrain or obscurement caused by sand or gravel, even while flying. Additionally, it ignores the effects of extreme heat.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -264,12 +277,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon ignores difficult terrain or obscurement caused by sand or gravel, even while flying. Additionally, it ignores the effects of extreme heat.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -278,19 +289,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -306,9 +308,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon can remain submerged in sand and gravel for up to 4 hours. It has advantage on Stealth checks made to hide in this way.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -327,12 +340,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon can remain submerged in sand and gravel for up to 4 hours. It has advantage on Stealth checks made to hide in this way.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -341,19 +352,10 @@
 					"onSave": "Not Blinded",
 					"targetAbility": "dex"
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": null,
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -369,9 +371,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon’s spellcasting ability is Charisma (save <strong>DC 15</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>: <em>blur, silent image</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -390,12 +403,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon’s spellcasting ability is Charisma (save <strong>DC 15</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>: <em>blur, silent image</em></p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -404,19 +415,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -436,9 +438,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"LKVZ2SjNNUFNdPuJ": {
+					"W3mlD8uOEdODHtmZ": {
 						"name": "Blur",
 						"activation": {
 							"cost": 1,
@@ -450,7 +451,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"B21SdZgdixcth9AW": {
+							"unN4bDG6GxIhynr3": {
 								"range": "self"
 							}
 						},
@@ -467,12 +468,6 @@
 				},
 				"description": "<p>Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight).</p><p><strong><em>Cast at Higher Levels.</em></strong> You may target an additional willing creature you can see within range for each slot level above 2nd. Whenever an affected creature other than you is hit by an attack, the spell ends for that creature. When using a higher level spell slot, increase the spell's range to 30 feet.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -498,6 +493,13 @@
 						"protection",
 						"senses"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -518,9 +520,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"LlMMObSTx07KTQYD": {
+					"mcDTY8QSCx6Vu3rH": {
 						"name": "Silent Image",
 						"activation": {
 							"cost": 1,
@@ -532,7 +533,7 @@
 							"value": "10"
 						},
 						"ranges": {
-							"w14wsABsGG3t9Sp8": {
+							"GDd9hJU5HTFzkEpn": {
 								"range": "medium"
 							}
 						},
@@ -548,7 +549,7 @@
 							"size": "15"
 						},
 						"rolls": {
-							"QOqTbij29jtpSvU5": {
+							"sSNcgg7EmZwjHZBD": {
 								"ability": "str",
 								"type": "abilityCheck"
 							}
@@ -557,12 +558,6 @@
 				},
 				"description": "<p>You create an illusory image of a creature, object, or other visible effect within the area. The illusion is purely visual, it cannot produce sound or smell, and items and other creatures pass through it.</p><p>As an action, you can move the image to any point within range. The image's movement can be natural and lifelike (for example, a ball will roll and a bird will fly).</p><p>A creature can spend an action to make an Investigation check against your spell save DC to determine if the image is an illusion. On a success, it is able to see through the image.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -587,6 +582,13 @@
 						"arcane",
 						"senses"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -607,9 +609,8 @@
 				}
 			},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"Zy5AvqtL8OAfn2ZB": {
+					"OOc1lVnNvaUWxD8R": {
 						"name": "Lightning Breath (Recharge 5-6)",
 						"activation": {
 							"cost": 1,
@@ -621,7 +622,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"7tIRnNuqEfSgh4e9": {
+							"w7siS7IxCFtmz8bp": {
 								"range": "medium"
 							}
 						},
@@ -635,7 +636,7 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"yEaxi04l6KCWhEYK": {
+							"HbERCkZtUOqMa0H3": {
 								"canCrit": false,
 								"damageType": "lightning",
 								"formula": "8d10",
@@ -644,7 +645,7 @@
 							}
 						},
 						"prompts": {
-							"fIuI1kz23TqIPKsc": {
+							"KD8rikyxGHNK7xho": {
 								"ability": "dex",
 								"onSave": "Half damage.",
 								"saveDC": {
@@ -658,12 +659,6 @@
 				},
 				"description": "<p>The dragon exhales a 60-foot-long, 5-foot-wide line of lightning. Each creature in that area makes a DC 16 Dexterity saving throw, taking 44 (8d10) lightning damage on a failed save or half damage on a success. A creature that fails the save can’t take reactions until the end of its next turn.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 16,
-					"onSave": "Half damage.",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -672,7 +667,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 16,
+					"onSave": "Half damage.",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -689,9 +691,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"V6GBp20jKtOy7gmP": {
+					"x59nQypG6Pwy7pqZ": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -703,7 +704,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ZliDdWF59TG3Igxp": {
+							"oyjpca6Y80A5Y407": {
 								"range": "fiveFeet"
 							}
 						},
@@ -719,7 +720,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"0HAsQhoAxTlBvel8": {
+							"GZqQL4MCrIOkAOPt": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -728,7 +729,7 @@
 							}
 						},
 						"prompts": {
-							"fHT5alErzUOqU9Yw": {
+							"0yc3wU6qncdDMdIP": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -742,12 +743,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -759,7 +754,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -779,9 +781,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"eaLWbSqQ0UK0hzjj": {
+					"fPY5azgi7H6OYOS3": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -793,7 +794,7 @@
 							"value": null
 						},
 						"ranges": {
-							"gOXgO1cS5uTYzes6": {
+							"lXEvI4aKFLGEMsxW": {
 								"range": "touch"
 							}
 						},
@@ -809,7 +810,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"XCxEWKdAFWXUQHHm": {
+							"LQ0NrsCHWWyrdA2c": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -818,7 +819,7 @@
 							}
 						},
 						"prompts": {
-							"a24WmKfkLbLaPG6H": {
+							"N4cZkaUD8iLsZ4zw": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -832,12 +833,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -849,7 +844,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -869,9 +871,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"8UrufRCMrXOIy82p": {
+					"QoVGWWmkUxkwF1im": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -883,7 +884,7 @@
 							"value": null
 						},
 						"ranges": {
-							"x4AxqaQJv2pXpFuz": {
+							"gJgGVmfWfY64v9QK": {
 								"range": "touch"
 							}
 						},
@@ -899,7 +900,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"xg15Eci3yeAzqZST": {
+							"ednOSy7hxS48ZqHF": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -913,12 +914,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -930,7 +925,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -950,9 +952,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"YN3fe14abYvemc1l": {
+					"QPFgygrRq5XMPf4t": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -964,7 +965,7 @@
 							"value": null
 						},
 						"ranges": {
-							"L4VpeLTwrowgudvX": {
+							"Au2dJiGNctjwmThu": {
 								"range": "touch"
 							}
 						},
@@ -980,7 +981,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Hj7ilHwtcOZoBNO9": {
+							"j7bll6GI4IKhTyGJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -994,12 +995,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1011,7 +1006,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1031,9 +1033,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"2XQDVAVN1NNVJ8Om": {
+					"esjdGrAWxDevNBE7": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1045,7 +1046,7 @@
 							"value": null
 						},
 						"ranges": {
-							"a6u80PWdy79aIaJ5": {
+							"fI9c4QqAMLKDu7Ji": {
 								"range": "touch"
 							}
 						},
@@ -1061,7 +1062,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Yq4tHzWwydvmxZ8V": {
+							"ThMciF9kbMqaRFuZ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1075,12 +1076,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1092,7 +1087,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1112,9 +1114,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"pxjuJQvo1XsNas9j": {
+					"UiCrY9lN8Xly7ABJ": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1126,7 +1127,7 @@
 							"value": null
 						},
 						"ranges": {
-							"hXcfaFmNv2vBYupe": {
+							"BgKRQzciT0KAcAKi": {
 								"range": "touch"
 							}
 						},
@@ -1142,7 +1143,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"0xjLRshJJrvKIDxQ": {
+							"j10J0rA9kpwfBXha": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1156,12 +1157,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1173,7 +1168,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1676,6 +1678,7 @@
 			"creatureTypes": [
 				"dragon"
 			],
+			"isSwarm": false,
 			"cr": 10,
 			"elite": false,
 			"privateNotes": ""

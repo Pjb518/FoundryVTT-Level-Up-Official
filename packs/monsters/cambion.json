@@ -13,9 +13,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>Scale Mail. AC becomes 14 if unarmored.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -34,12 +45,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>Scale Mail. AC becomes 14 if unarmored.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -48,19 +57,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -76,9 +76,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The cambion makes two melee attacks or two ranged attacks.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -97,12 +108,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The cambion makes two melee attacks or two ranged attacks.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -111,19 +120,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -139,9 +139,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"5bYqJa7okoTv6cKz": {
+					"wW4ZwR98x8TGsVBE": {
 						"name": "Black Iron Blade",
 						"activation": {
 							"cost": 1,
@@ -162,20 +161,21 @@
 							"type": ""
 						},
 						"rolls": {
-							"C5gaWY9dgeBagZ2D": {
+							"SmEOyHnqU7ZaY5Qf": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"X6GAfilYInPjVfav": {
+							"vyRe4Clx9T4sE4A0": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d10+@str.mod",
 								"name": "Slashing",
 								"type": "damage"
 							},
-							"k5ssqCrUp5aKxOkt": {
+							"JEPcpPfmoGp0de3V": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d10",
@@ -187,12 +187,6 @@
 				},
 				"description": "<p>The target also takes a wound that deals 5 (1d10) ongoing slashing damage. A creature can end the ongoing damage by staunching the wound as an action or by giving the target magical healing.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -212,6 +206,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -219,7 +214,13 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"ability": "str",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -239,9 +240,8 @@
 				}
 			},
 			"system": {
-				"ability": "dex",
 				"actions": {
-					"GjZEtItFBmWROnwk": {
+					"B7rZpp6cUrlISmRx": {
 						"name": "Fire Blast",
 						"activation": {
 							"cost": 1,
@@ -262,13 +262,14 @@
 							"type": ""
 						},
 						"rolls": {
-							"glgn7xRIshyhvmSW": {
+							"DXbehBsWoZls5Psw": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "rangedSpellAttack",
 								"ability": "dex"
 							},
-							"nDa3AFZpXQ3xZsjq": {
+							"jWrxTEJ7ISkYuY9r": {
 								"canCrit": true,
 								"damageType": "fire",
 								"formula": "3d8",
@@ -280,12 +281,6 @@
 				},
 				"description": "<p>Range 60 ft, one target.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -294,7 +289,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "dex",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -314,9 +316,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"IM7T2lTpn5aodLBI": {
+					"ycvmYLUqjuJslAcR": {
 						"name": "Fiery Escape (1/ day)",
 						"activation": {
 							"cost": 1,
@@ -337,7 +338,7 @@
 							"type": ""
 						},
 						"rolls": {
-							"ADt9Wj1JoELnOsJm": {
+							"j9uV87eKWUa1HoVT": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "4d6",
@@ -349,12 +350,6 @@
 				},
 				"description": "<p>The cambion magically creates a fiery portal to the realm of its fiendish parent. The portal appears in an empty space within 5 feet. The portal lasts until the end of the cambion’s next turn or until it passes through the portal. No one but the cambion can pass through the portal; anyone else that enters its space takes 14 (4d6) fire damage.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -363,7 +358,14 @@
 					"per": "day"
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -383,9 +385,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"gLYfypq2dAO5ACqE": {
+					"IRt2HID89FQaWp2j": {
 						"name": "Fell Charm",
 						"activation": {
 							"cost": 1,
@@ -406,7 +407,7 @@
 							"type": ""
 						},
 						"prompts": {
-							"WWNOYe2eXhRzLYTQ": {
+							"DidqtTKXnuPTkEDj": {
 								"ability": "wis",
 								"onSave": "",
 								"saveDC": {
@@ -420,12 +421,6 @@
 				},
 				"description": "<p>he cambion targets one creature within 30 feet. The target makes a DC 15 Wisdom saving throw. On a failure, it is magically charmed by the cambion for 1 day.&nbsp; The effect ends if the cambion or a cambion’s ally harms the target, or if the cambion commands it to take a suicidal action. While charmed, the target regards the cambion as a trusted friend and is an ally of the cambion. If the target makes a successful saving throw or the effect ends, the target is immune to this cambion’s Fell Charm for 24 hours.&nbsp;</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 15,
-					"onSave": "",
-					"targetAbility": "wis"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -434,7 +429,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 15,
+					"onSave": "",
+					"targetAbility": "wis"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -454,9 +456,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"eTeastkBVqzxPDmt": {
+					"AAzhRyCaZyE3CIvO": {
 						"name": "Command",
 						"activation": {
 							"cost": 1,
@@ -480,12 +481,6 @@
 				},
 				"description": "<p>The cambion gives an order to an ally within 60 feet that can hear it. If the ally has a reaction available, it can use it to follow the cambion’s order, either taking an action or moving up to its Speed.&nbsp;</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -494,7 +489,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -514,9 +516,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"QvofNjak1gODKa6y": {
+					"wRGS72psNNMl725y": {
 						"name": "Shapeshift",
 						"activation": {
 							"cost": 1,
@@ -540,12 +541,6 @@
 				},
 				"description": "<p>The cambion magically changes its form to that of any humanoid creature it has seen before, or back into its true form. While shapeshifted, its statistics are unchanged except that it has no armor or equipment, can’t use its black iron blade, and can fly only if it is in a form with wings. It reverts to its true form if it dies.&nbsp;</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -554,7 +549,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -571,9 +573,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"9geqYbky1cHuSuP4": {
+					"Ylve7y1rqnQk0YdR": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -585,7 +586,7 @@
 							"value": null
 						},
 						"ranges": {
-							"NNEkkrYL81vKh3lA": {
+							"n3qhiTu4dgnSvxsR": {
 								"range": "fiveFeet"
 							}
 						},
@@ -601,7 +602,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"vchQWBJcZVsQjTzN": {
+							"SW7i8HhQ9zvOeqTP": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -610,7 +611,7 @@
 							}
 						},
 						"prompts": {
-							"YgqNcwyCjFlOY4gX": {
+							"88Gzmv325tL1ZdSX": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -624,12 +625,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -641,7 +636,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -661,9 +663,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"2m9OjSCzR9VIv5Yj": {
+					"O0XcLDAtz0KfEeI8": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -675,7 +676,7 @@
 							"value": null
 						},
 						"ranges": {
-							"EB0hRnWW2o2lhwKJ": {
+							"guy63woFtPz443i1": {
 								"range": "touch"
 							}
 						},
@@ -691,7 +692,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"4RgheN0fa2Q836uq": {
+							"Kn5qkRWnOgkOUZPF": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -700,7 +701,7 @@
 							}
 						},
 						"prompts": {
-							"0ghro9JnpwjomL3i": {
+							"8WbETvtLaBSaIwOz": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -714,12 +715,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -731,7 +726,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -751,9 +753,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"PgRnJApg1itVzzcZ": {
+					"gnFUqnuwFS6Je4b8": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -765,7 +766,7 @@
 							"value": null
 						},
 						"ranges": {
-							"wZ6v4QhZvXmWLof2": {
+							"mwPQPQDCZb41FPBW": {
 								"range": "touch"
 							}
 						},
@@ -781,7 +782,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"k26YJ6NfNrnkBABu": {
+							"H612RLrd7mHeM4fP": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -795,12 +796,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -812,7 +807,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -832,9 +834,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"lAC3goJuZLime1JT": {
+					"ztxmzfDu8fLdl7Vw": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -846,7 +847,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Sy1LCYqfV5H9bUtS": {
+							"JD0jMJiAv60VN2o0": {
 								"range": "touch"
 							}
 						},
@@ -862,7 +863,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"PNGCJSsvdrBDA9GB": {
+							"Q5YNAmv9bKMfFv6C": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -876,12 +877,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -893,7 +888,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -913,9 +915,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"IdKxU3faDdOVhfbF": {
+					"86AgoEhFiUWKYxE1": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -927,7 +928,7 @@
 							"value": null
 						},
 						"ranges": {
-							"3bNblMzGF0PPwWwQ": {
+							"ab7PRxfzgJ5apCEO": {
 								"range": "touch"
 							}
 						},
@@ -943,7 +944,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"mi5yYyI5CuvLgAFK": {
+							"ydQwnHSrF6btPSZ1": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -957,12 +958,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -974,7 +969,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -994,9 +996,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"GGJmvaZn2LIEla3P": {
+					"vT9BeLCr5Pde5YIC": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1008,7 +1009,7 @@
 							"value": null
 						},
 						"ranges": {
-							"bU394asTDFzjc9pV": {
+							"Ia1MOKRkhvRD9Edf": {
 								"range": "touch"
 							}
 						},
@@ -1024,7 +1025,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ZosFR45qdsxuVzSO": {
+							"tda4uy7eqACjv6js": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1038,12 +1039,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1055,7 +1050,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1555,6 +1557,7 @@
 			"creatureTypes": [
 				"fiend"
 			],
+			"isSwarm": false,
 			"cr": 5,
 			"elite": false,
 			"privateNotes": ""

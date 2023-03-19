@@ -17,47 +17,11 @@
 				}
 			},
 			"system": {
-				"ability": "",
-				"actionOptions": [],
 				"actions": {},
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
 				"description": "<p>12 + Dexterity modifier</p>\n<p>&nbsp;</p>\n<p>DC 10 sewing kit to repair</p>\n<p>&nbsp;</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
 				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
 				"uses": {
 					"value": null,
 					"max": "",
@@ -77,6 +41,7 @@
 				"objectType": "armor",
 				"plotItem": false,
 				"price": "15",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -84,7 +49,42 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 8
+				"weight": 8,
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -104,9 +104,8 @@
 				}
 			},
 			"system": {
-				"ability": "dex",
 				"actions": {
-					"gJ1cWHJFQeFuUf5i": {
+					"JjaCNWWG7YK9AIS1": {
 						"name": "Shortbow",
 						"activation": {
 							"cost": 1,
@@ -118,7 +117,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"aOQxGysViRxgJXPz": {
+							"orT8noNc8i4q1Clu": {
 								"range": "80/320"
 							}
 						},
@@ -132,13 +131,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"xqUG1QkrUZfDuy0f": {
+							"cxrfTvoxgC7FGp8Q": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "rangedWeaponAttack",
 								"ability": "dex"
 							},
-							"jJBbOAApsyCgUs8L": {
+							"GLGm7VRKJt58n5d8": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d6+@dex.mod",
@@ -150,12 +150,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -175,6 +169,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -182,7 +177,13 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"ability": "dex",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -202,9 +203,8 @@
 				}
 			},
 			"system": {
-				"ability": "dex",
 				"actions": {
-					"djXbMj9NwoYduiC6": {
+					"5puMnZp6Vvx1cOHw": {
 						"name": "Shortsword",
 						"activation": {
 							"cost": 1,
@@ -216,7 +216,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"WWYR3zeurkH7gQCr": {
+							"zaXw7gu562QWqrLt": {
 								"range": "touch"
 							}
 						},
@@ -230,13 +230,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"zOtTsRz5WyGWnkQv": {
+							"mpCMAdVcki7Dng5M": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "dex"
 							},
-							"itWWw9M3eUJu0ZEz": {
+							"QfJKYuCxwCJvOZQ7": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d6+@dex.mod",
@@ -248,12 +249,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -273,6 +268,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "0",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -284,7 +280,13 @@
 					"finesse",
 					"parrying"
 				],
-				"weight": 2
+				"weight": 2,
+				"ability": "dex",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -300,9 +302,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The goblin takes the Disengage or Hide action.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -321,12 +334,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The goblin takes the Disengage or Hide action.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -335,19 +346,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -359,9 +361,8 @@
 			"_id": "NmpjOTOncElBmtvh",
 			"img": "icons/svg/item-bag.svg",
 			"system": {
-				"ability": "",
 				"actions": {
-					"oSNrthQYwVuaPDsu": {
+					"ivFplAhIMtWbC8lf": {
 						"name": "Throw Vial",
 						"activation": {
 							"cost": 1,
@@ -373,10 +374,10 @@
 							"value": ""
 						},
 						"ranges": {
-							"hWhwdiCatTmHEVJ6": {
+							"o82wHX8OBNQkqPXG": {
 								"range": "20 ft."
 							},
-							"I1GdFBLU60H4j0pM": {
+							"dGJiE5kRUEH0D6NJ": {
 								"range": "40 ft."
 							}
 						},
@@ -389,12 +390,14 @@
 							"type": ""
 						},
 						"rolls": {
-							"FCA7xViUE0Stmk9K": {
+							"Uk9QK6FnxeMAqhie": {
 								"bonus": "",
 								"critThreshold": "20",
-								"type": "attack"
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": ""
 							},
-							"GEwkjatVWSR8gZSe": {
+							"ij8jW0mlrQX8hnXt": {
 								"canCrit": true,
 								"damageType": "fire",
 								"defaultSelection": true,
@@ -407,12 +410,6 @@
 				},
 				"description": "<p><em>Ranged Weapon Attack </em>+3 to hit, range 20/40 ft., one target. <em>Hit:</em> ongoing fire damage. A creature can use an action to douse the fire on a target, ending all ongoing damage being dealt by alchemist’s fire. &nbsp;(You can substitute acid by altering the damage type.)</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -421,7 +418,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"effects": [],
 			"folder": null,
@@ -442,9 +446,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"biwQ1TIABvRAqMF0": {
+					"EoZ3NG7Q0GaE0Oda": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -456,7 +459,7 @@
 							"value": null
 						},
 						"ranges": {
-							"mD9kJPDP26xxJ42u": {
+							"CpnMA1WTVUuIGsdI": {
 								"range": "fiveFeet"
 							}
 						},
@@ -472,7 +475,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"5T6KFSCXWcYZufLO": {
+							"KBwmx2yAxVDeOZzw": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -481,7 +484,7 @@
 							}
 						},
 						"prompts": {
-							"sNOYspFvXASS8b7j": {
+							"uqE6iTDqcmETmczQ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -495,12 +498,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -512,7 +509,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -532,9 +536,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"xCKFUEKyZl7d7bQG": {
+					"QQlWXTOxojyzWTpc": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -546,7 +549,7 @@
 							"value": null
 						},
 						"ranges": {
-							"kKL8xZ1lPaKQSCBQ": {
+							"CBBuV1fuwqa2CrtT": {
 								"range": "touch"
 							}
 						},
@@ -562,7 +565,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"EvZsW1weH5UH0QlG": {
+							"THyZfwg7HTy39vd4": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -571,7 +574,7 @@
 							}
 						},
 						"prompts": {
-							"zRJFQLTodBNDVc1c": {
+							"6OLHgd2pm3LKEFe6": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -585,12 +588,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -602,7 +599,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -622,9 +626,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"4wULEstdii9Hpch0": {
+					"qfvy2LT2d8yiPECZ": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -636,7 +639,7 @@
 							"value": null
 						},
 						"ranges": {
-							"q00z3j5jQ6devJwY": {
+							"aHPS9M8VmPlP6Rzz": {
 								"range": "touch"
 							}
 						},
@@ -652,7 +655,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"W8SZ9p99M2oiibLi": {
+							"E8BCT8hN7ccd94g1": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -666,12 +669,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -683,7 +680,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -703,9 +707,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"ORWTbRwLx6CfrtHC": {
+					"nBo0Wq5dqIkqLBlK": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -717,7 +720,7 @@
 							"value": null
 						},
 						"ranges": {
-							"yesg0m5KxYoRe9Wf": {
+							"9mt1u84168N5kRwO": {
 								"range": "touch"
 							}
 						},
@@ -733,7 +736,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"TK0LWoWstjhcgB8U": {
+							"jofjxGpHB9vVwWIB": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -747,12 +750,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -764,7 +761,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -784,9 +788,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"793h0EPupn6XSYoi": {
+					"ngY3D1mRJ0vUNXr0": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -798,7 +801,7 @@
 							"value": null
 						},
 						"ranges": {
-							"8clS9OYCj4DOcCmj": {
+							"aoVK7Tvbn3K3BXja": {
 								"range": "touch"
 							}
 						},
@@ -814,7 +817,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"SbWsxNVnIaUoXjcA": {
+							"fxKt8S7TPstRChGl": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -828,12 +831,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -845,7 +842,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -865,9 +869,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"AXzWVhLwkeVr7hFS": {
+					"P8L0t5qrGKLcU93e": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -879,7 +882,7 @@
 							"value": null
 						},
 						"ranges": {
-							"QVcgbhPEEoxu4lXj": {
+							"yB2Gqtz8NPqnSFkM": {
 								"range": "touch"
 							}
 						},
@@ -895,7 +898,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"4SND5wgsabqqkR3k": {
+							"GyrRiBo1tCs9nIto": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -909,12 +912,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -926,7 +923,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1423,6 +1427,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": 0.5,
 			"elite": false,
 			"privateNotes": "<div>\n<h2>COMBAT</h2>\n<p>Goblins attack only when they outnumber their opponents. They employ ambush, firing arrows from hiding and then using Nimble Escape to hide elsewhere. When they can, they turn an aspect of the battle to their advantage, attacking in darkness or from above or amongst traps and hazards. If a goblin is engaged in melee while not in an advantageous position, it attacks with its shortsword and then disengages. Unless a powerful leader forces them to stand their ground, goblins retreat once they no longer outnumber their enemy.</p>\n<hr />\n<h2>GOBLIN NAMES</h2>\n<p>Blacktooth, Briarbones, Dinda, Flea, Flundercork, Grimgargle, Gurp, One-Toe, Ood, Skirn, Thrunk, Vivvle</p>\n<hr />\n<h2>LEGENDS AND LORE</h2>\n<p>With a History or Nature check, characters can learn the following:</p>\n<p>DC 10 Goblins are small humanoids. While many find them disgusting, they are clever and resourceful creatures.</p>\n<p>DC 15 Goblins rarely attack unless they outnumber their foes. For every goblin you see, there are usually two more lurking nearby.</p>\n<p>DC 20 Goblins sometimes serve larger humanoids or train giant rats as watchdogs or mounts.</p>\n</div>\n<div>\n<p>From the wildest forests to the most sprawling metropolises, there's no place in the world you won't find goblins. For these small, individually weak creatures, survival is the greatest virtue.&nbsp;</p>\n<p>It's A Living. Life is unfair to goblins. It's the one thing they can count on. Goblins are rarely granted mercy or kindness by larger folk, and in return they rarely extend it to others.&nbsp;</p>\n<p>Goblins are often found in the service of more powerful creatures, particularly larger goblinoids such as hobgoblins. When faced with impossible tasks or unfair expectations, goblins grumble and complain, plot petty revenge, then roll up their sleeves and get to work. Where other creatures might turn up their noses at disgusting, cramped environments, goblins see opportunity. They will carve out space where none exists, flourishing in the cracks of civilization or in the unforgiving wilderness.</p>\n<p>Expert Opportunists. Goblins often lurk in civilization&rsquo;s liminal spaces: in abandoned mines within raiding distance of a village, or in a sprawling sewer beneath a city. Goblins can find a use for almost anything, from broken or discarded gear to abandoned tunnels to the rotting husks of long-dead trees. Goblin equipment is frequently scavenged or crafted out of unlikely materials. Goblins rarely risk combat, except when they are certain they have the upper hand. They will gladly take your discarded food, however&mdash;and, if you're not careful, whatever's on your table and in the bag you left unattended, as well.&nbsp;</p>\n<p>Feral Glee. Goblins take their joy wherever they can find it. An unsupervised moment to play is a prize they cherish more than food or treasure. It may not last long, but goblins can make a game out of anything, and they respond well to anyone who plays along.</p>\n</div>"

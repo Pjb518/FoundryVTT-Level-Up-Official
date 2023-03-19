@@ -17,9 +17,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The worm can tunnel through earth and solid rock, leaving behind a 10-foot-diameter tunnel.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -38,12 +49,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The worm can tunnel through earth and solid rock, leaving behind a 10-foot-diameter tunnel.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -52,19 +61,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -84,9 +84,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"TBBfe5u5DYa5maWt": {
+					"FlWJRUpz12ERwHlJ": {
 						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
@@ -110,12 +109,6 @@
 				},
 				"description": "<p>The worm attacks two different targets with its bite and its tail stinger.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -124,7 +117,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -144,9 +144,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"hbeP0vthbUCRURbj": {
+					"g2XTcv9f7jORCjhn": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -158,7 +157,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"Zmyr9EQwwxGLX4Sp": {
+							"VySCYXjsCjXgmSfy": {
 								"range": "10 ft."
 							}
 						},
@@ -172,20 +171,21 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"oqcRsYNtnPUs7J9f": {
+							"rPymVw3bVq9HsS56": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"AzVRVG6i3UWPUNlp": {
+							"STG0mXBOsztvD06U": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "3d10+@str.mod",
 								"name": "Bite Base Damage",
 								"type": "damage"
 							},
-							"cz6nklNN8a2ApoMT": {
+							"i2AV7M1CPXzhvk5Z": {
 								"canCrit": true,
 								"damageType": "acid",
 								"formula": "7d6",
@@ -194,7 +194,7 @@
 							}
 						},
 						"prompts": {
-							"kYPr8x3jEjMkhGQt": {
+							"FVaWJ5RtG3pikBNz": {
 								"ability": "dex",
 								"onSave": "Avoids Being Swallowed",
 								"saveDC": {
@@ -208,12 +208,6 @@
 				},
 				"description": "<p style=\"text-align: start\">On hit, if the target is a Large or smaller creature, it makes a DC 19 Dexterity saving throw. On a failure, the target is swallowed. A swallowed creature is blinded and restrained, it has total cover from attacks from outside the worm, and it takes 24 (7d6) acid damage at the start of each of the worm’s turns.</p><p><br>If a swallowed creature deals 35 or more damage to the worm in a single turn, or if the worm dies, the worm vomits up all swallowed creatures.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 19,
-					"onSave": "Avoids Being Swallowed",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -222,7 +216,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": 19,
+					"onSave": "Avoids Being Swallowed",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -242,9 +243,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"yb5TNmStmuM0VdFz": {
+					"tE20VeP4ox0LxCDD": {
 						"name": "Tail Stinger",
 						"activation": {
 							"cost": 1,
@@ -256,7 +256,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"V1zybQVkQME0iSdP": {
+							"MNZuULmtGZp197Qm": {
 								"range": "10 ft."
 							}
 						},
@@ -270,20 +270,21 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"62D33a109eimDb47": {
+							"6XiDowalraLDbCDW": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"NFIBn4TwQjRgwasm": {
+							"XJfaFASRT3dL1r4O": {
 								"canCrit": true,
 								"damageType": "",
 								"formula": "3d6+@str.mod",
 								"name": "Stinger Base",
 								"type": "damage"
 							},
-							"TaMAsVMZjoRNJwII": {
+							"Kti0G5qDrQNqlLzG": {
 								"canCrit": true,
 								"damageType": "poison",
 								"formula": "12d6",
@@ -292,7 +293,7 @@
 							}
 						},
 						"prompts": {
-							"e38AOgEQ6BOunfw8": {
+							"ShRvYfuabEdwr5QS": {
 								"ability": "con",
 								"onSave": "Half Poison Damage",
 								"saveDC": {
@@ -306,12 +307,6 @@
 				},
 				"description": "<p>On hit, target makes a DC 19 Constitution saving throw. The target will take half damage from the additional poison damage on success.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 19,
-					"onSave": "Half Poison Damage",
-					"targetAbility": "con"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -320,7 +315,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": 19,
+					"onSave": "Half Poison Damage",
+					"targetAbility": "con"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -340,9 +342,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"flk9emhHaoT3ttyr": {
+					"KIZzZ44Gy8dCN87h": {
 						"name": "Fighting Retreat",
 						"activation": {
 							"cost": 1,
@@ -366,12 +367,6 @@
 				},
 				"description": "<p>When a creature makes an opportunity attack on the worm, the worm attacks with either its bite or its tail stinger.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -380,7 +375,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -397,9 +399,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"yuLgYs5nZieuFiRs": {
+					"cj8SoBjDkenKY5YL": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -411,7 +412,7 @@
 							"value": null
 						},
 						"ranges": {
-							"RfCx1CuyYnfBhN9G": {
+							"j6rO4rmaEdYptQhl": {
 								"range": "fiveFeet"
 							}
 						},
@@ -427,7 +428,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"Br1hLEa5Oo2y9CzM": {
+							"ggTeRlPtKUaIvZ6W": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -436,7 +437,7 @@
 							}
 						},
 						"prompts": {
-							"cNCYUUDQo66V2sKZ": {
+							"PNgZDM8thivDSltH": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -450,12 +451,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -467,7 +462,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -487,9 +489,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"T6lW9Bf9eEhpjSP2": {
+					"pKa8k5KERPF5Q27Q": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -501,7 +502,7 @@
 							"value": null
 						},
 						"ranges": {
-							"CXIGebA2ybQ6PSAl": {
+							"FSJnTOTh0pogOHdf": {
 								"range": "touch"
 							}
 						},
@@ -517,7 +518,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"Q6dGBUw80kw7WjLG": {
+							"72qiP6ZGquDcRT24": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -526,7 +527,7 @@
 							}
 						},
 						"prompts": {
-							"dz3xzd20Yf22T095": {
+							"4ZcgP5NBpg5B96zv": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -540,12 +541,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -557,7 +552,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -577,9 +579,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"GcnsOnWDbELKPcOp": {
+					"5vLUdBiWLRHdXJW9": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -591,7 +592,7 @@
 							"value": null
 						},
 						"ranges": {
-							"2QrBGJKueoKQjQno": {
+							"0s26ieI9H6cWANZe": {
 								"range": "touch"
 							}
 						},
@@ -607,7 +608,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"BjeLW0RCIacgGewb": {
+							"g4y9koS9El2eWrwy": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -621,12 +622,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -638,7 +633,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -658,9 +660,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"XNVENVzV8OG6ynjF": {
+					"XENTxg89WimOPuu5": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -672,7 +673,7 @@
 							"value": null
 						},
 						"ranges": {
-							"wJgNVHVhn9f71njG": {
+							"mvP8yHz3uQtunbjS": {
 								"range": "touch"
 							}
 						},
@@ -688,7 +689,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ImXerlvuN5Q9JC11": {
+							"7Y3XDaH3BXb9hj5l": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -702,12 +703,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -719,7 +714,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -739,9 +741,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"Dk4AwEOFb0MzJNxd": {
+					"l9afOM49lOD18MN7": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -753,7 +754,7 @@
 							"value": null
 						},
 						"ranges": {
-							"q19FCUvX77gP937w": {
+							"FYSqS1kOHlot2CHs": {
 								"range": "touch"
 							}
 						},
@@ -769,7 +770,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"y9Dla6pl0fYoYUc0": {
+							"5xvGU2nldd9DusYI": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -783,12 +784,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -800,7 +795,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -820,9 +822,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"ojD4Or3a6CUQfF11": {
+					"c9HSlWSaZ7EmbCcz": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -834,7 +835,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JErMoyTIPeJ1k0Qp": {
+							"NmlUuyWaTM3cDEVN": {
 								"range": "touch"
 							}
 						},
@@ -850,7 +851,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"mrwnXXO3Lb7a0A1R": {
+							"Gy2DnwJOzGXaev0e": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -864,12 +865,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -881,7 +876,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1378,6 +1380,7 @@
 			"creatureTypes": [
 				"monstrosity"
 			],
+			"isSwarm": false,
 			"cr": 15,
 			"elite": false,
 			"privateNotes": ""

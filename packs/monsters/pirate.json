@@ -17,9 +17,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"O96DOlsgE5keTKTR": {
+					"9U1BG44sQHCPOmGd": {
 						"name": "Scimitar",
 						"activation": {
 							"cost": 1,
@@ -31,7 +30,7 @@
 							"value": null
 						},
 						"ranges": {
-							"9f7rRNmRhZcCmmJ2": {
+							"m7S1G5WyVaWzM1yj": {
 								"range": "fiveFeet"
 							}
 						},
@@ -47,13 +46,14 @@
 							"size": ""
 						},
 						"rolls": {
-							"z6svarhWDZ7pXTIR": {
+							"muF7Bo0kDdZxgZ0v": {
 								"bonus": "",
 								"critThreshold": 20,
 								"type": "attack",
-								"ability": "dex"
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
 							},
-							"JyZTRLWqV7t53xAu": {
+							"ScIeVD2CCcllCxWr": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d6 + @finesse.mod",
@@ -65,12 +65,6 @@
 				},
 				"description": "<p><em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) slashing damage.</p><p><em>Defensive (light), dual-wielding, finesse</em></p><p><strong>Defensive.</strong> This weapon is designed to be used with a shield of the stated degree or lighter (light, medium, or heavy). When you make an attack with this weapon and are using a shield designed for it, you can use a bonus action to either make an attack with your shield or increase your Armor Class by 1 until the start of your next turn.</p><p><strong>Dual-Wielding.</strong> This weapon is designed to be wielded in concert with another weapon. When wielding another weapon in your main hand that does not have the heavy property, you can use your bonus action to make an attack with this weapon (see Two-Weapon Fighting on page 446 in Chapter 8: Combat).</p><p><strong>Finesse.</strong> You may choose to use your Dexterity modifier for attack and damage rolls made with this weapon.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -90,6 +84,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "20 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -101,7 +96,13 @@
 					"dualWielding",
 					"finesse"
 				],
-				"weight": 3
+				"weight": 3,
+				"ability": "str",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -121,9 +122,8 @@
 				}
 			},
 			"system": {
-				"ability": "dex",
 				"actions": {
-					"Lgdij6zvHtBoD130": {
+					"OckilffmstyzYwBu": {
 						"name": "Light Crossbow",
 						"activation": {
 							"cost": 1,
@@ -135,7 +135,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"RGIbFtwnNTR1duw4": {
+							"72iEmJ6eWo6VPVLr": {
 								"range": "80/320 ft"
 							}
 						},
@@ -151,13 +151,14 @@
 							"size": ""
 						},
 						"rolls": {
-							"CKdKsDNTnsiOxQ80": {
+							"uvh2EBtgsldTVjI9": {
 								"bonus": "",
 								"critThreshold": 20,
 								"type": "attack",
+								"attackType": "rangedWeaponAttack",
 								"ability": "dex"
 							},
-							"057I2pmBAs3GnFYV": {
+							"vjKLyc1dE2tNweRx": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d8 + @str.mod",
@@ -169,12 +170,6 @@
 				},
 				"description": "<p><em>Ranged Weapon Attack:</em> +2 to hit, range 80/320 ft., one target. <em>Hit:</em> 4 (1d8) piercing damage.</p><p><br><em>Loading, range (80/320), simple, two-handed</em></p><p><strong>Loading.</strong> This weapon must be loaded before it can be used. You may only make one attack with a loading weapon when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make.</p><p><strong>Range.</strong> This weapon fires ammunition. The range lists two numbers after it, both measured in feet—the first is the weapon's normal range, and the second is the weapon's maximum range. You have disadvantage on attack rolls made beyond the weapon's normal range, and you cannot make attacks against targets beyond the weapon's maximum range.</p><p><strong>Simple.</strong> This weapon can be used with very little skill or training, and all creatures gain proficiency with it.</p><p><strong>Two-Handed.</strong> You must use two hands to wield this weapon.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -194,6 +189,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "45 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -206,7 +202,13 @@
 					"simple",
 					"twoHanded"
 				],
-				"weight": 5
+				"weight": 5,
+				"ability": "dex",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -226,49 +228,11 @@
 				}
 			},
 			"system": {
-				"ability": "",
-				"actionOptions": [],
 				"actions": {},
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
 				"description": "<p><strong>AC:</strong> 12 + Dexterity modifier </p><p><strong>Flaw:</strong> piercing</p><p><strong>Repair:</strong> DC 10; sewing kit</p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
 				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
-				"target": {
-					"quantity": "",
-					"type": "",
-					"shape": "",
-					"size": ""
-				},
 				"uses": {
 					"value": null,
 					"max": "",
@@ -286,6 +250,7 @@
 				"objectType": "armor",
 				"plotItem": false,
 				"price": "5",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "",
 				"requiresAttunement": false,
@@ -293,25 +258,9 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 6
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "HfSDGE3qmpxoUFij",
-			"name": "Vehicles (Water)",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
+				"weight": 6,
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -330,26 +279,43 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>Pirates have proficiency with vehicles (water).</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
-				"proficient": true,
 				"range": [],
 				"save": {
 					"dc": "",
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
-					"type": ""
-				},
+					"type": "",
+					"shape": "",
+					"size": ""
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "HfSDGE3qmpxoUFij",
+			"name": "Vehicles (Water)",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>Pirates have proficiency with vehicles (water).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
 				"uses": {
 					"value": null,
 					"max": "",
@@ -367,6 +333,7 @@
 				"objectType": "",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -374,7 +341,42 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -391,9 +393,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"tmXhWJ7lIzPToXy9": {
+					"OLxQR42MqQOYl24I": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -405,7 +406,7 @@
 							"value": null
 						},
 						"ranges": {
-							"0ZBxxcAVsFhtlQhw": {
+							"72U39PozW0t0iVO5": {
 								"range": "fiveFeet"
 							}
 						},
@@ -421,7 +422,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"Ws3CoIV3jYQFYAJR": {
+							"d6ltgu6hVfdJBAPr": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -430,7 +431,7 @@
 							}
 						},
 						"prompts": {
-							"szCX0lkFm6qUXZUW": {
+							"jsj9bZejVtOvbNX9": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -444,12 +445,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -461,7 +456,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -481,9 +483,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"pyjdn0xuMmj1dWEs": {
+					"kGjaxmc5RQWNRMMw": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -495,7 +496,7 @@
 							"value": null
 						},
 						"ranges": {
-							"BNNwUEqwWSUrf97w": {
+							"RrdThxehFMiMQOaK": {
 								"range": "touch"
 							}
 						},
@@ -511,7 +512,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"AxJL9eXmVRQeDepg": {
+							"M1CBMmoQWHZxbRMA": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -520,7 +521,7 @@
 							}
 						},
 						"prompts": {
-							"UFYICJodEeOvUkg7": {
+							"zYWZ0RWU5F821xvj": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -534,12 +535,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -551,7 +546,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -571,9 +573,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"wqvzod3fQRtOvPtQ": {
+					"tba9houuKNjIf5K9": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -585,7 +586,7 @@
 							"value": null
 						},
 						"ranges": {
-							"pLkQnHvvmdQlJ2ek": {
+							"ycU9tdXagalAhOVh": {
 								"range": "touch"
 							}
 						},
@@ -601,7 +602,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"9Cr31u39W1ImsYJz": {
+							"n4vTBZccfvpiNPRO": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -615,12 +616,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -632,7 +627,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -652,9 +654,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"T515IQD4CQWupLPs": {
+					"GitQpIVwbGO9O7qF": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -666,7 +667,7 @@
 							"value": null
 						},
 						"ranges": {
-							"FklZctu3r8RiM5r0": {
+							"RbD6XZEq6kNH6xiS": {
 								"range": "touch"
 							}
 						},
@@ -682,7 +683,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"0tYzCBanxVLCMTlF": {
+							"fsSKgW1wqiZN78rI": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -696,12 +697,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -713,7 +708,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -733,9 +735,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"Akq3pDFvpHYrT6Cu": {
+					"Mw5Q54m0SwHeNe4E": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -747,7 +748,7 @@
 							"value": null
 						},
 						"ranges": {
-							"nF6SB22kgOlzSuce": {
+							"NX7ole2qpt6NSLxd": {
 								"range": "touch"
 							}
 						},
@@ -763,7 +764,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"2ZM5rh2jyP0mFmpM": {
+							"41HVIq4EAYd6kyXa": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -777,12 +778,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -794,7 +789,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -814,9 +816,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"imGUvbplKl5qi536": {
+					"GUGCs6ymYngK8szh": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -828,7 +829,7 @@
 							"value": null
 						},
 						"ranges": {
-							"7H3Y1JoP5B4FeIxF": {
+							"7fIhhPhVpV1JE0OB": {
 								"range": "touch"
 							}
 						},
@@ -844,7 +845,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"IgzCTEFTR67qvzKp": {
+							"eaK2PJLi81xVek62": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -858,12 +859,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -875,7 +870,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1375,6 +1377,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": 0.125,
 			"elite": false,
 			"privateNotes": "<p><strong>ENCOUNTERS</strong></p><p><strong>CR 0–2</strong> 1d8 bandits; 1d4 bandits with cutthroat, apprentice mage, or thug</p><p><strong>Treasure</strong> 40 gp, 200 sp, 300 cp; 1d8 pirates</p><p><strong>CR 3–4</strong> bandit captain with 2 to 4 bandits; pirate captain with 2 to 4 pirates</p><p><strong>Treasure</strong> 150 gp, 600 sp, 8 turquoise gemstones (10 gp each), piece of a treasure map</p><p><strong>CR 5–10</strong> bandit captain with 1d10 + 5 bandits or 1d6 + 1 thugs; bandit captain with 1d10 + 5 bandits and apprentice mage, minstrel, or priest; pirate captain with 1d10 + 5 pirates</p><p><strong>Treasure</strong> 350 gp, 500 sp, 10 pieces of cheap jewelry (25 gp each), 40 pounds of trade goods (200 gp), treasure map, 3 <em>potions of healing</em></p>"

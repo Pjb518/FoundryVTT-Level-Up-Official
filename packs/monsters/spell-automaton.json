@@ -483,6 +483,7 @@
 			"creatureTypes": [
 				"construct"
 			],
+			"isSwarm": false,
 			"cr": "0",
 			"elite": false,
 			"privateNotes": ""
@@ -619,9 +620,8 @@
 			"_id": "UGU6aNWKh0YOrHuv",
 			"img": "icons/skills/melee/strikes-sword-scimitar.webp",
 			"system": {
-				"ability": "",
 				"actions": {
-					"7401Pzlc2Vk8yNWq": {
+					"rR354L1xwUOXktZe": {
 						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
@@ -644,12 +644,6 @@
 				},
 				"description": "<p>The automaton attacks twice with its slams or once with its integrated spell.<br></p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -658,7 +652,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"effects": [],
 			"folder": null,
@@ -674,9 +675,8 @@
 			"_id": "FQwEOqsuquj9YP2Q",
 			"img": "icons/equipment/hand/gauntlet-cuffed-steel-grey.webp",
 			"system": {
-				"ability": null,
 				"actions": {
-					"qEvpKSjHamd0DEtT": {
+					"MBGY9GV13vFw2Nck": {
 						"name": "Slam",
 						"activation": {
 							"cost": 1,
@@ -688,7 +688,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"iMshvyKrDaMukFtA": {
+							"xWjSPX5Fy3oUb7pp": {
 								"range": "touch"
 							}
 						},
@@ -701,12 +701,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"qST8XXI4kYUu4vWj": {
+							"S5H2jzLegYWqynz7": {
 								"bonus": "",
 								"critThreshold": "20",
-								"type": "attack"
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": null
 							},
-							"KXw3G6ldBDTQmQ9M": {
+							"UoOUKDJgGeXL0PtQ": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"defaultSelection": true,
@@ -719,12 +721,6 @@
 				},
 				"description": "<p><strong>Melee Weapon Attac</strong>k: its creator’s spell attack modifier to hit, reach 5 ft., one target. </p><p><strong>Hit</strong>: [[/r 2d10 + 4]] + your Intelligence modifier bludgeoning damage. <br></p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -733,7 +729,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": null,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"effects": [],
 			"folder": null,
@@ -749,9 +752,20 @@
 			"_id": "CO4YPqAJEDc0z26s",
 			"img": "icons/magic/symbols/cog-glowing-green.webp",
 			"system": {
+				"actions": {},
+				"description": "<p>The automaton uses the spell invention integrated into it to cast a spell, using your spell attack bonus and spell save DC. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 30 damage instead. <br></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -769,12 +783,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The automaton uses the spell invention integrated into it to cast a spell, using your spell attack bonus and spell save DC. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 30 damage instead. <br></p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -783,19 +795,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"effects": [],
 			"folder": null,
@@ -811,9 +814,8 @@
 			"_id": "ae3ZXRDNKEgPtDNG",
 			"img": "icons/magic/time/clock-spinning-gold-pink.webp",
 			"system": {
-				"ability": "",
 				"actions": {
-					"UcyBq73ELYrf3cUl": {
+					"ujiBfF2wZg2QgiLb": {
 						"name": "Overclock (Recharge 5–6)",
 						"activation": {
 							"cost": 1,
@@ -825,7 +827,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"KPAv2zLKY0OjsQoV": {
+							"3WO34DTQM1EcJoae": {
 								"range": "self"
 							}
 						},
@@ -841,12 +843,6 @@
 				},
 				"description": "<p>The automaton takes the Dash action. <br></p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -855,7 +851,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"effects": [],
 			"folder": null,
@@ -876,9 +879,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"Hn22vRkD37izSv09": {
+					"ijyGE50sRA6vTgMF": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -890,7 +892,7 @@
 							"value": null
 						},
 						"ranges": {
-							"r6BIMhGYmtxEpEQX": {
+							"gvntZAbJNPwWdRD8": {
 								"range": "fiveFeet"
 							}
 						},
@@ -906,7 +908,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"UOOZrSshV62ztqmx": {
+							"DqywAHtffUh52hzg": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -915,7 +917,7 @@
 							}
 						},
 						"prompts": {
-							"ciSJFrEwBGnYhEdK": {
+							"alTB1R8CxBwTvniQ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -929,12 +931,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -946,7 +942,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -966,9 +969,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"HJpb5zM56vt3kDnw": {
+					"PxGGxtIGZ36p9n9b": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -980,7 +982,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JA04fFxfadEH6m0Y": {
+							"vrYbAsMydvb0UPk7": {
 								"range": "touch"
 							}
 						},
@@ -996,7 +998,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"NV6G0Ms9CSEcSWYz": {
+							"2Sxs6jIw7kTodDjy": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1005,7 +1007,7 @@
 							}
 						},
 						"prompts": {
-							"TjTyY6P9LNR8oq6B": {
+							"pdSL7f4CD8yxzyW0": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1019,12 +1021,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1036,7 +1032,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1056,9 +1059,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"84wRzwOow2msrC6T": {
+					"91UtCfTvSAox228c": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1070,7 +1072,7 @@
 							"value": null
 						},
 						"ranges": {
-							"RlrQQxKMQBhsj7xp": {
+							"byOZdsCwF5iTTZZN": {
 								"range": "touch"
 							}
 						},
@@ -1086,7 +1088,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"QVqpgr5vUtydYdqD": {
+							"zwP9Lewc2KCfN2dv": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1100,12 +1102,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1117,7 +1113,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1137,9 +1140,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"BjLWBoFWhI0kJVmz": {
+					"6TtPxD8cWUqrqCzR": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1151,7 +1153,7 @@
 							"value": null
 						},
 						"ranges": {
-							"fMwlHz5plq82KUUo": {
+							"CRbg4OkoRHfBfckV": {
 								"range": "touch"
 							}
 						},
@@ -1167,7 +1169,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"2uJpLIr3IHhFQPQA": {
+							"TZ2dcaNJxFr1AzDK": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1181,12 +1183,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1198,7 +1194,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1218,9 +1221,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"qrb1ma0ujhg1b0LO": {
+					"nLpd63t7wgIDltWK": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1232,7 +1234,7 @@
 							"value": null
 						},
 						"ranges": {
-							"0j4tpo3veRwqwgeV": {
+							"iwzytCpwbNkUFoLh": {
 								"range": "touch"
 							}
 						},
@@ -1248,7 +1250,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"FyeNAlyGIUorSx1T": {
+							"6dkJ9DZN1kVGFOa6": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1262,12 +1264,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1279,7 +1275,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1299,9 +1302,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"RevW8RWfaaEaHXIP": {
+					"ptQhrH1vg4AH3gjE": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1313,7 +1315,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Rji9LZVvPuwWZ8CP": {
+							"QCVVmstJJVmVBb0L": {
 								"range": "touch"
 							}
 						},
@@ -1329,7 +1331,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ObglSHuY2sVzMd33": {
+							"8v1A5HJyjHOZWAY4": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1343,12 +1345,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1360,7 +1356,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0

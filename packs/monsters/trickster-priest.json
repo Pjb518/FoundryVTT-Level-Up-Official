@@ -17,9 +17,8 @@
 				}
 			},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"e4tfHOAETyN5atOZ": {
+					"0NNkRJcXI4tEz6kb": {
 						"name": "Mace",
 						"activation": {
 							"cost": "",
@@ -40,13 +39,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"xe8I00wmemjIJG8j": {
+							"3v9ycYxwvRDNyeTR": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"9BceBMMokM6VMhxO": {
+							"DNnOlrrI1BTmBiqn": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "1d6 + @str.mod",
@@ -58,12 +58,6 @@
 				},
 				"description": "<p><em>Defensive (Medium), Simple</em></p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -83,6 +77,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "5 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -93,7 +88,13 @@
 					"defensive",
 					"simple"
 				],
-				"weight": 4
+				"weight": 4,
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -109,9 +110,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p><strong><em>Spellcasting.</em></strong> The trickster priest is a 5th level spellcaster. Their spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). They have the following cleric spells prepared:</p><p>Cantrips (at will):<em> sacred flame , thaumaturgy , minor illusion</em></p><p>1st-level (4 slots): <em>ceremony , detect evil and good , healing word , disguise self</em></p><p>2nd-level (3 slots): <em>lesser restoration , invisibility</em></p><p>3rd-level (2 slots): <em>spirit guardians , major image</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -130,12 +142,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p><strong><em>Spellcasting.</em></strong> The trickster priest is a 5th level spellcaster. Their spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). They have the following cleric spells prepared:</p><p>Cantrips (at will):<em> sacred flame , thaumaturgy , minor illusion</em></p><p>1st-level (4 slots): <em>ceremony , detect evil and good , healing word , disguise self</em></p><p>2nd-level (3 slots): <em>lesser restoration , invisibility</em></p><p>3rd-level (2 slots): <em>spirit guardians , major image</em></p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -144,19 +154,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -176,9 +177,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"14wS1mrZuEdHFyb2": {
+					"NZVL5aoPWTqXbkpt": {
 						"name": "Ceremony",
 						"activation": {
 							"cost": 1,
@@ -190,7 +190,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"yFYNF4MYCpbPMdYS": {
+							"YrrMgTsUJACq23Ya": {
 								"range": "short"
 							}
 						},
@@ -207,12 +207,6 @@
 				},
 				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -236,6 +230,13 @@
 					"secondary": [
 						"divine"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -256,9 +257,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"710Xjw8VMivf9x4u": {
+					"EiAK22QlxWgmKHU6": {
 						"name": "Detect Evil and Good",
 						"activation": {
 							"cost": 1,
@@ -270,7 +270,7 @@
 							"value": "10"
 						},
 						"ranges": {
-							"eY8gA8agCbNh7TbF": {
+							"XUJu3WNDiXLma039": {
 								"range": "30-foot radius"
 							}
 						},
@@ -287,12 +287,6 @@
 				},
 				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -317,6 +311,13 @@
 						"divine",
 						"senses"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -337,9 +338,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"WPgBkkjPtE5gd7yp": {
+					"Ll5MVZUJ3lzj3EkP": {
 						"name": "Healing Word",
 						"activation": {
 							"cost": 1,
@@ -351,7 +351,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"d1EdDXM2xOWjgOM7": {
+							"BiPITli355TVLk0E": {
 								"range": "medium"
 							}
 						},
@@ -368,12 +368,6 @@
 				},
 				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 1st.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -398,6 +392,13 @@
 						"divine",
 						"healing"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -418,9 +419,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"LQelvVOYNtuWlXie": {
+					"GkgU9ILpd8G83n64": {
 						"name": "Lesser Restoration",
 						"activation": {
 							"cost": 1,
@@ -432,7 +432,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"ojXXChzZXx71eDFl": {
+							"Jjaatmyofx4DsxWd": {
 								"range": "touch"
 							}
 						},
@@ -449,12 +449,6 @@
 				},
 				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator's discretion, some diseases might not be curable with this spell.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -480,6 +474,13 @@
 						"good",
 						"healing"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -500,9 +501,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"gb05DwV8izD96VVX": {
+					"sSr1EgZcRSTV8icA": {
 						"name": "Sacred Flame",
 						"activation": {
 							"cost": 1,
@@ -514,7 +514,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"b2YH4kLGPLkaZRyF": {
+							"Bccr9qBuIW7VFFRI": {
 								"range": "medium"
 							}
 						},
@@ -528,7 +528,7 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"WUaLUp2jXRdCuoNa": {
+							"KlyguaVU3HeN6ys1": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "(floor((@details.level+1)/6)+1)d8",
@@ -537,7 +537,7 @@
 							}
 						},
 						"prompts": {
-							"N1cKbwnx12uQcyK0": {
+							"PyeDC5SqxabELO5s": {
 								"ability": "dex",
 								"onSave": "Negates effect",
 								"saveDC": {
@@ -551,12 +551,6 @@
 				},
 				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effect",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -582,6 +576,13 @@
 						"divine",
 						"radiant"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "dex"
 				}
 			},
 			"ownership": {
@@ -602,9 +603,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"5akdw0HRZDbUYzQ7": {
+					"fkCUROeo7PcCGnvX": {
 						"name": "Thaumaturgy",
 						"activation": {
 							"cost": 1,
@@ -616,7 +616,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"fAsK4AXHix6BiDo1": {
+							"rqLkTpvd4H4Wo92E": {
 								"range": "short"
 							}
 						},
@@ -634,12 +634,6 @@
 				},
 				"description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li>Your voice booms up to three times louder than normal</li><li>You cause flames to flicker, brighten, dim, or change color</li><li>You send harmless tremors throughout the ground.</li><li>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.</li><li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li><li>You alter the appearance of your eyes.</li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -664,6 +658,13 @@
 						"divine",
 						"enhancement"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -684,9 +685,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"yuKQiInsPvrWgIwd": {
+					"sjrNtsj1tIwJ0BHY": {
 						"name": "Spirit Guardians",
 						"activation": {
 							"cost": 1,
@@ -698,7 +698,7 @@
 							"value": "10"
 						},
 						"ranges": {
-							"BuK6jPfPpJaxjhkh": {
+							"hrlJMzR2TlBASD9v": {
 								"range": "self"
 							}
 						},
@@ -714,14 +714,14 @@
 							"size": "10 ft."
 						},
 						"rolls": {
-							"MCNb5jXiRspxeril": {
+							"j2bPV6U6NUmIvZhb": {
 								"canCrit": false,
 								"damageType": "radiant",
 								"formula": "3d6",
 								"name": "Radiant",
 								"type": "damage"
 							},
-							"01l7sEb2jY0AAYgF": {
+							"6ajq1GGk3L1ZR76W": {
 								"canCrit": false,
 								"damageType": "necrotic",
 								"formula": "3d6",
@@ -730,7 +730,7 @@
 							}
 						},
 						"prompts": {
-							"HkBUIvrGNPsi6eqB": {
+							"ezvAJQ4zxOSQXDuP": {
 								"ability": "wis",
 								"onSave": "Half damage damage",
 								"saveDC": {
@@ -744,12 +744,6 @@
 				},
 				"description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Half damage damage",
-					"targetAbility": "wis"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -775,6 +769,13 @@
 						"necrotic",
 						"radiant"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage damage",
+					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -792,9 +793,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"wI2c5GpXB9lB9GlR": {
+					"4YQku4wAFEmaLN3y": {
 						"name": "Minor Illusion",
 						"activation": {
 							"cost": 1,
@@ -806,7 +806,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"jE6XZYoOZSXUvfJ9": {
+							"RH6UgHq6zkSJDuBW": {
 								"range": "short"
 							}
 						},
@@ -820,7 +820,7 @@
 							"type": ""
 						},
 						"rolls": {
-							"UISeEj93OxDr89fI": {
+							"QRGQvmJUN8Gge1dH": {
 								"ability": "str",
 								"type": "abilityCheck"
 							}
@@ -829,12 +829,6 @@
 				},
 				"description": "<p>This spell creates a sound or image of an object.</p><p>The illusion disappears if dismissed or you cast the spell again.</p><p>You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the spell ends. Sounds are audible outside the spell's area.</p><p>Visual illusions may replicate any image and remain within the spell's area, but cannot create sound, light, smell, or other sensory effects.</p><p>The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -859,6 +853,13 @@
 						"arcane",
 						"chaos"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"_id": "oTWkynLQGTuzpirY",
@@ -879,9 +880,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"M5RJdFsAVanxTxDi": {
+					"TSi7NBPtuLtjQA71": {
 						"name": "Disguise Self",
 						"activation": {
 							"cost": 1,
@@ -893,7 +893,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"BlgVkSZadxqqYo5v": {
+							"RwknFYINQhLuwJta": {
 								"range": "self"
 							}
 						},
@@ -907,7 +907,7 @@
 							"type": "self"
 						},
 						"rolls": {
-							"COZiWW9bPA1N8JdG": {
+							"uagLHtlx73yahUdZ": {
 								"ability": "str",
 								"type": "abilityCheck"
 							}
@@ -916,12 +916,6 @@
 				},
 				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -946,6 +940,13 @@
 						"arcane",
 						"obscurement"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"_id": "EBvQu4msTV6cmTMQ",
@@ -966,9 +967,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"RIJxUlMg3WW087My": {
+					"K7L0xHwqos5LvHiI": {
 						"name": "Invisibility",
 						"activation": {
 							"cost": 1,
@@ -980,7 +980,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"z5UKdDnrYtLxXRQf": {
+							"1yPkh4aMJvoxN6aV": {
 								"range": "touch"
 							}
 						},
@@ -997,12 +997,6 @@
 				},
 				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1028,6 +1022,13 @@
 						"obscurement",
 						"shadow"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"_id": "f3vBwlU3fvvnDLJK",
@@ -1048,9 +1049,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"ATmrhcnTTXOOWAFy": {
+					"aKc71GfZJlAiyiAJ": {
 						"name": "Major Image",
 						"activation": {
 							"cost": 1,
@@ -1062,7 +1062,7 @@
 							"value": "10"
 						},
 						"ranges": {
-							"imgzB0q6AaSpO5Lq": {
+							"zP1nXrMMYrq73AIF": {
 								"range": "long"
 							}
 						},
@@ -1076,7 +1076,7 @@
 							"type": ""
 						},
 						"rolls": {
-							"sgbleyKsOn0VRywh": {
+							"7NMalloP7XYuEHy0": {
 								"ability": "str",
 								"type": "abilityCheck"
 							}
@@ -1085,12 +1085,6 @@
 				},
 				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1115,6 +1109,13 @@
 						"arcane",
 						"chaos"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"_id": "WjRVLpHWPYCKHCWl",
@@ -1135,47 +1136,11 @@
 				}
 			},
 			"system": {
-				"ability": "",
-				"actionOptions": [],
 				"actions": {},
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
 				"description": "<p><em>Comfortable, Flaw (Piercing)</em></p><p><strong>AC 12</strong></p>",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
 				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
 				"uses": {
 					"value": null,
 					"max": "",
@@ -1196,6 +1161,7 @@
 				"objectType": "armor",
 				"plotItem": false,
 				"price": "15 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -1203,7 +1169,42 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 8
+				"weight": 8,
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				}
 			},
 			"_id": "0K82FtsSUW8FNYSI",
 			"folder": null,
@@ -1223,9 +1224,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"ysuuVtkyNTd9YtS1": {
+					"bDQNejPixWT7wgkT": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1237,7 +1237,7 @@
 							"value": null
 						},
 						"ranges": {
-							"H6PpFmdi3HI5Pmt3": {
+							"HvAsFSoPEZ0R7yve": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1253,7 +1253,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"IdDiqnpcalaguAvS": {
+							"Y6K2iC3S4oWUOxzD": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1262,7 +1262,7 @@
 							}
 						},
 						"prompts": {
-							"QUmAvGTIRBpOCgj8": {
+							"owzy9GKyx5IKqhls": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1276,12 +1276,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1293,7 +1287,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1313,9 +1314,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"BHoorA0mLt2Fl3tD": {
+					"tp1j1eaDkBZMMQpc": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1327,7 +1327,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Bf0CuqiqwD88I5wL": {
+							"mnZ5OIdjbYzxrh0y": {
 								"range": "touch"
 							}
 						},
@@ -1343,7 +1343,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"DcIOFmq8S4dyTxvL": {
+							"N0C9JsyD089EM7P6": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1352,7 +1352,7 @@
 							}
 						},
 						"prompts": {
-							"mJPHyVsUbMLrU8pt": {
+							"l67pX9972PaKNVvb": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1366,12 +1366,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1383,7 +1377,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1403,9 +1404,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"BCE0nmB1GLUPY0Yk": {
+					"FZGMO6vs7UD9xSeb": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1417,7 +1417,7 @@
 							"value": null
 						},
 						"ranges": {
-							"LikWOSj0q5bNduSh": {
+							"XVmgsVEZk1Pi27Xk": {
 								"range": "touch"
 							}
 						},
@@ -1433,7 +1433,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"XgAiz6zdsfAAote1": {
+							"D1qJqHTsw6fflMGz": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1447,12 +1447,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1464,7 +1458,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1484,9 +1485,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"CsT1luTSsyw8NtG0": {
+					"VKxr5qb7Efy9vjjI": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1498,7 +1498,7 @@
 							"value": null
 						},
 						"ranges": {
-							"QiPeYA2z4iDtGWlf": {
+							"YQYTp0Er7Qeh0C8I": {
 								"range": "touch"
 							}
 						},
@@ -1514,7 +1514,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ZfQCJV3Pmfec4Jex": {
+							"V7pqs4FzWPl0glxJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1528,12 +1528,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1545,7 +1539,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1565,9 +1566,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"h8rlrsIktEePYCJ0": {
+					"iDOeZoDhK9W1GDW7": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1579,7 +1579,7 @@
 							"value": null
 						},
 						"ranges": {
-							"vNWdARRumz89frPV": {
+							"N8fj6WjSqdeNVFG7": {
 								"range": "touch"
 							}
 						},
@@ -1595,7 +1595,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"c4gghFkszYACpC4B": {
+							"xgS3yGFgO2OGP1f7": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1609,12 +1609,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1626,7 +1620,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1646,9 +1647,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"uGbBQotqpjzLuCBw": {
+					"PVmLyAQxIVD9LonI": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1660,7 +1660,7 @@
 							"value": null
 						},
 						"ranges": {
-							"w6nuhAkb9ZH884MB": {
+							"BXuagL5iVMW1HIlx": {
 								"range": "touch"
 							}
 						},
@@ -1676,7 +1676,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"kzUcpapPSyifh5x7": {
+							"UnDBu17p4oEswmoA": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1690,12 +1690,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1707,7 +1701,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -2214,6 +2215,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": 2,
 			"elite": false,
 			"privateNotes": ""

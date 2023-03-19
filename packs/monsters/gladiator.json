@@ -13,9 +13,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The damage of the gladiator’s attacks includes a d6 expertise die.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -41,12 +52,10 @@
 						"name": "Combat Expertise"
 					}
 				],
-				"description": "<p>The damage of the gladiator’s attacks includes a d6 expertise die.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -55,19 +64,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -83,9 +83,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The gladiator makes two melee attacks with their spear or throws two javelins.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -104,12 +115,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The gladiator makes two melee attacks with their spear or throws two javelins.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -118,19 +127,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -146,9 +146,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"lI5PNQiey2p5VFQX": {
+					"odUcr7YxMH3ngWtG": {
 						"name": "Shield Rush",
 						"activation": {
 							"cost": 1,
@@ -169,7 +168,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"fx9QHjcpydpNhBaY": {
+							"y37YYPTVmOVSZjPE": {
 								"ability": "dex",
 								"onSave": "None",
 								"saveDC": {
@@ -183,12 +182,6 @@
 				},
 				"description": "<p>The gladiator makes an attack with their shield. On a hit, the target makes a DC 15 Dexterity saving throw, falling prone on a failure.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "15",
-					"onSave": "None",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -197,7 +190,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -213,9 +213,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"gpHgHh4GJx2AuUnB": {
+					"Oi4CpV57Qe8hoPtd": {
 						"name": "Spear, Melee",
 						"activation": {
 							"cost": "",
@@ -236,20 +235,21 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"sobdmvuLTfM2DRQ6": {
+							"sshpJKTyVz6xdIMy": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"u3eY06dsymYBDQRK": {
+							"JJ3SFq6WWCvLHKJm": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d6 + @str.mod",
 								"name": "One-Handed",
 								"type": "damage"
 							},
-							"uFlTXaRgSmfXjbbV": {
+							"MW1TlObkjWYQXwOD": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d8 + @str.mod",
@@ -261,12 +261,6 @@
 				},
 				"description": "<p></p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -286,6 +280,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -298,7 +293,13 @@
 					"thrown",
 					"versatile"
 				],
-				"weight": ""
+				"weight": "",
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -314,9 +315,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"Qdm3rfjgw2AbDHFt": {
+					"hST4TRBMnGPmyDef": {
 						"name": "Spear, Ranged",
 						"activation": {
 							"cost": "",
@@ -328,10 +328,10 @@
 							"value": ""
 						},
 						"ranges": {
-							"SOQdK9ZPXnTjUnwC": {
+							"FbrMoSgITkl1hcIR": {
 								"range": "20 ft"
 							},
-							"EETZeQ8rhb86YxAn": {
+							"jj4Krw7wjeoStgIK": {
 								"range": "medium"
 							}
 						},
@@ -345,13 +345,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"bzIdEEMiIKqUkpPl": {
+							"41TzPaw9grNt9PRe": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
 							},
-							"3QthqA2YHafoemYb": {
+							"1E11Ur9buwq1Ds5z": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d6 + @str.mod",
@@ -363,12 +364,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -388,6 +383,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -400,7 +396,13 @@
 					"thrown",
 					"versatile"
 				],
-				"weight": 0
+				"weight": 0,
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -416,9 +418,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"pltTvrwesyOEm1ny": {
+					"38QtksIbj4kgvA2O": {
 						"name": "Shield",
 						"activation": {
 							"cost": "",
@@ -439,12 +440,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"JO7WARCLPpKmXSwD": {
+							"lsqBOEs5SWx7xPNE": {
 								"bonus": "",
 								"critThreshold": "20",
-								"type": "attack"
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": ""
 							},
-							"3occry9cJm3w4Rhq": {
+							"L9zsD0cfYAog2IVf": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "2d6 + @str.mod",
@@ -456,12 +459,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "15",
-					"onSave": "",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -481,6 +478,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -488,7 +486,13 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"ability": "",
+				"save": {
+					"dc": "15",
+					"onSave": "",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -504,9 +508,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"YwFfztUduFxMSw0x": {
+					"XWv7qmkMuAJ0B8np": {
 						"name": "Javelin, Melee",
 						"activation": {
 							"cost": "",
@@ -527,13 +530,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"MeOvlAD71s0oCTWh": {
+							"8avyjDEGisUTpCVN": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"SeQ1eRnvmnrt7tZ1": {
+							"IQ7tfzuTvQFut0kz": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "2d6 + @str.mod",
@@ -545,12 +549,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -570,6 +568,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -579,7 +578,13 @@
 				"weaponProperties": [
 					"thrown"
 				],
-				"weight": 0
+				"weight": 0,
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -599,9 +604,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"r3z1AF2CktlRhR8n": {
+					"w5GwDMAvbrS8sgjw": {
 						"name": "Javelin, Ranged",
 						"activation": {
 							"cost": "",
@@ -613,10 +617,10 @@
 							"value": ""
 						},
 						"ranges": {
-							"N3Rbq79FDweKtbWi": {
+							"KzTaMaWzL2jYTr2y": {
 								"range": "short"
 							},
-							"7yfp1iFaNRkqs1nT": {
+							"1ilbAvnUk54GkMHh": {
 								"range": "long"
 							}
 						},
@@ -630,12 +634,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"Pwucd1qHYdKfjRAY": {
+							"zbVkwcNqQ4F8OLHP": {
 								"bonus": "",
 								"critThreshold": "20",
-								"type": "attack"
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": ""
 							},
-							"Jz2FHZWesOjqvcPi": {
+							"8IxAW1ASpkTp4g9o": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "2d6 + @str.mod",
@@ -647,12 +653,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -672,6 +672,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -679,7 +680,13 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"ability": "",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -695,9 +702,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"U7lkunTkrAZCHmP3": {
+					"YhC3ShO2kqYb6E47": {
 						"name": "Shield Block",
 						"activation": {
 							"cost": null,
@@ -721,12 +727,6 @@
 				},
 				"description": "<p>If the gladiator is wielding a shield and can see their attacker, they add 3 to their AC against one melee or ranged attack that would hit them.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -735,7 +735,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -751,9 +758,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"imvE6pPyaXikkmRY": {
+					"39CoEM2Tl0Zcu7jj": {
 						"name": "VARIANT (Bonus): Disarming Strike",
 						"activation": {
 							"cost": null,
@@ -774,7 +780,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"Op9tmmWc8pchwBTf": {
+							"NRQNS0UQoBQlrcpV": {
 								"ability": "str",
 								"onSave": "None",
 								"saveDC": {
@@ -788,12 +794,6 @@
 				},
 				"description": "<p>The gladiator makes a melee attack with their spear. On a hit, the target makes a DC 15 Strength saving throw. On a failure, an item of the gladiator’s choice that the target is holding (including a shield) flies from its grip to land in a space of the gladiator’s choice 10 feet away.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "15",
-					"onSave": "None",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -802,7 +802,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -818,9 +825,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"czRuMLyRWuzOWAW7": {
+					"0OWtMizlzKPVoKoz": {
 						"name": "VARIANT (Bonus): Net Throw",
 						"activation": {
 							"cost": null,
@@ -832,10 +838,10 @@
 							"value": ""
 						},
 						"ranges": {
-							"WmLgLhnHo541fP5b": {
+							"4WILoXcXCnWVFe3j": {
 								"range": "fiveFeet"
 							},
-							"us5pmLwWEXSvynN9": {
+							"XeVqlor7xTg8o0dL": {
 								"range": "15 ft"
 							}
 						},
@@ -849,7 +855,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"NJIA3jYPqqzdpbEA": {
+							"DsuB1eR512zwIHC8": {
 								"ability": "str",
 								"onSave": "None",
 								"saveDC": {
@@ -863,12 +869,6 @@
 				},
 				"description": "<p>A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. The net is an object with AC 10, 5 hit points, and immunity to bludgeoning damage.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "15",
-					"onSave": "None",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -877,7 +877,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -893,9 +900,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": null,
 				"actions": {
-					"Z8kqs4HcnOCtun4H": {
+					"Zr6XB2aCZSXpYIT0": {
 						"name": "VARIANT (Bonus): Wound Foe",
 						"activation": {
 							"cost": null,
@@ -916,7 +922,7 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"a6EXAZxChzTcGJiS": {
+							"fT5M3ijIPVGkPZDT": {
 								"canCrit": false,
 								"damageType": "piercing",
 								"formula": "1d10",
@@ -928,12 +934,6 @@
 				},
 				"description": "<p>The gladiator makes a melee attack with their spear. On a hit, the target takes a wound that deals 5 (1d10) ongoing piercing damage. A creature can end the ongoing damage by stanching the wound as an action or by giving the target magical healing.&nbsp;</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -942,7 +942,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": null,
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -958,9 +965,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"ygNgVhWtw4Q6JmHM": {
+					"4Zj1OhoSTQf8gkM9": {
 						"name": "VARIANT (Reaction): Counter Critical",
 						"activation": {
 							"cost": null,
@@ -981,13 +987,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"RUrSF6pGmM3S5AsQ": {
+							"cK18v5zReXBi7xXD": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"1P4xZABJXmpqAC71": {
+							"ybVJx86G11xryD9U": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "2d6 + @default.mod",
@@ -999,12 +1006,6 @@
 				},
 				"description": "<p>When a creature the gladiator can see scores a critical hit against the gladiator with a melee weapon attack, the gladiator makes a spear attack against it.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1013,7 +1014,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1029,9 +1037,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"6Z12U4je7djJ099K": {
+					"HeyeiAYcJ4uJLhdb": {
 						"name": "VARIANT (Reaction): Dodge and Roll",
 						"activation": {
 							"cost": null,
@@ -1055,12 +1062,6 @@
 				},
 				"description": "<p>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the gladiator moves 15 feet without provoking opportunity attacks.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1069,7 +1070,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1085,9 +1093,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"v3D7UFjhyodW4svP": {
+					"g3lNMHAZat00sbu0": {
 						"name": "VARIANT (Reaction): Throw Foe",
 						"activation": {
 							"cost": null,
@@ -1108,7 +1115,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"FMGeyNjxnI4GDutx": {
+							"THgYJiw0zEahrUsz": {
 								"ability": "dex",
 								"onSave": "None",
 								"saveDC": {
@@ -1122,12 +1129,6 @@
 				},
 				"description": "<p>When a creature the gladiator can see misses the gladiator with a melee weapon attack, the creature makes a DC 15 Dexterity saving throw. On a failure, it is pushed up to 15 feet from the gladiator.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "15",
-					"onSave": "None",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1136,7 +1137,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "15",
+					"onSave": "None",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1152,9 +1160,39 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "light",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "0",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -1173,51 +1211,21 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
-				"proficient": true,
 				"range": [],
 				"save": {
 					"dc": "",
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "light",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "0",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1234,9 +1242,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"R8L4It5T8VoufUzL": {
+					"GrxuiJunRzAZqSxa": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -1248,7 +1255,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JnifFS6FWUv1EoXv": {
+							"8f3g8K66AtYAL5Se": {
 								"range": "fiveFeet"
 							}
 						},
@@ -1264,7 +1271,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"jJhGxdt1JyZx9fnE": {
+							"OjbmgAuW8PTXKnxY": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -1273,7 +1280,7 @@
 							}
 						},
 						"prompts": {
-							"5UTfzsn3U01tFRDZ": {
+							"JKz38kPRW4IipUZ2": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1287,12 +1294,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1304,7 +1305,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1324,9 +1332,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"Z4mN4MNRBnPvtK0E": {
+					"7u8VDkwttcFZiuw8": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -1338,7 +1345,7 @@
 							"value": null
 						},
 						"ranges": {
-							"cTvMC96VdqQda5JK": {
+							"ZZDQCcIJI8Fkzliq": {
 								"range": "touch"
 							}
 						},
@@ -1354,7 +1361,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"J0TjFJ0Uus6pps5Z": {
+							"uZQQqoEsTlUWgtbW": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -1363,7 +1370,7 @@
 							}
 						},
 						"prompts": {
-							"0t2rYncQfpasvK7R": {
+							"yn7Y0YOHZkYmOmoe": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1377,12 +1384,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1394,7 +1395,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1414,9 +1422,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"oKy0eX5e4z1aIYsk": {
+					"E4YuFUkfAnKP73pp": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1428,7 +1435,7 @@
 							"value": null
 						},
 						"ranges": {
-							"kPndr72lEDN839br": {
+							"uCpMgYMB2bP9yLZu": {
 								"range": "touch"
 							}
 						},
@@ -1444,7 +1451,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"1GkbP3bR2tR3tbUD": {
+							"cgYAeJJRSOba0TZn": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1458,12 +1465,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1475,7 +1476,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1495,9 +1503,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"LZ3Kr3sgpDMQBUC2": {
+					"wqmVmmNafP6j6Blz": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1509,7 +1516,7 @@
 							"value": null
 						},
 						"ranges": {
-							"QKI0OrD72ESQbDIE": {
+							"xkO4eB3XXV8e6RsX": {
 								"range": "touch"
 							}
 						},
@@ -1525,7 +1532,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"RKdNAMKnBKFDpH1Q": {
+							"U7r6kfiIGs44WE4L": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1539,12 +1546,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1556,7 +1557,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1576,9 +1584,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"BC7GQHHHKnp7H3Fa": {
+					"54e5BmCZUDTgivxQ": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1590,7 +1597,7 @@
 							"value": null
 						},
 						"ranges": {
-							"kuvZk2NjzQjS7IO4": {
+							"3G0ekg8SdLsn5qix": {
 								"range": "touch"
 							}
 						},
@@ -1606,7 +1613,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"XAf3HPvKWgDapb0b": {
+							"U3CWHa5xuoG6C9OF": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1620,12 +1627,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1637,7 +1638,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1657,9 +1665,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"HFY5wwF7xGjq2i7j": {
+					"oMi2mlFkVT51B5MU": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1671,7 +1678,7 @@
 							"value": null
 						},
 						"ranges": {
-							"gudr2nC1hI0w1ioS": {
+							"9ADbhB5dFkZAclmz": {
 								"range": "touch"
 							}
 						},
@@ -1687,7 +1694,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"4u0JQW0OfTxlgRXz": {
+							"0kGqKxrSLHvKeTgp": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1701,12 +1708,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1718,7 +1719,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -2220,6 +2228,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": 6,
 			"elite": false,
 			"privateNotes": ""

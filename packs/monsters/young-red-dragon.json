@@ -17,9 +17,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -38,12 +49,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -52,19 +61,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -84,9 +84,8 @@
 				}
 			},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"y52FMAEW9gxzNb01": {
+					"pdHpdUHr6awqhWV9": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -98,7 +97,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"NdAl9r4Fteo1jsRJ": {
+							"rem2kDqGujTnpOYH": {
 								"range": "Reach: 10ft."
 							}
 						},
@@ -112,20 +111,21 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"3HUtlaZh43dTLE5z": {
+							"wajJ1SI7Ya6zTdil": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"7h0vDirBMteqQSp8": {
+							"wpCs9mg9TXg9G57b": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "3d10 + @default.mod",
 								"name": "",
 								"type": "damage"
 							},
-							"mrLxeDbXNNnb1ZoQ": {
+							"KFSHiyIwjOHeLtDY": {
 								"canCrit": true,
 								"damageType": "fire",
 								"formula": "1d8",
@@ -137,12 +137,6 @@
 				},
 				"description": "<p>The dragon makes a bite attack.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Escapes grapple",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -151,7 +145,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 23,
+					"onSave": "Escapes grapple",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -167,9 +168,8 @@
 			"sort": 500000,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"fuvXeqi9YkXzXTD5": {
+					"GCTaUzNGp5x2tdK1": {
 						"name": "Claw",
 						"activation": {
 							"cost": 1,
@@ -181,7 +181,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"HD9pa8HpR9U3HQfo": {
+							"qgEzmaHjmTqSluwg": {
 								"range": "fiveFeet"
 							}
 						},
@@ -195,13 +195,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"lMIZHLKYdcbr2akB": {
+							"0ZM7ACg1DrDvqClu": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"AmHFWl8R1TszVFNs": {
+							"WEkEWzBZ7GolryVl": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "2d8 + @default.mod",
@@ -213,12 +214,6 @@
 				},
 				"description": "<p>The Dragon makes a claw attack.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -227,7 +222,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -243,9 +245,20 @@
 			"sort": 100000,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon’s spellcasting ability is Charisma (save <strong>DC 22</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>:&nbsp;<em>command, hold person</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -264,12 +277,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon’s spellcasting ability is Charisma (save <strong>DC 22</strong>). It can innately cast the following spells, requiring no material components.&nbsp;</p><p><strong>3/day each</strong>:&nbsp;<em>command, hold person</em></p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -278,19 +289,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -310,9 +312,8 @@
 				}
 			},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"vd6Ipot0NgyPsjso": {
+					"5lwPSseMeLmatD3K": {
 						"name": "Fire Breath (Recharge 5-6)",
 						"activation": {
 							"cost": 1,
@@ -333,14 +334,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"YxpcPjO76HzNFNfL": {
+							"fcnvtbcV9hyI7pe0": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "15d6",
 								"name": "",
 								"type": "damage"
 							},
-							"BgAdGPXUdQNRv0pq": {
+							"67sBSKR1MqdjDWqJ": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "1d10",
@@ -349,7 +350,7 @@
 							}
 						},
 						"prompts": {
-							"A0cc448FGim9e75t": {
+							"WVBx8FQu7MtZAv5b": {
 								"ability": "dex",
 								"onSave": "Half damage, no ongoing damage and not frightened.",
 								"saveDC": {
@@ -363,12 +364,6 @@
 				},
 				"description": "<p>The dragon exhales a blast of fire that fills a 30-foot cone. Each creature in that area makes a DC 17 Dexterity saving throw, taking 52 (15d6) fire damage on a failed save or half damage on a success. A creature that fails the saving throw also takes 5 (1d10) ongoing fire damage. While affected by this ongoing damage, it is frightened of the dragon. A creature can use an action to end the ongoing damage.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 17,
-					"onSave": "Half damage, no ongoing damage and not frightened.",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -377,7 +372,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 17,
+					"onSave": "Half damage, no ongoing damage and not frightened.",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -393,9 +395,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"p8sBzlIK6Ll5MSyb": {
+					"gmicG244N6a9oClL": {
 						"name": "Searing Heat",
 						"activation": {
 							"cost": "",
@@ -407,7 +408,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"Os1UtAqr7nDjIxpb": {
+							"cdgDnhr58SvVvdrp": {
 								"range": "touch"
 							}
 						},
@@ -421,7 +422,7 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"tN7QjMBbrmdUrZwg": {
+							"hNRaBCCS3yyDxrPb": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "1d6",
@@ -433,12 +434,6 @@
 				},
 				"description": "<p>A creature that touches the dragon or hits it with a melee attack for the first time on a turn takes 3 (1d6) fire damage.&nbsp;</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -447,7 +442,14 @@
 					"per": null
 				},
 				"featureType": "other",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -463,9 +465,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon is immune to the effects of poisonous gases caused by volcanic environments. It also ignores difficult terrain caused by lava.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -484,12 +497,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon is immune to the effects of poisonous gases caused by volcanic environments. It also ignores difficult terrain caused by lava.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -498,19 +509,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -530,9 +532,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"171Em5gb8UzFEJId": {
+					"Xh3r8tNTWSkWjdFe": {
 						"name": "Command",
 						"activation": {
 							"cost": 1,
@@ -544,7 +545,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"FUCHUrZ3omxzTHWb": {
+							"MgV0nArGisqgV07A": {
 								"range": "medium"
 							}
 						},
@@ -558,7 +559,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"khJMoPzQHLkLzpVB": {
+							"Y5JySrWAw0Z2nI1y": {
 								"ability": "wis",
 								"onSave": "Negates effect",
 								"saveDC": {
@@ -572,12 +573,6 @@
 				},
 				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator's discretion you may give any one-word command.</p><ul class=\"indentedSelection\"><li><strong>Approach/Come/Here:</strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</li><li><strong>Bow/Grovel/Kneel:</strong> The target falls prone and ends its turn.</li><li><strong>Drop:</strong> The target drops anything it is holding and ends its turn.</li><li><strong>Flee/Run:</strong> The target uses its action to Dash and moves away from you as far as it can.</li><li><strong>Halt:</strong> The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "Negates effect",
-					"targetAbility": "wis"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -602,6 +597,13 @@
 						"compulsion",
 						"divine"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -622,9 +624,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"KCnhQglnZeFMYyfT": {
+					"itaLj74ma9AULZ7W": {
 						"name": "Hold Person",
 						"activation": {
 							"cost": 1,
@@ -636,7 +637,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"bowO8RtdOz4KyRFR": {
+							"NrhAxdEHfnRfxhRb": {
 								"range": "medium"
 							}
 						},
@@ -650,7 +651,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"LqAuri0oqaLVO45m": {
+							"nOEiDL1CE3R1zibJ": {
 								"ability": "wis",
 								"onSave": "Negates effect",
 								"saveDC": {
@@ -664,12 +665,6 @@
 				},
 				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 2nd.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "Negates effect",
-					"targetAbility": "wis"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -694,6 +689,13 @@
 						"affliction",
 						"arcane"
 					]
+				},
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -711,9 +713,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"qK1ehW2FmknhXSAR": {
+					"O8OnFTBbCl8H7APB": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -725,7 +726,7 @@
 							"value": null
 						},
 						"ranges": {
-							"nCuNoHWwvOD8qcFz": {
+							"814nionmoUHB7tyI": {
 								"range": "fiveFeet"
 							}
 						},
@@ -741,7 +742,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"AdDQa5BYCw0yRBWo": {
+							"lBxXD8ar1RSaVaZV": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -750,7 +751,7 @@
 							}
 						},
 						"prompts": {
-							"zt3EXoN5mQxaaT5t": {
+							"v0WtXxSblX6Fq0Id": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -764,12 +765,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -781,7 +776,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -801,9 +803,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"CU9CasEodUXuyPOf": {
+					"Cy0dlaHf0QfYm6rd": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -815,7 +816,7 @@
 							"value": null
 						},
 						"ranges": {
-							"G4GyvbkjdufIIS8q": {
+							"cpM7MvHD8tFM6MeE": {
 								"range": "touch"
 							}
 						},
@@ -831,7 +832,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"OWc41d86ymQl91QU": {
+							"wPkHMB3b1O3j5IQk": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -840,7 +841,7 @@
 							}
 						},
 						"prompts": {
-							"BBUcMV2kBA9mLGf2": {
+							"lUHyriG6zl6Ejsds": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -854,12 +855,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -871,7 +866,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -891,9 +893,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"9ci9CpdKqVtiwn4I": {
+					"haYrjh1CGyq5w7S1": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -905,7 +906,7 @@
 							"value": null
 						},
 						"ranges": {
-							"0WgfAuifFnP2DnCn": {
+							"IxvKzFbkFWaVHMXr": {
 								"range": "touch"
 							}
 						},
@@ -921,7 +922,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"IqZLsAVgJkXm1hCj": {
+							"PGprwzIOAXlJY64R": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -935,12 +936,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -952,7 +947,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -972,9 +974,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"qU30YENXxODOEWOQ": {
+					"mzg988PPXG23JbjD": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -986,7 +987,7 @@
 							"value": null
 						},
 						"ranges": {
-							"LgmM8xpPN9o7cZ5F": {
+							"Mzb2rNtRPPwUFNdI": {
 								"range": "touch"
 							}
 						},
@@ -1002,7 +1003,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"cmRNdMYMdnLdyNGK": {
+							"xjMQGDcYcxB4IOMl": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1016,12 +1017,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1033,7 +1028,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1053,9 +1055,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"Flw85CxkhuSwbz8S": {
+					"6TQbKth0oDInNhS5": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1067,7 +1068,7 @@
 							"value": null
 						},
 						"ranges": {
-							"TdEo49xQAfjf99OQ": {
+							"FcN6VcqBpDnBCErg": {
 								"range": "touch"
 							}
 						},
@@ -1083,7 +1084,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"SbzCJjjxcVXIlDMg": {
+							"QaWJeSNsB6vRYcdj": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1097,12 +1098,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1114,7 +1109,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1134,9 +1136,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"niakmjqw6ukqzoGu": {
+					"fZ00xOoAyqqGIQgA": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1148,7 +1149,7 @@
 							"value": null
 						},
 						"ranges": {
-							"6I17lZP8mDCoB88r": {
+							"e0v4usRFiXO2I8Fi": {
 								"range": "touch"
 							}
 						},
@@ -1164,7 +1165,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"RwJtzUST9JGSnuol": {
+							"h1PuDpriAWlt1o5N": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1178,12 +1179,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1195,7 +1190,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1708,6 +1710,7 @@
 			"creatureTypes": [
 				"dragon"
 			],
+			"isSwarm": false,
 			"cr": 11,
 			"elite": false,
 			"privateNotes": ""

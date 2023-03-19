@@ -13,9 +13,20 @@
 			"sort": 100000,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The giant makes Insight checks with disadvantage.</p><p><br></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -34,12 +45,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The giant makes Insight checks with disadvantage.</p><p><br></p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -48,19 +57,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -80,9 +80,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"h96VbPnfP5SOFf4Y": {
+					"nPq5ztA8oSg8yVaW": {
 						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
@@ -106,12 +105,6 @@
 				},
 				"description": "<p>The giant attacks twice with its greatclub.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -120,7 +113,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -136,9 +136,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"4BpTLSjtLEwL1skR": {
+					"6jgRTMEVNRdReYIT": {
 						"name": "Greatclub (Reach 10 ft)",
 						"activation": {
 							"cost": 1,
@@ -159,13 +158,14 @@
 							"type": ""
 						},
 						"rolls": {
-							"P0jBcSUmOneSgxY8": {
+							"gsmodk5r7aaASRDo": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"Rvlw1bFG74XLZByD": {
+							"sQgXyjIRJv0fRxHF": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d8+@str.mod",
@@ -174,7 +174,7 @@
 							}
 						},
 						"prompts": {
-							"mBYDpHlk2gEyxuPU": {
+							"KD0eaNxM4PGPwGR0": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -188,12 +188,6 @@
 				},
 				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 16,
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -213,6 +207,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -222,7 +217,13 @@
 				"weaponProperties": [
 					"reach"
 				],
-				"weight": 0
+				"weight": 0,
+				"ability": "str",
+				"save": {
+					"dc": 16,
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -242,9 +243,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"CnQghVkzRVfV4loY": {
+					"tJD601EdzAfIxJcJ": {
 						"name": "Rock (60/420 ft)",
 						"activation": {
 							"cost": 1,
@@ -265,20 +265,21 @@
 							"type": ""
 						},
 						"rolls": {
-							"NtOydbzCAAuBihXU": {
+							"UgLUYIqxtP0fd1q0": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "rangedWeaponAttack",
 								"ability": "str"
 							},
-							"dWwK0MTxSr9fS3D6": {
+							"yhn73c1m671nj0x4": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "6d6+@str.mod",
 								"name": "Rock",
 								"type": "damage"
 							},
-							"CAkueGucBBOoLO55": {
+							"GYd9B18zBw30Ue78": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d6+@str.mod",
@@ -287,7 +288,7 @@
 							}
 						},
 						"prompts": {
-							"tSYnDSUzbNJK6Sav": {
+							"At7dID4aHCOrXVsc": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -301,12 +302,6 @@
 				},
 				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure. In lieu of a rock, the giant can throw a grappled Medium or smaller creature up to 30 feet. On a hit, the target and the thrown creature both take 15 (3d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 16,
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -315,7 +310,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": 16,
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -335,9 +337,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"xQLaj86UaEj6ytRn": {
+					"209LWBUhVVBjf27r": {
 						"name": "Greatclub Sweep (while Bloodied)",
 						"activation": {
 							"cost": 1,
@@ -358,7 +359,7 @@
 							"type": ""
 						},
 						"rolls": {
-							"8oiEzDML77IEzBqY": {
+							"zjWIu3DRr1AriyeF": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "3d8+@str.mod",
@@ -367,7 +368,7 @@
 							}
 						},
 						"prompts": {
-							"JgptyBMz6ZPfupYc": {
+							"Go7e0DIYdhizia9d": {
 								"ability": "dex",
 								"onSave": "",
 								"saveDC": {
@@ -381,12 +382,6 @@
 				},
 				"description": "<p></p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 16,
-					"onSave": "",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -395,7 +390,14 @@
 					"per": "day"
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 16,
+					"onSave": "",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -415,9 +417,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"Wtut2FDTGCZzYWSZ": {
+					"HnxTO87zkQGBd3SW": {
 						"name": "Grab",
 						"activation": {
 							"cost": 1,
@@ -438,7 +439,7 @@
 							"type": ""
 						},
 						"prompts": {
-							"sRuuCBNMltIXppmh": {
+							"EGUCA7SfEhbOnCHd": {
 								"ability": "dex",
 								"onSave": "",
 								"saveDC": {
@@ -452,12 +453,6 @@
 				},
 				"description": "<p>One creature within 5 feet makes a DC 10 Dexterity saving throw. On a failure, it is grappled (escape DC 16). Until this grapple ends, the giant can’t grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 10,
-					"onSave": "",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -466,7 +461,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 10,
+					"onSave": "",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -486,9 +488,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"OgFkwJf7swOiQj7g": {
+					"BA1ly03ZF2CLWvgq": {
 						"name": "Grab Escape",
 						"activation": {
 							"cost": 1,
@@ -509,7 +510,7 @@
 							"type": ""
 						},
 						"prompts": {
-							"r0k0eEH2AHwleDcd": {
+							"3GbXoqwBHHxbN4nx": {
 								"ability": "dex",
 								"onSave": "",
 								"saveDC": {
@@ -523,12 +524,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 16,
-					"onSave": "",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -537,7 +532,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 16,
+					"onSave": "",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -557,9 +559,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"HsJi5ZyJWP01HTX5": {
+					"QVQj6NLsnqnx0xa6": {
 						"name": "Body Slam",
 						"activation": {
 							"cost": 1,
@@ -580,7 +581,7 @@
 							"type": ""
 						},
 						"rolls": {
-							"NKdsWUjglOKmsr1q": {
+							"YPgSdLwlvBP6ZUvV": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "3d8+6",
@@ -589,7 +590,7 @@
 							}
 						},
 						"prompts": {
-							"6FAPtBqSffp8mMiL": {
+							"xDmqMBf1yudszGoK": {
 								"ability": "dex",
 								"onSave": "Half damage",
 								"saveDC": {
@@ -603,12 +604,6 @@
 				},
 				"description": "<p>The giant jumps up to 15 feet horizontally without provoking opportunity attacks and falls prone in a space containing one or more creatures. Each creature in its space when it lands makes a DC 15 Dexterity saving throw, taking 19 (3d8 + 6) bludgeoning damage and falling prone on a failure. On a success, the creature takes half damage and is pushed 5 feet to an unoccupied space of its choice. If that space is occupied, the creature falls prone.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 15,
-					"onSave": "Half damage",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -617,7 +612,14 @@
 					"per": "day"
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 15,
+					"onSave": "Half damage",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -637,9 +639,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"udpdxQzmnLmyERgA": {
+					"oKIqOOaQX5O19hhl": {
 						"name": "Muddy Ground",
 						"activation": {
 							"cost": 1,
@@ -660,7 +661,7 @@
 							"type": ""
 						},
 						"prompts": {
-							"jaCwNJL8rzXMIHTj": {
+							"z49RvNxRpH1guvg9": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -674,12 +675,6 @@
 				},
 				"description": "<p>Areas of unworked earth within 60 feet magically become swampy mud for 1 minute or until the giant dies. These areas become difficult terrain. Prone creatures in the area when the mud appears or that fall prone in the area make a DC 15 Strength saving throw. On a failure, the creature’s Speed drops to 0 as it becomes stuck in the mud. A creature can use its action to make a DC 15 Strength check, freeing itself on a success.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 15,
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -688,7 +683,14 @@
 					"per": "day"
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 15,
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -708,9 +710,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"UX2rAJCWyPgkrsie": {
+					"3a5RP8f9Bld4urg2": {
 						"name": "Stomp",
 						"activation": {
 							"cost": 1,
@@ -731,7 +732,7 @@
 							"type": ""
 						},
 						"prompts": {
-							"T0l38sMjWEL8giKr": {
+							"utiY7O9nu1NHSBFo": {
 								"ability": "dex",
 								"onSave": "",
 								"saveDC": {
@@ -745,12 +746,6 @@
 				},
 				"description": "<p>The giant stamps its foot, causing the ground to tremble. Each creature within 60 feet makes a DC 15 Dexterity saving throw. On a failure, it falls prone.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 15,
-					"onSave": "",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -759,7 +754,14 @@
 					"per": "day"
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 15,
+					"onSave": "",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -776,9 +778,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"1DqRGmoD67AyS2HO": {
+					"TiG0v55CPyaAwp4Y": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -790,7 +791,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Evd8sndSTYYx7I58": {
+							"2CXP3jG4AsRmUhhW": {
 								"range": "fiveFeet"
 							}
 						},
@@ -806,7 +807,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"PvE1Rg1hvaPzO2LE": {
+							"CfN1eMoxqFf9EmpX": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -815,7 +816,7 @@
 							}
 						},
 						"prompts": {
-							"f4l7iCS2vajZ3i9T": {
+							"kXtOIITSggCe4SYu": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -829,12 +830,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -846,7 +841,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -866,9 +868,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"UtM81XujkrNmvI5v": {
+					"BfdOHRD3Xh8JKdqw": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -880,7 +881,7 @@
 							"value": null
 						},
 						"ranges": {
-							"TLufgqnO6k8s5aHo": {
+							"A4jA1aelLZHGSuwe": {
 								"range": "touch"
 							}
 						},
@@ -896,7 +897,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"VyRD9yEyZzPIl9VE": {
+							"V74Id8s0uIisgM2N": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -905,7 +906,7 @@
 							}
 						},
 						"prompts": {
-							"7gj7vQVFQVW5kiiJ": {
+							"k0kHno25jIpPseEy": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -919,12 +920,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -936,7 +931,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -956,9 +958,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"XCH4TMC1FBadyP2O": {
+					"Dsg9Y3roYlKpbAd1": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -970,7 +971,7 @@
 							"value": null
 						},
 						"ranges": {
-							"iKQHBRTdLCaQHoQa": {
+							"mnBqapqiJtYRAhKT": {
 								"range": "touch"
 							}
 						},
@@ -986,7 +987,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"yaFp1X0BgP7fRuV0": {
+							"HLS5Bn2bz3DrFKfi": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1000,12 +1001,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1017,7 +1012,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1037,9 +1039,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"btwI0KO8EDiJKzYT": {
+					"9yEZQOeNjSbqyJvF": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1051,7 +1052,7 @@
 							"value": null
 						},
 						"ranges": {
-							"uaJJ6kNNnwLlmSIR": {
+							"e6qmzrOPIM2XrJia": {
 								"range": "touch"
 							}
 						},
@@ -1067,7 +1068,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"RKY8hfF3NK1PllGw": {
+							"S97POZ1RetOMLDKC": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1081,12 +1082,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1098,7 +1093,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1118,9 +1120,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"HxK7Ur3ur26ztxbL": {
+					"DsDMn2xo5M8EDfvW": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1132,7 +1133,7 @@
 							"value": null
 						},
 						"ranges": {
-							"1YWnHtwDN8Wep1gM": {
+							"muxa6jTjO1nWIosC": {
 								"range": "touch"
 							}
 						},
@@ -1148,7 +1149,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"3U1KxN0DVqxPELlP": {
+							"MFx6FVtnDyhwgfs7": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1162,12 +1163,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1179,7 +1174,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1199,9 +1201,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"esoQQqmky7gmGh9a": {
+					"AZjTJAmP3fkwB9ZF": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1213,7 +1214,7 @@
 							"value": null
 						},
 						"ranges": {
-							"nsugVwXFzVxWpYUp": {
+							"uk65lDXBvcd2GpsJ": {
 								"range": "touch"
 							}
 						},
@@ -1229,7 +1230,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"qGKF2xUK9biyZAzg": {
+							"EDu5g4mlFJQxIol4": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1243,12 +1244,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1260,7 +1255,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1760,6 +1762,7 @@
 			"creatureTypes": [
 				"giant"
 			],
+			"isSwarm": false,
 			"cr": 8,
 			"elite": false,
 			"privateNotes": ""

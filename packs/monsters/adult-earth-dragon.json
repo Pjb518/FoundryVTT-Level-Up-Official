@@ -13,9 +13,8 @@
 			"sort": 100000,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"5bdQBCDOvGZVgK8W": {
+					"n7iWDhqmcAEAREnc": {
 						"name": "Earth Glibe",
 						"activation": {
 							"cost": "",
@@ -39,12 +38,6 @@
 				},
 				"description": "<p>The dragon can burrow through nonmagical, unworked earth and stone without disturbing it.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -53,7 +46,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -69,9 +69,8 @@
 			"sort": 200000,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"OeDB9RfzSNWidPlC": {
+					"ojfOCb7sZTEz6lK9": {
 						"name": "False Appearance",
 						"activation": {
 							"cost": "",
@@ -95,12 +94,6 @@
 				},
 				"description": "<p>While the dragon remains motionless within its linked area, it is indistinguishable from a natural rocky outcropping.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -109,7 +102,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -125,9 +125,8 @@
 			"sort": 400000,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"niQtcMAS1FqIF8UO": {
+					"bvS8vfokATf4uCxj": {
 						"name": "Bite",
 						"activation": {
 							"cost": 1,
@@ -139,7 +138,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"pH59vqvFLUP9rrq8": {
+							"nkpoJ6zdAPQT2AIS": {
 								"range": "15ft"
 							}
 						},
@@ -153,13 +152,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"3shn5N1vTSuUga0P": {
+							"iDHD8nqUn8IDeekt": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"U4RvL0ANPR26P4sW": {
+							"r59LZnhCbabvhs9G": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "4d10 + @default.mod",
@@ -171,12 +171,6 @@
 				},
 				"description": "<p>Instead of dealing piercing damage, the dragon can grapple the target (escape DC 20), and a Large or smaller creature grappled in this way is restrained. While grappling a creature, the dragon can’t bite another target.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 20,
-					"onSave": "Avoids being grabbled.",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -185,7 +179,14 @@
 					"per": null
 				},
 				"featureType": "naturalWeapon",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 20,
+					"onSave": "Avoids being grabbled.",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -201,9 +202,8 @@
 			"sort": 500000,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"zl8f3mfwSIJcvKqh": {
+					"4cPAONcemaRTOCJg": {
 						"name": "Scouring Breath (recharge 5-6)",
 						"activation": {
 							"cost": 1,
@@ -215,7 +215,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"Xocw7L44g824KWWC": {
+							"zPZcUsR39pxY8uVM": {
 								"range": "90ft"
 							}
 						},
@@ -229,7 +229,7 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"Q3qp6r7wMLFEEhgi": {
+							"U8theKJyWse8Xupf": {
 								"canCrit": false,
 								"damageType": "slashing",
 								"formula": "20d6",
@@ -238,7 +238,7 @@
 							}
 						},
 						"prompts": {
-							"qsc2zXiLl6COQwO3": {
+							"oTgXkt3qAREfsnJC": {
 								"ability": "dex",
 								"onSave": "Half damage and avoids effect.",
 								"saveDC": {
@@ -252,12 +252,6 @@
 				},
 				"description": "<p>The dragon exhales scouring sand and stones in a 90-foot cone. Each creature in that area makes a DC 23 Dexterity saving throw, taking 70 (20d6) slashing damage on a failed save or half damage on a success. A creature that fails the save is also blinded until the end of its next turn.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Half damage and avoids effect.",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -266,7 +260,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 23,
+					"onSave": "Half damage and avoids effect.",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -282,9 +283,20 @@
 			"sort": 300000,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The dragon attacks once with its bite and twice with its slam. In place of its bite attack, it can use Rock Spire.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -303,12 +315,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The dragon attacks once with its bite and twice with its slam. In place of its bite attack, it can use Rock Spire.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -317,19 +327,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -345,9 +346,8 @@
 			"sort": 450000,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"hY4YvyCKBjKMuX9z": {
+					"DPionPDFXJaPI8EX": {
 						"name": "Slam",
 						"activation": {
 							"cost": 1,
@@ -359,7 +359,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"OJ7IFfBcCVUA3uhe": {
+							"TEYnCT32XaPqb3V2": {
 								"range": "10ft"
 							}
 						},
@@ -373,20 +373,21 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"cwc839Dk76ARhv3q": {
+							"UMBxRQJ25Vh3oeV4": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"8zBmGiuUnZYGv76p": {
+							"hHOiD8de7A2dDYUl": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d8 + @default.mod",
 								"name": "Default",
 								"type": "damage"
 							},
-							"a7q272DiQUiiTKvo": {
+							"0e2VRv9SFBCKOG6J": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "2d8",
@@ -398,12 +399,6 @@
 				},
 				"description": "<p>On hit the target is pushed up to 10 feet away, falling prone if it impacts a wall or other solid object.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -412,7 +407,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -432,9 +434,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"xfe5AaM5j6ufZLoU": {
+					"AJt1bjppysz7qmsK": {
 						"name": "Legendary Resistance (3/Day)",
 						"activation": {
 							"cost": "",
@@ -458,12 +459,6 @@
 				},
 				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it becomes more like rock. Its movement is halved until the end of its next turn.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -472,7 +467,14 @@
 					"per": "day"
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -488,9 +490,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"rxyuYTM5yCHsB7lD": {
+					"7rp2IOBYUhkN9gc0": {
 						"name": "Rock Spire",
 						"activation": {
 							"cost": 1,
@@ -502,7 +503,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"XL2IbIdjXRmNikVw": {
+							"JyyUPS6TZOrGqSm6": {
 								"range": "medium"
 							}
 						},
@@ -516,7 +517,7 @@
 							"type": "other"
 						},
 						"rolls": {
-							"pq2uxrijCxL2MGya": {
+							"tEsjQwpS4LWvVLiY": {
 								"canCrit": false,
 								"damageType": "piercing",
 								"formula": "4d8",
@@ -525,7 +526,7 @@
 							}
 						},
 						"prompts": {
-							"eN7ANzrpe9fhtjVC": {
+							"9uqoSxdDqrF1NUsx": {
 								"ability": "dex",
 								"onSave": "Half damage.",
 								"saveDC": {
@@ -539,12 +540,6 @@
 				},
 				"description": "<p>A permanent, 25-foot-tall, 5-foot-radius spire of rock magically rises from a point on the ground within 60 feet. A creature in the spire’s area when it appears makes a DC 19 Dexterity saving throw, taking 13 (3d8) piercing damage on a failure or half damage on a success. A creature that fails this saving throw by 10 or more is impaled at the top of the spire. A creature can use an action to make a DC 12 Strength check, freeing the impaled creature on a success. The impaled creature is also freed if the spire is destroyed. The spire is an object with AC 16, 30 hit points and immunity to poison and psychic damage.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 21,
-					"onSave": "Half damage.",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -553,7 +548,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "default",
+				"proficient": true,
+				"save": {
+					"dc": 21,
+					"onSave": "Half damage.",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -573,9 +575,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p style=\"text-align: start\">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature’s turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Shake the Foundation.</em></strong> The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 20 Dexterity saving throw, falling prone on a failure. </p><p><strong><em>Slam Attack (Costs 2 Actions).</em></strong> The dragon makes a slam attack.</p><p><strong><em>Entomb (While Bloodied, Costs 3 Actions).</em></strong> The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 15 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 15 Strength check, freeing an entombed creature on a success.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": 3,
+					"per": "round"
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -594,12 +607,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p style=\"text-align: start\">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature’s turn. It regains spent legendary actions at the start of its turn.</p><p><strong><em>Shake the Foundation.</em></strong> The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 20 Dexterity saving throw, falling prone on a failure. </p><p><strong><em>Slam Attack (Costs 2 Actions).</em></strong> The dragon makes a slam attack.</p><p><strong><em>Entomb (While Bloodied, Costs 3 Actions).</em></strong> The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 15 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 15 Strength check, freeing an entombed creature on a success.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -608,19 +619,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "round"
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -636,9 +638,8 @@
 			"sort": 925000,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"7kSQ8da2FK2BHn7S": {
+					"YWa52IGGpuDxcmMS": {
 						"name": "Legendary Action: Shake the Foundation",
 						"activation": {
 							"cost": 1,
@@ -659,7 +660,7 @@
 							"type": "other"
 						},
 						"prompts": {
-							"fJZuprpP4ueeNiAr": {
+							"oqP2eaFhQweEJiz3": {
 								"ability": "dex",
 								"onSave": "Avoids effects.",
 								"saveDC": {
@@ -673,12 +674,6 @@
 				},
 				"description": "<p> The dragon causes the ground to roil, creating a permanent, 40-foot-radius area of difficult terrain centered on a point the dragon can see. If the dragon is bloodied, creatures in the area make a DC 20 Dexterity saving throw, falling prone on a failure. </p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 20,
-					"onSave": "Avoids effects.",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -687,7 +682,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 20,
+					"onSave": "Avoids effects.",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -703,9 +705,8 @@
 			"sort": 950000,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"y5ATsU2vRAX3ceMI": {
+					"NQzFW5rnZEvpuO2F": {
 						"name": "Legendary Action: Slam Attack (Costs 2 Actions)",
 						"activation": {
 							"cost": 2,
@@ -729,12 +730,6 @@
 				},
 				"description": "<p>The dragon makes a slam attack.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -743,7 +738,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -759,9 +761,8 @@
 			"sort": 1000000,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"i8dq5rxFyP2zQ2Cv": {
+					"Y885z8k0EobOgNXW": {
 						"name": "Legendary Action: Entomb (Costs 3 Actions)",
 						"activation": {
 							"cost": 3,
@@ -773,7 +774,7 @@
 							"value": ""
 						},
 						"ranges": {
-							"pOSHAyazAFOIsOLO": {
+							"kyfNs7iROO1EEnYC": {
 								"range": "medium"
 							}
 						},
@@ -787,7 +788,7 @@
 							"type": "creature"
 						},
 						"prompts": {
-							"I8rY0G9nkreRz33f": {
+							"mufsLonRdUIK9I3A": {
 								"ability": "dex",
 								"onSave": "Avoids effects.",
 								"saveDC": {
@@ -801,12 +802,6 @@
 				},
 				"description": "<p>Can only be used while Bloodied.</p><p>The dragon targets a creature on the ground within 60 feet, forcing it to make a DC 15 Dexterity saving throw. On a failure, the creature is magically entombed 5 feet under the earth. While entombed, the target is blinded, restrained, and can’t breathe. A creature can use an action to make a DC 15 Strength check, freeing an entombed creature on a success.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": 15,
-					"onSave": "Avoids effects.",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -815,7 +810,14 @@
 					"per": null
 				},
 				"featureType": "",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": 15,
+					"onSave": "Avoids effects.",
+					"targetAbility": "dex"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -832,9 +834,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"Hz77RrAs7pZLZvHV": {
+					"42SuNBCcp6DH1QlI": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -846,7 +847,7 @@
 							"value": null
 						},
 						"ranges": {
-							"SGOpJ80K0hElazq5": {
+							"FShW5yedla3wHmJs": {
 								"range": "fiveFeet"
 							}
 						},
@@ -862,7 +863,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"79ZucQA0qSM4wDeE": {
+							"mhrJbhayekzucmQn": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -871,7 +872,7 @@
 							}
 						},
 						"prompts": {
-							"Uyk0dcwQ794KOO31": {
+							"bejya4HPfw3sxXC8": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -885,12 +886,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -902,7 +897,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -922,9 +924,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"mf3f9CxtJFIyZd67": {
+					"bzCHgNcHOeT8PaMX": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -936,7 +937,7 @@
 							"value": null
 						},
 						"ranges": {
-							"34AUC7vd1MunTYDa": {
+							"RplSTJX1m8tljXMD": {
 								"range": "touch"
 							}
 						},
@@ -952,7 +953,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"LSiJvgYuCSFgfwLO": {
+							"80F6qiY7r8Rdu9qx": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -961,7 +962,7 @@
 							}
 						},
 						"prompts": {
-							"w1RXDWl6sWcrD2WX": {
+							"SCwREEIo3NKrU7h2": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -975,12 +976,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -992,7 +987,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1012,9 +1014,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"5Q739d1uYvUFi3xd": {
+					"J8KABowHU1XIo9qQ": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -1026,7 +1027,7 @@
 							"value": null
 						},
 						"ranges": {
-							"jQiWflxRxGufoiF3": {
+							"lC2obLuydA15lGnE": {
 								"range": "touch"
 							}
 						},
@@ -1042,7 +1043,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"fDRXJlrky8mxwYf7": {
+							"cKjcNvu3CcGRxiuZ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1056,12 +1057,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1073,7 +1068,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1093,9 +1095,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"cPtqK5t2KGXiRUef": {
+					"rUCNWmuQcyN2w8uv": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -1107,7 +1108,7 @@
 							"value": null
 						},
 						"ranges": {
-							"yPeqJP6R7u9n56PB": {
+							"k32lBCqDhxyOY5QB": {
 								"range": "touch"
 							}
 						},
@@ -1123,7 +1124,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"GxqR5hiWNMHmMkbt": {
+							"i6IK7xeg45Bf9i2N": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1137,12 +1138,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1154,7 +1149,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1174,9 +1176,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"XHZokkyeqjElgvNX": {
+					"hnlbdCfQnHBB5KFZ": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -1188,7 +1189,7 @@
 							"value": null
 						},
 						"ranges": {
-							"brv0rgcoyFV3Fm2T": {
+							"owOF0pCOXN3pwViH": {
 								"range": "touch"
 							}
 						},
@@ -1204,7 +1205,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"KKrfwIDVmvoxjhVs": {
+							"YylJnF3PwnuCUbCP": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1218,12 +1219,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1235,7 +1230,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1255,9 +1257,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"C1zmMiVwUAFIJzbu": {
+					"hBeYLQWXvFs3AEBf": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1269,7 +1270,7 @@
 							"value": null
 						},
 						"ranges": {
-							"pQeNLebts206Kzq8": {
+							"L9pD6WFussqoXggr": {
 								"range": "touch"
 							}
 						},
@@ -1285,7 +1286,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"lshZNSqQADo5P0P4": {
+							"waVljYwuo7G569mY": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1299,12 +1300,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1316,7 +1311,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1820,6 +1822,7 @@
 			"creatureTypes": [
 				"dragon"
 			],
+			"isSwarm": false,
 			"cr": 18,
 			"elite": false,
 			"privateNotes": ""

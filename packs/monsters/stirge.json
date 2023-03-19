@@ -13,9 +13,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "dex",
 				"actions": {
-					"UPw8zlmrH77LSasc": {
+					"tPX1F9dDfjda7QNx": {
 						"name": "Proboscis",
 						"activation": {
 							"cost": "",
@@ -36,13 +35,14 @@
 							"type": ""
 						},
 						"rolls": {
-							"jxh75q5Fk0iYN1pG": {
+							"zkjyTX9OPex6rmnD": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
+								"attackType": "meleeWeaponAttack",
 								"ability": "dex"
 							},
-							"HHNiLiCkfER3SX5M": {
+							"qvBtRLT6yynTzSm9": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1",
@@ -54,12 +54,6 @@
 				},
 				"description": "",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -79,6 +73,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": 0,
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -86,7 +81,13 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 0
+				"weight": 0,
+				"ability": "dex",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -102,9 +103,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The stirge drains blood from the creature it is attached to. The creature loses 4 (1d8) hit points. After the stirge has drained 8 hit points, it detaches itself and can’t use Blood Drain again until it finishes a rest.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -123,12 +135,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The stirge drains blood from the creature it is attached to. The creature loses 4 (1d8) hit points. After the stirge has drained 8 hit points, it detaches itself and can’t use Blood Drain again until it finishes a rest.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -137,19 +147,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -166,9 +167,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"qQweQ181a6nH73e9": {
+					"D051at4zC0eLR7OC": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -180,7 +180,7 @@
 							"value": null
 						},
 						"ranges": {
-							"3WOYoh2CLsNMX5U1": {
+							"JlncOCS0BYveT4V3": {
 								"range": "fiveFeet"
 							}
 						},
@@ -196,7 +196,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"TT1bx0eJRC92RO78": {
+							"kwzcqYwNIghavLjH": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -205,7 +205,7 @@
 							}
 						},
 						"prompts": {
-							"aR5ZNekfyTGwGVe5": {
+							"CWLD4Rxc48JroM5D": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -219,12 +219,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -236,7 +230,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -256,9 +257,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"5zflzXnHgfagD5cg": {
+					"ZwmW999TRDU8HQf0": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -270,7 +270,7 @@
 							"value": null
 						},
 						"ranges": {
-							"FgNNvDKZ80CS96ac": {
+							"Cyn5wJYiTifcV24y": {
 								"range": "touch"
 							}
 						},
@@ -286,7 +286,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"ycogBRqkvh9HRNYY": {
+							"TCei4ZXXreRy46is": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -295,7 +295,7 @@
 							}
 						},
 						"prompts": {
-							"VvUK0AqRqcqPul6g": {
+							"PyRranOoaePWjUcA": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -309,12 +309,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -326,7 +320,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -346,9 +347,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"pMa3xVz6RVWPcqmT": {
+					"5VRxKnckTH5Ev1ae": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -360,7 +360,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ozXhMCajlnWl411z": {
+							"9QHk5jjiOBKxeeq7": {
 								"range": "touch"
 							}
 						},
@@ -376,7 +376,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"4a1qFcXlw7PbXGew": {
+							"n6AEhcnSrKuhtHYy": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -390,12 +390,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -407,7 +401,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -427,9 +428,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"e1TzLGo2l3FmxuVI": {
+					"ywphbky29SuAfIZL": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -441,7 +441,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Z53XpsjcUgMOk0TN": {
+							"SdOH2BYHCBzZoUFt": {
 								"range": "touch"
 							}
 						},
@@ -457,7 +457,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"YywOH43BgarRnoay": {
+							"WlbncQEACtNwKp5i": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -471,12 +471,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -488,7 +482,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -508,9 +509,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"NUwnTQ6Hjn7IMWah": {
+					"jcLx7YcMYB56gNwU": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -522,7 +522,7 @@
 							"value": null
 						},
 						"ranges": {
-							"GwFfxbIv2q7Yfq17": {
+							"R9XJoijRXxZarBB9": {
 								"range": "touch"
 							}
 						},
@@ -538,7 +538,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"p9ieCtvO62yVP0if": {
+							"F0gqf2ODENqr3kjK": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -552,12 +552,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -569,7 +563,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -589,9 +590,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"Ynq0dpv8sKn7gvor": {
+					"Xlu3tuF3nabPB83u": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -603,7 +603,7 @@
 							"value": null
 						},
 						"ranges": {
-							"7OnAbM0IvqeBAIpY": {
+							"aqokYUIqimCfyjOC": {
 								"range": "touch"
 							}
 						},
@@ -619,7 +619,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"PUvLWzcb8DqhZ4dQ": {
+							"1qn0G0mAZU1aVcyJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -633,12 +633,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -650,7 +644,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1147,6 +1148,7 @@
 			"creatureTypes": [
 				"beast"
 			],
+			"isSwarm": false,
 			"cr": 0.125,
 			"elite": false,
 			"privateNotes": ""

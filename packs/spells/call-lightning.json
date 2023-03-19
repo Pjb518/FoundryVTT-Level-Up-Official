@@ -10,8 +10,8 @@
 	},
 	"system": {
 		"actions": {
-			"9ssQaQqcqpJd5CwP": {
-				"name": "Cast Spell",
+			"FplErpCwC2AQf4Em": {
+				"name": "Call Lightning",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -22,7 +22,7 @@
 					"value": "10"
 				},
 				"ranges": {
-					"sbffeSgVJqzSanjK": {
+					"SzndNvd8Vuz2BvPe": {
 						"range": "100 feet above you"
 					}
 				},
@@ -35,56 +35,32 @@
 					"quantity": "",
 					"type": "Area"
 				},
-				"rolls": {},
-				"prompts": {}
-			},
-			"RAYVX02ARezo5IC6": {
-				"name": "Lightning Strike",
 				"rolls": {
-					"Fq42qgoSd8VxEEYI": {
-						"type": "damage",
-						"default": true,
-						"label": "Normal Damage",
+					"3222QYu9tHBJHa3j": {
 						"canCrit": false,
 						"damageType": "lightning",
-						"formula": "3d10"
+						"formula": "3d10",
+						"name": "Normal damage",
+						"type": "damage"
 					},
-					"EpeaYATHSBXgH3Xh": {
-						"type": "damage",
-						"default": false,
-						"label": "Damage in Stormy Weather",
-						"formula": "4d10",
+					"jRT6sHp11oBZ8y5H": {
+						"canCrit": false,
 						"damageType": "lightning",
-						"canCrit": false
+						"formula": "4d10",
+						"name": "Stormy damage",
+						"type": "damage"
 					}
-				},
-				"area": {
-					"shape": "cylinder",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				},
-				"target": {
-					"type": "other",
-					"quantity": 1
 				},
 				"prompts": {
-					"QmnmyXb5smTrAgD9": {
-						"type": "savingThrow",
-						"default": true,
+					"d2Gdj5orG6fd2Qsd": {
 						"ability": "dex",
+						"onSave": "Half damage",
 						"saveDC": {
-							"type": "spellcasting"
+							"type": "custom",
+							"bonus": "@spellDC"
 						},
-						"onSave": "Half damage"
+						"type": "savingThrow"
 					}
-				},
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
 				}
 			}
 		},

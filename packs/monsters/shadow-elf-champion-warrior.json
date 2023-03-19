@@ -13,9 +13,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"Tnrg9nCO0sYI9UlZ": {
+					"nZfPUG8kLgyv1iXC": {
 						"name": "Multiattack",
 						"activation": {
 							"cost": 1,
@@ -39,12 +38,6 @@
 				},
 				"description": "<p>The warrior attacks twice.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -53,7 +46,14 @@
 					"per": null
 				},
 				"featureType": "other",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -69,9 +69,20 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>The warrior’s spellcasting ability is Charisma (spell save DC 13). The warrior can innately cast the following spells, requiring no material components:</p><p><strong>At Will</strong>: dancing lights</p><p><strong>1/day each</strong>: darkness, faerie fire</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "heritage",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -90,12 +101,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The warrior’s spellcasting ability is Charisma (spell save DC 13). The warrior can innately cast the following spells, requiring no material components:</p><p><strong>At Will</strong>: dancing lights</p><p><strong>1/day each</strong>: darkness, faerie fire</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -104,19 +113,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "heritage",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -137,9 +137,8 @@
 				}
 			},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"mKstNM1MQeN8YJN2": {
+					"X2vbxUqgCA25hziv": {
 						"name": "Shortsword",
 						"activation": {
 							"cost": "",
@@ -160,13 +159,14 @@
 							"type": "creatureObject"
 						},
 						"rolls": {
-							"eQM9RpOOOIiAg4ub": {
+							"HuzUYaiMe94hp0oh": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "dex"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"d8dFbad4dyFS5Bax": {
+							"WNmX6cOH5a9VvOuq": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d6 + @finesse.mod",
@@ -178,12 +178,6 @@
 				},
 				"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -203,6 +197,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "10 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -214,7 +209,13 @@
 					"parrying",
 					"finesse"
 				],
-				"weight": 2
+				"weight": 2,
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -230,9 +231,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"gxSZga9ODhfrpyUK": {
+					"p5sEL1LCIL9clJvC": {
 						"name": "Hand Crossbow",
 						"activation": {
 							"cost": "",
@@ -253,13 +253,14 @@
 							"type": ""
 						},
 						"rolls": {
-							"kvB11ZqkHitCC9SQ": {
+							"LpRup83zo4qfrdgq": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "dex"
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
 							},
-							"kSj3stFGu6OZxhtA": {
+							"q4QS0xzkppsUDTRo": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d6+4",
@@ -268,7 +269,7 @@
 							}
 						},
 						"prompts": {
-							"W8aEO47WOorpA5b4": {
+							"eQE31uufGzzcexJD": {
 								"ability": "con",
 								"onSave": "",
 								"saveDC": {
@@ -282,12 +283,6 @@
 				},
 				"description": "<p>If the target is a creature, it makes a DC 13 Constitution saving throw. On a failure, the target is poisoned for 1 hour. If it fails the saving throw by 5 or more, it falls unconscious until it is no longer poisoned, it takes damage, or a creature takes an action to shake it awake.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "13",
-					"onSave": "",
-					"targetAbility": "con"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -307,6 +302,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "0",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -317,7 +313,13 @@
 					"finesse",
 					"range"
 				],
-				"weight": 0
+				"weight": 0,
+				"ability": "default",
+				"save": {
+					"dc": "13",
+					"onSave": "",
+					"targetAbility": "con"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -337,9 +339,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"RtITCgyX98Z2pXeq": {
+					"V15hTM5c8mdnQdGo": {
 						"name": "Dancing Lights",
 						"activation": {
 							"cost": 1,
@@ -351,7 +352,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"rS0mz5iJ1tdHX6iU": {
+							"sKuvexn5ux42Krzg": {
 								"range": "long"
 							}
 						},
@@ -368,12 +369,6 @@
 				},
 				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -398,6 +393,13 @@
 						"arcane",
 						"utility"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -418,9 +420,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"oQY2dHdxv43C7rNR": {
+					"s8PZqgFlUAg4cYKd": {
 						"name": "Darkness",
 						"activation": {
 							"cost": 1,
@@ -432,7 +433,7 @@
 							"value": "10"
 						},
 						"ranges": {
-							"LNgDuWGkvAQzD5ou": {
+							"hJGRQNjvdxCvc327": {
 								"range": "medium"
 							}
 						},
@@ -451,12 +452,6 @@
 				},
 				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -481,6 +476,13 @@
 						"arcane",
 						"shadow"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -501,9 +503,8 @@
 				}
 			},
 			"system": {
-				"ability": "spellcasting",
 				"actions": {
-					"Tz5VfF9BntXsjYSV": {
+					"90cekQAqczCUux1u": {
 						"name": "Faerie Fire",
 						"activation": {
 							"cost": 1,
@@ -515,7 +516,7 @@
 							"value": "1"
 						},
 						"ranges": {
-							"tQQz9YGcuaBDpmea": {
+							"KeSIeNc2lFCSRrgU": {
 								"range": "medium"
 							}
 						},
@@ -531,7 +532,7 @@
 							"size": "20 ft."
 						},
 						"prompts": {
-							"OP0SCGyU7stFL3NP": {
+							"yUycNw69VpXcZA4A": {
 								"ability": "dex",
 								"onSave": "Special",
 								"saveDC": {
@@ -545,12 +546,6 @@
 				},
 				"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Special",
-					"targetAbility": "dex"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -575,6 +570,13 @@
 						"arcane",
 						"utility"
 					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Special",
+					"targetAbility": "dex"
 				}
 			},
 			"ownership": {
@@ -592,9 +594,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"Aq5LQfiXfWvXqaB0": {
+					"6RT3StmXed6g1AUj": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -606,7 +607,7 @@
 							"value": null
 						},
 						"ranges": {
-							"MD5WuyjsIhvPmIzs": {
+							"km9pi4wh0eN2KP7z": {
 								"range": "fiveFeet"
 							}
 						},
@@ -622,7 +623,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"GE4EfJH0c0NaIeWT": {
+							"LjcJyvv0p4Ip67UC": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -631,7 +632,7 @@
 							}
 						},
 						"prompts": {
-							"nmH4bl8D7ikRpcfB": {
+							"ysW4yqZvVuTQ4IWg": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -645,12 +646,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -662,7 +657,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -682,9 +684,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"P9j14xb2kG5ZVMDa": {
+					"T1FPizKcLEdMGmN2": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -696,7 +697,7 @@
 							"value": null
 						},
 						"ranges": {
-							"PGjPBtTIh1uUEArD": {
+							"6AHiZHSPyGT2f795": {
 								"range": "touch"
 							}
 						},
@@ -712,7 +713,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"j95PQyj5eoX90H5t": {
+							"lgMeMgfoKkvDk76m": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -721,7 +722,7 @@
 							}
 						},
 						"prompts": {
-							"Jdxbs62Chd1xA7P3": {
+							"F1BIqWruSeCs5gYC": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -735,12 +736,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -752,7 +747,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -772,9 +774,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"7O5EO32CYTE9Pwm5": {
+					"GmK114GuScBOXGnc": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -786,7 +787,7 @@
 							"value": null
 						},
 						"ranges": {
-							"Rk44c1ZJVbcrwodi": {
+							"ItVC7AQqTbX6R6K2": {
 								"range": "touch"
 							}
 						},
@@ -802,7 +803,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"qjLrbjXzRJU1UyvS": {
+							"FTW4o5BSPAoWFKNF": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -816,12 +817,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -833,7 +828,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -853,9 +855,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"avNgpF354c3jLSaU": {
+					"2mTv0vNcJZrTvsNG": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -867,7 +868,7 @@
 							"value": null
 						},
 						"ranges": {
-							"fVaeGd5j1try27Xd": {
+							"84DQ1RXeg753VtWc": {
 								"range": "touch"
 							}
 						},
@@ -883,7 +884,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"h2y2q9DXQN5LXuqQ": {
+							"Ktzm8USfRSGWJss1": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -897,12 +898,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -914,7 +909,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -934,9 +936,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"FLm9GlqX8rv1VNkb": {
+					"c6iMXpdD0ZHqSx4p": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -948,7 +949,7 @@
 							"value": null
 						},
 						"ranges": {
-							"V4JNTDKWPZhCZOHJ": {
+							"k9mkqV93cSMvlqwP": {
 								"range": "touch"
 							}
 						},
@@ -964,7 +965,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"wfZdUVORv4AY2VUk": {
+							"1W2MsmXEsq6ekZdB": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -978,12 +979,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -995,7 +990,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1015,9 +1017,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"2OUnUEYzrlpn59G0": {
+					"muasEPRfERjv849g": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -1029,7 +1030,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JFt19VbnTptaS4m8": {
+							"t5OUZMVtJW8Tn8LX": {
 								"range": "touch"
 							}
 						},
@@ -1045,7 +1046,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"LvmMv5mq5gnyRsdg": {
+							"V36YGlSrgdOh9W1Y": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1059,12 +1060,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1076,7 +1071,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1576,6 +1578,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": 5,
 			"elite": false,
 			"privateNotes": ""

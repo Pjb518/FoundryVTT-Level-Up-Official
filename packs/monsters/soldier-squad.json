@@ -13,9 +13,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "default",
 				"actions": {
-					"p3C7k9vmbp1I35Ji": {
+					"XNIMLC0Vltvq4LPt": {
 						"name": "Spears",
 						"activation": {
 							"cost": 1,
@@ -27,10 +26,10 @@
 							"value": ""
 						},
 						"ranges": {
-							"4opMPMvXywxQM49d": {
+							"3qlaNG9Olokb8fTO": {
 								"range": "fiveFeet"
 							},
-							"osfDUA67maULJjjx": {
+							"dmzCAjZTmQqN5Ah9": {
 								"range": "Thrown 20ft/60ft."
 							}
 						},
@@ -44,13 +43,14 @@
 							"type": "creature"
 						},
 						"rolls": {
-							"U6JM6ckDh08WghL3": {
+							"RvUUAtGzx6y9yO7v": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"ability": "str"
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
 							},
-							"rBbykjiV6RROSAl9": {
+							"rawjoJrpfxemi5jg": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "6d6 + 10",
@@ -62,12 +62,6 @@
 				},
 				"description": "<p>Half damage if squad is bloodied.</p>",
 				"favorite": true,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -87,6 +81,7 @@
 				"objectType": "weapon",
 				"plotItem": false,
 				"price": "1 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -99,7 +94,13 @@
 					"thrown",
 					"versatile"
 				],
-				"weight": 3
+				"weight": 3,
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -119,47 +120,11 @@
 				}
 			},
 			"system": {
-				"ability": "",
-				"actionOptions": [],
 				"actions": {},
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
 				"description": "",
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
 				"favorite": false,
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
 				"uses": {
 					"value": null,
 					"max": "",
@@ -180,6 +145,7 @@
 				"objectType": "armor",
 				"plotItem": false,
 				"price": "20 gp",
+				"proficient": true,
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
@@ -187,7 +153,42 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 10
+				"weight": 10,
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -203,9 +204,39 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
+				"actions": {},
+				"description": "<p>Medium shields increase your Armor Class by 2.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "shield",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 8,
 				"ability": "dex",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": 1,
 					"type": "",
@@ -231,51 +262,21 @@
 						"name": ""
 					}
 				],
-				"description": "<p>Medium shields increase your Armor Class by 2.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
-				"proficient": true,
 				"range": [],
 				"save": {
 					"dc": "",
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": null,
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "shield",
-				"plotItem": false,
-				"price": "20 gp",
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 8
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -291,9 +292,8 @@
 			"sort": 0,
 			"flags": {},
 			"system": {
-				"ability": "",
 				"actions": {
-					"gLRZUc1EF7qx0l14": {
+					"cPf4LhoIkYN2aoc5": {
 						"name": "Tactical Movement",
 						"activation": {
 							"cost": 1,
@@ -305,7 +305,7 @@
 							"value": 1
 						},
 						"ranges": {
-							"QDO3i9845hLzTp43": {
+							"l41QDGEJbH2BeI4b": {
 								"range": "self"
 							}
 						},
@@ -322,12 +322,6 @@
 				},
 				"description": "<p>Until the end of the soldier's turn, their Speed is halved and their movement doesn't provoke opportunity attacks.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -336,7 +330,14 @@
 					"per": null
 				},
 				"featureType": "other",
-				"prerequisite": ""
+				"prerequisite": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -356,9 +357,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The squad takes double damage from any effect that targets an area.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -377,12 +389,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The squad takes double damage from any effect that targets an area.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -391,19 +401,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -423,9 +424,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>When the squad is reduced to 0 hit points, it turns into 2 (1d4) soldiers with 9 hit points each.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -444,12 +456,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>When the squad is reduced to 0 hit points, it turns into 2 (1d4) soldiers with 9 hit points each.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -458,19 +468,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -490,9 +491,20 @@
 				}
 			},
 			"system": {
+				"actions": {},
+				"description": "<p>The squad is composed of 5 or more soldiers. If it is subjected to a spell, attack, or other effect that affects only one target, it takes any damage but ignores other effects. It can share its space with Medium or smaller creatures or objects. The squad can move through any opening large enough for one Medium creature without squeezing.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"featureType": "other",
+				"prerequisite": "",
 				"ability": "",
 				"actionOptions": [],
-				"actions": {},
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -511,12 +523,10 @@
 					"ability": "str"
 				},
 				"damage": [],
-				"description": "<p>The squad is composed of 5 or more soldiers. If it is subjected to a spell, attack, or other effect that affects only one target, it takes any damage but ignores other effects. It can share its space with Medium or smaller creatures or objects. The squad can move through any opening large enough for one Medium creature without squeezing.</p>",
 				"duration": {
 					"unit": "",
 					"value": ""
 				},
-				"favorite": false,
 				"healing": [],
 				"proficient": true,
 				"range": [],
@@ -525,19 +535,10 @@
 					"onSave": "",
 					"targetAbility": ""
 				},
-				"secretDescription": "",
-				"source": "",
 				"target": {
 					"quantity": "",
 					"type": ""
-				},
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "other",
-				"prerequisite": ""
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -554,9 +555,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"bkY8sitLX8k3Mz7K": {
+					"T69NAvcghpdK1uaO": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -568,7 +568,7 @@
 							"value": null
 						},
 						"ranges": {
-							"mEg9Ak4ntQXOvGWC": {
+							"FkMgnZDM3BJl25pp": {
 								"range": "fiveFeet"
 							}
 						},
@@ -584,7 +584,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"rIdHUS7pgv6l84iS": {
+							"Q1NzHD0l4NZPDyHz": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -593,7 +593,7 @@
 							}
 						},
 						"prompts": {
-							"2fwwMbtBj5OLcJBt": {
+							"zmbpxHhIWbzO5GJe": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -607,12 +607,6 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -624,7 +618,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -644,9 +645,8 @@
 				}
 			},
 			"system": {
-				"ability": "str",
 				"actions": {
-					"5D6rPPQka8tJ8pVv": {
+					"1KDWL4gjo6dDpqfz": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -658,7 +658,7 @@
 							"value": null
 						},
 						"ranges": {
-							"RmC9hHxtd4yetTd4": {
+							"gSfKQN3JUasTDQyT": {
 								"range": "touch"
 							}
 						},
@@ -674,7 +674,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"L08aIWcs4ONNJzi5": {
+							"KoDKq382uopJ38CJ": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -683,7 +683,7 @@
 							}
 						},
 						"prompts": {
-							"69SJiVEmnKWS9f0C": {
+							"1hS8W78JqxFPO9Mm": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -697,12 +697,6 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -714,7 +708,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -734,9 +735,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"MluEkC1nAuoA7ndF": {
+					"LOzWHrDCBO6VeGkG": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -748,7 +748,7 @@
 							"value": null
 						},
 						"ranges": {
-							"aH8uNYe5DCx8XBMj": {
+							"OedBP95bHpXy0Ua2": {
 								"range": "touch"
 							}
 						},
@@ -764,7 +764,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"Re5f2C0nMYVdvdSb": {
+							"N3omSybzmyiLcrno": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -778,12 +778,6 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -795,7 +789,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -815,9 +816,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"FsC74eE0FzUA1zDM": {
+					"Mtnsi8kgUBUJci3a": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -829,7 +829,7 @@
 							"value": null
 						},
 						"ranges": {
-							"sM8qvvQLWODaMc8X": {
+							"aUxX7a6A9PBOtm8I": {
 								"range": "touch"
 							}
 						},
@@ -845,7 +845,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"XZYONAHVdxXKdtMn": {
+							"7YhjTTfnO8HmXoYK": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -859,12 +859,6 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -876,7 +870,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -896,9 +897,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"OIcyvKsplxZU9ZLM": {
+					"RMzpAxMMjw49QNdu": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -910,7 +910,7 @@
 							"value": null
 						},
 						"ranges": {
-							"tYt22gJaZlu7041T": {
+							"SkTXYBqIPWWSJHCI": {
 								"range": "touch"
 							}
 						},
@@ -926,7 +926,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"9F7aMKzdvcIOw7OF": {
+							"6tSdAVYSCAb8hBPd": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -940,12 +940,6 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -957,7 +951,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -977,9 +978,8 @@
 				}
 			},
 			"system": {
-				"ability": "",
 				"actions": {
-					"5rGyO0mHNcsfSu2b": {
+					"Ib3H7b02z4yQL98Y": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -991,7 +991,7 @@
 							"value": null
 						},
 						"ranges": {
-							"2sbAyDeVVlVmS605": {
+							"J6sNqVMHwkt0QurI": {
 								"range": "touch"
 							}
 						},
@@ -1007,7 +1007,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"YEx7tV4pv3wE8fJC": {
+							"gF1JJvrSxI7Lt9I8": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -1021,12 +1021,6 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1038,7 +1032,14 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1535,6 +1536,7 @@
 			"creatureTypes": [
 				"humanoid"
 			],
+			"isSwarm": false,
 			"cr": 5,
 			"elite": false,
 			"privateNotes": ""
