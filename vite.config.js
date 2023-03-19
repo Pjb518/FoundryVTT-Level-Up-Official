@@ -29,6 +29,9 @@ const config = {
       fileName: () => 'index.js'
     }
   },
+  esbuild: {
+    keepNames: true
+  },
   plugins: [
     svelte({
       preprocess: preprocess(),
