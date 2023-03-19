@@ -12,6 +12,7 @@
         const actor = fromUuidSync(actorId);
 
         if (!actor) return true;
+        if (actor.type === "character") return true;
 
         // If actor permissions are at least "Observer", show the tooltip
         return actor.permission >= 2;

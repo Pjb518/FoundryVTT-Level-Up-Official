@@ -14,7 +14,7 @@
             const actorId = $message?.flags?.a5e?.actorId;
             const actor = fromUuidSync(actorId);
 
-            if (actor && actor.permission < 2) {
+            if (actor && actor.type !== "character" && actor.permission < 2) {
                 return localize("A5E.RollPromptSavingThrow", {
                     ability: localize(abilities[prompt.ability]),
                 });
