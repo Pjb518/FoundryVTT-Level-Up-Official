@@ -24,6 +24,17 @@
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
     let isGM = game.user.isGM;
 
+    function determineActionListVisibility(action, item, sheetIsLocked) {
+        if (action) return false;
+        if (item.actions.count < 2) return false;
+
+        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked) {
+            return false;
+        }
+
+        return true;
+    }
+
     function getSummaryComponent(item) {
         switch (item?.type) {
             case "feature":
@@ -66,6 +77,12 @@
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    $: showActionList = determineActionListVisibility(
+        action,
+        item,
+        sheetIsLocked
+    );
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -128,7 +145,7 @@
     </div>
 {/if}
 
-{#if !action && item?.actions?.count > 1}
+{#if showActionList}
     <ul class="actions-list">
         {#each item?.actions?.entries() as [id, action] (id)}
             <svelte:self {item} {action} actionId={id} />

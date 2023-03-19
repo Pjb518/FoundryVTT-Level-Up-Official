@@ -97,7 +97,6 @@ export default function registerSystemSettings() {
     default: false
   });
 
-  // Default GM Setting for placing templates
   game.settings.register('a5e', 'hideDeleteConfirmation', {
     name: 'Hide Deletion Confirmation Dialog',
     hint: 'When this setting is enabled, you can delete items from actor sheets without being presented with a dialog window to confirm the deletion.',
@@ -105,6 +104,16 @@ export default function registerSystemSettings() {
     config: true,
     type: Boolean,
     default: false
+  });
+
+  game.settings.register('a5e', 'collapseActionList', {
+    name: 'Hide Action List in Locked Mode',
+    hint: 'When enabled, the action list will be hidden on locked sheets to reduce clutter.',
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: reload
   });
 
   game.settings.register('a5e', 'reverseInitiativeAltBehavior', {
