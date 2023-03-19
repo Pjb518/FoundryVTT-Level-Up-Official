@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 /**
@@ -8,7 +9,7 @@ export default class TokenHUDA5e extends TokenHUD {
   getData() {
     let data = super.getData();
     data = foundry.utils.mergeObject(data, {
-      AC: this.object.actor?.system?.attributes?.ac || false
+      AC: this.object.actor?.system?.attributes?.ac ?? 10
     });
     return data;
   }
