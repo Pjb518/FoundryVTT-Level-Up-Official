@@ -46,6 +46,7 @@ export default function migrateActionsConfig(itemData, updateData) {
   // Step 8: Rolls & Prompts
   if (actionOptions.includes('attack')) {
     const attack = foundry.utils.duplicate(itemData.system.attack ?? {});
+    attack.attackType = attack.type;
     attack.type = 'attack';
     attack.ability = itemData.system.ability;
     action.rolls = {
