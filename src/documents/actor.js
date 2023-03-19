@@ -647,7 +647,7 @@ export default class ActorA5e extends Actor {
     if (!dialogData) return null;
 
     const { rollFormula } = dialogData;
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
+    const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
@@ -789,7 +789,7 @@ export default class ActorA5e extends Actor {
     if (dialogData === null) return null;
 
     const { rollFormula } = dialogData;
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
+    const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,
@@ -893,7 +893,7 @@ export default class ActorA5e extends Actor {
     if (!rollData) return null;
 
     const { rollFormula, abilityKey } = rollData;
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).roll({ async: true });
+    const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
       user: game.user?.id,

@@ -5,7 +5,7 @@
  */
 export default async function getInitiativeRoll(options) {
   const formula = await this._getInitiativeFormula(options);
-  const roll = CONFIG.Dice.D20Roll.create(formula);
+  const roll = Roll.create(formula);
 
   return roll.evaluate({ async: false });
 }

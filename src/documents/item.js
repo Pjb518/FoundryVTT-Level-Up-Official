@@ -235,7 +235,7 @@ export default class ItemA5e extends Item {
 
     if (!rollFormula) return null;
 
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
     const label = localize('A5E.AbilityCheckSpecific', { ability });
 
     return {
@@ -250,7 +250,7 @@ export default class ItemA5e extends Item {
 
     if (!rollFormula) return null;
 
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
     const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
     const isCrit = roll.dice[0].total >= (_roll.critThreshold ?? 20);
@@ -327,7 +327,7 @@ export default class ItemA5e extends Item {
     if (!rollFormula) return null;
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
     const label = localize('A5E.SavingThrowSpecific', { ability });
 
     return {
@@ -347,7 +347,7 @@ export default class ItemA5e extends Item {
 
     if (!rollFormula) return null;
 
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
 
     const label = ability
       ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
@@ -402,7 +402,7 @@ export default class ItemA5e extends Item {
 
     if (!rollFormula) return null;
 
-    const roll = await new CONFIG.Dice.D20Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate({ async: true });
 
     return {
       label,

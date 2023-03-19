@@ -1,3 +1,5 @@
+<svelte:options accessors={true} />
+
 <script>
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
