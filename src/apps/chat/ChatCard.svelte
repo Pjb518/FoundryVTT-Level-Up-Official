@@ -1,6 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
+    import { setContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CheckHeader from "./header/CheckHeader.svelte";
@@ -43,6 +44,8 @@
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
 
     const message = new TJSDocument(messageDocument);
+
+    setContext("message", message);
 </script>
 
 <svelte:component

@@ -127,6 +127,16 @@ export default function registerSystemSettings() {
     onChange: reload
   });
 
+  game.settings.register('a5e', 'protectRolls', {
+    name: 'Enable Protected Roll Mode',
+    hint: 'When enabled, players will be unable to see roll formulae for any rolls made by actors they do not have at least observer permissions for. The DCs of any saving throws will also be hidden from them.',
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: reload
+  });
+
   game.settings.register('a5e', 'terseRollFormulae', {
     name: 'Hide System Roll Annotations',
     hint: 'The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.',
