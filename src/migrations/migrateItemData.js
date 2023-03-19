@@ -16,7 +16,7 @@ export default function migrateItemData(item) {
   }
 
   // TODO: Remove in 0.10.0
-  if (game.settings.get('a5e', 'systemMigrationVersion') === '0.9.1') {
+  if (foundry.utils.isNewerVersion(game.settings.get('a5e', 'systemMigrationVersion'), '0.9.1')) {
     migrateSpellAttack(item, updateData);
   }
 
