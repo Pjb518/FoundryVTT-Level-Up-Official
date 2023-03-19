@@ -1,4 +1,5 @@
 import { itemMigrators } from './v090/migratev090';
+import migrateSpellAttack from './v090/itemData/migrateSpellAttackFix';
 
 const FEATURE_ITEMS = ['background', 'class', 'culture', 'destiny', 'heritage', 'subclass'];
 /**
@@ -12,6 +13,11 @@ export default function migrateItemData(item) {
   // Item data updates
   if (item.system && !FEATURE_ITEMS.includes(FEATURE_ITEMS)) {
     itemMigrators.forEach((func) => func(item, updateData));
+  }
+
+  // TODO: Remove in 0.10.0
+  if (game.settings.get('a5e', 'systemMigrationVersion') === '0.9.1') {
+    migrateSpellAttack(item, updateData);
   }
 
   return updateData;
