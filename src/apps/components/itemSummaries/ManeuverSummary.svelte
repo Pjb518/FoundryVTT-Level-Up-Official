@@ -15,13 +15,13 @@
     let listHeight;
 </script>
 
-{#if !actionId && item.system.degree === 0}
+{#if !actionId && parseInt(item.system.degree, 10) === 0}
     <p class="summary">
-        {localize(A5E.maneuverDegrees[item.system.degree])}
+        {localize(A5E.maneuverDegrees[parseInt(item.system.degree, 10)])}
     </p>
-{:else if !actionId && item.system.degree > 0}
+{:else if !actionId && parseInt(item.system.degree, 10) > 0}
     <p class="summary">
-        {localize(A5E.maneuverDegrees[item.system.degree])}
+        {localize(A5E.maneuverDegrees[parseInt(item.system.degree, 10)])}
 
         {#if item.system.tradition}
             {localize(A5E.maneuverTraditions[item.system.tradition])}

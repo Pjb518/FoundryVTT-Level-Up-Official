@@ -11,7 +11,7 @@ export default class ManeuverMapReducer extends DynMapReducer {
     });
 
     Object.entries(this._degrees).forEach(([key, reducer]) => {
-      reducer.filters.add((item) => item.system.degree === Number(key));
+      reducer.filters.add((item) => parseInt(item.system.degree, 10) === Number(key));
     });
   }
 }

@@ -50,7 +50,7 @@
                     options={objectEntriesNumberKeyConverter(
                         A5E.maneuverDegrees
                     )}
-                    selected={$item.system.degree}
+                    selected={parseInt($item.system.degree, 10)}
                     on:updateSelection={(event) =>
                         updateDocumentDataFromField(
                             $item,
