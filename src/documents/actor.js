@@ -360,6 +360,10 @@ export default class ActorA5e extends Actor {
       mod: Math.max(data.dex.mod, data.str.mod)
     };
 
+    data.spell = {
+      mod: this.system.abilities[this.system.attributes.spellcasting ?? 'int'].check.mod
+    };
+
     data.level = this.system.details.level;
 
     data.spellDC = this.system.attributes.spellDC;
