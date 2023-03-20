@@ -34,7 +34,12 @@
 {#if showDuration}
     <div class="summary-group">
         <dt>{localize("A5E.ItemDuration")}:</dt>
-        <dd>{duration}</dd>
+        <dd>
+            {duration}
+            {item.system.concentration
+                ? `(${localize("A5E.SpellConcentration")})`
+                : ""}
+        </dd>
     </div>
 {/if}
 
