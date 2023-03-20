@@ -1425,4 +1425,21 @@ Object.entries(A5E.spellSchools.primary).forEach(([value, label]) => {
   };
 });
 
+// ---------------------------------------------------
+// Reducer Data
+A5E.reducerSortMap = {
+  objects: {
+    ammunition: 3,
+    armor: 1,
+    clothing: 8,
+    consumable: 5,
+    container: 4,
+    jewelry: 7,
+    miscellaneous: 9,
+    shield: 2,
+    tool: 6,
+    weapon: 0
+  }
+};
+
 export default A5E;

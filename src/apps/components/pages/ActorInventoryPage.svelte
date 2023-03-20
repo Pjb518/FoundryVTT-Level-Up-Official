@@ -9,6 +9,10 @@
 
     const actor = getContext("actor");
     const { objects } = actor;
+
+    let sortedObjects = Object.entries($objects._types).sort(
+        (a, b) => $objects.sortMap?.[a[0]] >= $objects.sortMap?.[b[0]]
+    );
 </script>
 
 <div class="inventory-page">
@@ -17,7 +21,7 @@
     {/if}
 
     <section class="inventory-main-container">
-        {#each Object.entries($objects._types) as [label, items]}
+        {#each sortedObjects as [label, items]}
             {#if items.length}
                 <ItemCategory {label} {items} type="objectTypesPlural" />
             {/if}
