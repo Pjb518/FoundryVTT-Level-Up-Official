@@ -10,6 +10,10 @@ import { actorMigrators } from './v090/migratev090';
 export default function migrateActorData(actor) {
   const updateData = {};
 
+  if (foundry.utils.isNewerVersion(game.settings.get('a5e', 'systemMigrationVersion'), '0.9.1')) {
+    return {};
+  }
+
   // Actor data updates
   if (actor.system) {
     actorMigrators.forEach((func) => func(actor, updateData));
