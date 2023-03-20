@@ -5,7 +5,9 @@ export default function getAttackAbility(actor, item, attackData) {
   const dexMod = actorData.abilities.dex.mod;
   const strMod = actorData.abilities.str.mod;
 
-  attackData.attackType ??= 'meleeWeaponAttack';
+  if (Object.values(attackData).length) {
+    attackData.attackType ??= 'meleeWeaponAttack';
+  }
 
   if (attackData.ability === 'spellcasting') {
     return actorData.attributes.spellcasting ?? 'int';
