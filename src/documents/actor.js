@@ -27,6 +27,7 @@ import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollD
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
 import calculatePassiveScore from '../utils/calculatePassiveScore';
+import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
@@ -361,7 +362,7 @@ export default class ActorA5e extends Actor {
     };
 
     data.spell = {
-      mod: this.system.abilities[this.system.attributes.spellcasting ?? 'int'].check.mod
+      mod: calculateSpellcastingMod(this.system)
     };
 
     data.spellcasting = {
