@@ -236,7 +236,7 @@ export default class ItemA5e extends Item {
     if (!rollFormula) return null;
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = localize('A5E.AbilityCheckSpecific', { ability });
+    const label = `${_roll.label ?? ''} [${localize('A5E.AbilityCheckSpecific', { ability })}]`;
 
     return {
       label,
@@ -275,11 +275,14 @@ export default class ItemA5e extends Item {
       roll = await constructCritDamageRoll(roll, critBonus);
     }
 
-    const label = damageType
-      ? localize('A5E.DamageSpecific', {
-        damageType: localize(CONFIG.A5E.damageTypes[damageType])
-      })
-      : localize('A5E.Damage');
+    // const label = damageType
+    //   ? localize('A5E.DamageSpecific', {
+    //     damageType: localize(CONFIG.A5E.damageTypes[damageType])
+    //   })
+    //   : localize('A5E.Damage');
+    const label = `${_roll.label ?? ''} ${damageType
+      ? `[${localize('A5E.DamageSpecific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })}]`
+      : `[${localize('A5E.Damage')}]`} `;
 
     return {
       canCrit,
@@ -311,7 +314,8 @@ export default class ItemA5e extends Item {
     if (!rollFormula) return null;
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = localize(CONFIG.A5E.healingTypes[roll.healingType ?? 'healing']);
+    const label = `${_roll.label ?? ''} [${localize(CONFIG.A5E.healingTypes[roll.healingType ?? 'healing'])
+      }]`;
 
     return {
       label,
@@ -328,7 +332,7 @@ export default class ItemA5e extends Item {
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = localize('A5E.SavingThrowSpecific', { ability });
+    const label = `${_roll.label ?? ''} [${localize('A5E.SavingThrowSpecific', { ability })}]`;
 
     return {
       label,
@@ -349,9 +353,14 @@ export default class ItemA5e extends Item {
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
 
-    const label = ability
+    // const label = ability
+    // eslint-disable-next-line max-len
+    //   ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
+    //   : localize('A5E.SkillCheck', { skill });
+
+    const label = `${_roll.label ?? ''} [${ability
       ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
-      : localize('A5E.SkillCheck', { skill });
+      : localize('A5E.SkillCheck', { skill })}]`;
 
     return {
       label,
@@ -370,9 +379,13 @@ export default class ItemA5e extends Item {
       {}
     );
 
-    const label = localize('A5E.ToolCheckSpecific', {
+    // const label = localize('A5E.ToolCheckSpecific', {
+    //   tool: localize(tools[_roll?.tool] ?? '')
+    // });
+
+    const label = `${_roll.label ?? ''} [${localize('A5E.ToolCheckSpecific', {
       tool: localize(tools[_roll?.tool] ?? '')
-    });
+    })}]`;
 
     // Check if ability configured
     if (abilityKey) {
