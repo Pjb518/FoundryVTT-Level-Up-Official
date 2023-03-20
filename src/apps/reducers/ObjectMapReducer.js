@@ -14,8 +14,13 @@ export default class ObjectMapReducer extends DynMapReducer {
     });
 
     Object.entries(this._types).forEach(([key, reducer]) => {
+      if (key === 'armor') {
+        reducer.filters.add((item) => ['armor', 'shield'].includes(item.system.objectType));
+        return;
+      }
       reducer.filters.add((item) => item.system.objectType === key);
     });
+    delete this._types.shield;
 
     this._types.Uncategorized = this.derived.create('uncategorized');
     this._types.Uncategorized.filters.add((item) => item.system.objectType === '');
