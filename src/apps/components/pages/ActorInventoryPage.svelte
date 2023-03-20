@@ -10,8 +10,8 @@
     const actor = getContext("actor");
     const { objects } = actor;
 
-    let sortedObjects = Object.entries($objects._types).sort(
-        (a, b) => $objects.sortMap?.[a[0]] >= $objects.sortMap?.[b[0]]
+    $: sortedObjects = Object.entries($objects._types).sort(
+        (a, b) => $objects.sortMap?.[a[0]] - $objects.sortMap?.[b[0]]
     );
 </script>
 
