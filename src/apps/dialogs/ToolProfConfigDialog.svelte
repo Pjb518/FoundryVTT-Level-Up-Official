@@ -9,8 +9,14 @@
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let { application } = getContext("#external");
-    export let { actorDocument, appId, max, submitDialog, dialogTools } =
-        getContext("#external").application;
+    export let {
+        actorDocument,
+        appId,
+        max,
+        submitDialog,
+        dialogTools,
+        dialogHint,
+    } = getContext("#external").application;
 
     function updateFunction() {
         const proficiencies = [
@@ -84,6 +90,13 @@
 </script>
 
 <form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
+    {#if dialogHint}
+        <div class="u-mb-md u-text-sm" style="color: #8b6225;">
+            <i class="fa-solid fa-circle-exclamation" />
+            {localize(dialogHint)}
+        </div>
+    {/if}
+
     <TagGroup
         heading="A5E.ToolsArtisanTools"
         tags={artisansTools}

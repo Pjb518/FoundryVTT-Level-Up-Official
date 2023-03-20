@@ -47,6 +47,7 @@
                 max: tools.count,
                 submitDialog: true,
                 dialogTools: selectedTools,
+                dialogHint: tools.options,
             }
         ).render(true);
 
