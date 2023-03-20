@@ -86,7 +86,7 @@
     }
 
     let filters = filterFlag;
-    let sortMode = $actor.getFlag("a5e", "sortMode") || 0;
+    $: sortMode = $actor.getFlag("a5e", "sortMode") || 0;
 </script>
 
 <section class="filters filters__container">
