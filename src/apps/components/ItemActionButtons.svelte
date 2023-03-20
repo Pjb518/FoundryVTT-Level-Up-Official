@@ -113,15 +113,6 @@
         }
     }
 
-    .active {
-        color: #425f65;
-
-        &:hover {
-            color: #425f65;
-            box-shadow: none;
-        }
-    }
-
     .delete-button:hover {
         color: #8b2525;
     }

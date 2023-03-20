@@ -220,7 +220,7 @@
             grid-template-columns: min-content 1fr 100px min-content;
         }
 
-        &--action-locked {
+        &--locked-action {
             grid-template-areas:
                 "icon name usesLabel"
                 "icon name uses";
