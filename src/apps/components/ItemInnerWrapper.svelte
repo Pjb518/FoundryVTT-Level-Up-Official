@@ -17,6 +17,26 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
+    console.log(action);
+    let consumer =
+        Object.entries(action?.consumers ?? {}).filter(
+            ([_, c]) => c?.type === "uses" && c?.source === "action"
+        )?.[0] ?? [];
+
+    let usesType = actionId ? "action" : "item";
+    let uses = {
+        action: {
+            value: consumer?.[1]?.value,
+            max: consumer?.[1]?.max,
+            updatePath: `system.actions.${actionId}.consumers.${consumer?.[1]}`,
+        },
+        item: {
+            value: item.system.uses.value,
+            max: item.system.uses.max,
+            updatePath: "system.uses",
+        },
+    };
+
     $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
@@ -118,7 +138,7 @@
     />
 {/if}
 
-{#if !actionId && item.system.uses?.max}
+{#if (!actionId && item.system.uses?.max) || consumer?.[1]?.max}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <label
         class="uses-label"
@@ -133,8 +153,8 @@
             class="number-input"
             id="{actor.id}-{item.id}-current-uses"
             type="number"
-            name="system.uses.value"
-            value={item.system.uses.value}
+            name="{uses[usesType].updatePath}.value"
+            value={uses[usesType].value}
             on:click|stopPropagation
             on:change={updateField}
         />
@@ -144,8 +164,8 @@
         <input
             class="number-input"
             type="number"
-            name="system.uses.max"
-            value={item.system.uses.max}
+            name="{uses[usesType].updatePath}.max"
+            value={uses[usesType].max}
             disabled={sheetIsLocked}
             on:click|stopPropagation
             on:change={updateField}
