@@ -17,6 +17,11 @@
     function addConsumer(type) {
         const consumerData = { type };
 
+        if (type === "quantity") {
+            consumerData["itemId"] = "";
+            consumerData["quantity"] = 1;
+        }
+
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 ...action.consumers,
