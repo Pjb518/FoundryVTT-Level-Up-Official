@@ -1,67 +1,103 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import {
+        TJSMenu,
+        TJSToggleIconButton,
+    } from "@typhonjs-fvtt/svelte-standard/component";
 
+    import ActionsAddMenu from "../ActionsAddMenu.svelte";
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
+    import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    function addConsumer() {
+    function addConsumer(type) {
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 ...action.consumers,
-                [foundry.utils.randomID()]: { type: "item" },
+                [foundry.utils.randomID()]: { type },
             },
         });
     }
 
-    function deleteConsumer(event) {
-        const { consumerId } = event.target.closest(".consumer").dataset;
-
-        $item.update({
-            [`system.actions.${actionId}.consumers`]: {
-                [`-=${consumerId}`]: null,
-            },
-        });
-    }
+    const consumerTypes = {
+        uses: {
+            heading: "A5E.UsesConsumer",
+            singleLabel: "A5E.AddUse",
+            component: UsesConsumer,
+        },
+    };
 
     $: action = $item.actions[actionId];
+    $: consumers = action.consumers ?? {};
+    $: menuItems = Object.entries(consumerTypes).map(
+        ([consumerType, { heading }]) => [heading, consumerType]
+    );
 </script>
 
-<section class="action-config action-config__wrapper">
-    <header class="action-config__section-header">
-        <h2 class="action-config__section-heading">
-            {localize("A5E.TabResourceConsumption")}
-        </h2>
+<article>
+    <ul class="consumers-config-list">
+        {#each Object.entries(consumerTypes) as [consumerType, { heading, singleLabel, component }] (consumerType)}
+            {#if Object.values(consumers).filter((consumer) => consumer.type === consumerTypes).length}
+                <li class="consumers-config__list__item">
+                    <header class="action-config__section-header">
+                        <h2 class="action-config__section-header">
+                            {localize(heading)}
+                        </h2>
 
-        <button class="add-button" on:click={() => addConsumer()}>
-            {localize("A5E.ButtonAddConsumer")}
-        </button>
-    </header>
+                        <button
+                            class="add-button"
+                            on:click={() => addConsumer(consumerType)}
+                        >
+                            {localize("A5E.ButtonAddRoll", {
+                                type: localize(singleLabel),
+                            })}
+                        </button>
+                    </header>
 
-    <ul class="consumers-list">
-        {#each Object.entries(action.consumers ?? {}) as [consumerId, consumer] (consumerId)}
-            <li class="consumer" data-consumer-id={consumerId}>
-                <article class="config-wrapper">
-                    <div class="button-wrapper">
-                        <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <i
-                            class="button button--delete fas fa-trash"
-                            on:click={deleteConsumer}
-                        />
-                    </div>
-
-                    <ConsumerConfigWrapper {consumerId} {consumer} />
-                </article>
-            </li>
-        {:else}
-            <li class="action-config__none">{localize("A5E.None")}</li>
+                    <ul class="consumers-list">
+                        {#each Object.entries(consumers).filter(([_, consumer]) => consumer.type === consumerType) as [consumerId, consumer] (consumerId)}
+                            <ConsumerConfigWrapper {consumer} {consumerId}>
+                                <svelte:component
+                                    this={component}
+                                    {consumer}
+                                    {consumerId}
+                                />
+                            </ConsumerConfigWrapper>
+                        {:else}
+                            <li class="action-config__none">
+                                {localize("A5E.None")}
+                            </li>
+                        {/each}
+                    </ul>
+                </li>
+            {/if}
         {/each}
     </ul>
-</section>
+
+    <div class="sticky-add-button">
+        <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
+            <TJSMenu offset={{ x: -110, y: -140 }}>
+                <ActionsAddMenu
+                    menuList={menuItems}
+                    on:press={({ detail }) => addConsumer(detail)}
+                />
+            </TJSMenu>
+        </TJSToggleIconButton>
+    </div>
+</article>
 
 <style lang="scss">
+    article {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+        overflow: hidden;
+    }
+
     .consumers-list {
         display: flex;
         flex-direction: column;
@@ -72,57 +108,26 @@
         list-style: none;
     }
 
-    .button-wrapper {
+    .consumers-config-list {
         display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 0.75rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    .sticky-add-button {
+        display: flex;
+        justify-content: space-around;
         align-items: center;
-        gap: 0.5rem;
-        position: absolute;
-        top: 0.75rem;
-        right: 0.75rem;
-        color: #999;
-        font-size: 1rem;
-    }
-
-    .config-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.625rem;
-        position: relative;
-        padding: 0.75rem;
-        font-size: 0.833rem;
-        background-color: rgba(0, 0, 0, 0.05);
-        border-radius: 4px;
-    }
-
-    .button {
-        margin: 0;
-        padding: 0.25rem;
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            transform: scale(1.2);
-        }
-    }
-
-    .button {
-        margin: 0;
-        padding: 0.25rem;
-        cursor: pointer;
-        transition: all 0.15s ease-in-out;
-
-        &:hover {
-            color: #555;
-            transform: scale(1.2);
-        }
-
-        &--delete:hover {
-            color: #8b2525;
-        }
-    }
-
-    .consumer {
-        display: flex;
-        flex-direction: column;
     }
 </style>
