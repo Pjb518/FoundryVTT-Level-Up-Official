@@ -54,7 +54,7 @@
     }
 
     async function onConfigure() {
-        if (action) {
+        if (actionId) {
             await item.actions.configure(actionId);
             return;
         }

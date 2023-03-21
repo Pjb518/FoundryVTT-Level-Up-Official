@@ -17,14 +17,13 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
-    console.log(action);
-    let consumer =
+    $: consumer =
         Object.entries(action?.consumers ?? {}).filter(
-            ([_, c]) => c?.type === "uses" && c?.source === "action"
+            ([_, c]) => c?.type === "usesAction"
         )?.[0] ?? [];
 
     let usesType = actionId ? "action" : "item";
-    let uses = {
+    $: uses = {
         action: {
             value: consumer?.[1]?.value,
             max: consumer?.[1]?.max,
