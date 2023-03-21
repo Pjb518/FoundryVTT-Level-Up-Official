@@ -40,8 +40,8 @@
 <article>
     <ul class="consumers-config-list">
         {#each Object.entries(consumerTypes) as [consumerType, { heading, singleLabel, component }] (consumerType)}
-            {#if Object.values(consumers).filter((consumer) => consumer.type === consumerTypes).length}
-                <li class="consumers-config__list__item">
+            {#if Object.values(consumers).filter((consumer) => consumer.type === consumerType).length}
+                <li class="consumers-config-list__item">
                     <header class="action-config__section-header">
                         <h2 class="action-config__section-header">
                             {localize(heading)}

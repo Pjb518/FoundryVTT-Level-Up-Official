@@ -8,11 +8,11 @@
     export let consumerId;
 
     function deleteConsumer(event) {
-        const { rollId } = event.target.closest(".consumer").dataset;
+        const { consumerId } = event.target.closest(".consumer").dataset;
 
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
-                [`-=${rollId}`]: null,
+                [`-=${consumerId}`]: null,
             },
         });
     }
