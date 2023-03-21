@@ -13,6 +13,7 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
     import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
 
+    export let displayAsObject;
     export let item;
     export let action = null;
     export let actionId = null;
@@ -89,8 +90,9 @@
 <li
     class="item-wrapper"
     class:item-wrapper--locked={sheetIsLocked}
-    class:item-wrapper--object={item.type === "object"}
-    class:item-wrapper--locked-object={sheetIsLocked && item.type === "object"}
+    class:item-wrapper--object={displayAsObject || item.type === "object"}
+    class:item-wrapper--locked-object={sheetIsLocked &&
+        (displayAsObject || item.type === "object")}
     class:item-wrapper--action={actionId}
     class:item-wrapper--locked-action={sheetIsLocked && actionId}
     draggable="true"

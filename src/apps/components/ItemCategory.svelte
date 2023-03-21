@@ -5,6 +5,7 @@
     import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";
 
+    export let icon;
     export let label;
     export let level = 0;
     export let items;
@@ -43,9 +44,22 @@
             class:category-header--object={itemContext === "object"}
             class:category-header--locked-object={sheetIsLocked &&
                 itemContext === "object"}
+            class:category-header--favorites={type === "favorites"}
+            class:category-header--locked-favorites={sheetIsLocked &&
+                type === "favorites"}
         >
             <h3 class="category-heading category-heading--name">
-                {localize(CONFIG.A5E[type][label] || label)}
+                <div>
+                    {#if icon}
+                        <i class={icon} />
+                    {/if}
+
+                    {#if type === "favorites"}
+                        {localize(label)}
+                    {:else}
+                        {localize((CONFIG.A5E[type] ?? {})[label] ?? label)}
+                    {/if}
+                </div>
 
                 {#if type === "spellLevels" && !showSpellSlots && showSpellPoints}
                     {localize("A5E.SpellPointsCost", {
@@ -82,7 +96,7 @@
 
     <ul class="items-container">
         {#each [...items] as item (item.id)}
-            <Item {item} />
+            <Item {item} displayAsObject={type === "favorites"} />
         {/each}
     </ul>
 </section>
@@ -105,11 +119,13 @@
             grid-template-columns: 1fr 6.25rem;
         }
 
+        &--favorites,
         &--object {
             grid-template-areas: "name quantity uses menu";
             grid-template-columns: 1fr 4rem 6.25rem 2rem;
         }
 
+        &--locked-favorites,
         &--locked-object {
             grid-template-areas: "name quantity uses";
             grid-template-columns: 1fr 4rem 6.25rem;
