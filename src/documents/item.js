@@ -138,6 +138,8 @@ export default class ItemA5e extends Item {
       if (validTemplate) { this.#placeActionTemplate(actionId); }
     }
 
+    this.#consume(actionId);
+
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -453,6 +455,38 @@ export default class ItemA5e extends Item {
 
     Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
+  }
+
+  async #consume(actionId) {
+    const consumers = Object.entries(this.actions[actionId]?.consumers ?? {});
+
+    consumers.forEach(([consumerId, consumer]) => {
+      switch (consumer?.type) {
+        case 'usesAction':
+          return this.#consumeUsesAction(actionId, consumer, consumerId);
+        case 'usesItem':
+          return this.#consumerUsesItem();
+        default: return null;
+      }
+    });
+  }
+
+  async #consumeUsesAction(actionId, consumer, consumerId) {
+    const { value } = consumer;
+    if (!value) return;
+
+    await this.update({
+      [`system.actions.${actionId}.consumers.${consumerId}.value`]: Math.max(value - 1, 0)
+    });
+  }
+
+  async #consumerUsesItem() {
+    const { value } = this.system.uses;
+    if (!value) return;
+
+    await this.update({
+      'system.uses.value': Math.max(value - 1, 0)
+    });
   }
 
   async configureItem() {

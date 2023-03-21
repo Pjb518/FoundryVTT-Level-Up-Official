@@ -16,8 +16,6 @@
     function addConsumer(type) {
         const consumerData = { type };
 
-        if (type === "uses") consumerData["source"] = "item";
-
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 ...action.consumers,
