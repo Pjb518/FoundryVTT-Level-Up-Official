@@ -174,25 +174,25 @@
                 label: localize("A5E.BonusMeleeWeaponAttack"),
                 value:
                     attackRoll?.attackType === "meleeWeaponAttack" &&
-                    $actor.system.bonuses.mwak,
+                    $actor.system.bonuses.meleeWeaponAttack,
             },
             {
                 label: localize("A5E.BonusRangedWeaponAttack"),
                 value:
                     attackRoll?.attackType === "rangedWeaponAttack" &&
-                    $actor.system.bonuses.rwak,
+                    $actor.system.bonuses.rangedWeaponAttack,
             },
             {
                 label: localize("A5E.BonusMeleeSpellAttack"),
                 value:
                     attackRoll?.attackType === "meleeSpellAttack" &&
-                    $actor.system.bonuses.msak,
+                    $actor.system.bonuses.meleeSpellAttack,
             },
             {
                 label: localize("A5E.BonusRangedSpellAttack"),
                 value:
                     attackRoll?.attackType === "rangedSpellAttack" &&
-                    $actor.system.bonuses.rsak,
+                    $actor.system.bonuses.rangedSpellAttack,
             },
             {
                 value: situationalMods,

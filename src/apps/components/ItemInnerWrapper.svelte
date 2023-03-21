@@ -30,8 +30,8 @@
             updatePath: `system.actions.${actionId}.consumers.${consumer?.[1]}`,
         },
         item: {
-            value: item.system.uses.value,
-            max: item.system.uses.max,
+            value: item.system.uses?.value ?? 0,
+            max: item.system.uses?.max ?? 0,
             updatePath: "system.uses",
         },
     };
