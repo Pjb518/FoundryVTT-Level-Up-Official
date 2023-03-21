@@ -48,7 +48,7 @@
 
     <div class="a5e-field-group">
         <h3 class="a5e-field-group__heading">
-            {localize("A5E.ConsumerUsesType")}
+            {localize("A5E.ConsumerUsesSource")}
         </h3>
 
         <p class="a5e-field-group__hint">Consume either action or item uses.</p>

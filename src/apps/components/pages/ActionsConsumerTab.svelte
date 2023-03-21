@@ -29,7 +29,7 @@
     const consumerTypes = {
         uses: {
             heading: "A5E.ConsumerUses",
-            singleLabel: "A5E.ConsumerUsesAdd",
+            singleLabel: "A5E.Consumer",
             component: UsesConsumer,
         },
     };
