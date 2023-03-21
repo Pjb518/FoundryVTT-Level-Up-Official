@@ -60,6 +60,7 @@
         background: transparent;
         border: 1px solid #bbb;
         text-align: center;
+        font-size: 0.694rem;
 
         &:hover {
             border: 1px solid #bbb;
