@@ -14,18 +14,22 @@
     const actionId = getContext("actionId");
 
     function addConsumer(type) {
+        const consumerData = { type };
+
+        if (type === "uses") consumerData["source"] = "item";
+
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 ...action.consumers,
-                [foundry.utils.randomID()]: { type },
+                [foundry.utils.randomID()]: consumerData,
             },
         });
     }
 
     const consumerTypes = {
         uses: {
-            heading: "A5E.UsesConsumer",
-            singleLabel: "A5E.AddUse",
+            heading: "A5E.ConsumerUses",
+            singleLabel: "A5E.ConsumerUsesAdd",
             component: UsesConsumer,
         },
     };
