@@ -18,6 +18,7 @@
         return actor.permission >= 2;
     }
 
+    export let critThreshold;
     export let roll;
 
     const message = getContext("message");
@@ -56,7 +57,9 @@
                     {#each part.results as { rerolled, discarded, result }}
                         <DieResult
                             dieSize={part.faces}
-                            isCritical={result === part.faces}
+                            isCritical={(part.faces === 20 &&
+                                result >= critThreshold) ||
+                                result === part.faces}
                             isFumble={result === 1}
                             isDiscarded={discarded || rerolled}
                             {result}

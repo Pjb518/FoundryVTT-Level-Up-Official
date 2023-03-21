@@ -1,6 +1,7 @@
 <script>
     import RollTooltip from "../dice/RollTooltip.svelte";
 
+    export let critThreshold = 20;
     export let roll;
 
     function isCriticalSuccess(roll) {
@@ -9,7 +10,7 @@
         if (!d20Roll) return false;
 
         return d20Roll.results.some(
-            ({ result, active }) => active && result === 20
+            ({ result, active }) => active && result >= critThreshold
         );
     }
 
@@ -28,6 +29,7 @@
 
 {#if tooltipIsVisible}
     <RollTooltip
+        {critThreshold}
         {roll}
         on:toggleTooltipVisibility={() =>
             (tooltipIsVisible = !tooltipIsVisible)}
@@ -50,6 +52,7 @@
         background-color: #c7d0c0;
         border: 1px solid #97ae8f;
     }
+
     .min {
         color: #aa0200;
         background-color: #ffdddd;

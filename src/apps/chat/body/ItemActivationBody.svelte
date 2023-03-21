@@ -82,7 +82,7 @@
                 <h3 class="roll-label">{rollData.label}</h3>
 
                 {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
-                    <D20Roll {roll} />
+                    <D20Roll {roll} critThreshold={rollData.critThreshold} />
                 {:else}
                     <Roll {roll} />
                 {/if}
