@@ -453,6 +453,8 @@ export default class ItemA5e extends Item {
 
     const chatCard = ChatMessage.create(chatData);
 
+    await this.#consumeItemUses();
+
     Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
   }
@@ -463,15 +465,15 @@ export default class ItemA5e extends Item {
     consumers.forEach(([consumerId, consumer]) => {
       switch (consumer?.type) {
         case 'usesAction':
-          return this.#consumeUsesAction(actionId, consumer, consumerId);
+          return this.#consumeActionUses(actionId, consumer, consumerId);
         case 'usesItem':
-          return this.#consumerUsesItem();
+          return this.#consumeItemUses();
         default: return null;
       }
     });
   }
 
-  async #consumeUsesAction(actionId, consumer, consumerId) {
+  async #consumeActionUses(actionId, consumer, consumerId) {
     const { value } = consumer;
     if (!value) return;
 
@@ -480,7 +482,7 @@ export default class ItemA5e extends Item {
     });
   }
 
-  async #consumerUsesItem() {
+  async #consumeItemUses() {
     const { value } = this.system.uses;
     if (!value) return;
 
