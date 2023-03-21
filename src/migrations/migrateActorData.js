@@ -11,7 +11,7 @@ export default function migrateActorData(actor) {
   const updateData = {};
 
   // TODO: Remove in V0.10.0
-  if (foundry.utils.isNewerVersion(game.settings.get('a5e', 'systemMigrationVersion'), '0.9.1')) {
+  if (foundry.utils.isNewerVersion(game.settings.get('a5e', 'systemMigrationVersion'), '0.9.0')) {
     return {};
   }
 
