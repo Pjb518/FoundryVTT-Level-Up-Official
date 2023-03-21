@@ -116,37 +116,21 @@
 {/if}
 
 {#if !actionId && item?.type === "object"}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <label
-        class="quantity-label"
-        for="{actor.id}-{item.id}-quantity"
-        on:click|stopPropagation
-    >
-        {localize("A5E.ItemQuantity")}
-    </label>
-
-    <input
-        class="number-input number-input--quantity"
-        id="{actor.id}-{item.id}-quantity"
-        type="number"
-        name="system.quantity"
-        value={item.system.quantity}
-        min="0"
-        on:click|stopPropagation
-        on:change={updateField}
-    />
+    <div class="quantity-wrapper">
+        <input
+            class="number-input"
+            id="{actor.id}-{item.id}-quantity"
+            type="number"
+            name="system.quantity"
+            value={item.system.quantity}
+            min="0"
+            on:click|stopPropagation
+            on:change={updateField}
+        />
+    </div>
 {/if}
 
 {#if (!actionId && item.system.uses?.max) || consumer?.[1]?.max}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <label
-        class="uses-label"
-        for="{actor.id}-{item.id}-current-uses"
-        on:click|stopPropagation
-    >
-        {localize("A5E.Uses")}
-    </label>
-
     <div class="uses-wrapper">
         <input
             class="number-input"
@@ -206,7 +190,7 @@
     .button-wrapper {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: flex-end;
         grid-area: indicators;
         margin-left: -0.25rem;
     }
@@ -226,35 +210,29 @@
         height: 1.125rem;
         width: 7ch;
 
-        &--quantity {
-            grid-area: quantity;
-        }
-
         &:hover {
             border: 1px solid #bbb;
         }
     }
 
-    .quantity-label {
-        grid-area: quantityLabel;
-    }
-
-    .uses-label {
-        grid-area: usesLabel;
-    }
-
-    .number-input,
-    .quantity-label,
-    .uses-label {
+    .number-input {
         font-size: 0.694rem;
         text-align: center;
     }
 
+    .quantity-wrapper,
     .uses-wrapper {
         display: flex;
-        gap: 0.25rem;
         align-items: center;
         justify-content: center;
+    }
+
+    .uses-wrapper {
+        gap: 0.25rem;
         grid-area: uses;
+    }
+
+    .quantity-wrapper {
+        grid-area: quantity;
     }
 </style>

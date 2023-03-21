@@ -122,8 +122,8 @@
         z-index: 2;
         display: flex;
         align-items: center;
-        width: 1.75rem;
-        height: 1.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
         margin-inline: 0.5rem 0.5rem;
         border-radius: 50%;
         color: #999;
@@ -134,8 +134,8 @@
         &-icon {
             z-index: 1;
             display: flex;
-            width: 1.75rem;
-            height: 1.75rem;
+            width: 1.5rem;
+            height: 1.5rem;
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
@@ -143,7 +143,7 @@
             background: #ebe9e0;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transform: translateX(-1px);
 
             transition: all 0.15s ease-in-out;
@@ -154,8 +154,8 @@
             display: none;
             align-items: center;
             gap: 0.25rem;
-            height: 1.75rem;
-            padding: 0 1.25rem 0 0.75rem;
+            height: 1.5rem;
+            padding: 0 1rem 0 0.5rem;
             border: 1px solid #ccc;
             border-left: 0;
             margin: 0;

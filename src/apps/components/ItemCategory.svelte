@@ -37,8 +37,14 @@
 <section class="category-container">
     <!-- svelte-ignore missing-declaration -->
     {#if !(type === "featureTypes" && $actor.type === "npc")}
-        <span class="category-header">
-            <h3>
+        <header
+            class="category-header"
+            class:category-header--locked={sheetIsLocked}
+            class:category-header--object={itemContext === "object"}
+            class:category-header--locked-object={sheetIsLocked &&
+                itemContext === "object"}
+        >
+            <h3 class="category-heading category-heading--name">
                 {localize(CONFIG.A5E[type][label] || label)}
 
                 {#if type === "spellLevels" && !showSpellSlots && showSpellPoints}
@@ -46,13 +52,21 @@
                         cost: A5E.spellLevelCost[level],
                     })}
                 {/if}
+
+                {#if type === "spellLevels" && showSpellSlots}
+                    <SpellSlots {level} />
+                {/if}
             </h3>
 
-            {#if type === "spellLevels" && showSpellSlots}
-                <SpellSlots {level} />
+            {#if itemContext === "object"}
+                <h3 class="category-heading category-heading--quantity">
+                    Quantity
+                </h3>
             {/if}
 
-            {#if !sheetIsLocked}
+            <h3 class="category-heading category-heading--uses">Uses</h3>
+
+            <!-- {#if !sheetIsLocked}
                 <i class="inventory-add-icon a5e-config-button" />
                 <button
                     class="a5e-button a5e-button--add inventory-add-icon"
@@ -62,8 +76,8 @@
                         type: localize(A5E.itemTypes[itemContext]),
                     })}
                 </button>
-            {/if}
-        </span>
+            {/if} -->
+        </header>
     {/if}
 
     <ul class="items-container">
@@ -75,23 +89,63 @@
 
 <style lang="scss">
     .category-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.25rem;
-        padding-bottom: 0.25rem;
-        border-bottom: 1px solid #ccc;
-        height: 1.5rem;
-        gap: 0.5rem;
+        display: grid;
+        grid-template-areas: "name uses menu";
+        grid-template-columns: 1fr 6.25rem 2rem;
 
-        h3 {
-            font-size: 0.833rem;
-            min-width: 4.5rem;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+        padding: 0 0.5rem 0.25rem 0.125rem;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+
+        &--locked {
+            grid-template-areas: "name uses";
+            grid-template-columns: 1fr 6.25rem;
         }
 
-        .inventory-add-icon {
-            padding-inline: 0.25rem;
+        &--object {
+            grid-template-areas: "name quantity uses menu";
+            grid-template-columns: 1fr 4rem 6.25rem 2rem;
+        }
+
+        &--locked-object {
+            grid-template-areas: "name quantity uses";
+            grid-template-columns: 1fr 4rem 6.25rem;
         }
     }
+
+    .category-heading {
+        font-size: 0.833rem;
+
+        &--name {
+            display: grid;
+            align-items: center;
+            grid-template-columns: minmax(3.5rem, max-content) 1fr;
+            gap: 0.75rem;
+            grid-area: name;
+            text-align: left;
+        }
+
+        &--quantity {
+            grid-area: quantity;
+        }
+
+        &--uses {
+            grid-area: uses;
+        }
+    }
+
+    // .category-header {
+    //     display: flex;
+
+    //     height: 1.5rem;
+
+    //     .inventory-add-icon {
+    //         padding-inline: 0.25rem;
+    //     }
+    // }
 
     .items-container {
         display: flex;

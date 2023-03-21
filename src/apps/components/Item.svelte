@@ -177,11 +177,9 @@
     .item-wrapper {
         position: relative;
         display: grid;
-        grid-template-areas:
-            "icon name       usesLabel menu"
-            "icon indicators uses      menu";
-        grid-template-columns: min-content 1fr 100px min-content;
-        column-gap: 0.75rem;
+        grid-template-areas: "icon name indicators uses menu";
+        grid-template-columns: min-content 1fr min-content 6.25rem 2rem;
+        column-gap: 0.5rem;
         row-gap: 0;
         align-items: center;
         width: 100%;
@@ -193,38 +191,28 @@
         cursor: pointer;
 
         &--locked {
-            grid-template-areas:
-                "icon name       usesLabel"
-                "icon indicators uses";
-            grid-template-columns: min-content 1fr 100px;
+            grid-template-areas: "icon name indicators uses";
+            grid-template-columns: min-content 1fr min-content 6.25rem;
         }
 
         &--object {
-            grid-template-areas:
-                "icon name       usesLabel quantityLabel menu"
-                "icon indicators uses      quantity      menu";
-            grid-template-columns: min-content 1fr 100px min-content min-content;
+            grid-template-areas: "icon name indicators quantity uses menu";
+            grid-template-columns: min-content 1fr min-content 4rem 6.25rem 2rem;
         }
 
         &--locked-object {
-            grid-template-areas:
-                "icon name        usesLabel quantityLabel"
-                "icon indicators  uses      quantity";
-            grid-template-columns: min-content 1fr 100px min-content;
+            grid-template-areas: "icon name indicators quantity uses";
+            grid-template-columns: min-content 1fr min-content 4rem 6.25rem;
         }
 
         &--action {
-            grid-template-areas:
-                "icon name usesLabel menu"
-                "icon name uses      menu";
-            grid-template-columns: min-content 1fr 100px min-content;
+            grid-template-areas: "icon name indicators uses menu";
+            grid-template-columns: min-content 1fr min-content 6.25rem 2rem;
         }
 
         &--locked-action {
-            grid-template-areas:
-                "icon name usesLabel"
-                "icon name uses";
-            grid-template-columns: min-content 1fr 100px;
+            grid-template-areas: "icon name indicators uses";
+            grid-template-columns: min-content 1fr min-content 6.25rem;
         }
     }
 
@@ -241,8 +229,8 @@
     }
 
     .item-roll-button {
-        width: 2.25rem;
-        height: 2.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
         flex-shrink: 0;
         padding: 0;
         margin: 0;
