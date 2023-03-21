@@ -14,11 +14,15 @@ export default function constructRollFormula({ actor, formula, modifiers }) {
   const parts = [
     formula,
     ...(modifiers ?? []).map(({ label, value }) => {
-      if (value && value !== 0) {
-        return label ? `${value}[${label}]` : value;
-      }
+      if (!value || value === 0) return null;
 
-      return null;
+      const modifier = new Roll(value.toString());
+
+      modifier.terms.forEach((m) => {
+        if (m.constructor.name !== 'OperatorTerm') m.options.flavor ??= label;
+      });
+
+      return modifier.formula;
     })
   ];
 
