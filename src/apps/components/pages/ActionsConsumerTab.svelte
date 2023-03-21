@@ -27,17 +27,38 @@
     }
 
     const consumerTypes = {
-        uses: {
-            heading: "A5E.ConsumerUses",
-            singleLabel: "A5E.Consumer",
+        usesAction: {
+            heading: "A5E.ConsumerUsesAction",
+            singleLabel: "A5E.ConsumerUsesAction",
+            component: UsesConsumer,
+        },
+        usesItem: {
+            heading: "A5E.ConsumerUsesItem",
+            singleLabel: "A5E.ConsumerUsesItem",
             component: UsesConsumer,
         },
     };
 
     $: action = $item.actions[actionId];
     $: consumers = action.consumers ?? {};
-    $: menuItems = Object.entries(consumerTypes).map(
-        ([consumerType, { heading }]) => [heading, consumerType]
+    $: actionUsesConsumers = Object.values(consumers).filter(
+        (c) => c.type === "usesAction"
+    );
+    $: itemUsesConsumers = Object.values(consumers).filter(
+        (c) => c.type === "usesItem"
+    );
+
+    $: menuItems = Object.entries(consumerTypes).reduce(
+        (acc, [consumerType, { singleLabel }]) => {
+            if (consumerType === "usesItem" && itemUsesConsumers.length)
+                return acc;
+            if (consumerType === "usesAction" && actionUsesConsumers.length)
+                return acc;
+
+            acc.push([singleLabel, consumerType]);
+            return acc;
+        },
+        []
     );
 </script>
 
@@ -51,14 +72,16 @@
                             {localize(heading)}
                         </h2>
 
-                        <button
-                            class="add-button"
-                            on:click={() => addConsumer(consumerType)}
-                        >
-                            {localize("A5E.ButtonAddRoll", {
-                                type: localize(singleLabel),
-                            })}
-                        </button>
+                        {#if !["usesAction", "usesItem"].includes(consumerType)}
+                            <button
+                                class="add-button"
+                                on:click={() => addConsumer(consumerType)}
+                            >
+                                {localize("A5E.ButtonAddConsumer", {
+                                    type: localize(singleLabel),
+                                })}
+                            </button>
+                        {/if}
                     </header>
 
                     <ul class="consumers-list">

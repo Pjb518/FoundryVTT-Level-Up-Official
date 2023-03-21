@@ -123,7 +123,7 @@
                             {localize(heading)}
                         </h2>
 
-                        {#if !(rollType === "attack" && attackRolls.length > 0)}
+                        {#if rollType !== "attack"}
                             <button
                                 class="add-button"
                                 on:click={() => addRoll(rollType)}

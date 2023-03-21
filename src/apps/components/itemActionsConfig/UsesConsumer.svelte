@@ -4,26 +4,12 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    import RadioGroup from "../RadioGroup.svelte";
-
     export let consumer;
     export let consumerId;
 
     const item = getContext("item");
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
-    const usesTypes = {
-        action: "A5E.ActionActivationAction",
-        item: "A5E.Item",
-    };
-
-    function updateUsesType(type) {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.consumers.${consumerId}.source`,
-            type
-        );
-    }
 </script>
 
 <section class="action-config__wrapper">
@@ -46,21 +32,7 @@
         />
     </div>
 
-    <div class="a5e-field-group">
-        <h3 class="a5e-field-group__heading">
-            {localize("A5E.ConsumerUsesSource")}
-        </h3>
-
-        <p class="a5e-field-group__hint">Consume either action or item uses.</p>
-
-        <RadioGroup
-            options={Object.entries(usesTypes)}
-            selected={consumer.source}
-            on:updateSelection={({ detail }) => updateUsesType(detail)}
-        />
-    </div>
-
-    {#if consumer.source === "action"}
+    {#if consumer.type === "usesAction"}
         <div
             class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md"
         >
@@ -129,6 +101,3 @@
         </div>
     {/if}
 </section>
-
-<style lang="scss">
-</style>
