@@ -32,7 +32,7 @@
         />
     </div>
 
-    {#if consumer.type === "usesAction"}
+    {#if consumer.type === "actionUses"}
         <div
             class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md"
         >

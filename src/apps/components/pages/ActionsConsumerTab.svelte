@@ -8,6 +8,7 @@
 
     import ActionsAddMenu from "../ActionsAddMenu.svelte";
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
+    import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
     const item = getContext("item");
@@ -25,12 +26,17 @@
     }
 
     const consumerTypes = {
-        usesAction: {
+        quantity: {
+            heading: "A5E.ConsumerQuantity",
+            singleLabel: "A5E.ItemQuantity",
+            component: QuantityConsumer,
+        },
+        actionUses: {
             heading: "A5E.ConsumerUsesAction",
             singleLabel: "A5E.ConsumerUsesAction",
             component: UsesConsumer,
         },
-        usesItem: {
+        itemUses: {
             heading: "A5E.ConsumerUsesItem",
             singleLabel: "A5E.ConsumerUsesItem",
             component: UsesConsumer,
@@ -40,17 +46,17 @@
     $: action = $item.actions[actionId];
     $: consumers = action.consumers ?? {};
     $: actionUsesConsumers = Object.values(consumers).filter(
-        (c) => c.type === "usesAction"
+        (c) => c.type === "actionUses"
     );
     $: itemUsesConsumers = Object.values(consumers).filter(
-        (c) => c.type === "usesItem"
+        (c) => c.type === "itemUses"
     );
 
     $: menuItems = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
-            if (consumerType === "usesItem" && itemUsesConsumers.length)
+            if (consumerType === "itemUses" && itemUsesConsumers.length)
                 return acc;
-            if (consumerType === "usesAction" && actionUsesConsumers.length)
+            if (consumerType === "actionUses" && actionUsesConsumers.length)
                 return acc;
 
             acc.push([singleLabel, consumerType]);
@@ -70,7 +76,7 @@
                             {localize(heading)}
                         </h2>
 
-                        {#if !["usesAction", "usesItem"].includes(consumerType)}
+                        {#if !["actionUses", "itemUses"].includes(consumerType)}
                             <button
                                 class="add-button"
                                 on:click={() => addConsumer(consumerType)}

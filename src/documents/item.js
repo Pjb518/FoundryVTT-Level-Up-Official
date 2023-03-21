@@ -464,9 +464,9 @@ export default class ItemA5e extends Item {
 
     consumers.forEach(([consumerId, consumer]) => {
       switch (consumer?.type) {
-        case 'usesAction':
+        case 'actionUses':
           return this.#consumeActionUses(actionId, consumer, consumerId);
-        case 'usesItem':
+        case 'itemUses':
           return this.#consumeItemUses();
         default: return null;
       }

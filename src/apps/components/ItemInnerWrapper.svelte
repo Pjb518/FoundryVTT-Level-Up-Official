@@ -19,7 +19,7 @@
 
     $: consumer =
         Object.entries(action?.consumers ?? {}).filter(
-            ([_, c]) => c?.type === "usesAction"
+            ([_, c]) => c?.type === "actionUses"
         )?.[0] ?? [];
 
     let usesType = actionId ? "action" : "item";
