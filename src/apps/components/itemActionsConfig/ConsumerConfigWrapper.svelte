@@ -1,90 +1,103 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-
-    import ActionConsumer from "./ActionConsumer.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    function updateType(event) {
-        const selectedOption = event.target?.selectedOptions[0].value;
+    export let consumer;
+    export let consumerId;
+
+    function deleteConsumer(event) {
+        const { rollId } = event.target.closest(".consumer").dataset;
 
         $item.update({
-            [`system.actions.${actionId}.uses.${consumerId}`]: {
-                label: consumer.label ?? "",
-                type: selectedOption,
-                "-=value": null,
-                "-=max": null,
-                "-=per": null,
+            [`system.actions.${actionId}.consumers`]: {
+                [`-=${rollId}`]: null,
             },
         });
     }
 
-    const consumerTypes = {
-        action: "Action",
-        item: "Item",
-        // resource: "Resource",
-    };
+    function duplicateConsumer() {
+        const newConsumer = foundry.utils.duplicate(consumer);
 
-    export let consumerId;
-    export let consumer;
+        $item.update({
+            [`system.actions.${actionId}.consumers`]: {
+                [foundry.utils.randomID()]: newConsumer,
+            },
+        });
+    }
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{consumerId}-label">
-            {localize("A5E.Label")}
-        </label>
+<li class="consumer" data-consumer-id={consumerId}>
+    <article class="config-wrapper">
+        <div class="button-wrapper">
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <i class="button fa-solid fa-clone" on:click={duplicateConsumer} />
 
-        <input
-            id="{actionId}-{consumerId}-label"
-            type="text"
-            value={consumer.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.uses.${consumerId}.label`,
-                    target.value
-                )}
-        />
-    </div>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <i
+                class="button button--delete fas fa-trash"
+                on:click={deleteConsumer}
+            />
+        </div>
 
-    <div class="option-wrapper">
-        <h3>{localize("Type")}</h3>
-
-        <select
-            name="{actionId}-{consumerId}-type"
-            id={`${actionId}-${consumerId}-type`}
-            class="u-w-fit"
-            on:change={updateType}
-        >
-            {#each Object.entries(consumerTypes) as [type, label]}
-                <option value={type} selected={consumer?.type === type}>
-                    {localize(label)}
-                </option>
-            {/each}
-        </select>
-    </div>
-
-    {#if consumer.type === "action"}
-        <ActionConsumer {consumerId} {consumer} />
-    {:else if consumer.type === "resource"}
-        Resource!
-        <!-- else content here -->
-    {/if}
-</section>
+        <slot />
+    </article>
+</li>
 
 <style lang="scss">
-    .option {
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-            font-family: "Signika", sans-serif;
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        color: #999;
+        font-size: 1rem;
+    }
+
+    .config-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        position: relative;
+        padding: 0.75rem;
+        font-size: 0.833rem;
+        // background: rgba(246, 242, 235, 0.4);
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
+
+    .button {
+        margin: 0;
+        padding: 0.25rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
         }
+    }
+
+    .button {
+        margin: 0;
+        padding: 0.25rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &--delete:hover {
+            color: #8b2525;
+        }
+    }
+
+    .consumer {
+        display: flex;
+        flex-direction: column;
     }
 </style>
