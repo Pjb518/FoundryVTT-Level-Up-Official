@@ -11,10 +11,32 @@
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
 
-    $: actorItems = $item.actor
-        ? $item.actor.items
-              .map((i) => ({ name: i.name, id: i.id }))
-              .filter((i) => i.id !== $item.id)
+    function updateItemSelection() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.consumers.${consumerId}.itemId`,
+            selectedItem
+        );
+    }
+
+    let selectedItem = consumer.itemId ?? "";
+    $: selectedItem, updateItemSelection();
+    $: optGroup = $item.actor
+        ? $item.actor.items.reduce((acc, i) => {
+              if (i.type !== "object" || i.id === $item.id) return acc;
+              if (i.system.objectType === "ammunition") return acc;
+
+              const type = i.system.objectType;
+              const data = {
+                  name: i.name,
+                  id: i.id,
+              };
+
+              if (acc?.[type]) acc[type].push(data);
+              else acc[type] = [data];
+
+              return acc;
+          }, {})
         : [];
 </script>
 
@@ -29,11 +51,10 @@
             name="{actionId}-{consumerId}-label"
             type="text"
             value={consumer.label ?? ""}
-            on:change={({ target }) =>
+            on:change={() =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.consumers.${consumerId}.label`,
-                    target.value
+                    `system.actions.${actionId}.consumers.${consumerId}.label`
                 )}
         />
     </div>
@@ -45,24 +66,28 @@
             </h3>
 
             {#if $item.actor}
-                <!-- Data Select Goes Here -->
                 <select
                     id="{actionId}-{consumerId}-item-id"
                     class="u-w-fit"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.consumers.${consumerId}.itemId`,
-                            target.value
-                        )}
+                    bind:value={selectedItem}
                 >
-                    {console.log(actorItems)}
-                    {#each actorItems as { name, id } (id)}
-                        <!-- content here -->
+                    <option value="" />
+                    {#each Object.entries(optGroup) as [type, objects]}
+                        <optgroup label={localize(A5E.objectTypesPlural[type])}>
+                            {#each objects.sort((a, b) => a.name
+                                    .toLowerCase()
+                                    .localeCompare(b.name.toLowerCase())) as { name, id } (id)}
+                                <option value={id} selected={consumer.itemId}>
+                                    {name}
+                                </option>
+                            {/each}
+                        </optgroup>
+                    {/each}
+                    <!-- {#each actorItems as { name, id } (id)}
                         <option value={id} selected={consumer.itemId === id}>
                             {name}
                         </option>
-                    {/each}
+                    {/each} -->
                 </select>
             {:else}
                 <p class="a5e-field-group__hint" style="color: #8b6225;">
@@ -73,22 +98,24 @@
             {/if}
         </div>
 
-        <div class="u-flex u-flex-col u-gap-sm u-w-30">
-            <h3 class="a5e-field-group__heading">
-                {localize("A5E.ItemQuantity")}
-            </h3>
+        {#if $item.actor}
+            <div class="u-flex u-flex-col u-gap-sm u-w-30">
+                <h3 class="a5e-field-group__heading">
+                    {localize("A5E.ItemQuantity")}
+                </h3>
 
-            <input
-                type="number"
-                d-type="Number"
-                value={consumer.value ?? 1}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.consumers.${consumerId}.quantity`,
-                        Number(target.value)
-                    )}
-            />
-        </div>
+                <input
+                    type="number"
+                    d-type="Number"
+                    value={consumer.value ?? 1}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.consumers.${consumerId}.quantity`,
+                            Number(target.value)
+                        )}
+                />
+            </div>
+        {/if}
     </div>
 </section>
