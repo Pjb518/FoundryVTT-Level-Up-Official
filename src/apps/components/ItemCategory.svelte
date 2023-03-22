@@ -5,7 +5,7 @@
     import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";
 
-    export let icon;
+    export let icon = null;
     export let label;
     export let level = 0;
     export let items;

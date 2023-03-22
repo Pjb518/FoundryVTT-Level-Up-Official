@@ -13,7 +13,7 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
     import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
 
-    export let displayAsObject;
+    export let displayAsObject = false;
     export let item;
     export let action = null;
     export let actionId = null;

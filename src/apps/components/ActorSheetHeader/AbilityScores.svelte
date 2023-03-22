@@ -2,16 +2,13 @@
     import { getContext } from "svelte";
 
     import AbilityScore from "./AbilityScore.svelte";
-    import AbilityScoreWrapper from "./AbilityScoreWrapper.svelte";
 
     const actor = getContext("actor");
 </script>
 
 <ul class="ability-scores">
     {#each Object.entries($actor.system.abilities) as [abilityLabel, ability]}
-        <AbilityScoreWrapper {abilityLabel}>
-            <AbilityScore {ability} {abilityLabel} />
-        </AbilityScoreWrapper>
+        <AbilityScore {ability} {abilityLabel} />
     {/each}
 </ul>
 
