@@ -33,6 +33,8 @@
         if (option === "spellSlot") disableSpellSlot();
         else if (option === "spellPoint") disableSpellPoint();
         else disabled = [];
+
+        spellData.level = consumer.spellLevel;
     }
 
     function disableSpellSlot() {
@@ -182,6 +184,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        width: 100%;
     }
 
     .checkbox {

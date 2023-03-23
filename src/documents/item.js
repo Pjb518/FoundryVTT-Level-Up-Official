@@ -305,21 +305,19 @@ export default class ItemA5e extends Item {
 
   async #consumeSpellResource(consumer, promiseData) {
     if (!promiseData || !this.actor) return;
-    console.log(promiseData);
 
     const {
-      consumeSpellSlot,
-      consumeSpellPoint,
-      points,
-      selectedLevel
+      consume,
+      level,
+      points
     } = promiseData;
 
     let updateObject = {};
 
-    if (consumeSpellSlot) {
-      const value = this.actor.system.spellResources.slots?.[selectedLevel]?.current;
-      updateObject = { [`system.spellResources.slots.${selectedLevel}.current`]: Math.max(value - 1, 0) };
-    } else if (consumeSpellPoint) {
+    if (consume === 'spellSlot') {
+      const value = this.actor.system.spellResources.slots?.[level]?.current;
+      updateObject = { [`system.spellResources.slots.${level}.current`]: Math.max(value - 1, 0) };
+    } else if (consume === 'spellPoint') {
       const value = this.actor.system.spellResources.points.current;
       updateObject = { 'system.spellResources.points.current': Math.max(value - points, 0) };
     } else {
