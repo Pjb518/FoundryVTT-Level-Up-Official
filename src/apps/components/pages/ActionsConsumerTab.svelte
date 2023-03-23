@@ -10,6 +10,7 @@
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
+    import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -18,6 +19,11 @@
         const consumerData = { type };
 
         if (type === "quantity") {
+            consumerData["itemId"] = "";
+            consumerData["quantity"] = 1;
+        }
+
+        if (type === "ammunition") {
             consumerData["itemId"] = "";
             consumerData["quantity"] = 1;
         }
@@ -31,6 +37,11 @@
     }
 
     const consumerTypes = {
+        ammunition: {
+            heading: "A5E.ConsumerAmmunition",
+            singleLabel: "A5E.ObjectTypeAmmunition",
+            component: AmmoConsumer,
+        },
         quantity: {
             heading: "A5E.ConsumerQuantity",
             singleLabel: "A5E.ItemQuantity",

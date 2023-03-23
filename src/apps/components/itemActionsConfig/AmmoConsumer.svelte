@@ -19,24 +19,19 @@
         );
     }
 
-    let selectedItem = consumer.itemId ?? "";
-    $: selectedItem, updateItemSelection();
-    $: optGroup = $item.actor
-        ? $item.actor.items.reduce((acc, i) => {
-              if (i.type !== "object" || i.id === $item.id) return acc;
-              if (i.system.objectType === "ammunition") return acc;
+    let selectedItem = consumer.itemId;
 
-              const type = i.system.objectType;
-              const data = {
-                  name: i.name,
-                  id: i.id,
-              };
-
-              if (acc?.[type]) acc[type].push(data);
-              else acc[type] = [data];
-
-              return acc;
-          }, {})
+    $: ammunitionItems = $item.actor
+        ? $item.actor.items
+              .filter(
+                  (i) =>
+                      i.type === "object" &&
+                      i.system.objectType === "ammunition"
+              )
+              .map((i) => ({ name: i.name, id: i.id }))
+              .sort((a, b) =>
+                  a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+              )
         : [];
 </script>
 
@@ -72,16 +67,10 @@
                     bind:value={selectedItem}
                 >
                     <option value="" />
-                    {#each Object.entries(optGroup) as [type, objects]}
-                        <optgroup label={localize(A5E.objectTypesPlural[type])}>
-                            {#each objects.sort((a, b) => a.name
-                                    .toLowerCase()
-                                    .localeCompare(b.name.toLowerCase())) as { name, id } (id)}
-                                <option value={id} selected={consumer.itemId}>
-                                    {name}
-                                </option>
-                            {/each}
-                        </optgroup>
+                    {#each ammunitionItems as { name, id } (id)}
+                        <option value={id} selected={consumer.itemId === id}>
+                            {name}
+                        </option>
                     {/each}
                 </select>
             {:else}
