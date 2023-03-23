@@ -27,8 +27,9 @@
         );
     }
 
-    let mode = consumer.mode ?? "both";
+    let mode = consumer.mode ?? "variable";
     let spellLevel = consumer.spellLevel ?? 1;
+    let hintToggle = false;
     $: mode, updateMode();
     $: spellLevel, updateSpellLevel();
 </script>
@@ -71,7 +72,7 @@
             </select>
         </div>
 
-        {#if ["both", "slotsOnly"].includes(mode)}
+        {#if ["variable", "slotsOnly"].includes(mode)}
             <div class="u-flex u-flex-col u-gap-sm">
                 <h3 class="a5e-field-group__heading">
                     {localize("A5E.SpellLevel")}
@@ -111,4 +112,55 @@
             </div>
         {/if}
     </div>
+
+    <div class="5e-field-group">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <header
+            class="u-align-center u-flex u-gap-md u-pointer u-w-fit"
+            on:click={() => (hintToggle = !hintToggle)}
+        >
+            <h3 class="a5e-field-group__heading">
+                {localize("A5E.ConsumerSpellModeHintTitle")}
+            </h3>
+            <i
+                class="u-text-sm fas"
+                class:fa-chevron-up={hintToggle}
+                class:fa-chevron-down={!hintToggle}
+            />
+        </header>
+
+        {#if hintToggle}
+            <div class="a5e-box hint">
+                <dt class="u-text-bold">Variable:</dt>
+                <dd class="u-m-0 u-p-0">
+                    Variable mode allows you to select from spell slots or spell
+                    slots at casting time.
+                </dd>
+
+                <dt class="u-text-bold">Spell Points Only:</dt>
+                <dd class="u-m-0 u-p-0">
+                    Always consumes spells points, ignoring available spell
+                    slots.
+                </dd>
+
+                <dt class="u-text-bold">Spell Slots Only:</dt>
+                <dd class="u-m-0 u-p-0">
+                    Always consumes spell slots, ignoring available spell
+                    points.
+                </dd>
+            </div>
+        {/if}
+    </div>
 </section>
+
+<style>
+    .hint {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+
+        column-gap: 0.75rem;
+        row-gap: 0.25rem;
+        font-size: 0.694rem;
+        padding: 0.5rem;
+    }
+</style>

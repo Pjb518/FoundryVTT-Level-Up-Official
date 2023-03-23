@@ -36,8 +36,10 @@
         }
 
         if (type === "spell") {
-            data["mode"] = "both";
-            data["spellLevel"] = 1;
+            data["mode"] = "variable";
+            data["spellLevel"] = $item.system.level ?? 1;
+            data["points"] =
+                CONFIG.A5E.spellLevelCost?.[$item.system.level] ?? 1;
         }
 
         $item.update({
@@ -95,6 +97,9 @@
     $: quantityConsumers = Object.values(consumers ?? {}).filter(
         (c) => c.type === "quantity"
     );
+    $: spellConsumers = Object.entries(consumers ?? {}).filter(
+        (c) => c.type === "spell"
+    );
 
     $: menuItems = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
@@ -106,6 +111,7 @@
                 return acc;
             if (consumerType === "quantity" && quantityConsumers.length)
                 return acc;
+            if (consumerType === "spell" && spellConsumers.length) return acc;
 
             acc.push([singleLabel, consumerType]);
             return acc;

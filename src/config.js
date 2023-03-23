@@ -682,7 +682,7 @@ A5E.spellComponentAbbreviations = {
 };
 
 A5E.spellConsumerModes = {
-  both: 'A5E.ConsumerSpellModeBoth',
+  variable: 'A5E.ConsumerSpellModeVariable',
   pointsOnly: 'A5E.ConsumerSpellModePointsOnly',
   slotsOnly: 'A5E.ConsumerSpellModeSlotsOnly'
 };
