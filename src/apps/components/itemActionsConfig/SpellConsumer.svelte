@@ -116,7 +116,7 @@
     <div class="5e-field-group">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <header
-            class="u-align-center u-flex u-gap-md u-mb-sm u-pointer u-w-fit"
+            class="u-align-center u-flex u-gap-md u-pointer u-w-fit"
             on:click={() => (hintToggle = !hintToggle)}
         >
             <h3 class="a5e-field-group__heading">
@@ -134,7 +134,7 @@
                 <dt class="u-text-bold">Variable</dt>
                 <dd class="u-m-0 u-p-0">
                     Variable mode allows you to select from spell slots or spell
-                    slots at casting time.
+                    points at casting time.
                 </dd>
 
                 <dt class="u-text-bold">Spell Points Only</dt>
@@ -162,5 +162,6 @@
         row-gap: 0.25rem;
         font-size: 0.694rem;
         padding: 0.5rem;
+        margin-top: 0.25rem;
     }
 </style>

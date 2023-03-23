@@ -239,6 +239,8 @@ export default class ItemA5e extends Item {
           return this.#consumeQuantity(consumer);
         case 'resource':
           return this.#consumeResource(consumer);
+        case 'spell':
+          return this.#consumeSpellResource(consumer);
         default: return null;
       }
     });
@@ -300,6 +302,11 @@ export default class ItemA5e extends Item {
     }
 
     await this.actor.update(updateObject);
+  }
+
+  async #consumeSpellResource(consumer) {
+    const { points, spellLevel, mode } = consumer;
+    if (!this.actor) return;
   }
 
   async #consumeSelf() {
