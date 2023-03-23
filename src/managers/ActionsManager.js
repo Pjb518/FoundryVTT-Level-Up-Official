@@ -49,6 +49,11 @@ export default class ActionsManager extends DataProxy {
   }
 
   /** ************************************************ */
+  getConsumers(actionId) {
+    return Object.entries(this.get(actionId)?.consumers ?? {});
+  }
+
+  /** ************************************************ */
   get activationTypes() {
     const actions = Object.values(this.#item.system.actions ?? {});
 
