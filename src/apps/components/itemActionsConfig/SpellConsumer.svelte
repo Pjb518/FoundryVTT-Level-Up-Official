@@ -116,34 +116,34 @@
     <div class="5e-field-group">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <header
-            class="u-align-center u-flex u-gap-md u-pointer u-w-fit"
+            class="u-align-center u-flex u-gap-md u-mb-sm u-pointer u-w-fit"
             on:click={() => (hintToggle = !hintToggle)}
         >
             <h3 class="a5e-field-group__heading">
                 {localize("A5E.ConsumerSpellModeHintTitle")}
             </h3>
             <i
-                class="u-text-sm fas"
-                class:fa-chevron-up={hintToggle}
-                class:fa-chevron-down={!hintToggle}
+                class="u-text-xs fas"
+                class:fa-minus={hintToggle}
+                class:fa-plus={!hintToggle}
             />
         </header>
 
         {#if hintToggle}
             <div class="a5e-box hint">
-                <dt class="u-text-bold">Variable:</dt>
+                <dt class="u-text-bold">Variable</dt>
                 <dd class="u-m-0 u-p-0">
                     Variable mode allows you to select from spell slots or spell
                     slots at casting time.
                 </dd>
 
-                <dt class="u-text-bold">Spell Points Only:</dt>
+                <dt class="u-text-bold">Spell Points Only</dt>
                 <dd class="u-m-0 u-p-0">
                     Always consumes spells points, ignoring available spell
                     slots.
                 </dd>
 
-                <dt class="u-text-bold">Spell Slots Only:</dt>
+                <dt class="u-text-bold">Spell Slots Only</dt>
                 <dd class="u-m-0 u-p-0">
                     Always consumes spell slots, ignoring available spell
                     points.
