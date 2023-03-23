@@ -454,6 +454,7 @@ export default class ItemA5e extends Item {
     const chatCard = ChatMessage.create(chatData);
 
     await this.#consumeItemUses();
+    await this.#consumeSelf();
 
     Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
@@ -461,9 +462,7 @@ export default class ItemA5e extends Item {
 
   async #consume(actionId) {
     // Consume self if consumable
-    if (this.system?.objectType === 'consumable') {
-      this.update({ 'system.quantity': Math.max(this.system.quantity - 1, 0) });
-    }
+    this.#consumeSelf();
 
     // Get other consumers
     const consumers = Object.entries(this.actions[actionId]?.consumers ?? {});
@@ -510,6 +509,12 @@ export default class ItemA5e extends Item {
       'Item',
       [{ _id: item.id, 'system.quantity': newQuantity }]
     );
+  }
+
+  async #consumeSelf() {
+    if (this.system?.objectType === 'consumable') {
+      this.update({ 'system.quantity': Math.max(this.system.quantity - 1, 0) });
+    }
   }
 
   async configureItem() {
