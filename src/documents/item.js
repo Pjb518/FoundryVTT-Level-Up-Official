@@ -460,14 +460,21 @@ export default class ItemA5e extends Item {
   }
 
   async #consume(actionId) {
-    const consumers = Object.entries(this.actions[actionId]?.consumers ?? {});
+    // Consume self if consumable
+    if (this.system?.objectType === 'consumable') {
+      this.update({ 'system.quantity': Math.max(this.system.quantity - 1, 0) });
+    }
 
+    // Get other consumers
+    const consumers = Object.entries(this.actions[actionId]?.consumers ?? {});
     consumers.forEach(([consumerId, consumer]) => {
       switch (consumer?.type) {
         case 'actionUses':
           return this.#consumeActionUses(actionId, consumer, consumerId);
         case 'itemUses':
           return this.#consumeItemUses();
+        case 'quantity':
+          return this.#consumeQuantity(consumer);
         default: return null;
       }
     });
@@ -489,6 +496,20 @@ export default class ItemA5e extends Item {
     await this.update({
       'system.uses.value': Math.max(value - 1, 0)
     });
+  }
+
+  async #consumeQuantity(consumer) {
+    const { itemId, quantity } = consumer;
+    if (!this.actor || itemId === '') return;
+
+    const item = this.actor.items.get(itemId);
+    if (!item) return;
+
+    const newQuantity = Math.max(item.system.quantity - quantity, 0);
+    await this.actor.updateEmbeddedDocuments(
+      'Item',
+      [{ _id: item.id, 'system.quantity': newQuantity }]
+    );
   }
 
   async configureItem() {
