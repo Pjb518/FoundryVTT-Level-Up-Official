@@ -214,7 +214,6 @@ export default class ItemA5e extends Item {
 
     const chatCard = ChatMessage.create(chatData);
 
-    await this.#consumeItemUses();
     await this.#consumeSelf();
 
     Hooks.callAll('a5e.itemActivate', this, { action });
