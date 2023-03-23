@@ -89,6 +89,7 @@ A5E.abilityAbbreviations = {
 A5E.abilityActivationTypes = {
   action: 'A5E.ActionActivationAction',
   bonusAction: 'A5E.ActionActivationBonusAction',
+  day: 'A5E.DurationDay',
   hour: 'A5E.DurationHour',
   lairAction: 'A5E.ActionActivationLairAction',
   legendaryAction: 'A5E.ActionActivationLegendaryAction',
