@@ -9,6 +9,7 @@
     export let consumers;
     export let spellData;
 
+    const actionId = getContext("actionId");
     const actor = getContext("actor");
     const item = getContext("item");
 
@@ -16,7 +17,7 @@
     const spellLevels = Object.entries(A5E.spellLevels).slice(1);
     const consumeOptions = {
         spellSlot: "A5E.ConsumeSpellSlot",
-        spellPoint: "A5E.ConsumeSpellPoints",
+        spellPoint: "A5E.SpellPoints",
         noConsume: "A5E.ConsumeNothing",
     };
     let disabled = [];
@@ -126,11 +127,67 @@
     </FormSection>
 {/if}
 
+{#if mode === "pointsOnly"}
+    <FormSection>
+        <section>
+            <h3 class="u-text-bold u-text-sm">
+                {localize("A5E.SpellPoints")}
+            </h3>
+
+            <div class="u-flex u-gap-md u-align-center">
+                <div class="u-flex u-w-10">
+                    <input
+                        class="number-input"
+                        type="number"
+                        value={spellData.points}
+                        on:change={({ target }) => (spellData.points = target)}
+                    />
+                </div>
+
+                /
+
+                <div class="u-flex u-w-10">
+                    <input
+                        class="number-input"
+                        type="number"
+                        value={spellResources.points.max}
+                        disabled
+                    />
+                </div>
+            </div>
+
+            <div class="u-flex u-gap-sm u-align-center">
+                <input
+                    class="checkbox"
+                    id="{actionId}-consume-spell-points"
+                    type="checkbox"
+                    checked={spellData.consume === "spellPoint" ? true : false}
+                    on:change={({ target }) => {
+                        spellData.consume = target.checked
+                            ? "spellPoints"
+                            : "noConsume";
+                    }}
+                />
+
+                <label class="u-text-sm" for="{actionId}-consume-spell-points">
+                    {localize("A5E.ConsumeSpellPoints")}
+                </label>
+            </div>
+        </section>
+    </FormSection>
+{/if}
+
 <style lang="scss">
     section {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+    }
+
+    .checkbox {
+        margin: 0;
+        width: 1rem;
+        height: 1rem;
     }
 
     .number-input {

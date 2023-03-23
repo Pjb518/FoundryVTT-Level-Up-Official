@@ -207,6 +207,7 @@
         ],
     }).rollFormula;
 
+    setContext("actionId", actionId);
     setContext("actor", actor);
     setContext("item", item);
 </script>
