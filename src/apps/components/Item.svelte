@@ -18,6 +18,7 @@
     export let actionId = null;
 
     const actor = getContext("actor");
+    
     let showDescription = false;
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;

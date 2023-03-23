@@ -18,7 +18,6 @@
     import updateFilters from "../utils/updateFilters";
 
     import FilterBox from "./FilterBox.svelte";
-    import AbilityScore from "./ActorSheetHeader/AbilityScore.svelte";
 
     export let itemType;
 
