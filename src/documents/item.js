@@ -237,6 +237,8 @@ export default class ItemA5e extends Item {
           return this.#consumeItemUses();
         case 'quantity':
           return this.#consumeQuantity(consumer);
+        case 'resource':
+          return this.#consumeResource(consumer);
         default: return null;
       }
     });
@@ -276,6 +278,28 @@ export default class ItemA5e extends Item {
       'Item',
       [{ _id: item.id, 'system.quantity': newQuantity }]
     );
+  }
+
+  async #consumeResource(consumer) {
+    const { resource, quantity } = consumer;
+    if (!this.actor || !resource) return;
+
+    const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
+    if (!config) return;
+
+    const { path, type } = config;
+    const value = foundry.utils.getProperty(this.actor.system, path);
+    if (!value) return;
+
+    let updateObject;
+
+    if (type === 'boolean') {
+      updateObject = { [`system.${path}`]: value ? !value : value };
+    } else {
+      updateObject = { [`system.${path}`]: Math.max(value - quantity, 0) };
+    }
+
+    await this.actor.update(updateObject);
   }
 
   async #consumeSelf() {

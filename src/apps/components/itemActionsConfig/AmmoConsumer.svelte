@@ -92,7 +92,7 @@
                 <input
                     type="number"
                     d-type="Number"
-                    value={consumer.value ?? 1}
+                    value={consumer.quantity ?? 1}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
