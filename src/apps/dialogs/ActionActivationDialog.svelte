@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, setContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
@@ -206,6 +206,9 @@
             },
         ],
     }).rollFormula;
+
+    setContext("actor", actor);
+    setContext("item", item);
 </script>
 
 <form>
@@ -308,8 +311,6 @@
 
     {#if $item.type === "spell" && Object.values(consumers?.spell ?? {}).flat().length}
         <SpellSection
-            {actionId}
-            {item}
             {consumers}
             bind:spellData
             on:updateSelection={({ detail }) => (spellData = detail)}
