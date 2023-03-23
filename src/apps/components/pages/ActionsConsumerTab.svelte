@@ -11,33 +11,39 @@
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
+    import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
 
     function addConsumer(type) {
-        const consumerData = { type };
+        const data = { type };
 
         if (type === "ammunition") {
-            consumerData["itemId"] = "";
-            consumerData["quantity"] = 1;
+            data["itemId"] = "";
+            data["quantity"] = 1;
         }
 
         if (type === "quantity") {
-            consumerData["itemId"] = "";
-            consumerData["quantity"] = 1;
+            data["itemId"] = "";
+            data["quantity"] = 1;
         }
 
         if (type === "resource") {
-            consumerData["resource"] = "";
-            consumerData["quantity"] = 1;
+            data["resource"] = "";
+            data["quantity"] = 1;
+        }
+
+        if (type === "spell") {
+            data["mode"] = "both";
+            data["spellLevel"] = 1;
         }
 
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 ...action.consumers,
-                [foundry.utils.randomID()]: consumerData,
+                [foundry.utils.randomID()]: data,
             },
         });
     }
@@ -57,6 +63,11 @@
             heading: "A5E.ConsumerResource",
             singleLabel: "A5E.Resource",
             component: ResourceConsumer,
+        },
+        spell: {
+            heading: "A5E.ConsumerSpell",
+            singleLabel: "A5E.Spell",
+            component: SpellConsumer,
         },
         actionUses: {
             heading: "A5E.ConsumerUsesAction",

@@ -681,6 +681,12 @@ A5E.spellComponentAbbreviations = {
   material: 'A5E.SpellComponentMaterialAbbr'
 };
 
+A5E.spellConsumerModes = {
+  both: 'A5E.ConsumerSpellModeBoth',
+  pointsOnly: 'A5E.ConsumerSpellModePointsOnly',
+  slotsOnly: 'A5E.ConsumerSpellModeSlotsOnly'
+};
+
 /**
  * Valid spell levels.
  * @enum {string}
