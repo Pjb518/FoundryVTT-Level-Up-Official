@@ -101,7 +101,7 @@
     <div class="sort-filter__container">
         <TJSIconButton
             title={expandAll ? "Collapse All" : "Expand All"}
-            icon={`fas fa-eye`}
+            icon={`fas ${expandAll ? "fa-eye-slash" : "fa-eye"}`}
             onPress={onExpandAll}
         />
 
