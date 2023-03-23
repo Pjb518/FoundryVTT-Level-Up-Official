@@ -61,6 +61,9 @@
                 rollMode,
                 formula: rollFormula,
             },
+            consumers: {
+                spell: spellData,
+            },
             prompts: Object.entries(action.prompts ?? {}).reduce(
                 (acc, [key, prompt]) => {
                     if (selectedPrompts.includes(key)) {
@@ -138,6 +141,7 @@
         {}
     );
 
+    let spellData = {};
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
@@ -303,25 +307,13 @@
     {/if}
 
     {#if $item.type === "spell" && Object.values(consumers?.spell ?? {}).flat().length}
-        <SpellSection {actionId} {item} {consumers} />
+        <SpellSection
+            {actionId}
+            {item}
+            {consumers}
+            on:updateSelection={({ detail }) => (spellData = detail)}
+        />
     {/if}
-
-    <!-- {#if Object.values(consumers).flat().length}
-        <FormSection hint="A5E.ConsumersHint">
-            <div class="consumer-wrapper">
-                {#each Object.entries(consumers) as [consumerType, _consumers]}
-                    {#if _consumers.length}
-                        <section>
-                            <h3 class="section-subheading">
-                                {consumerType}
-                            </h3>
-
-                        </section>
-                    {/if}
-                {/each}
-            </div>
-        </FormSection>
-    {/if} -->
 
     <!-- If there are no prompts, hide this section -->
     {#if Object.values(prompts).flat().length}

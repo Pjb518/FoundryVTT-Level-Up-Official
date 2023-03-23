@@ -1,7 +1,6 @@
 <script>
-    import { getContext } from "svelte";
+    import { createEventDispatcher, getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -10,12 +9,24 @@
     export let consumers;
     export let item;
 
+    function updateSelection() {
+        const data = {
+            consumeSpellSlot,
+            consumeSpellPoint,
+            points,
+            selectedLevel,
+        };
+
+        dispatch("updateSelection", data);
+    }
+
     let consumer = Object.values(consumers.spell ?? {})[0][1];
     let mode = consumer.mode;
     let selectedLevel = consumer.spellLevel;
-    let consumeSpellSlot = true;
-    let consumeSpellPoint = false;
+    let points = consumer.points ?? 0;
 
+    $: consumeSpellSlot = !availableSlots.length ? false : true;
+    $: consumeSpellPoint = availablePoints > 0 ? true : false;
     $: availablePoints = $item.actor.system.spellResources.points.current;
     let availableSlots = Object.entries(
         $item.actor.system.spellResources.slots
@@ -25,6 +36,14 @@
 
         return acc;
     }, []);
+
+    $: consumeSpellPoint,
+        consumeSpellSlot,
+        selectedLevel,
+        points,
+        updateSelection();
+
+    const dispatch = createEventDispatcher();
 </script>
 
 {#if ["variable", "slotsOnly"].includes(mode) && availableSlots.length > 0}
@@ -69,7 +88,7 @@
                     class="number-input"
                     type="number"
                     min={0}
-                    value={consumer.points}
+                    bind:value={points}
                 />
 
                 /
