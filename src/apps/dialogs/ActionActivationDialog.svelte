@@ -10,12 +10,14 @@
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
+    import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import SpellSection from "../components/activationDialog/SpellSection.svelte";
 
     export let { actionId, actorDocument, dialog, itemDocument, options } =
         getContext("#external").application;
@@ -121,6 +123,7 @@
 
     const prompts = preparePrompts(action.prompts);
     const rolls = prepareRolls(action.rolls);
+    const consumers = prepareConsumers(action.consumers);
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
     const attackAbility = getAttackAbility($actor, $item, attackRoll);
@@ -298,6 +301,27 @@
             </div>
         </FormSection>
     {/if}
+
+    {#if $item.type === "spell" && Object.values(consumers?.spell ?? {}).flat().length}
+        <SpellSection {actionId} {item} {consumers} />
+    {/if}
+
+    <!-- {#if Object.values(consumers).flat().length}
+        <FormSection hint="A5E.ConsumersHint">
+            <div class="consumer-wrapper">
+                {#each Object.entries(consumers) as [consumerType, _consumers]}
+                    {#if _consumers.length}
+                        <section>
+                            <h3 class="section-subheading">
+                                {consumerType}
+                            </h3>
+
+                        </section>
+                    {/if}
+                {/each}
+            </div>
+        </FormSection>
+    {/if} -->
 
     <!-- If there are no prompts, hide this section -->
     {#if Object.values(prompts).flat().length}
