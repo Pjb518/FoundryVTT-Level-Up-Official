@@ -231,6 +231,8 @@ export default class ItemA5e extends Item {
       switch (consumer?.type) {
         case 'actionUses':
           return this.#consumeActionUses(actionId, consumer, consumerId);
+        case 'ammunition':
+          return this.#consumeAmmunition(consumer);
         case 'itemUses':
           return this.#consumeItemUses();
         case 'quantity':
@@ -247,6 +249,10 @@ export default class ItemA5e extends Item {
     await this.update({
       [`system.actions.${actionId}.consumers.${consumerId}.value`]: Math.max(value - 1, 0)
     });
+  }
+
+  async #consumeAmmunition(consumer) {
+    return this.#consumeQuantity(consumer);
   }
 
   async #consumeItemUses() {

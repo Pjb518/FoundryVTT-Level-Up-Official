@@ -20,6 +20,7 @@
     }
 
     let selectedItem = consumer.itemId;
+    $: selectedItem, updateItemSelection();
 
     $: ammunitionItems = $item.actor
         ? $item.actor.items
