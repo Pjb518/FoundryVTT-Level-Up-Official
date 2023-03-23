@@ -100,12 +100,6 @@
     </div>
     <div class="sort-filter__container">
         <TJSIconButton
-            title={expandAll ? "Collapse All" : "Expand All"}
-            icon={`fas ${expandAll ? "fa-eye-slash" : "fa-eye"}`}
-            onPress={onExpandAll}
-        />
-
-        <TJSIconButton
             title="Sort"
             icon={`fas ${sortIcons[sortMode]}`}
             onPress={onSortReducer}
@@ -120,6 +114,12 @@
                 />
             </TJSMenu>
         </TJSToggleIconButton>
+
+        <TJSIconButton
+            title={expandAll ? "Collapse All" : "Expand All"}
+            icon={`fas ${expandAll ? "fa-eye-slash" : "fa-eye"}`}
+            onPress={onExpandAll}
+        />
 
         <TJSIconButton
             title={localize("A5E.ButtonAdd", {
