@@ -311,6 +311,7 @@
             {actionId}
             {item}
             {consumers}
+            bind:spellData
             on:updateSelection={({ detail }) => (spellData = detail)}
         />
     {/if}

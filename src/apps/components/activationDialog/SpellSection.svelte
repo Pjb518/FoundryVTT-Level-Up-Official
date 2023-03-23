@@ -1,5 +1,4 @@
 <script>
-    import { createEventDispatcher, getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import FormSection from "../FormSection.svelte";
@@ -8,25 +7,11 @@
     export let actionId;
     export let consumers;
     export let item;
-
-    function updateSelection() {
-        const data = {
-            consumeSpellSlot,
-            consumeSpellPoint,
-            points,
-            selectedLevel,
-        };
-
-        dispatch("updateSelection", data);
-    }
+    export let spellData;
 
     let consumer = Object.values(consumers.spell ?? {})[0][1];
     let mode = consumer.mode;
-    let selectedLevel = consumer.spellLevel;
-    let points = consumer.points ?? 0;
 
-    $: consumeSpellSlot = !availableSlots.length ? false : true;
-    $: consumeSpellPoint = availablePoints > 0 ? true : false;
     $: availablePoints = $item.actor.system.spellResources.points.current;
     let availableSlots = Object.entries(
         $item.actor.system.spellResources.slots
@@ -37,16 +22,14 @@
         return acc;
     }, []);
 
-    $: consumeSpellPoint,
-        consumeSpellSlot,
-        selectedLevel,
-        points,
-        updateSelection();
-
-    const dispatch = createEventDispatcher();
+    spellData.selectedLevel = consumer.spellLevel;
+    spellData.points = consumer.points ?? 0;
+    spellData.consumeSpellSlot = !availableSlots.length ? false : true;
+    spellData.consumeSpellPoint =
+        availablePoints > 0 && !consumeSpellSlot ? true : false;
 </script>
 
-{#if ["variable", "slotsOnly"].includes(mode) && availableSlots.length > 0}
+<!-- {#if ["variable", "slotsOnly"].includes(mode)}
     <FormSection>
         <section>
             <h3 class="u-text-bold u-text-sm">
@@ -55,9 +38,9 @@
 
             <RadioGroup
                 options={availableSlots}
-                selected={selectedLevel}
+                selected={spellData.selectedLevel}
                 on:updateSelection={({ detail }) =>
-                    (selectedLevel = Number(detail))}
+                    (spellData.selectedLevel = Number(detail))}
             />
 
             <div class="u-flex u-gap-sm u-align-center">
@@ -65,7 +48,7 @@
                     class="checkbox"
                     id="{actionId}-consume-spell-slot"
                     type="checkbox"
-                    bind:checked={consumeSpellSlot}
+                    bind:checked={spellData.consumeSpellSlot}
                 />
 
                 <label for="{actionId}-consume-spell-slot" class="u-text-sm">
@@ -76,7 +59,7 @@
     </FormSection>
 {/if}
 
-{#if ["variable", "pointsOnly"].includes(mode) && availablePoints > 0}
+{#if ["pointsOnly"].includes(mode)}
     <FormSection>
         <section>
             <h3 class="u-text-sm u-text-bold">
@@ -88,7 +71,7 @@
                     class="number-input"
                     type="number"
                     min={0}
-                    bind:value={points}
+                    bind:value={spellData.points}
                 />
 
                 /
@@ -106,10 +89,13 @@
                     class="checkbox"
                     id="{actionId}-consume-spell-point"
                     type="checkbox"
-                    bind:checked={consumeSpellPoint}
+                    bind:checked={spellData.consumeSpellPoint}
                 />
 
-                <label for="{actionId}-consume-spell-point" class="u-text-sm">
+                <label
+                    for="{actionId}-consume-spell-point"
+                    class="u-text-sm u-flex-nowrap"
+                >
                     Consume Resource
                 </label>
             </div>
@@ -122,8 +108,7 @@
             {/if}
         </section>
     </FormSection>
-{/if}
-
+{/if} -->
 <style lang="scss">
     section {
         display: flex;

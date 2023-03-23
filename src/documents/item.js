@@ -134,7 +134,7 @@ export default class ItemA5e extends Item {
       if (validTemplate) { this.#placeActionTemplate(actionId); }
     }
 
-    this.#consume(actionId);
+    this.#consume(actionId, promise.consumers);
 
     const chatData = {
       user: game.user?.id,
@@ -220,7 +220,7 @@ export default class ItemA5e extends Item {
     return chatCard;
   }
 
-  async #consume(actionId) {
+  async #consume(actionId, promiseData) {
     // Consume self if consumable
     this.#consumeSelf();
 
@@ -239,7 +239,7 @@ export default class ItemA5e extends Item {
         case 'resource':
           return this.#consumeResource(consumer);
         case 'spell':
-          return this.#consumeSpellResource(consumer);
+          return this.#consumeSpellResource(consumer, promiseData.spell);
         default: return null;
       }
     });
@@ -303,9 +303,30 @@ export default class ItemA5e extends Item {
     await this.actor.update(updateObject);
   }
 
-  async #consumeSpellResource(consumer) {
-    const { points, spellLevel, mode } = consumer;
-    if (!this.actor) return;
+  async #consumeSpellResource(consumer, promiseData) {
+    if (!promiseData || !this.actor) return;
+    console.log(promiseData);
+
+    const {
+      consumeSpellSlot,
+      consumeSpellPoint,
+      points,
+      selectedLevel
+    } = promiseData;
+
+    let updateObject = {};
+
+    if (consumeSpellSlot) {
+      const value = this.actor.system.spellResources.slots?.[selectedLevel]?.current;
+      updateObject = { [`system.spellResources.slots.${selectedLevel}.current`]: Math.max(value - 1, 0) };
+    } else if (consumeSpellPoint) {
+      const value = this.actor.system.spellResources.points.current;
+      updateObject = { 'system.spellResources.points.current': Math.max(value - points, 0) };
+    } else {
+      return;
+    }
+
+    this.actor.update(updateObject);
   }
 
   async #consumeSelf() {
