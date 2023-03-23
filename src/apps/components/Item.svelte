@@ -18,7 +18,6 @@
     export let actionId = null;
 
     const actor = getContext("actor");
-
     let showDescription = false;
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
@@ -83,6 +82,8 @@
         item,
         sheetIsLocked
     );
+
+    $: expandAll = $actor.getFlag("a5e", "expandAll") || false;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -126,8 +127,7 @@
         <ItemActionButtons action={actionId} {item} />
     {/if}
 </li>
-
-{#if showDescription}
+{#if showDescription || expandAll}
     <div class="description-wrapper">
         {#if !isGM && item.type === "object" && item.system.unidentified}
             {@html item.system.unidentifiedDescription ??

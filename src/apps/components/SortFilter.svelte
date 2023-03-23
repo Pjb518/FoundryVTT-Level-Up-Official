@@ -18,6 +18,7 @@
     import updateFilters from "../utils/updateFilters";
 
     import FilterBox from "./FilterBox.svelte";
+    import AbilityScore from "./ActorSheetHeader/AbilityScore.svelte";
 
     export let itemType;
 
@@ -75,6 +76,10 @@
         $actor.setFlag("a5e", "sortMode", newMode);
     }
 
+    function onExpandAll() {
+        $actor.setFlag("a5e", "expandAll", !expandAll);
+    }
+
     // Add Item Logic
     function createItem() {
         const updateData = {
@@ -87,14 +92,20 @@
 
     let filters = filterFlag;
     $: sortMode = $actor.getFlag("a5e", "sortMode") || 0;
+    $: expandAll = $actor.getFlag("a5e", "expandAll") || false;
 </script>
 
 <section class="filters filters__container">
     <div class="search-container">
         <TJSInput input={searchInput} />
     </div>
-
     <div class="sort-filter__container">
+        <TJSIconButton
+            title={expandAll ? "Collapse All" : "Expand All"}
+            icon={`fas fa-eye`}
+            onPress={onExpandAll}
+        />
+
         <TJSIconButton
             title="Sort"
             icon={`fas ${sortIcons[sortMode]}`}
@@ -135,7 +146,7 @@
             grid-template-areas:
                 "search icons"
                 "pills  expand";
-            grid-template-columns: 1fr 4.5rem;
+            grid-template-columns: 1fr 6rem;
             gap: 0.275rem;
         }
     }
