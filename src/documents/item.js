@@ -281,7 +281,7 @@ export default class ItemA5e extends Item {
   }
 
   async #consumeResource(consumer) {
-    const { resource, quantity } = consumer;
+    const { resource, quantity, restore } = consumer;
     if (!this.actor || !resource) return;
 
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
@@ -289,12 +289,12 @@ export default class ItemA5e extends Item {
 
     const { path, type } = config;
     const value = foundry.utils.getProperty(this.actor.system, path);
-    if (!value) return;
+    if (!value && !restore) return;
 
     let updateObject;
 
     if (type === 'boolean') {
-      updateObject = { [`system.${path}`]: value ? !value : value };
+      updateObject = { [`system.${path}`]: (restore ?? false) };
     } else {
       updateObject = { [`system.${path}`]: Math.max(value - quantity, 0) };
     }
