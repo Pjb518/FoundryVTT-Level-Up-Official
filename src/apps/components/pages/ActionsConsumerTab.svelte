@@ -36,6 +36,9 @@
         });
     }
 
+    const filterConsumers = (type) =>
+        Object.values(consumers ?? {}).filter((c) => c.type === type);
+
     const consumerTypes = {
         ammunition: {
             heading: "A5E.ConsumerAmmunition",
@@ -49,23 +52,29 @@
         },
         actionUses: {
             heading: "A5E.ConsumerUsesAction",
-            singleLabel: "A5E.ConsumerUsesAction",
+            singleLabel: "A5E.ConsumerActionUses",
             component: UsesConsumer,
         },
         itemUses: {
             heading: "A5E.ConsumerUsesItem",
-            singleLabel: "A5E.ConsumerUsesItem",
+            singleLabel: "A5E.ConsumerItemUses",
             component: UsesConsumer,
         },
     };
 
     $: action = $item.actions[actionId];
     $: consumers = action.consumers ?? {};
-    $: actionUsesConsumers = Object.values(consumers).filter(
+    $: actionUsesConsumers = Object.values(consumers ?? {}).filter(
         (c) => c.type === "actionUses"
     );
-    $: itemUsesConsumers = Object.values(consumers).filter(
+    $: ammunitionConsumers = Object.values(consumers ?? {}).filter(
+        (c) => c.type === "ammunition"
+    );
+    $: itemUsesConsumers = Object.values(consumers ?? {}).filter(
         (c) => c.type === "itemUses"
+    );
+    $: quantityConsumers = Object.values(consumers ?? {}).filter(
+        (c) => c.type === "quantity"
     );
 
     $: menuItems = Object.entries(consumerTypes).reduce(
@@ -73,6 +82,10 @@
             if (consumerType === "itemUses" && itemUsesConsumers.length)
                 return acc;
             if (consumerType === "actionUses" && actionUsesConsumers.length)
+                return acc;
+            if (consumerType === "ammunition" && ammunitionConsumers.length)
+                return acc;
+            if (consumerType === "quantity" && quantityConsumers.length)
                 return acc;
 
             acc.push([singleLabel, consumerType]);
@@ -92,7 +105,7 @@
                             {localize(heading)}
                         </h2>
 
-                        {#if !["actionUses", "itemUses"].includes(consumerType)}
+                        {#if false}
                             <button
                                 class="add-button"
                                 on:click={() => addConsumer(consumerType)}
