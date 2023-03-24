@@ -4,6 +4,7 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -85,15 +86,13 @@
     </FormSection>
 
     <FormSection heading="A5E.ExpertiseDie">
-        <RadioGroup
-            optionStyles="min-width:2rem; text-align: center;"
-            options={expertiseDiceOptions}
+        <ExpertiseDiePicker
             selected={skill.expertiseDice}
-            on:updateSelection={(event) =>
+            on:updateSelection={({ detail }) =>
                 updateDocumentDataFromField(
                     $actor,
                     `system.skills.${skillKey}.expertiseDice`,
-                    event.detail
+                    detail
                 )}
         />
     </FormSection>

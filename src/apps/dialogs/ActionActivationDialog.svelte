@@ -9,12 +9,12 @@
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
-    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -239,10 +239,8 @@
                     {localize("A5E.ExpertiseDie")}
                 </h3>
 
-                <RadioGroup
-                    options={prepareExpertiseDiceOptions()}
+                <ExpertiseDiePicker
                     selected={expertiseDie}
-                    optionStyles="min-width:2rem; text-align: center;"
                     on:updateSelection={({ detail }) => (expertiseDie = detail)}
                 />
             </section>

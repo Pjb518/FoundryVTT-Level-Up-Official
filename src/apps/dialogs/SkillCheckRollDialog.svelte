@@ -3,12 +3,12 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
-    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
@@ -117,10 +117,8 @@
     </section>
 
     <FormSection heading="A5E.ExpertiseDie">
-        <RadioGroup
-            options={prepareExpertiseDiceOptions()}
+        <ExpertiseDiePicker
             selected={expertiseDie}
-            optionStyles="min-width:2rem; text-align: center;"
             on:updateSelection={({ detail }) => (expertiseDie = detail)}
         />
     </FormSection>

@@ -1,6 +1,5 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import Tag from "./Tag.svelte";
 
@@ -17,7 +16,7 @@
 </script>
 
 <ul
-    class={`
+    class="
         u-flex
         u-flex-wrap
         u-gap-sm
@@ -26,8 +25,8 @@
         u-p-0
         u-text-xs
         u-w-full
-        ${listClasses}
-    `}
+        {listClasses}
+    "
 >
     {#each options as [value, label]}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
