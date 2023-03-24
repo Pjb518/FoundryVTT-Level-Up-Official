@@ -3,26 +3,18 @@
     import { getContext } from "svelte";
 
     import FormSection from "../FormSection.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Tag from "../Tag.svelte";
 
     export let consumers;
     export let actionUsesData;
     export let itemUsesData;
 
-    const actionId = getContext("actionId");
-    const actor = getContext("actor");
     const item = getContext("item");
-
-    const { A5E } = CONFIG;
 
     // =======================================================
     // Consumer data
     const actionConsumer = Object.values(consumers.actionUses ?? {})[0][1];
 
-    actionUsesData.consume = true;
     actionUsesData.quantity = 1;
-    itemUsesData.consume = true;
     itemUsesData.quantity = 1;
 
     $: itemUses = $item.system.uses;

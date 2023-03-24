@@ -64,6 +64,8 @@
                 formula: rollFormula,
             },
             consumers: {
+                actionUses: actionUsesData,
+                itemUses: itemUsesData,
                 spell: spellData,
             },
             prompts: Object.entries(action.prompts ?? {}).reduce(

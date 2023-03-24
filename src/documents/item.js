@@ -229,28 +229,31 @@ export default class ItemA5e extends Item {
     consumers.forEach(([consumerId, consumer]) => {
       switch (consumer?.type) {
         case 'actionUses':
-          return this.#consumeActionUses(actionId, consumer, consumerId);
+          return this.#consumeActionUses(actionId, consumerId, consumer, promiseData.actionUses);
         case 'ammunition':
           return this.#consumeAmmunition(consumer);
         case 'itemUses':
-          return this.#consumeItemUses();
+          return this.#consumeItemUses(promiseData.itemUses);
         case 'quantity':
           return this.#consumeQuantity(consumer);
         case 'resource':
           return this.#consumeResource(consumer);
         case 'spell':
-          return this.#consumeSpellResource(consumer, promiseData.spell);
+          return this.#consumeSpellResource(promiseData.spell);
         default: return null;
       }
     });
   }
 
-  async #consumeActionUses(actionId, consumer, consumerId) {
-    const { value } = consumer;
-    if (!value) return;
+  async #consumeActionUses(actionId, consumerId, consumer, promiseData) {
+    const { quantity } = promiseData;
+
+    if (!quantity || !this.actor) return;
+    const newValue = Math.max(consumer.value - quantity, 0);
+    if (!newValue) return;
 
     await this.update({
-      [`system.actions.${actionId}.consumers.${consumerId}.value`]: Math.max(value - 1, 0)
+      [`system.actions.${actionId}.consumers.${consumerId}.value`]: newValue
     });
   }
 
@@ -258,12 +261,13 @@ export default class ItemA5e extends Item {
     return this.#consumeQuantity(consumer);
   }
 
-  async #consumeItemUses() {
+  async #consumeItemUses(promiseData) {
     const { value } = this.system.uses;
-    if (!value) return;
+    const { quantity } = promiseData;
+    if (!value || !quantity) return;
 
     await this.update({
-      'system.uses.value': Math.max(value - 1, 0)
+      'system.uses.value': Math.max(value - quantity, 0)
     });
   }
 
@@ -303,7 +307,7 @@ export default class ItemA5e extends Item {
     await this.actor.update(updateObject);
   }
 
-  async #consumeSpellResource(consumer, promiseData) {
+  async #consumeSpellResource(promiseData) {
     if (!promiseData || !this.actor) return;
 
     const {
