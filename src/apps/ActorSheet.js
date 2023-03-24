@@ -270,10 +270,11 @@ export default class ActorSheet extends SvelteApplication {
       return;
     }
 
+    await this.actor.setFlag('a5e', 'destinyFulfilled', false);
+
     const uuids = [
       item.system.sourceOfInspiration,
-      item.system.inspirationFeature,
-      item.system.fulfillmentFeature
+      item.system.inspirationFeature
     ];
     const features = (await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f);
 

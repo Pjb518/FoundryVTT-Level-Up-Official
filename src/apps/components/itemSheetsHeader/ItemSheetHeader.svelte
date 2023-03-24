@@ -10,6 +10,18 @@
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
 
+    async function fulfilDestiny() {
+        const fulfillmentFeature = await fromUuid(
+            $item.system.fulfillmentFeature
+        );
+        if (!fulfillmentFeature || !$item.actor) return;
+        if ($item.actor.getFlag("a5e", "destinyFulfilled") ?? false) return;
+
+        await $item.actor.createEmbeddedDocuments("Item", [fulfillmentFeature]);
+        await $item.actor.setFlag("a5e", "destinyFulfilled", true);
+        disableFulfil = true;
+    }
+
     // TODO: Re-add this in 0.9.1 or later, as there is more work required to make
     // this useful.
     //
@@ -21,6 +33,8 @@
     // }
 
     // $: name = getItemName($item);
+
+    let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
 </script>
 
 <header class="sheet-header">
@@ -108,6 +122,16 @@
                 on:click|stopPropagation={() => $item.toggleBroken()}
             />
         </div>
+    {/if}
+
+    {#if $item.type === "destiny"}
+        <button
+            class="fulfil-button"
+            disabled={disableFulfil}
+            on:click={() => fulfilDestiny()}
+        >
+            {localize("A5E.FulfilDestiny")}
+        </button>
     {/if}
 </header>
 
@@ -217,5 +241,25 @@
 
     .name-wrapper {
         width: 100%;
+    }
+
+    .fulfil-button {
+        background: #82817d;
+        color: white;
+        width: max-content;
+        font-size: 0.694rem;
+        padding-inline: 0.75rem;
+        white-space: nowrap;
+        transition: all 0.15s ease-in-out;
+
+        &:disabled {
+            cursor: auto;
+        }
+
+        &:hover:not(:disabled),
+        &:focus:not(:disabled) {
+            box-shadow: none;
+            background-color: #425f65;
+        }
     }
 </style>
