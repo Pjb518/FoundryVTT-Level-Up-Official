@@ -2,6 +2,8 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import Tag from "./Tag.svelte";
+
     import pressedKeysStore from "../../stores/pressedKeysStore";
 
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -92,12 +94,18 @@
                 {#each skill.specialties.sort((a, b) => a
                         .toLowerCase()
                         .localeCompare(b.toLowerCase())) as specialty}
-                    <li
-                        class="a5e-tag a5e-tag--tight"
-                        data-specialty={specialty}
-                    >
-                        {skillSpecialties[key][specialty] ?? specialty}
-                    </li>
+                    <Tag
+                        label={skillSpecialties[key][specialty] ?? specialty}
+                        value={specialty}
+                        tight={true}
+                        optionStyles="
+                            color: black;
+                            background-color: rgba(0 0 0 / 0.05);
+                            max-width: 98%;
+                            border: 1px solid #ccc;
+                        "
+                        disabled={true}
+                    />
                 {/each}
             {:else}
                 <li
