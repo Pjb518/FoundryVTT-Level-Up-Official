@@ -17,7 +17,9 @@
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+
     import SpellSection from "../components/activationDialog/SpellSection.svelte";
+    import UsesSection from "../components/activationDialog/UsesSection.svelte";
 
     export let { actionId, actorDocument, dialog, itemDocument, options } =
         getContext("#external").application;
@@ -62,6 +64,8 @@
                 formula: rollFormula,
             },
             consumers: {
+                actionUses: actionUsesData,
+                itemUses: itemUsesData,
                 spell: spellData,
             },
             prompts: Object.entries(action.prompts ?? {}).reduce(
@@ -142,6 +146,8 @@
     );
 
     let spellData = {};
+    let actionUsesData = {};
+    let itemUsesData = {};
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
@@ -311,11 +317,11 @@
     {/if}
 
     {#if $item.type === "spell" && Object.values(consumers?.spell ?? {}).flat().length}
-        <SpellSection
-            {consumers}
-            bind:spellData
-            on:updateSelection={({ detail }) => (spellData = detail)}
-        />
+        <SpellSection {consumers} bind:spellData />
+    {/if}
+
+    {#if Object.values(consumers?.actionUses ?? {}).flat().length || Object.values(consumers?.itemUses ?? {}).flat().length}
+        <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
     {/if}
 
     <!-- If there are no prompts, hide this section -->
