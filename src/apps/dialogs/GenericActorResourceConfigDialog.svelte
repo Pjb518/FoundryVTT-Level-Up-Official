@@ -47,7 +47,7 @@
                 />
 
                 <label
-                    class="u-pointer u-text-bold u-text-sm"
+                    class="u-pointer u-text-sm"
                     for="{appId}-resources-{source}-hideMax"
                 >
                     {localize("A5E.GenericResourceHideMax")}
