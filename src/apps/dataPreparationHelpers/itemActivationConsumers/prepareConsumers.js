@@ -1,6 +1,10 @@
+import prepareActionUsesConsumer from './prepareActionUsesConsumer';
+import prepareItemUsesConsumer from './prepareItemUsesConsumer';
 import prepareSpellConsumer from './prepareSpellConsumer';
 
 const consumerHandlerMap = {
+  actionUses: prepareActionUsesConsumer,
+  itemUses: prepareItemUsesConsumer,
   spell: prepareSpellConsumer
 };
 
