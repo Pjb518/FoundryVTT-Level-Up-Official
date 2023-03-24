@@ -115,14 +115,12 @@
                         type="checkbox"
                         id="{appId}-{abilityKey}-proficient"
                         name="system.abilities.{abilityKey}.save.proficient"
-                        value={$actor.system.abilities[abilityKey].save
-                            .proficient}
                         checked={ability.save.proficient}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $actor,
                                 target.name,
-                                target.value
+                                target.checked
                             )}
                     />
 
