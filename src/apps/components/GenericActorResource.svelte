@@ -140,6 +140,11 @@
         background: transparent;
         text-align: center;
         text-overflow: ellipsis;
+
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
     }
 
     .resource-value-container {
