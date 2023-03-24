@@ -79,10 +79,8 @@
                 <dt class="u-text-bold">{localize("A5E.ArmorCategory")}:</dt>
                 <dd class="u-m-0 u-p-0">
                     {#if $item.system.armorCategory}
-                        {localize(
-                            armorTypes[$item.system.armorCategory] ??
-                                $item.system.armorCategory
-                        )}
+                        {armorTypes[$item.system.armorCategory] ??
+                            $item.system.armorCategory}
                     {:else}
                         {localize("A5E.Unknown")}
                     {/if}
@@ -107,9 +105,7 @@
                         >
                             {#each localeSort($item.system.armorProperties) as property}
                                 <li key={property}>
-                                    {localize(
-                                        armorProperties[property] ?? property
-                                    )}
+                                    {armorProperties[property] ?? property}
                                 </li>
                             {/each}
                         </ul>

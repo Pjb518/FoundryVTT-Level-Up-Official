@@ -79,10 +79,8 @@
                         >
                             {#each localeSort($item.system.materialProperties) as property}
                                 <li key={property}>
-                                    {localize(
-                                        A5E.materialProperties[property] ??
-                                            property
-                                    )}
+                                    {A5E.materialProperties[property] ??
+                                        property}
                                 </li>
                             {/each}
                         </ul>

@@ -80,10 +80,7 @@
                         >
                             {#each localeSort($item.system.ammunitionProperties) as property}
                                 <li key={property}>
-                                    {localize(
-                                        ammunitionProperties[property] ??
-                                            property
-                                    )}
+                                    {ammunitionProperties[property] ?? property}
                                 </li>
                             {/each}
                         </ul>

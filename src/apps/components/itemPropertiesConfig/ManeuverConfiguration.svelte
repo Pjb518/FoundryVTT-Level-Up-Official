@@ -134,7 +134,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {localize(A5E.maneuverDegrees[$item.system.degree])}
+                    {A5E.maneuverDegrees[$item.system.degree]}
 
                     {#if $item.system.degree > 0 && $item.system.isStance}
                         {localize("A5E.ManeuverStance")}
@@ -149,10 +149,8 @@
                     </dt>
 
                     <dd class="u-m-0 u-p-0">
-                        {localize(
-                            A5E.maneuverTraditions[$item.system.tradition] ??
-                                "A5E.None"
-                        )}
+                        {A5E.maneuverTraditions[$item.system.tradition] ??
+                            localize("A5E.None")}
                     </dd>
                 </div>
 

@@ -77,10 +77,7 @@
                         >
                             {#each localeSort($item.system.weaponProperties) as property}
                                 <li key={property}>
-                                    {localize(
-                                        A5E.weaponProperties[property] ??
-                                            property
-                                    )}
+                                    {A5E.weaponProperties[property] ?? property}
                                 </li>
                             {/each}
                         </ul>

@@ -64,9 +64,8 @@
                     {localize("A5E.FeatureTypePrompt")}:
                 </dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(
-                        featureTypes[$item.system.featureType] ?? "A5E.None"
-                    )}
+                    {featureTypes[$item.system.featureType] ??
+                        localize("A5E.None")}
                 </dd>
             </div>
         </dl>

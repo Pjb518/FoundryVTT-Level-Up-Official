@@ -319,9 +319,8 @@
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ObjectTypePrompt")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(
-                        A5E.objectTypes[$item.system.objectType] ?? "A5E.None"
-                    )}
+                    {A5E.objectTypes[$item.system.objectType] ??
+                        localize("A5E.None")}
                 </dd>
             </div>
 
