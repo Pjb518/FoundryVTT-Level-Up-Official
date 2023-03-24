@@ -30,7 +30,8 @@
 
 <style lang="scss">
     .resources-container {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
         width: 100%;
         align-items: center;

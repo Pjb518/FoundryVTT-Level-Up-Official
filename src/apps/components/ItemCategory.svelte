@@ -72,7 +72,7 @@
                 {/if}
             </h3>
 
-            {#if itemContext === "object"}
+            {#if itemContext === "object" || type === "favorites"}
                 <h3 class="category-heading category-heading--quantity">
                     Quantity
                 </h3>
