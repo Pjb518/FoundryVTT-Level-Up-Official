@@ -38,8 +38,8 @@
     );
 
     const saveTypes = [
-        { name: "A5E.SavingThrowNormal", value: "standard" },
-        { name: "A5E.ConcentrationCheck", value: "concentration" },
+        ["standard", "A5E.SavingThrowNormal"],
+        ["concentration", "A5E.ConcentrationCheck"],
     ];
 
     const actor = new TJSDocument(actorDocument);
@@ -128,37 +128,11 @@
                 {localize("A5E.ItemSavingThrowType")}
             </h3>
 
-            <div
-                class="
-                u-flex
-                u-flex-wrap
-                u-list-style-none
-                u-m-0
-                u-p-0
-                u-w-full
-                u-gap-md
-                u-text-sm
-            "
-                role="radiogroup"
-                id={`${$actor.id}-${appId}-save-type`}
-            >
-                {#each saveTypes as { name, value }}
-                    <input
-                        class="u-hidden"
-                        type="radio"
-                        id="{$actor.id}-{appId}-save-type-{value}"
-                        bind:group={saveType}
-                        {value}
-                    />
-                    <label
-                        class="a5e-tag u-pointer u-p-md u-text-center"
-                        class:a5e-tag--active={value === saveType}
-                        for="{$actor.id}-{appId}-save-type-{value}"
-                    >
-                        {localize(name)}
-                    </label>
-                {/each}
-            </div>
+            <RadioGroup
+                options={saveTypes}
+                selected={saveType}
+                on:updateSelection={(event) => (saveType = event.detail)}
+            />
         </section>
     {/if}
 
