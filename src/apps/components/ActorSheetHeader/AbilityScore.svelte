@@ -19,7 +19,7 @@
 
 <li class="ability-score">
     <div class="ability-score__main">
-        <h3>{localize(abilityLabel)}</h3>
+        <h3>{abilityLabel}</h3>
 
         <input
             class="ability-score__value"

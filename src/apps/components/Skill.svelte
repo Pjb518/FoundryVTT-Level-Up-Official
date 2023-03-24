@@ -52,7 +52,7 @@
     <div class="u-flex u-flex-col u-gap-xxs u-justify-center">
         <header class="u-align-center u-flex u-gap-xs">
             <h3 class="u-text-bold u-text-sm">
-                {localize(label)}
+                {label}
             </h3>
 
             {#if skill.expertiseDice}
@@ -96,9 +96,7 @@
                         class="a5e-tag a5e-tag--tight"
                         data-specialty={specialty}
                     >
-                        {localize(
-                            skillSpecialties[key][specialty] ?? specialty
-                        )}
+                        {skillSpecialties[key][specialty] ?? specialty}
                     </li>
                 {/each}
             {:else}
