@@ -10,8 +10,10 @@
     const actor = getContext("actor");
     const { objects } = actor;
 
+    const sortMap = CONFIG.A5E.reducerSortMap.objects;
+
     $: sortedObjects = Object.entries($objects._types).sort(
-        (a, b) => $objects.sortMap?.[a[0]] - $objects.sortMap?.[b[0]]
+        (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
 </script>
 

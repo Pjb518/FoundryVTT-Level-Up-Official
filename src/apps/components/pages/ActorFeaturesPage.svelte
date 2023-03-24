@@ -6,6 +6,12 @@
 
     const actor = getContext("actor");
     const { features } = actor;
+
+    const sortMap = CONFIG.A5E.reducerSortMap.features;
+
+    $: sortedFeatures = Object.entries($features._types).sort(
+        (a, b) => sortMap[a[0]] - sortMap[b[0]]
+    );
 </script>
 
 <div class="features-page">
@@ -17,7 +23,7 @@
         {#if $actor.type === "npc"}
             <ItemCategory label="" items={$features} type="featureTypes" />
         {:else}
-            {#each Object.entries($features._types) as [label, items]}
+            {#each sortedFeatures as [label, items]}
                 {#if items.length}
                     <ItemCategory {label} {items} type="featureTypes" />
                 {/if}
