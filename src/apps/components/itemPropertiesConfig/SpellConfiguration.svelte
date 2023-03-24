@@ -202,7 +202,7 @@
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.SpellLevel")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(A5E.spellLevels[$item.system.level])}
+                    {A5E.spellLevels[$item.system.level]}
                 </dd>
             </div>
 
@@ -211,9 +211,7 @@
                     {localize("A5E.SpellSchoolPrimary")}:
                 </dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(
-                        A5E.spellSchools.primary[$item.system.schools.primary]
-                    )}
+                    {A5E.spellSchools.primary[$item.system.schools.primary]}
                 </dd>
             </div>
 
@@ -237,10 +235,8 @@
                         >
                             {#each localeSort($item.system.schools.secondary) as school}
                                 <li key={school}>
-                                    {localize(
-                                        A5E.spellSchools.secondary[school] ??
-                                            school
-                                    )}
+                                    {A5E.spellSchools.secondary[school] ??
+                                        school}
                                 </li>
                             {/each}
                         </ul>
@@ -270,10 +266,9 @@
                         >
                             {#each Object.entries($item.system.components).filter(([_, state]) => state) as [component, _]}
                                 <li>
-                                    {localize(
-                                        `${A5E.spellComponents[component]}Abbr` ??
-                                            component
-                                    )}
+                                    {A5E.spellComponentAbbreviations[
+                                        component
+                                    ] ?? component}
                                 </li>
                             {/each}
                         </ul>

@@ -23,6 +23,7 @@ import getInitiativeFormula from './combat/getInitiativeFormula';
 import getInitiativeRoll from './combat/getInitiativeRoll';
 import measureDistances from './pixi/measureDistances';
 import preloadHandlebarsTemplates from './templates';
+import performPreLocalization from './utils/localization/performLocalization';
 import registerSystemSettings from './settings';
 import rollCombatantInitiative from './combat/rollCombatantInitiative';
 import rollInitiative from './combat/rollInitiative';
@@ -119,17 +120,16 @@ Hooks.once('init', () => {
   return preloadHandlebarsTemplates();
 });
 
-/**
- * Once game object is ready initialize anything that requires the game object
- */
+// Once game object is ready initialize anything that requires the game object
 Hooks.once('setup', () => {
   registerSystemSettings();
   setupConditions();
 });
 
-/**
- * Once the entire VTT framework is initialized, check to see if we should perform a data migration
- */
+// Prelocalize any static strings once localization files become available.
+Hooks.once('i18nInit', () => performPreLocalization(CONFIG.A5E));
+
+// Once the entire VTT framework is initialized, check to see if we should perform a data migration
 Hooks.once('ready', () => {
   // eslint-disable-next-line consistent-return
   Hooks.on('hotbarDrop', (_, data, slot) => {
