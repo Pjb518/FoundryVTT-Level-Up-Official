@@ -124,78 +124,75 @@
                         />
                     </div>
                 </FormSection>
-
-                <FormSection>
-                    <div
-                        class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                    >
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.concentration"
-                                id="{appId}-concentration"
-                                checked={$item.system.concentration}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label
-                                class="u-pointer"
-                                for="{appId}-concentration"
-                            >
-                                {localize("A5E.SpellConcentration")}
-                            </label>
-                        </div>
-
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.prepared"
-                                id="{appId}-prepared"
-                                checked={$item.system.prepared}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-prepared">
-                                {localize("A5E.ItemPrepared")}
-                            </label>
-                        </div>
-
-                        {#if $item.system.level > 0}
-                            <div class="u-align-center u-flex u-gap-md">
-                                <input
-                                    class="u-pointer"
-                                    type="checkbox"
-                                    name="system.ritual"
-                                    id="{appId}-ritual"
-                                    checked={$item.system.ritual}
-                                    on:change={({ target }) =>
-                                        updateDocumentDataFromField(
-                                            $item,
-                                            target.name,
-                                            target.checked
-                                        )}
-                                />
-
-                                <label class="u-pointer" for="{appId}-ritual">
-                                    {localize("A5E.SpellRitual")}
-                                </label>
-                            </div>
-                        {/if}
-                    </div>
-                </FormSection>
             {/if}
+
+            <FormSection>
+                <div
+                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
+                >
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="system.concentration"
+                            id="{appId}-concentration"
+                            checked={$item.system.concentration}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $item,
+                                    target.name,
+                                    target.checked
+                                )}
+                        />
+
+                        <label class="u-pointer" for="{appId}-concentration">
+                            {localize("A5E.SpellConcentration")}
+                        </label>
+                    </div>
+
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            class="u-pointer"
+                            type="checkbox"
+                            name="system.prepared"
+                            id="{appId}-prepared"
+                            checked={$item.system.prepared}
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $item,
+                                    target.name,
+                                    target.checked
+                                )}
+                        />
+
+                        <label class="u-pointer" for="{appId}-prepared">
+                            {localize("A5E.ItemPrepared")}
+                        </label>
+                    </div>
+
+                    {#if $item.system.level > 0}
+                        <div class="u-align-center u-flex u-gap-md">
+                            <input
+                                class="u-pointer"
+                                type="checkbox"
+                                name="system.ritual"
+                                id="{appId}-ritual"
+                                checked={$item.system.ritual}
+                                on:change={({ target }) =>
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        target.name,
+                                        target.checked
+                                    )}
+                            />
+
+                            <label class="u-pointer" for="{appId}-ritual">
+                                {localize("A5E.SpellRitual")}
+                            </label>
+                        </div>
+                    {/if}
+                </div>
+            </FormSection>
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
