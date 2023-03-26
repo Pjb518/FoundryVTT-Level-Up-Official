@@ -26,32 +26,42 @@
     let currentEditor = "notes";
 </script>
 
-<section class="notes__container">
-    {#if $actor.type === "npc"}
-        <div class="notes__tabs">
-            {#each Object.entries(tabs) as [name, { label, display }]}
-                {#if display || isGM}
-                    <button
-                        class="a5e-button"
-                        class:active={currentEditor === name}
-                        on:click={() => (currentEditor = name)}
-                    >
-                        {localize(label)}
-                    </button>
-                {/if}
-            {/each}
-        </div>
-    {/if}
+<div class="notes-page">
+    <section class="notes__container">
+        {#if $actor.type === "npc"}
+            <div class="notes__tabs">
+                {#each Object.entries(tabs) as [name, { label, display }]}
+                    {#if display || isGM}
+                        <button
+                            class="a5e-button"
+                            class:active={currentEditor === name}
+                            on:click={() => (currentEditor = name)}
+                        >
+                            {localize(label)}
+                        </button>
+                    {/if}
+                {/each}
+            </div>
+        {/if}
 
-    <Editor
-        document={actor}
-        content={$actor.system.details[currentEditor]}
-        updatePath="system.details.{currentEditor}"
-    />
-</section>
+        <Editor
+            document={actor}
+            content={$actor.system.details[currentEditor]}
+            updatePath="system.details.{currentEditor}"
+        />
+    </section>
+</div>
 
 <style lang="scss">
     @import "../../../scss/base/variables";
+
+    .notes-page {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.5rem;
+        overflow: hidden;
+    }
 
     .notes {
         &__container {
@@ -59,6 +69,7 @@
             flex-direction: column;
             flex-grow: 1;
             gap: 0.5rem;
+            overflow-y: auto;
         }
 
         &__tabs {
