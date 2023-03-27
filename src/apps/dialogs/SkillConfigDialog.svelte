@@ -198,15 +198,10 @@
 </article>
 
 <style lang="scss">
-    :global {
-        .a5e-sheet .dialog-content {
-            height: 100%;
-        }
-    }
     article {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        height: min(90vh, 52rem);
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;

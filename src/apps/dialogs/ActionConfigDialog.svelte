@@ -94,16 +94,6 @@
 </article>
 
 <style lang="scss">
-    :global {
-        .a5e-sheet main {
-            height: 100%;
-        }
-
-        .a5e-sheet .dialog-content {
-            height: 100%;
-        }
-    }
-
     article {
         display: flex;
         flex-direction: column;
