@@ -162,6 +162,7 @@
 
     .shield-inspiration {
         font-size: 1rem;
+        color: #bbbaba;
         border: 0;
         padding: 0.125rem;
         transition: all 0.15s ease-in-out;
@@ -169,11 +170,11 @@
 
         &:hover {
             transform: scale(1.2);
-            color: #555;
+            color: #444;
         }
 
         &--active {
-            color: #2b6537;
+            color: darken(#2b6537, 10%);
 
             &:hover {
                 color: #2b6537;
