@@ -31,6 +31,7 @@ import rollInitiative from './combat/rollInitiative';
 import setupConditions from './activeEffects/conditions';
 
 // Macros
+import activateActionMacro from './macros/activateActionMacro';
 import activateItemMacro from './macros/activateItemMacro';
 import createMacro from './macros/createMacro';
 
@@ -59,6 +60,7 @@ Hooks.once('init', () => {
       TokenA5e
     },
     macros: {
+      activateActionMacro,
       activateItemMacro,
       createMacro
     },

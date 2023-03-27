@@ -8,22 +8,28 @@
 // eslint-disable-next-line consistent-return
 export default async function createMacro(data, slot) {
   const item = await fromUuid(data.uuid);
+  const action = item.actions.get(data.actionId);
 
   if (foundry.utils.isEmpty(item) || item.parent === null) {
     return ui.notifications.warn(game.i18n.localize('A5E.ActionWarningNoMacrosForUnownedItems'));
   }
 
   // Create the macro command
-  const command = `game.a5e.macros.activateItemMacro("${item.name}");`;
+  let command;
+  if (data.actionId) {
+    command = `game.a5e.macros.activateActionMacro("${item.name}", "${data.actionId}");`;
+  } else {
+    command = `game.a5e.macros.activateItemMacro("${item.name}");`;
+  }
 
   let macro = game.macros.find((m) => (m.name === item.name) && (m.command === command));
 
   if (!macro) {
     macro = await Macro.create({
-      name: item.name,
+      name: `${item.name} ${action ? `(${(action.name)})` : ''}`,
       type: 'script',
       scope: 'actor',
-      img: item.img,
+      img: (action && action?.img) ? action.img : item.img,
       command,
       flags: { 'a5e.itemMacro': true }
     });

@@ -78,6 +78,7 @@
         if (!dragData) return;
 
         dragData.actorId = item?.parent.id;
+        dragData.actionId = actionId;
 
         return event.dataTransfer.setData(
             "text/plain",
