@@ -9,7 +9,7 @@
     import ActorEffectsPage from "../components/pages/ActorEffectsPage.svelte";
     import ActorFeaturesPage from "../components/pages/ActorFeaturesPage.svelte";
     import ActorInventoryPage from "../components/pages/ActorInventoryPage.svelte";
-    import ActorManeuversPage from "../components/pages/ActorManeuversPage.svelte";
+    import ActorManeuversPage from "../components/pages/ActorManueversPage.svelte";
     import ActorNotesPage from "../components/pages/ActorNotesPage.svelte";
     import ActorSheetHeader from "../components/ActorSheetHeader/ActorSheetHeader.svelte";
     import ActorSettingsPage from "../components/pages/ActorSettingsPage.svelte";
