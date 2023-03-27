@@ -50,4 +50,28 @@ function createObject(type) {
   };
 }
 
-function createSpell(type) { }
+function createSpell(type) {
+  const system = {
+    level: Number(type)
+  };
+
+  if (system.level === 0) return system;
+
+  // Add Spell Consumer
+  const actions = {
+    [foundry.utils.randomID()]: {
+      name: 'Cast Spell',
+      consumers: {
+        [foundry.utils.randomID()]: {
+          mode: 'variable',
+          spellLevel: Number(type),
+          points: CONFIG.A5E.spellLevelCost[Number(type)],
+          type: 'spell'
+        }
+      }
+    }
+  };
+
+  system.actions = actions;
+  return system;
+}

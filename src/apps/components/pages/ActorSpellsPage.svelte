@@ -25,7 +25,7 @@
 
 <div class="spells-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="spells" />
+        <SortFilter itemType="spells" subTypes={spellLevels} />
     {/if}
 
     <section class="spells-main-container">
