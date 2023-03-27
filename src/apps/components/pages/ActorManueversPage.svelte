@@ -11,6 +11,8 @@
     const actor = getContext("actor");
     const { maneuvers } = actor;
 
+    const subTypes = CONFIG.A5E.maneuverDegrees;
+
     $: exertion = $actor.system.attributes.exertion;
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -19,7 +21,7 @@
 
 <div class="maneuvers-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="maneuvers" />
+        <SortFilter itemType="maneuvers" {subTypes} />
     {/if}
 
     <section class="maneuvers-main-container">

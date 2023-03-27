@@ -1,6 +1,6 @@
 const itemMappings = {
   feature: createFeature,
-  manuever: createManuever,
+  maneuver: createManuever,
   object: createObject,
   spell: createSpell
 };
@@ -21,7 +21,28 @@ function createFeature(type) {
   };
 }
 
-function createManuever(type) { }
+function createManuever(type) {
+  const system = {
+    degree: Number(type)
+  };
+
+  // Add Exertion Consumer
+  const actions = {
+    [foundry.utils.randomID()]: {
+      name: 'Execute',
+      consumers: {
+        [foundry.utils.randomID()]: {
+          resource: 'exertion',
+          quantity: 1,
+          type: 'resource'
+        }
+      }
+    }
+  };
+
+  system.actions = actions;
+  return system;
+}
 
 function createObject(type) {
   return {
