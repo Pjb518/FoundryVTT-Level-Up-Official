@@ -7,7 +7,7 @@
     } from "@typhonjs-fvtt/svelte-standard/component";
 
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
-    import ActionsAddMenu from "../ActionsAddMenu.svelte";
+    import AddMenu from "../AddMenu.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
     import DamageRollConfig from "../itemActionsConfig/DamageRollConfig.svelte";
     import GenericRollConfig from "../itemActionsConfig/GenericRollConfig.svelte";
@@ -162,7 +162,7 @@
     <div class="sticky-add-button">
         <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
             <TJSMenu offset={{ x: -110, y: -140 }}>
-                <ActionsAddMenu
+                <AddMenu
                     menuList={menuItems}
                     on:press={({ detail }) => addRoll(detail)}
                 />

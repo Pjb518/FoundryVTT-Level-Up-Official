@@ -7,7 +7,7 @@
     } from "@typhonjs-fvtt/svelte-standard/component";
 
     import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
-    import ActionsAddMenu from "../ActionsAddMenu.svelte";
+    import AddMenu from "../AddMenu.svelte";
     import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
     import PromptsConfigWrapper from "../itemActionsConfig/PromptsConfigWrapper.svelte";
     import SavePromptConfig from "../itemActionsConfig/SavePromptConfig.svelte";
@@ -118,7 +118,7 @@
     <div class="sticky-add-button">
         <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
             <TJSMenu offset={{ x: -110, y: -105 }}>
-                <ActionsAddMenu
+                <AddMenu
                     menuList={menuItems}
                     on:press={({ detail }) => addPrompt(detail)}
                 />

@@ -6,7 +6,7 @@
         TJSToggleIconButton,
     } from "@typhonjs-fvtt/svelte-standard/component";
 
-    import ActionsAddMenu from "../ActionsAddMenu.svelte";
+    import AddMenu from "../AddMenu.svelte";
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
@@ -165,7 +165,7 @@
     <div class="sticky-add-button">
         <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
             <TJSMenu offset={{ x: -110, y: -140 }}>
-                <ActionsAddMenu
+                <AddMenu
                     menuList={menuItems}
                     on:press={({ detail }) => addConsumer(detail)}
                 />
