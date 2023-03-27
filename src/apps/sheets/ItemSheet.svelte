@@ -29,13 +29,22 @@
 
         const dragData = JSON.parse(transferData);
         if (dragData.type === "action") _onDropAction(dragData);
+        if (dragData.type === "Item") {
+            const { uuid } = dragData;
+            const document = await fromUuid(uuid);
+            _onDropSpell(document);
+        }
     }
 
     async function _onDropAction(dragData) {
         $item.actions.add(null, dragData.data);
     }
 
-    async function _onDropSpell(dragData) {}
+    async function _onDropSpell(document) {
+        if (document.type !== "spell") return;
+        console.log(document);
+        // Transfer actions
+    }
 
     const tabs = [
         {
