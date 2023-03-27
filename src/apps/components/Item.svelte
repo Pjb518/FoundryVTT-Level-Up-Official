@@ -27,11 +27,21 @@
 
     function determineActionListVisibility(action, item, sheetIsLocked) {
         if (action) return false;
-        if (item.actions.count < 2) return false;
+        if (item.actions.count < 2) {
+            const mainAction = item.actions.values()?.[0];
+            if (!mainAction) return false;
 
-        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked) {
+            const consumers = Object.values(mainAction.consumers ?? {}).filter(
+                (c) => c.type === "actionUses"
+            );
+
+            if (consumers.length) return true;
+
             return false;
         }
+
+        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked)
+            return false;
 
         return true;
     }
