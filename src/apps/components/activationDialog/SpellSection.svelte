@@ -39,7 +39,10 @@
 
     function disableSpellSlot() {
         const temp = new Set(spellLevels.map((i) => i[0]));
-        disabled = [...temp.difference(new Set(availableSpellSlots))];
+        disabled = [
+            ...temp.difference(new Set(availableSpellSlots)),
+            ...spellLevels.slice(0, consumer.spellLevel - 1).map((i) => i[0]),
+        ];
     }
 
     function disableSpellPoint() {
@@ -51,7 +54,10 @@
             0
         );
 
-        disabled = spellLevels.map((i) => i[0]).slice(cap);
+        disabled = [
+            ...spellLevels.slice(0, consumer.spellLevel - 1).map((i) => i[0]),
+            ...spellLevels.map((i) => i[0]).slice(cap),
+        ];
     }
 
     // =======================================================
