@@ -12,7 +12,7 @@
     import ItemGmNotesTab from "../components/pages/ItemGmNotesTab.svelte";
     import ItemUnidentifiedDescriptionTab from "../components/pages/ItemUnidentifiedDescriptionTab.svelte";
 
-    export let { appId, document } = getContext("#external").application;
+    export let { appId, document, sheet } = getContext("#external").application;
     export let elementRoot;
 
     function updateCurrentTab(event) {
@@ -28,22 +28,7 @@
         if (!transferData) return;
 
         const dragData = JSON.parse(transferData);
-        if (dragData.type === "action") _onDropAction(dragData);
-        if (dragData.type === "Item") {
-            const { uuid } = dragData;
-            const document = await fromUuid(uuid);
-            _onDropSpell(document);
-        }
-    }
-
-    async function _onDropAction(dragData) {
-        $item.actions.add(null, dragData.data);
-    }
-
-    async function _onDropSpell(document) {
-        if (document.type !== "spell") return;
-        console.log(document);
-        // Transfer actions
+        sheet._onDropDocument(dragData);
     }
 
     const tabs = [

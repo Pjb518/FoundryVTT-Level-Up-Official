@@ -22,9 +22,12 @@
 
     // **********************************************
     // Drag Drop Handlers
-    async function _onDragStart(event, action) {
-        const dragData = { data: action, type: "action" };
-        console.log(dragData);
+    async function _onDragStart(event, actionId) {
+        const dragData = {
+            actionId,
+            itemUuid: $item.uuid,
+            type: "Action",
+        };
 
         return event.dataTransfer.setData(
             "text/plain",
@@ -50,7 +53,7 @@
                 class="action"
                 data-action-id={id}
                 draggable="true"
-                on:dragstart={(event) => _onDragStart(event, action)}
+                on:dragstart={(event) => _onDragStart(event, id)}
             >
                 {action?.name}
                 <div class="action-buttons">

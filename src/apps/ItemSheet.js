@@ -46,6 +46,8 @@ export default class ItemSheet extends SvelteApplication {
       this.item,
       { delete: this.close.bind(this) }
     );
+
+    this.options.svelte.props.sheet = this;
   }
 
   /**
@@ -99,6 +101,50 @@ export default class ItemSheet extends SvelteApplication {
 
     const sheetConfigDialog = new DocumentSheetConfig(this.item, { top: this.position.top + 40 });
     sheetConfigDialog.render(true);
+  }
+
+  async _onDropDocument(dragData) {
+    if (dragData.type === 'Action') await this.#onDropAction(dragData);
+    if (dragData.type === 'Item') await this.#onDropItem(dragData);
+  }
+
+  async #onDropAction(dragData) {
+    const { actionId, itemUuid } = dragData;
+    if (!actionId || !itemUuid) return;
+
+    const document = await fromUuid(itemUuid);
+    const action = document.actions.get(actionId);
+    if (!action) return;
+
+    // Change image
+    action.img ??= document.img;
+
+    this.item.actions.add(null, foundry.utils.duplicate(action));
+  }
+
+  async #onDropItem(dragData) {
+    const { uuid } = dragData;
+    const document = await fromUuid(uuid);
+    if (!document) return;
+
+    if (document.type === 'spell') this.#onDropSpell(document);
+  }
+
+  async #onDropSpell(spell) {
+    // Get all actions from spell
+    const actions = spell.actions.values();
+
+    // Create copies of all the actions.
+    const data = actions.map((action) => {
+      action.img ??= spell.img;
+      action.description ??= spell.system.description;
+      action.descriptionOutputs = ['action'];
+      return action;
+    });
+
+    data.forEach((a) => {
+      this.item.actions.add(null, foundry.utils.duplicate(a));
+    });
   }
 
   static getSheetComponent(type) {
