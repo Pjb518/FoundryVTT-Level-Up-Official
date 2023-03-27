@@ -86,8 +86,8 @@ function getConditions() {
     },
     // Deafened
     {
-      id: 'defeated',
-      label: 'A5E.ConditionDefeated',
+      id: 'dead',
+      label: 'EFFECT.StatusDead',
       icon: 'icons/svg/skull.svg',
       changes: [],
       duration: {},
