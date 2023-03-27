@@ -28,6 +28,9 @@ import registerSystemSettings from './settings';
 import rollCombatantInitiative from './combat/rollCombatantInitiative';
 import rollInitiative from './combat/rollInitiative';
 
+import createActor from './hooks/createActor';
+import createToken from './hooks/createToken';
+
 import setupConditions from './activeEffects/conditions';
 
 // Macros
@@ -200,29 +203,8 @@ Hooks.on('init', () => {
   game.tooltip = new FastTooltipManager();
 });
 
-// TODO: Move to separate file in 1.0.0
-Hooks.on('createToken', async (token, _, userID) => {
-  const { actor } = token;
-  const userPlacingToken = game.users.get(userID);
-
-  if (![game.user.isGM, game.user === userPlacingToken, actor.type === 'npc', game.settings.get('a5e', 'randomizeNPCHitPoints')
-  ].every(Boolean)) return;
-
-  const { hitPointFormula } = actor;
-
-  if (hitPointFormula === null) return;
-
-  const hpRoll = new Roll(hitPointFormula);
-  await hpRoll.toMessage({ flavor: `Rolling hit points for ${token.name}.` }, { rollMode: 'gmroll' });
-
-  // Update token with new information
-  actor.update({
-    'system.attributes.hp': {
-      baseMax: hpRoll.total,
-      value: hpRoll.total
-    }
-  });
-});
+Hooks.on('createActor', createActor);
+Hooks.on('createToken', createToken);
 
 Hooks.on('renderChatMessage', (message, html) => {
   const target = $(html).find('.message-content article')[0];
