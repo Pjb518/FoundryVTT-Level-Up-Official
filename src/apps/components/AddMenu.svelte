@@ -20,7 +20,7 @@
         position: relative;
         display: grid;
         min-width: 15rem;
-        grid-template-columns: repeat(3, 5rem);
+        grid-template-columns: repeat(3, minmax(max-content, 1fr));
         gap: 0.125rem;
         padding: 0.125rem 0.125rem;
         white-space: nowrap;

@@ -6,7 +6,9 @@
 
     const actor = getContext("actor");
     const { features } = actor;
+    const { A5E } = CONFIG;
 
+    const subTypes = A5E.featureTypes;
     const sortMap = CONFIG.A5E.reducerSortMap.features;
 
     $: sortedFeatures = Object.entries($features._types).sort(
@@ -16,7 +18,7 @@
 
 <div class="features-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="features" />
+        <SortFilter itemType="features" {subTypes} />
     {/if}
 
     <section class="features-main-container">
