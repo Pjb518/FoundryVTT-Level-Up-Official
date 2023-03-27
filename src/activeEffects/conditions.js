@@ -84,6 +84,15 @@ function getConditions() {
       duration: {},
       flags: { a5e: {} }
     },
+    // Deafened
+    {
+      id: 'defeated',
+      label: 'A5E.ConditionDefeated',
+      icon: 'icons/svg/skull.svg',
+      changes: [],
+      duration: {},
+      flags: { a5e: {} }
+    },
     // Doomed
     {
       id: 'doomed',
