@@ -12,7 +12,8 @@ export default async function createItem(actor, itemType, subType) {
     system: itemMappings[itemType](subType)
   };
 
-  await actor.createEmbeddedDocuments('Item', [updateData]);
+  const documents = await actor.createEmbeddedDocuments('Item', [updateData]);
+  documents.forEach((d) => d?.sheet?.render(true));
 }
 
 function createFeature(type) {
