@@ -9,8 +9,10 @@
 
     const actor = getContext("actor");
     const { objects } = actor;
+    const { A5E } = CONFIG;
 
-    const sortMap = CONFIG.A5E.reducerSortMap.objects;
+    const sortMap = A5E.reducerSortMap.objects;
+    const subTypes = A5E.objectTypes;
 
     $: sortedObjects = Object.entries($objects._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
@@ -19,7 +21,7 @@
 
 <div class="inventory-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="objects" />
+        <SortFilter itemType="objects" {subTypes} />
     {/if}
 
     <section class="inventory-main-container">

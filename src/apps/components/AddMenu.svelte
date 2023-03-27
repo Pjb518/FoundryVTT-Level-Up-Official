@@ -7,7 +7,7 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<div class="something">
+<div class="content">
     {#each menuList as [heading, type]}
         <button on:click|preventDefault={() => dispatch("press", type)}>
             {localize(heading)}
@@ -16,7 +16,7 @@
 </div>
 
 <style lang="scss">
-    .something {
+    .content {
         position: relative;
         display: grid;
         min-width: 15rem;
