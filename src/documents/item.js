@@ -111,6 +111,7 @@ export default class ItemA5e extends Item {
     if (
       foundry.utils.isEmpty(action?.rolls)
       && foundry.utils.isEmpty(action?.prompts)
+      && foundry.utils.isEmpty(action?.consumers)
       && !validateTemplateData(this, actionId)
     ) {
       return this.shareItemDescription(action);
