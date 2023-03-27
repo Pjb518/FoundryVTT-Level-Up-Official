@@ -21,6 +21,22 @@
 
     const item = document;
 
+    // **********************************************
+    // Drag Drop Handlers
+    async function onDrop(event) {
+        const transferData = event.dataTransfer.getData("text/plain");
+        if (!transferData) return;
+
+        const dragData = JSON.parse(transferData);
+        if (dragData.type === "action") _onDropAction(dragData);
+    }
+
+    async function _onDropAction(dragData) {
+        $item.actions.add(null, dragData.data);
+    }
+
+    async function _onDropSpell(dragData) {}
+
     const tabs = [
         {
             name: "description",
@@ -62,7 +78,7 @@
 </script>
 
 <ApplicationShell bind:elementRoot>
-    <main>
+    <main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
         <ItemSheetHeader />
 
         <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />

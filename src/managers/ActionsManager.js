@@ -84,13 +84,13 @@ export default class ActionsManager extends DataProxy {
   }
 
   /** ************************************************ */
-  async add(name = 'New Action') {
+  async add(name = 'New Action', data = {}) {
     const newAction = { name };
 
     await this.#item.update({
       'system.actions': {
         ...this.#item.system.actions,
-        [foundry.utils.randomID()]: newAction
+        [foundry.utils.randomID()]: Object.keys(data).length ? data : newAction
       }
     });
   }

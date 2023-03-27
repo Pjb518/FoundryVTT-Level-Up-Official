@@ -19,6 +19,18 @@
     function deleteAction(actionId) {
         $item.actions.remove(actionId);
     }
+
+    // **********************************************
+    // Drag Drop Handlers
+    async function _onDragStart(event, action) {
+        const dragData = { data: action, type: "action" };
+        console.log(dragData);
+
+        return event.dataTransfer.setData(
+            "text/plain",
+            JSON.stringify(dragData)
+        );
+    }
 </script>
 
 <section class="action-config action-config__wrapper">
@@ -34,7 +46,12 @@
 
     <ul class="action-list">
         {#each Object.entries($item.system.actions ?? {}) as [id, action] (id)}
-            <li class="action" data-action-id={id}>
+            <li
+                class="action"
+                data-action-id={id}
+                draggable="true"
+                on:dragstart={(event) => _onDragStart(event, action)}
+            >
                 {action?.name}
                 <div class="action-buttons">
                     <button
