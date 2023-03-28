@@ -7,6 +7,9 @@ async function addBasicManuevers(actor, userId) {
   const currentUser = game.user;
   if (currentUser.id !== userId) return;
 
+  const existing = actor.items.find((i) => i.type === 'maneuver' && i.system.degree === 0);
+  if (existing) return;
+
   const uuids = [
     'Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l',
     'Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9',
