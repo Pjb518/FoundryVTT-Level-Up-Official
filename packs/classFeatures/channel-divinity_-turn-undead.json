@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"NqNdWUsmmFa88F9f": {
 				"name": "Channel Divinity: Turn Undead",
@@ -46,12 +45,6 @@
 		},
 		"description": "<h4>As an action, you present the holy symbol of your greater entity and speak a divine word, rebuking the undead. Each undead creature within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</h4><h4>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</h4>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "8 + @prof + @wis.mod",
-			"onSave": "Not turned",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -60,7 +53,14 @@
 			"per": null
 		},
 		"featureType": "class",
-		"prerequisite": ""
+		"prerequisite": "",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "8 + @prof + @wis.mod",
+			"onSave": "Not turned",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "zhuf06durl8bnmh3"
 }

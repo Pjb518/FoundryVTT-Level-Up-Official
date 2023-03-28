@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": null,
 		"actions": {
 			"kCyRGaDqO4dyE6oi": {
 				"name": "Burning Hatred (True Revenant)",
@@ -55,17 +54,16 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"nopObsLcMeWSXvBc": {
+						"type": "itemUses"
+					}
 				}
 			}
 		},
 		"description": "<p>You can use an action to target the focus of your Fearsome Pursuit if it is within 30 feet. The creature makes a Wisdom saving throw (DC 8 + your proficiency bonus + your highest mental ability score modifier). On a failure, it takes psychic damage equal to 1d6 × your proficiency bonus and is stunned until the end of its next turn. On a success, it takes half damage and is rattled until the end of its next turn. Once you have used this feature a number of times equal to your proficiency bonus, you can’t use it again until you finish a long rest.</p><p></p><p><em>(A5E Foundry </em>- Must manually set saving throw highest mental stat.)</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "8 + @prof + @",
-			"onSave": "Half Damage and rattled until end of its next turn.",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -74,7 +72,14 @@
 			"per": "longRest"
 		},
 		"featureType": "feat",
-		"prerequisite": ""
+		"prerequisite": "",
+		"ability": null,
+		"proficient": true,
+		"save": {
+			"dc": "8 + @prof + @",
+			"onSave": "Half Damage and rattled until end of its next turn.",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "5yjrhej5x8vjrfdu"
 }

@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"g9OHQC9XMdPFF1lQ": {
 				"name": "Critical: Deafening Blow",
@@ -46,12 +45,6 @@
 		},
 		"description": "<p>The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. When you score a critical hit, the target is deafened for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell it must make a Constitution saving throw in order to do so successfully. The DC equals 10 or half the damage the creature took from the attack that inflicted the condition, whichever number is higher.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "8 + @prof + @con.mod",
-			"onSave": "Can cast the spell",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -60,7 +53,14 @@
 			"per": null
 		},
 		"featureType": "class",
-		"prerequisite": ""
+		"prerequisite": "",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "8 + @prof + @con.mod",
+			"onSave": "Can cast the spell",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "p3ycq2i3kaapwg68"
 }

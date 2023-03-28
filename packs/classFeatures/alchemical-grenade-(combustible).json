@@ -3,7 +3,6 @@
 	"type": "object",
 	"img": "icons/weapons/thrown/grenade-round.webp",
 	"system": {
-		"ability": "int",
 		"actions": {
 			"TGBUfErXKPJhFWJo": {
 				"name": "Alchemical Grenade (Combustible)",
@@ -79,12 +78,6 @@
 		},
 		"description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Combustible </strong></h3><p>A target hit by this grenade takes additional fire damage.  Flammable objects within 5 feet of the target that aren’t being worn or carried ignite, taking [[/r 1d6 #ongoing fire damage]] ongoing fire damage until a creature uses an action to smother the flames. <br></p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -104,6 +97,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "0",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
@@ -111,7 +105,13 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"ability": "int",
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		}
 	},
 	"effects": [],
 	"flags": {

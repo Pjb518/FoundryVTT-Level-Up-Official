@@ -3,7 +3,6 @@
 	"type": "object",
 	"img": "icons/weapons/thrown/grenade-round.webp",
 	"system": {
-		"ability": "int",
 		"actions": {
 			"Siln40sItgn4GqpG": {
 				"name": "Alchemical Grenade (Flashbang)",
@@ -79,12 +78,6 @@
 		},
 		"description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Flashbang</strong></h3><p>A target hit by this grenade makes a Constitution saving throw or is blinded until<br>the end of its next turn.  <br></p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -104,6 +97,7 @@
 		"objectType": "weapon",
 		"plotItem": false,
 		"price": "0",
+		"proficient": true,
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
@@ -111,7 +105,13 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"ability": "int",
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		}
 	},
 	"effects": [],
 	"flags": {
