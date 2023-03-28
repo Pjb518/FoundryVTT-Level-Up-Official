@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 export default function createActor(actor, options, userId) {
-  addBasicManuevers(actor, userId);
+  if (!options.fromCompendium) { addBasicManuevers(actor, userId); }
 }
 
 async function addBasicManuevers(actor, userId) {
