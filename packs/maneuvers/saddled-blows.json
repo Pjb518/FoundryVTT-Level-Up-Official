@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"jExurUITfhYtTEh4": {
 				"name": "Saddled Blows",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"YrplOr1q0XnlSsAH": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>From atop your mount, you strike down at your foes with powerful blows.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. You must be mounted to use this maneuver.</p><p>Until the end of your next turn, when you use a melee weapon attack to hit a creature of a size smaller than your mount, it makes a Strength saving throw. On a failure, it suffers one of the following (your choice): confused until the start of your next turn, knocked prone, or slowed until the end of your next turn.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "spiritedSteed"
+		"tradition": "spiritedSteed",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "xo1nv4te8l1tinip"
 }

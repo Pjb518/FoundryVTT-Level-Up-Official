@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"pEcCQrJQ0rILN2j8": {
 				"name": "Toxic Goop",
@@ -41,17 +40,18 @@
 						"critThreshold": "20",
 						"type": "attack"
 					}
+				},
+				"consumers": {
+					"8n5aOlgp1EcAL6iK": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": " Expend a dose of basic poison and a tanglefoot bag to make a ranged weapon attack against a creature within 20 feet. On a hit, the creature is grappled. It may take an action to make a Strength save at the beginning of each of its turns, freeing itself on a success. While it is grappled, it is also poisoned. The goop dissipates after a minute or can be destroyed (AC 13, hit points equal to your maneuver DC)</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -63,7 +63,14 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": "default",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
 	},
 	"_id": "povrdohte58shqwr"
 }

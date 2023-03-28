@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"P4gGvCBHpfZTS6Nj": {
 				"name": "Unsettling Injury",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"eHBt8PZINhCqFLGC": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>Your attack unnerves your foe, making it hard for them to concentrate.</p><p>Choose a weapon when you learn this combat maneuver. Make a melee weapon attack using the chosen weapon, and on a hit the target makes a Constitution saving throw. On a failure the target loses concentration on any spell it has cast, any combat stance it is using ends, and it cannot use combat maneuvers or cast spells until the end of your next turn.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "unendingWheel"
+		"tradition": "unendingWheel",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "t0zn8m4ryws6thzm"
 }

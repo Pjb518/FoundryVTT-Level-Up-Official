@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"0lbLKvSZG6yZ0ANJ": {
 				"name": "Piercing Fangs",
@@ -54,17 +53,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"L5qd364x83phHPfC": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>Make a melee attack against a creature that is grappling you and expend a dose of basic poison. On a hit, the target takes normal weapon damage plus 2d4 poison damage and also takes 1d4 ongoing poison damage for the next minute or until an antitoxin is administered to it. The creature must also make a Constitution save or immediately release the grapple.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -76,7 +76,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "hituzwdyd1uxy86n"
 }

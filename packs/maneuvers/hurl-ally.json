@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"zMm7LDfikOY16ES6": {
 				"name": "Hurl Ally",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"0y3P6Dob2LmKV8gQ": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You throw your ally at an opponent, lending them extra power.</p><p>Choose a willing ally within your reach that is at least one size category smaller than you. You hurl your ally at a creature within 20 feet. Your ally lands in a space adjacent to the creature and can use their reaction to make a melee weapon attack against it. On a hit, the creature makes a Dexterity saving throw or the attack becomes a critical hit (or if the attack is already a critical hit your ally deals maximum damage).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids critical hit.",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "sanguineKnot"
+		"tradition": "sanguineKnot",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids critical hit.",
+			"targetAbility": "dex"
+		}
 	},
 	"_id": "l8e05qfdh3bwce7z"
 }

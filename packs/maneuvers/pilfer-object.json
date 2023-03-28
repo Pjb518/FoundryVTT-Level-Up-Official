@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"ZfoBYNCwH5Csnoa9": {
 				"name": "Pilfer Object",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"vFr7A8BzPctT3a9o": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You dart forward and snatch an item from a foe just as they start to use it.</p><p>When a creature within 15 feet draws an item or takes the Use an Object action, you can use your reaction to move adjacent to it and force it to make a Wisdom saving throw. This movement does not provoke opportunity attacks. On a failure, you can either take the item for yourself or choose the target of the creature's Use an Object action.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "mistAndShade"
+		"tradition": "mistAndShade",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "2cau2c14ewoekylo"
 }

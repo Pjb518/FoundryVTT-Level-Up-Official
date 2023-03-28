@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"HdnFFElW3A1S6QXf": {
 				"name": "Liquid Tinnitus",
@@ -45,17 +44,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"3zwdUEIclSXYUa9o": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": " You splash a toxic concoction that seeps into your foe’s ears. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or be deafened and poisoned until the end of your next turn and deafened for an hour as its ears ring painfully and its balance is thrown off.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -67,7 +67,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "cd6ltajot49jxosq"
 }

@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"vYxIr9jqCJlZQYam": {
 				"name": "Blinding Strikes",
@@ -43,17 +42,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"EB4eQagSDOMhYkNQ": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p><strong>Prerequisite</strong>: Extra Attack With a vicious strike, you blind your enemy.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you use a melee weapon to deal damage against a creature, it is blinded and can't benefit from either blindsight or tremorsense.</p><p>At the beginning of each of its turns, a creature blinded by this maneuver can make a Constitution saving throw, ending the effect on itself on a success.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -65,7 +65,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "mirrorsGlint"
+		"tradition": "mirrorsGlint",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "e39jmsmklo7lmgco"
 }

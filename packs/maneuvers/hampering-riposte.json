@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": null,
 		"actions": {
 			"TB33LpnUDp4tHdkZ": {
 				"name": "Hampering Riposte",
@@ -54,17 +53,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"IEISvArNMEIy9mCz": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": " In response to an attack, you lash out with a blade poisoned with a toxin that makes your enemy sluggish. Make a melee weapon attack with advantage and expend a dose of basic poison. On a hit, the target takes 1 point of slashing damage and must make a Constitution save against your maneuver DC. A creature that fails is slowed for one minute. A creature that succeeds is poisoned and rattled until the end of your next turn instead. A slowed creature may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Creature is poisoned and rattled until the end of your next turn.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -76,7 +76,14 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": null,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Creature is poisoned and rattled until the end of your next turn.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "orf17xlh97ivx3qi"
 }

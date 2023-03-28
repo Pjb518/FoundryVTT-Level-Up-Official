@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"4PbfSU4HGH54ughM": {
 				"name": "Warrior’s Bane",
@@ -45,17 +44,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"4Gl9Fmok8E0ifeTl": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>In response to an attack from a creature within reach, make a melee weapon attack against the attacking creature and expend a dose of basic poison. On a hit, the creature must make a Constitution save or for the next minute, whenever it would make a melee attack, take the Dash action, or make a Strength or Dexterity check, it takes 2d6 acid damage. This effect can be ended early by administering an antitoxin.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -67,7 +67,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "izvssqo3bkudxlrv"
 }

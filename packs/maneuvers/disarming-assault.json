@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"ArOPa107t7v1BCfN": {
 				"name": "Disarming Assault",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"ppwt3rHoXw2s4eOo": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>Instead of waiting for an opponent to strike so you can slap their weapon away, you lay into them with attacks that knock it from their hands.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, your strikes can deprive foes of their armaments. In addition to dealing damage, when you hit a creature with a melee weapon attack it makes a Strength saving throw. On a failure, an item of your choice that the creature is holding (including a shield) flies from its grip to land in a randomly determined space 10 feet away.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "unendingWheel"
+		"tradition": "unendingWheel",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "2d2tbptcprl1s5k3"
 }

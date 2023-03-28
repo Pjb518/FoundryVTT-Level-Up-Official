@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"1mTPDlcikomLTH7H": {
 				"name": "Blinding Dust",
@@ -54,17 +53,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"IXZyhqJI1tbSjT6T": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": " You expend a dose of basic poison to blow blinding dust into an opponent’s eyes. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 1d4 poison damage and be blinded until the end of your next turn.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -76,7 +76,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "dex"
+		}
 	},
 	"_id": "dxir38g6xycrj3co"
 }

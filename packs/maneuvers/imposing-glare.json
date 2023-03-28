@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"MFNrHciCVX2quXwZ": {
 				"name": "Imposing Glare",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"HIZfjaNavFg1hcth": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>For a moment you unleash your fury forcing your enemy to hesitate.</p><p>Choose one hostile creature you can see within 30 feet. If it can see you, it makes a Charisma saving throw or is frightened of you until the end of your next turn.</p><p>After you have used this maneuver against a creature, until the end of combat it has advantage on saving throws to resist Imposing Glare.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids Effects.",
-			"targetAbility": "cha"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "temperedIron"
+		"tradition": "temperedIron",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids Effects.",
+			"targetAbility": "cha"
+		}
 	},
 	"_id": "cbrxwsl8gteto6gg"
 }

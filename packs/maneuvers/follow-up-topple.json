@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"sDw8jGwHTzWuL1rd": {
 				"name": "Follow-Up Topple",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"uZl1Fof4SGUx54uN": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>As your ally strikes an opponent, you seize the moment of imbalance to knock them down.</p><p>When an ally within your reach hits a creature with a melee weapon attack, you can use your reaction to make a melee weapon attack against that creature. On a hit, the creature makes a Dexterity saving throw or is knocked prone.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "sanguineKnot"
+		"tradition": "sanguineKnot",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "dex"
+		}
 	},
 	"_id": "ahgeox00sea3lcn2"
 }

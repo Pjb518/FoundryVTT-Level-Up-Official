@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"bt3tSNivAm15ld36": {
 				"name": "Disarming Counter",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"4Km6egyJRGs4HxiL": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>With expert timing you apply just the right amount of force to send an opponent's weapon flying just as they strike.</p><p>When a creature makes a melee weapon attack against you and misses, you can use your reaction to force it to make a Dexterity saving throw. On a failure, a weapon it is wielding (your choice) flies from its grip to land in a randomly determined space 10 feet away.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "rapidCurrent"
+		"tradition": "rapidCurrent",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "dex"
+		}
 	},
 	"_id": "mis9almt6mhynl2x"
 }

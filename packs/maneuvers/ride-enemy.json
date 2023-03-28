@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"KyI58rQRyRJiNNDg": {
 				"name": "Ride Enemy",
@@ -37,17 +36,18 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
+				},
+				"consumers": {
+					"3ovB6B9XiLV9jzSB": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You leap atop your enemy just as it attacks.</p><p>When a creature at least one size category larger than you attacks you with a natural weapon, you can use your reaction to use the Grab On basic maneuver, making your Strength or Dexterity saving throw with advantage.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": ""
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -59,7 +59,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "toothAndClaw"
+		"tradition": "toothAndClaw",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": ""
+		}
 	},
 	"_id": "hbyeqks8zhbo8xh7"
 }

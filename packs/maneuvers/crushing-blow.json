@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"SYaPsGNPIM6NHzMl": {
 				"name": "Crushing Blow",
@@ -43,17 +42,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"7yC4qvnUxHAlpKle": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>Prerequisites: Extra Attack </p><p>With a bone crushing strike you briefly deprive an opponent of their very ability to move.</p><p></p><p>Make a melee weapon attack roll using a weapon that has the heavy property. A creature damaged by the attack makes a Strength saving throw, and on a failure it is paralyzed until it takes damage or the end of your next turn (whichever comes first).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -65,7 +65,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "adamantMountain"
+		"tradition": "adamantMountain",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "vd59gth2voj52w5q"
 }

@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"0w6lIjKkwUwgwL8K": {
 				"name": "Twist the Blade",
@@ -30,17 +29,18 @@
 				"target": {
 					"quantity": 1,
 					"type": "creature"
+				},
+				"consumers": {
+					"2Ln0zwPPktxObJPf": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>After striking your foe, you twist the blade.</p><p>When you hit a creature with a melee weapon attack on a roll of 18 or 19, you can use your reaction to turn the attack into a critical hit.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": ""
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -52,7 +52,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "razorsEdge"
+		"tradition": "razorsEdge",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": ""
+		}
 	},
 	"_id": "5g8c50bz0clv1z33"
 }

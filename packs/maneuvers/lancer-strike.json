@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"TlfVi5mb4Yv3prpm": {
 				"name": "Lancer Strike",
@@ -60,17 +59,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"i17nAhknRoQGHFve": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You knock your opponent prone with a direct hit from your weapon.</p><p>You must be wielding a weapon with the reach property, mounted, and move 20 or more feet in order to use this maneuver.</p><p>Make a melee weapon attack against a creature within your weapon's reach. On a hit, you deal an extra 1d6 damage and the creature makes a Strength saving throw or is knocked prone.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "str"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -82,7 +82,14 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "spiritedSteed"
+		"tradition": "spiritedSteed",
+		"ability": "default",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "str"
+		}
 	},
 	"_id": "v7nyfqb3lcmej66b"
 }

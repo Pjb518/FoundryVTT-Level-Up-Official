@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "default",
 		"actions": {
 			"LCbD2j4wq4yO3KZw": {
 				"name": "Trample",
@@ -57,17 +56,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"FMcLD7VkIZW39E5l": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You trample down enemies in your path.</p><p>You must be mounted to use this maneuver. Move up to half your Speed without provoking opportunity attacks. Creatures in your path that are at least one size smaller than your mount make a Dexterity saving throw. On a failure, a creature takes 2d6 bludgeoning damage and is knocked prone.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects and damage.",
-			"targetAbility": "dex"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -79,7 +79,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "spiritedSteed"
+		"tradition": "spiritedSteed",
+		"ability": "default",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects and damage.",
+			"targetAbility": "dex"
+		}
 	},
 	"_id": "hl3x5568inmvo748"
 }

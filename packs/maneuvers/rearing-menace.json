@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"dgzrDU6QMd87kFyL": {
 				"name": "Rearing Menace",
@@ -51,17 +50,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"Yvk0qZmgilSjLRqd": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You rear your mount, intimidating nearby opponents.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. You must be mounted to use this maneuver.</p><p>Choose a number of creatures equal to your proficiency bonus that are within 20 feet. Each creature makes a Wisdom saving throw. On a failure, a creature is frightened until the end of your next turn.</p><p>A creature of the same size as your mount or larger has advantage on the saving throw.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -73,7 +73,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "spiritedSteed"
+		"tradition": "spiritedSteed",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "l5teiauycbe7n2mi"
 }

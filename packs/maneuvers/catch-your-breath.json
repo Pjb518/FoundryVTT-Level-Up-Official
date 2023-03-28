@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "con",
 		"actions": {
 			"HQM1WYFCFldy5vXm": {
 				"name": "Catch Your Breath",
@@ -40,17 +39,18 @@
 						"name": "Default",
 						"type": "healing"
 					}
+				},
+				"consumers": {
+					"XJKBMsKrXJIzs79L": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You have a limited well of stamina that you can draw on to protect yourself from harm.</p><p>You regain hit points equal to 1d6 + your proficiency bonus + your Constitution modifier (minimum 0).</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": ""
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -62,7 +62,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "adamantMountain"
+		"tradition": "adamantMountain",
+		"ability": "con",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": ""
+		}
 	},
 	"_id": "b2vpnjt7cmqngkjd"
 }

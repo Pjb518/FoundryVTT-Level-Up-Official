@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": "",
 		"actions": {
 			"KlZMjKzgNwuvew8m": {
 				"name": "Branding Steel",
@@ -48,17 +47,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"tNgTihrCTVlWLObX": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You permanently mark your foe with your sword.</p><p>Before the start of your next turn, when you hit a creature with a melee weapon attack you can choose to brand it. A branded creature has disadvantage on concentration checks and on attacks made against creatures other than you. In addition, a branded creature able to see you cannot move closer to you without making a Wisdom saving throw. The brand on a creature is removed when it regains 30 hit points or more from a healing spell or similar magic.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Avoids effects.",
-			"targetAbility": "wis"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -70,7 +70,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "temperedIron"
+		"tradition": "temperedIron",
+		"ability": "",
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Avoids effects.",
+			"targetAbility": "wis"
+		}
 	},
 	"_id": "w7bouadb28pkpyuk"
 }

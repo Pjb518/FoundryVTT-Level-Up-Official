@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": null,
 		"actions": {
 			"eQevqNa4cTHrqjNa": {
 				"name": "Sapping Toxin",
@@ -54,17 +53,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"HCFm5ZsF1L6sJ2fO": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You expend a dose of basic poison to splash a creature with a toxin that saps its energy. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or take 1d4 poison damage and gain a level of fatigue. If this would result in the creature having levels of fatigue that exceed your proficiency bonus the creature is rattled until the end of your next turn instead.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -76,7 +76,14 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": null,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "sax7n3npc4ggyqtz"
 }

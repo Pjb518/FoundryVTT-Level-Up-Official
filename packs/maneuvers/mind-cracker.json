@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": null,
 		"actions": {
 			"9mJ1x8RnUBr67i51": {
 				"name": "Mind Cracker",
@@ -54,17 +53,18 @@
 						},
 						"type": "savingThrow"
 					}
+				},
+				"consumers": {
+					"DVitEz3gugsdWVu6": {
+						"quantity": 2,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You expend a dose of basic poison to blow toxic dust into an opponent’s face. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 2d8 poison damage and suffer disadvantage on all Intelligence, Wisdom, and Charisma saving throws and checks for the next minute.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -76,7 +76,14 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "vipersFangs"
+		"tradition": "vipersFangs",
+		"ability": null,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "con"
+		}
 	},
 	"_id": "4k2itkjp2ylmg4px"
 }

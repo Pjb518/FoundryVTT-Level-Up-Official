@@ -9,7 +9,6 @@
 		}
 	},
 	"system": {
-		"ability": null,
 		"actions": {
 			"5rGPgRuCgwiaVrdT": {
 				"name": "Rallying Cry",
@@ -45,17 +44,18 @@
 						"name": "Default",
 						"type": "healing"
 					}
+				},
+				"consumers": {
+					"wfnIZaZ2UTRmFRZ4": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
 				}
 			}
 		},
 		"description": "<p>You offer inspiring encouragement to an ally and they gain their second wind.</p><p>When an ally you can see takes damage from an attack, you can use your reaction to release a hearty rallying cry. As long as they are able to hear you, your ally regains an amount of hit points equal to twice your proficiency bonus.</p>",
 		"favorite": false,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "",
-			"targetAbility": ""
-		},
 		"secretDescription": "",
 		"source": "",
 		"uses": {
@@ -67,7 +67,14 @@
 		"exertionCost": 3,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "sanguineKnot"
+		"tradition": "sanguineKnot",
+		"ability": null,
+		"proficient": true,
+		"save": {
+			"dc": "@maneuverDC",
+			"onSave": "",
+			"targetAbility": ""
+		}
 	},
 	"_id": "zylae0kltu6xa9bc"
 }
