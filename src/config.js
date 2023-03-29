@@ -1528,6 +1528,7 @@ A5E.PRELOCALIZED_KEYS = [
   'rollModes',
   'saveDCOptions',
   'senses',
+  'shieldTypes',
   'skills',
   'skillSpecialties.acr',
   'skillSpecialties.ani',
