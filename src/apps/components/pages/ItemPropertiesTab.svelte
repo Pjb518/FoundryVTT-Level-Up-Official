@@ -8,6 +8,7 @@
     import MaterialConfiguration from "../itemPropertiesConfig/MaterialConfiguration.svelte";
     import ObjectConfiguration from "../itemPropertiesConfig/ObjectConfiguration.svelte";
     import ResourceConfiguration from "../itemPropertiesConfig/ResourceConfiguration.svelte";
+    import ShieldConfiguration from "../itemPropertiesConfig/ShieldConfiguration.svelte";
     import SpellConfiguration from "../itemPropertiesConfig/SpellConfiguration.svelte";
     import WeaponConfiguration from "../itemPropertiesConfig/WeaponConfiguration.svelte";
 
@@ -26,6 +27,8 @@
             <AmmunitionConfiguration />
         {:else if $item.system.objectType === "armor"}
             <ArmorConfiguration />
+        {:else if $item.system.objectType === "shield"}
+            <ShieldConfiguration />
         {:else if $item.system.objectType === "weapon"}
             <WeaponConfiguration />
         {/if}
