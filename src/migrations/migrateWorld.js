@@ -107,7 +107,18 @@ export default async function migrateWorld() {
     await migrateCompendium(pack);
   }
 
+  // TODO: Remove in 0.10.x with migration change.
+  const CURRENT_MIGRATION_VERSION = game.settings.get('a5e', 'systemMigrationVersion');
+  const needsDoubleMigration = foundry.utils.isNewerVersion('0.8.15', CURRENT_MIGRATION_VERSION);
+
   // Set the migration as complete
-  game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
+  await game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
+
+  // TODO: Temporary rerun
+  if (needsDoubleMigration) {
+    console.log('Running migration again for v0.10.0');
+    await migrateWorld();
+  }
+
   ui.notifications.info(`Level Up system migration to version ${game.system.version} completed!`, { permanent: true });
 }

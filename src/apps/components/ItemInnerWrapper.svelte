@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let item;
@@ -17,15 +18,6 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
-    function getMaxUses(value) {
-        value = !value || value === "" ? 0 : value;
-        const roll = new Roll(value.toString(), $actor.getRollData()).evaluate({
-            async: false,
-        });
-
-        return roll.total;
-    }
-
     $: consumer =
         Object.entries(action?.consumers ?? {}).filter(
             ([_, c]) => c?.type === "actionUses"
@@ -35,12 +27,18 @@
     $: uses = {
         action: {
             value: consumer?.[1]?.value,
-            max: getMaxUses(consumer?.[1]?.max),
+            max: getDeterministicBonus(
+                consumer?.[1]?.max ?? 0,
+                $actor.getRollData()
+            ),
             updatePath: `system.actions.${actionId}.consumers.${consumer?.[1]}`,
         },
         item: {
             value: item.system.uses?.value ?? 0,
-            max: getMaxUses(item.system.uses?.max),
+            max: getDeterministicBonus(
+                item.system.uses?.max ?? 0,
+                $actor.getRollData()
+            ),
             updatePath: "system.uses",
         },
     };

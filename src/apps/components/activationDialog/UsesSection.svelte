@@ -4,19 +4,14 @@
 
     import FormSection from "../FormSection.svelte";
 
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+
     export let consumers;
     export let actionUsesData;
     export let itemUsesData;
 
     const actor = getContext("actor");
     const item = getContext("item");
-
-    function getMaxUses(value) {
-        value = value === "" ? 0 : value;
-        return new Roll(value.toString(), $actor.getRollData()).evaluate({
-            async: false,
-        });
-    }
 
     // =======================================================
     // Consumer data
@@ -26,8 +21,11 @@
     itemUsesData.quantity = 1;
 
     $: itemUses = $item.system.uses;
-    $: actionMaxUses = getMaxUses(actionConsumer.max).total;
-    $: itemMaxUses = getMaxUses(itemUses.max ?? 0).total;
+    $: actionMaxUses = getDeterministicBonus(
+        actionConsumer.max,
+        $actor.getRollData()
+    );
+    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
 </script>
 
 <div class="side-by-side">
