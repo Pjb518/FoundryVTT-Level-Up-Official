@@ -8,7 +8,15 @@
     export let actionUsesData;
     export let itemUsesData;
 
+    const actor = getContext("actor");
     const item = getContext("item");
+
+    async function getMaxUses(value) {
+        value = value === "" ? 0 : value;
+        return await new Roll(value.toString(), $actor.getRollData()).evaluate({
+            async: true,
+        });
+    }
 
     // =======================================================
     // Consumer data
@@ -18,6 +26,8 @@
     itemUsesData.quantity = 1;
 
     $: itemUses = $item.system.uses;
+    $: actionMaxUses = getMaxUses(actionConsumer.max);
+    $: itemMaxUses = getMaxUses(itemUses.max ?? 0);
 </script>
 
 <div class="side-by-side">
@@ -39,10 +49,16 @@
                         />
                     </div>
 
-                    <p class="u-text-xs">
-                        ( {actionConsumer.value} / {actionConsumer.max}
-                        {localize("A5E.UsesRemaining")})
-                    </p>
+                    {#await actionMaxUses}
+                        <!--  -->
+                    {:then rollTotal}
+                        <p class="u-text-xs">
+                            ( {actionConsumer.value} / {rollTotal.total}
+                            {localize("A5E.UsesRemaining")})
+                        </p>
+                    {:catch error}
+                        {console.log(error)}
+                    {/await}
                 </div>
             </section>
         </FormSection>
@@ -66,10 +82,16 @@
                         />
                     </div>
 
-                    <p class="u-text-xs">
-                        ( {itemUses.value} / {itemUses.max}
-                        {localize("A5E.UsesRemaining")})
-                    </p>
+                    {#await itemMaxUses}
+                        <!--  -->
+                    {:then rollTotal}
+                        <p class="u-text-xs">
+                            ( {itemUses.value} / {rollTotal.total}
+                            {localize("A5E.UsesRemaining")})
+                        </p>
+                    {:catch error}
+                        {console.log(error)}
+                    {/await}
                 </div>
             </section>
         </FormSection>

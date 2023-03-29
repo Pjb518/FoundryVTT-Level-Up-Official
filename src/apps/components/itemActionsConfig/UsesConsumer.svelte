@@ -60,14 +60,13 @@
                 </h3>
 
                 <input
-                    type="number"
-                    d-type="Number"
-                    value={consumer.max}
+                    type="text"
+                    value={consumer.max ?? ""}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.consumers.${consumerId}.max`,
-                            Number(target.value)
+                            target.value
                         )}
                 />
             </div>
