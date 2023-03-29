@@ -19,7 +19,7 @@ export default function constructD20RollFormula({
     ...(modifiers ?? []).map(({ label, value }) => {
       if (!value || value === 0) return null;
 
-      const modifier = new Roll(value.toString());
+      const modifier = new Roll(value.toString(), rollData);
 
       modifier.terms.forEach((m) => {
         if (m.constructor.name !== 'OperatorTerm') m.options.flavor ??= label;
