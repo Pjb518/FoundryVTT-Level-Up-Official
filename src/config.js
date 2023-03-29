@@ -681,6 +681,13 @@ A5E.shieldTypes = {
   tower: 'A5E.ShieldTypeTower'
 };
 
+A5E.shieldBaseACBonus = {
+  light: 1,
+  medium: 2,
+  heavy: 2,
+  tower: 2
+};
+
 A5E.spellComponents = {
   vocalized: 'A5E.SpellComponentVocalized',
   seen: 'A5E.SpellComponentSeen',
