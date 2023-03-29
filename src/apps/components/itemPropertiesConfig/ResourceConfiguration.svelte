@@ -69,15 +69,14 @@
 
                         <input
                             class="a5e-input"
-                            type="number"
-                            d-type="Number"
+                            type="text"
                             name="system.uses.max"
                             value={$item.system.uses.max}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    Number(target.value)
+                                    target.value
                                 )}
                         />
                     </div>
