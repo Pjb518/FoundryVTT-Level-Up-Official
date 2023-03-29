@@ -148,7 +148,7 @@ Hooks.once('ready', () => {
   if (!game.user.isGM) return;
 
   const currentVersion = game.settings.get('a5e', 'systemMigrationVersion');
-  const NEEDS_MIGRATION_VERSION = '0.9.5';
+  const NEEDS_MIGRATION_VERSION = '0.10.0';
   const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 
   if (!currentVersion && totalDocuments === 0) {
