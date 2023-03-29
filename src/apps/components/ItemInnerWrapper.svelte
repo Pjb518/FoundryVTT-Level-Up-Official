@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let item;
@@ -17,16 +18,6 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
-    async function getMaxUses(value) {
-        value = !value || value === "" ? 0 : value;
-        const roll = await new Roll(
-            value.toString(),
-            $actor.getRollData()
-        ).evaluate({ async: true });
-
-        return roll.total;
-    }
-
     $: consumer =
         Object.entries(action?.consumers ?? {}).filter(
             ([_, c]) => c?.type === "actionUses"
@@ -36,12 +27,18 @@
     $: uses = {
         action: {
             value: consumer?.[1]?.value,
-            max: getMaxUses(consumer?.[1]?.max),
+            max: getDeterministicBonus(
+                consumer?.[1]?.max ?? 0,
+                $actor.getRollData()
+            ),
             updatePath: `system.actions.${actionId}.consumers.${consumer?.[1]}`,
         },
         item: {
             value: item.system.uses?.value ?? 0,
-            max: getMaxUses(item.system.uses?.max),
+            max: getDeterministicBonus(
+                item.system.uses?.max ?? 0,
+                $actor.getRollData()
+            ),
             updatePath: "system.uses",
         },
     };
@@ -154,20 +151,14 @@
 
         <span> / </span>
 
-        {#await uses[usesType].max}
-            <!--  -->
-        {:then rollTotal}
-            <input
-                class="number-input"
-                type="number"
-                name="{uses[usesType].updatePath}.max"
-                value={rollTotal}
-                disabled={true}
-                on:click|stopPropagation
-            />
-        {:catch error}
-            <!--  -->
-        {/await}
+        <input
+            class="number-input"
+            type="number"
+            name="{uses[usesType].updatePath}.max"
+            value={uses[usesType].max}
+            disabled={true}
+            on:click|stopPropagation
+        />
     </div>
 {/if}
 

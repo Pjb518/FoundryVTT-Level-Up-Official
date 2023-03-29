@@ -4,19 +4,14 @@
 
     import FormSection from "../FormSection.svelte";
 
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+
     export let consumers;
     export let actionUsesData;
     export let itemUsesData;
 
     const actor = getContext("actor");
     const item = getContext("item");
-
-    async function getMaxUses(value) {
-        value = value === "" ? 0 : value;
-        return await new Roll(value.toString(), $actor.getRollData()).evaluate({
-            async: true,
-        });
-    }
 
     // =======================================================
     // Consumer data
@@ -26,8 +21,11 @@
     itemUsesData.quantity = 1;
 
     $: itemUses = $item.system.uses;
-    $: actionMaxUses = getMaxUses(actionConsumer.max);
-    $: itemMaxUses = getMaxUses(itemUses.max ?? 0);
+    $: actionMaxUses = getDeterministicBonus(
+        actionConsumer.max,
+        $actor.getRollData()
+    );
+    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
 </script>
 
 <div class="side-by-side">
@@ -49,16 +47,10 @@
                         />
                     </div>
 
-                    {#await actionMaxUses}
-                        <!--  -->
-                    {:then rollTotal}
-                        <p class="u-text-xs">
-                            ( {actionConsumer.value} / {rollTotal.total}
-                            {localize("A5E.UsesRemaining")})
-                        </p>
-                    {:catch error}
-                        {console.log(error)}
-                    {/await}
+                    <p class="u-text-xs">
+                        ( {actionConsumer.value} / {actionMaxUses}
+                        {localize("A5E.UsesRemaining")})
+                    </p>
                 </div>
             </section>
         </FormSection>
@@ -82,16 +74,10 @@
                         />
                     </div>
 
-                    {#await itemMaxUses}
-                        <!--  -->
-                    {:then rollTotal}
-                        <p class="u-text-xs">
-                            ( {itemUses.value} / {rollTotal.total}
-                            {localize("A5E.UsesRemaining")})
-                        </p>
-                    {:catch error}
-                        {console.log(error)}
-                    {/await}
+                    <p class="u-text-xs">
+                        ( {itemUses.value} / {itemMaxUses}
+                        {localize("A5E.UsesRemaining")})
+                    </p>
                 </div>
             </section>
         </FormSection>
