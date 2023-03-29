@@ -1,4 +1,7 @@
+const FEATURE_ITEMS = ['background', 'class', 'culture', 'destiny', 'heritage', 'subclass'];
+
 export default function createConsumers(itemData, updateData) {
+  if (FEATURE_ITEMS.includes(itemData.type)) return;
   // Ammunition Consumers
   if (itemData.type === 'object' && itemData.system.objectType === 'weapon') {
     createAmmoConsumer(itemData, updateData);
@@ -40,7 +43,7 @@ function createUsesConsumer(i, updateData) {
   const usesMax = parseInt(i.system.uses.max, 10);
   if (!usesMax && !usesCurrent) return;
 
-  const actionId = i.actions.keys()?.[0];
+  const actionId = Object.keys(i.system.actions ?? {})?.[0];
   if (!actionId) return;
 
   const consumer = {
@@ -56,7 +59,7 @@ function createManeuverConsumer(i, updateData) {
   const exertion = parseInt(i.system.exertionCost, 10);
   if (!exertion || exertion === 0) return;
 
-  const actionId = i.actions.keys()?.[0];
+  const actionId = Object.keys(i.system.actions ?? {})?.[0];
   if (!actionId) return;
 
   const consumer = {
@@ -74,7 +77,7 @@ function createSpellConsumer(i, updateData) {
   const level = parseInt(i.system.level, 10);
   if (level === 0) return;
 
-  const actionId = i.actions.keys()?.[0];
+  const actionId = Object.keys(i.system.actions ?? {})?.[0];
   if (!actionId) return;
 
   const consumer = {
