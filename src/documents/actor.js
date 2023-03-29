@@ -840,13 +840,13 @@ export default class ActorA5e extends Actor {
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', {
-            ability: localize(CONFIG.A5E.abilities[ability])
+            ability: localize(CONFIG.A5E.abilities[abilityKey])
           }),
           value: ability?.save.mod
         },
         {
           label: localize('A5E.SavingThrowBonus', {
-            ability: localize(CONFIG.A5E.abilities[ability])
+            ability: localize(CONFIG.A5E.abilities[abilityKey])
           }),
           value: ability?.save.bonus
         },
@@ -937,8 +937,6 @@ export default class ActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const ability = this.system.abilities[abilityKey];
-
-    // TODO: Update the keys below to use format and proper localisations.
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
