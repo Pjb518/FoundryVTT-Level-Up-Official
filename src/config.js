@@ -670,6 +670,17 @@ A5E.scrollData = {
   }
 };
 
+/**
+ * The set of core shield types in the system.
+ * @enum {string}
+ */
+A5E.shieldTypes = {
+  light: 'A5E.ShieldTypeLight',
+  medium: 'A5E.ShieldTypeMedium',
+  heavy: 'A5E.ShieldTypeHeavy',
+  tower: 'A5E.ShieldTypeTower'
+};
+
 A5E.spellComponents = {
   vocalized: 'A5E.SpellComponentVocalized',
   seen: 'A5E.SpellComponentSeen',
