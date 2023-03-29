@@ -1,5 +1,7 @@
 import { itemMigrators } from './v090/migratev090';
 import migrateSpellAttack from './v090/itemData/migrateSpellAttackFix';
+import createConsumers from './v090/itemData/createConsumers';
+import migrateUsesMax from './v090/itemData/migrateUsesMax';
 
 const FEATURE_ITEMS = ['background', 'class', 'culture', 'destiny', 'heritage', 'subclass'];
 /**
@@ -18,6 +20,12 @@ export default function migrateItemData(item) {
   // TODO: Remove in V0.10.0
   if (foundry.utils.isNewerVersion(game.settings.get('a5e', 'systemMigrationVersion'), '0.9.1')) {
     migrateSpellAttack(item, updateData);
+  }
+
+  const CURRENT_MIGRATION_VERSION = game.settings.get('a5e', 'systemMigrationVersion');
+  if (foundry.utils.isNewerVersion(CURRENT_MIGRATION_VERSION, '0.9.0')) {
+    migrateUsesMax(item, updateData);
+    createConsumers(item, updateData);
   }
 
   return updateData;
