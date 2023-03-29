@@ -17,12 +17,11 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
-    async function getMaxUses(value) {
+    function getMaxUses(value) {
         value = !value || value === "" ? 0 : value;
-        const roll = await new Roll(
-            value.toString(),
-            $actor.getRollData()
-        ).evaluate({ async: true });
+        const roll = new Roll(value.toString(), $actor.getRollData()).evaluate({
+            async: false,
+        });
 
         return roll.total;
     }
@@ -154,20 +153,14 @@
 
         <span> / </span>
 
-        {#await uses[usesType].max}
-            <!--  -->
-        {:then rollTotal}
-            <input
-                class="number-input"
-                type="number"
-                name="{uses[usesType].updatePath}.max"
-                value={rollTotal}
-                disabled={true}
-                on:click|stopPropagation
-            />
-        {:catch error}
-            <!--  -->
-        {/await}
+        <input
+            class="number-input"
+            type="number"
+            name="{uses[usesType].updatePath}.max"
+            value={uses[usesType].max}
+            disabled={true}
+            on:click|stopPropagation
+        />
     </div>
 {/if}
 
