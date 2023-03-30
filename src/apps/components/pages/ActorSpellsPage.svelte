@@ -82,8 +82,37 @@
             </div>
         {/if}
 
+        <!-- NPC Caster Level Configuration -->
+        {#if $actor.type === "npc"}
+            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                    {localize("A5E.CasterLevel")}
+                </h3>
+
+                <input
+                    class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner ||
+                        sheetIsLocked}
+                    type="number"
+                    name="system.casterLevel"
+                    value={$actor.system.casterLevel}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value)
+                        )}
+                />
+            </div>
+        {/if}
+
         {#if !sheetIsLocked}
-            <div class="u-align-center u-flex u-gap-md u-h-6 u-mr-lg u-ml-auto">
+            <div
+                class="u-align-center u-flex u-gap-md u-h-6 u-mr-lg"
+                class:u-ml-auto={!$actor.flags.a5e?.showSpellPoints ?? true}
+            >
                 <h3 class="u-mb-0 u-text-bold u-text-sm">
                     {localize("A5E.ConfigureSpells")}
                 </h3>
