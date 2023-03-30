@@ -9,7 +9,60 @@
     export let action;
     export let actionId;
 
-    const actor = getContext("actor");
+    function getSelectedAmmo(item, action) {
+        let _action = action;
+
+        if (item.actions.count === 0) return "";
+
+        if (item.actions.count === 1) {
+            _action = item.actions.values()[0];
+        }
+
+        const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
+            ([_, consumer]) => consumer?.type === "ammunition"
+        );
+
+        if (!ammoConsumer) return "";
+
+        return ammoConsumer[1].itemId;
+    }
+
+    function hasAmmunition(item, action) {
+        let _action = action;
+
+        if (item.actions.count === 0) return false;
+
+        if (item.actions.count === 1) {
+            _action = item.actions.values()[0];
+        }
+
+        return Object.entries(_action?.consumers ?? {}).filter(
+            ([_, consumer]) => consumer?.type === "ammunition"
+        ).length;
+    }
+
+    function updateAmmunition(event) {
+        let _actionId = actionId;
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+
+        if (item.actions.count === 0) return;
+
+        if (item.actions.count === 1) {
+            _actionId = item.actions.keys()[0];
+        }
+
+        const [consumerId] = Object.entries(
+            item.actions[_actionId]?.consumers ?? {}
+        ).find(([_, consumer]) => consumer?.type === "ammunition");
+
+        if (!consumerId) return;
+
+        updateDocumentDataFromField(
+            item,
+            `system.actions.${_actionId}.consumers.${consumerId}.itemId`,
+            selectedOption
+        );
+    }
 
     function updateField(event) {
         event.preventDefault();
@@ -18,12 +71,14 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
+    const actor = getContext("actor");
+    let usesType = actionId ? "action" : "item";
+
     $: consumer =
         Object.entries(action?.consumers ?? {}).filter(
             ([_, c]) => c?.type === "actionUses"
         )?.[0] ?? [];
 
-    let usesType = actionId ? "action" : "item";
     $: uses = {
         action: {
             value: consumer?.[1]?.value,
@@ -43,11 +98,44 @@
         },
     };
 
-    $: sheetIsLocked = $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: ammunitionItems = $actor.items
+        .filter(
+            (i) => i.type === "object" && i.system.objectType === "ammunition"
+        )
+        .map((i) => ({ name: i.name, id: i.id }))
+        .sort((a, b) =>
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+        );
+
+    $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
 <div class="name-wrapper">
     {action?.name ?? item.name}
+
+    {#if hasAmmunition(item, action)}
+        <select
+            id="{$actor.id}-{item.id}-ammunition"
+            class="u-w-fit"
+            on:click|stopPropagation
+            on:change={updateAmmunition}
+        >
+            <option
+                value=""
+                on:click|stopPropagation
+                selected={selectedAmmo === ""}
+            />
+            {#each ammunitionItems as { name, id } (id)}
+                <option
+                    value={id}
+                    on:click|stopPropagation
+                    selected={selectedAmmo === id}
+                >
+                    {name}
+                </option>
+            {/each}
+        </select>
+    {/if}
 </div>
 
 {#if !action}
