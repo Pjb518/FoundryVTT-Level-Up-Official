@@ -105,7 +105,11 @@
     class:item-wrapper--locked-object={sheetIsLocked &&
         (displayAsObject || item.type === "object")}
     class:item-wrapper--action={actionId}
+    class:item-wrapper--object-action={item.type === "object" && actionId}
     class:item-wrapper--locked-action={sheetIsLocked && actionId}
+    class:item-wrapper--locked-object-action={item.type === "object" &&
+        sheetIsLocked &&
+        actionId}
     draggable="true"
     on:dragstart={onDragStart}
     on:click={() => {
@@ -226,6 +230,16 @@
         &--locked-action {
             grid-template-areas: "icon name indicators uses";
             grid-template-columns: min-content 1fr min-content 6.25rem;
+        }
+
+        &--object-action {
+            grid-template-areas: "icon name quantity uses menu";
+            grid-template-columns: min-content 1fr 4rem 6.25rem 2rem;
+        }
+
+        &--locked-object-action {
+            grid-template-areas: "icon name quantity uses";
+            grid-template-columns: min-content 1fr 4rem 6.25rem;
         }
     }
 

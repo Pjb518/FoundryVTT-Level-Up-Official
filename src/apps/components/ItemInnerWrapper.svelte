@@ -111,12 +111,14 @@
 </script>
 
 <div class="name-wrapper">
-    {action?.name ?? item.name}
+    <div class="name">
+        {action?.name ?? item.name}
+    </div>
 
     {#if hasAmmunition(item, action)}
         <select
             id="{$actor.id}-{item.id}-ammunition"
-            class="u-w-fit"
+            class="ammunition-selector"
             on:click|stopPropagation
             on:change={updateAmmunition}
         >
@@ -281,6 +283,16 @@
         }
     }
 
+    .ammunition-selector {
+        height: 1.25rem;
+        width: fit-content;
+        font-size: 0.694rem;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
     .button-wrapper {
         display: flex;
         align-items: center;
@@ -289,12 +301,19 @@
         margin-left: -0.25rem;
     }
 
-    .name-wrapper {
-        display: block;
+    .name {
         font-size: 0.833rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+
+    .name-wrapper {
+        display: flex;
+        align-items: center;
+        flex-grow: 0;
+        gap: 0.5rem;
+        overflow: hidden;
         grid-area: name;
     }
 
