@@ -1,115 +1,115 @@
 {
-	"name": "Alchemical Grenade (Acid Core)",
-	"type": "object",
-	"img": "icons/weapons/thrown/grenade-round.webp",
-	"system": {
-		"actions": {
-			"sxPihD2EZFinQPQT": {
-				"name": "Alchemical Grenade (Acid Core)",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"TQS7GjZNb87ltgPA": {
-						"range": "20 ft."
-					},
-					"5UNOi8BTpb1IwqBG": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"Huk6golGFuEXHm5B": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"ability": "int"
-					},
-					"tqj8XyPDviO2CZTh": {
-						"canCrit": true,
-						"damageType": "force",
-						"defaultSelection": true,
-						"formula": "(floor((@details.level+1)/6)+1)d6",
-						"name": "Force",
-						"type": "damage"
-					},
-					"Go6fDviCpNr1cIYt": {
-						"canCrit": true,
-						"damageType": "acid",
-						"defaultSelection": true,
-						"formula": "(floor((@details.level+1)/6)+1)d4",
-						"name": "Ongoing Acid ",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"qKxN7OhQ3GqvEM3Z": {
-						"ability": "dex",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@spellDC"
-						},
-						"type": "savingThrow"
-					}
-				}
-			}
-		},
-		"description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Acid Core</strong></h3><p>A target hit by this grenade takes an additional ongoing acid damage that persists until it submerges itself in water or uses an action to wipe the acid off. </p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"broken": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "0",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "common",
-		"requiresAttunement": false,
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0,
-		"ability": "int",
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage",
-			"targetAbility": "dex"
-		}
-	},
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-class-features.m39iu7vdled4o3k4"
-		}
-	},
-	"_id": "m39iu7vdled4o3k4"
+  "name": "Alchemical Grenade (Acid Core)",
+  "type": "object",
+  "img": "icons/weapons/thrown/grenade-round.webp",
+  "system": {
+    "actions": {
+      "sxPihD2EZFinQPQT": {
+        "name": "Alchemical Grenade (Acid Core)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "TQS7GjZNb87ltgPA": {
+            "range": "20 ft."
+          },
+          "5UNOi8BTpb1IwqBG": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "Huk6golGFuEXHm5B": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "ability": "int"
+          },
+          "tqj8XyPDviO2CZTh": {
+            "canCrit": true,
+            "damageType": "force",
+            "defaultSelection": true,
+            "formula": "(floor((@details.level+1)/6)+1)d6",
+            "name": "Force",
+            "type": "damage"
+          },
+          "Go6fDviCpNr1cIYt": {
+            "canCrit": true,
+            "damageType": "acid",
+            "defaultSelection": true,
+            "formula": "(floor((@details.level+1)/6)+1)d4",
+            "name": "Ongoing Acid ",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "qKxN7OhQ3GqvEM3Z": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        }
+      }
+    },
+    "description": "<p>This armed alchemical grenade explodes when it hits a target or at the end of your turn.</p><p>Whenever you hit a target with an alchemical grenade, each creature within 5 feet of the target makes a Dexterity saving throw or takes half as much damage as taken by the target (the target is immune to this effect). Whenever you miss with an armed alchemical grenade it explodes in a harmless location at the end of your turn.</p><h3><strong>Acid Core</strong></h3><p>A target hit by this grenade takes an additional ongoing acid damage that persists until it submerges itself in water or uses an action to wipe the acid off. </p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "0",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "common",
+    "requiresAttunement": false,
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 0,
+    "ability": "int",
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage",
+      "targetAbility": "dex"
+    }
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-class-features.m39iu7vdled4o3k4"
+    }
+  },
+  "_id": "m39iu7vdled4o3k4"
 }

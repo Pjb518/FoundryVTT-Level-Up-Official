@@ -1,112 +1,112 @@
 {
-	"name": "Spirit Guardians",
-	"type": "spell",
-	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.pbtje70pd17ouy83"
-		}
-	},
-	"system": {
-		"actions": {
-			"L7jpMaxyGrl891Gg": {
-				"name": "Spirit Guardians",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {
-					"Z8fAZ0uNnx7BTz3J": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": "10",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"bzqvKXJCFa0DUjdb": {
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "3d6",
-						"name": "Radiant",
-						"type": "damage"
-					},
-					"ufv1Zd8aRryexzJ8": {
-						"canCrit": false,
-						"damageType": "necrotic",
-						"formula": "3d6",
-						"name": "Necrotic",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"YEdu8ahM9DVK6DKC": {
-						"ability": "wis",
-						"onSave": "Half damage damage",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@spellDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"O0Omz2eSU0vLIW8E": {
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "holy symbol",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"divine",
-				"necrotic",
-				"radiant"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "@spellDC",
-			"onSave": "Half damage damage",
-			"targetAbility": "wis"
-		}
-	},
-	"_id": "pbtje70pd17ouy83"
+  "name": "Spirit Guardians",
+  "type": "spell",
+  "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.pbtje70pd17ouy83"
+    }
+  },
+  "system": {
+    "actions": {
+      "L7jpMaxyGrl891Gg": {
+        "name": "Spirit Guardians",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "Z8fAZ0uNnx7BTz3J": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": "10",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "bzqvKXJCFa0DUjdb": {
+            "canCrit": false,
+            "damageType": "radiant",
+            "formula": "3d6",
+            "name": "Radiant",
+            "type": "damage"
+          },
+          "ufv1Zd8aRryexzJ8": {
+            "canCrit": false,
+            "damageType": "necrotic",
+            "formula": "3d6",
+            "name": "Necrotic",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "YEdu8ahM9DVK6DKC": {
+            "ability": "wis",
+            "onSave": "Half damage damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "O0Omz2eSU0vLIW8E": {
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "holy symbol",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "divine",
+        "necrotic",
+        "radiant"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "@spellDC",
+      "onSave": "Half damage damage",
+      "targetAbility": "wis"
+    }
+  },
+  "_id": "pbtje70pd17ouy83"
 }
