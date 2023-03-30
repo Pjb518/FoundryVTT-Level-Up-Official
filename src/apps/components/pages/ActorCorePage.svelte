@@ -21,14 +21,25 @@
     </ol>
 {/if}
 
-<ItemCategory
-    label="A5E.FavoriteItems"
-    icon="fas fa-star heading-icon"
-    items={[...$favorites]}
-    type="favorites"
-/>
+<section class="core-page">
+    <ItemCategory
+        label="A5E.FavoriteItems"
+        icon="fas fa-star heading-icon"
+        items={[...$favorites]}
+        type="favorites"
+    />
+</section>
 
 <style lang="scss">
+    .core-page {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        gap: 0.75rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     .resources-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
