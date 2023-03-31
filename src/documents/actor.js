@@ -608,17 +608,37 @@ export default class ActorA5e extends Actor {
     await this.update(updates);
   }
 
-  async restoreItemUses() {
+  async restoreUses() {
+    const rollData = this.getRollData();
     const items = Array.from(this.items);
 
     items.forEach(async (item) => {
       const { uses } = item.system;
 
+      // Restore Item uses
       if (['shortRest', 'longRest'].includes(uses.per)) {
         if (uses.max) {
-          await item.update({ 'data.uses.value': uses.max });
+          const maxValue = getDeterministicBonus(uses.max, rollData);
+          await item.update({ 'system.uses.value': maxValue });
         }
       }
+
+      // Restore action uses
+      const actions = item.actions.entries();
+      actions.forEach(async ([actionId, action]) => {
+        const [consumerId, consumer] = Object.entries(action.consumers ?? {})
+          .filter(([_, c]) => c.type === 'actionUses')?.[0] ?? [[], []];
+
+        if (!consumerId || !consumer) return;
+        if (['shortRest', 'longRest'].includes(consumer.per)) {
+          if (consumer.max) {
+            const maxValue = getDeterministicBonus(consumer.max, rollData);
+            await item.update({
+              [`system.actions.${actionId}.consumers.${consumerId}.value`]: maxValue
+            });
+          }
+        }
+      });
     });
   }
 
@@ -1029,7 +1049,7 @@ export default class ActorA5e extends Actor {
     }
 
     await this.restoreExertion();
-    await this.restoreItemUses();
+    await this.restoreUses();
     await this.restoreSpellResources(restType);
 
     Hooks.callAll('a5e.restCompleted', this, {
