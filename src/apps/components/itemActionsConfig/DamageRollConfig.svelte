@@ -51,6 +51,10 @@
             />
         </div>
 
+        <div class="a5e-field-group scaling-button-wrapper">
+            <i class="scaling-button fa-solid fa-arrow-up-right-dots" />
+        </div>
+
         <div class="a5e-field-group">
             <label for="{actionId}-{rollId}-damage-type">
                 {localize("A5E.DamageType")}
@@ -58,7 +62,7 @@
 
             <select
                 id="{actionId}-{rollId}-damage-type"
-                class="u-w-fit"
+                class="u-w-fit damage-type-select"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
@@ -148,9 +152,37 @@
         margin: 0;
     }
 
+    .damage-type-select {
+        height: 1.625rem;
+    }
+
     .row {
         display: flex;
         gap: 0.5rem;
         width: 100%;
+    }
+
+    .scaling-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 1.625rem;
+        font-size: 1rem;
+        color: #999;
+        border: 1px solid #7a7971;
+        border-radius: 3px;
+        cursor: pointer;
+
+        transition: all 0.15s ease-in-out;
+
+        &:focus,
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .scaling-button-wrapper {
+        justify-content: flex-end;
     }
 </style>
