@@ -55,7 +55,9 @@
     {:else if scalingMode === "spellLevel"}
         <FormSection>
             <section class="row u-flex-wrap">
-                <div class="a5e-field-group a5e-field-group--formula">
+                <div
+                    class="a5e-field-group a5e-field-group--formula a5e-field-group--spell-level"
+                >
                     <label for="{actionId}-{rollId}-healing-scaling-formula">
                         Healing Increment
                     </label>
@@ -74,7 +76,9 @@
                     />
                 </div>
 
-                <div class="a5e-field-group u-w-12">
+                <div
+                    class="a5e-field-group u-w-12 a5e-field-group--spell-level"
+                >
                     <label for="{actionId}-{rollId}-healing-scaling-step">
                         Per
                     </label>
@@ -159,6 +163,20 @@
 
     label {
         font-weight: bold;
+        font-size: 0.833rem;
+    }
+
+    input {
+        height: 2rem;
+        font-size: 0.833rem;
+    }
+
+    small {
+        margin-top: 0.125rem;
+    }
+
+    .a5e-field-group--spell-level {
+        gap: 0.375rem;
     }
 
     .levels {
