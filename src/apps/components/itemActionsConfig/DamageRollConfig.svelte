@@ -2,7 +2,14 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import ScalingConfigDialog from "../../dialogs/initializers/DamageScalingConfigDialog";
+
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    function onClickScalingButton() {
+        const dialog = new ScalingConfigDialog($item, actionId, rollId);
+        dialog.render(true);
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -52,7 +59,10 @@
         </div>
 
         <div class="a5e-field-group scaling-button-wrapper">
-            <button class="scaling-button">
+            <button
+                class="scaling-button"
+                on:click|preventDefault={onClickScalingButton}
+            >
                 <i
                     class="fa-solid fa-arrow-up-right-dots"
                     data-tooltip="A5E.ConfigureDamageScaling"
