@@ -102,7 +102,7 @@ export default class RollPreparationManager {
 
     const { rollFormula } = constructRollFormula({
       actor: this.#actor,
-      formula: this.#applyDamageScaling(_roll)
+      formula: this.#applyDamageOrHealingScaling(_roll)
     });
 
     if (!rollFormula) return null;
@@ -142,7 +142,10 @@ export default class RollPreparationManager {
   }
 
   async #prepareHealingRoll(_roll) {
-    const { rollFormula } = constructRollFormula({ actor: this.#actor, formula: _roll.formula });
+    const { rollFormula } = constructRollFormula({
+      actor: this.#actor,
+      formula: this.#applyDamageOrHealingScaling(_roll)
+    });
 
     if (!rollFormula) return null;
 
@@ -248,7 +251,7 @@ export default class RollPreparationManager {
     };
   }
 
-  #applyDamageScaling(roll) {
+  #applyDamageOrHealingScaling(roll) {
     const scalingMode = roll.scaling?.mode;
 
     if (!scalingMode) return roll?.formula ?? 0;

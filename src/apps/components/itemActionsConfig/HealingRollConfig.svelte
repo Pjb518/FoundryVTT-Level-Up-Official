@@ -2,7 +2,15 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import ScalingConfigDialog from "../../dialogs/initializers/HealingScalingConfigDialog";
+
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+
+    function onClickScalingButton() {
+        const dialog = new ScalingConfigDialog($item, actionId, rollId);
+        dialog.render(true);
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -32,7 +40,7 @@
         />
     </div>
 
-    <div class="row">
+    <div class="row u-flex-wrap">
         <div class="a5e-field-group a5e-field-group--formula">
             <label for="{actionId}-{rollId}-healing-formula">
                 {localize("A5E.HealingFormula")}
@@ -49,6 +57,19 @@
                         target.value
                     )}
             />
+        </div>
+
+        <div class="a5e-field-group scaling-button-wrapper">
+            <button
+                class="scaling-button"
+                on:click|preventDefault={onClickScalingButton}
+            >
+                <i
+                    class="fa-solid fa-arrow-up-right-dots"
+                    data-tooltip="A5E.ConfigureDamageScaling"
+                    data-tooltip-direction="UP"
+                />
+            </button>
         </div>
 
         <div class="a5e-field-group">
@@ -73,6 +94,42 @@
                 {/each}
             </select>
         </div>
+
+        {#if roll.scaling?.mode === "cantrip"}
+            <small>
+                {localize("A5E.ScalingHintCantripHealing", {
+                    formula: roll.scaling.formula ?? 0,
+                    healingType: localize(
+                        CONFIG.A5E.healingTypes[roll.healingType ?? "healing"]
+                    ),
+                })}
+            </small>
+        {:else if roll.scaling?.mode === "spellLevel"}
+            <small>
+                {#if !roll.scaling?.step || roll.scaling?.step === 1}
+                    {localize("A5E.ScalingHintSpellLevelHealing", {
+                        formula: roll.scaling.formula ?? 0,
+                        level: getOrdinalNumber($item.system.level),
+                        healingType: localize(
+                            CONFIG.A5E.healingTypes[
+                                roll.healingType ?? "healing"
+                            ]
+                        ),
+                    })}
+                {:else}
+                    {localize("A5E.ScalingHintSteppedSpellLevelHealing", {
+                        formula: roll.scaling.formula ?? 0,
+                        step: roll.scaling.step,
+                        level: getOrdinalNumber($item.system.level),
+                        healingType: localize(
+                            CONFIG.A5E.healingTypes[
+                                roll.healingType ?? "healing"
+                            ]
+                        ),
+                    })}
+                {/if}
+            </small>
+        {/if}
     </div>
 
     <div class="a5e-field-group a5e-field-group--checkbox">
@@ -104,5 +161,36 @@
         display: flex;
         gap: 0.5rem;
         width: 100%;
+    }
+
+    .scaling-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 1.625rem;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        background: transparent;
+        color: #999;
+        border: 1px solid #7a7971;
+        border-radius: 3px;
+        cursor: pointer;
+
+        transition: all 0.15s ease-in-out;
+
+        i {
+            margin: 0;
+        }
+
+        &:focus,
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .scaling-button-wrapper {
+        justify-content: flex-end;
     }
 </style>
