@@ -609,14 +609,16 @@ export default class ActorA5e extends Actor {
   }
 
   async restoreUses(restType) {
+    const restTypes = ['shortRest'];
     const rollData = this.getRollData();
     const items = Array.from(this.items);
+    if (restType === 'longRest') restTypes.push('longRest');
 
     items.forEach(async (item) => {
       const { uses } = item.system;
 
       // Restore Item uses
-      if (['shortRest', 'longRest'].includes(uses.per)) {
+      if (restTypes.includes(uses.per)) {
         if (uses.max) {
           const maxValue = getDeterministicBonus(uses.max, rollData);
           await item.update({ 'system.uses.value': maxValue });
@@ -630,7 +632,7 @@ export default class ActorA5e extends Actor {
           .filter(([_, c]) => c.type === 'actionUses')?.[0] ?? [[], []];
 
         if (!consumerId || !consumer) return;
-        if (['shortRest', 'longRest'].includes(consumer.per)) {
+        if (restTypes.includes(consumer.per)) {
           if (consumer.max) {
             const maxValue = getDeterministicBonus(consumer.max, rollData);
             await item.update({
