@@ -39,7 +39,7 @@
         />
     </div>
 
-    <section class="row">
+    <section class="row u-flex-wrap">
         <div class="a5e-field-group a5e-field-group--formula">
             <label for="{actionId}-{rollId}-damage-formula">
                 {localize("A5E.DamageFormula")}
@@ -97,6 +97,14 @@
                 {/each}
             </select>
         </div>
+
+        {#if roll.scaling?.mode === "cantrip"}
+            <small>
+                {localize("A5E.ScalingHintCantrip", {
+                    formula: roll.scaling.formula ?? 0,
+                })}
+            </small>
+        {/if}
     </section>
 
     <div class="a5e-field-group a5e-field-group--checkbox">

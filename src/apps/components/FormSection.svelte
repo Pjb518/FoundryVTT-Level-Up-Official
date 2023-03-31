@@ -32,6 +32,6 @@
     small {
         display: block;
         width: 100%;
-        padding-inline: 0.25rem;
+        padding-right: 0.25rem;
     }
 </style>

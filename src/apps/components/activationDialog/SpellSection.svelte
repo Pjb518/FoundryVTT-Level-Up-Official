@@ -126,6 +126,7 @@
             <h3 class="u-text-bold u-text-sm">
                 {localize("A5E.ConsumeOptions")}
             </h3>
+
             <RadioGroup
                 options={Object.entries(consumeOptions)}
                 selected={spellData.consume}

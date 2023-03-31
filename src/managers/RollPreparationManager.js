@@ -93,7 +93,11 @@ export default class RollPreparationManager {
 
   async #prepareDamageRoll(_roll, isCrit) {
     const { canCrit, critBonus, damageType } = _roll;
-    const { rollFormula } = constructRollFormula({ actor: this.#actor, formula: _roll.formula });
+
+    const { rollFormula } = constructRollFormula({
+      actor: this.#actor,
+      formula: this.#applyDamageScaling(_roll)
+    });
 
     if (!rollFormula) return null;
 
@@ -236,5 +240,30 @@ export default class RollPreparationManager {
       roll,
       type: 'toolCheck'
     };
+  }
+
+  #applyDamageScaling(roll) {
+    if (!roll.scaling?.mode) return roll?.formula ?? 0;
+
+    if (roll.scaling?.mode === 'cantrip') return this.#applyCantripScaling(roll);
+
+    return roll.formula ?? 0;
+  }
+
+  #applyCantripScaling(roll) {
+    const actorData = this.#actor.system;
+    const casterLevel = actorData.details.level ?? actorData.attributes.casterLevel;
+
+    if (casterLevel < 5) return roll.formula;
+
+    const baseRoll = roll.formula;
+    const scalingFormula = new Roll(roll.scaling.formula ?? 0);
+    let multiplier = 0;
+
+    if (casterLevel >= 17) multiplier = 3;
+    else if (casterLevel >= 11) multiplier = 2;
+    else if (casterLevel >= 5) multiplier = 1;
+
+    return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
   }
 }

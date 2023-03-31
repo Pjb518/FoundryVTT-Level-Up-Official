@@ -19,7 +19,7 @@ export default class DamageScalingConfigDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet'],
-      width: options.width ?? 420
+      width: options.width ?? 432
     });
 
     this.data.content.props.dialog = this;

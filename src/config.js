@@ -281,6 +281,14 @@ A5E.creatureTypes = {
   undead: 'A5E.CreatureUndead'
 };
 
+A5E.damageScalingModes = {
+  cantrip: 'A5E.ScalingModeCantrip',
+  spellLevel: 'A5E.ScalingModeSpellLevel',
+  spellPoints: 'A5E.ScalingModeSpellPoints',
+  actionUses: 'A5E.ScalingModeActionUses',
+  itemUses: 'A5E.ScalingModeItemUses'
+};
+
 /**
  * The set of core damage types in the system.
  * @enum {string}
