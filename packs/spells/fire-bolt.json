@@ -11,7 +11,7 @@
 	"system": {
 		"actions": {
 			"KxnRturHoAVljTvi": {
-				"name": "Fire Bolt",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -46,9 +46,13 @@
 					"gPx8ooCTKFBto1rX": {
 						"canCrit": true,
 						"damageType": "fire",
-						"formula": "(floor((@details.level+1)/6)+1)d10",
+						"formula": "1d10",
 						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d10"
+						}
 					}
 				}
 			}

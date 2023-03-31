@@ -11,7 +11,7 @@
 	"system": {
 		"actions": {
 			"cEbNoro1kCHgN2YB": {
-				"name": "Produce Flame",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -21,11 +21,7 @@
 					"unit": "minute",
 					"value": "10"
 				},
-				"ranges": {
-					"Juz8HiIq2TzddcaR": {
-						"range": "self"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -35,20 +31,43 @@
 					"quantity": "",
 					"type": "self"
 				},
+				"rolls": {}
+			},
+			"Y1hfvOpZHGQJ8Mn9": {
+				"name": "Fling Flame",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"JAqtnUo1wZwXFmHk": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
 				"rolls": {
-					"Bpfme5YJ3zwUobHY": {
-						"bonus": "",
-						"critThreshold": 20,
+					"H6iXhtlh9PZo5jh9": {
 						"type": "attack",
+						"default": true,
 						"attackType": "rangedSpellAttack",
+						"proficient": true,
 						"ability": "spellcasting"
 					},
-					"SWBDhpNVr6nsHcQm": {
-						"canCrit": true,
-						"damageType": "fire",
-						"formula": "(floor((@details.level+1)/6)+1)d8",
-						"name": "",
-						"type": "damage"
+					"qP8PUzpn1gRnH5z7": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						},
+						"damageType": "fire"
 					}
 				}
 			}

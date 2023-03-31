@@ -11,7 +11,7 @@
 	"system": {
 		"actions": {
 			"1q7u0q3DzMhPgHxg": {
-				"name": "Chill Touch",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -46,9 +46,13 @@
 					"9FPRNSAhPQxFaDz4": {
 						"canCrit": true,
 						"damageType": "necrotic",
-						"formula": "(floor((@details.level+1)/6)+1)d8",
+						"formula": "1d8",
 						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						}
 					}
 				}
 			}

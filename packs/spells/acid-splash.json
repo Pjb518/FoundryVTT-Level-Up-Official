@@ -1,96 +1,100 @@
 {
-  "name": "Acid Splash",
-  "type": "spell",
-  "img": "icons/magic/acid/projectile-smoke-glowing.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.z3y2a7pwy9gzcv45"
-    }
-  },
-  "system": {
-    "actions": {
-      "kGnGXWGTJgpCtDrN": {
-        "name": "Acid Splash",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "swW2Dhm89yY7C2CK": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "Cj65qeJjdlkUWDEc": {
-            "canCrit": false,
-            "damageType": "acid",
-            "formula": "(floor((@details.level+1)/6)+1)d6",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "oX9KY6l5VldCVftd": {
-            "ability": "dex",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        }
-      }
-    },
-    "description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": null,
-      "per": ""
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 0,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "acid",
-        "arcane"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "dex"
-    }
-  },
-  "_id": "z3y2a7pwy9gzcv45"
+	"name": "Acid Splash",
+	"type": "spell",
+	"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.z3y2a7pwy9gzcv45"
+		}
+	},
+	"system": {
+		"actions": {
+			"kGnGXWGTJgpCtDrN": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"swW2Dhm89yY7C2CK": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"Cj65qeJjdlkUWDEc": {
+						"canCrit": false,
+						"damageType": "acid",
+						"formula": "1d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"oX9KY6l5VldCVftd": {
+						"ability": "dex",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				}
+			}
+		},
+		"description": "<p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": null,
+			"per": ""
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"acid",
+				"arcane"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "z3y2a7pwy9gzcv45"
 }

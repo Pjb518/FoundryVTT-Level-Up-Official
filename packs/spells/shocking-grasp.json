@@ -11,7 +11,7 @@
 	"system": {
 		"actions": {
 			"FCMGHdwplJ5pXtJw": {
-				"name": "Shocking Grasp",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -46,9 +46,13 @@
 					"0O3jFxHBaNOTZZX3": {
 						"canCrit": true,
 						"damageType": "lightning",
-						"formula": "(floor((@details.level+1)/6)+1)d8",
+						"formula": "1d8",
 						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						}
 					}
 				}
 			}
