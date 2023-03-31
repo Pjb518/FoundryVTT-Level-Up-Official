@@ -612,8 +612,9 @@ export default class ActorA5e extends Actor {
     const restTypes = ['shortRest'];
     const rollData = this.getRollData();
     const items = Array.from(this.items);
-    if (restType === 'longRest') restTypes.push('longRest');
+    if (restType === 'long') restTypes.push('longRest');
 
+    // TODO: Refactor to update all at once.
     items.forEach(async (item) => {
       const { uses } = item.system;
 
