@@ -8,10 +8,16 @@ import constructRollFormula from '../dice/constructRollFormula';
 export default class RollPreparationManager {
   #actor;
 
+  #consumers;
+
+  #item;
+
   #rolls;
 
-  constructor(actor, rolls) {
+  constructor(actor, item, consumers, rolls) {
     this.#actor = actor;
+    this.#consumers = consumers;
+    this.#item = item;
     this.#rolls = rolls;
   }
 
@@ -243,9 +249,12 @@ export default class RollPreparationManager {
   }
 
   #applyDamageScaling(roll) {
-    if (!roll.scaling?.mode) return roll?.formula ?? 0;
+    const scalingMode = roll.scaling?.mode;
 
-    if (roll.scaling?.mode === 'cantrip') return this.#applyCantripScaling(roll);
+    if (!scalingMode) return roll?.formula ?? 0;
+
+    if (scalingMode === 'cantrip') return this.#applyCantripScaling(roll);
+    if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(roll);
 
     return roll.formula ?? 0;
   }
@@ -263,6 +272,21 @@ export default class RollPreparationManager {
     if (casterLevel >= 17) multiplier = 3;
     else if (casterLevel >= 11) multiplier = 2;
     else if (casterLevel >= 5) multiplier = 1;
+
+    return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
+  }
+
+  #applySpellLevelScaling(roll) {
+    const baseSpellLevel = this.#item.system.level;
+    const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
+
+    if (baseSpellLevel === castingLevel) return roll.formula;
+
+    const delta = castingLevel - baseSpellLevel;
+    const baseRoll = roll.formula;
+    const scalingFormula = new Roll(roll.scaling.formula ?? 0);
+    const step = roll.scaling?.step || 1;
+    const multiplier = Math.floor(delta / step);
 
     return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
   }

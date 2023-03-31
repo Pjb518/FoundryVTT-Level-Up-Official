@@ -4,6 +4,7 @@
 
     import ScalingConfigDialog from "../../dialogs/initializers/DamageScalingConfigDialog";
 
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     function onClickScalingButton() {
@@ -100,9 +101,24 @@
 
         {#if roll.scaling?.mode === "cantrip"}
             <small>
-                {localize("A5E.ScalingHintCantrip", {
+                {localize("A5E.ScalingHintCantripDamage", {
                     formula: roll.scaling.formula ?? 0,
                 })}
+            </small>
+        {:else if roll.scaling?.mode === "spellLevel"}
+            <small>
+                {#if !roll.scaling?.step || roll.scaling?.step === 1}
+                    {localize("A5E.ScalingHintSpellLevelDamage", {
+                        formula: roll.scaling.formula ?? 0,
+                        level: getOrdinalNumber($item.system.level),
+                    })}
+                {:else}
+                    {localize("A5E.ScalingHintSteppedSpellLevelDamage", {
+                        formula: roll.scaling.formula ?? 0,
+                        step: roll.scaling.step,
+                        level: getOrdinalNumber($item.system.level),
+                    })}
+                {/if}
             </small>
         {/if}
     </section>

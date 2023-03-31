@@ -126,7 +126,13 @@ export default class ItemA5e extends Item {
     promise.rolls ??= [];
     promise.rolls.push(promise?.attack ?? {});
 
-    const rollPreparationManager = new RollPreparationManager(this.actor, promise.rolls);
+    const rollPreparationManager = new RollPreparationManager(
+      this.actor,
+      this,
+      promise.consumers,
+      promise.rolls
+    );
+
     const rolls = await rollPreparationManager.prepareRolls();
 
     let validTemplate = false;
