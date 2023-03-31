@@ -52,7 +52,13 @@
         </div>
 
         <div class="a5e-field-group scaling-button-wrapper">
-            <i class="scaling-button fa-solid fa-arrow-up-right-dots" />
+            <button class="scaling-button">
+                <i
+                    class="fa-solid fa-arrow-up-right-dots"
+                    data-tooltip="A5E.ConfigureDamageScaling"
+                    data-tooltip-direction="UP"
+                />
+            </button>
         </div>
 
         <div class="a5e-field-group">
@@ -168,13 +174,20 @@
         justify-content: center;
         height: 1.625rem;
         width: 1.625rem;
+        padding: 0;
+        margin: 0;
         font-size: 1rem;
+        background: transparent;
         color: #999;
         border: 1px solid #7a7971;
         border-radius: 3px;
         cursor: pointer;
 
         transition: all 0.15s ease-in-out;
+
+        i {
+            margin: 0;
+        }
 
         &:focus,
         &:hover {
