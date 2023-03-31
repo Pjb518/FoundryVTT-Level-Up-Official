@@ -608,7 +608,7 @@ export default class ActorA5e extends Actor {
     await this.update(updates);
   }
 
-  async restoreUses() {
+  async restoreUses(restType) {
     const rollData = this.getRollData();
     const items = Array.from(this.items);
 
@@ -1049,7 +1049,7 @@ export default class ActorA5e extends Actor {
     }
 
     await this.restoreExertion();
-    await this.restoreUses();
+    await this.restoreUses(restType);
     await this.restoreSpellResources(restType);
 
     Hooks.callAll('a5e.restCompleted', this, {

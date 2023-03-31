@@ -75,9 +75,9 @@
     let usesType = actionId ? "action" : "item";
 
     $: consumer =
-        Object.entries(action?.consumers ?? {}).filter(
-            ([_, c]) => c?.type === "actionUses"
-        )?.[0] ?? [];
+        item.actions
+            .getConsumers(actionId)
+            .filter(([_, c]) => c?.type === "actionUses")?.[0] ?? [];
 
     $: uses = {
         action: {
@@ -86,7 +86,7 @@
                 consumer?.[1]?.max ?? 0,
                 $actor.getRollData()
             ),
-            updatePath: `system.actions.${actionId}.consumers.${consumer?.[1]}`,
+            updatePath: `system.actions.${actionId}.consumers.${consumer?.[0]}`,
         },
         item: {
             value: item.system.uses?.value ?? 0,
