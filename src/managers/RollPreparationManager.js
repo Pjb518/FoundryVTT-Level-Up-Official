@@ -258,6 +258,7 @@ export default class RollPreparationManager {
 
     if (scalingMode === 'cantrip') return this.#applyCantripScaling(roll);
     if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(roll);
+    if (scalingMode === 'spellPoints') return this.#applySpellPointScaling(roll);
 
     return roll.formula ?? 0;
   }
@@ -292,5 +293,9 @@ export default class RollPreparationManager {
     const multiplier = Math.floor(delta / step);
 
     return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
+  }
+
+  #applySpellPointScaling(roll) {
+    return roll.formula;
   }
 }
