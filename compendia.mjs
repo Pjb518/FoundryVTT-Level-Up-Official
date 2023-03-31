@@ -184,7 +184,7 @@ export function fixIds() {
         }
 
         const filename = path.parse(file).name;
-        const savedId = savedIdData[folder.name][filename];
+        const savedId = savedIdData[folder.name]?.[filename];
 
         // If savedId does not exist generate one and save it.
         if (!savedId) {
@@ -193,7 +193,7 @@ export function fixIds() {
           numNewIds += 1;
 
           // Update savedId data
-          savedIdData[folder.name][filename] = newId;
+          savedIdData[`${folder.name}.${filename}`] = newId;
 
           // Edit original file with new Id.
           fs.writeFileSync(file, JSON.stringify(jsonData, null, '\t'), { encoding: 'utf-8' });
