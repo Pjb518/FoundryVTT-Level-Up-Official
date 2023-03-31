@@ -10,26 +10,38 @@
     export let actionUsesData;
     export let itemUsesData;
 
+    function getActionConsumer(consumers) {
+        if (foundry.utils.isEmpty(consumers.actionUses)) return null;
+
+        const [actionUses] = Object.values(consumers.actionUses);
+
+        if (foundry.utils.isEmpty(actionUses)) return null;
+
+        return actionUses[1];
+    }
+
     const actor = getContext("actor");
     const item = getContext("item");
 
     // =======================================================
     // Consumer data
-    const actionConsumer = Object.values(consumers.actionUses ?? {})[0][1];
+    const actionConsumer = getActionConsumer(consumers);
 
     actionUsesData.quantity = 1;
     itemUsesData.quantity = 1;
 
     $: itemUses = $item.system.uses;
+
     $: actionMaxUses = getDeterministicBonus(
-        actionConsumer.max,
+        actionConsumer?.max ?? 0,
         $actor.getRollData()
     );
+
     $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
 </script>
 
 <div class="side-by-side">
-    {#if actionConsumer.value}
+    {#if actionConsumer?.value}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
