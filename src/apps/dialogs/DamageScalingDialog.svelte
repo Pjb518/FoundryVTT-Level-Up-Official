@@ -98,6 +98,54 @@
                 </div>
             </section>
         </FormSection>
+    {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
+        <section class="row u-flex-wrap">
+            <div class="a5e-field-group a5e-field-group--formula">
+                <label for="{actionId}-{rollId}-damage-scaling-formula">
+                    Damage Increment
+                </label>
+
+                <input
+                    id="{actionId}-{rollId}-damage-scaling-formula"
+                    type="text"
+                    name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
+                    value={roll.scaling?.formula ?? 0}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value
+                        )}
+                />
+            </div>
+
+            <div class="a5e-field-group u-w-12">
+                <label for="{actionId}-{rollId}-damage-scaling-step">
+                    Per
+                </label>
+
+                <input
+                    id="{actionId}-{rollId}-damage-scaling-step"
+                    type="number"
+                    name="system.actions.{actionId}.rolls.{rollId}.scaling.step"
+                    value={roll.scaling?.step ?? 1}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            parseInt(target.value, 10)
+                        )}
+                />
+            </div>
+
+            <div class="a5e-field-group levels-wrapper">
+                <span class="levels">
+                    Additional {scalingMode === "spellPoints"
+                        ? "Points"
+                        : "Uses"}
+                </span>
+            </div>
+        </section>
     {/if}
 </form>
 

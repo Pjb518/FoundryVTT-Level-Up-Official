@@ -120,6 +120,32 @@
                     })}
                 {/if}
             </small>
+        {:else if roll.scaling?.mode === "spellPoints"}
+            <small>
+                {#if !roll.scaling?.step || roll.scaling?.step === 1}
+                    {localize("A5E.ScalingHintSpellPointDamage", {
+                        formula: roll.scaling.formula ?? 0,
+                    })}
+                {:else}
+                    {localize("A5E.ScalingHintSteppedSpellPointDamage", {
+                        formula: roll.scaling.formula ?? 0,
+                        step: roll.scaling.step,
+                    })}
+                {/if}
+            </small>
+        {:else if ["actionUses", "itemUses"].includes(roll.scaling?.mode)}
+            <small>
+                {#if !roll.scaling?.step || roll.scaling?.step === 1}
+                    {localize("A5E.ScalingHintUsesDamage", {
+                        formula: roll.scaling.formula ?? 0,
+                    })}
+                {:else}
+                    {localize("A5E.ScalingHintSteppedUsesDamage", {
+                        formula: roll.scaling.formula ?? 0,
+                        step: roll.scaling.step,
+                    })}
+                {/if}
+            </small>
         {/if}
     </section>
 
@@ -188,6 +214,11 @@
 </section>
 
 <style lang="scss">
+    small {
+        display: block;
+        width: 100%;
+    }
+
     .checkbox {
         margin: 0;
     }
