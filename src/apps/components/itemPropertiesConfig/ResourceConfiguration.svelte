@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
@@ -16,6 +17,13 @@
     }
 
     $: hasUses = $item.system.uses.value || $item.system.uses.max;
+
+    $: itemMaxUses = $item.actor
+        ? getDeterministicBonus(
+              $item.system.uses?.max ?? 0,
+              $item.actor?.getRollData() ?? {}
+          )
+        : $item.system.uses?.max;
 </script>
 
 <section>
@@ -121,7 +129,7 @@
 
                         {#if $item.system.uses.max}
                             <span>/</span>
-                            <span>{$item.system.uses.max}</span>
+                            <span>{itemMaxUses}</span>
                         {/if}
 
                         {#if $item.system.uses.per}
