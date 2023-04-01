@@ -138,7 +138,7 @@ export default class ItemA5e extends Item {
     let validTemplate = false;
     if (promise.placeTemplate) {
       validTemplate = validateTemplateData(this, actionId);
-      if (validTemplate) { this.#placeActionTemplate(actionId); }
+      if (validTemplate) { await this.#placeActionTemplate(actionId); }
     }
 
     this.#consume(actionId, promise.consumers);
@@ -183,15 +183,28 @@ export default class ItemA5e extends Item {
   }
 
   async #placeActionTemplate(actionId) {
-    const templateDocument = createTemplateDocument(this, actionId);
-    const template = new ItemMeasuredTemplate(templateDocument);
+    const quantity = this.actions[actionId].area.quantity ?? 1;
 
-    template.item = this;
-    template.actorSheet = this.actor?.sheet || null;
+    try {
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < quantity; i++) {
+        const templateDocument = createTemplateDocument(this, actionId);
+        const template = new ItemMeasuredTemplate(templateDocument);
+        if (!template) return;
 
-    Hooks.call('a5e.preItemTemplateCreate', templateDocument, template);
+        template.item = this;
+        template.actorSheet = this.actor?.sheet || null;
 
-    if (template) template.drawPreview();
+        setTimeout(() => {
+          template?._onCancel();
+          throw new Error('Time limit for placing template exceeded');
+        }, 30000);
+
+        // eslint-disable-next-line no-await-in-loop
+        await template?.drawPreview();
+      }
+    } catch (err) { // Empty Block
+    }
   }
 
   async shareItemDescription(action) {
