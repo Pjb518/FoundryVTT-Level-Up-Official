@@ -186,6 +186,7 @@ export default class ItemA5e extends Item {
     const quantity = this.actions[actionId].area.quantity ?? 1;
 
     try {
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < quantity; i++) {
         const templateDocument = createTemplateDocument(this, actionId);
         const template = new ItemMeasuredTemplate(templateDocument);
@@ -199,6 +200,7 @@ export default class ItemA5e extends Item {
           throw new Error('Time limit for placing template exceeded');
         }, 30000);
 
+        // eslint-disable-next-line no-await-in-loop
         await template?.drawPreview();
       }
     } catch (err) { // Empty Block
