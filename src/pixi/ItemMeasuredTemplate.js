@@ -1,6 +1,12 @@
 export default class ItemMeasuredTemplate extends MeasuredTemplate {
-  drawPreview() {
-    const initLayer = canvas.activeLayer;
+  #moveTime = 0;
+
+  #initialLayer;
+
+  #events;
+
+  async drawPreview() {
+    const initialLayer = canvas.activeLayer;
 
     // Draw template and switch to template layer
     this.draw();
@@ -8,73 +14,83 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     this.layer.preview.addChild(this);
 
     // Hide sheet
-    this.actorSheet?.minimize();
+    await this.actorSheet?.minimize();
 
     // Enable interactive mode
-    this.activatePreviewListeners(initLayer);
+    return this.activatePreviewListeners(initialLayer);
   }
 
-  activatePreviewListeners(initLayer) {
-    const handlers = {};
-    let moveTime = 0;
+  activatePreviewListeners(initialLayer) {
+    return new Promise((resolve, reject) => {
+      this.#initialLayer = initialLayer;
+      this.#events = {
+        cancel: this._onCancel.bind(this),
+        confirm: this._onConfirm.bind(this),
+        move: this._onMove.bind(this),
+        rotate: this._onRotate.bind(this),
+        resolve,
+        reject
+      };
 
-    // Move
-    handlers.move = (e) => {
-      e.stopPropagation();
+      // Activate listeners
+      canvas.stage.on('mousemove', this.#events.move);
+      canvas.stage.on('mousedown', this.#events.confirm);
+      canvas.app.view.oncontextmenu = this.#events.cancel;
+      canvas.app.view.onwheel = this.#events.rotate;
+    });
+  }
 
-      const now = Date.now();
-      if (now - moveTime <= 10) return;
+  async _finishPlacement(e) {
+    this.layer._onDragLeftCancel(e);
+    canvas.stage.off('mousemove', this.#events.move);
+    canvas.stage.off('mousedown', this.#events.confirm);
+    canvas.app.view.oncontextmenu = null;
+    canvas.app.view.onwheel = null;
+    this.#initialLayer.activate();
+    await this.actorSheet?.maximize();
+  }
 
-      const center = e.data.getLocalPosition(this.layer);
-      const snapped = canvas.grid.getSnappedPosition(center.x, center.y, 2);
+  _onMove(e) {
+    e.stopPropagation();
 
-      this.document.updateSource({ x: snapped.x, y: snapped.y });
-      this.refresh();
-      moveTime = now;
+    const now = Date.now();
+    if (now - this.#moveTime <= 10) return;
+    const center = e.data.getLocalPosition(this.layer);
+    const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
+    const snapped = canvas.grid.getSnappedPosition(center.x, center.y, interval);
+
+    this.document.updateSource({ x: snapped.x, y: snapped.y });
+    this.refresh();
+    this.#moveTime = now;
+  }
+
+  _onRotate(e) {
+    if (e.ctrlKey) e.preventDefault(); // Avoid zooming the browser window
+    e.stopPropagation();
+
+    const delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
+    const snap = e.shiftKey ? delta : 5;
+    const update = {
+      direction: this.document.direction + (snap * Math.sign(e.deltaY))
     };
 
-    // Rotate
-    handlers.rotate = (e) => {
-      if (e.ctrlKey) e.preventDefault();
-      e.stopPropagation();
+    this.document.updateSource(update);
+    this.refresh();
+  }
 
-      const delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
-      const snap = e.shiftKey ? delta : 5;
+  async _onConfirm(e) {
+    await this._finishPlacement(e);
+    const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
+    const destination = canvas.grid.getSnappedPosition(this.document.x, this.document.y, interval);
 
-      this.document.updateSource({
-        direction: this.document.direction + (snap * Math.sign(e.deltaY))
-      });
-      this.refresh();
-    };
+    this.document.updateSource(destination);
+    this.#events.resolve(
+      canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [this.document.toObject()])
+    );
+  }
 
-    // Cancel
-    handlers.cancel = (e) => {
-      // eslint-disable-next-line no-underscore-dangle
-      this.layer._onDragLeftCancel(e);
-      canvas.stage.off('mousemove', handlers.move);
-      canvas.stage.off('mousedown', handlers.confirm);
-
-      canvas.app.view.oncontextmenu = null;
-      canvas.app.view.onwheel = null;
-      initLayer.activate();
-      this.actorSheet?.maximize();
-    };
-
-    // Confirm
-    handlers.confirm = (e) => {
-      handlers.cancel(e);
-      const destination = canvas.grid.getSnappedPosition(this.document.x, this.document.y, 2);
-
-      this.document.updateSource(destination);
-      canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [this.document.toObject()]);
-
-      Hooks.callAll('a5e.onItemTemplateCreate', this);
-    };
-
-    // Setup Listeners
-    canvas.stage.on('mousemove', handlers.move);
-    canvas.stage.on('mousedown', handlers.confirm);
-    canvas.app.view.oncontextmenu = handlers.cancel;
-    canvas.app.view.onwheel = handlers.rotate;
+  async _onCancel(e) {
+    await this._finishPlacement(e);
+    this.#events.reject();
   }
 }
