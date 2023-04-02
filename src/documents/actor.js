@@ -156,7 +156,7 @@ export default class ActorA5e extends Actor {
       actorData.attributes.spellDC = getDeterministicBonus([
         8,
         actorData.attributes.prof,
-        actorData.bonuses?.spell?.dc || 0,
+        actorData.bonuses?.spellDC || 0,
         actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
       ].join(' + '), this.getRollData());
     } catch {
