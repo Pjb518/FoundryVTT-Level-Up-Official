@@ -152,6 +152,7 @@ export default class ItemA5e extends Item {
       flags: {
         a5e: {
           actorId: this.actor.uuid,
+          itemId: this.uuid,
           cardType: 'item',
           img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
           name: this.name,
@@ -195,13 +196,19 @@ export default class ItemA5e extends Item {
         template.item = this;
         template.actorSheet = this.actor?.sheet || null;
 
+        let placed = false;
         setTimeout(() => {
+          if (placed) return;
+
           template?._onCancel();
           throw new Error('Time limit for placing template exceeded');
         }, 30000);
 
         // eslint-disable-next-line no-await-in-loop
-        await template?.drawPreview();
+        const templateData = await template?.drawPreview();
+        placed = true;
+
+        if (templateData) { Hooks.callAll('a5e.templateCreated', this, templateData, game.user.id); }
       }
     } catch (err) { // Empty Block
     }
