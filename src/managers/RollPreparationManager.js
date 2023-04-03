@@ -59,14 +59,11 @@ export default class RollPreparationManager {
   }
 
   async #prepareAbilityCheckRoll(_roll) {
-    const ability = localize(
-      CONFIG.A5E.abilities[_roll?.ability ?? '']
-    );
-
-    const { rollFormula } = localize('A5E.AbilityCheckSpecific', { ability });
+    const { rollFormula } = this.#actor.getDefaultAbilityCheckData(_roll.ability);
 
     if (!rollFormula) return null;
 
+    const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
     const roll = await new Roll(rollFormula).evaluate({ async: true });
     const label = `${_roll.label ?? ''} [${localize('A5E.AbilityCheckSpecific', { ability })}]`;
 
