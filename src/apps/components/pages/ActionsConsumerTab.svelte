@@ -43,6 +43,11 @@
                 CONFIG.A5E.spellLevelCost?.[$item.system.level] ?? 1;
         }
 
+        if (type === "recharge") {
+            data["charged"] = true;
+            data["consumeType"] = "item";
+        }
+
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 ...action.consumers,

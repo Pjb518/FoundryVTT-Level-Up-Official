@@ -64,6 +64,24 @@
         );
     }
 
+    function hasRecharge(item) {
+        if (actionId) {
+            const consumers = item.actions
+                .getConsumers(actionId)
+                .filter(
+                    ([_, consumer]) =>
+                        consumer.type === "recharge" &&
+                        consumer?.consumeType === "action"
+                )[0];
+
+            if (consumers.length) return true;
+        }
+
+        if (item.system.recharge.formula) return true;
+
+        return false;
+    }
+
     function updateField(event) {
         event.preventDefault();
 
@@ -107,6 +125,15 @@
             a.name.toLowerCase().localeCompare(b.name.toLowerCase())
         );
 
+    $: rechargeState = actionId
+        ? item.actions
+              .getConsumers(actionId)
+              .filter(
+                  ([_, c]) =>
+                      c.type === "recharge" && c.consumeType === "action"
+              )?.[0]?.charged ?? true
+        : item.system.recharge.charged ?? true;
+
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
@@ -142,6 +169,21 @@
 
 {#if !action}
     <div class="button-wrapper">
+        {#if hasRecharge(item)}
+            <li>
+                <button
+                    class="action-button fas fa-dice"
+                    class:active={rechargeState}
+                    data-tooltip={rechargeState
+                        ? "A5E.ButtonToolTipCharged"
+                        : "A5E.ButtonToolTipRecharge"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() =>
+                        item.recharge(actionId, rechargeState)}
+                />
+            </li>
+        {/if}
+
         {#if item?.system?.favorite !== undefined}
             <button
                 class="action-button fas fa-star"

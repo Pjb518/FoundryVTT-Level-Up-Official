@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
@@ -423,6 +424,36 @@ export default class ItemA5e extends Item {
     await this.update({
       'system.unidentified': !this.system.unidentified
     });
+  }
+
+  async recharge(actionId, state = false) {
+    if (state || !this.actor) return;
+    let formula = this.system.recharge.formula ?? '1d6';
+    let threshold = this.system.recharge.threshold ?? 6;
+    let newState = false;
+    let updatePath = 'system.recharge.charged';
+
+    if (actionId) {
+      const consumers = this.actions.getConsumers(actionId)
+        .filter(([_, c]) => c.type === 'recharge' && c.consumeType === 'action');
+
+      if (!consumers.length) return;
+      if (!consumers[0].length) return;
+
+      const [consumerId, consumer] = consumers[0];
+
+      formula = consumer?.formula ?? '1d6';
+      threshold = consumer?.threshold ?? 6;
+      updatePath = `system.actions.${actionId}.consumers.${consumerId}.charged`;
+    }
+
+    // Roll
+    const roll = await new Roll(formula, this.actor.getRollData()).evaluate({ async: true });
+    // TODO: Make the message prettier
+    roll.toMessage();
+
+    if (roll.total >= threshold) newState = true;
+    await this.update({ [updatePath]: newState });
   }
 
   static async _onClickChatAbilityCheckButton(event) {
