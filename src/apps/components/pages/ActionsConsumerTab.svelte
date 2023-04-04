@@ -12,6 +12,7 @@
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
     import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
+    import RechargeConsumer from "../itemActionsConfig/RechargeConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
     const item = getContext("item");
@@ -80,6 +81,11 @@
             heading: "A5E.ConsumerUsesItem",
             singleLabel: "A5E.ConsumerItemUses",
             component: UsesConsumer,
+        },
+        recharge: {
+            heading: "A5E.ConsumerCharges",
+            singleLabel: "A5E.Charge",
+            component: RechargeConsumer,
         },
     };
 

@@ -19,28 +19,6 @@
         action: "A5E.Action",
     };
 
-    function updateRecharge(value) {
-        if (["none", "item"].includes(value)) {
-            $item.update({
-                [`system.actions.${actionId}.recharge`]: {
-                    type: value,
-                    [`-=formula`]: null,
-                    [`-=threshold`]: null,
-                },
-            });
-        }
-
-        if (value === "action") {
-            $item.update({
-                [`system.actions.${actionId}.recharge`]: {
-                    type: value,
-                    formula: "1d6",
-                    threshold: 6,
-                },
-            });
-        }
-    }
-
     $: action = $item.actions[actionId];
 </script>
 
@@ -153,84 +131,5 @@
                 </select>
             </div>
         </FormSection>
-
-        <FormSection heading="A5E.ItemRechargeConfiguration">
-            <div class="action-config__wrapper">
-                <div class="a5e-field-group">
-                    <label for="{actionId}-recharge-type">
-                        {localize("A5E.ItemRechargeType")}
-                    </label>
-
-                    <select
-                        id="{actionId}-recharge-type"
-                        class="u-w-fit"
-                        on:change={({ target }) => updateRecharge(target.value)}
-                    >
-                        {#each Object.entries(rechargeTypes) as [value, label]}
-                            <option
-                                key={value}
-                                value={value ?? "none"}
-                                selected={action?.recharge?.type === value}
-                            >
-                                {localize(label)}
-                            </option>
-                        {/each}
-                    </select>
-                </div>
-
-                {#if action.recharge?.type === "action"}
-                    <div class="row">
-                        <div
-                            class="a5e-field-group a5e-field-group--formula u-flex-grow"
-                        >
-                            <label for="{actionId}-recharge-formula">
-                                {localize("A5E.ItemRechargeFormula")}
-                            </label>
-
-                            <input
-                                id="{actionId}-recharge-formula"
-                                type="text"
-                                value={action?.recharge?.formula ?? "1d6"}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        `system.actions.${actionId}.recharge.formula`,
-                                        target.value
-                                    )}
-                            />
-                        </div>
-
-                        <!-- Threshold -->
-                        <div class="a5e-field-group u-w-30">
-                            <label for="{actionId}-recharge-formula">
-                                {localize("A5E.ItemRechargeThreshold")}
-                            </label>
-
-                            <input
-                                id="{actionId}-recharge-formula"
-                                class="small-input"
-                                type="number"
-                                value={action?.recharge?.threshold ?? 6}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        `system.actions.${actionId}.recharge.threshold`,
-                                        Number(target.value)
-                                    )}
-                            />
-                        </div>
-                    </div>
-                {/if}
-            </div>
-        </FormSection>
     </section>
 </section>
-
-<style lang="scss">
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        width: 100%;
-    }
-</style>
