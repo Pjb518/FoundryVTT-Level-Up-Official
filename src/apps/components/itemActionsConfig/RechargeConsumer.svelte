@@ -36,8 +36,6 @@
             });
         }
     }
-
-    console.log(consumer);
 </script>
 
 <section class="action-config__wrapper">
