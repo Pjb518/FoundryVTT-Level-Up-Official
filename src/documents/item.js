@@ -268,6 +268,8 @@ export default class ItemA5e extends Item {
           return this.#consumeResource(consumer);
         case 'spell':
           return this.#consumeSpellResource(promiseData.spell);
+        case 'recharge':
+          return this.#consumeCharge(actionId, consumerId, consumer);
         default: return null;
       }
     });
@@ -296,6 +298,18 @@ export default class ItemA5e extends Item {
 
     await this.update({
       'system.uses.value': Math.max(value - quantity, 0)
+    });
+  }
+
+  async #consumeCharge(actionId, consumerId, consumer) {
+    if (consumer?.consumeType === 'item') {
+      await this.update({ 'system.recharge.charged': false });
+      return;
+    }
+
+    // Consume action charge
+    await this.update({
+      [`system.actions.${actionId}.consumers.${consumerId}.charged`]: false
     });
   }
 
