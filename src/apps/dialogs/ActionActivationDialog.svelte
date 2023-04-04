@@ -314,7 +314,7 @@
         </FormSection>
     {/if}
 
-    {#if $item.type === "spell" && Object.values(consumers?.spell ?? {}).flat().length}
+    {#if Object.values(consumers?.spell ?? {}).flat().length}
         <SpellSection {consumers} bind:spellData />
     {/if}
 
