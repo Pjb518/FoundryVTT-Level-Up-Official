@@ -74,7 +74,8 @@
                         consumer?.consumeType === "action"
                 )[0];
 
-            if (consumers.length) return true;
+            if (consumers?.length) return true;
+            else return false;
         }
 
         if (item.system.recharge.formula) return true;
@@ -167,23 +168,21 @@
     {/if}
 </div>
 
-{#if !action}
-    <div class="button-wrapper">
-        {#if hasRecharge(item)}
-            <li>
-                <button
-                    class="action-button fas fa-dice"
-                    class:active={rechargeState}
-                    data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
-                        : "A5E.ButtonToolTipRecharge"}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() =>
-                        item.recharge(actionId, rechargeState)}
-                />
-            </li>
-        {/if}
+<div class="button-wrapper">
+    {#if hasRecharge(item)}
+        <button
+            class="action-button fas fa-dice"
+            class:active={rechargeState}
+            data-tooltip={rechargeState
+                ? "A5E.ButtonToolTipCharged"
+                : "A5E.ButtonToolTipRecharge"}
+            data-tooltip-direction="UP"
+            on:click|stopPropagation={() =>
+                item.recharge(actionId, rechargeState)}
+        />
+    {/if}
 
+    {#if !action}
         {#if item?.system?.favorite !== undefined}
             <button
                 class="action-button fas fa-star"
@@ -251,8 +250,8 @@
                 />
             </li>
         {/if}
-    </div>
-{/if}
+    {/if}
+</div>
 
 {#if !actionId && item?.type === "object"}
     <div class="quantity-wrapper">
