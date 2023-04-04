@@ -49,7 +49,7 @@
 {#if showActivationCost}
     <div class="summary-group">
         <dt>{localize("A5E.ActionActivationCost")}:</dt>
-        <dd>{activationCost}</dd>
+        <dd>{activationCost} {item.system.ritual ? "(Ritual)" : ""}</dd>
     </div>
 {/if}
 
