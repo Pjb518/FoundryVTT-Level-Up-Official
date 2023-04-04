@@ -41,7 +41,7 @@
 </script>
 
 <div class="side-by-side">
-    {#if actionConsumer?.value}
+    {#if actionConsumer?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
@@ -68,7 +68,7 @@
         </FormSection>
     {/if}
 
-    {#if itemUses.value}
+    {#if itemUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
