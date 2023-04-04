@@ -7,6 +7,7 @@
     import ManeuverConfiguration from "../itemPropertiesConfig/ManeuverConfiguration.svelte";
     import MaterialConfiguration from "../itemPropertiesConfig/MaterialConfiguration.svelte";
     import ObjectConfiguration from "../itemPropertiesConfig/ObjectConfiguration.svelte";
+    import RechargeConfiguration from "../itemPropertiesConfig/RechargeConfiguration.svelte";
     import ResourceConfiguration from "../itemPropertiesConfig/ResourceConfiguration.svelte";
     import ShieldConfiguration from "../itemPropertiesConfig/ShieldConfiguration.svelte";
     import SpellConfiguration from "../itemPropertiesConfig/SpellConfiguration.svelte";
@@ -36,6 +37,7 @@
         <SpellConfiguration />
     {/if}
 
+    <RechargeConfiguration />
     <ResourceConfiguration />
 </div>
 
