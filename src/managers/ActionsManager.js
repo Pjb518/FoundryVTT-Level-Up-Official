@@ -49,6 +49,15 @@ export default class ActionsManager extends DataProxy {
   }
 
   /** ************************************************ */
+  // Subsection getters
+  getRolls(actionId) {
+    return Object.entries(this.get(actionId)?.rolls ?? {});
+  }
+
+  getPrompts(actionId) {
+    return Object.entries(this.get(actionId)?.prompts ?? {});
+  }
+
   getConsumers(actionId) {
     return Object.entries(this.get(actionId)?.consumers ?? {});
   }
