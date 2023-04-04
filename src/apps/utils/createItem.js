@@ -5,9 +5,15 @@ const itemMappings = {
   spell: createSpell
 };
 
+function getSpellName(subType) {
+  if (parseInt(subType, 10) === 0) return 'Cantrip';
+
+  return 'Spell';
+}
+
 export default async function createItem(actor, itemType, subType) {
   const updateData = {
-    name: `New ${subType.capitalize()}`,
+    name: `New ${itemType === 'spell' ? getSpellName(subType) : subType.capitalize()}`,
     type: itemType,
     system: itemMappings[itemType](subType)
   };
