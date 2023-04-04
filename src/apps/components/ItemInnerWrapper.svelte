@@ -132,10 +132,21 @@
               .filter(
                   ([_, c]) =>
                       c.type === "recharge" && c.consumeType === "action"
-              )?.[0]?.charged ?? true
+              )?.[0]?.[1]?.charged ?? true
         : item.system.recharge.charged ?? true;
 
     $: selectedAmmo = getSelectedAmmo(item, action);
+
+    if (actionId) {
+        console.log(
+            item.actions
+                .getConsumers(actionId)
+                .filter(
+                    ([_, c]) =>
+                        c.type === "recharge" && c.consumeType === "action"
+                )
+        );
+    }
 </script>
 
 <div class="name-wrapper">
