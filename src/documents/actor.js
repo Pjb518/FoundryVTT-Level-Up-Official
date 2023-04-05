@@ -683,18 +683,22 @@ export default class ActorA5e extends Actor {
 
   async restoreSpellResources(restType) {
     const { spellResources } = this.system;
+    const returnData = { slots: 0, points: 0 };
 
+    returnData.points = spellResources.points.max - spellResources.points.current;
     const updates = {
       'system.spellResources.points.current': Math.max(spellResources.points.max, 0)
     };
 
     if (restType === 'long') {
-      Object.entries(spellResources.slots).forEach(([level, { max }]) => {
+      Object.entries(spellResources.slots).forEach(([level, { current, max }]) => {
         updates[`system.spellResources.slots.${level}.current`] = Math.max(max, 0);
+        returnData.slots += (max - current);
       });
     }
 
-    this.update(updates);
+    await this.update(updates);
+    return { name: 'spellResources', value: returnData };
   }
 
   /**
