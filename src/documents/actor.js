@@ -543,7 +543,7 @@ export default class ActorA5e extends Actor {
   }
 
   async resetHitPoints() {
-    const { baseMax } = this.system.attributes.hp;
+    const { baseMax, value } = this.system.attributes.hp;
 
     this.update({
       'data.attributes.hp': {
@@ -552,6 +552,11 @@ export default class ActorA5e extends Actor {
         temp: 0
       }
     });
+
+    return {
+      name: 'hitPoints',
+      value: baseMax - value
+    };
   }
 
   async restoreExertion() {
@@ -566,6 +571,7 @@ export default class ActorA5e extends Actor {
 
   async restoreHitDice() {
     const { hitDice } = this.system.attributes;
+    let recoveredHitDie = 0;
     const updates = {};
 
     const expendedHitDice = Object.entries(hitDice).reduce((acc, [die, { current, total }]) => {
@@ -602,10 +608,18 @@ export default class ActorA5e extends Actor {
             break;
           }
         }
+
+        recoveredHitDie += 1;
       }
     }
 
     await this.update(updates);
+    return {
+      name: 'hitDice',
+      value: quantityToRecover >= expendedHitDiceQuantity
+        ? expendedHitDiceQuantity
+        : recoveredHitDie
+    };
   }
 
   async restoreUses(restType) {
@@ -1041,10 +1055,12 @@ export default class ActorA5e extends Actor {
       consumeSupply, haven, restType, recoverStrifeAndFatigue
     } = restData;
 
+    const restoredData = [];
+
     if (restType === 'long') {
-      await this.resetHitPoints();
-      await this.restoreHitDice();
-      await this.adjustTrackedConditions(haven, recoverStrifeAndFatigue);
+      restoredData.push(await this.resetHitPoints());
+      restoredData.push(await this.restoreHitDice());
+      restoredData.push(await this.adjustTrackedConditions(haven, recoverStrifeAndFatigue));
 
       if (consumeSupply) {
         await this.update({ 'system.supply': Math.max(this.system.supply - 1, 0) });
@@ -1054,6 +1070,8 @@ export default class ActorA5e extends Actor {
     await this.restoreExertion();
     await this.restoreUses(restType);
     await this.restoreSpellResources(restType);
+
+    console.log(restoredData);
 
     Hooks.callAll('a5e.restCompleted', this, {
       consumeSupply, haven, restType, recoverStrifeAndFatigue
