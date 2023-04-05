@@ -568,9 +568,9 @@ export default class ActorA5e extends Actor {
 
   async restoreExertion() {
     const { exertion } = this.system.attributes;
-    const toRecover = exertion.max - exertion.current;
     if (!exertion?.recoverOnRest) return undefined;
 
+    const toRecover = exertion.max - exertion.current;
     await this.update({
       'data.attributes.exertion.current': exertion.max
     });
@@ -1098,8 +1098,6 @@ export default class ActorA5e extends Actor {
     restoredData.push(await this.restoreExertion());
     restoredData.push(await this.restoreUses(restType));
     restoredData.push(await this.restoreSpellResources(restType));
-
-    console.log(restoredData);
 
     Hooks.callAll('a5e.restCompleted', this, {
       consumeSupply, haven, restType, recoverStrifeAndFatigue
