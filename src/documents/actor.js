@@ -626,37 +626,50 @@ export default class ActorA5e extends Actor {
     const restTypes = ['shortRest'];
     const rollData = this.getRollData();
     const items = Array.from(this.items);
+    const numRestored = { item: 0, action: 0 };
+
     if (restType === 'long') restTypes.push('longRest');
 
-    // TODO: Refactor to update all at once.
-    items.forEach(async (item) => {
+    const restore = async (item) => {
       const { uses } = item.system;
 
-      // Restore Item uses
       if (restTypes.includes(uses.per)) {
         if (uses.max) {
           const maxValue = getDeterministicBonus(uses.max, rollData);
-          await item.update({ 'system.uses.value': maxValue });
+          if (uses.value < maxValue) {
+            numRestored.item += (maxValue - uses.value);
+            await item.update({ 'system.uses.value': maxValue });
+          }
         }
       }
 
       // Restore action uses
-      const actions = item.actions.entries();
-      actions.forEach(async ([actionId, action]) => {
-        const [consumerId, consumer] = Object.entries(action.consumers ?? {})
+      const actionIds = item.actions.keys();
+      actionIds.forEach(async (actionId) => {
+        const [consumerId, consumer] = item.actions.getConsumers(actionId)
           .filter(([_, c]) => c.type === 'actionUses')?.[0] ?? [[], []];
 
         if (!consumerId || !consumer) return;
         if (restTypes.includes(consumer.per)) {
           if (consumer.max) {
             const maxValue = getDeterministicBonus(consumer.max, rollData);
-            await item.update({
-              [`system.actions.${actionId}.consumers.${consumerId}.value`]: maxValue
-            });
+            if (maxValue > consumer.value) {
+              numRestored.action += (maxValue - consumer.value);
+              await item.update({
+                [`system.actions.${actionId}.consumers.${consumerId}.value`]: maxValue
+              });
+            }
           }
         }
       });
-    });
+    };
+
+    await Promise.allSettled(items.map((i) => restore(i)));
+
+    return {
+      name: 'uses',
+      value: numRestored
+    };
   }
 
   async restoreSpellResources(restType) {
@@ -1064,12 +1077,13 @@ export default class ActorA5e extends Actor {
 
       if (consumeSupply) {
         await this.update({ 'system.supply': Math.max(this.system.supply - 1, 0) });
+        // TODO: Add to data chat
       }
     }
 
-    await this.restoreExertion();
-    await this.restoreUses(restType);
-    await this.restoreSpellResources(restType);
+    restoredData.push(await this.restoreExertion());
+    restoredData.push(await this.restoreUses(restType));
+    restoredData.push(await this.restoreSpellResources(restType));
 
     console.log(restoredData);
 
