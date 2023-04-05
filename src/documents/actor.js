@@ -656,6 +656,7 @@ export default class ActorA5e extends Actor {
       const actionIds = item.actions.keys();
       actionIds.forEach(async (actionId) => {
         const [consumerId, consumer] = item.actions.getConsumers(actionId)
+          // eslint-disable-next-line no-unused-vars
           .filter(([_, c]) => c.type === 'actionUses')?.[0] ?? [[], []];
 
         if (!consumerId || !consumer) return;

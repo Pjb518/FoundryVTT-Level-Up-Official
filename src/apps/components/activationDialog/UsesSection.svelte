@@ -12,12 +12,16 @@
 
     function getActionConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.actionUses)) return null;
-
         const [actionUses] = Object.values(consumers.actionUses);
-
         if (foundry.utils.isEmpty(actionUses)) return null;
-
         return actionUses[1];
+    }
+
+    function getItemConsumer(consumers) {
+        if (foundry.utils.isEmpty(consumers.itemUses)) return null;
+        const [itemUses] = Object.values(consumers.itemUses);
+        if (foundry.utils.isEmpty(itemUses)) return null;
+        return itemUses[1];
     }
 
     const actor = getContext("actor");
@@ -26,6 +30,7 @@
     // =======================================================
     // Consumer data
     const actionConsumer = getActionConsumer(consumers);
+    const itemConsumer = getItemConsumer(consumers);
 
     actionUsesData.quantity = 1;
     itemUsesData.quantity = 1;
@@ -68,7 +73,7 @@
         </FormSection>
     {/if}
 
-    {#if itemUses?.max}
+    {#if itemConsumer && itemUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
