@@ -387,18 +387,25 @@ export default class ActorA5e extends Actor {
   async adjustTrackedConditions(haven, supply) {
     const updates = {};
     const { strife, fatigue } = this.system.attributes;
+    const returnData = { fatigue: 0, strife: 0 };
 
     if (!supply) {
       updates['system.attributes.fatigue'] = fatigue + 1;
+      returnData.fatigue += 1;
     } else if (!haven) {
       updates['system.attributes.strife'] = strife === 1 ? 0 : strife;
       updates['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
+      returnData.strife += strife === 1 ? -1 : 0;
+      returnData.fatigue += fatigue === 1 ? -1 : 0;
     } else {
       updates['system.attributes.strife'] = Math.max(strife - 1, 0);
       updates['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
+      returnData.strife += strife === 0 ? 0 : -1;
+      returnData.fatigue += fatigue === 0 ? 0 : -1;
     }
 
-    this.update(updates);
+    await this.update(updates);
+    return { name: 'trackedConditions', value: returnData };
   }
 
   #configure(key, title, data, options) {
