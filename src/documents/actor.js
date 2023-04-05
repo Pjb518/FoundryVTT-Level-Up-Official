@@ -568,12 +568,14 @@ export default class ActorA5e extends Actor {
 
   async restoreExertion() {
     const { exertion } = this.system.attributes;
-
-    if (!exertion?.recoverOnRest) return;
+    const toRecover = exertion.max - exertion.current;
+    if (!exertion?.recoverOnRest) return undefined;
 
     await this.update({
       'data.attributes.exertion.current': exertion.max
     });
+
+    return { name: 'exertion', value: toRecover };
   }
 
   async restoreHitDice() {
