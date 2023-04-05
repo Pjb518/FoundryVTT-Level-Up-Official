@@ -2,10 +2,10 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
+    import handleDeterministicInput from "../../utils/handleDeterministicInput";
 
     const item = getContext("item");
 
@@ -53,12 +53,14 @@
                             id="{$item.id}-recharge-formula"
                             type="text"
                             value={$item.system.recharge.formula ?? ""}
-                            on:change={({ target }) =>
+                            on:change={({ target }) => {
+                                handleDeterministicInput(target.value);
                                 updateDocumentDataFromField(
                                     $item,
                                     `system.recharge.formula`,
                                     target.value
-                                )}
+                                );
+                            }}
                         />
                     </div>
 

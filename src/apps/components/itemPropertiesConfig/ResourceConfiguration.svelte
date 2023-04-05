@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import handleDeterministicBonus from "../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
@@ -80,12 +81,14 @@
                             type="text"
                             name="system.uses.max"
                             value={$item.system.uses.max}
-                            on:change={({ target }) =>
+                            on:change={({ target }) => {
+                                handleDeterministicBonus(target.value);
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
                                     target.value
-                                )}
+                                );
+                            }}
                         />
                     </div>
 
