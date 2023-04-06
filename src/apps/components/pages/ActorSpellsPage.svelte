@@ -3,6 +3,7 @@
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import usesRequired from "../../utils/usesRequired";
 
     import ItemCategory from "../ItemCategory.svelte";
     import TabFooter from "../TabFooter.svelte";
@@ -36,6 +37,7 @@
                     {label}
                     items={$spells._levels[level]}
                     type="spellLevels"
+                    usesRequired={usesRequired(spells)}
                 />
             {/if}
         {/each}

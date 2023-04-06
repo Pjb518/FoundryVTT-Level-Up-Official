@@ -3,6 +3,7 @@
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import usesRequired from "../../utils/usesRequired";
 
     import ItemCategory from "../ItemCategory.svelte";
     import TabFooter from "../TabFooter.svelte";
@@ -27,7 +28,12 @@
     <section class="maneuvers-main-container">
         {#each Object.entries($maneuvers._degrees) as [label, items]}
             {#if items.length}
-                <ItemCategory {label} {items} type="maneuverDegrees" />
+                <ItemCategory
+                    {label}
+                    {items}
+                    type="maneuverDegrees"
+                    usesRequired={usesRequired(maneuvers)}
+                />
             {/if}
         {/each}
     </section>

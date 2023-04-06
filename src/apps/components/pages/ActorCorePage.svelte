@@ -4,6 +4,9 @@
     import GenericActorResource from "../GenericActorResource.svelte";
     import ItemCategory from "../ItemCategory.svelte";
 
+    import usesRequired from "../../utils/usesRequired";
+    import quantityRequired from "../../utils/quantityRequired";
+
     export let resources;
 
     const actor = getContext("actor");
@@ -27,6 +30,8 @@
         icon="fas fa-star heading-icon"
         items={[...$favorites]}
         type="favorites"
+        quantityRequired={quantityRequired($favorites)}
+        usesRequired={usesRequired($favorites)}
     />
 </section>
 

@@ -11,28 +11,101 @@
     export let items;
     export let type;
 
+    export let usesRequired = false;
+    export let quantityRequired = false;
+
     const actor = getContext("actor");
 
     const A5E = CONFIG.A5E;
-    const itemContext = [...items][0]?.type || "item";
+    // const itemContext = [...items][0]?.type || "item";
 
-    function createItem() {
-        const updateData = {
-            name: `New ${itemContext}`,
-            type: itemContext,
-        };
+    function getHeadingTemplateConfiguration(
+        usesRequired,
+        quantityRequired,
+        sheetIsLocked
+    ) {
+        let areas = "name";
+        let columns = "1fr";
 
-        if (label !== "" && itemContext !== "item")
-            updateData[`system.${itemContext}Type`] = label;
+        if (usesRequired) {
+            if (quantityRequired) {
+                areas = "name quantity uses";
+                columns = "1fr 4rem 6.25rem";
+            } else {
+                areas = "name uses";
+                columns = "1fr 6.25rem";
+            }
+        } else if (quantityRequired) {
+            areas = "name quantity";
+            columns = "1fr 4rem";
+        }
 
-        $actor.createEmbeddedDocuments("Item", [updateData]);
+        if (!sheetIsLocked) {
+            areas += ` menu`;
+            columns += ` 2rem`;
+        }
+
+        return { areas: `"${areas}"`, columns };
     }
+
+    function getItemTemplateConfiguration(
+        usesRequired,
+        quantityRequired,
+        sheetIsLocked
+    ) {
+        let areas = "icon name indicators";
+        let columns = "min-content 1fr min-content";
+
+        if (usesRequired) {
+            if (quantityRequired) {
+                areas = "icon name indicators quantity uses";
+                columns = "min-content 1fr min-content 4rem 6.25rem";
+            } else {
+                areas = "icon name indicators uses";
+                columns = "min-content 1fr min-content 6.25rem";
+            }
+        } else if (quantityRequired) {
+            areas = "icon name indicators quantity";
+            columns = "min-content 1fr min-content 4rem";
+        }
+
+        if (!sheetIsLocked) {
+            areas += ` menu`;
+            columns += ` 2rem`;
+        }
+
+        return { areas: `"${areas}"`, columns };
+    }
+
+    // function createItem() {
+    //     const updateData = {
+    //         name: `New ${itemContext}`,
+    //         type: itemContext,
+    //     };
+
+    //     if (label !== "" && itemContext !== "item")
+    //         updateData[`system.${itemContext}Type`] = label;
+
+    //     $actor.createEmbeddedDocuments("Item", [updateData]);
+    // }
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
     $: showSpellPoints = $actor.flags?.a5e?.showSpellPoints ?? false;
+
+    $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
+        usesRequired,
+        quantityRequired,
+        sheetIsLocked
+    );
+
+    $: itemTemplateConfiguration = getItemTemplateConfiguration(
+        usesRequired,
+        quantityRequired,
+        sheetIsLocked
+    );
 </script>
 
 <section class="category-container">
@@ -40,13 +113,10 @@
     {#if !(type === "featureTypes" && $actor.type === "npc")}
         <header
             class="category-header"
-            class:category-header--locked={sheetIsLocked}
-            class:category-header--object={itemContext === "object"}
-            class:category-header--locked-object={sheetIsLocked &&
-                itemContext === "object"}
-            class:category-header--favorites={type === "favorites"}
-            class:category-header--locked-favorites={sheetIsLocked &&
-                type === "favorites"}
+            style="
+                --headingTemplateAreas: {headingTemplateConfiguration.areas};
+                --headingTemplateColumns: {headingTemplateConfiguration.columns}
+            "
         >
             <h3 class="category-heading category-heading--name">
                 <div>
@@ -72,13 +142,15 @@
                 {/if}
             </h3>
 
-            {#if itemContext === "object" || type === "favorites"}
+            {#if quantityRequired}
                 <h3 class="category-heading category-heading--quantity">
                     Quantity
                 </h3>
             {/if}
 
-            <h3 class="category-heading category-heading--uses">Uses</h3>
+            {#if usesRequired}
+                <h3 class="category-heading category-heading--uses">Uses</h3>
+            {/if}
 
             <!-- {#if !sheetIsLocked}
                 <i class="inventory-add-icon a5e-config-button" />
@@ -96,7 +168,11 @@
 
     <ul class="items-container">
         {#each [...items] as item (item.id)}
-            <Item {item} displayAsObject={type === "favorites"} />
+            <Item
+                {item}
+                --itemTemplateAreas={itemTemplateConfiguration.areas}
+                --itemTemplateColumns={itemTemplateConfiguration.columns}
+            />
         {/each}
     </ul>
 </section>
@@ -104,8 +180,8 @@
 <style lang="scss">
     .category-header {
         display: grid;
-        grid-template-areas: "name uses menu";
-        grid-template-columns: 1fr 6.25rem 2rem;
+        grid-template-areas: var(--headingTemplateAreas);
+        grid-template-columns: var(--headingTemplateColumns);
 
         align-items: center;
         gap: 0.5rem;
@@ -113,23 +189,6 @@
         padding: 0 0.5rem 0.25rem 0.125rem;
         text-align: center;
         border-bottom: 1px solid #ccc;
-
-        &--locked {
-            grid-template-areas: "name uses";
-            grid-template-columns: 1fr 6.25rem;
-        }
-
-        &--favorites,
-        &--object {
-            grid-template-areas: "name quantity uses menu";
-            grid-template-columns: 1fr 4rem 6.25rem 2rem;
-        }
-
-        &--locked-favorites,
-        &--locked-object {
-            grid-template-areas: "name quantity uses";
-            grid-template-columns: 1fr 4rem 6.25rem;
-        }
     }
 
     .category-heading {

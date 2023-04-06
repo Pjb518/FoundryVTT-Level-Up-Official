@@ -7,6 +7,9 @@
     import TabFooter from "../TabFooter.svelte";
     import SortFilter from "../SortFilter.svelte";
 
+    import usesRequired from "../../utils/usesRequired";
+    import quantityRequired from "../../utils/quantityRequired";
+
     const actor = getContext("actor");
     const { objects } = actor;
     const { A5E } = CONFIG;
@@ -27,7 +30,13 @@
     <section class="inventory-main-container">
         {#each sortedObjects as [label, items]}
             {#if items.length}
-                <ItemCategory {label} {items} type="objectTypesPlural" />
+                <ItemCategory
+                    {label}
+                    {items}
+                    type="objectTypesPlural"
+                    quantityRequired={quantityRequired(objects)}
+                    usesRequired={usesRequired(objects)}
+                />
             {/if}
         {/each}
     </section>

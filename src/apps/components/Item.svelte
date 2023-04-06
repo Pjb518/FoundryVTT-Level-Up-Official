@@ -13,7 +13,6 @@
     import SpellSummary from "./itemSummaries/SpellSummary.svelte";
     import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
 
-    export let displayAsObject = false;
     export let item;
     export let action = null;
     export let actionId = null;
@@ -100,16 +99,6 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <li
     class="item-wrapper"
-    class:item-wrapper--locked={sheetIsLocked}
-    class:item-wrapper--object={displayAsObject || item.type === "object"}
-    class:item-wrapper--locked-object={sheetIsLocked &&
-        (displayAsObject || item.type === "object")}
-    class:item-wrapper--action={actionId}
-    class:item-wrapper--object-action={item.type === "object" && actionId}
-    class:item-wrapper--locked-action={sheetIsLocked && actionId}
-    class:item-wrapper--locked-object-action={item.type === "object" &&
-        sheetIsLocked &&
-        actionId}
     draggable="true"
     on:dragstart={onDragStart}
     on:click={() => {
@@ -194,8 +183,8 @@
     .item-wrapper {
         position: relative;
         display: grid;
-        grid-template-areas: "icon name indicators uses menu";
-        grid-template-columns: min-content 1fr min-content 6.25rem 2rem;
+        grid-template-areas: var(--itemTemplateAreas);
+        grid-template-columns: var(--itemTemplateColumns);
         column-gap: 0.5rem;
         row-gap: 0;
         align-items: center;
@@ -206,41 +195,6 @@
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
         cursor: pointer;
-
-        &--locked {
-            grid-template-areas: "icon name indicators uses";
-            grid-template-columns: min-content 1fr min-content 6.25rem;
-        }
-
-        &--object {
-            grid-template-areas: "icon name indicators quantity uses menu";
-            grid-template-columns: min-content 1fr min-content 4rem 6.25rem 2rem;
-        }
-
-        &--locked-object {
-            grid-template-areas: "icon name indicators quantity uses";
-            grid-template-columns: min-content 1fr min-content 4rem 6.25rem;
-        }
-
-        &--action {
-            grid-template-areas: "icon name indicators uses menu";
-            grid-template-columns: min-content 1fr min-content 6.25rem 2rem;
-        }
-
-        &--locked-action {
-            grid-template-areas: "icon name indicators uses";
-            grid-template-columns: min-content 1fr min-content 6.25rem;
-        }
-
-        &--object-action {
-            grid-template-areas: "icon name quantity uses menu";
-            grid-template-columns: min-content 1fr 4rem 6.25rem 2rem;
-        }
-
-        &--locked-object-action {
-            grid-template-areas: "icon name quantity uses";
-            grid-template-columns: min-content 1fr 4rem 6.25rem;
-        }
     }
 
     .item-image {
