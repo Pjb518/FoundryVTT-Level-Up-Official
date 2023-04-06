@@ -4,6 +4,8 @@
     import ItemCategory from "../ItemCategory.svelte";
     import SortFilter from "../SortFilter.svelte";
 
+    import usesRequired from "../../utils/usesRequired";
+
     const actor = getContext("actor");
     const { features } = actor;
     const { A5E } = CONFIG;
@@ -23,11 +25,21 @@
 
     <section class="features-main-container">
         {#if $actor.type === "npc"}
-            <ItemCategory label="" items={$features} type="featureTypes" />
+            <ItemCategory
+                label=""
+                items={$features}
+                type="featureTypes"
+                usesRequired={usesRequired($features)}
+            />
         {:else}
             {#each sortedFeatures as [label, items]}
                 {#if items.length}
-                    <ItemCategory {label} {items} type="featureTypes" />
+                    <ItemCategory
+                        {label}
+                        {items}
+                        type="featureTypes"
+                        usesRequired={usesRequired($features)}
+                    />
                 {/if}
             {/each}
         {/if}

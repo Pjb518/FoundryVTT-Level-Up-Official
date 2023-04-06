@@ -168,34 +168,58 @@
     {/if}
 </div>
 
-<div class="button-wrapper">
-    {#if hasRecharge(item)}
-        <button
-            class="action-button fas fa-dice"
-            class:active={rechargeState}
-            data-tooltip={rechargeState
-                ? "A5E.ButtonToolTipCharged"
-                : "A5E.ButtonToolTipRecharge"}
-            data-tooltip-direction="UP"
-            on:click|stopPropagation={() =>
-                item.recharge(actionId, rechargeState)}
-        />
-    {/if}
+{#if !action}
+    <div class="indicator-wrapper">
+        {#if item.type === "spell"}
+            <div class="component-wrapper">
+                {#if item.system.components.vocalized}
+                    <span class="component">V</span>
+                {/if}
 
-    {#if !action}
-        {#if item?.system?.favorite !== undefined}
-            <button
-                class="action-button fas fa-star"
-                class:active={item.system.favorite}
-                data-tooltip="A5E.ButtonToolTipFavorite"
-                data-tooltip-direction="UP"
-                on:click|stopPropagation={() => item.toggleFavorite()}
-            />
+                {#if item.system.components.seen}
+                    <span class="component">S</span>
+                {/if}
+
+                {#if item.system.components.material}
+                    <span class="component">M</span>
+                {/if}
+
+                {#if item.system.concentration}
+                    <span class="component">C</span>
+                {/if}
+
+                {#if item.system.ritual}
+                    <span class="component">R</span>
+                {/if}
+            </div>
         {/if}
 
-        {#if item.type === "object"}
-            {#if item.system.requiresAttunement}
-                <li>
+        <div class="button-wrapper">
+            {#if hasRecharge(item)}
+                <button
+                    class="action-button fas fa-dice"
+                    class:active={rechargeState}
+                    data-tooltip={rechargeState
+                        ? "A5E.ButtonToolTipCharged"
+                        : "A5E.ButtonToolTipRecharge"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() =>
+                        item.recharge(actionId, rechargeState)}
+                />
+            {/if}
+
+            {#if item?.system?.favorite !== undefined}
+                <button
+                    class="action-button fas fa-star"
+                    class:active={item.system.favorite}
+                    data-tooltip="A5E.ButtonToolTipFavorite"
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() => item.toggleFavorite()}
+                />
+            {/if}
+
+            {#if item.type === "object"}
+                {#if item.system.requiresAttunement}
                     <button
                         class="action-button fa-solid fa-link"
                         class:active={item.system.attuned}
@@ -209,10 +233,8 @@
                         data-tooltip-direction="UP"
                         on:click|stopPropagation={() => item.toggleAttunement()}
                     />
-                </li>
-            {/if}
+                {/if}
 
-            <li>
                 <button
                     class="action-button fas fa-shield-alt"
                     class:active={item.system.equipped}
@@ -222,9 +244,7 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleEquipped()}
                 />
-            </li>
 
-            <li>
                 <button
                     class="action-button fas fa-heart-crack"
                     class:active={item.system.broken}
@@ -234,11 +254,9 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleBroken()}
                 />
-            </li>
-        {/if}
+            {/if}
 
-        {#if item.type === "spell"}
-            <li>
+            {#if item.type === "spell"}
                 <button
                     class="action-button fas fa-book"
                     class:active={item.system.prepared}
@@ -248,10 +266,10 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.togglePrepared()}
                 />
-            </li>
-        {/if}
-    {/if}
-</div>
+            {/if}
+        </div>
+    </div>
+{/if}
 
 {#if !actionId && item?.type === "object"}
     <div class="quantity-wrapper">
@@ -297,7 +315,8 @@
     .action-button {
         flex-grow: 0;
         width: fit-content;
-        padding: 0.125rem 0.25rem;
+        padding: 0;
+        margin: 0;
         background: none;
         color: #999;
         border: 0;
@@ -334,12 +353,36 @@
         }
     }
 
-    .button-wrapper {
+    .button-wrapper,
+    .component-wrapper {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        gap: 0.375rem;
+    }
+
+    .button-wrapper {
+        margin-inline: 0.25rem;
+    }
+
+    .component {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        font-size: 0.579rem;
+        background: #c6c5bc;
+    }
+
+    .indicator-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        margin-inline: 0.25rem;
         grid-area: indicators;
-        margin-left: -0.25rem;
     }
 
     .name {
