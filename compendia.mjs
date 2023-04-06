@@ -193,7 +193,8 @@ export function fixIds() {
           numNewIds += 1;
 
           // Update savedId data
-          savedIdData[`${folder.name}.${filename}`] = newId;
+          savedIdData[folder.name] ??= {};
+          savedIdData[folder.name][filename] = newId;
 
           // Edit original file with new Id.
           fs.writeFileSync(file, JSON.stringify(jsonData, null, '\t'), { encoding: 'utf-8' });
