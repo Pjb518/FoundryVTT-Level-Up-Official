@@ -388,11 +388,15 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        gap: 0.375rem;
+    }
+
+    .component-wrapper {
+        gap: 0.25rem;
     }
 
     .button-wrapper {
         margin-inline: 0.25rem;
+        gap: 0.5rem;
     }
 
     .component {
@@ -401,7 +405,7 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: 50%;
+        border-radius: 3px;
         font-size: 0.579rem;
         background: #c6c5bc;
     }
