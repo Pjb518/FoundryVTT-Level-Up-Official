@@ -173,23 +173,53 @@
         {#if item.type === "spell"}
             <div class="component-wrapper">
                 {#if item.system.components.vocalized}
-                    <span class="component">V</span>
+                    <span
+                        class="component"
+                        data-tooltip="A5E.SpellComponentVocalized"
+                        data-tooltip-direction="UP"
+                    >
+                        {localize("A5E.SpellComponentVocalizedAbbr")}
+                    </span>
                 {/if}
 
                 {#if item.system.components.seen}
-                    <span class="component">S</span>
+                    <span
+                        class="component"
+                        data-tooltip="A5E.SpellComponentSeen"
+                        data-tooltip-direction="UP"
+                    >
+                        {localize("A5E.SpellComponentSeenAbbr")}
+                    </span>
                 {/if}
 
                 {#if item.system.components.material}
-                    <span class="component">M</span>
+                    <span
+                        class="component"
+                        data-tooltip="A5E.SpellComponentMaterial"
+                        data-tooltip-direction="UP"
+                    >
+                        {localize("A5E.SpellComponentMaterialAbbr")}
+                    </span>
                 {/if}
 
                 {#if item.system.concentration}
-                    <span class="component">C</span>
+                    <span
+                        class="component"
+                        data-tooltip="A5E.SpellConcentration"
+                        data-tooltip-direction="UP"
+                    >
+                        {localize("A5E.SpellConcentrationAbbr")}
+                    </span>
                 {/if}
 
                 {#if item.system.ritual}
-                    <span class="component">R</span>
+                    <span
+                        class="component"
+                        data-tooltip="A5E.SpellRitual"
+                        data-tooltip-direction="UP"
+                    >
+                        {localize("A5E.SpellRitualAbbr")}
+                    </span>
                 {/if}
             </div>
         {/if}
