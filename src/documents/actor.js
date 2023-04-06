@@ -387,18 +387,25 @@ export default class ActorA5e extends Actor {
   async adjustTrackedConditions(haven, supply) {
     const updates = {};
     const { strife, fatigue } = this.system.attributes;
+    const returnData = { fatigue: 0, strife: 0 };
 
     if (!supply) {
       updates['system.attributes.fatigue'] = fatigue + 1;
+      returnData.fatigue += 1;
     } else if (!haven) {
       updates['system.attributes.strife'] = strife === 1 ? 0 : strife;
       updates['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
+      returnData.strife += strife === 1 ? -1 : 0;
+      returnData.fatigue += fatigue === 1 ? -1 : 0;
     } else {
       updates['system.attributes.strife'] = Math.max(strife - 1, 0);
       updates['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
+      returnData.strife += strife === 0 ? 0 : -1;
+      returnData.fatigue += fatigue === 0 ? 0 : -1;
     }
 
-    this.update(updates);
+    await this.update(updates);
+    return { name: 'trackedConditions', value: returnData };
   }
 
   #configure(key, title, data, options) {
@@ -543,7 +550,7 @@ export default class ActorA5e extends Actor {
   }
 
   async resetHitPoints() {
-    const { baseMax } = this.system.attributes.hp;
+    const { baseMax, value } = this.system.attributes.hp;
 
     this.update({
       'data.attributes.hp': {
@@ -552,20 +559,28 @@ export default class ActorA5e extends Actor {
         temp: 0
       }
     });
+
+    return {
+      name: 'hitPoints',
+      value: baseMax - value
+    };
   }
 
   async restoreExertion() {
     const { exertion } = this.system.attributes;
+    if (!exertion?.recoverOnRest) return undefined;
 
-    if (!exertion?.recoverOnRest) return;
-
+    const toRecover = exertion.max - exertion.current;
     await this.update({
       'data.attributes.exertion.current': exertion.max
     });
+
+    return { name: 'exertion', value: toRecover };
   }
 
   async restoreHitDice() {
     const { hitDice } = this.system.attributes;
+    let recoveredHitDie = 0;
     const updates = {};
 
     const expendedHitDice = Object.entries(hitDice).reduce((acc, [die, { current, total }]) => {
@@ -602,63 +617,89 @@ export default class ActorA5e extends Actor {
             break;
           }
         }
+
+        recoveredHitDie += 1;
       }
     }
 
     await this.update(updates);
+    return {
+      name: 'hitDice',
+      value: quantityToRecover >= expendedHitDiceQuantity
+        ? expendedHitDiceQuantity
+        : recoveredHitDie
+    };
   }
 
   async restoreUses(restType) {
     const restTypes = ['shortRest'];
     const rollData = this.getRollData();
     const items = Array.from(this.items);
+    const numRestored = { item: 0, action: 0 };
+
     if (restType === 'long') restTypes.push('longRest');
 
-    // TODO: Refactor to update all at once.
-    items.forEach(async (item) => {
+    const restore = async (item) => {
       const { uses } = item.system;
 
-      // Restore Item uses
       if (restTypes.includes(uses.per)) {
         if (uses.max) {
           const maxValue = getDeterministicBonus(uses.max, rollData);
-          await item.update({ 'system.uses.value': maxValue });
+          if (uses.value < maxValue) {
+            numRestored.item += (maxValue - uses.value);
+            await item.update({ 'system.uses.value': maxValue });
+          }
         }
       }
 
       // Restore action uses
-      const actions = item.actions.entries();
-      actions.forEach(async ([actionId, action]) => {
-        const [consumerId, consumer] = Object.entries(action.consumers ?? {})
+      const actionIds = item.actions.keys();
+      actionIds.forEach(async (actionId) => {
+        const [consumerId, consumer] = item.actions.getConsumers(actionId)
+          // eslint-disable-next-line no-unused-vars
           .filter(([_, c]) => c.type === 'actionUses')?.[0] ?? [[], []];
 
         if (!consumerId || !consumer) return;
         if (restTypes.includes(consumer.per)) {
           if (consumer.max) {
             const maxValue = getDeterministicBonus(consumer.max, rollData);
-            await item.update({
-              [`system.actions.${actionId}.consumers.${consumerId}.value`]: maxValue
-            });
+            if (maxValue > consumer.value) {
+              numRestored.action += (maxValue - consumer.value);
+              await item.update({
+                [`system.actions.${actionId}.consumers.${consumerId}.value`]: maxValue
+              });
+            }
           }
         }
       });
-    });
+    };
+
+    await Promise.allSettled(items.map((i) => restore(i)));
+
+    return {
+      name: 'uses',
+      value: numRestored
+    };
   }
 
   async restoreSpellResources(restType) {
     const { spellResources } = this.system;
+    const returnData = { slots: 0, points: 0 };
 
+    returnData.points = spellResources.points.max - spellResources.points.current;
     const updates = {
       'system.spellResources.points.current': Math.max(spellResources.points.max, 0)
     };
 
     if (restType === 'long') {
-      Object.entries(spellResources.slots).forEach(([level, { max }]) => {
+      Object.entries(spellResources.slots).forEach(([level, { current, max }]) => {
         updates[`system.spellResources.slots.${level}.current`] = Math.max(max, 0);
+        returnData.slots += (max - current);
       });
     }
 
-    this.update(updates);
+    await this.update(updates);
+    return { name: 'spellResources', value: returnData };
   }
 
   /**
@@ -1041,19 +1082,22 @@ export default class ActorA5e extends Actor {
       consumeSupply, haven, restType, recoverStrifeAndFatigue
     } = restData;
 
+    const restoredData = [];
+
     if (restType === 'long') {
-      await this.resetHitPoints();
-      await this.restoreHitDice();
-      await this.adjustTrackedConditions(haven, recoverStrifeAndFatigue);
+      restoredData.push(await this.resetHitPoints());
+      restoredData.push(await this.restoreHitDice());
+      restoredData.push(await this.adjustTrackedConditions(haven, recoverStrifeAndFatigue));
 
       if (consumeSupply) {
         await this.update({ 'system.supply': Math.max(this.system.supply - 1, 0) });
+        // TODO: Add to data chat
       }
     }
 
-    await this.restoreExertion();
-    await this.restoreUses(restType);
-    await this.restoreSpellResources(restType);
+    restoredData.push(await this.restoreExertion());
+    restoredData.push(await this.restoreUses(restType));
+    restoredData.push(await this.restoreSpellResources(restType));
 
     Hooks.callAll('a5e.restCompleted', this, {
       consumeSupply, haven, restType, recoverStrifeAndFatigue

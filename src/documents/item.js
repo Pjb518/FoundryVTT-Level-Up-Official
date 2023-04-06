@@ -280,7 +280,7 @@ export default class ItemA5e extends Item {
 
     if (!quantity || !this.actor) return;
     const newValue = Math.max(consumer.value - quantity, 0);
-    if (!newValue) return;
+    if (newValue !== 0 && !newValue) return;
 
     await this.update({
       [`system.actions.${actionId}.consumers.${consumerId}.value`]: newValue

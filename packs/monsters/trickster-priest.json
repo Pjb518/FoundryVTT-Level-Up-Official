@@ -58,6 +58,11 @@
 				},
 				"description": "<p><em>Defensive (Medium), Simple</em></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -81,6 +86,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -113,6 +119,11 @@
 				"actions": {},
 				"description": "<p><strong><em>Spellcasting.</em></strong> The trickster priest is a 5th level spellcaster. Their spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). They have the following cleric spells prepared:</p><p>Cantrips (at will):<em> sacred flame , thaumaturgy , minor illusion</em></p><p>1st-level (4 slots): <em>ceremony , detect evil and good , healing word , disguise self</em></p><p>2nd-level (3 slots): <em>lesser restoration , invisibility</em></p><p>3rd-level (2 slots): <em>spirit guardians , major image</em></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -164,1032 +175,6 @@
 			}
 		},
 		{
-			"_id": "AGmwV6vWi7gQAyvQ",
-			"name": "Ceremony",
-			"type": "spell",
-			"img": "icons/commodities/treasure/token-gold-cross.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ujd2quy7frrynwpw"
-				}
-			},
-			"system": {
-				"actions": {
-					"NZVL5aoPWTqXbkpt": {
-						"name": "Ceremony",
-						"activation": {
-							"cost": 1,
-							"type": "hour",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"YrrMgTsUJACq23Ya": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creatureObject"
-						},
-						"consumers": {
-							"WZ4ryQdLcG4V3Xv5": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "25 gold worth of incense, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": true,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "mLwZFOUeyMEg4oC1",
-			"name": "Detect Evil and Good",
-			"type": "spell",
-			"img": "icons/magic/symbols/star-yellow.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.c2lb980w3kn6lhni"
-				}
-			},
-			"system": {
-				"actions": {
-					"EiAK22QlxWgmKHU6": {
-						"name": "Detect Evil and Good",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"XUJu3WNDiXLma039": {
-								"range": "30-foot radius"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"oA1uZnExDrEo2Ou8": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"divine",
-						"senses"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "l4ZSLoTrHFFcsRGH",
-			"name": "Healing Word",
-			"type": "spell",
-			"img": "icons/magic/life/heart-cross-strong-green.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.dlwvgtqpyi83cbnq"
-				}
-			},
-			"system": {
-				"actions": {
-					"Ll5MVZUJ3lzj3EkP": {
-						"name": "Healing Word",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"BiPITli355TVLk0E": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"UeIjU7SuF4jZjgdl": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 1st.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8OI1rKpLk5AxS13s",
-			"name": "Lesser Restoration",
-			"type": "spell",
-			"img": "icons/magic/life/heart-cross-strong-green.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.hsbw077qaf8rd1v1"
-				}
-			},
-			"system": {
-				"actions": {
-					"GkgU9ILpd8G83n64": {
-						"name": "Lesser Restoration",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Jjaatmyofx4DsxWd": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"s3gNFQMO58nTGdBF": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator's discretion, some diseases might not be curable with this spell.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"divine",
-						"good",
-						"healing"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "TgfzGEPBJ6xe11cW",
-			"name": "Sacred Flame",
-			"type": "spell",
-			"img": "icons/magic/light/projectile-beam-yellow.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.gw4sd32keei33yrr"
-				}
-			},
-			"system": {
-				"actions": {
-					"sSr1EgZcRSTV8icA": {
-						"name": "Sacred Flame",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Bccr9qBuIW7VFFRI": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"KlyguaVU3HeN6ys1": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "(floor((@details.level+1)/6)+1)d8",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"PyeDC5SqxabELO5s": {
-								"ability": "dex",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"attack",
-						"divine",
-						"radiant"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effect",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "SxMyXOmPEl7Wysik",
-			"name": "Thaumaturgy",
-			"type": "spell",
-			"img": "icons/magic/symbols/runes-triangle-magenta.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.i6rs5jkmx2gqx2dx"
-				}
-			},
-			"system": {
-				"actions": {
-					"fkCUROeo7PcCGnvX": {
-						"name": "Thaumaturgy",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"rqLkTpvd4H4Wo92E": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other",
-							"size": "Other"
-						}
-					}
-				},
-				"description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li>Your voice booms up to three times louder than normal</li><li>You cause flames to flicker, brighten, dim, or change color</li><li>You send harmless tremors throughout the ground.</li><li>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.</li><li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li><li>You alter the appearance of your eyes.</li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"divine",
-						"enhancement"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "0DXUcr4vIOMWIfLQ",
-			"name": "Spirit Guardians",
-			"type": "spell",
-			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-			"effects": [],
-			"folder": "5m83AY7I6cd0DjLm",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.tkarsgterkol98pe"
-				}
-			},
-			"system": {
-				"actions": {
-					"sjrNtsj1tIwJ0BHY": {
-						"name": "Spirit Guardians",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"hrlJMzR2TlBASD9v": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "sphere",
-							"size": "10 ft."
-						},
-						"rolls": {
-							"j2bPV6U6NUmIvZhb": {
-								"canCrit": false,
-								"damageType": "radiant",
-								"formula": "3d6",
-								"name": "Radiant",
-								"type": "damage"
-							},
-							"6ajq1GGk3L1ZR76W": {
-								"canCrit": false,
-								"damageType": "necrotic",
-								"formula": "3d6",
-								"name": "Necrotic",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"ezvAJQ4zxOSQXDuP": {
-								"ability": "wis",
-								"onSave": "Half damage damage",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"hH4qla82ZC2nLcTa": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "holy symbol",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"divine",
-						"necrotic",
-						"radiant"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Half damage damage",
-					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Minor Illusion",
-			"type": "spell",
-			"img": "icons/magic/symbols/runes-triangle-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.4oruofw2q7gso9hq"
-				}
-			},
-			"system": {
-				"actions": {
-					"4YQku4wAFEmaLN3y": {
-						"name": "Minor Illusion",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"RH6UgHq6zkSJDuBW": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"width": "5",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"QRGQvmJUN8Gge1dH": {
-								"ability": "str",
-								"type": "abilityCheck"
-							}
-						}
-					}
-				},
-				"description": "<p>This spell creates a sound or image of an object.</p><p>The illusion disappears if dismissed or you cast the spell again.</p><p>You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the spell ends. Sounds are audible outside the spell's area.</p><p>Visual illusions may replicate any image and remain within the spell's area, but cannot create sound, light, smell, or other sensory effects.</p><p>The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": false,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "tinderbox and small mirror",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"_id": "oTWkynLQGTuzpirY",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Disguise Self",
-			"type": "spell",
-			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.vemj08hawvmf44ya"
-				}
-			},
-			"system": {
-				"actions": {
-					"TSi7NBPtuLtjQA71": {
-						"name": "Disguise Self",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"RwknFYINQhLuwJta": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"rolls": {
-							"uagLHtlx73yahUdZ": {
-								"ability": "str",
-								"type": "abilityCheck"
-							}
-						},
-						"consumers": {
-							"iRUH7lzkhh8x4qW9": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"_id": "EBvQu4msTV6cmTMQ",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Invisibility",
-			"type": "spell",
-			"img": "icons/creatures/webs/webthin-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
-				}
-			},
-			"system": {
-				"actions": {
-					"K7L0xHwqos5LvHiI": {
-						"name": "Invisibility",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"1yPkh4aMJvoxN6aV": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"6VV8pgdTuKvFGGTN": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "piece of a veil",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement",
-						"shadow"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"_id": "f3vBwlU3fvvnDLJK",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Major Image",
-			"type": "spell",
-			"img": "icons/magic/symbols/runes-star-magenta.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.eceeym81z9dq6r58"
-				}
-			},
-			"system": {
-				"actions": {
-					"aKc71GfZJlAiyiAJ": {
-						"name": "Major Image",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"zP1nXrMMYrq73AIF": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"width": "20",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"7NMalloP7XYuEHy0": {
-								"ability": "str",
-								"type": "abilityCheck"
-							}
-						},
-						"consumers": {
-							"G2o1XK7g7nkLCTdf": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "tinderbox and small mirror",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"_id": "WjRVLpHWPYCKHCWl",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Leather, Padded",
 			"type": "object",
 			"img": "icons/equipment/chest/vest-leather-brown.webp",
@@ -1203,6 +188,11 @@
 				"actions": {},
 				"description": "<p><em>Comfortable, Flaw (Piercing)</em></p><p><strong>AC 12</strong></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1229,6 +219,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -1340,6 +331,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1430,6 +426,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1511,6 +512,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1592,6 +598,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1673,6 +684,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1754,6 +770,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1780,6 +801,1098 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "SUZTDCLsU8xT0nqV"
+		},
+		{
+			"name": "Ceremony",
+			"type": "spell",
+			"img": "icons/commodities/treasure/token-gold-cross.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bq5bki8n1gfhrqz1"
+				}
+			},
+			"system": {
+				"actions": {
+					"cBo77Vw7V3BeIdsm": {
+						"name": "Ceremony",
+						"activation": {
+							"cost": 1,
+							"type": "hour",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"w9OTwZI36lonAMVy": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"eMwZZlceSbL9vZGr": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "25 gold worth of incense, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "dskePOVNoorDieDX",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Detect Evil and Good",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.jlqrjd03lyl8zb3c"
+				}
+			},
+			"system": {
+				"actions": {
+					"G0DcVgQdfe1ColYJ": {
+						"name": "Detect Evil and Good",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MypYiO8SB0olt3xP": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"aHSOrc2QtsEjaYxa": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"senses"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "BxJ3ts1kIb2tv0tb",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Heal",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
+				}
+			},
+			"system": {
+				"actions": {
+					"XWJ26F7JXKHF8yMo": {
+						"name": "Heal",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"U6bNDrDcAEZ0UYdu": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"J8L7y8BndXrGBe7j": {
+								"defaultSelection": true,
+								"formula": "70",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing"
+							}
+						},
+						"consumers": {
+							"jfElxc8HGrXhyRja": {
+								"mode": "variable",
+								"spellLevel": 6,
+								"points": 9,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "2yjShtJuPL1TAfAI",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Lesser Restoration",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.sgiwn0n20mnf1ddx"
+				}
+			},
+			"system": {
+				"actions": {
+					"SnYRAabnSRZV8Ikm": {
+						"name": "Lesser Restoration",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"hxsq198ncdX1d0Kw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"ZlMEcTNu69JSlhhs": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator's discretion, some diseases might not be curable with this spell.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"divine",
+						"good",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "o3o7PpD4rm16tVUI",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Sacred Flame",
+			"type": "spell",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"system": {
+				"actions": {
+					"GRovtgPMBRtWUICh": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SXFYtkwUpfIHcCkZ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"L1nL06P1tAgjXyw7": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"defaultSelection": true,
+								"formula": "1d8",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d8"
+								}
+							}
+						},
+						"prompts": {
+							"F19vETbdh2bsjnOg": {
+								"ability": "dex",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"attack",
+						"divine",
+						"radiant"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "dex"
+				}
+			},
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.tvtm60k5wxyki9qc"
+				}
+			},
+			"_id": "opzrEAYjgHqksJs1",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Thaumaturgy",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-triangle-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.eiek2vbzwijd0qac"
+				}
+			},
+			"system": {
+				"actions": {
+					"C81Tjb3bGFMAmLth": {
+						"name": "Thaumaturgy",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"Qkcopjbm7HCEhXJl": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						}
+					}
+				},
+				"description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li>Your voice booms up to three times louder than normal</li><li>You cause flames to flicker, brighten, dim, or change color</li><li>You send harmless tremors throughout the ground.</li><li>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.</li><li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li><li>You alter the appearance of your eyes.</li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"divine",
+						"enhancement"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "RElsfAyarBGfb7p4",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Spirit Guardians",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.pbtje70pd17ouy83"
+				}
+			},
+			"system": {
+				"actions": {
+					"L7jpMaxyGrl891Gg": {
+						"name": "Spirit Guardians",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"Z8fAZ0uNnx7BTz3J": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "10",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"bzqvKXJCFa0DUjdb": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"formula": "3d6",
+								"name": "Radiant",
+								"type": "damage"
+							},
+							"ufv1Zd8aRryexzJ8": {
+								"canCrit": false,
+								"damageType": "necrotic",
+								"formula": "3d6",
+								"name": "Necrotic",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"YEdu8ahM9DVK6DKC": {
+								"ability": "wis",
+								"onSave": "Half damage damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"O0Omz2eSU0vLIW8E": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "holy symbol",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"divine",
+						"necrotic",
+						"radiant"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage damage",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "bFB960TPC6QRJ7Za",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Minor Illusion",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-triangle-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4oruofw2q7gso9hq"
+				}
+			},
+			"system": {
+				"actions": {
+					"E35XlttsWxB5FnmT": {
+						"name": "Minor Illusion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"se35QzCtXPzV8lJb": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "5",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"FZWnsRYQ9mVJvYuF": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						}
+					}
+				},
+				"description": "<p>This spell creates a sound or image of an object.</p><p>The illusion disappears if dismissed or you cast the spell again.</p><p>You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the spell ends. Sounds are audible outside the spell's area.</p><p>Visual illusions may replicate any image and remain within the spell's area, but cannot create sound, light, smell, or other sensory effects.</p><p>The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": false,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "pOeIoXhvczl9povZ",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Disguise Self",
+			"type": "spell",
+			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.vemj08hawvmf44ya"
+				}
+			},
+			"system": {
+				"actions": {
+					"0qEkbCJOCXxfm5km": {
+						"name": "Disguise Self",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"iJ3osELZvlki2bnh": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"rolls": {
+							"s94L7q2SUWlijC86": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"2DofRkvcuvCYUUGH": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "pWm8pZY8BVRDryol",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Invisibility",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
+				}
+			},
+			"system": {
+				"actions": {
+					"JmYFAmw4m4fpTJH3": {
+						"name": "Invisibility",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"njg9gnRa30ArNRv0": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"DRrTTB0zIu3uhw9q": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of a veil",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "2SRo7B2pV4eh0FrB",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Major Image",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.eceeym81z9dq6r58"
+				}
+			},
+			"system": {
+				"actions": {
+					"sFbY1tEuMywZVRdY": {
+						"name": "Major Image",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"jwOTYlK7EkmsLoJN": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"DpQJ4eJTxDlY4vpD": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"MIdxw4Qm8XXheMGg": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "fQcOJcvEC1ofIHo4",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2252,7 +2365,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "wis"
+			"spellcasting": "wis",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

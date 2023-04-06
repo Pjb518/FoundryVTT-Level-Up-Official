@@ -20,6 +20,11 @@
 				"actions": {},
 				"description": "",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -46,6 +51,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -104,6 +110,11 @@
 				"actions": {},
 				"description": "<p>Medium shields increase your Armor Class by 2.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -127,6 +138,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -242,6 +254,11 @@
 				},
 				"description": "",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -265,6 +282,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -327,6 +345,11 @@
 				},
 				"description": "<p>Until the end of the soldier's turn, their Speed is halved and their movement doesn't provoke opportunity attacks.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -361,6 +384,11 @@
 				"actions": {},
 				"description": "<p>The soldier has advantage on saving throws against illusions and to resist being charmed or paralyzed.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -424,6 +452,11 @@
 				"actions": {},
 				"description": "<p>The deep dwarf can innately cast <em>enlarge/reduce</em> (self only, enlarge only) and <em>invisibility</em> (self only) once per long rest without using material components, using Intelligence for their spellcasting ability.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -544,6 +577,11 @@
 				},
 				"description": "",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -567,6 +605,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -575,198 +614,6 @@
 				],
 				"weight": 2,
 				"ability": "default",
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "DkckM98iOAXvCxz3",
-			"name": "Enlarge/Reduce (Self only, Enlarge only)",
-			"type": "spell",
-			"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.sqn5y84c197qribb"
-				}
-			},
-			"system": {
-				"actions": {
-					"bSauoEeGrQ1X2HGJ": {
-						"name": "Enlarge/Reduce (Self only, Enlarge only)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"60e0w1OJ8u78GvH2": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "self"
-						},
-						"prompts": {
-							"bXXkPJbXLaNBKzVR": {
-								"ability": "con",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "custom",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"NQllqWwgDMBfChRL": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You cause the target to grow or shrink. An unwilling target may attempt a saving throw to resist the spell.</p><p>If the target is a creature, all items worn or carried by it also change size with it, but an item dropped by the target immediately returns to normal size.</p><ul class=\"indentedSelection\"><li><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</li><li><strong>Reduce:</strong> Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</li></ul></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 4th-level, you can cause the target and its gear to increase by two size categories&mdash;from Medium to Huge, for example. Until the spell ends, the target's size is quadrupled in all dimensions, multiplying its weight twentyfold. The target has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 2d4 damage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "powdered iron",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"affliction",
-						"arcane",
-						"enhancement",
-						"transformation"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "Negates effect",
-					"targetAbility": "con"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "LGJ1aMsTEIGlnP6R",
-			"name": "Invisibility (Self Only)",
-			"type": "spell",
-			"img": "icons/creatures/webs/webthin-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.v2mrdbcfbtb3awpp"
-				}
-			},
-			"system": {
-				"actions": {
-					"HS2IVjmUW44NZ2BI": {
-						"name": "Invisibility (Self Only)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"tly4djyuYkkjRYmq": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "self"
-						},
-						"consumers": {
-							"RPhizQ9Z1Qrkvfc8": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "piece of a veil",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement",
-						"shadow"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
 				"save": {
 					"dc": "",
 					"onSave": "",
@@ -840,6 +687,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -930,6 +782,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1011,6 +868,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1092,6 +954,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1173,6 +1040,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1254,6 +1126,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1280,6 +1157,208 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "KqJbWsiuG0u7TOAh"
+		},
+		{
+			"name": "Enlarge/Reduce",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ap6klied8mqbclvn"
+				}
+			},
+			"system": {
+				"actions": {
+					"jZPEQ1RNMefqKO0d": {
+						"name": "Enlarge/Reduce",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"fIY8VQlDxQa6alnc": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"prompts": {
+							"tFZABqrhAEre0tc4": {
+								"ability": "con",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"saqA3C6TyR5NAitg": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You cause the target to grow or shrink. An unwilling target may attempt a saving throw to resist the spell.</p><p>If the target is a creature, all items worn or carried by it also change size with it, but an item dropped by the target immediately returns to normal size.</p><ul class=\"indentedSelection\"><li><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</li><li><strong>Reduce:</strong> Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</li></ul></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 4th-level, you can cause the target and its gear to increase by two size categories&mdash;from Medium to Huge, for example. Until the spell ends, the target's size is quadrupled in all dimensions, multiplying its weight twentyfold. The target has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 2d4 damage.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "powdered iron",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"affliction",
+						"arcane",
+						"enhancement",
+						"transformation"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates effect",
+					"targetAbility": "con"
+				}
+			},
+			"_id": "rkmeOOQGHSrMflyt",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Invisibility",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
+				}
+			},
+			"system": {
+				"actions": {
+					"JmYFAmw4m4fpTJH3": {
+						"name": "Invisibility",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"njg9gnRa30ArNRv0": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"DRrTTB0zIu3uhw9q": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of a veil",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "24a7eyDeSZ2SBAmG",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1749,7 +1828,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int"
+			"spellcasting": "int",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

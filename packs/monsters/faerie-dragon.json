@@ -20,6 +20,11 @@
 				"actions": {},
 				"description": "<p>The pixie has advantage on saving throws against spells and magical effects.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -109,6 +114,11 @@
 				},
 				"description": "<p>The dragon and any equipment it wears or carries magically turns invisible. This invisibility ends if the dragon falls unconscious, dismisses the effect, or uses Bite, Euphoria Breath, Prismatic Light, or Beast Form.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -143,6 +153,11 @@
 				"actions": {},
 				"description": "<p>The dragon’s innate spellcasting ability is Charisma (spell save DC 13). It can innately cast spells, requiring no material components. The dragon gains additional spells as it ages.</p><p>5 years old, at will: dancing lights, mage hand, minor illusion</p><p>10 years old, 1/day: suggestion</p><p>30 years old, 1/day: major image</p><p>50 years old, 1/day: hallucinatory terrain</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -249,6 +264,11 @@
 				},
 				"description": "",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -321,6 +341,11 @@
 				},
 				"description": "<p>The dragon breathes an intoxicating gas at a creature within 5 feet. The target makes a DC 11 Wisdom saving throw. On a failure, the target is confused for 1 minute. The target repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -398,6 +423,11 @@
 				},
 				"description": "<p>The dragon’s scales pulse with light. Each creature within 15 feet that can see the dragon makes a DC 13 Wisdom saving throw. On a failure, the creature is magically blinded until the end of its next turn.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -475,6 +505,11 @@
 				},
 				"description": "<p>The dragon targets one creature within 15 feet. The target makes a DC 13 Wisdom saving throw. On a failure, it is magically trans- formed into a harmless Tiny beast, such as a mouse or a songbird, for 1 minute. While in this form, its statistics are unchanged, except it can’t speak or take actions, reactions, or bonus actions. It gains movement modes appropriate to its form, such as a climb or fly speed, of up to 30 feet. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. The effect also ends if the target takes damage.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -489,546 +524,6 @@
 				"save": {
 					"dc": 13,
 					"onSave": "Avoids effects.",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7HhxpsVER0OXwmSu",
-			"name": "Dancing Lights",
-			"type": "spell",
-			"img": "icons/magic/light/orbs-smoke-pink.webp",
-			"effects": [],
-			"folder": "4zi2oumXB3ucglr9",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.KZknM143CgjX1Z0l"
-				}
-			},
-			"system": {
-				"actions": {
-					"if05OeBB4DIndab2": {
-						"name": "Dancing Lights",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"OUVIDKEBzz3EIiBV": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "",
-							"shape": "",
-							"size": ""
-						}
-					}
-				},
-				"description": "<p> You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 0,
-				"materials": "bit of phosphorus or wychwood, or a glowworm",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "5UOP3vtTN4mktiuJ",
-			"name": "Mage Hand",
-			"type": "spell",
-			"img": "icons/equipment/hand/gauntlet-tooled-leather-blue.webp",
-			"effects": [],
-			"folder": "4zi2oumXB3ucglr9",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.RxR8HyXVnMyFGAIH"
-				}
-			},
-			"system": {
-				"actions": {
-					"HMGlspGgcfJyhg7n": {
-						"name": "Mage Hand",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"kvQcu3UJstVaKW0w": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "",
-							"shape": "",
-							"size": ""
-						}
-					}
-				},
-				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following: </p><ul><li><p>manipulate an object. </p></li><li><p>open an unlocked container or door. stow or retrieve items from unlocked containers. </p></li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "0bwg35RoWMgznLFu",
-			"name": "Minor Illusion",
-			"type": "spell",
-			"img": "icons/magic/control/silhouette-aura-energy.webp",
-			"effects": [],
-			"folder": "4zi2oumXB3ucglr9",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.UrUy2eM4J81KHLbl"
-				}
-			},
-			"system": {
-				"actions": {
-					"fJfcwSe2aPeTeXHj": {
-						"name": "Minor Illusion",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"Gnlj5Wvt0kx5B1ls": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"size": "5",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area"
-						}
-					}
-				},
-				"description": "<p>This spell creates a sound or image of an object. The illusion disappears if dismissed or you cast the spell again.</p>\n<p>You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the spell ends. Sounds are audible outside the spell's area.</p>\n<p>Visual illusions may replicate any image and remain within the spell's area, but cannot create sound, light, smell, or other sensory effects.</p>\n<p>The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": false,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "Tinderbox and small mirror",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "hq0FbsvRxXYEphBt",
-			"name": "Suggestion (10 Years Old)",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "Oop9uuTAYq4JfCKs",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.7Dy47xzGNoHkmcig"
-				}
-			},
-			"system": {
-				"actions": {
-					"i7zhLfaoI9viyFCX": {
-						"name": "Suggestion (10 Years Old)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 8
-						},
-						"ranges": {
-							"RguG8gR6B7QiIUxl": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"ZWUiW4i5DOuSTcAi": {
-								"ability": "wis",
-								"onSave": "Avoids effects.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "13"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"03q5nD3XNgFBbUD0": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							},
-							"8DW0KTYRt3sU89zb": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p>Cast at Higher Levels. When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled. Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": true,
-				"level": "2",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 13,
-					"onSave": "Avoids effects.",
-					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "U2FPA02wiD95wD7O",
-			"name": "Major Image (30 Years Old)",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "ivVeslnH00NYNOhz",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.tqktn3Ml0v7Xwxck"
-				}
-			},
-			"system": {
-				"actions": {
-					"fdgOGVUYMCxxQn6K": {
-						"name": "Major Image (30 Years Old)",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"tLZsoClwraQLLmwK": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "",
-							"shape": "",
-							"size": ""
-						},
-						"consumers": {
-							"xFbY1EwcxFOXuu4D": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							},
-							"qRWuCTDbkfk17qJn": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p>Cast at Higher Levels. When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": "3",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "RdyPCdyo3KqlH1Ih",
-			"name": "Hallucinatory Terrain (50 Years Old)",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "N9De5UiRnGMiOlKC",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.RxGaYbqXZYNGqb5q"
-				}
-			},
-			"system": {
-				"actions": {
-					"TvegtarpGAXEqiNR": {
-						"name": "Hallucinatory Terrain (50 Years Old)",
-						"activation": {
-							"cost": 10,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 24
-						},
-						"ranges": {
-							"njBZ8dee7gf4Q1lj": {
-								"range": "300ft"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"size": "150ft",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "",
-							"shape": "",
-							"size": ""
-						},
-						"consumers": {
-							"K6gsDGWhtCP18pVe": {
-								"mode": "variable",
-								"spellLevel": 4,
-								"points": 6,
-								"type": "spell"
-							},
-							"Osk5OuBCuqXrnzoD": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>You weave a veil over the natural terrain within the area, making it look, sound, or smell like another sort of terrain. A small lake could be made to look like a grassy glade. A path or trail could be made to look like an impassable swamp. A cliff face could even appear as a gentle slope or seem to extend further than it does. This spell does not affect any manufactured structures, equipment, or creatures.</p><p>Only the visual, auditory, and olfactory components of the terrain are changed. Any creature that enters or attempts to interact with the illusion feels the real terrain below. If given sufficient reason, a creature may make an Investigation check against your spell save DC to disbelieve it. On a successful save, the creature sees the illusion superimposed over the actual terrain.</p><p>Cast at Higher Levels. The spell targets an additional 50-foot cube for each slot level above 4th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": "4",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"obscurement",
-						"terrain"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
 					"targetAbility": ""
 				}
 			},
@@ -1099,6 +594,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1189,6 +689,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1270,6 +775,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1351,6 +861,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1432,6 +947,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1513,6 +1033,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1539,6 +1064,575 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "6lnQw34jHc6nqEZy"
+		},
+		{
+			"name": "Dancing Lights",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-trio-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.kh26gom04osoo005"
+				}
+			},
+			"system": {
+				"actions": {
+					"ujamq8LIqiSNoAYw": {
+						"name": "Dancing Lights",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"vZh5NgxuSNZSsAbg": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						}
+					}
+				},
+				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 0,
+				"materials": "bit of phosphorus or wychwood, or a glowworm",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "OJU5MOVipkcuY7YK",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Mage Hand",
+			"type": "spell",
+			"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.mocigztrqyoks506"
+				}
+			},
+			"system": {
+				"actions": {
+					"Eu9YDiwyizN1E1zh": {
+						"name": "Mage Hand",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"jTIF5jsoF1Um2nVk": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						}
+					}
+				},
+				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "yosK402KrWK8QkIG",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Minor Illusion",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-triangle-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4oruofw2q7gso9hq"
+				}
+			},
+			"system": {
+				"actions": {
+					"E35XlttsWxB5FnmT": {
+						"name": "Minor Illusion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"se35QzCtXPzV8lJb": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "5",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"FZWnsRYQ9mVJvYuF": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						}
+					}
+				},
+				"description": "<p>This spell creates a sound or image of an object.</p><p>The illusion disappears if dismissed or you cast the spell again.</p><p>You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the spell ends. Sounds are audible outside the spell's area.</p><p>Visual illusions may replicate any image and remain within the spell's area, but cannot create sound, light, smell, or other sensory effects.</p><p>The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": false,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "sVDsdPIZDw8DG4AN",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Suggestion",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ml9ls27u9ncms8ko"
+				}
+			},
+			"system": {
+				"actions": {
+					"HAVBAuWUd77vIkT2": {
+						"name": "Suggestion",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"R8AfmhfWgZcrAOnB": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"iZ04XZe1LejKYG9l": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"JBYitl72VOJ0ekAC": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "miniature bottle of red wine and some soap",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "nPeLyyDLB0F2G2js",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Major Image",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.eceeym81z9dq6r58"
+				}
+			},
+			"system": {
+				"actions": {
+					"sFbY1tEuMywZVRdY": {
+						"name": "Major Image",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"jwOTYlK7EkmsLoJN": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"DpQJ4eJTxDlY4vpD": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"MIdxw4Qm8XXheMGg": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "3rfUOB3qn6K0zUUp",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Hallucinatory Terrain",
+			"type": "spell",
+			"img": "icons/environment/wilderness/terrain-forest-gray.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.1k3940gaxkcoqofp"
+				}
+			},
+			"system": {
+				"actions": {
+					"2V0S8E7sZkKxG0B3": {
+						"name": "Hallucinatory Terrain",
+						"activation": {
+							"cost": 10,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"vTRm9yOLvFLU9ghg": {
+								"range": "300 feet"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "150",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"YHPBxPzGtb4wXnLF": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"Iec9xxoYuEAyNjVS": {
+								"mode": "variable",
+								"spellLevel": 4,
+								"points": 6,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You weave a veil over the natural terrain within the area, making it look, sound, or smell like another sort of terrain. A small lake could be made to look like a grassy glade. A path or trail could be made to look like an impassable swamp. A cliff face could even appear as a gentle slope or seem to extend further than it does. This spell does not affect any manufactured structures, equipment, or creatures.</p><p>Only the visual, auditory, and olfactory components of the terrain are changed. Any creature that enters or attempts to interact with the illusion feels the real terrain below. If given sufficient reason, a creature may make an Investigation check against your spell save DC to disbelieve it. On a successful save, the creature sees the illusion superimposed over the actual terrain.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell targets an additional 50-foot cube for each slot level above 4th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "bit of dirt from the area",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"obscurement",
+						"terrain"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "qXHWK8Vn5VW3AE2p",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2011,7 +2105,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "cha"
+			"spellcasting": "cha",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

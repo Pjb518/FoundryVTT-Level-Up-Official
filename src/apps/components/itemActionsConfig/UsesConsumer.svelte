@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import handleDeterministicInput from "../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let consumer;
@@ -62,12 +63,14 @@
                 <input
                     type="text"
                     value={consumer.max ?? ""}
-                    on:change={({ target }) =>
+                    on:change={({ target }) => {
+                        handleDeterministicInput(target.value);
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.consumers.${consumerId}.max`,
                             target.value
-                        )}
+                        );
+                    }}
                 />
             </div>
 

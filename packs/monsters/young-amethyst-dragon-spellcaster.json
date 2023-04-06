@@ -43,6 +43,11 @@
 				},
 				"description": "<p>The dragon is aware of any creature that uses a psionic ability or communicates telepathically within 100 miles of it. As an action, the dragon can psionically observe a creature, object, or location it is familiar with within 100 miles. While observing a subject in this way, the dragon can see, hear, and communicate telepathically, but it is blind and deaf in regard to its physical senses and does not require food or water. The dragon can psionically observe a subject indefinitely and can end this effect and return to its own senses as an action.</p><p style=\"text-align: start\"></p><p><br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -77,6 +82,11 @@
 				"actions": {},
 				"description": "<p>The dragon’s spellcasting ability is Charisma (save DC 15). It can innately cast the following spells, requiring no material components.&nbsp;</p><p style=\"text-align: start\">&nbsp; &nbsp;3/day each:&nbsp;<em>calm emotions</em>, <em>charm person</em></p><p><br></p><p><br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -162,6 +172,11 @@
 				},
 				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -246,6 +261,11 @@
 				},
 				"description": "<p>On hit, piercing damage and force damage.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -323,6 +343,11 @@
 				},
 				"description": "<p>On hit, slashing damage</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -404,6 +429,11 @@
 				},
 				"description": "<p>The dragon psionically unleashes telekinetic energy in a 30-foot cone. Each creature in that area makes a DC 15 Constitution saving throw, taking force damage on a failed save or half damage on a success.&nbsp;&nbsp;</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -419,214 +449,6 @@
 					"dc": 15,
 					"onSave": "Half Damage",
 					"targetAbility": "con"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "bPoJfDBrm61TMGbP",
-			"name": "Calm Emotions",
-			"type": "spell",
-			"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.r0wqtm9exiohkkhc"
-				}
-			},
-			"system": {
-				"actions": {
-					"wCUZWyzXbMbOdB8z": {
-						"name": "Calm Emotions",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"t99d3Yfbpb27fg8f": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "sphere",
-							"size": "20 ft."
-						},
-						"prompts": {
-							"UXL2RkAHmXWpIGOv": {
-								"ability": "cha",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"0ptqTFs4pDMCceN9": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							},
-							"f0K1OTK2aULO6I4E": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.</p><ul><li><p>Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).</p></li><li><p>Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The spell area increases by 10 feet for each slot level above 2nd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"divine",
-						"negation"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effect",
-					"targetAbility": "cha"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "mQPSTRJtl7o1jEiF",
-			"name": "Charm Person",
-			"type": "spell",
-			"img": "icons/magic/control/control-influence-puppet.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.vmwiw8vaknau8vqg"
-				}
-			},
-			"system": {
-				"actions": {
-					"uf7GiEBgIVMVxn2i": {
-						"name": "Charm Person",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"S6G074mhFm3tjxST": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"prompts": {
-							"fWsoJWnDOWT0PtDX": {
-								"ability": "wis",
-								"onSave": "Negates effect",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"vEizCfYkIiVfNuOc": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							},
-							"V60g8PtpwAnqm7MY": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Negates effect",
-					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -696,6 +518,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -786,6 +613,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -867,6 +699,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -948,6 +785,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1029,6 +871,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1110,6 +957,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1136,6 +988,216 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "93371znuGjKrByfx"
+		},
+		{
+			"name": "Calm Emotions",
+			"type": "spell",
+			"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.hnvt4tnuww6o4vvi"
+				}
+			},
+			"system": {
+				"actions": {
+					"ufObJfD1mxRnZh4P": {
+						"name": "Calm Emotions",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"aX1qnoFLNKgcwsAN": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"axeiGTkHDvOAur6e": {
+								"ability": "cha",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"c0N2ddVfCHpk15nu": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.</p><ul><li><p>Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).</p></li><li><p>Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The spell area increases by 10 feet for each slot level above 2nd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"divine",
+						"negation"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "cha"
+				}
+			},
+			"_id": "fnD8HrhwfPEqyHf9",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Charm Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.zf1kpjwhg9fabe01"
+				}
+			},
+			"system": {
+				"actions": {
+					"F8BStUMZ0QkuHIWs": {
+						"name": "Charm Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"D03zfzZhGAKBLTsK": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"pvX82eum3zUAY8rx": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"4gmBaqwWp60lu6xF": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "QcrPCPcCNdpWSEzc",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1607,7 +1669,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "cha"
+			"spellcasting": "cha",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

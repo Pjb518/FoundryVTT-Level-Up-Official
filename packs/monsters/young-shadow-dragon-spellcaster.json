@@ -20,6 +20,11 @@
 				"actions": {},
 				"description": "<p>The dragon radiates an Evil aura.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -87,6 +92,11 @@
 				"actions": {},
 				"description": "<p>The dragon can move through other creatures and objects. It takes 11 (2d10) force damage if it ends its turn inside an object.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -154,6 +164,11 @@
 				"actions": {},
 				"description": "<p>The essence dragon is spiritually linked to a specific area or landmark. The dragon gains no benefit from a long rest when more than 1 mile away from its linked area. If the dragon dies, the area it is linked to loses its vital essence until it forms a new essence dragon, which can take centuries. When a creature first enters an area that has lost its vital essence in this way, they gain a level of fatigue and a level of strife. This fatigue and strife can be removed only by completing a long rest outside the area.&nbsp;</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -221,6 +236,11 @@
 				"actions": {},
 				"description": "<p>The dragon’s spellcasting ability is Charisma (save DC 16). It can innately cast the following spells, requiring no material components.&nbsp;</p><p style=\"text-align: start\">&nbsp; &nbsp;3/day each:&nbsp;<em>darkness, detect evil and good</em></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -288,6 +308,11 @@
 				"actions": {},
 				"description": "<p>The dragon attacks once with its bite and twice with its claws.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -405,6 +430,11 @@
 				},
 				"description": "<p></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -486,6 +516,11 @@
 				},
 				"description": "",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -566,6 +601,11 @@
 				},
 				"description": "<p>The dragon exhales a shadowy maelstrom of anguish in a 30-foot cone. Each creature in that area makes a DC 16 Wisdom saving throw, taking 40 (9d8) necrotic damage and gaining a level of strife on a failed save or half damage on a success.&nbsp;</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -581,192 +621,6 @@
 					"dc": 16,
 					"onSave": "Half damage.",
 					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "702tMQbTxkslOPEg",
-			"name": "Detect Evil and Good",
-			"type": "spell",
-			"img": "icons/magic/symbols/star-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.pqp7c64olzby8jwx"
-				}
-			},
-			"system": {
-				"actions": {
-					"Jf3Pb73nyu0RYeFq": {
-						"name": "Detect Evil and Good",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"37ZsY70QtenipH2b": {
-								"range": "30-foot radius"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"eY2v63T7ZZfIX0Fq": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							},
-							"lXtEVutrnxBrkv5D": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"divine",
-						"senses"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "IKJgcQcmlunhsXDw",
-			"name": "Darkness",
-			"type": "spell",
-			"img": "icons/magic/unholy/orb-glowing-purple.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.5c5dpa4u798x5ph2"
-				}
-			},
-			"system": {
-				"actions": {
-					"qCnG95fjwzKDpQFT": {
-						"name": "Darkness",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"hoxQSJR3d3ifXIdb": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "sphere",
-							"size": "15 ft."
-						},
-						"consumers": {
-							"aVkWv7vTMUZocPCI": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							},
-							"qkgEIclsVZZa8w1W": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "bat fur and a drop of pitch or piece of coal",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"shadow"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -836,6 +690,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -926,6 +785,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1007,6 +871,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1088,6 +957,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1169,6 +1043,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1250,6 +1129,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1276,6 +1160,194 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "gGsh08aIyfbLBp8A"
+		},
+		{
+			"name": "Detect Evil and Good",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.jlqrjd03lyl8zb3c"
+				}
+			},
+			"system": {
+				"actions": {
+					"G0DcVgQdfe1ColYJ": {
+						"name": "Detect Evil and Good",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MypYiO8SB0olt3xP": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"aHSOrc2QtsEjaYxa": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"senses"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "VnkNuwokFewWdLJP",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Darkness",
+			"type": "spell",
+			"img": "icons/magic/unholy/orb-glowing-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0ou0qutr7p2bedg0"
+				}
+			},
+			"system": {
+				"actions": {
+					"LQlQq3OIRpMOsCHF": {
+						"name": "Darkness",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"uEiVvrN8F3RQmpwF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "15",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"NnAGDUaYi8CFb15M": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "bat fur and a drop of pitch or piece of coal",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"shadow"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "5tmbiZ9fG1zddUFg",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1747,7 +1819,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "cha"
+			"spellcasting": "cha",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

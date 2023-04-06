@@ -16,6 +16,11 @@
 				"actions": {},
 				"description": "<p>The warrior’s spellcasting ability is Charisma (spell save DC 13). The warrior can innately cast the following spells, requiring no material components:</p><p><strong>At Will</strong>: dancing lights</p><p><strong>1/day each</strong>: darkness, faerie fire</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -60,280 +65,6 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "fPgQJtXfsZbqg8Hv",
-			"name": "Faerie Fire",
-			"type": "spell",
-			"img": "icons/magic/light/projectiles-pink-purple.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.h7vynvmgx7hn36qw"
-				}
-			},
-			"system": {
-				"actions": {
-					"kGRC7njLsEwtBTNd": {
-						"name": "Faerie Fire",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"kCWV2dDcDpTObvIS": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "range",
-							"size": "20 ft."
-						},
-						"prompts": {
-							"RCPzJPI1XfH3geAK": {
-								"ability": "dex",
-								"onSave": "Special",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"WGwWbqOHL3XEsOuS": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Special",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "NDienkzcLWoAhsld",
-			"name": "Darkness",
-			"type": "spell",
-			"img": "icons/magic/unholy/orb-glowing-purple.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.gtl6apzsy8lszb7s"
-				}
-			},
-			"system": {
-				"actions": {
-					"82IDQmitMryDprsR": {
-						"name": "Darkness",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"NUItCEaTAQGbSunY": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "sphere",
-							"size": "15 ft."
-						},
-						"consumers": {
-							"cqqsr6hPi9178lGy": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "bat fur and a drop of pitch or piece of coal",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"shadow"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "pQRFac4kJWDvkW6J",
-			"name": "Dancing Lights",
-			"type": "spell",
-			"img": "icons/magic/light/projectiles-trio-pink.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.epj4ixcq8mwu2p7g"
-				}
-			},
-			"system": {
-				"actions": {
-					"uRGTAdCJSDuZ8byV": {
-						"name": "Dancing Lights",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"mbKBzJa17M5MV0eU": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "none"
-						}
-					}
-				},
-				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 0,
-				"materials": "bit of phosphorus or wychwood, or a glowworm",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -396,6 +127,11 @@
 				},
 				"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -419,6 +155,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -508,6 +245,11 @@
 				},
 				"description": "<p>If the target is a creature, it makes a DC 13 Constitution saving throw. On a failure, the target is poisoned for 1 hour. If it fails the saving throw by 5 or more, it falls unconscious until it is no longer poisoned, it takes damage, or a creature takes an action to shake it awake.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -531,6 +273,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -613,6 +356,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -703,6 +451,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -784,6 +537,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -865,6 +623,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -946,6 +709,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1027,6 +795,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1053,6 +826,292 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "l6yGcYLfx3GktAuO"
+		},
+		{
+			"name": "Faerie Fire",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-pink-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.z7r6plq6vyesck07"
+				}
+			},
+			"system": {
+				"actions": {
+					"csBA0B0VYc68le4M": {
+						"name": "Faerie Fire",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"mfLaFLmAAEW4pD4n": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"size": "20 ft.",
+							"width": 20,
+							"placeTemplate": true
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"prompts": {
+							"C95Yph6KdzvdTomm": {
+								"ability": "dex",
+								"onSave": "Special",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"GwAK3ui1g3ImkKRO": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Special",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "kKkDvn5Fe5fSl7zc",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Darkness",
+			"type": "spell",
+			"img": "icons/magic/unholy/orb-glowing-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0ou0qutr7p2bedg0"
+				}
+			},
+			"system": {
+				"actions": {
+					"LQlQq3OIRpMOsCHF": {
+						"name": "Darkness",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"uEiVvrN8F3RQmpwF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "15",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"NnAGDUaYi8CFb15M": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "bat fur and a drop of pitch or piece of coal",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"shadow"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "oDHit03VecdKRmKr",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Dancing Lights",
+			"type": "spell",
+			"img": "icons/magic/light/projectiles-trio-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.kh26gom04osoo005"
+				}
+			},
+			"system": {
+				"actions": {
+					"ujamq8LIqiSNoAYw": {
+						"name": "Dancing Lights",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"vZh5NgxuSNZSsAbg": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						}
+					}
+				},
+				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 0,
+				"materials": "bit of phosphorus or wychwood, or a glowworm",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "L6nC4sxA8IkpjtJV",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1518,7 +1577,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int"
+			"spellcasting": "int",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

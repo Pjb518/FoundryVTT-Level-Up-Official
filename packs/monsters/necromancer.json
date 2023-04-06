@@ -16,6 +16,11 @@
 				"actions": {},
 				"description": "<p>The mage is a 9th level spellcaster. Their spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). They have the following wizard spells prepared:</p><p>Cantrips (at will): fire bolt, light, mage hand, prestidigitation</p><p>1st-level (4 slots): detect magic, identify, mage armor, shield</p><p>2nd-level (3 slots): alter self, misty step</p><p>3rd-level (3 slots): clairvoyance, counterspell, fireball</p><p>4th-level (3 slots): dimension door, greater invisibility</p><p>5th-level (1 slot): cone of cold</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -121,6 +126,11 @@
 				},
 				"description": "<p><em>Dual-Wielding, Finesse, Simple</em></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -144,6 +154,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -154,1478 +165,6 @@
 				],
 				"weight": 1,
 				"ability": "default",
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "I1DnDe61P0nNvxhl",
-			"name": "Fire Bolt",
-			"type": "spell",
-			"img": "icons/magic/fire/projectile-fireball-embers-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ukvu3yzttycbp7l4"
-				}
-			},
-			"system": {
-				"actions": {
-					"gsQY3ISiNB7dlYIg": {
-						"name": "Fire Bolt",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"EB90irznaumF8gT3": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"G3qNw6vVYcu3gUzY": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "rangedSpellAttack",
-								"ability": "spellcasting"
-							},
-							"vfHCHrI6mgNFT9nx": {
-								"canCrit": true,
-								"damageType": "fire",
-								"formula": "(floor((@details.level+1)/6)+1)d10",
-								"name": "",
-								"type": "damage"
-							}
-						}
-					}
-				},
-				"description": "<p>You cast a streak of flame at the target. Make a ranged spell attack. On a hit, you deal 1d10 fire damage. An unattended flammable object is ignited.</p><p>This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"fire"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "m50ACmeWbRay7dbS",
-			"name": "Light",
-			"type": "spell",
-			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ylzu7734m98272qe"
-				}
-			},
-			"system": {
-				"actions": {
-					"tRnpvBGIEyCGeIHO": {
-						"name": "Light",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"42JXFsHHIQRwUHqn": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "object"
-						},
-						"prompts": {
-							"eDMixl7uVCrEiJpB": {
-								"ability": "dex",
-								"onSave": "Negates for object held or worn by hostile creature",
-								"saveDC": {
-									"type": "custom",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "small tinder box",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "Negates for object held or worn by hostile creature",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "io9mnO0m2SNP8mqh",
-			"name": "Mage Hand",
-			"type": "spell",
-			"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.on5ipz48o2n2ymhi"
-				}
-			},
-			"system": {
-				"actions": {
-					"KOAS9zwD2OnrbTHV": {
-						"name": "Mage Hand",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"NTyKRlbR1EjfJhP6": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "none"
-						}
-					}
-				},
-				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "hwPAnB1ivhCTc1js",
-			"name": "Prestidigitation",
-			"type": "spell",
-			"img": "icons/magic/air/air-smoke-casting.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.gtpdxxl0c3lzidhp"
-				}
-			},
-			"system": {
-				"actions": {
-					"h1DQvyz3leKJ64mK": {
-						"name": "Prestidigitation",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"eLPZMNsCNNjMp9Wz": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						}
-					}
-				},
-				"description": "<p>You wield arcane energies to produce minor effects. Choose one of the following:</p><ul><li>create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).</li><li>clean or soil an object of 1 cubic foot or less.</li><li>light or snuff a flame.</li><li>chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.</li><li>color or mark an object or surface for 1 hour.</li><li>create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.</li></ul><p>You may cast this spell multiple times, though only three effects may be active at a time. Dismissing each effect requires an action.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "wveZlCIXAzNpKDOi",
-			"name": "Detect Magic",
-			"type": "spell",
-			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.ax8xt40bh46v6zhg"
-				}
-			},
-			"system": {
-				"actions": {
-					"NnI8seoQTO8KXurS": {
-						"name": "Detect Magic",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"iYBn8wfPexylShtL": {
-								"range": "30-foot radius"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"YC0SD35otpNkRGDp": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the duration increases to 8 hours.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"senses"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "y1dS5rxUIz11Q2RR",
-			"name": "Identify",
-			"type": "spell",
-			"img": "icons/magic/perception/orb-eye-scrying.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.zy8ohvoqtwe5vzad"
-				}
-			},
-			"system": {
-				"actions": {
-					"NbG6DHDeVOp2pala": {
-						"name": "Identify",
-						"activation": {
-							"cost": 1,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"TWyYM2BzOtp3Skmk": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creatureObject"
-						},
-						"consumers": {
-							"mrzYUd1sDx8Zl9vh": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You learn the target item's magical properties along with how to use them. This spell also reveals whether or not a targeted item requires attunement and how many charges it has. You learn what spells are affecting the targeted item (if any) along with what spells were used to create it.</p><p>Alternatively, you learn any spells that are currently affecting a targeted creature.</p><p>What this spell can reveal is at the Narrator's discretion, and some powerful and rare magics are immune to identify.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "pearl worth at least 100 gold and a feather",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"knowledge"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "92X8LbvbHbsjo9Hv",
-			"name": "Mage Armor",
-			"type": "spell",
-			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.7uxzfaoi9g669h5b"
-				}
-			},
-			"system": {
-				"actions": {
-					"6teklZSh2lfEEKlW": {
-						"name": "Mage Armor",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "8"
-						},
-						"ranges": {
-							"48n9Vdjm10oScb2U": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"E6UGAeDm2BGjwdlC": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, the target is protected by a shimmering magical force. Its AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target gains 5 temporary hit points for each slot level above 1st. The temporary hit points last for the spell's duration.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "metal stud",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"arcane",
-						"protection"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "So2Yogk9NVgzn7Zp",
-			"name": "Shield",
-			"type": "spell",
-			"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.qi9po1tc83fd83hs"
-				}
-			},
-			"system": {
-				"actions": {
-					"WcKvMOGwU9iZG1S9": {
-						"name": "Shield",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "which you take when you are hit by an attack or targeted by the magic missile spell"
-						},
-						"duration": {
-							"unit": "round",
-							"value": "1"
-						},
-						"ranges": {
-							"aT707XkhoT49umU1": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"Q3I93GpNAwoHwVdA": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"arcane",
-						"protection"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "y0CQ1W6fkKEYF031",
-			"name": "Counterspell",
-			"type": "spell",
-			"img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.cuq5s7dc0qexhvyu"
-				}
-			},
-			"system": {
-				"actions": {
-					"yIzDgPkIPBkMjTtR": {
-						"name": "Counterspell",
-						"activation": {
-							"cost": 1,
-							"type": "reaction",
-							"reactionTrigger": "which you take when you see a creature within range cast a spell"
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"8YETyfEn0gvhr6MJ": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"consumers": {
-							"K51GqLF0UhhWMXIS": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 2nd-level or lower, its spell fails and has no effect.</p><p>If it is casting a spell of 3rd-level or higher, make an ability check using your spellcasting ability (DC 10 + the spell's level). On a success, the creature's spell fails and has no effect, but the creature can use its reaction to reshape the fraying magic and cast another spell with the same casting time as the original spell.</p><p>This new spell must be cast at a spell slot level equal to or less than half the original spell slot.</p><p><strong><em>Cast at Higher Levels.</em></strong> The interrupted spell has no effect if its level is less than the level of the spell slot used to cast this spell, or if both spells use the same level spell slot an opposed spellcasting ability check is made.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": false,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"arcane",
-						"negation"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "HjRttyT1IBZunhcO",
-			"name": "Fireball",
-			"type": "spell",
-			"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.3qa2fh8wrtjb2uws"
-				}
-			},
-			"system": {
-				"actions": {
-					"3lagItXBDk7gDNmu": {
-						"name": "Fireball",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"XJZwoiBwEfQz7kvR": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "sphere",
-							"size": "20 ft."
-						},
-						"rolls": {
-							"eqXoslvrXw5hZHoK": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "6d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"a1dz2TgEyPOzIX0Z": {
-								"ability": "dex",
-								"onSave": "Half damage",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"QGhhORWPDyadNosB": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "bat guano and sulfur",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"fire"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Half damage",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "lJwgI7Gvo4PVJniV",
-			"name": "Alter Self",
-			"type": "spell",
-			"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.d5ihm2jmzu513vdq"
-				}
-			},
-			"system": {
-				"actions": {
-					"tRiIAXwnHhutY0fm": {
-						"name": "Alter Self",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"IWB2H3qqCLHVqYxV": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"bu6qlurztlLnDW0H": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You use magic to mold yourself into a new form. Choose one of the options below. Until the spell ends, you can use an action to choose a different option.</p><ul><li><p><strong>Amphibian:</strong> Your body takes on aquatic adaptations. You can breathe underwater normally and gain a swimming speed equal to your base Speed.</p></li><li><p><strong>Altered State:</strong> You decide what you look like.<br><br>None of your gameplay statistics change but you can alter anything about your body's appearance, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, sound of your voice, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot become a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to become a quadruped. Until the spell ends, you can use an action to change your appearance.</p></li><li><p><strong>Red in Tooth and Claw:</strong> You grow magical natural weapons of your choice with a +1 bonus to attack and damage. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage of a type determined by the natural weapon you chose; for example a tentacle deals bludgeoning, a horn deals piercing, and claws deal slashing.</p></li></ul><p></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 5th-level, add the following to the list of forms you can adopt.</p><ul><li><p><strong>Greater Natural Weapons:</strong> The damage dealt by your natural weapon increases to 2d6, and you gain a +2 bonus to attack and damage rolls with your natural weapons.</p></li><li><p><strong>Mask of the Grave:</strong> You adopt the appearance of a skeleton or zombie (your choice). Your type changes to undead, and mindless undead creatures ignore your presence, treating you as one of their own. You don't need to breathe and you become immune to poison.</p></li><li><p><strong>Wings:</strong> A pair of wings sprouts from your back. The wings can appear bird-like, leathery like a bat or dragon's wings, or like the wings of an insect. You gain a fly speed equal to your base Speed.</p><p></p></li></ul>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"movement",
-						"shapechanging",
-						"weaponry"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "x5D9WZS83wH8CQ1d",
-			"name": "Misty Step",
-			"type": "spell",
-			"img": "icons/skills/movement/ball-spinning-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.olusi8eoe6jhrhj4"
-				}
-			},
-			"system": {
-				"actions": {
-					"dneo01xTDnKVpTUY": {
-						"name": "Misty Step",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"Blso5z1NLetq0Hap": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"zZ8bEBfRNwJfYA3A": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"chaos",
-						"movement",
-						"teleportation"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Vf5TI8cmG9CKjKKQ",
-			"name": "Dimension Door",
-			"type": "spell",
-			"img": "icons/magic/movement/trail-streak-zigzag-teal.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.8wj0xsxb0e20l3jd"
-				}
-			},
-			"system": {
-				"actions": {
-					"QA2RsUGhfcSndrXw": {
-						"name": "Dimension Door",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"bkMGApkhU54caLbe": {
-								"range": "500 feet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "none"
-						},
-						"consumers": {
-							"1NMU9tSbCcO1iMZr": {
-								"mode": "variable",
-								"spellLevel": 4,
-								"points": 6,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You teleport to any place you can see, visualize, or describe by stating distance and direction such as 200 feet straight downward or 400 feet upward at a 30-degree angle to the southeast.</p><p>You can bring along objects if their weight doesn't exceed what you can carry. You can also bring one willing creature of your size or smaller, provided it isn't carrying gear beyond its carrying capacity and is within 5 feet.</p><p>If you would arrive in an occupied space the spell fails, and you and any creature with you each take 4d6 force damage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 4,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"teleportation"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "rCkaKy7PJEuUvYXq",
-			"name": "Greater Invisibility",
-			"type": "spell",
-			"img": "icons/creatures/webs/webthin-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.3op5o4bkwablllaa"
-				}
-			},
-			"system": {
-				"actions": {
-					"cE1nACFrvmVHrV9M": {
-						"name": "Greater Invisibility",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "1"
-						},
-						"ranges": {
-							"9MedzRD4cLP93S9x": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"consumers": {
-							"HLoWT28sPYX9D7JN": {
-								"mode": "variable",
-								"spellLevel": 4,
-								"points": 6,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>The target is invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 4,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement",
-						"shadow"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "6bVZcBzkVWokpO5W",
-			"name": "Cone of Cold",
-			"type": "spell",
-			"img": "icons/magic/water/projectile-beams-salvo-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.9jhknpz04a4t7bpz"
-				}
-			},
-			"system": {
-				"actions": {
-					"0iMEdminInMIoMKy": {
-						"name": "Cone of Cold",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"YoPo748rXT3RN8zl": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "area",
-							"shape": "cone",
-							"size": "60 ft."
-						},
-						"rolls": {
-							"vOjYGmF9srMusXUg": {
-								"canCrit": false,
-								"damageType": "cold",
-								"formula": "8d8",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"YyjSBATV683pzjXn": {
-								"ability": "con",
-								"onSave": "Half damage",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@spellDC"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"3K1eYrwYFWv4cp8B": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Frigid cold blasts from your hands. Each creature in the area takes 8d8 cold damage. Creatures killed by this spell become frozen statues until they thaw.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 5,
-				"materials": "small glass or crystal snowflake",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"attack",
-						"cold"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": "@spellDC",
-					"onSave": "Half damage",
-					"targetAbility": "con"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "GS4eIUOeOzEqW3Lj",
-			"name": "Animate Dead",
-			"type": "spell",
-			"img": "icons/magic/death/undead-skeleton-energy-green.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.voil1dc1bop5ahyc"
-				}
-			},
-			"system": {
-				"actions": {
-					"7eefoa9iIyjXSjvU": {
-						"name": "Animate Dead",
-						"activation": {
-							"cost": 1,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"0kZuXKJYZoTuVBe1": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "object"
-						},
-						"consumers": {
-							"W6O2rzNTEK2oHOrh": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You animate a mortal's remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead's statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.</p><p>Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over 2 additional undead for each slot level above 3rd. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "two copper coins",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"necrotic",
-						"summoning",
-						"undead"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
 				"save": {
 					"dc": "",
 					"onSave": "",
@@ -1649,6 +188,11 @@
 				"actions": {},
 				"description": "<p>The practice of animating the dead is at best distasteful and often forbidden outright. Mages drawn to necromancy usually live in isolated places near catacombs, tombs, or ancient battlefields. Instead of preparing clairvoyance, the necromancer prepares animate dead. The necromancer can turn the intact corpses of creatures up to CR 5 into skeletons and zombies (applying the skeleton or zombie template to the base creature).</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1762,6 +306,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1852,6 +401,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1933,6 +487,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2014,6 +573,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2095,6 +659,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2176,6 +745,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2202,6 +776,1558 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "j2KOhv1EqYquJCUL"
+		},
+		{
+			"name": "Fire Bolt",
+			"type": "spell",
+			"img": "icons/magic/fire/projectile-fireball-embers-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.c1qq11be32b3s1qr"
+				}
+			},
+			"system": {
+				"actions": {
+					"KxnRturHoAVljTvi": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"BcwI2G7FeTKLei6j": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"3Mg4G6Uuy4PJjYUX": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "rangedSpellAttack",
+								"ability": "spellcasting"
+							},
+							"gPx8ooCTKFBto1rX": {
+								"canCrit": true,
+								"damageType": "fire",
+								"formula": "1d10",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d10"
+								}
+							}
+						}
+					}
+				},
+				"description": "<p>You cast a streak of flame at the target. Make a ranged spell attack. On a hit, you deal 1d10 fire damage. An unattended flammable object is ignited.</p><p>This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"fire"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "xc3ZMBt31B8UwCwG",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Light",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bqavvq6ju5ti8hr3"
+				}
+			},
+			"system": {
+				"actions": {
+					"YTmdniTcmdDpTVjH": {
+						"name": "Light",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"TIPSpMWAXd08fVFw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"prompts": {
+							"iNdLjPQnkpNnSZxC": {
+								"ability": "dex",
+								"onSave": "Negates for object held or worn by hostile creature",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "small tinder box",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates for object held or worn by hostile creature",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "GD0VipMDfELX8DY3",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Mage Hand",
+			"type": "spell",
+			"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.mocigztrqyoks506"
+				}
+			},
+			"system": {
+				"actions": {
+					"Eu9YDiwyizN1E1zh": {
+						"name": "Mage Hand",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"jTIF5jsoF1Um2nVk": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						}
+					}
+				},
+				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "KBbRyN2iQpr8fc4t",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Prestidigitation",
+			"type": "spell",
+			"img": "icons/magic/air/air-smoke-casting.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.uy8he1yquaiym6y8"
+				}
+			},
+			"system": {
+				"actions": {
+					"ytGTtNAZ4tA05XbO": {
+						"name": "Prestidigitation",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"t2VTRTsRjJrzYVjH": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "other"
+						}
+					}
+				},
+				"description": "<p>You wield arcane energies to produce minor effects. Choose one of the following:</p><ul><li>create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).</li><li>clean or soil an object of 1 cubic foot or less.</li><li>light or snuff a flame.</li><li>chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.</li><li>color or mark an object or surface for 1 hour.</li><li>create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.</li></ul><p>You may cast this spell multiple times, though only three effects may be active at a time. Dismissing each effect requires an action.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "Ux9o9PyneJDToIEm",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Detect Magic",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.kaye34nheyrit487"
+				}
+			},
+			"system": {
+				"actions": {
+					"2Vcsudkl3nqor34U": {
+						"name": "Detect Magic",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"nGx2plWAcoII9obA": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"VFEmR1Zt87l27buJ": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the duration increases to 8 hours.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"senses"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "wf7bY0TqwPn4p6N7",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Identify",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-eye-scrying.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.dgms08g84zdlbr81"
+				}
+			},
+			"system": {
+				"actions": {
+					"4XhYModUQGm7pzgi": {
+						"name": "Identify",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"ap8M047nihNpOLsX": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"AnSZ6kSu6UdT4nyi": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You learn the target item's magical properties along with how to use them. This spell also reveals whether or not a targeted item requires attunement and how many charges it has. You learn what spells are affecting the targeted item (if any) along with what spells were used to create it.</p><p>Alternatively, you learn any spells that are currently affecting a targeted creature.</p><p>What this spell can reveal is at the Narrator's discretion, and some powerful and rare magics are immune to identify.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "pearl worth at least 100 gold and a feather",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"knowledge"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "sJq1AVUExyMjVQ1e",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Mage Armor",
+			"type": "spell",
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ip8c3zrbrngrx1oe"
+				}
+			},
+			"system": {
+				"actions": {
+					"p54IchHbLju7Y4vP": {
+						"name": "Mage Armor",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"Xz9MmMUurHP9TxbZ": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"yFLNi2hzqu5g49ul": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, the target is protected by a shimmering magical force. Its AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target gains 5 temporary hit points for each slot level above 1st. The temporary hit points last for the spell's duration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "metal stud",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"protection"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "dlWUduXWTDVjdVGW",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Shield",
+			"type": "spell",
+			"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.nlto7z4j14ips45w"
+				}
+			},
+			"system": {
+				"actions": {
+					"DfBODFbe1UYn4vIm": {
+						"name": "Shield",
+						"activation": {
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": "which you take when you are hit by an attack or targeted by the magic missile spell"
+						},
+						"duration": {
+							"unit": "round",
+							"value": "1"
+						},
+						"ranges": {
+							"cbSCCrMm0w21q3jj": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"ouUaA2neyWA5CrrX": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"protection"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "lBkf2AqFuLr15LWy",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Counterspell",
+			"type": "spell",
+			"img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.zc250942nlox9vyk"
+				}
+			},
+			"system": {
+				"actions": {
+					"2siXdzAFia8nWlTv": {
+						"name": "Counterspell",
+						"activation": {
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": "which you take when you see a creature within range cast a spell"
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SjpH5ZDLfM8p0TpC": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "other"
+						},
+						"consumers": {
+							"jGJkEtvkLWLZtPXX": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 2nd-level or lower, its spell fails and has no effect.</p><p>If it is casting a spell of 3rd-level or higher, make an ability check using your spellcasting ability (DC 10 + the spell's level). On a success, the creature's spell fails and has no effect, but the creature can use its reaction to reshape the fraying magic and cast another spell with the same casting time as the original spell.</p><p>This new spell must be cast at a spell slot level equal to or less than half the original spell slot.</p><p><strong><em>Cast at Higher Levels.</em></strong> The interrupted spell has no effect if its level is less than the level of the spell slot used to cast this spell, or if both spells use the same level spell slot an opposed spellcasting ability check is made.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": false,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"negation"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "laACHsI7R9nq1zOS",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Fireball",
+			"type": "spell",
+			"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.n7vv8e7phkfc513j"
+				}
+			},
+			"system": {
+				"actions": {
+					"CVkWr37CemgLcpXZ": {
+						"name": "Fireball",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"smgOqcDyRA47k2UF": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"e9MtWpgQtR5V1hxX": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "6d6",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"mhxKT92Mp2XFeWIl": {
+								"ability": "dex",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"VkxtzRV8K30GXu4L": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "bat guano and sulfur",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"fire"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "17U7hLdy3CXFz6x7",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Alter Self",
+			"type": "spell",
+			"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.yav7747ibqje7nzm"
+				}
+			},
+			"system": {
+				"actions": {
+					"ySZylPhaiJJirvkM": {
+						"name": "Alter Self",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"su0ipISQEo74yaoK": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"woJSL1DbgurLmCWH": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You use magic to mold yourself into a new form. Choose one of the options below. Until the spell ends, you can use an action to choose a different option.</p><ul><li><p><strong>Amphibian:</strong> Your body takes on aquatic adaptations. You can breathe underwater normally and gain a swimming speed equal to your base Speed.</p></li><li><p><strong>Altered State:</strong> You decide what you look like.<br><br>None of your gameplay statistics change but you can alter anything about your body's appearance, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, sound of your voice, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot become a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to become a quadruped. Until the spell ends, you can use an action to change your appearance.</p></li><li><p><strong>Red in Tooth and Claw:</strong> You grow magical natural weapons of your choice with a +1 bonus to attack and damage. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage of a type determined by the natural weapon you chose; for example a tentacle deals bludgeoning, a horn deals piercing, and claws deal slashing.</p></li></ul><p></p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 5th-level, add the following to the list of forms you can adopt.</p><ul><li><p><strong>Greater Natural Weapons:</strong> The damage dealt by your natural weapon increases to 2d6, and you gain a +2 bonus to attack and damage rolls with your natural weapons.</p></li><li><p><strong>Mask of the Grave:</strong> You adopt the appearance of a skeleton or zombie (your choice). Your type changes to undead, and mindless undead creatures ignore your presence, treating you as one of their own. You don't need to breathe and you become immune to poison.</p></li><li><p><strong>Wings:</strong> A pair of wings sprouts from your back. The wings can appear bird-like, leathery like a bat or dragon's wings, or like the wings of an insect. You gain a fly speed equal to your base Speed.</p><p></p></li></ul>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement",
+						"shapechanging",
+						"weaponry"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "UUEJPkMNzoxQ3LPI",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Misty Step",
+			"type": "spell",
+			"img": "icons/skills/movement/ball-spinning-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ijh0tu0wgpsp7v6n"
+				}
+			},
+			"system": {
+				"actions": {
+					"vXZn3iWPurUWz9QK": {
+						"name": "Misty Step",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"IRVdWzXtFPJ5Ijps": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"79g12iyPPibSJozT": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"chaos",
+						"movement",
+						"teleportation"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "Tezyuwz9hH0RJKfc",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Dimension Door",
+			"type": "spell",
+			"img": "icons/magic/movement/trail-streak-zigzag-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.c9j5g49kht85ek3u"
+				}
+			},
+			"system": {
+				"actions": {
+					"32jI69m0OdsQl4k8": {
+						"name": "Dimension Door",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"xhl9WpN2PThFjb33": {
+								"range": "500 feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						},
+						"consumers": {
+							"HBIvVC0JhgJy2wW9": {
+								"mode": "variable",
+								"spellLevel": 4,
+								"points": 6,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You teleport to any place you can see, visualize, or describe by stating distance and direction such as 200 feet straight downward or 400 feet upward at a 30-degree angle to the southeast.</p><p>You can bring along objects if their weight doesn't exceed what you can carry. You can also bring one willing creature of your size or smaller, provided it isn't carrying gear beyond its carrying capacity and is within 5 feet.</p><p>If you would arrive in an occupied space the spell fails, and you and any creature with you each take 4d6 force damage.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"teleportation"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "d9diWZJcVQ7SYTCA",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Greater Invisibility",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0cdtrkihoe9jdon1"
+				}
+			},
+			"system": {
+				"actions": {
+					"1dVOQi2bOLxhT0C6": {
+						"name": "Greater Invisibility",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"W6tgJQlUE0Ja8L5f": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"9Katm41dQYOyo9IH": {
+								"mode": "variable",
+								"spellLevel": 4,
+								"points": 6,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target is invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 4,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "AQ7YTzIpWDmHx6EX",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Cone of Cold",
+			"type": "spell",
+			"img": "icons/magic/water/projectile-beams-salvo-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.snowk91mknqnjde5"
+				}
+			},
+			"system": {
+				"actions": {
+					"SsKjbJUXNTtOW1yB": {
+						"name": "Cone of Cold",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"J43TLFSIoZKqYQP1": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "cone",
+							"length": "60",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"kbUXKdskkChJWmhe": {
+								"canCrit": false,
+								"damageType": "cold",
+								"formula": "8d8",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"BIEFSiLYw7zgKzPP": {
+								"ability": "con",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"jgrbVd2PSg91iPny": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Frigid cold blasts from your hands. Each creature in the area takes 8d8 cold damage. Creatures killed by this spell become frozen statues until they thaw.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 5th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "small glass or crystal snowflake",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"attack",
+						"cold"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage",
+					"targetAbility": "con"
+				}
+			},
+			"_id": "55R5iLZasQSZSkUZ",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Animate Dead",
+			"type": "spell",
+			"img": "icons/magic/death/undead-skeleton-energy-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.xs292gklnxyaeuyx"
+				}
+			},
+			"system": {
+				"actions": {
+					"pZx8vuoGLnkZUpui": {
+						"name": "Animate Dead",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"oFHtUnUP1j8z3lfU": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"consumers": {
+							"NoUxXU9gmSsvKUhW": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You animate a mortal's remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead's statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.</p><p>Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over 2 additional undead for each slot level above 3rd. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "two copper coins",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"necrotic",
+						"summoning",
+						"undead"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "mh5bmOL4isUb0Id2",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2675,7 +2801,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int"
+			"spellcasting": "int",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

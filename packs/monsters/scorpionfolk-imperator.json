@@ -62,6 +62,11 @@
 				},
 				"description": "<p></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -85,6 +90,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -116,6 +122,11 @@
 				"actions": {},
 				"description": "<p>The imperator is a 5th level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). It has the following cleric and wizard spells prepared:</p><ul><li><p>Cantrips (at will): <em>light</em>,<em> sacred flame</em></p></li><li><p>1st-level (4 slots): <em>create or destroy water</em>,<em> healing word</em></p></li><li><p style=\"text-align: start\">2nd-level (3 slots): <em>burning gust of wind</em>, <em>lesser restoration</em></p></li><li><p style=\"text-align: start\">3rd-level (2 slots): <em>major image, venomous fireball</em></p></li></ul>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -160,753 +171,6 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zbD8sdJL049QC9Rw",
-			"name": "Major Image",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "JOAqdt5omDWAbzHA",
-			"sort": -100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.KIe2Mo5gATFWLig1"
-				}
-			},
-			"system": {
-				"actions": {
-					"hBkpyi2ZIcyrYFry": {
-						"name": "Major Image",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"zI6AP8nlViOWWrEA": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"size": "20 Ft",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "other"
-						},
-						"prompts": {
-							"mKq5BfFOLvM5kZ45": {
-								"ability": "int",
-								"onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"Q0lH7vaGxvA1T3yY": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p style=\"text-align: start\">While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p style=\"text-align: start\">Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "3",
-				"materials": "tinderbox and small mirror",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 18,
-					"onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
-					"targetAbility": "int"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "rJdz13oHEluFwWSA",
-			"name": "Venomous Fireball",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"Hs0Z1Tqfk3sf0UVF": {
-						"name": "Venomous Fireball",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"4OD7UGqF5ts1ZRLl": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "20 ft radius",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": ""
-						},
-						"rolls": {
-							"Ry4wbL5Mq1pbgrV2": {
-								"canCrit": false,
-								"damageType": "poison",
-								"formula": "6d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"m6nafnl8lRLuXWuk": {
-								"ability": "dex",
-								"onSave": "halves, avoids being poisoned",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"BvMxCuRhdXo36ikQ": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Green fire streaks from the imperator to a point within 120 feet and explodes in a 20-foot radius, spreading around corners. Each creature in the area makes a DC 14 Dexterity saving throw, taking 21 (6d6) poison damage on a failed save or half damage on a success. A creature that fails the save is also poisoned until the end of its next turn.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"poison",
-						"arcane",
-						"fire"
-					]
-				},
-				"ability": null,
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "halves, avoids being poisoned",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "iNzPU0QKbn4mAtNx",
-			"name": "Burning Gust of Wind",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"r7PiNXOWoZD0ePUQ": {
-						"name": "Burning Gust of Wind",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"07lXKJHsnlYghTB6": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "line",
-							"size": "10 feet wide, 60 feet long",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"JeO4KXp2ffi86UOW": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "2d6",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"HosjQfi7owTYcz5F": {
-								"ability": "str",
-								"onSave": "avoid being moved and avoid taking damage",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"nZCd6VIZzPWlSCyK": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A hot blast of wind erupts from the imperator’s claw in a line 10 feet wide and 60 feet long. It extinguishes small fires and disperses vapors. For 1 minute or until the imperator’s concentration is broken, each creature that starts its turn in the area or moves into the area must succeed on a DC 14 Strength saving throw or be pushed 15 feet directly away and take 7 (2d6) fire damage. A creature in the area must spend 2 feet of movement for every foot moved towards the imperator. The imperator can change the direction of the gust with a bonus action.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "seed",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"air",
-						"fire",
-						"nature"
-					]
-				},
-				"ability": null,
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "avoid being moved and avoid taking damage",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Qsag2iP43qsAJSdk",
-			"name": "Light",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"aXSiKJKQeydLN2Rt": {
-						"name": "Light",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "small tinderbox",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"utility",
-						"arcane"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Rr2Zsk1eapYlRi5A",
-			"name": "Sacred Flame",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"xQrhIGZfeeb0NvVB": {
-						"name": "Sacred Flame",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"0f8vQquj7Sf19UTo": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"8gggeXygf2sHG9HD": {
-								"canCrit": false,
-								"damageType": "radiant",
-								"formula": "2d8",
-								"name": "Sacred Flame",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"4DaeqiRRovvkNwOe": {
-								"ability": "dex",
-								"onSave": "No damage",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanov’s Purifying Flame. </em></strong>When a target damaged by this spell is undead, has the Evil trait, or is vulnerable to radiant damage, it is rattled for the next minute. At the end of each of its turns, the target may make a Wisdom saving throw to end the effect on itself.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"attack",
-						"divine",
-						"radiant"
-					]
-				},
-				"ability": null,
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "No damage",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8s4IiJp8dU2ov1KI",
-			"name": "Healing Word",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 375000,
-			"flags": {},
-			"system": {
-				"actions": {
-					"TTLsQiYl08F8iTNm": {
-						"name": "Healing Word",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"3D5J6y20f2Wi4kc8": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"KU6AoMcmIpxdoJOk": {
-								"formula": "1d4 + @int.mod+@prof",
-								"healingType": "healing",
-								"name": "Healing word",
-								"type": "healing"
-							}
-						},
-						"consumers": {
-							"MltnsVUfSzAdasKs": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong>Cast at Higher Levels</strong></p><p>The hit points regained increase by 1d4 for each slot level above 1st.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				},
-				"ability": "int",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "CGR7LV7jwA6MkSso",
-			"name": "Create or Destroy Water",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"9gI1rGcp07JsjchZ": {
-						"name": "Create or Destroy Water",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"z6PZld5FVD2m3K8a": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"consumers": {
-							"GTxKpFa15SS6NSlC": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Choose one of the following.</p><p><strong><em>Create Water:</em></strong> You fill the target with up to 10 gallons of nonpotable water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p><p><strong><em>Destroy Water:</em></strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 fee</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "drop of water to create water or grains of sand to destroy it",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"divine",
-						"water",
-						"utility"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "JTuVW0X1bALAzXl8",
-			"name": "Lesser Restoration",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"rlvXnaNZfdWWgUn3": {
-						"name": "Lesser Restoration",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"HXN8kuOdAxf9mxBE": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"pCuEkMKAQYXBngQn": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator’s discretion, some diseases might not be curable with this spell.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 2,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"divine",
-						"good",
-						"healing"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -973,6 +237,11 @@
 				},
 				"description": "<p>On hit, target is grappled. Until this grapple ends, the scorpionfolk can't attack a different target with its claws</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1072,6 +341,11 @@
 				},
 				"description": "<p>On hit, target makes a DC 12 Constitution saving throw, taking half poison damage on success.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1156,6 +430,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1246,6 +525,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1327,6 +611,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1408,6 +697,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1489,6 +783,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1570,6 +869,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1596,6 +900,828 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "iMR8t7hUGv9medPi"
+		},
+		{
+			"name": "Major Image",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.eceeym81z9dq6r58"
+				}
+			},
+			"system": {
+				"actions": {
+					"sFbY1tEuMywZVRdY": {
+						"name": "Major Image",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"jwOTYlK7EkmsLoJN": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"DpQJ4eJTxDlY4vpD": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"MIdxw4Qm8XXheMGg": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "U4lItedjZt8fI0dF",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Fireball",
+			"type": "spell",
+			"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.n7vv8e7phkfc513j"
+				}
+			},
+			"system": {
+				"actions": {
+					"CVkWr37CemgLcpXZ": {
+						"name": "Fireball",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"smgOqcDyRA47k2UF": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"e9MtWpgQtR5V1hxX": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "6d6",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"mhxKT92Mp2XFeWIl": {
+								"ability": "dex",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"VkxtzRV8K30GXu4L": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "bat guano and sulfur",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"fire"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "Q0XRCCdKZkOzKlls",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Gust of Wind",
+			"type": "spell",
+			"img": "icons/magic/air/wind-swirl-gray-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.8rsevg8q1eygarlk"
+				}
+			},
+			"system": {
+				"actions": {
+					"IFc7ALYZmyF9krn2": {
+						"name": "Gust of Wind",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"OR9JLLUhjiqqZrKh": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "line",
+							"length": "60",
+							"width": "5",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": ""
+						},
+						"prompts": {
+							"zFS1YAEU6aNM2hAq": {
+								"ability": "str",
+								"onSave": "Special",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"Qoy2oy1j48IF1Hts": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A torrent of wind erupts from your hand in a direction you choose. Each creature that starts its turn in the area or moves into the area must succeed on a Strength saving throw or be pushed 15 feet from you in the direction of the line.</p><p>Any creature in the area must spend 2 feet of movement for every foot moved when trying to approach you.</p><p>The blast of wind extinguishes small fires and disperses gas or vapor.</p><p>You can use a bonus action to change the direction of the gust.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "seed",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"air",
+						"nature"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Special",
+					"targetAbility": "str"
+				}
+			},
+			"_id": "wqzJxVJ29v8RvHWT",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Light",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bqavvq6ju5ti8hr3"
+				}
+			},
+			"system": {
+				"actions": {
+					"YTmdniTcmdDpTVjH": {
+						"name": "Light",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"TIPSpMWAXd08fVFw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"prompts": {
+							"iNdLjPQnkpNnSZxC": {
+								"ability": "dex",
+								"onSave": "Negates for object held or worn by hostile creature",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "small tinder box",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates for object held or worn by hostile creature",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "zWZI70GzbGtnZDDU",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Sacred Flame",
+			"type": "spell",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"system": {
+				"actions": {
+					"GRovtgPMBRtWUICh": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SXFYtkwUpfIHcCkZ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"L1nL06P1tAgjXyw7": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"defaultSelection": true,
+								"formula": "1d8",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d8"
+								}
+							}
+						},
+						"prompts": {
+							"F19vETbdh2bsjnOg": {
+								"ability": "dex",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"attack",
+						"divine",
+						"radiant"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "dex"
+				}
+			},
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.tvtm60k5wxyki9qc"
+				}
+			},
+			"_id": "stjc03EyFDnhIDtj",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Heal",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
+				}
+			},
+			"system": {
+				"actions": {
+					"XWJ26F7JXKHF8yMo": {
+						"name": "Heal",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"U6bNDrDcAEZ0UYdu": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"J8L7y8BndXrGBe7j": {
+								"defaultSelection": true,
+								"formula": "70",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing"
+							}
+						},
+						"consumers": {
+							"jfElxc8HGrXhyRja": {
+								"mode": "variable",
+								"spellLevel": 6,
+								"points": 9,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "ty0pWYYn4y2V3WLD",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Create or Destroy Water",
+			"type": "spell",
+			"img": "icons/magic/water/projectiles-ice-explosion.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.6na38wnae58eief3"
+				}
+			},
+			"system": {
+				"actions": {
+					"I7RJz9TquUvh3WAa": {
+						"name": "Create or Destroy Water",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"BCPJgwGZeAxhCo5p": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "30",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"E0Lxcg1e87hktzHV": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Choose one of the following.</p><ul><li><p><strong>Create Water:</strong> You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p></li><li><p><strong>Destroy Water:</strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "drop of water to create water or grains of sand to destroy it",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"divine",
+						"utility",
+						"water"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "wGF3ROjdjJUTEtLA",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Lesser Restoration",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.sgiwn0n20mnf1ddx"
+				}
+			},
+			"system": {
+				"actions": {
+					"SnYRAabnSRZV8Ikm": {
+						"name": "Lesser Restoration",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"hxsq198ncdX1d0Kw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"ZlMEcTNu69JSlhhs": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator's discretion, some diseases might not be curable with this spell.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"divine",
+						"good",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "VbxM0D0S744FnEju",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2058,7 +2184,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int"
+			"spellcasting": "int",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

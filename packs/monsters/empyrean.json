@@ -16,6 +16,11 @@
 				"actions": {},
 				"description": "<p>If the empyrean makes a saving throw against an effect that deals half damage on a success, it takes no damage on a success and half damage on a failure. Furthermore, while wearing medium armor, the empyrean adds its full Dexterity bonus to its Armor Class (already included).</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -79,6 +84,11 @@
 				"actions": {},
 				"description": "<p>The empyrean’s innate spellcasting ability is Charisma (spell save DC 23). It can innately cast the following spells, requiring no material components:</p><p></p><p>At will: <em>charm person</em>, <em>command</em>,<em> telekinesis</em></p><p style=\"text-align: start\">3/day:<em> flame strike</em>,<em> hold monster</em>,<em> lightning bolt</em></p><p style=\"text-align: start\">1/day: <em>commune</em>, <em>greater restoration</em>, <em>heroes’ feast</em>,<em> plane shift</em> (self only, can’t travel to or from the Material Plane)</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">(these spells can be found in the spells section)</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -130,106 +140,6 @@
 			}
 		},
 		{
-			"_id": "MJx3wizsSAbde3T2",
-			"name": "Charm Person",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.SRO0l2YbvBXJ9yZa"
-				}
-			},
-			"system": {
-				"actions": {
-					"QBKS7MEIV9CJ4InN": {
-						"name": "Charm Person",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"ranges": {
-							"lAcJ6pWwvhjyNfgq": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"LeKvIPBH6Lnv2mSC": {
-								"ability": "wis",
-								"onSave": "No effect on successful save",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "23"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"gswbvRkhA0ruDrsG": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.&nbsp;</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "No effect on successful save",
-					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "K2R80Z5AJkKiHe8f",
 			"name": "Magic Resistance",
 			"type": "feature",
@@ -242,6 +152,11 @@
 				"actions": {},
 				"description": "<p>The empyrean has advantage on saving throws against spells and other magical effects.&nbsp;</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -305,6 +220,11 @@
 				"actions": {},
 				"description": "<p>The empyrean regains 10 hit points at the beginning of its turn as long as it has at least 1 hit point.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -368,6 +288,11 @@
 				"actions": {},
 				"description": "<p>A titan doesn’t require air, sustenance, or sleep.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -492,6 +417,11 @@
 				},
 				"description": "<p>On hit, target takes bludgeoning damage plus radiant damage, and the target makes a DC 25 Strength saving throw. On a failure, the target is pushed up to 30 feet away and knocked prone.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -507,401 +437,6 @@
 					"dc": 25,
 					"onSave": "Avoid falling prone",
 					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Zho7eOA9cnHPI8We",
-			"name": "Command",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"YUBbWFjZumCOSzX8": {
-						"name": "Command",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "round",
-							"value": 1
-						},
-						"ranges": {
-							"l35IQaeb5hCLOxRU": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"7hhALbc1Gnf5qeda": {
-								"ability": "wis",
-								"onSave": "Negates",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "23"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"ndQaO4ch5huRUH26": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator’s discretion you may give any one-word command.&nbsp;</p><p><strong><em>Approach | Come | Here:</em></strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p><p><strong><em>Bow | Grovel | Kneel: </em></strong>The target falls prone and ends its turn.</p><p><strong><em>Drop: </em></strong>The target drops anything it is holding and ends its turn.</p><p><strong><em>Flee | Run: </em></strong>The target uses its action to Dash and moves away from you as far as it can.</p><p><strong><em>Halt: </em></strong>The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p><p><br></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"compulsion",
-						"divine"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Negates",
-					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Q9H2opi9clK9wqBO",
-			"name": "Telekinesis",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"50MvrXDII0eqxsVD": {
-						"name": "Telekinesis",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"ECoQ5J9YrdQnvaYV": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"Rv78NMyJYmRPfR6F": {
-								"ability": "str",
-								"onSave": "not moved, or keeps the object being held",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "23"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"zC1jkxWjkLNkMW61": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>You move the target with the power of your mind. Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p><p><strong><em>Creature: </em></strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p><p><strong><em>Object:</em></strong> You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p><p>You can use telekinesis to finely manipulate objects as though you were using them yourself—you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p><p><strong>Cast at Higher Levels</strong></p><p>When using an 8th-level spell slot, this spell does not require your concentration</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"movement"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "not moved, or keeps the object being held",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "R7mnXTXmn6XpWuOF",
-			"name": "Flame Strike",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"fyA4DzCi8AnHZcc2": {
-						"name": "Flame Strike",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"6Xn1wTiMiptjifZx": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "cylinder",
-							"size": "10 ft radius, 40 ft high",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"F89MaXrjfhdR4A9i": {
-								"canCrit": false,
-								"damageType": "fire",
-								"formula": "4d6",
-								"name": "Fire Damage",
-								"type": "damage"
-							},
-							"NQheXwjCANSwmEmh": {
-								"canCrit": false,
-								"damageType": "radiant",
-								"formula": "4d6",
-								"name": "Radiant Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"y34UG7QmhCLhBbKl": {
-								"ability": "dex",
-								"onSave": "Halves",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "23"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"NR5TbWxwEU4DrP3V": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							},
-							"w0Vr8Ns74TF7XLhM": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong>Area: </strong>10-foot radius, 40-foot high cylinder</p><p><strong>Cast at Higher Levels</strong></p><p>Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p><p><strong>Rare Versions</strong></p><p><strong><em>Kreven’s Discerning Lightning Strike.</em></strong> This spell deals lightning damage instead of fire damage and is a divination spell. A creature which has knowingly lied in the last minute has disadvantage on its saving throw, while a creature which has not lied is immune to the spell’s damage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "pinch of sulfur",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"fire",
-						"divine"
-					]
-				},
-				"ability": null,
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Halves",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "WgxH5ByoD5QFwCwi",
-			"name": "Greater Restoration",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"C3L74MolAaHILLJg": {
-						"name": "Greater Restoration",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"oxYWlTOtiEV1TRlp": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"BdiARh2kTDsjlKH4": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							},
-							"gNsSRBTgFJCazxPC": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li><p>a level of fatigue.</p></li><li><p>a level of strife.</p></li><li><p>a charm or petrification effect.</p></li><li><p>a curse or cursed item attunement.</p></li><li><p>any reduction to a single ability score.</p></li><li><p>an effect that has reduced the target’s hit point maximum.</p></li></ul>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "100 gold of diamond dust, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"divine",
-						"healing"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
 				}
 			},
 			"ownership": {
@@ -943,6 +478,11 @@
 				},
 				"description": "<p>The empyrean magically changes its size between Gargantuan and Medium. While Medium, the empyrean has disadvantage on Strength checks. Its statistics are otherwise unchanged</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -977,6 +517,11 @@
 				"actions": {},
 				"description": "<p>The empyrean can take 1 legendary action, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p><p></p><ul><li><p>Attack</p></li><li><p>Cast Spell</p></li><li><p>Fly</p></li><li><p>Shout</p></li></ul>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1021,502 +566,6 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "numOucL5uumRi4hc",
-			"name": "Heroes' Feast",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.rk2oUmIZQuHQXa37"
-				}
-			},
-			"system": {
-				"actions": {
-					"RNLaxEjmCZgWI9Tf": {
-						"name": "Heroes' Feast",
-						"activation": {
-							"cost": 10,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"nyYHvTXvkcvonFPj": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"mYZfsiNf8bCd80BH": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							},
-							"NzCj7F9bUvq1dL8K": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished—it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast’s participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p><p><strong>Rare Versions</strong></p><p><strong><em>Komanav’s Final Heroes’ Feast.</em></strong> Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you take 8d10 necrotic damage.</p><p><strong><em>Sidoneth’s Fantabulous Heroes’ Feast. </em></strong>For 24 hours afterward, you gain advantage on Charisma checks made against creatures that participate in the feast.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "beautifully crafted bowl worth at least 1,000 gold, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"enhancement"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "6mYE9HmjBBQthsmi",
-			"name": "Lightning Bolt",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.8Mh4DD0kaCSaxeUB"
-				}
-			},
-			"system": {
-				"actions": {
-					"fXFcxnwOPCFo7irp": {
-						"name": "Lightning Bolt",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"pWKpQxy4RHIBYyca": {
-								"range": "100 ft."
-							}
-						},
-						"area": {
-							"shape": "line",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"e3mz98EPgA8Gd8x4": {
-								"canCrit": false,
-								"damageType": "lightning",
-								"formula": "8d6",
-								"name": "Lightning damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"YBl8APtb0Oj8EpJm": {
-								"ability": "dex",
-								"onSave": "Halves",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "23"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"lMARAmqFYHCd1ASF": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							},
-							"CRBE4fqSlSKBu71P": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>A bolt of lightning arcs out from you in a direction you choose in a line 100 feet long and 5 feet wide.&nbsp;Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren’t worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong>Cast at Higher Levels</strong></p><p>Damage increases by 1d6 for every slot level above 3rd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Gabal’s Conductive Lightning Bolt.</em></strong><em> </em>Metallic creatures and creatures wearing metal armor make their saving throw with disadvantage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "small metal rod and rain water",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"lightning",
-						"nature"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Halves",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "jiQ9zQdb01vUeXfQ",
-			"name": "Commune",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.eiZj4jijBUpUfi7d"
-				}
-			},
-			"system": {
-				"actions": {
-					"xgilMyThPibGY61C": {
-						"name": "Commune",
-						"activation": {
-							"cost": 1,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"KvX0T0TUtgTtGWSe": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"95y5JFQxJ76Nwpf3": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							},
-							"mMXjzay4P3MfgdvS": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p style=\"text-align: start\">When you cast this spell again before finishing a long rest, the chance of getting a no answer increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": "5",
-				"materials": "incense and vial of holy or unholy water",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"knowledge",
-						"planar",
-						"divine"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1BdoZYcdamw9mns9",
-			"name": "Plane Shift",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.fKfsH4qOzXwMi3Jb"
-				}
-			},
-			"system": {
-				"actions": {
-					"iya635Tiiv7WQF4p": {
-						"name": "Plane Shift",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "special",
-							"value": ""
-						},
-						"ranges": {
-							"Q07GOPFpStNtzNg8": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": null,
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"consumers": {
-							"FExLxnXAURlPLs6r": {
-								"mode": "variable",
-								"spellLevel": 7,
-								"points": 10,
-								"type": "spell"
-							},
-							"4LO2L74y4OQNqrwp": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle, you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).&nbsp;</p><p style=\"text-align: start\">Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">Empyreans can only use it on themselves, and can’t travel to or from the Material Plane</p><p style=\"text-align: start\"><strong>Duration:</strong> Instantaneous or Concentration (1 minute)</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "7",
-				"materials": "metal rod attuned to a particular plane of existence worth 250 gold",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"planar",
-						"teleportation",
-						"utility"
-					]
-				},
-				"ability": "cha",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "YI8smvsfYEFNWXIY",
-			"name": "Hold Monster",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.BJOV7yMs1Vnf1IfW"
-				}
-			},
-			"system": {
-				"actions": {
-					"TsolNyWGFHqBzYfb": {
-						"name": "Hold Monster",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"Q1EOXxFoTuWFryo2": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"hcbBj7ABS3k5DU0F": {
-								"ability": "wis",
-								"onSave": "Negates",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "23"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"3mXq9qDwg6oOY4FF": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							},
-							"Osl9khDlsUoAujZT": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell’s effects on it on a successful save.</p><p><strong>Cast at Higher Levels</strong></p><p>Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "5",
-				"materials": "piece of iron",
-				"materialsConsumed": false,
-				"prepared": false,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"affliction",
-						"arcane"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 23,
-					"onSave": "Negates",
-					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -1587,6 +636,11 @@
 				},
 				"description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1647,6 +701,11 @@
 				},
 				"description": "<p>(Legendary Action)</p><p>The empyrean flies up to half its fly speed.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1707,6 +766,11 @@
 				},
 				"description": "<p>Empyrean makes a weapon attack (see: Maul)</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1767,6 +831,11 @@
 				},
 				"description": "<p>(Legendary Action)</p><p></p><p>The empyrean casts a spell. The empyrean can’t use this option if it has cast a spell since the start of its last turn</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1851,6 +920,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1941,6 +1015,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2022,6 +1101,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2103,6 +1187,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2184,6 +1273,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2265,6 +1359,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2291,6 +1390,1082 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "5CmHQ8PVxgEFCYaP"
+		},
+		{
+			"name": "Charm Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.zf1kpjwhg9fabe01"
+				}
+			},
+			"system": {
+				"actions": {
+					"F8BStUMZ0QkuHIWs": {
+						"name": "Charm Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"D03zfzZhGAKBLTsK": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"pvX82eum3zUAY8rx": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"4gmBaqwWp60lu6xF": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "kH6l9uy5PMOHqfRN",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Command",
+			"type": "spell",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bs1zn1s8ewwa4tfx"
+				}
+			},
+			"system": {
+				"actions": {
+					"jAz65L99peGqsyYX": {
+						"name": "Command",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "round",
+							"value": "1"
+						},
+						"ranges": {
+							"7cVr07oXBPGezgEm": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"rlR7cPe1Cj7JIdip": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"BHxmS8mDzm7oHDSp": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.</p><p>Below are example commands, but at the Narrator's discretion you may give any one-word command.</p><ul><li><p><strong>Approach/Come/Here:</strong> The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.</p></li><li><p><strong>Bow/Grovel/Kneel:</strong> The target falls prone and ends its turn.</p></li><li><p><strong>Drop:</strong> The target drops anything it is holding and ends its turn.</p></li><li><p><strong>Flee/Run:</strong> The target uses its action to Dash and moves away from you as far as it can.</p></li><li><p><strong>Halt:</strong> The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"compulsion",
+						"divine"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "BHuOHcmjWNEWXjtM",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Telekinesis",
+			"type": "spell",
+			"img": "icons/magic/control/energy-stream-link-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0xo9oc6s6mrh77ci"
+				}
+			},
+			"system": {
+				"actions": {
+					"fYtMyRKewQSztFMH": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"gBrCOnibS0ymWRaQ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {},
+						"consumers": {
+							"9az8wN5iviiSS9iS": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					},
+					"lfXCjDtskpINGG8P": {
+						"name": "Move Creature",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"duration": {
+							"unit": "round",
+							"value": 1
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						},
+						"ranges": {
+							"N0XNI5JieUkuucTv": {
+								"range": "medium"
+							}
+						},
+						"prompts": {
+							"XSfjzAKjObX2A6c9": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "No effect"
+							}
+						}
+					},
+					"wUOGhwTqs8P2HF7x": {
+						"name": "Move Object",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"duration": {
+							"unit": "round",
+							"value": 1
+						},
+						"ranges": {
+							"yyApVS9OBVyPLVpj": {
+								"range": "medium"
+							}
+						},
+						"target": {
+							"type": "object",
+							"quantity": 1
+						},
+						"prompts": {
+							"Y6kK8tNMQkPkF8AS": {
+								"type": "abilityCheck",
+								"default": false,
+								"ability": "str"
+							}
+						}
+					}
+				},
+				"description": "<p>You move the target with the power of your mind.</p>\n<p>Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p>\n<p><strong>Creature. </strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p>\n<p><strong>Object.</strong>&nbsp;You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p>\n<p>You can use telekinesis to finely manipulate objects as though you were using them yourself&mdash;you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> When using an 8th-level spell slot, this spell does not require your concentration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "4GGfOU2VM07oRX59",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Flame Strike",
+			"type": "spell",
+			"img": "icons/magic/fire/beam-jet-stream-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.c2mhqi8hbsck0pdy"
+				}
+			},
+			"system": {
+				"actions": {
+					"YPPkOD7SeVFzpeN4": {
+						"name": "Flame Strike",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"6233HRqX3sXe9C63": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "cylinder",
+							"radius": "10",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"rokSzHjKSVZESRRj": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "4d6",
+								"name": "",
+								"type": "damage"
+							},
+							"Wq9SeQ4WRZnyyjgi": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"formula": "4d6",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"NUrIvPy5hR9xdyLv": {
+								"ability": "dex",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"xKyI3I0xdpQLbOBh": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "pinch of sulfur",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"fire"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "c6hdUpzxQY39QXtQ",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Greater Restoration",
+			"type": "spell",
+			"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.2fn904xje78xc7de"
+				}
+			},
+			"system": {
+				"actions": {
+					"KGUPgTXH2t97p8lM": {
+						"name": "Greater Restoration",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"apS3wKvUP797ku1n": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"grbuAi6sCpd3xh4D": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li>a level of fatigue.</li><li>a level of strife.</li><li>a charm or petrification effect.</li><li>a curse or cursed item attunement.</li><li>any reduction to a single ability score.</li><li>an effect that has reduced the target's hit point maximum.</li></ul></p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "100 gold of diamond dust, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "OmGoMOCu0jFzLIKk",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Heroes' Feast",
+			"type": "spell",
+			"img": "icons/consumables/food/bowl-stew-tofu-potato-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.1fhdzbsc3lhg7402"
+				}
+			},
+			"system": {
+				"actions": {
+					"S0AGYqseMtr3woZ3": {
+						"name": "Heroes' Feast",
+						"activation": {
+							"cost": 10,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"70p8tprbSfA4pr78": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						},
+						"consumers": {
+							"4U7wwA6WkMC6aGjV": {
+								"mode": "variable",
+								"spellLevel": 6,
+								"points": 9,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished&mdash;it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast's participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "beautifully crafted bowl worth at least 1, 000 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"enhancement"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "eJMDHDmfxwqkfrd7",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Light",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bqavvq6ju5ti8hr3"
+				}
+			},
+			"system": {
+				"actions": {
+					"YTmdniTcmdDpTVjH": {
+						"name": "Light",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"TIPSpMWAXd08fVFw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"prompts": {
+							"iNdLjPQnkpNnSZxC": {
+								"ability": "dex",
+								"onSave": "Negates for object held or worn by hostile creature",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "small tinder box",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates for object held or worn by hostile creature",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "xDnL3VfOk4B2qgza",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Commune",
+			"type": "spell",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.h5ssew7apf5ofbhc"
+				}
+			},
+			"system": {
+				"actions": {
+					"iPIndfM7dVBuPUlg": {
+						"name": "Commune",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"xSZThq9Mniv0aIqw": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"MjmdOjHDXJtDvJIG": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive &quot;unclear&quot; as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.</p><p>When you cast this spell again before finishing a long rest, the chance of getting a no answer increases.</p><p>The Narrator makes the following roll in secret: second casting &mdash;25%, third casting &mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "incense and vial of holy or unholy water",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"knowledge",
+						"planar"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "xKx8CoVXhqClGTK5",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Plane Shift",
+			"type": "spell",
+			"img": "icons/skills/movement/ball-spinning-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.l3lr6rwvw7csn6on"
+				}
+			},
+			"system": {
+				"actions": {
+					"jPN3nuOG7m14IWTk": {
+						"name": "Plane Shift",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "special",
+							"value": ""
+						},
+						"ranges": {
+							"FNfP1Jb7zNwQBhJz": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"zHtZtnnMhsdLQ6HP": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "meleeSpellAttack",
+								"ability": "spellcasting"
+							}
+						},
+						"consumers": {
+							"89GtifISZLHwguwH": {
+								"mode": "variable",
+								"spellLevel": 7,
+								"points": 10,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see teleportation circle), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).</p><p>Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 7,
+				"materials": "metal rod attuned to a particular plane of existence worth 250 gold",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"planar",
+						"teleportation",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "iXmAyNWY5P9tb3Qr",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Hold Monster",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-chains-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.geix9369vzozz4zm"
+				}
+			},
+			"system": {
+				"actions": {
+					"prfWePmds6xnCq78": {
+						"name": "Hold Monster",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"nU6WcELmQ00Tj6Ps": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"BvTqdZ6L7LNe1RV4": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"7rgOiwQHud2wcMv8": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "piece of iron",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "PRvuHWlQkMAdZX2E",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2753,7 +2928,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "cha"
+			"spellcasting": "cha",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

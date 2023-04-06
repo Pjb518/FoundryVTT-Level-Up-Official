@@ -16,6 +16,11 @@
 				"actions": {},
 				"description": "<p>The rakshasa’s innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, mage hand, major image</p><p>3/day each: charm person, dominate person, fly (self only), invisibility (self only), modify memory, true seeing</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -67,266 +72,6 @@
 			}
 		},
 		{
-			"_id": "Yk1znKaWiaOdURbz",
-			"name": "Detect Magic",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"actions": {
-					"XrzAZy77vOTol5ma": {
-						"name": "Detect Magic",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"HfwxM0pA22lvdCkE": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "30 ft radius",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"MJBXICxMaeKMK6di": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong>Range: </strong>Special (30-foot radius)</p><p><strong>Cast at Higher Levels</strong></p><p>When using a spell slot of 2nd-level or higher, the spell no longer requires your concentration. When using a spell slot of 3rd-level or higher, the duration increases to 1 hour. When using a spell slot of 4th-level or higher, the duration increases to 8 hours.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": null,
-					"per": ""
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": "1",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": true,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"divine",
-						"nature",
-						"senses"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7xz2pCdz8VqCvfoK",
-			"name": "Mage Hand",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"VMSYYb6W42K2Uokl": {
-						"name": "Mage Hand",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"xoCcpuoMuz7E7Hzn": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						}
-					}
-				},
-				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p style=\"text-align: start\">You can use an action to control the hand and direct it to do any of the following:&nbsp;</p><ul><li><p>manipulate an object.</p></li><li><p>open an unlocked container or door.</p></li><li><p>stow or retrieve items from unlocked containers.</p></li></ul><p style=\"text-align: start\">The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 0,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"utility"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "kYLuzBWeh6Ak6jmx",
-			"name": "Major Image",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"6blQzVEXk2gQzD6D": {
-						"name": "Major Image",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"U3lpon3WnDgo173w": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "cube",
-							"size": "20 ft.",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "other"
-						},
-						"prompts": {
-							"0tMy83fsyEHaAmvg": {
-								"ability": "int",
-								"onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"UsOhFDlZTTF5Y3yM": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p style=\"text-align: start\">While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p style=\"text-align: start\">Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": "3",
-				"materials": "tinderbox and small mirror",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"chaos"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 18,
-					"onSave": "Realize its an illusion, effects become fainter for the creature who realizes",
-					"targetAbility": "int"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "cz5rxmAddLeVjS8W",
 			"name": "Lawful Evil",
 			"type": "feature",
@@ -339,6 +84,11 @@
 				"actions": {},
 				"description": "<p> The rakshasa radiates a Lawful and Evil aura.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -402,6 +152,11 @@
 				"actions": {},
 				"description": "<p>Any spell that would target or detect the rakshasa, or cause the rakshasa to make a saving throw, fails unless the spell is 5th-level or higher, or the rakshasa voluntarily allows it to be cast</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -465,6 +220,11 @@
 				"actions": {},
 				"description": "<p>The rakshasa has advantage on saving throws against spells and other magical effects.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -550,6 +310,11 @@
 				},
 				"description": "<p>The Rakshasa makes two attacks</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -626,6 +391,11 @@
 				},
 				"description": "<p></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -649,6 +419,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -724,6 +495,11 @@
 				},
 				"description": "<p>On a hit, if the target is a creature, it is cursed. Whenever a cursed creature takes a long rest, it is troubled by terrible visions and dreams and gains no benefit from the rest.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -739,569 +515,6 @@
 					"dc": "",
 					"onSave": "",
 					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "XItDuZeZYuBUX5D5",
-			"name": "Dominate Person",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"BRJKJGhh32KwKSlu": {
-						"name": "Dominate Person",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"Nb2R9Fqg6uw3mbuY": {
-								"range": "medium"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"ZAYUrQv7rjgTsuA1": {
-								"ability": "wis",
-								"onSave": "Negates entirely",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"jNmCLNnP6OrXpf1L": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							},
-							"BUxfUnemZajyyJWU": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>You assert control over the target’s mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p style=\"text-align: start\">Until the charm condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as “Attack that target,” “Go over there,” or “Bring me that object.” Without commands the target only defends itself. The target continues to follow a command until its task is complete.&nbsp;</p><p style=\"text-align: start\">You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target’s actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.&nbsp;</p><p style=\"text-align: start\">Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p style=\"text-align: start\"></p><p style=\"text-align: start\"><strong>Cast at Higher Levels</strong></p><p>The spell’s duration is extended: 6th-level—Concentration (10 minutes), 7th-level—Concentration (1 hour), 8th-level—Concentration (8 hours).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": "5",
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"compulsion"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 18,
-					"onSave": "Negates entirely",
-					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "nv1eQcg5zYkasDMy",
-			"name": "Modify Memory",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"AXAen0aCsQgwRGlG": {
-						"name": "Modify Memory",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"gBJIVJxKxM9U1FfD": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": null,
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"Jl0Zyppctw6KqwKq": {
-								"ability": "wis",
-								"onSave": "Negates all effects",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"5hPa0SW2BIlxEm3c": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							},
-							"69fxmTbHO1dRj0yg": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The target has advantage on its saving throw if you are in combat with it. The target becomes charmed and incapacitated, though it can still hear you. Until the spell ends, any memories of an event that took place within the last 24 hours and lasted 10 minutes or less may be altered.&nbsp;</p><p style=\"text-align: start\">You may destroy the memory, have the target recall the event with perfect clarity, change the details, or create a new memory entirely with the same restrictions in time frame and length.&nbsp;</p><p style=\"text-align: start\">You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.&nbsp;&nbsp;</p><p style=\"text-align: start\">The spell automatically ends if the target takes any damage or if it is targeted by another spell. If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only greater restoration or remove curse can restore the memory.&nbsp;</p><p style=\"text-align: start\">The Narrator may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn’t specifically change the behavior of a creature, especially if the memory conflicts with the creature’s personality, beliefs, or innate tendencies.&nbsp;</p><p style=\"text-align: start\">There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a Persuasion check to stir the target’s memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory.</p><p style=\"text-align: start\"></p><p style=\"text-align: start\"><strong>Cast at Higher Levels</strong></p><p>When using a 6th-level spell slot, the event can be from as far as 7 days ago. When using a 7th-level spell slot, the event can be from as far as 30 days ago. When using an 8th-level spell slot, the event can be from as far as 1 year&nbsp;ago. When using a 9th-level spell slot, any event can be altere</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"communication",
-						"compulsion",
-						"utility"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 18,
-					"onSave": "Negates all effects",
-					"targetAbility": "wis"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9wfiJzoJQaXkvvcx",
-			"name": "True Seeing",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"1ncZlXycVUXHd5so": {
-						"name": "True Seeing",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"ranges": {
-							"Q971TSpJ7F6TLgaP": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"ODdRtWzT1BF5Rvyd": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							},
-							"iL2Q6KG3MDLoOHKG": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "an ointment for the eyes made from mushroom powder, saffron, and fat costing 25 gold, consumed by the spell",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"divine",
-						"senses"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ifbmzvB5M71Np6qd",
-			"name": "Invisibility",
-			"type": "spell",
-			"img": "icons/creatures/webs/webthin-blue.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"ciNbr2aylPpk74AS": {
-						"name": "Invisibility",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"ranges": {
-							"KLnoULoSdLF88OKL": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "self"
-						},
-						"consumers": {
-							"gyonarLCy7FfNRRC": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							},
-							"HZPfCRdOblamvWaJ": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>(Self Only)</p><p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target’s possession. The spell’s effects end for a target that attacks or casts a spell.</p><p><strong>Cast at Higher Levels</strong></p><p>Target one additional creature for each slot level above 2nd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Ravjahani’s Imparted Invisibility. </em></strong>Until the spell ends, any object that the target picks up becomes invisible even after it is dropped.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "Piece of a veil",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "illusion",
-					"secondary": [
-						"arcane",
-						"obscurement",
-						"shadow"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "p7XlGuGmNX576tGh",
-			"name": "Fly",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"stpO8rYLzfoRWdl9": {
-						"name": "Fly",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"FQcP63wY5HDFsBVg": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"consumers": {
-							"afHR4dusTLS3h2d8": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							},
-							"DiGTTQpE6QOCGyLN": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>(Self Only)</p><p>The target gains a flying speed of 60 feet. When the spell ends, the target falls if it is off the ground.</p><p><strong>Cast at Higher Levels</strong></p><p>Target one additional creature for each slot level above 3rd.</p><p><strong>Rare Versions</strong></p><p><strong><em>Soliogn’s Swift Fly.</em></strong> The target gains a flying speed of 90 feet.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "Feather",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"movement"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "SRO0l2YbvBXJ9yZa",
-			"name": "Charm Person",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"XZkG2CDVF4ihzhmT": {
-						"name": "Charm Person",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": 1
-						},
-						"ranges": {
-							"O5lAOVb1nZVolZn8": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"prompts": {
-							"ahgj08wQr6NiQZkl": {
-								"ability": "wis",
-								"onSave": "No effect on successful save",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "18"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"nUPw3R8Fjnu1i37g": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							},
-							"LmrcZ9bkr4M4jJk7": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.&nbsp;</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong>Cast at Higher Levels</strong></p><p>For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": 3,
-					"per": "day"
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "enchantment",
-					"secondary": [
-						"arcane",
-						"compulsion"
-					]
-				},
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 18,
-					"onSave": "No effect on successful save",
-					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -1359,6 +572,11 @@
 				},
 				"description": "<p>The rakshasa targets a creature that can hear it within 60 feet, offering something the target covets. The target makes a DC 18 Wisdom saving throw. On a failure, the target is charmed until the end of its next turn, and stunned while charmed in this way.</p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1415,6 +633,11 @@
 				},
 				"description": "<p>The rakshasa magically changes its form to that of any Medium or Small humanoid or to its true form. While shapeshifted, its statistics are unchanged.&nbsp;</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1476,6 +699,11 @@
 				},
 				"description": "<p>The rakshasa magically reads the surface thoughts of one creature within 60 feet that it can see. Until the end of the rakshasa’s turn, it has advantage on attack rolls and on Deception, Insight, Intimidation, and Persuasion checks against the creature.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1532,6 +760,11 @@
 				},
 				"description": "<p>The rakshasa casts <em>invisibility</em> or <em>fly</em>.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1588,6 +821,11 @@
 				},
 				"description": "<p>The rakshasa uses Sweet Promises on a creature that attacked it or attempted to target it with a spell.&nbsp;</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1672,6 +910,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1762,6 +1005,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1843,6 +1091,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1924,6 +1177,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2005,6 +1263,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2086,6 +1349,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2112,6 +1380,887 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "eNYdjndHNLDd9ySh"
+		},
+		{
+			"name": "Detect Magic",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.kaye34nheyrit487"
+				}
+			},
+			"system": {
+				"actions": {
+					"2Vcsudkl3nqor34U": {
+						"name": "Detect Magic",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"nGx2plWAcoII9obA": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"VFEmR1Zt87l27buJ": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the duration increases to 8 hours.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"senses"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "HL6k0eRvXkraP6m5",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Mage Hand",
+			"type": "spell",
+			"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.mocigztrqyoks506"
+				}
+			},
+			"system": {
+				"actions": {
+					"Eu9YDiwyizN1E1zh": {
+						"name": "Mage Hand",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"jTIF5jsoF1Um2nVk": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "none"
+						}
+					}
+				},
+				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "TOXqH8zhdpSupLfJ",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Major Image",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.eceeym81z9dq6r58"
+				}
+			},
+			"system": {
+				"actions": {
+					"sFbY1tEuMywZVRdY": {
+						"name": "Major Image",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"jwOTYlK7EkmsLoJN": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"DpQJ4eJTxDlY4vpD": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"MIdxw4Qm8XXheMGg": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "a4yDPmCFQiQqX3BS",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Dominate Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.9s4sb34j24r74328"
+				}
+			},
+			"system": {
+				"actions": {
+					"aG3wPaoWup4P5GrB": {
+						"name": "Dominate Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"nK90dvgAZna6zDoF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"50CPaZ46sxleO3Ew": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"DlAsa2AGS58qP2J9": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You assert control over the target humanoid's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 6th-level&mdash;Concentration (10 minutes), 7th-level &mdash;Concentration (1 hour), 8th-level &mdash;Concentration (8 hours).</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"compulsion"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "ynpEh1RQzki01zKp",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Modify Memory",
+			"type": "spell",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ptdq0aw2indq5e6w"
+				}
+			},
+			"system": {
+				"actions": {
+					"8yqyNTnpdeZiuY1k": {
+						"name": "Modify Memory",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"CSMTD2gCclivsY3r": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"zUgDyuMHX5zrbG9F": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"J6ZZBDtFfcDZXcKU": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target has advantage on its saving throw if you are in combat with it. The target becomes charmed and incapacitated, though it can still hear you. Until the spell ends, any memories of an event that took place within the last 24 hours and lasted 10 minutes or less may be altered.</p><p>You may destroy the memory, have the target recall the event with perfect clarity, change the details, or create a new memory entirely with the same restrictions in time frame and length.</p><p>You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.</p><p>The spell automatically ends if the target takes any damage or if it is targeted by another spell. If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only greater restoration or remove curse can restore the memory.</p><p>The Narrator may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn't specifically change the behavior of a creature, especially if the memory conflicts with the creature's personality, beliefs, or innate tendencies.</p><p>There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a Persuasion check to stir the target's memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 6th-level spell slot, the event can be from as far as 7 days ago. When using a 7th-level spell slot, the event can be from as far as 30 days ago. When using an 8th-level spell slot, the event can be from as far as 1 year ago. When using a 9th-level spell slot, any event can be altered.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"communication",
+						"compulsion",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "oV5ctG71kILOPsLa",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "True Seeing",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.5za0gne3ylcdk11z"
+				}
+			},
+			"system": {
+				"actions": {
+					"kjfGqi9GZMkJrOLT": {
+						"name": "True Seeing",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"Etf0r00UOAIpbuOu": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"4jeS3apdYZ3ssd16": {
+								"mode": "variable",
+								"spellLevel": 6,
+								"points": 9,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "an ointment for the eyes made from mushroom powder, saffron, and fat costing 25 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"senses"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "7WNoik98kuPlkFgF",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Invisibility",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.4eidicv0lyqevtwd"
+				}
+			},
+			"system": {
+				"actions": {
+					"JmYFAmw4m4fpTJH3": {
+						"name": "Invisibility",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"njg9gnRa30ArNRv0": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"DRrTTB0zIu3uhw9q": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of a veil",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement",
+						"shadow"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "ouFLWEYbmSUyXlRh",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Fly",
+			"type": "spell",
+			"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.aedq05b8pz7t02wd"
+				}
+			},
+			"system": {
+				"actions": {
+					"aB9z7esCzyo9VKxX": {
+						"name": "Fly",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"EloZQoMyroOm4LUA": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"yOcYe4sf8s0aMYTD": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target gains a flying speed of 60 feet. When the spell ends, the target falls if it is off the ground.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 3rd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "feather",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"arcane",
+						"movement"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "kTahZZmkM9ELUkLL",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Charm Person",
+			"type": "spell",
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.zf1kpjwhg9fabe01"
+				}
+			},
+			"system": {
+				"actions": {
+					"F8BStUMZ0QkuHIWs": {
+						"name": "Charm Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"D03zfzZhGAKBLTsK": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"pvX82eum3zUAY8rx": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"4gmBaqwWp60lu6xF": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"arcane",
+						"compulsion"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "zpAeNlYNcJD13AAh",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2574,7 +2723,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "cha"
+			"spellcasting": "cha",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {

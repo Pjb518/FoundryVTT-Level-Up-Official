@@ -16,6 +16,11 @@
 				"actions": {},
 				"description": "<p>The forgotten god radiates a weak alignment aura, most often Lawful and Good, Chaotic and Good, Lawful and Evil, or Chaotic and Evil. Its behavior may not match its alignment. <br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -79,6 +84,11 @@
 				"actions": {},
 				"description": "<p>The god’s innate spellcasting ability is Wisdom (save DC 17).The god can try to cast flame strike or spirit guardians at will with no material component. When the god tries to cast the spell, roll 1d6. On a 1, 2, or 3 on the die, the spell visibly fails and has no effect. The god’s action for the turn is not wasted, but it can’t be used to cast a spell. <br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -169,6 +179,11 @@
 				},
 				"description": "<p>When the god fails a saving throw, it can choose to succeed instead. When<br>it does so, it seems to flicker and shrink, as if it is using up its essence. <br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -250,6 +265,11 @@
 				},
 				"description": "<p>The god targets a creature within 60 feet. The target makes a DC 17 Charisma saving throw. On a failure, the target takes 10 (3d6) radiant damage and is stunned until the end of its next turn. On a success, the target is immune to Stunning Gaze<br>for 24 hours. <br></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -331,6 +351,11 @@
 				},
 				"description": "<p>Each creature of the god’s choice within 60 feet makes a DC 17 Constitution saving throw, taking 28 (8d6) radiant damage on a failure or half damage on a success. <br></p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -415,6 +440,11 @@
 				},
 				"description": "<p>The Damage Type of this weapon depends on which weapon the God wields. </p>",
 				"favorite": true,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -438,6 +468,7 @@
 				"quantity": 1,
 				"rarity": "common",
 				"requiresAttunement": false,
+				"shieldCategory": "",
 				"unidentified": false,
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
@@ -489,6 +520,11 @@
 				},
 				"description": "<p>The god flies up to half its fly speed without provoking opportunity attacks. <br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -545,6 +581,11 @@
 				},
 				"description": "<p>The god makes a divine weapon attack. </p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -601,6 +642,11 @@
 				},
 				"description": "<p>The god uses Stunning Gaze.<br></p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -616,218 +662,6 @@
 					"dc": "",
 					"onSave": "",
 					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ajmS4KmL5LPGeewc",
-			"name": "Insect Plague",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"dyU0OlVQpg9Epl9N": {
-						"name": "Insect Plague",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"myKrKMGnAyo7hHzl": {
-								"range": "300 ft."
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "20 ft. Radius",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature"
-						},
-						"rolls": {
-							"u1R8ht5cnhem0ixz": {
-								"canCrit": false,
-								"damageType": "piercing",
-								"formula": "4d10",
-								"name": "Insect Plague",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"pTFYOxVFHQPTpz3H": {
-								"ability": "con",
-								"onSave": "Damage is halved",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "17"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"d2yKNT63XqXkHgQI": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A 20-foot-radius sphere of biting and stinging insects appears centered on a point the god can see within 300 feet and remains for 10 minutes. The cloud spreads around corners and the area is lightly obscured. Each creature in the area when the cloud appears, and each creature that enters it for the first time on its turn, makes a DC 17 Constitution saving throw, taking 22 (4d10) piercing damage on a failed save, or half damage on a success. The god is immune to this damage. <br></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"beasts",
-						"nature",
-						"summoning"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": 17,
-					"onSave": "Damage is halved",
-					"targetAbility": "con"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "RUvSpZhjhgQUPPUO",
-			"name": "Spirit Guardians",
-			"type": "spell",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"6lRpqn8Zr7645wf1": {
-						"name": "Spirit Guardians",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 10
-						},
-						"ranges": {
-							"gT8P7EV9oHSWPXpK": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"size": "10 ft. Radius",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature"
-						},
-						"rolls": {
-							"nENa66G98rvi2IMl": {
-								"canCrit": false,
-								"damageType": "radiant",
-								"formula": "3d6",
-								"name": "Spirit Guardians",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"gWnp8i9AcHwyLV42": {
-								"ability": "wis",
-								"onSave": "Damage is halved",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "17"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"upYXBs9asDYNhSip": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>Spirits of former divine servants surround the god in a 10-foot radius for 10 minutes. The god can choose creatures they can see to be unaffected by the spell. Other creatures treat the area as difficult terrain, and when a creature enters the area for the first time on a turn or starts its turn there, it makes a DC DC 17 Wisdom saving throw, taking 10 (3d6) radiant damage on a failed save or half damage on a success. <br></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": true,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"divine",
-						"necrotic",
-						"radiant"
-					]
-				},
-				"ability": "spellcasting",
-				"proficient": true,
-				"save": {
-					"dc": 17,
-					"onSave": "Damage is halved",
-					"targetAbility": "wis"
 				}
 			},
 			"ownership": {
@@ -897,6 +731,11 @@
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -987,6 +826,11 @@
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1068,6 +912,11 @@
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1149,6 +998,11 @@
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1230,6 +1084,11 @@
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1311,6 +1170,11 @@
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1337,6 +1201,243 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "LZKCgjaVNysYrcuV"
+		},
+		{
+			"name": "Insect Plague",
+			"type": "spell",
+			"img": "icons/creatures/invertebrates/bee-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.spngrj7xkq5ih8yo"
+				}
+			},
+			"system": {
+				"actions": {
+					"AdeLlTpBDpD8RAHb": {
+						"name": "Insect Plague",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"sPYumD1fAGfL5EO3": {
+								"range": "300 feet"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"b15kpoYLRpVThV31": {
+								"canCrit": false,
+								"damageType": "piercing",
+								"formula": "4d10",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"0tA1xbET9kaBGHbs": {
+								"ability": "con",
+								"onSave": "Constitution negates",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"iijRDUEuu3Aj4lEP": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Constitution saving throw, taking 4d10 piercing damage on a failed save, or half as much on a successful one.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 5th.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "dead insect",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"beasts",
+						"nature",
+						"summoning"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Constitution negates",
+					"targetAbility": "con"
+				}
+			},
+			"_id": "J1Vb9IDfY2Xfu4E6",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
+		},
+		{
+			"name": "Spirit Guardians",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.pbtje70pd17ouy83"
+				}
+			},
+			"system": {
+				"actions": {
+					"L7jpMaxyGrl891Gg": {
+						"name": "Spirit Guardians",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"Z8fAZ0uNnx7BTz3J": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "10",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"bzqvKXJCFa0DUjdb": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"formula": "3d6",
+								"name": "Radiant",
+								"type": "damage"
+							},
+							"ufv1Zd8aRryexzJ8": {
+								"canCrit": false,
+								"damageType": "necrotic",
+								"formula": "3d6",
+								"name": "Necrotic",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"YEdu8ahM9DVK6DKC": {
+								"ability": "wis",
+								"onSave": "Half damage damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"O0Omz2eSU0vLIW8E": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+				"favorite": false,
+				"recharge": {
+					"charged": true,
+					"formula": "",
+					"threshold": ""
+				},
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "holy symbol",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"divine",
+						"necrotic",
+						"radiant"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage damage",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "t29ATX1K9lfbsnDp",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "LW4BJ6atslZZnw9G",
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1805,7 +1906,8 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int"
+			"spellcasting": "int",
+			"casterLevel": 0
 		},
 		"bonuses": {
 			"abilities": {
