@@ -171,10 +171,6 @@
         font-size: 0.833rem;
     }
 
-    small {
-        margin-top: 0.125rem;
-    }
-
     .a5e-field-group--spell-level {
         gap: 0.375rem;
     }

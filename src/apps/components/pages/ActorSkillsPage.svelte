@@ -1,28 +1,78 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import Skill from "../Skill.svelte";
 
     const actor = getContext("actor");
+    const { skillSpecialties } = CONFIG.A5E;
 
     $: skills = $actor.system.skills;
+
+    $: showSpecialties = Object.values(skills).some(
+        (skill) => skill.specialties.length
+    );
 </script>
 
-<ul class="skills-container">
-    <!-- svelte-ignore missing-declaration (CONFIG)-->
-    {#each Object.entries(skills) as [key, skill]}
-        <Skill {key} {skill} />
-    {/each}
-</ul>
+<div class="skill-page-wrapper">
+    {#if showSpecialties}
+        <dl>
+            {#each Object.entries(skills) as [key, skill]}
+                {#if skill.specialties.length}
+                    <dt>{localize(CONFIG.A5E.skills[key])}</dt>
+                    <dd>
+                        {skill.specialties
+                            .sort((a, b) =>
+                                a.toLowerCase().localeCompare(b.toLowerCase())
+                            )
+                            .map((specialty) => {
+                                if (!skillSpecialties[key]) return specialty;
+
+                                return (
+                                    skillSpecialties[key][specialty] ??
+                                    specialty
+                                );
+                            })
+                            .join(", ")}
+                    </dd>
+                {/if}
+            {/each}
+        </dl>
+    {/if}
+
+    <ul class="skills-container">
+        {#each Object.entries(skills) as [key, skill], i}
+            <Skill {key} {skill} />
+        {/each}
+    </ul>
+</div>
 
 <style lang="scss">
+    dl {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        align-items: center;
+        column-gap: 0.25rem;
+        margin: 0;
+        font-size: 0.833rem;
+    }
+
     .skills-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.25rem;
+        grid-auto-rows: 1.5rem;
         margin: 0;
         padding: 0;
         list-style: none;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .skill-page-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 0.5rem;
         overflow-x: hidden;
     }
 </style>

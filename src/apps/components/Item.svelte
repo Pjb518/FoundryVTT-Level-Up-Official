@@ -212,7 +212,6 @@
     .item-roll-button {
         width: 1.5rem;
         height: 1.5rem;
-        flex-shrink: 0;
         padding: 0;
         margin: 0;
         background: transparent;
