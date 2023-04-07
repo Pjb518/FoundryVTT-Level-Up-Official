@@ -1,128 +1,115 @@
 {
-  "name": "Black Tentacles",
-  "type": "spell",
-  "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.67ex7mn5kkutvnqn"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "qsqOvrmUHti1p6VS": {
-        "name": "Black Tentacles",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "XB4OYpN1KliFWkhX": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "width": "20",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "kmPkIq4Ir4IWJ3ZU": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "3d6",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6",
-              "step": 2
-            }
-          }
-        },
-        "prompts": {
-          "T9VFB4CcJ122hbCi": {
-            "ability": "dex",
-            "onSave": "",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "CZE4mGt4EZXfNzWb": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>Writhing black tentacles fill the ground within the area turning it into difficult terrain. When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw. A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p>A restrained creature can use its action to make an Acrobatics or Athletics check against the spell save DC, freeing itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "piece of giant octopus or giant squid tentacle",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "arcane",
-        "summoning",
-        "terrain"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "",
-      "targetAbility": "dex"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268113,
-    "modifiedTime": 1680911048175,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Black Tentacles",
+	"type": "spell",
+	"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.67ex7mn5kkutvnqn"
+		}
+	},
+	"system": {
+		"actions": {
+			"qsqOvrmUHti1p6VS": {
+				"name": "Black Tentacles",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"XB4OYpN1KliFWkhX": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "20",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"kmPkIq4Ir4IWJ3ZU": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "3d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {
+					"T9VFB4CcJ122hbCi": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"CZE4mGt4EZXfNzWb": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>Writhing black tentacles fill the ground within the area turning it into difficult terrain. When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw. A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p>A restrained creature can use its action to make an Acrobatics or Athletics check against the spell save DC, freeing itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "piece of giant octopus or giant squid tentacle",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"summoning",
+				"terrain"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "67ex7mn5kkutvnqn"
 }

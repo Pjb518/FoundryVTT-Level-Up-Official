@@ -1,135 +1,122 @@
 {
-  "name": "Dispel Evil and Good",
-  "type": "spell",
-  "img": "icons/magic/lightning/bolt-strike-explosion-purple.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.2gn0cm5ted20qrgj"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "YpFF7ofsktQkO5nL": {
-        "name": "Dispel Evil and Good",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "w8PnRLs4xKRmW3YZ": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "rolls": {
-          "TruKgE3SlM2rWIO8": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "meleeSpellAttack",
-            "ability": "spellcasting"
-          },
-          "fRTlMzZHAOjPbuQo": {
-            "canCrit": true,
-            "damageType": "radiant",
-            "formula": "7d8",
-            "name": "Radiant",
-            "type": "damage",
-            "label": "Radiant",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d8"
-            }
-          },
-          "0BYyRpv1aNVskPsP": {
-            "canCrit": true,
-            "damageType": "necrotic",
-            "formula": "7d8",
-            "name": "Necrotic",
-            "type": "damage",
-            "label": "Necrotic",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d8"
-            }
-          }
-        },
-        "consumers": {
-          "dsgWwViZGszpu2ud": {
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 7,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A nimbus of power surrounds you, making you more able to resist and destroy beings from beyond the realms material.</p><p>Until the spell ends, celestials, elementals, fey, fiends, and undead have disadvantage on attack rolls against you.</p><p>You can end the spell early by using an action to do either of the following.</p><ul><li><p><strong>Mental Resistance:</strong> Choose up to 3 friendly creatures within 60 feet. Each of those creatures that is charmed, frightened, or possessed by a celestial, elemental, fey, fiend, or undead may make an immediate saving throw with advantage against the condition or possession, ending it on a success.</p></li><li><p><strong>Retribution:</strong> Make a melee spell attack against a celestial, elemental, fey, fiend, or undead within reach. On a hit, the creature takes 7d8 radiant or necrotic damage (your choice) and is stunned until the beginning of your next turn.</p></li></ul><p><strong><em>Cast at Higher Levels. </em></strong>Mental Resistance targets one additional creature for each slot level above 5th, and Retribution's damage increases by 1d8 for each slot level above 5th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 5,
-    "materials": "holy water or powdered silver and iron worth 25 gold",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "divine",
-        "protection"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268163,
-    "modifiedTime": 1680911048139,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Dispel Evil and Good",
+	"type": "spell",
+	"img": "icons/magic/lightning/bolt-strike-explosion-purple.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.2gn0cm5ted20qrgj"
+		}
+	},
+	"system": {
+		"actions": {
+			"YpFF7ofsktQkO5nL": {
+				"name": "Dispel Evil and Good",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"w8PnRLs4xKRmW3YZ": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"TruKgE3SlM2rWIO8": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeSpellAttack",
+						"ability": "spellcasting"
+					},
+					"fRTlMzZHAOjPbuQo": {
+						"canCrit": true,
+						"damageType": "radiant",
+						"formula": "7d8",
+						"name": "Radiant",
+						"type": "damage",
+						"label": "Radiant",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					},
+					"0BYyRpv1aNVskPsP": {
+						"canCrit": true,
+						"damageType": "necrotic",
+						"formula": "7d8",
+						"name": "Necrotic",
+						"type": "damage",
+						"label": "Necrotic",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"consumers": {
+					"dsgWwViZGszpu2ud": {
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A nimbus of power surrounds you, making you more able to resist and destroy beings from beyond the realms material.</p><p>Until the spell ends, celestials, elementals, fey, fiends, and undead have disadvantage on attack rolls against you.</p><p>You can end the spell early by using an action to do either of the following.</p><ul><li><p><strong>Mental Resistance:</strong> Choose up to 3 friendly creatures within 60 feet. Each of those creatures that is charmed, frightened, or possessed by a celestial, elemental, fey, fiend, or undead may make an immediate saving throw with advantage against the condition or possession, ending it on a success.</p></li><li><p><strong>Retribution:</strong> Make a melee spell attack against a celestial, elemental, fey, fiend, or undead within reach. On a hit, the creature takes 7d8 radiant or necrotic damage (your choice) and is stunned until the beginning of your next turn.</p></li></ul><p><strong><em>Cast at Higher Levels. </em></strong>Mental Resistance targets one additional creature for each slot level above 5th, and Retribution's damage increases by 1d8 for each slot level above 5th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "holy water or powdered silver and iron worth 25 gold",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"protection"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
+	},
+	"_id": "2gn0cm5ted20qrgj"
 }

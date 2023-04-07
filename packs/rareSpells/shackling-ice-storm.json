@@ -1,143 +1,130 @@
 {
-  "name": "Shackling Ice Storm",
-  "type": "spell",
-  "img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-rare-spells.8s67tu8ts04oe2hw"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "AVf45niNQKdNYdF5": {
-        "name": "Shackling Ice Storm",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "3Gjt5sqs85ajF8nE": {
-            "range": "300 feet"
-          }
-        },
-        "area": {
-          "shape": "cylinder",
-          "size": "20ft radius, 40ft high.",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": null,
-          "type": ""
-        },
-        "rolls": {
-          "Q5nfpXTuM2r8gZoA": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "2d8",
-            "name": "",
-            "type": "damage",
-            "label": "Bludgeoning",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d8"
-            }
-          },
-          "BnssqmZRUWi5bVWk": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "4d6",
-            "name": "",
-            "type": "damage",
-            "label": "Cold"
-          },
-          "mSEWpXePWPaWQwTz": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "2d6",
-            "name": "Ongoing damage.",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "0RRACH8gSylSzuKg": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "M7AuZfEaDezLWOfp": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shackling Ice Storm.</strong> A creature that takes 20 or more damage is ensnared in icy shackles. An ensnared creature is grappled and takes 2d6 ongoing cold damage until it uses an action to make a Strength saving throw to end the effect.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "drop of water",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "cold",
-        "nature",
-        "storm"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910284398,
-    "modifiedTime": 1680911057671,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Shackling Ice Storm",
+	"type": "spell",
+	"img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-rare-spells.8s67tu8ts04oe2hw"
+		}
+	},
+	"system": {
+		"actions": {
+			"AVf45niNQKdNYdF5": {
+				"name": "Shackling Ice Storm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"3Gjt5sqs85ajF8nE": {
+						"range": "300 feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"size": "20ft radius, 40ft high.",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": null,
+					"type": ""
+				},
+				"rolls": {
+					"Q5nfpXTuM2r8gZoA": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "2d8",
+						"name": "",
+						"type": "damage",
+						"label": "Bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					},
+					"BnssqmZRUWi5bVWk": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "4d6",
+						"name": "",
+						"type": "damage",
+						"label": "Cold"
+					},
+					"mSEWpXePWPaWQwTz": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "2d6",
+						"name": "Ongoing damage.",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"0RRACH8gSylSzuKg": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"M7AuZfEaDezLWOfp": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shackling Ice Storm.</strong> A creature that takes 20 or more damage is ensnared in icy shackles. An ensnared creature is grappled and takes 2d6 ongoing cold damage until it uses an action to make a Strength saving throw to end the effect.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "drop of water",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"cold",
+				"nature",
+				"storm"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "8s67tu8ts04oe2hw"
 }

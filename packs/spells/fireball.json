@@ -1,126 +1,113 @@
 {
-  "name": "Fireball",
-  "type": "spell",
-  "img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.n7vv8e7phkfc513j"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "CVkWr37CemgLcpXZ": {
-        "name": "Fireball",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "smgOqcDyRA47k2UF": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": "20",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "e9MtWpgQtR5V1hxX": {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "6d6",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "mhxKT92Mp2XFeWIl": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "VkxtzRV8K30GXu4L": {
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 3,
-    "materials": "bat guano and sulfur",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "fire"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268183,
-    "modifiedTime": 1680911048984,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Fireball",
+	"type": "spell",
+	"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.n7vv8e7phkfc513j"
+		}
+	},
+	"system": {
+		"actions": {
+			"CVkWr37CemgLcpXZ": {
+				"name": "Fireball",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"smgOqcDyRA47k2UF": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "20",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"e9MtWpgQtR5V1hxX": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "6d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"mhxKT92Mp2XFeWIl": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"VkxtzRV8K30GXu4L": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "bat guano and sulfur",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "n7vv8e7phkfc513j"
 }

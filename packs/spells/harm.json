@@ -1,126 +1,113 @@
 {
-  "name": "Harm",
-  "type": "spell",
-  "img": "icons/skills/wounds/blood-drip-droplet-red.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.gspch7z53deedvej"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "x5ogCjEegf3Hkzca": {
-        "name": "Harm",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "TN0ylkWA4IPcintd": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "WtW9EpyvaX1wZrLs": {
-            "canCrit": false,
-            "damageType": "necrotic",
-            "formula": "14d6",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "2d6"
-            }
-          }
-        },
-        "prompts": {
-          "blnFdVkQhudvgRJV": {
-            "ability": "con",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "5IiwUSfbbT7PnIcq": {
-            "mode": "variable",
-            "spellLevel": 6,
-            "points": 9,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You assail a target with an agonizing disease. The target takes 14d6 necrotic damage. If it fails its saving throw its hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point.</p><p><strong>Cast At Higher Levels.</strong> Increase the damage by 2d6 for each slot level above 6th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 6,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "attack",
-        "divine"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "con"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268209,
-    "modifiedTime": 1680911048586,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Harm",
+	"type": "spell",
+	"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.gspch7z53deedvej"
+		}
+	},
+	"system": {
+		"actions": {
+			"x5ogCjEegf3Hkzca": {
+				"name": "Harm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"TN0ylkWA4IPcintd": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"WtW9EpyvaX1wZrLs": {
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "14d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						}
+					}
+				},
+				"prompts": {
+					"blnFdVkQhudvgRJV": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"5IiwUSfbbT7PnIcq": {
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 9,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You assail a target with an agonizing disease. The target takes 14d6 necrotic damage. If it fails its saving throw its hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point.</p><p><strong>Cast At Higher Levels.</strong> Increase the damage by 2d6 for each slot level above 6th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 6,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"attack",
+				"divine"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
+		}
+	},
+	"_id": "gspch7z53deedvej"
 }

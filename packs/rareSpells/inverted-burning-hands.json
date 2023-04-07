@@ -1,126 +1,113 @@
 {
-  "name": "Inverted Burning Hands",
-  "type": "spell",
-  "img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-rare-spells.t12rt644eoncg8s7"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "cWZostQKbPwY46tk": {
-        "name": "Inverted Burning Hands",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "UQfvROcx4nwO5RPf": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "cone",
-          "size": "15ft",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": null,
-          "type": ""
-        },
-        "rolls": {
-          "z7hWinzGeZ7QyEf2": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "3d6",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "lJI61sDuT8uuDv2W": {
-            "ability": "con",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "co6L0EELnMwnQ56x": {
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Inverted Burning Hands.</strong> The spell deals cold damage instead of fire damage, creatures in the area make a Constitution saving throw instead of a Dexterity saving throw, and the area becomes difficult terrain for 1 minute as it is covered in hoarfrost.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "fire"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "con"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910284373,
-    "modifiedTime": 1680911057697,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Inverted Burning Hands",
+	"type": "spell",
+	"img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-rare-spells.t12rt644eoncg8s7"
+		}
+	},
+	"system": {
+		"actions": {
+			"cWZostQKbPwY46tk": {
+				"name": "Inverted Burning Hands",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"UQfvROcx4nwO5RPf": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"size": "15ft",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": null,
+					"type": ""
+				},
+				"rolls": {
+					"z7hWinzGeZ7QyEf2": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "3d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"lJI61sDuT8uuDv2W": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"co6L0EELnMwnQ56x": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Inverted Burning Hands.</strong> The spell deals cold damage instead of fire damage, creatures in the area make a Constitution saving throw instead of a Dexterity saving throw, and the area becomes difficult terrain for 1 minute as it is covered in hoarfrost.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
+		}
+	},
+	"_id": "t12rt644eoncg8s7"
 }

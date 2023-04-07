@@ -1,113 +1,100 @@
 {
-  "name": "Icy Displeasure",
-  "type": "spell",
-  "img": "icons/magic/lightning/orb-ball-purple.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-rare-spells.7rnec98gjkux58v4"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "LNVQIZfMXkNH6bYz": {
-        "name": "Icy Displeasure",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "round",
-          "value": "1d4+2"
-        },
-        "ranges": {
-          "063rEtaHWvmzgcOQ": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "prompts": {
-          "uzmv0BGUMqwyN3IS": {
-            "ability": "cha",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "ialhglamBuBrX77g": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You employ sheer force of will to make reality question the existence of a nearby creature, causing them to warp visibly in front of you.</p><p>Until the spell ends, a target native to your current plane is banished to a harmless demiplane and incapacitated. At the end of the duration the target reappears in the space it left (or the nearest unoccupied space). A target native to a different plane is instead banished to its native plane.</p><p>At the end of each of its turns, a banished creature can repeat the saving throw with a -1 penalty for each round it has spent banished, returning on a success. If the spell ends before its maximum duration, the target reappears in the space it left (or the nearest unoccupied space) but otherwise a target native to a different plane doesn't return.</p><p><strong><em>Cast at Higher Levels.</em></strong> The duration of banishment increases by 1 round for each slot level above 4th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Icy Displeasure. </strong>Until the spell ends, the target is vulnerable to cold damage and it has disadvantage on ability checks and attack rolls.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "an item worth at least 2 gold the target finds distasteful, consumed by the spell",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "affliction",
-        "planar"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Negates effect",
-      "targetAbility": "cha"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910284367,
-    "modifiedTime": 1680911057668,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Icy Displeasure",
+	"type": "spell",
+	"img": "icons/magic/lightning/orb-ball-purple.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-rare-spells.7rnec98gjkux58v4"
+		}
+	},
+	"system": {
+		"actions": {
+			"LNVQIZfMXkNH6bYz": {
+				"name": "Icy Displeasure",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1d4+2"
+				},
+				"ranges": {
+					"063rEtaHWvmzgcOQ": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"prompts": {
+					"uzmv0BGUMqwyN3IS": {
+						"ability": "cha",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"ialhglamBuBrX77g": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You employ sheer force of will to make reality question the existence of a nearby creature, causing them to warp visibly in front of you.</p><p>Until the spell ends, a target native to your current plane is banished to a harmless demiplane and incapacitated. At the end of the duration the target reappears in the space it left (or the nearest unoccupied space). A target native to a different plane is instead banished to its native plane.</p><p>At the end of each of its turns, a banished creature can repeat the saving throw with a -1 penalty for each round it has spent banished, returning on a success. If the spell ends before its maximum duration, the target reappears in the space it left (or the nearest unoccupied space) but otherwise a target native to a different plane doesn't return.</p><p><strong><em>Cast at Higher Levels.</em></strong> The duration of banishment increases by 1 round for each slot level above 4th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Icy Displeasure. </strong>Until the spell ends, the target is vulnerable to cold damage and it has disadvantage on ability checks and attack rolls.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "an item worth at least 2 gold the target finds distasteful, consumed by the spell",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"affliction",
+				"planar"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effect",
+			"targetAbility": "cha"
+		}
+	},
+	"_id": "7rnec98gjkux58v4"
 }

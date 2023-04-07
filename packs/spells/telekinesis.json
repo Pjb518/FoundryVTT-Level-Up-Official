@@ -1,162 +1,149 @@
 {
-  "name": "Telekinesis",
-  "type": "spell",
-  "img": "icons/magic/control/energy-stream-link-white.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.0xo9oc6s6mrh77ci"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "fYtMyRKewQSztFMH": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "10"
-        },
-        "ranges": {
-          "gBrCOnibS0ymWRaQ": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "rolls": {},
-        "consumers": {
-          "9az8wN5iviiSS9iS": {
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 7,
-            "type": "spell"
-          }
-        }
-      },
-      "lfXCjDtskpINGG8P": {
-        "name": "Move Creature",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "unit": "round",
-          "value": 1
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "ranges": {
-          "N0XNI5JieUkuucTv": {
-            "range": "medium"
-          }
-        },
-        "prompts": {
-          "XSfjzAKjObX2A6c9": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "str",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "No effect"
-          }
-        }
-      },
-      "wUOGhwTqs8P2HF7x": {
-        "name": "Move Object",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "unit": "round",
-          "value": 1
-        },
-        "ranges": {
-          "yyApVS9OBVyPLVpj": {
-            "range": "medium"
-          }
-        },
-        "target": {
-          "type": "object",
-          "quantity": 1
-        },
-        "prompts": {
-          "Y6kK8tNMQkPkF8AS": {
-            "type": "abilityCheck",
-            "default": false,
-            "ability": "str"
-          }
-        }
-      }
-    },
-    "description": "<p>You move the target with the power of your mind.</p>\n<p>Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p>\n<p><strong>Creature. </strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p>\n<p><strong>Object.</strong>&nbsp;You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p>\n<p>You can use telekinesis to finely manipulate objects as though you were using them yourself&mdash;you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> When using an 8th-level spell slot, this spell does not require your concentration.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 5,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "arcane",
-        "movement"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268313,
-    "modifiedTime": 1680911048121,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Telekinesis",
+	"type": "spell",
+	"img": "icons/magic/control/energy-stream-link-white.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.0xo9oc6s6mrh77ci"
+		}
+	},
+	"system": {
+		"actions": {
+			"fYtMyRKewQSztFMH": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"gBrCOnibS0ymWRaQ": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {},
+				"consumers": {
+					"9az8wN5iviiSS9iS": {
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7,
+						"type": "spell"
+					}
+				}
+			},
+			"lfXCjDtskpINGG8P": {
+				"name": "Move Creature",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"N0XNI5JieUkuucTv": {
+						"range": "medium"
+					}
+				},
+				"prompts": {
+					"XSfjzAKjObX2A6c9": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No effect"
+					}
+				}
+			},
+			"wUOGhwTqs8P2HF7x": {
+				"name": "Move Object",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"yyApVS9OBVyPLVpj": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "object",
+					"quantity": 1
+				},
+				"prompts": {
+					"Y6kK8tNMQkPkF8AS": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "str"
+					}
+				}
+			}
+		},
+		"description": "<p>You move the target with the power of your mind.</p>\n<p>Until the spell ends you can use an action on subsequent turns to pick a new target or continue to affect the same target. Depending on whether you target a creature or an object, the spell has the following effects:</p>\n<p><strong>Creature. </strong>The target makes a Strength check against your spell save DC or it is moved up to 30 feet in any direction and restrained (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell.</p>\n<p><strong>Object.</strong>&nbsp;You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Strength check against your spell save DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell.</p>\n<p>You can use telekinesis to finely manipulate objects as though you were using them yourself&mdash;you can open doors and unscrew lids, dip a quill in ink and make it write, and so on.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> When using an 8th-level spell slot, this spell does not require your concentration.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"movement"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
+	},
+	"_id": "0xo9oc6s6mrh77ci"
 }

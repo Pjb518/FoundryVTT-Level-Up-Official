@@ -1,122 +1,109 @@
 {
-  "name": "Whirlwind Kick",
-  "type": "spell",
-  "img": "icons/magic/air/wind-tornado-funnel-gray.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.0esw8lzg8wnivp1f"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "PyJgPX0rvflla61a": {
-        "name": "Whirlwind Kick",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "THi1J8tf4WzzxYse": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "line",
-          "width": "5",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "gwxar7ZNjlpiISoT": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "meleeSpellAttack",
-            "ability": "spellcasting"
-          },
-          "uIZ4EIpanIT29NEE": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "damageType": "thunder",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "consumers": {
-          "InEij1UEivhX9yPt": {
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You must be able to move in order to cast this spell. You leap into the air and spin like a tornado, striking foes all around you with supernatural force as you fly up to 60 feet in a straight line. Your movement (which does not provoke attacks of opportunity) must end on a surface that can support your weight or you fall as normal.</p><p>As part of the casting of this spell, make a melee spell attack against any number of creatures in the area. On a hit, you deal your unarmed strike damage plus 2d6 thunder damage. In addition, creatures in the area make a Dexterity saving throw or are either pulled 10 feet closer to you or pushed 10 feet away (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The extra thunder damage increases by 1d6 for each slot level above 3rd.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 3,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "movement",
-        "thunder",
-        "unarmed"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268330,
-    "modifiedTime": 1680911048117,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Whirlwind Kick",
+	"type": "spell",
+	"img": "icons/magic/air/wind-tornado-funnel-gray.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.0esw8lzg8wnivp1f"
+		}
+	},
+	"system": {
+		"actions": {
+			"PyJgPX0rvflla61a": {
+				"name": "Whirlwind Kick",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"THi1J8tf4WzzxYse": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"width": "5",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"gwxar7ZNjlpiISoT": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeSpellAttack",
+						"ability": "spellcasting"
+					},
+					"uIZ4EIpanIT29NEE": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "thunder",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"consumers": {
+					"InEij1UEivhX9yPt": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You must be able to move in order to cast this spell. You leap into the air and spin like a tornado, striking foes all around you with supernatural force as you fly up to 60 feet in a straight line. Your movement (which does not provoke attacks of opportunity) must end on a surface that can support your weight or you fall as normal.</p><p>As part of the casting of this spell, make a melee spell attack against any number of creatures in the area. On a hit, you deal your unarmed strike damage plus 2d6 thunder damage. In addition, creatures in the area make a Dexterity saving throw or are either pulled 10 feet closer to you or pushed 10 feet away (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The extra thunder damage increases by 1d6 for each slot level above 3rd.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"movement",
+				"thunder",
+				"unarmed"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
+	},
+	"_id": "0esw8lzg8wnivp1f"
 }

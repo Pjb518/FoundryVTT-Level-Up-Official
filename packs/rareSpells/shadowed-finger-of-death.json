@@ -1,127 +1,114 @@
 {
-  "name": "Shadowed Finger of Death",
-  "type": "spell",
-  "img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-rare-spells.zm7mc5ahu2d4k7xv"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "sOvEQ1ieLzLWGLLT": {
-        "name": "Shadowed Finger of Death",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "0UtjNTJiSX6mwajH": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "GDSOykQlpbPO63AX": {
-            "canCrit": false,
-            "damageType": "necrotic",
-            "formula": "7d8+30",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "2d8"
-            }
-          }
-        },
-        "prompts": {
-          "ToW9SvanDLpM1tIg": {
-            "ability": "con",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "E5cLpkZledcpcHj9": {
-            "mode": "variable",
-            "spellLevel": 7,
-            "points": 10,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shadowed Finger of Death.</strong> This spell’s duration is 1 hour. You can store the spell harmlessly on a willing creature, causing an inky stain to appear on its finger. That creature can touch or make an unarmed melee attack to deliver the spell to a target, triggering the damage on a hit. The spell ends on a hit or miss.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 7,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "arcane",
-        "necrotic",
-        "undead"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "con"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910284400,
-    "modifiedTime": 1680911057707,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Shadowed Finger of Death",
+	"type": "spell",
+	"img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-rare-spells.zm7mc5ahu2d4k7xv"
+		}
+	},
+	"system": {
+		"actions": {
+			"sOvEQ1ieLzLWGLLT": {
+				"name": "Shadowed Finger of Death",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"0UtjNTJiSX6mwajH": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"GDSOykQlpbPO63AX": {
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "7d8+30",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d8"
+						}
+					}
+				},
+				"prompts": {
+					"ToW9SvanDLpM1tIg": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"E5cLpkZledcpcHj9": {
+						"mode": "variable",
+						"spellLevel": 7,
+						"points": 10,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shadowed Finger of Death.</strong> This spell’s duration is 1 hour. You can store the spell harmlessly on a willing creature, causing an inky stain to appear on its finger. That creature can touch or make an unarmed melee attack to deliver the spell to a target, triggering the damage on a hit. The spell ends on a hit or miss.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 7,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"arcane",
+				"necrotic",
+				"undead"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
+		}
+	},
+	"_id": "zm7mc5ahu2d4k7xv"
 }

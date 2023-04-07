@@ -1,131 +1,118 @@
 {
-  "name": "Freezing Sphere",
-  "type": "spell",
-  "img": "icons/magic/water/barrier-ice-shield.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.oxrnnxd894sfb996"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "i1r3EJu4qpFvylSN": {
-        "name": "Freezing Sphere",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "46Id4gjFhbAd6hOn": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": "60",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "umQBwpUbpttWcaYh": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "10d6",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          },
-          "VvHzQAn0Vatv9xfH": {
-            "ability": "str",
-            "type": "abilityCheck"
-          }
-        },
-        "prompts": {
-          "CjZ5BHnP6V5uzayo": {
-            "ability": "con",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "R4zMJwnhkuhiO8eL": {
-            "mode": "variable",
-            "spellLevel": 6,
-            "points": 9,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A freezing globe streaks to a point within range and explodes, dealing 10d6 cold damage to creatures in the area. Liquid in the area is frozen to a depth of 6 inches for 1 minute. Any creature caught in the ice can use an action to make a Strength check against your spell save DC to escape.</p><p>Instead of firing the globe, you can hold it in your hand. If you handle it carefully, it won't explode until a minute after you cast the spell. At any time, you or another creature can strike the globe, throw it up to 60 feet, or use it as a slingstone, causing it to explode on impact.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 6th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 6,
-    "materials": "a marble",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "cold",
-        "water"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "Half damage",
-      "targetAbility": "con"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268195,
-    "modifiedTime": 1680911048999,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Freezing Sphere",
+	"type": "spell",
+	"img": "icons/magic/water/barrier-ice-shield.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.oxrnnxd894sfb996"
+		}
+	},
+	"system": {
+		"actions": {
+			"i1r3EJu4qpFvylSN": {
+				"name": "Freezing Sphere",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"46Id4gjFhbAd6hOn": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "60",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"umQBwpUbpttWcaYh": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "10d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"VvHzQAn0Vatv9xfH": {
+						"ability": "str",
+						"type": "abilityCheck"
+					}
+				},
+				"prompts": {
+					"CjZ5BHnP6V5uzayo": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"R4zMJwnhkuhiO8eL": {
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 9,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A freezing globe streaks to a point within range and explodes, dealing 10d6 cold damage to creatures in the area. Liquid in the area is frozen to a depth of 6 inches for 1 minute. Any creature caught in the ice can use an action to make a Strength check against your spell save DC to escape.</p><p>Instead of firing the globe, you can hold it in your hand. If you handle it carefully, it won't explode until a minute after you cast the spell. At any time, you or another creature can strike the globe, throw it up to 60 feet, or use it as a slingstone, causing it to explode on impact.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 6th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 6,
+		"materials": "a marble",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"cold",
+				"water"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "Half damage",
+			"targetAbility": "con"
+		}
+	},
+	"_id": "oxrnnxd894sfb996"
 }

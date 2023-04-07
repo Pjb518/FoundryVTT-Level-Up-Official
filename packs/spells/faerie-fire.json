@@ -1,114 +1,101 @@
 {
-  "name": "Faerie Fire",
-  "type": "spell",
-  "img": "icons/magic/light/projectiles-pink-purple.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.z7r6plq6vyesck07"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "csBA0B0VYc68le4M": {
-        "name": "Faerie Fire",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "mfLaFLmAAEW4pD4n": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "size": "20 ft.",
-          "width": 20,
-          "placeTemplate": true
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "prompts": {
-          "C95Yph6KdzvdTomm": {
-            "ability": "dex",
-            "onSave": "Special",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "GwAK3ui1g3ImkKRO": {
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": true,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "utility"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Special",
-      "targetAbility": "dex"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268177,
-    "modifiedTime": 1680911049426,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Faerie Fire",
+	"type": "spell",
+	"img": "icons/magic/light/projectiles-pink-purple.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.z7r6plq6vyesck07"
+		}
+	},
+	"system": {
+		"actions": {
+			"csBA0B0VYc68le4M": {
+				"name": "Faerie Fire",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"mfLaFLmAAEW4pD4n": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"size": "20 ft.",
+					"width": 20,
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"prompts": {
+					"C95Yph6KdzvdTomm": {
+						"ability": "dex",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"GwAK3ui1g3ImkKRO": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>Each object in a 20-foot cube within range is outlined in light (your choice of color). Any creature in the area when the spell is cast is also outlined unless it makes a Dexterity saving throw. Until the spell ends, affected objects and creatures shed dim light in a 10-foot radius.</p><p>Any attack roll against an affected object or creature has advantage. The spell also negates the benefits of invisibility on affected creatures and objects.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"utility"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Special",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "z7r6plq6vyesck07"
 }

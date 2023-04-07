@@ -1,137 +1,124 @@
 {
-  "name": "Ice Storm",
-  "type": "spell",
-  "img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.nolt36wjo8dxxuik"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "g4uE7hhDIody24ZS": {
-        "name": "Ice Storm",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "iFYGK2988TCHUQdW": {
-            "range": "300 feet"
-          }
-        },
-        "area": {
-          "shape": "cylinder",
-          "radius": "20",
-          "height": "40",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": null,
-          "type": ""
-        },
-        "rolls": {
-          "RJswfwUMum6hRBet": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "2d8",
-            "name": "",
-            "type": "damage",
-            "label": "Bludgeoning",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d8"
-            }
-          },
-          "FlHzinZS5Uyzm5ZA": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "4d6",
-            "name": "",
-            "type": "damage",
-            "label": "Cold"
-          }
-        },
-        "prompts": {
-          "oAJZGHaZp40FpkkC": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "lt7MKGxN74izIDBi": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "drop of water",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "cold",
-        "nature",
-        "storm"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "dex"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268216,
-    "modifiedTime": 1680911048986,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Ice Storm",
+	"type": "spell",
+	"img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.nolt36wjo8dxxuik"
+		}
+	},
+	"system": {
+		"actions": {
+			"g4uE7hhDIody24ZS": {
+				"name": "Ice Storm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"iFYGK2988TCHUQdW": {
+						"range": "300 feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "20",
+					"height": "40",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": null,
+					"type": ""
+				},
+				"rolls": {
+					"RJswfwUMum6hRBet": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "2d8",
+						"name": "",
+						"type": "damage",
+						"label": "Bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					},
+					"FlHzinZS5Uyzm5ZA": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "4d6",
+						"name": "",
+						"type": "damage",
+						"label": "Cold"
+					}
+				},
+				"prompts": {
+					"oAJZGHaZp40FpkkC": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"lt7MKGxN74izIDBi": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A bombardment of jagged ice erupts throughout the target area. All creatures in the area take 2d8 bludgeoning damage and 4d6 cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bludgeoning damage increases by 1d8 for each slot level above 4th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "drop of water",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"cold",
+				"nature",
+				"storm"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "nolt36wjo8dxxuik"
 }

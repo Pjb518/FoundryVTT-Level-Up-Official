@@ -1,122 +1,109 @@
 {
-  "name": "Ray of Enfeeblement",
-  "type": "spell",
-  "img": "icons/magic/unholy/projectile-missile-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.9eojtnhu5ptcipov"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "V8Mow1LinKc9f1OC": {
-        "name": "Ray of Enfeeblement",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "IzJaQhJ7dOEpFshp": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "GYsjN0NtCFlwDKjJ": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "rangedSpellAttack",
-            "ability": "spellcasting"
-          }
-        },
-        "prompts": {
-          "pEZZxoF4O42XEveS": {
-            "ability": "str",
-            "onSave": "Special",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "Na54jOqUxvh2xtGK": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "arcane",
-        "necrotic"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Special",
-      "targetAbility": "str"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268276,
-    "modifiedTime": 1680911048201,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Ray of Enfeeblement",
+	"type": "spell",
+	"img": "icons/magic/unholy/projectile-missile-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.9eojtnhu5ptcipov"
+		}
+	},
+	"system": {
+		"actions": {
+			"V8Mow1LinKc9f1OC": {
+				"name": "Ray of Enfeeblement",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"IzJaQhJ7dOEpFshp": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"GYsjN0NtCFlwDKjJ": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					}
+				},
+				"prompts": {
+					"pEZZxoF4O42XEveS": {
+						"ability": "str",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"Na54jOqUxvh2xtGK": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"arcane",
+				"necrotic"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Special",
+			"targetAbility": "str"
+		}
+	},
+	"_id": "9eojtnhu5ptcipov"
 }

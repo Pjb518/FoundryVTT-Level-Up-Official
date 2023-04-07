@@ -1,120 +1,107 @@
 {
-  "name": "Fire Shield",
-  "type": "spell",
-  "img": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.lnbcwy44k19g4bbu"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "OrpIOwi4mJB0dRUp": {
-        "name": "Fire Shield",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "10"
-        },
-        "ranges": {
-          "LMb8BXQ8GDu03Ucx": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "rolls": {
-          "Fgku7YH33z36JZfu": {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "2d8",
-            "name": "Warm Shield",
-            "type": "damage"
-          },
-          "ekC3Ly6r1OqDLPaV": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "2d8",
-            "name": "Chill Shield",
-            "type": "damage"
-          }
-        },
-        "consumers": {
-          "zwY9ACZc4feWdphS": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p><ul><li><p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p></li><li><p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "phosphorus",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "cold",
-        "fire",
-        "protection"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268181,
-    "modifiedTime": 1680911048972,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Fire Shield",
+	"type": "spell",
+	"img": "icons/magic/fire/blast-jet-stream-embers-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.lnbcwy44k19g4bbu"
+		}
+	},
+	"system": {
+		"actions": {
+			"OrpIOwi4mJB0dRUp": {
+				"name": "Fire Shield",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"LMb8BXQ8GDu03Ucx": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"rolls": {
+					"Fgku7YH33z36JZfu": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "2d8",
+						"name": "Warm Shield",
+						"type": "damage"
+					},
+					"ekC3Ly6r1OqDLPaV": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "2d8",
+						"name": "Chill Shield",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"zwY9ACZc4feWdphS": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p><ul><li><p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p></li><li><p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "phosphorus",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"cold",
+				"fire",
+				"protection"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
+	},
+	"_id": "lnbcwy44k19g4bbu"
 }

@@ -1,133 +1,120 @@
 {
-  "name": "Blinding Acid Arrow",
-  "type": "spell",
-  "img": "icons/magic/acid/projectile-stream-bubbles.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-rare-spells.9qdoa9d8uj1auz17"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "IBTyXibqJTwfA5OB": {
-        "name": "Blinding Acid Arrow",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "cTxPyY4KmfPZpt5Y": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "gOmPJEUHgm8WcUlp": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "rangedSpellAttack",
-            "ability": "spellcasting"
-          },
-          "6XLO9PvbTuCoeHp0": {
-            "canCrit": true,
-            "damageType": "acid",
-            "formula": "4d4",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d4"
-            }
-          }
-        },
-        "prompts": {
-          "KCDyt0E3mm2FPAwB": {
-            "ability": "dex",
-            "onSave": "Not blinded",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "LK9hknnQr1oNHtF4": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.</p><p>On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase this spell's initial and ongoing damage by 1d4 per slot level above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Blinding Acid Arrow.</strong> The arrow flies to the target’s sensory organs seeking to damage its sight. A creature damaged by this spell makes a Dexterity saving throw or it is blinded until the end of its next turn. </p><p></p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "flint arrowhead",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "acid",
-        "arcane"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Not blinded",
-      "targetAbility": "dex"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910284333,
-    "modifiedTime": 1680911057672,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Blinding Acid Arrow",
+	"type": "spell",
+	"img": "icons/magic/acid/projectile-stream-bubbles.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-rare-spells.9qdoa9d8uj1auz17"
+		}
+	},
+	"system": {
+		"actions": {
+			"IBTyXibqJTwfA5OB": {
+				"name": "Blinding Acid Arrow",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"cTxPyY4KmfPZpt5Y": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"gOmPJEUHgm8WcUlp": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"6XLO9PvbTuCoeHp0": {
+						"canCrit": true,
+						"damageType": "acid",
+						"formula": "4d4",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {
+					"KCDyt0E3mm2FPAwB": {
+						"ability": "dex",
+						"onSave": "Not blinded",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"LK9hknnQr1oNHtF4": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.</p><p>On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase this spell's initial and ongoing damage by 1d4 per slot level above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Blinding Acid Arrow.</strong> The arrow flies to the target’s sensory organs seeking to damage its sight. A creature damaged by this spell makes a Dexterity saving throw or it is blinded until the end of its next turn. </p><p></p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "flint arrowhead",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"acid",
+				"arcane"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Not blinded",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "9qdoa9d8uj1auz17"
 }

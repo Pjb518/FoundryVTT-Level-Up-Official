@@ -1,128 +1,115 @@
 {
-  "name": "Blight",
-  "type": "spell",
-  "img": "icons/magic/unholy/hand-claw-fog-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.2q65v0xklhfx73to"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "3SWqcoeljlBPXRWy": {
-        "name": "Blight",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "6HAOKpIlAMsRjDXw": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "eN14St3CqorpVRgb": {
-            "canCrit": false,
-            "damageType": "necrotic",
-            "formula": "8d8",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d8"
-            }
-          }
-        },
-        "prompts": {
-          "vygV6F61Xin5y5D9": {
-            "ability": "con",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "zEtH47tnGEvC8adw": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>Necrotic energies drain moisture and vitality from the target, dealing 8d8 necrotic damage. Undead and constructs are immune to this spell.</p><p>A plant creature or magical plant has disadvantage on its saving throw and takes the maximum damage possible from this spell. A nonmagical plant that isn't a creature receives no saving throw and instead withers until dead.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 4,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "arcane",
-        "nature",
-        "necrotic",
-        "plants"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Half damage",
-      "targetAbility": "con"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268117,
-    "modifiedTime": 1680911048141,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Blight",
+	"type": "spell",
+	"img": "icons/magic/unholy/hand-claw-fog-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.2q65v0xklhfx73to"
+		}
+	},
+	"system": {
+		"actions": {
+			"3SWqcoeljlBPXRWy": {
+				"name": "Blight",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"6HAOKpIlAMsRjDXw": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"eN14St3CqorpVRgb": {
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "8d8",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {
+					"vygV6F61Xin5y5D9": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"zEtH47tnGEvC8adw": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>Necrotic energies drain moisture and vitality from the target, dealing 8d8 necrotic damage. Undead and constructs are immune to this spell.</p><p>A plant creature or magical plant has disadvantage on its saving throw and takes the maximum damage possible from this spell. A nonmagical plant that isn't a creature receives no saving throw and instead withers until dead.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"arcane",
+				"nature",
+				"necrotic",
+				"plants"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Half damage",
+			"targetAbility": "con"
+		}
+	},
+	"_id": "2q65v0xklhfx73to"
 }

@@ -1,122 +1,109 @@
 {
-  "name": "Acid Arrow",
-  "type": "spell",
-  "img": "icons/magic/acid/projectile-stream-bubbles.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.nz5w9m7a9pvxjw3i"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "FWz3KZgbN5Av9qet": {
-        "name": "Acid Arrow",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "Mag7aVG9Jf2lfRlZ": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creatureObject"
-        },
-        "rolls": {
-          "WCMoWZTCXyWijy3r": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "rangedSpellAttack",
-            "ability": "spellcasting"
-          },
-          "vrV4CI87pxZBRsRs": {
-            "canCrit": true,
-            "damageType": "acid",
-            "formula": "4d4",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d4"
-            }
-          }
-        },
-        "consumers": {
-          "jZTkbL4gXip2MIgm": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.</p><p>On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase this spell's initial and ongoing damage by 1d4 per slot level above 2nd.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "flint arrowhead",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "acid",
-        "arcane"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268084,
-    "modifiedTime": 1680911048990,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Acid Arrow",
+	"type": "spell",
+	"img": "icons/magic/acid/projectile-stream-bubbles.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.nz5w9m7a9pvxjw3i"
+		}
+	},
+	"system": {
+		"actions": {
+			"FWz3KZgbN5Av9qet": {
+				"name": "Acid Arrow",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"Mag7aVG9Jf2lfRlZ": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"WCMoWZTCXyWijy3r": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"vrV4CI87pxZBRsRs": {
+						"canCrit": true,
+						"damageType": "acid",
+						"formula": "4d4",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				},
+				"consumers": {
+					"jZTkbL4gXip2MIgm": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.</p><p>On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase this spell's initial and ongoing damage by 1d4 per slot level above 2nd.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "flint arrowhead",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"acid",
+				"arcane"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
+	},
+	"_id": "nz5w9m7a9pvxjw3i"
 }

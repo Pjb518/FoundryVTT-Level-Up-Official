@@ -1,127 +1,114 @@
 {
-  "name": "Creeping Phantasmal Killer",
-  "type": "spell",
-  "img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-rare-spells.qhd2ygzycqlcn8od"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "cSYTcNsFyPgsLoq5": {
-        "name": "Creeping Phantasmal Killer",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "X7zEjrV7vibcx0pH": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "ATf9V1LsyctMAp7d": {
-            "canCrit": false,
-            "damageType": "psychic",
-            "formula": "4d10",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d10"
-            }
-          }
-        },
-        "prompts": {
-          "0t26PvTId6mFbTK0": {
-            "ability": "wis",
-            "onSave": "Special",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "Ap1Lsad3A1GvY2eI": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You create an illusion that invokes the target's deepest fears. Only the target can see this illusion.</p><p>When the spell is cast and at the end of each of its turns, the target makes a Wisdom saving throw or takes 4d10 psychic damage and becomes frightened.</p><p>The spell ends early when the target succeeds on its saving throw. A target that succeeds on its initial saving throw takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above the 4th.</p><p><strong><em>Creeping Phantasmal Killer.</em> </strong>When a target succeeds on its saving throw you may choose a new target for the spell. That target must make its own saving throw, and on a failure the spell continues without the expenditure of an additional spell slot, using the same duration.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "illusion",
-      "secondary": [
-        "arcane",
-        "fear",
-        "psychic"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Special",
-      "targetAbility": "wis"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910284345,
-    "modifiedTime": 1680911057693,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Creeping Phantasmal Killer",
+	"type": "spell",
+	"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-rare-spells.qhd2ygzycqlcn8od"
+		}
+	},
+	"system": {
+		"actions": {
+			"cSYTcNsFyPgsLoq5": {
+				"name": "Creeping Phantasmal Killer",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"X7zEjrV7vibcx0pH": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"ATf9V1LsyctMAp7d": {
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "4d10",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
+					}
+				},
+				"prompts": {
+					"0t26PvTId6mFbTK0": {
+						"ability": "wis",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"Ap1Lsad3A1GvY2eI": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You create an illusion that invokes the target's deepest fears. Only the target can see this illusion.</p><p>When the spell is cast and at the end of each of its turns, the target makes a Wisdom saving throw or takes 4d10 psychic damage and becomes frightened.</p><p>The spell ends early when the target succeeds on its saving throw. A target that succeeds on its initial saving throw takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above the 4th.</p><p><strong><em>Creeping Phantasmal Killer.</em> </strong>When a target succeeds on its saving throw you may choose a new target for the spell. That target must make its own saving throw, and on a failure the spell continues without the expenditure of an additional spell slot, using the same duration.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"arcane",
+				"fear",
+				"psychic"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Special",
+			"targetAbility": "wis"
+		}
+	},
+	"_id": "qhd2ygzycqlcn8od"
 }

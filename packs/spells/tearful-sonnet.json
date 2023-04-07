@@ -1,127 +1,114 @@
 {
-  "name": "Tearful Sonnet",
-  "type": "spell",
-  "img": "icons/magic/water/water-drop-swirl-blue.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.rvp7imtsq1ilkj8h"
-    },
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "10.291",
-      "systemVersion": "0.10.5"
-    }
-  },
-  "system": {
-    "actions": {
-      "59KPIkIRROal9hhp": {
-        "name": "Tearful Sonnet",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "round",
-          "value": "3"
-        },
-        "ranges": {
-          "OlidtcRzeDANX6l9": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": "20",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {
-          "3G4cD92KTVDb5iK7": {
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "QXyn5M2TILWFd8hR": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "No damage that round"
-          }
-        },
-        "rolls": {
-          "XwNsIrvh4DHdsOw7": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d4",
-            "damageType": "psychic",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "2d4"
-            },
-            "canCrit": false
-          }
-        }
-      }
-    },
-    "description": "<p>You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a Charisma saving throw at the start of its turn. On a failed save, a creature takes 2d4 psychic damage, it spends its action that turn crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the charmed condition automatically succeed on this saving throw.</p><p>If a creature other than you hears the entire song (remaining within the spell's area from the casting through the duration) it is so wracked with sadness that it is stunned for 1d4 rounds.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d4 for each slot level above 4th.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "whole onion",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "compulsion",
-        "psychic",
-        "sound"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "",
-      "onSave": "",
-      "targetAbility": ""
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.10.5",
-    "coreVersion": "10.291",
-    "createdTime": 1680910268312,
-    "modifiedTime": 1680911049019,
-    "lastModifiedBy": "eunZYRLVMq93MkmD"
-  }
+	"name": "Tearful Sonnet",
+	"type": "spell",
+	"img": "icons/magic/water/water-drop-swirl-blue.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.rvp7imtsq1ilkj8h"
+		}
+	},
+	"system": {
+		"actions": {
+			"59KPIkIRROal9hhp": {
+				"name": "Tearful Sonnet",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "3"
+				},
+				"ranges": {
+					"OlidtcRzeDANX6l9": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "20",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"3G4cD92KTVDb5iK7": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"QXyn5M2TILWFd8hR": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No damage that round"
+					}
+				},
+				"rolls": {
+					"XwNsIrvh4DHdsOw7": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"damageType": "psychic",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d4"
+						},
+						"canCrit": false
+					}
+				}
+			}
+		},
+		"description": "<p>You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a Charisma saving throw at the start of its turn. On a failed save, a creature takes 2d4 psychic damage, it spends its action that turn crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the charmed condition automatically succeed on this saving throw.</p><p>If a creature other than you hears the entire song (remaining within the spell's area from the casting through the duration) it is so wracked with sadness that it is stunned for 1d4 rounds.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d4 for each slot level above 4th.</p>",
+		"favorite": false,
+		"recharge": {
+			"charged": true,
+			"formula": "",
+			"threshold": ""
+		},
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "whole onion",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"compulsion",
+				"psychic",
+				"sound"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		}
+	},
+	"_id": "rvp7imtsq1ilkj8h"
 }
