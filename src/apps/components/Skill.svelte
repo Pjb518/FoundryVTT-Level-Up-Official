@@ -74,7 +74,13 @@
             {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
         </span>
 
-        <span class="skill__passive">
+        <span
+            class="skill__passive"
+            data-tooltip={localize("A5E.SkillPassiveScore", {
+                skill: CONFIG.A5E.skills[key],
+            })}
+            data-tooltip-direction="UP"
+        >
             ({skill.passive})
         </span>
     </div>
@@ -82,7 +88,9 @@
     {#if !sheetIsLocked}
         <button
             class="fas fa-cog skill__config-button"
-            data-tooltip="Configure {localize(CONFIG.A5E.skills[key])}"
+            data-tooltip={localize("A5E.SkillConfigurationTooltip", {
+                skill: CONFIG.A5E.skills[key],
+            })}
             data-tooltip-direction="UP"
             on:click={() => $actor.configureSkill({ skillKey: key })}
         />
