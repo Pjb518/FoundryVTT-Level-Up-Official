@@ -74,15 +74,17 @@
             {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
         </span>
 
-        <span
-            class="skill__passive"
-            data-tooltip={localize("A5E.SkillPassiveScore", {
-                skill: CONFIG.A5E.skills[key],
-            })}
-            data-tooltip-direction="UP"
-        >
-            ({skill.passive})
-        </span>
+        {#if $actor.flags.a5e?.showPassiveScores ?? true}
+            <span
+                class="skill__passive"
+                data-tooltip={localize("A5E.SkillPassiveScore", {
+                    skill: CONFIG.A5E.skills[key],
+                })}
+                data-tooltip-direction="UP"
+            >
+                ({skill.passive})
+            </span>
+        {/if}
     </div>
 
     {#if !sheetIsLocked}
