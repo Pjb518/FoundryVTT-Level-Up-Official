@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-rare-spells.pm7o2zohnx1wfjx4"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "psychic",
             "formula": "4d10",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>You create an illusion that invokes the target's deepest fears. Only the target can see this illusion.</p><p>When the spell is cast and at the end of each of its turns, the target makes a Wisdom saving throw or takes 4d10 psychic damage and becomes frightened.</p><p>The spell ends early when the target succeeds on its saving throw. A target that succeeds on its initial saving throw takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above the 4th.</p><p><strong><em>Draining Phantasmal Killer.</em></strong><em> </em>When a target is damaged by this spell, you regain a number of hit points equal to half the damage dealt.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +116,12 @@
       "targetAbility": "wis"
     }
   },
-  "_id": "pm7o2zohnx1wfjx4"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910284355,
+    "modifiedTime": 1680911057692,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

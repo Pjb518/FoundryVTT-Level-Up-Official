@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-rare-spells.v2kyi4l876m5b1ks"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -55,7 +61,11 @@
             "damageType": "poison",
             "formula": "8d8",
             "name": "Vomitous Spit",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d8"
+            }
           }
         },
         "prompts": {
@@ -81,6 +91,11 @@
     },
     "description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Vomitous Cobra's Spit. </strong>You can use an action to end the spell early, taking 4d8 poison damage and spewing a 15-foot cone that deals 8d8 poison damage. Creatures in the area make a Dexterity saving throw, halving the damage on a success.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -114,5 +129,12 @@
       "targetAbility": "dex"
     }
   },
-  "_id": "v2kyi4l876m5b1ks"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910284414,
+    "modifiedTime": 1680911057699,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

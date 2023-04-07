@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-rare-spells.ac1p7lo1vmyq84vg"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -48,7 +54,11 @@
             "damageType": "acid",
             "formula": "4d4",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d4"
+            }
           }
         },
         "prompts": {
@@ -74,6 +84,11 @@
     },
     "description": "<p>A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.</p><p>On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase this spell's initial and ongoing damage by 1d4 per slot level above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Insidious Acid Arrow.</strong> The acid stinks and disorients as it burns. A creature damaged by this spell makes a Constitution saving throw with advantage or it is poisoned until the end of its next turn. </p><p></p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -107,5 +122,12 @@
       "targetAbility": "con"
     }
   },
-  "_id": "ac1p7lo1vmyq84vg"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910284372,
+    "modifiedTime": 1680911057672,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

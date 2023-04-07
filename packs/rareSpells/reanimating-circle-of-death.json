@@ -1,103 +1,125 @@
 {
-	"name": "Reanimating Circle of Death",
-	"type": "spell",
-	"img": "icons/magic/unholy/barrier-fire-pink.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-rare-spells.0dgg72hndeo554ae"
-		}
-	},
-	"system": {
-		"actions": {
-			"UoxWmqEmDAlJws32": {
-				"name": "Reanimating Circle of Death",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"nkGvLDzwMS4M7nmW": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"size": "60 ft. radius",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": null,
-					"type": ""
-				},
-				"rolls": {
-					"wJpRim3bPqouPwd0": {
-						"canCrit": false,
-						"damageType": "necrotic",
-						"formula": "9d6",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"sagth60Ri2D2BeET": {
-						"ability": "con",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "custom",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"ji5jSCwQ4StMZqY4": {
-						"mode": "variable",
-						"spellLevel": 6,
-						"points": 9,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A sphere of negative energy sucks life from the area.</p><p>Creatures in the area take 9d6 necrotic damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d6 for each slot level above 6th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Reanimating Circle of Death.</strong> Creatures killed by this spell rise as zombies at the start of your next turn. These zombies have 1 hit point, they are not under your control, and they attack the nearest living creature.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 6,
-		"materials": "shards of a black pearl worth at least 500 gold",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"necrotic"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "Half damage",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "0dgg72hndeo554ae"
+  "name": "Reanimating Circle of Death",
+  "type": "spell",
+  "img": "icons/magic/unholy/barrier-fire-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-rare-spells.0dgg72hndeo554ae"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "UoxWmqEmDAlJws32": {
+        "name": "Reanimating Circle of Death",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "nkGvLDzwMS4M7nmW": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "size": "60 ft. radius",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": null,
+          "type": ""
+        },
+        "rolls": {
+          "wJpRim3bPqouPwd0": {
+            "canCrit": false,
+            "damageType": "necrotic",
+            "formula": "9d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            }
+          }
+        },
+        "prompts": {
+          "sagth60Ri2D2BeET": {
+            "ability": "con",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "ji5jSCwQ4StMZqY4": {
+            "mode": "variable",
+            "spellLevel": 6,
+            "points": 9,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A sphere of negative energy sucks life from the area.</p><p>Creatures in the area take 9d6 necrotic damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d6 for each slot level above 6th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Reanimating Circle of Death.</strong> Creatures killed by this spell rise as zombies at the start of your next turn. These zombies have 1 hit point, they are not under your control, and they attack the nearest living creature.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 6,
+    "materials": "shards of a black pearl worth at least 500 gold",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "necrotic"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "Half damage",
+      "targetAbility": "con"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910284389,
+    "modifiedTime": 1680911057658,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
