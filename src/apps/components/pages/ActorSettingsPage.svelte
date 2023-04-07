@@ -229,6 +229,31 @@
                 <input
                     class="u-pointer"
                     type="checkbox"
+                    name="flags.a5e.showFavoritesSection"
+                    id="{$actor.id}-show-favorites-section"
+                    checked={flags.a5e?.showFavoritesSection ?? true}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.checked
+                        )}
+                />
+
+                <label
+                    class="u-pointer"
+                    for="{$actor.id}-show-favorites-section"
+                >
+                    {localize("A5E.SettingsShowFavoritesSection")}
+                </label>
+            </div>
+        </FormSection>
+
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
                     name="flags.a5e.showManeuverTab"
                     id="{$actor.id}-show-maneuver-tab"
                     checked={flags.a5e?.showManeuverTab ?? true}

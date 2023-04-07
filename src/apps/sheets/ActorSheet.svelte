@@ -58,6 +58,7 @@
                 name: "skills",
                 label: "A5E.TabSkills",
                 component: ActorSkillsPage,
+                display: actor.flags?.a5e?.showFavoritesSection ?? true,
             },
             {
                 name: "inventory",

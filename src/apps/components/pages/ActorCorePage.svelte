@@ -3,6 +3,7 @@
 
     import GenericActorResource from "../GenericActorResource.svelte";
     import ItemCategory from "../ItemCategory.svelte";
+    import ActorSkillsPage from "./ActorSkillsPage.svelte";
 
     import usesRequired from "../../utils/usesRequired";
     import quantityRequired from "../../utils/quantityRequired";
@@ -24,16 +25,20 @@
     </ol>
 {/if}
 
-<section class="core-page">
-    <ItemCategory
-        label="A5E.FavoriteItems"
-        icon="fas fa-star heading-icon"
-        items={[...$favorites]}
-        type="favorites"
-        quantityRequired={quantityRequired($favorites)}
-        usesRequired={usesRequired($favorites)}
-    />
-</section>
+{#if flags.a5e?.showFavoritesSection ?? true}
+    <section class="core-page">
+        <ItemCategory
+            label="A5E.FavoriteItems"
+            icon="fas fa-star heading-icon"
+            items={[...$favorites]}
+            type="favorites"
+            quantityRequired={quantityRequired($favorites)}
+            usesRequired={usesRequired($favorites)}
+        />
+    </section>
+{:else}
+    <ActorSkillsPage />
+{/if}
 
 <style lang="scss">
     .core-page {
