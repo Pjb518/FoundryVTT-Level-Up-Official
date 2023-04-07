@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import FormSection from "../FormSection.svelte";
     import Skill from "../Skill.svelte";
 
     const actor = getContext("actor");
@@ -16,28 +17,33 @@
 
 <div class="skill-page-wrapper">
     {#if showSpecialties}
-        <dl>
-            {#each Object.entries(skills) as [key, skill]}
-                {#if skill.specialties.length}
-                    <dt>{localize(CONFIG.A5E.skills[key])}</dt>
-                    <dd>
-                        {skill.specialties
-                            .sort((a, b) =>
-                                a.toLowerCase().localeCompare(b.toLowerCase())
-                            )
-                            .map((specialty) => {
-                                if (!skillSpecialties[key]) return specialty;
+        <FormSection heading="Skill Specialties">
+            <dl class="skill-specialties">
+                {#each Object.entries(skills) as [key, skill]}
+                    {#if skill.specialties.length}
+                        <dt>{localize(CONFIG.A5E.skills[key])}</dt>
+                        <dd>
+                            {skill.specialties
+                                .sort((a, b) =>
+                                    a
+                                        .toLowerCase()
+                                        .localeCompare(b.toLowerCase())
+                                )
+                                .map((specialty) => {
+                                    if (!skillSpecialties[key])
+                                        return specialty;
 
-                                return (
-                                    skillSpecialties[key][specialty] ??
-                                    specialty
-                                );
-                            })
-                            .join(", ")}
-                    </dd>
-                {/if}
-            {/each}
-        </dl>
+                                    return (
+                                        skillSpecialties[key][specialty] ??
+                                        specialty
+                                    );
+                                })
+                                .join(", ")}
+                        </dd>
+                    {/if}
+                {/each}
+            </dl>
+        </FormSection>
     {/if}
 
     <ul class="skills-container">
@@ -74,5 +80,15 @@
         flex-grow: 1;
         gap: 0.5rem;
         overflow-x: hidden;
+    }
+
+    .skill-specialties {
+        display: grid;
+        align-items: center;
+        grid-template-columns: min-content 1fr;
+        width: 100%;
+        column-gap: 0.25rem;
+        margin: 0;
+        font-size: 0.833rem;
     }
 </style>
