@@ -98,6 +98,8 @@
             .getConsumers(actionId)
             .filter(([_, c]) => c?.type === "actionUses")?.[0] ?? [];
 
+    $: flags = $actor.flags;
+
     $: uses = {
         action: {
             value: consumer?.[1]?.value,
@@ -238,10 +240,10 @@
                 />
             {/if}
 
-            {#if item?.system?.favorite !== undefined}
+            {#if flags.a5e?.showFavoritesSection ?? true}
                 <button
                     class="action-button fas fa-star"
-                    class:active={item.system.favorite}
+                    class:active={item.system?.favorite ?? false}
                     data-tooltip="A5E.ButtonToolTipFavorite"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleFavorite()}
