@@ -23,7 +23,7 @@
                     {#each Object.entries(skills) as [key, skill]}
                         {#if skill.specialties.length}
                             <dt>{localize(CONFIG.A5E.skills[key])}</dt>
-                            <dd>
+                            <dd class="skill-specialties__list">
                                 {skill.specialties
                                     .sort((a, b) =>
                                         a
@@ -56,15 +56,6 @@
 </div>
 
 <style lang="scss">
-    dl {
-        display: grid;
-        grid-template-columns: min-content 1fr;
-        align-items: center;
-        column-gap: 0.25rem;
-        margin: 0;
-        font-size: 0.833rem;
-    }
-
     .skills-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -89,8 +80,13 @@
         align-items: center;
         grid-template-columns: min-content 1fr;
         width: 100%;
-        column-gap: 0.25rem;
+        gap: 0.25rem 0.5rem;
         margin: 0;
         font-size: 0.833rem;
+
+        &__list {
+            margin: 0;
+            padding: 0;
+        }
     }
 </style>
