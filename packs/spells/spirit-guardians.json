@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.pbtje70pd17ouy83"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,14 +47,22 @@
             "damageType": "radiant",
             "formula": "3d6",
             "name": "Radiant",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
           },
           "ufv1Zd8aRryexzJ8": {
             "canCrit": false,
             "damageType": "necrotic",
             "formula": "3d6",
             "name": "Necrotic",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
           }
         },
         "prompts": {
@@ -74,6 +88,11 @@
     },
     "description": "<p>You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.</p><p>Creatures of your choice halve their Speed while in the area. When a creature enters the area for the first time on a turn or starts its turn there, it takes 3d6 radiant or necrotic damage (your choice).</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -108,5 +127,12 @@
       "targetAbility": "wis"
     }
   },
-  "_id": "pbtje70pd17ouy83"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268307,
+    "modifiedTime": 1680911049002,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

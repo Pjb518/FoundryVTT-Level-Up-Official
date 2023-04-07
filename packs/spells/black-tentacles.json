@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.67ex7mn5kkutvnqn"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,12 @@
             "damageType": "bludgeoning",
             "formula": "3d6",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6",
+              "step": 2
+            }
           }
         },
         "prompts": {
@@ -67,6 +78,11 @@
     },
     "description": "<p>Writhing black tentacles fill the ground within the area turning it into difficult terrain. When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw. A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p>A restrained creature can use its action to make an Acrobatics or Athletics check against the spell save DC, freeing itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +117,12 @@
       "targetAbility": "dex"
     }
   },
-  "_id": "67ex7mn5kkutvnqn"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268113,
+    "modifiedTime": 1680911048175,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

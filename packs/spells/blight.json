@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.2q65v0xklhfx73to"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "necrotic",
             "formula": "8d8",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>Necrotic energies drain moisture and vitality from the target, dealing 8d8 necrotic damage. Undead and constructs are immune to this spell.</p><p>A plant creature or magical plant has disadvantage on its saving throw and takes the maximum damage possible from this spell. A nonmagical plant that isn't a creature receives no saving throw and instead withers until dead.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 4th.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -102,5 +117,12 @@
       "targetAbility": "con"
     }
   },
-  "_id": "2q65v0xklhfx73to"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268117,
+    "modifiedTime": 1680911048141,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

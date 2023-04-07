@@ -1,100 +1,122 @@
 {
-	"name": "Cobra's Spit",
-	"type": "spell",
-	"img": "icons/creatures/reptiles/serpent-horned-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.bfkoxk0m52fhckqi"
-		}
-	},
-	"system": {
-		"actions": {
-			"PPzYWSNDVXkMk0MT": {
-				"name": "Cobra's Spit",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"W7c8Jzr9jim8880Q": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"rolls": {
-					"SS16KncsAvM9ISw6": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
-					},
-					"DAXZ6D5XZzDqrh1l": {
-						"canCrit": true,
-						"damageType": "poison",
-						"formula": "4d8",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"oPfBtO4wCNuVd81t": {
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": false,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "poisonous snake's fang",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"attack",
-				"poison"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "bfkoxk0m52fhckqi"
+  "name": "Cobra's Spit",
+  "type": "spell",
+  "img": "icons/creatures/reptiles/serpent-horned-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.bfkoxk0m52fhckqi"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "PPzYWSNDVXkMk0MT": {
+        "name": "Cobra's Spit",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "W7c8Jzr9jim8880Q": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "rolls": {
+          "SS16KncsAvM9ISw6": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "rangedSpellAttack",
+            "ability": "spellcasting"
+          },
+          "DAXZ6D5XZzDqrh1l": {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "4d8",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            }
+          }
+        },
+        "consumers": {
+          "oPfBtO4wCNuVd81t": {
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "poisonous snake's fang",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "attack",
+        "poison"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268137,
+    "modifiedTime": 1680911048538,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

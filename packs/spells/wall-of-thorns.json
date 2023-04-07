@@ -1,97 +1,119 @@
 {
-	"name": "Wall of Thorns",
-	"type": "spell",
-	"img": "icons/magic/nature/root-vine-thorned-pink.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.m68wvspmjjd2aaat"
-		}
-	},
-	"system": {
-		"actions": {
-			"dtGi8zFkhz2POl7D": {
-				"name": "Wall of Thorns",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {
-					"Rs05rGX2WRGRXhR5": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"hgtSdRLpFuYg31dw": {
-						"canCrit": false,
-						"damageType": "piercing",
-						"formula": "7d8",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"eOF8ycOqfnYHkUMI": {
-						"mode": "variable",
-						"spellLevel": 6,
-						"points": 9,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight.</p><p>When the wall appears, each creature within its area makes a Dexterity saving throw, taking 7d8 piercing damage on a failed save, or half as much damage on a successful save.</p><p>A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. The first time a creature enters the wall on a turn or ends its turn there, it makes a Dexterity saving throw, taking 7d8 slashing damage on a failed save, or half as much damage on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Damage dealt by the wall increases by 1d8 for each slot level above 6th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 6,
-		"materials": "thorns",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"attack",
-				"divine",
-				"nature",
-				"obscurement",
-				"plants",
-				"protection"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "m68wvspmjjd2aaat"
+  "name": "Wall of Thorns",
+  "type": "spell",
+  "img": "icons/magic/nature/root-vine-thorned-pink.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.m68wvspmjjd2aaat"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "dtGi8zFkhz2POl7D": {
+        "name": "Wall of Thorns",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "Rs05rGX2WRGRXhR5": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "hgtSdRLpFuYg31dw": {
+            "canCrit": false,
+            "damageType": "piercing",
+            "formula": "7d8",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            }
+          }
+        },
+        "consumers": {
+          "eOF8ycOqfnYHkUMI": {
+            "mode": "variable",
+            "spellLevel": 6,
+            "points": 9,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight.</p><p>When the wall appears, each creature within its area makes a Dexterity saving throw, taking 7d8 piercing damage on a failed save, or half as much damage on a successful save.</p><p>A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. The first time a creature enters the wall on a turn or ends its turn there, it makes a Dexterity saving throw, taking 7d8 slashing damage on a failed save, or half as much damage on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Damage dealt by the wall increases by 1d8 for each slot level above 6th.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 6,
+    "materials": "thorns",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "attack",
+        "divine",
+        "nature",
+        "obscurement",
+        "plants",
+        "protection"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268326,
+    "modifiedTime": 1680911048974,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

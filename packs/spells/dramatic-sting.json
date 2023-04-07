@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.sy2a5qu1t4ilj67y"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "psychic",
             "formula": "1d4",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d4"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>You frighten the target by echoing its movements with ominous music and terrifying sound effects. It takes 1d4 psychic damage and becomes frightened of you until the spell ends.</p><p>At the end of each of the creature's turns, it can make another Wisdom saving throw, ending the effect on itself on a success. On a failed save, the creature takes 1d4 psychic damage.</p><p>You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for each slot level above 1st.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +116,12 @@
       "targetAbility": "wis"
     }
   },
-  "_id": "sy2a5qu1t4ilj67y"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268168,
+    "modifiedTime": 1680911049374,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.fdkaoynn8g8aqxdr"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "fire",
             "formula": "3d6",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -100,5 +115,12 @@
       "targetAbility": "dex"
     }
   },
-  "_id": "fdkaoynn8g8aqxdr"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268123,
+    "modifiedTime": 1680911048581,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

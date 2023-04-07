@@ -1,94 +1,130 @@
 {
-	"name": "Magic Missile",
-	"type": "spell",
-	"img": "icons/magic/light/projectiles-salvo-blue.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.4tslywqpami9q4pj"
-		}
-	},
-	"system": {
-		"actions": {
-			"n8F6YqWaiqIIzNR0": {
-				"name": "Magic Missile",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"6MqUfl7klJj1IvrY": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"rolls": {
-					"9r50FkUmjP7Q7Fuf": {
-						"canCrit": false,
-						"damageType": "force",
-						"formula": "1d4+1",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"PJQXkPYJgylJmVoS": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing 1d4+1 force damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Evoke one additional dart and target up to one additional creature for each slot level above 1st.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"attack",
-				"force"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "4tslywqpami9q4pj"
+  "name": "Magic Missile",
+  "type": "spell",
+  "img": "icons/magic/light/projectiles-salvo-blue.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.4tslywqpami9q4pj"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "n8F6YqWaiqIIzNR0": {
+        "name": "Magic Missile",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "6MqUfl7klJj1IvrY": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "9r50FkUmjP7Q7Fuf": {
+            "canCrit": false,
+            "damageType": "force",
+            "formula": "1d4+1",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d4 + 1"
+            }
+          },
+          "YLWJHxOp2UJXUqxK": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d4+1",
+            "damageType": "force"
+          },
+          "X8YCjNOIc2PRa7nN": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d4+1",
+            "damageType": "force"
+          }
+        },
+        "consumers": {
+          "PJQXkPYJgylJmVoS": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing 1d4+1 force damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Evoke one additional dart and target up to one additional creature for each slot level above 1st.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "attack",
+        "force"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268237,
+    "modifiedTime": 1680911048166,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

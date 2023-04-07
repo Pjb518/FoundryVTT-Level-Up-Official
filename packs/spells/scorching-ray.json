@@ -1,101 +1,123 @@
 {
-	"name": "Scorching Ray",
-	"type": "spell",
-	"img": "icons/magic/fire/projectile-fireball-sparks-orange.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.c9itysok7lr2ai51"
-		}
-	},
-	"system": {
-		"actions": {
-			"EUc1wUziC3n3TMhr": {
-				"name": "Scorching Ray",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"ozG4m8VgsZx6WtwB": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"Vtu6SuU1enUIpsuU": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
-					},
-					"6RcM8oFT6nUnGdXU": {
-						"canCrit": true,
-						"damageType": "fire",
-						"formula": "2d6",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"l2NHcct6MbXMnSDI": {
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.</p><p>On a hit, the target takes 2d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"attack",
-				"fire"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "c9itysok7lr2ai51"
+  "name": "Scorching Ray",
+  "type": "spell",
+  "img": "icons/magic/fire/projectile-fireball-sparks-orange.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.c9itysok7lr2ai51"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "EUc1wUziC3n3TMhr": {
+        "name": "Scorching Ray",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "ozG4m8VgsZx6WtwB": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "Vtu6SuU1enUIpsuU": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "rangedSpellAttack",
+            "ability": "spellcasting"
+          },
+          "6RcM8oFT6nUnGdXU": {
+            "canCrit": true,
+            "damageType": "fire",
+            "formula": "2d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": null,
+              "formula": "2d6"
+            }
+          }
+        },
+        "consumers": {
+          "l2NHcct6MbXMnSDI": {
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.</p><p>On a hit, the target takes 2d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "attack",
+        "fire"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268283,
+    "modifiedTime": 1680911048552,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

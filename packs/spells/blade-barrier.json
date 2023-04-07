@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.u8e2yij8vcq0puxl"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "slashing",
             "formula": "6d10",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.</p><p>When a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 6th.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +116,12 @@
       "targetAbility": "dex"
     }
   },
-  "_id": "u8e2yij8vcq0puxl"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268114,
+    "modifiedTime": 1680911049385,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

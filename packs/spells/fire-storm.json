@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.1ueqga5yu55bntti"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "fire",
             "formula": "7d10",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>Flames roar, dealing 7d10 fire damage to creatures and objects in the area and igniting unattended flammable objects. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 7th.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +116,12 @@
       "targetAbility": "dex"
     }
   },
-  "_id": "1ueqga5yu55bntti"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268182,
+    "modifiedTime": 1680911048134,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

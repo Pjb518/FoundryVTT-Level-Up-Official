@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.idachh0qpbbyne7c"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -42,7 +48,11 @@
             "damageType": "lightning",
             "formula": "8d6",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
           }
         },
         "prompts": {
@@ -68,6 +78,11 @@
     },
     "description": "<p>A bolt of lightning arcs out from you in a direction you choose. Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren't worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Damage increases by 1d6 for every slot level above 3rd.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -103,5 +118,12 @@
       "targetAbility": "dex"
     }
   },
-  "_id": "idachh0qpbbyne7c"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268230,
+    "modifiedTime": 1680911048600,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

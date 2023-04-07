@@ -1,100 +1,122 @@
 {
-	"name": "Arcane Riposte",
-	"type": "spell",
-	"img": "icons/magic/light/projectile-smoke-blue-light.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.npaw56x028swb7mz"
-		}
-	},
-	"system": {
-		"actions": {
-			"aAQaYOBjdobLCLee": {
-				"name": "Arcane Riposte",
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "which you take when a creature makes a melee attack against you"
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"sb0DocKwAglvcadd": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"rolls": {
-					"vcA2n0zpJjE7tA01": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "meleeSpellAttack",
-						"ability": "spellcasting"
-					},
-					"q9yBeZ3a2Rmg6HSr": {
-						"canCrit": true,
-						"damageType": "",
-						"formula": "3d6",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"mkWFO3D43DXARNiR": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>You respond to an incoming attack with a magically-infused attack of your own. Make a melee spell attack against the creature that attacked you. If you hit, the creature takes 3d6 acid, cold, fire, lightning, poison, or thunder damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell deals an extra 1d6 damage for each slot level above 1st. When using a 4th-level spell slot, you may choose to deal psychic, radiant, or necrotic damage. When using a 6th-level spell slot, you may choose to deal force damage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"attack"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "npaw56x028swb7mz"
+  "name": "Arcane Riposte",
+  "type": "spell",
+  "img": "icons/magic/light/projectile-smoke-blue-light.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.npaw56x028swb7mz"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "aAQaYOBjdobLCLee": {
+        "name": "Arcane Riposte",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "which you take when a creature makes a melee attack against you"
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "sb0DocKwAglvcadd": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "rolls": {
+          "vcA2n0zpJjE7tA01": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "meleeSpellAttack",
+            "ability": "spellcasting"
+          },
+          "q9yBeZ3a2Rmg6HSr": {
+            "canCrit": true,
+            "damageType": "",
+            "formula": "3d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "consumers": {
+          "mkWFO3D43DXARNiR": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>You respond to an incoming attack with a magically-infused attack of your own. Make a melee spell attack against the creature that attacked you. If you hit, the creature takes 3d6 acid, cold, fire, lightning, poison, or thunder damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell deals an extra 1d6 damage for each slot level above 1st. When using a 4th-level spell slot, you may choose to deal psychic, radiant, or necrotic damage. When using a 6th-level spell slot, you may choose to deal force damage.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "attack"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268102,
+    "modifiedTime": 1680911048987,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

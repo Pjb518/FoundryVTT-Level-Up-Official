@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.j8fzqjvq0ht2z1y0"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "necrotic",
             "formula": "7d8+30",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d8"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>Negative energy wracks the target and deals 7d8 + 30 necrotic damage. A humanoid killed by this spell turns into a zombie at the start of your next turn. It is permanently under your control and follows your spoken commands.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 2d8 for each slot level above 7th.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +116,12 @@
       "targetAbility": "con"
     }
   },
-  "_id": "j8fzqjvq0ht2z1y0"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268180,
+    "modifiedTime": 1680911048605,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

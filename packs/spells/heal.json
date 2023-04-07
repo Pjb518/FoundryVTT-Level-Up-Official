@@ -1,93 +1,115 @@
 {
-	"name": "Heal",
-	"type": "spell",
-	"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
-		}
-	},
-	"system": {
-		"actions": {
-			"XWJ26F7JXKHF8yMo": {
-				"name": "Heal",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"U6bNDrDcAEZ0UYdu": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"rolls": {
-					"J8L7y8BndXrGBe7j": {
-						"defaultSelection": true,
-						"formula": "70",
-						"healingType": "healing",
-						"name": "",
-						"type": "healing"
-					}
-				},
-				"consumers": {
-					"jfElxc8HGrXhyRja": {
-						"mode": "variable",
-						"spellLevel": 6,
-						"points": 9,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 6,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"divine",
-				"healing"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "i4869qu4aokvlvxr"
+  "name": "Heal",
+  "type": "spell",
+  "img": "icons/magic/life/heart-cross-strong-flame-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "XWJ26F7JXKHF8yMo": {
+        "name": "Heal",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "U6bNDrDcAEZ0UYdu": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "J8L7y8BndXrGBe7j": {
+            "defaultSelection": true,
+            "formula": "70",
+            "healingType": "healing",
+            "name": "",
+            "type": "healing",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "10"
+            }
+          }
+        },
+        "consumers": {
+          "jfElxc8HGrXhyRja": {
+            "mode": "variable",
+            "spellLevel": 6,
+            "points": 9,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 6,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "divine",
+        "healing"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268210,
+    "modifiedTime": 1680911048596,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

@@ -1,93 +1,115 @@
 {
-	"name": "Angel Paradox",
-	"type": "spell",
-	"img": "icons/magic/light/projectile-beam-yellow.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-spells.wxocqi9yigiqgxpm"
-		}
-	},
-	"system": {
-		"actions": {
-			"ynXAzAX2eNwF1O90": {
-				"name": "Angel Paradox",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "day",
-					"value": "7"
-				},
-				"ranges": {
-					"P7Rg0WdKlJv3N6dP": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"rolls": {
-					"o6zlrgOjGiu7ZzTJ": {
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "40",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"Cy7eTRBoBEoxjaaa": {
-						"mode": "variable",
-						"spellLevel": 7,
-						"points": 10,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately taking 40 radiant damage. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as <em>raise dead</em>. This effect ends early if the corpse takes necrotic damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage and duration increase to 45 radiant damage and 1 year when using an 8th-level spell slot, or 50 damage and until dispelled when using a 9th-level spell slot.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null
-		},
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 7,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"radiant",
-				"undead"
-			]
-		},
-		"ability": "spellcasting",
-		"proficient": true,
-		"save": {
-			"dc": "",
-			"onSave": "",
-			"targetAbility": ""
-		}
-	},
-	"_id": "wxocqi9yigiqgxpm"
+  "name": "Angel Paradox",
+  "type": "spell",
+  "img": "icons/magic/light/projectile-beam-yellow.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-spells.wxocqi9yigiqgxpm"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "actions": {
+      "ynXAzAX2eNwF1O90": {
+        "name": "Angel Paradox",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "day",
+          "value": "7"
+        },
+        "ranges": {
+          "P7Rg0WdKlJv3N6dP": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "o6zlrgOjGiu7ZzTJ": {
+            "canCrit": false,
+            "damageType": "radiant",
+            "formula": "40",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "5"
+            }
+          }
+        },
+        "consumers": {
+          "Cy7eTRBoBEoxjaaa": {
+            "mode": "variable",
+            "spellLevel": 7,
+            "points": 10,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately taking 40 radiant damage. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as <em>raise dead</em>. This effect ends early if the corpse takes necrotic damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage and duration increase to 45 radiant damage and 1 year when using an 8th-level spell slot, or 50 damage and until dispelled when using a 9th-level spell slot.</p>",
+    "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 7,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "radiant",
+        "undead"
+      ]
+    },
+    "ability": "spellcasting",
+    "proficient": true,
+    "save": {
+      "dc": "",
+      "onSave": "",
+      "targetAbility": ""
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268092,
+    "modifiedTime": 1680911049405,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

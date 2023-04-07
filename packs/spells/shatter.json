@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.7e9cvnpmbg3knm9l"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "thunder",
             "formula": "3d8",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>An ear-splitting ringing sound emanates through the area. Creatures in the area take 3d8 thunder damage. A creature made of stone, metal, or other inorganic material has disadvantage on its saving throw.</p><p>Any nonmagical items within the area that are not worn or carried also take damage.</p><p><strong>Cast at Higher Levels. </strong>The damage increases by 1d8 for each slot level above 2nd.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +116,12 @@
       "targetAbility": "con"
     }
   },
-  "_id": "7e9cvnpmbg3knm9l"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268292,
+    "modifiedTime": 1680911048191,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

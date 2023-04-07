@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.l0xg2yboy5z633pr"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,20 @@
             "damageType": "poison",
             "formula": "1d6",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          },
+          "ABwTISLvafjJeFvZ": {
+            "type": "healing",
+            "default": true,
+            "formula": "2d4",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d4"
+            }
           }
         },
         "prompts": {
@@ -67,6 +86,11 @@
     },
     "description": "<p>You cause a searing poison to burn quickly through the target's wounds, dealing 1d6 poison damage. The target regains 2d4 hit points at the start of each of its turns for the next 1d4+1 rounds.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 2nd, the initial damage increases by 1d6 and target regains an additional 1d4 hit points.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -101,5 +125,12 @@
       "targetAbility": "con"
     }
   },
-  "_id": "l0xg2yboy5z633pr"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268323,
+    "modifiedTime": 1680911048970,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

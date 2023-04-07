@@ -6,6 +6,12 @@
   "flags": {
     "core": {
       "sourceId": "Compendium.a5e.a5e-spells.46wyf7rw3rm5kstu"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
     }
   },
   "system": {
@@ -41,7 +47,11 @@
             "damageType": "radiant",
             "formula": "12d6",
             "name": "",
-            "type": "damage"
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            }
           }
         },
         "prompts": {
@@ -67,6 +77,11 @@
     },
     "description": "<p>Oozes and undead have disadvantage on saving throws made to resist this spell. You create a burst of radiant sunlight that fills the area. Each creature in the area takes 12d6 radiant damage and is blinded for 1 minute. A creature blinded by this spell repeats its saving throw at the end of each of its turns, ending the blindness on a successful save.</p><p>This spell dispels any magical darkness in its area.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 9th-level spell slot the damage increases by 2d6.</p>",
     "favorite": false,
+    "recharge": {
+      "charged": true,
+      "formula": "",
+      "threshold": ""
+    },
     "secretDescription": "",
     "source": "",
     "uses": {
@@ -100,5 +115,12 @@
       "targetAbility": "con"
     }
   },
-  "_id": "46wyf7rw3rm5kstu"
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680910268311,
+    "modifiedTime": 1680911048155,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
