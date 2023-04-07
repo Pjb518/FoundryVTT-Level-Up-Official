@@ -2,8 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import Tag from "./Tag.svelte";
-
     import pressedKeysStore from "../../stores/pressedKeysStore";
 
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -21,40 +19,41 @@
 
     $: abilityBonus =
         $actor.system.abilities[skill.ability].check.deterministicBonus;
+
     $: jackOfAllTrades = $actor.flags.a5e?.jackOfAllTrades;
     $: skillBonus = skill.deterministicBonus;
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li class="skill">
-    {#if !sheetIsLocked}
-        <button
-            class="fas fa-cog a5e-config-button--skill a5e-button--edit-config"
-            on:click={() => $actor.configureSkill({ skillKey: key })}
-        />
-    {/if}
-
     {#if skill.proficient}
         <i
-            class="fa-solid fa-star fa-sm skill-proficiency-icon"
+            class="fa-solid fa-star skill__proficiency-icon skill__proficiency-icon--proficient"
             data-tooltip="A5E.ProficiencyProficient"
             data-tooltip-direction="UP"
         />
     {:else if jackOfAllTrades}
         <i
-            class="fa-solid fa-star-half-stroke fa-sm skill-proficiency-icon"
+            class="fa-solid fa-star-half-stroke skill__proficiency-icon skill__proficiency-icon--jack"
             data-tooltip="Jack of All Trades"
             data-tooltip-direction="UP"
         />
     {:else}
-        <i class="fa-regular fa-star fa-sm skill-proficiency-icon" />
+        <i class="fa-regular fa-star skill__proficiency-icon" />
     {/if}
+
+    <i
+        class="fa-solid fa-dice-d20 skill__roll-icon"
+        class:skill__roll-icon--shift={$pressedKeysStore.Shift}
+        class:skill__roll-icon--ctrl={$pressedKeysStore.Control}
+    />
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <h3
-        class="u-text-sm"
+        class="skill__name"
         class:disable-pointer-events={!$actor.isOwner}
         on:click={$actor.rollSkillCheck(
             key,
@@ -62,17 +61,32 @@
         )}
     >
         {label}
+
+        {#if skill.expertiseDice}
+            <span class="u-text-xs">
+                ({getExpertiseDieSize(skill.expertiseDice, false)})
+            </span>
+        {/if}
     </h3>
 
-    {#if skill.expertiseDice}
-        <span class="u-text-xs">
-            ({getExpertiseDieSize(skill.expertiseDice, false)})
+    <div class="skill__mod-wrapper">
+        <span>
+            {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
         </span>
-    {/if}
 
-    <span>
-        {showDeterministicBonus ? skillBonus + abilityBonus : skillBonus}
-    </span>
+        <span class="skill__passive">
+            ({skill.passive})
+        </span>
+    </div>
+
+    {#if !sheetIsLocked}
+        <button
+            class="fas fa-cog skill__config-button"
+            data-tooltip="Configure {localize(CONFIG.A5E.skills[key])}"
+            data-tooltip-direction="UP"
+            on:click={() => $actor.configureSkill({ skillKey: key })}
+        />
+    {/if}
 </li>
 
 <style lang="scss">
@@ -87,6 +101,7 @@
         padding-inline: 0.5rem;
         border: 1px solid #ccc;
         border-top: 0;
+        font-size: 0.833rem;
 
         &:nth-child(even) {
             border-left: 0;
@@ -111,21 +126,76 @@
         &:nth-child(4n + 2) {
             background: rgba(0, 0, 0, 0.05);
         }
-    }
 
-    .skill-proficiency-icon {
-        color: rgba(0, 0, 0, 0.25);
-    }
+        &__config-button {
+            width: fit-content;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            color: rgba(0, 0, 0, 0.25);
 
-    .roll-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 1.5rem;
-        padding: 0;
-        margin: 0;
-        background: transparent;
+            transition: all 0.15s ease-in-out;
+
+            &:focus,
+            &:hover {
+                color: #555;
+                box-shadow: none;
+                transform: scale(1.2);
+            }
+        }
+
+        &__mod-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        &__name {
+            font-size: inherit;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+
+        &__passive {
+            color: #999;
+        }
+
+        &__proficiency-icon {
+            display: flex;
+            color: rgba(0, 0, 0, 0.25);
+
+            &--jack,
+            &--proficient {
+                color: #425f65;
+            }
+
+            &:has(~ .skill__name:hover) {
+                display: none;
+            }
+        }
+
+        &__proficiency-icon,
+        &__roll-icon {
+            align-items: center;
+            justify-content: center;
+            width: 1rem;
+        }
+
+        &__roll-icon {
+            display: none;
+            color: #555;
+
+            &--ctrl {
+                color: #ffb63b;
+            }
+
+            &--shift {
+                color: #488f9a;
+            }
+
+            &:has(~ .skill__name:hover) {
+                display: flex;
+            }
+        }
     }
 </style>
