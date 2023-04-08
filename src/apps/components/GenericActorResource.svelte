@@ -128,7 +128,7 @@
 
     .resource {
         position: relative;
-        padding: 0.125rem;
+        padding: 0.125rem 0.25rem 0.25rem 0.25rem;
         border: 1px solid #ccc;
         border-radius: 3px;
         min-width: 7rem;
@@ -150,9 +150,7 @@
     .resource-value-container {
         display: flex;
         align-items: center;
-        margin-bottom: 0.5rem;
         gap: 0.25rem;
-        padding-inline: 0.25rem;
     }
 
     .resource-number-input {
