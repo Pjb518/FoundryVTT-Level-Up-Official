@@ -1554,6 +1554,7 @@ A5E.PRELOCALIZED_KEYS = [
   'skillSpecialties.dec',
   'skillSpecialties.eng',
   'skillSpecialties.his',
+  'skillSpecialties.ins',
   'skillSpecialties.itm',
   'skillSpecialties.inv',
   'skillSpecialties.med',

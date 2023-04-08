@@ -1,6 +1,6 @@
 export default function usesRequired(items) {
   return [...items].some((item) => {
-    if (item.system?.uses.value || item.system?.uses.max) return true;
+    if (item.system?.uses?.value || item.system?.uses?.max) return true;
 
     return item.actions
       ?.values()

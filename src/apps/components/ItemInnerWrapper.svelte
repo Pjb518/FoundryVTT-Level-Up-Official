@@ -78,7 +78,7 @@
             else return false;
         }
 
-        if (item.system.recharge.formula) return true;
+        if (item.system.recharge?.formula) return true;
 
         return false;
     }
@@ -135,7 +135,7 @@
                   ([_, c]) =>
                       c.type === "recharge" && c.consumeType === "action"
               )?.[0]?.[1]?.charged ?? true
-        : item.system.recharge.charged ?? true;
+        : item.system.recharge?.charged ?? true;
 
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
