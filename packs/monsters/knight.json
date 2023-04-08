@@ -1,1776 +1,1893 @@
 {
-	"name": "Knight",
-	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
-	"items": [
-		{
-			"_id": "M7kRrOM5xzLEGGyV",
-			"name": "Brave",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The knight has advantage on saving throws against being frightened.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9rvWy1NdnKdI4nn2",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The knight attacks twice with their greatsword.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "k66FZV6ggsUw0bqh",
-			"name": "Greatsword",
-			"type": "object",
-			"img": "icons/weapons/swords/greatsword-crossguard-silver.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"94cl0PkTcedRFmwN": {
-						"name": "Greatsword",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"MlSnZSF2lVK6NewJ": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "default"
-							},
-							"KZT9uejLnXePfQXS": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "2d6 + @str.mod",
-								"name": "Greatsword",
-								"type": "damage"
-							}
-						}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": true,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"heavy",
-					"parrying",
-					"twoHanded"
-				],
-				"weight": 0,
-				"ability": "default",
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "Lhik73xTwIzsVlo7",
-			"name": "Lance (Mounted Only)",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"ifBF1gVCwD0lhxgb": {
-						"name": "Lance (Mounted Only)",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"iB7MMTjhcltmyxiA": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "",
-								"ability": "default"
-							},
-							"sbUXPSKNflk8Szy5": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d12 + @default.mod",
-								"name": "Lance",
-								"type": "damage"
-							},
-							"myskryfT7icA5UKh": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "2d12 + @default.mod",
-								"name": "20+ ft Charge",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"Szrfdw5t1GDxcBbu": {
-								"ability": "str",
-								"onSave": "None",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "13"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>If the knight moves at least 20 feet straight towards the target before the attack, they deal extra piercing damage, and the target makes a DC 13 Strength saving throw, falling prone on a failure. This attack is made at disadvantage against targets within 5 feet.</p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"defensive",
-					"reach"
-				],
-				"weight": 0,
-				"ability": "default",
-				"save": {
-					"dc": "13",
-					"onSave": "None",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "pUwdhmEhHKNjwiZC",
-			"name": "Heavy Crossbow",
-			"type": "object",
-			"img": "icons/weapons/crossbows/crossbow-heavy-black.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"XBIHI53N5zx5CHx7": {
-						"name": "Heavy Crossbow",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"ZGzeO1acm1P4AxmK": {
-								"range": "100 ft"
-							},
-							"LbXbrJ3YiTbpqyy0": {
-								"range": "400 ft"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"fECt6AuFUGeoRexX": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "rangedWeaponAttack",
-								"ability": "default"
-							},
-							"ygaIZ3Q3azVvfKwa": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d10 + @str.mod",
-								"name": "Heavy Crossbow",
-								"type": "damage"
-							}
-						},
-						"consumers": {
-							"2W6QELzDhOQ58RtM": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition"
-							}
-						}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"heavy",
-					"loading",
-					"range",
-					"simple",
-					"twoHanded"
-				],
-				"weight": 0,
-				"ability": "default",
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7imjIbdsO76TUKM9",
-			"name": "Knightly Inspiration",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"P89E16lw53Om8MZo": {
-						"name": "Knightly Inspiration",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": 1
-						},
-						"ranges": {
-							"OwmXCwK0cpqFaf3j": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature"
-						},
-						"consumers": {
-							"m9O4uxxbBRDmVyQP": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>The knight inspires creatures of their choice within 30 feet that can hear and understand them. For the next minute, inspired creatures gain an expertise die (1d4) on attack rolls and saving throws. A creature can benefit from only one Knightly Inspiration at a time, and the knight cannot target themselves.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "CWz1pc0unu82sIJJ",
-			"name": "Full Plate (Steel)",
-			"type": "object",
-			"img": "icons/equipment/chest/breastplate-cuirass-steel-grey.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p><em>AC 18; Requires STR 15; Low-Maintenance (Expertise Die); Bulky; Stealth (Disadvantage).</em></p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "heavy",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": true,
-				"craftingComponents": "",
-				"equipped": true,
-				"materialProperties": [
-					"lowMaintenance"
-				],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "1500 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 55,
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"actions": {
-					"KOsEtFXup79H7Cls": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"VwSpZHMMdAFeXhbb": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"5QeXR4V1NxnKFZVQ": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"BHTa3Vr0B3jEKoAI": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "eRvLP0vaTrYvC6Y2"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"actions": {
-					"OqTY9QMLOx5P4IVR": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"6cMc9UH6qxMp4R8U": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"3BV1PtmOMF4XrXPc": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"Au3pIG5aoc5SgKbA": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "QwjkR7e9jrMSDBEe"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"actions": {
-					"Be1C9DZbT7ksiaKb": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"n4gND0ILZpLEO2Bm": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"UbbsbIFdRMBK5fA7": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "P7CkqKNoGCfoytF2"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"actions": {
-					"JcKPqHcwwLT7Ugbr": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"HUdMmXsIV9Gmkwrp": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"h7aEcFHUBJxT0RZx": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "eHFq7pnYlJIRrHv1"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"actions": {
-					"bCTeiO2ivPl2zc8z": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"SmwAEBlCDPHNxHmf": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"NgwCb08lRahMPFp9": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "XDUy5GK5hrWUWpYO"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"actions": {
-					"aRlnw4SIICDSb4Hv": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"OJExYHm41dxNa1Qk": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"3aZKdU9bUr8QOfl9": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "5yqU3BWjxsEvwhyi"
-		}
-	],
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.t7raw64ksqor1nt0"
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 12,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": true,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 18,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 52,
-				"baseMax": 52,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 8,
-					"total": 8
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 30,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"darkvision": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": 0,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": ""
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>DESCRIPTION</strong></h2><p>The typical knight is a highly-trained, heavily-armored cavalry soldier who has sworn allegiance to a noble, monarch, or faith. Not every knight, however, is forged from the same iron. Some knights fight on foot or on griffon-back, and some owe allegiance to none but themselves.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p><em>Grassland, Hills, Mountains, Settlement, Temple</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 3–4</strong> knight; knight with 1d4 guards; knight mounted on riding horse or warhorse</p><p><strong>Treasure</strong> 200 gp</p><p><strong>CR 5–10</strong> 2 or 3 knights; knight with 1d10 + 10 guards; knight with 1d4 soldiers, all on riding horses; blackguard; blackguard riding griffon, nightmare, warhorse, or winter wolf; blackguard with 1d5 + 5 gnolls, soldiers, skeletons, or zombies; holy knight; holy knight mounted on warhorse</p><p><strong>Treasure</strong> star ruby (1,000 gp), half of a broken gold locket (37 gp), <em>adamantine plate armor</em> (knight or holy knight) or <em>sword of life stealing </em>(blackguard)</p><p><strong>CR 11–16</strong> knight captain; mountain dwarf lord; 2 blackguards riding griffons, nightmares, or skeletal warhorses; blackguard with 1d4 + 1 berserkers, gargoyles, ghasts, or ogres; 2 holy knights mounted on hippogriffs or warhorses</p><p><strong>Treasure</strong> 200 pp, local map with several village names circled, <em>potion of greater healing</em>, <em>javelin of lightning</em>, <em>sun blade</em> (knight captain or holy knight) or <em>sword of wounding </em>(blackguard)</p><p><strong>CR 17–23</strong> knight captain with 1 to 3 knights, mounted on warhorses; knight captain with 1 or 2 holy knights; 3 holy knights mounted on griffons or pegasi; mountain dwarf lord with 2 mountain dwarf defenders and 1d5 + 5 mountain dwarf soldiers</p><p><strong>Treasure</strong> 500 pp, 1,200 gp, gold and ruby necklace (7,500 gp), 2 <em>potions of greater healing</em>, <em>+1 full plate armor</em>, <em>holy avenger</em> (greatsword)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-			"creatureTypes": [
-				"humanoid"
-			],
-			"isSwarm": false,
-			"cr": 3,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"Any two"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			}
-		},
-		"traits": {
-			"size": "med",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Knight",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 1,
-		"height": 1,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "icons/svg/mystery-man.svg",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "t7raw64ksqor1nt0"
+  "name": "Knight",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "items": [
+    {
+      "_id": "M7kRrOM5xzLEGGyV",
+      "name": "Brave",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {},
+        "description": "<p>The knight has advantage on saving throws against being frightened.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "9rvWy1NdnKdI4nn2",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {},
+        "description": "<p>The knight attacks twice with their greatsword.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "k66FZV6ggsUw0bqh",
+      "name": "Greatsword",
+      "type": "object",
+      "img": "icons/weapons/swords/greatsword-crossguard-silver.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {
+          "94cl0PkTcedRFmwN": {
+            "name": "Greatsword",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creatureObject"
+            },
+            "rolls": {
+              "MlSnZSF2lVK6NewJ": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "default"
+              },
+              "KZT9uejLnXePfQXS": {
+                "canCrit": true,
+                "damageType": "slashing",
+                "formula": "2d6 + @str.mod",
+                "name": "Greatsword",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": true,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": 0,
+        "proficient": true,
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "shieldCategory": "",
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "heavy",
+          "parrying",
+          "twoHanded"
+        ],
+        "weight": 0,
+        "ability": "default",
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "Lhik73xTwIzsVlo7",
+      "name": "Lance (Mounted Only)",
+      "type": "object",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {
+          "ifBF1gVCwD0lhxgb": {
+            "name": "Lance (Mounted Only)",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": 1,
+              "type": "creatureObject"
+            },
+            "rolls": {
+              "iB7MMTjhcltmyxiA": {
+                "bonus": "",
+                "critThreshold": 20,
+                "type": "attack",
+                "attackType": "",
+                "ability": "default"
+              },
+              "sbUXPSKNflk8Szy5": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d12 + @default.mod",
+                "name": "Lance",
+                "type": "damage"
+              },
+              "myskryfT7icA5UKh": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "2d12 + @default.mod",
+                "name": "20+ ft Charge",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "Szrfdw5t1GDxcBbu": {
+                "ability": "str",
+                "onSave": "None",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "13"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>If the knight moves at least 20 feet straight towards the target before the attack, they deal extra piercing damage, and the target makes a DC 13 Strength saving throw, falling prone on a failure. This attack is made at disadvantage against targets within 5 feet.</p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": false,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": 0,
+        "proficient": true,
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "shieldCategory": "",
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "defensive",
+          "reach"
+        ],
+        "weight": 0,
+        "ability": "default",
+        "save": {
+          "dc": "13",
+          "onSave": "None",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "pUwdhmEhHKNjwiZC",
+      "name": "Heavy Crossbow",
+      "type": "object",
+      "img": "icons/weapons/crossbows/crossbow-heavy-black.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {
+          "XBIHI53N5zx5CHx7": {
+            "name": "Heavy Crossbow",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "ranges": {
+              "ZGzeO1acm1P4AxmK": {
+                "range": "100 ft"
+              },
+              "LbXbrJ3YiTbpqyy0": {
+                "range": "400 ft"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "fECt6AuFUGeoRexX": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "rangedWeaponAttack",
+                "ability": "default"
+              },
+              "ygaIZ3Q3azVvfKwa": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d10 + @str.mod",
+                "name": "Heavy Crossbow",
+                "type": "damage"
+              }
+            },
+            "consumers": {
+              "2W6QELzDhOQ58RtM": {
+                "itemid": "",
+                "quantity": 1,
+                "type": "ammunition"
+              }
+            }
+          }
+        },
+        "description": "",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": false,
+        "craftingComponents": "",
+        "equipped": false,
+        "materialProperties": [],
+        "objectType": "weapon",
+        "plotItem": false,
+        "price": 0,
+        "proficient": true,
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "shieldCategory": "",
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [
+          "heavy",
+          "loading",
+          "range",
+          "simple",
+          "twoHanded"
+        ],
+        "weight": 0,
+        "ability": "default",
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "7imjIbdsO76TUKM9",
+      "name": "Knightly Inspiration",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {
+          "P89E16lw53Om8MZo": {
+            "name": "Knightly Inspiration",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "minute",
+              "value": 1
+            },
+            "ranges": {
+              "OwmXCwK0cpqFaf3j": {
+                "range": "short"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature"
+            },
+            "consumers": {
+              "m9O4uxxbBRDmVyQP": {
+                "type": "itemUses"
+              }
+            }
+          }
+        },
+        "description": "<p>The knight inspires creatures of their choice within 30 feet that can hear and understand them. For the next minute, inspired creatures gain an expertise die (1d4) on attack rolls and saving throws. A creature can benefit from only one Knightly Inspiration at a time, and the knight cannot target themselves.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "CWz1pc0unu82sIJJ",
+      "name": "Full Plate (Steel)",
+      "type": "object",
+      "img": "icons/equipment/chest/breastplate-cuirass-steel-grey.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {},
+        "description": "<p><em>AC 18; Requires STR 15; Low-Maintenance (Expertise Die); Bulky; Stealth (Disadvantage).</em></p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "ammunitionProperties": [],
+        "armorCategory": "heavy",
+        "armorProperties": [],
+        "attuned": false,
+        "broken": false,
+        "bulky": true,
+        "craftingComponents": "",
+        "equipped": true,
+        "materialProperties": [
+          "lowMaintenance"
+        ],
+        "objectType": "armor",
+        "plotItem": false,
+        "price": "1500 gp",
+        "proficient": true,
+        "quantity": 1,
+        "rarity": "common",
+        "requiresAttunement": false,
+        "shieldCategory": "",
+        "unidentified": false,
+        "unidentifiedDescription": "",
+        "unidentifiedName": "",
+        "weaponProperties": [],
+        "weight": 55,
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        }
+      },
+      "system": {
+        "actions": {
+          "KOsEtFXup79H7Cls": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "VwSpZHMMdAFeXhbb": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "5QeXR4V1NxnKFZVQ": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "BHTa3Vr0B3jEKoAI": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "eRvLP0vaTrYvC6Y2",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        }
+      },
+      "system": {
+        "actions": {
+          "OqTY9QMLOx5P4IVR": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "6cMc9UH6qxMp4R8U": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "3BV1PtmOMF4XrXPc": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "Au3pIG5aoc5SgKbA": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "QwjkR7e9jrMSDBEe",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        }
+      },
+      "system": {
+        "actions": {
+          "Be1C9DZbT7ksiaKb": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "n4gND0ILZpLEO2Bm": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "UbbsbIFdRMBK5fA7": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "P7CkqKNoGCfoytF2",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        }
+      },
+      "system": {
+        "actions": {
+          "JcKPqHcwwLT7Ugbr": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "HUdMmXsIV9Gmkwrp": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "h7aEcFHUBJxT0RZx": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "eHFq7pnYlJIRrHv1",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        }
+      },
+      "system": {
+        "actions": {
+          "bCTeiO2ivPl2zc8z": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "SmwAEBlCDPHNxHmf": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "NgwCb08lRahMPFp9": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "XDUy5GK5hrWUWpYO",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        }
+      },
+      "system": {
+        "actions": {
+          "aRlnw4SIICDSb4Hv": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "OJExYHm41dxNa1Qk": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "3aZKdU9bUr8QOfl9": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "5yqU3BWjxsEvwhyi",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.t7raw64ksqor1nt0"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 12,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": true,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 18,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 52,
+        "baseMax": 52,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 8,
+          "total": 8
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 30,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": 0,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>DESCRIPTION</strong></h2><p>The typical knight is a highly-trained, heavily-armored cavalry soldier who has sworn allegiance to a noble, monarch, or faith. Not every knight, however, is forged from the same iron. Some knights fight on foot or on griffon-back, and some owe allegiance to none but themselves.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p><em>Grassland, Hills, Mountains, Settlement, Temple</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 3–4</strong> knight; knight with 1d4 guards; knight mounted on riding horse or warhorse</p><p><strong>Treasure</strong> 200 gp</p><p><strong>CR 5–10</strong> 2 or 3 knights; knight with 1d10 + 10 guards; knight with 1d4 soldiers, all on riding horses; blackguard; blackguard riding griffon, nightmare, warhorse, or winter wolf; blackguard with 1d5 + 5 gnolls, soldiers, skeletons, or zombies; holy knight; holy knight mounted on warhorse</p><p><strong>Treasure</strong> star ruby (1,000 gp), half of a broken gold locket (37 gp), <em>adamantine plate armor</em> (knight or holy knight) or <em>sword of life stealing </em>(blackguard)</p><p><strong>CR 11–16</strong> knight captain; mountain dwarf lord; 2 blackguards riding griffons, nightmares, or skeletal warhorses; blackguard with 1d4 + 1 berserkers, gargoyles, ghasts, or ogres; 2 holy knights mounted on hippogriffs or warhorses</p><p><strong>Treasure</strong> 200 pp, local map with several village names circled, <em>potion of greater healing</em>, <em>javelin of lightning</em>, <em>sun blade</em> (knight captain or holy knight) or <em>sword of wounding </em>(blackguard)</p><p><strong>CR 17–23</strong> knight captain with 1 to 3 knights, mounted on warhorses; knight captain with 1 or 2 holy knights; 3 holy knights mounted on griffons or pegasi; mountain dwarf lord with 2 mountain dwarf defenders and 1d5 + 5 mountain dwarf soldiers</p><p><strong>Treasure</strong> 500 pp, 1,200 gp, gold and ruby necklace (7,500 gp), 2 <em>potions of greater healing</em>, <em>+1 full plate armor</em>, <em>holy avenger</em> (greatsword)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "isSwarm": false,
+      "cr": 3,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "Any two"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "med",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Knight",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "icons/svg/mystery-man.svg",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680911743333,
+    "modifiedTime": 1680911743333,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

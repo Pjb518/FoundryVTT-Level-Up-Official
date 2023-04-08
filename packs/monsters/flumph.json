@@ -1,1594 +1,1703 @@
 {
-	"name": "Flumph",
-	"type": "npc",
-	"img": "systems/a5e/assets/flumph.webp",
-	"items": [
-		{
-			"_id": "rEnif6RbY8ruHDMp",
-			"name": "Amphibious",
-			"type": "feature",
-			"img": "icons/environment/creatures/frog-spotted-green.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The flumph can breathe air and water.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zuJqkN37dKjQQCxy",
-			"name": "Telepathic Spy",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The flumph can perceive any telepathic messages sent or received within 60 feet, and can’t be surprised by creatures with telepathy. The flumph is also immune to divination and to any effect that would sense its emotions or read its thoughts, except for the Telepathic Spy feature of another flumph.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "oqAbjPHk1LdvKnR0",
-			"name": "Tippable",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"AgeJiVMMi5CKohnp": {
-						"name": "Tippable",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"prompts": {
-							"EG03fygocma6O7CR": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "10"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>If a flumph is knocked prone, it lands upside down and is incapacitated. At the end of each of its turns, it can make a DC 10 Dexterity saving throw, flipping itself over and ending the incapacitated condition on a success.</p><p><br></p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 10,
-					"onSave": "",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "hQbOGneLltRlD4KO",
-			"name": "Flump Light",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 200000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.i2cfGU9ofnKwr9OF"
-				}
-			},
-			"system": {
-				"actions": {
-					"vnqryemfTF6v2YkD": {
-						"name": "Flump Light",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						}
-					}
-				},
-				"description": "<p>As a bonus action, the flumph can cast dim light for 30 feet, or extinguish its glow. The flumph can change the color of the light it casts at will.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "UGeMf5MKW1A4Z5So",
-			"name": "Tendrils",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 500000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"actions": {
-					"lTfP6hrPI0NJa7GU": {
-						"name": "Tendrils",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"IIkIuUlcUU38C7Ed": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
-							},
-							"q14MlcJDYOR6UodO": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1",
-								"name": "Tendril",
-								"type": "damage"
-							},
-							"HWMdQOfry8xTVHqE": {
-								"canCrit": true,
-								"damageType": "acid",
-								"formula": "1d6",
-								"name": "Acid",
-								"type": "damage"
-							}
-						}
-					}
-				},
-				"description": "<p></p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "dex",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "XCVl3OfIB7tkIl0W",
-			"name": "Stench Spray",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"actions": {
-					"bc1pthKyRJvhLl5F": {
-						"name": "Stench Spray",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "cone",
-							"size": "15",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": ""
-						},
-						"prompts": {
-							"Yfk0uoKDFNLj0PT5": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "10"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"TEK8der03eLtrTGg": {
-								"type": "itemUses"
-							}
-						}
-					}
-				},
-				"description": "<p>Each creature in a 15-foot cone makes a DC 10 Dexterity saving throw. On a failure, the creature exudes a horrible stench for 1 hour. While a creature exudes this stench, it and any creature within 5 feet of it are poisoned. A creature can remove the stench on itself by bathing during a rest.</p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 1,
-					"max": 1,
-					"per": "day"
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 10,
-					"onSave": "",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"actions": {
-					"12oyj6MFeb1Cq4Tl": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"0YBtBfyqnFePmlE6": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"iyk8pK8mZtTq2BQN": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"r07WJDYuUb5w4Rcd": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "cvCngEmyTItM0hp2"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"actions": {
-					"rXsRHai6FKU3DXJh": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"abh2XcOY09BJ55Wh": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"QmiT64zrenx2bDZ6": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"lx3YWYGHqG2Y0kQS": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ssWQBDWhA88x9MuH"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"actions": {
-					"ZxRFVDpA733rvoSL": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"5xFOXDRMfwFMfft2": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"X28SMXF4JMkuneKp": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "SlQl6bAQeJpQb8Gw"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"actions": {
-					"vZwGIsf3UlP4TfXx": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"E5tMFR2j1SHZ6Z8h": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"dg8q01t0sM5Oy1gr": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "JLGY5nRRdMvSCLkZ"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"actions": {
-					"qm1fS7kJPk9X2TPM": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"O6TdWCMkYid3kmGv": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"TDwrBhtnoLi3ukLK": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "6JmyiShAcP1JUW5m"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"actions": {
-					"MYJgcfwMuSkwd1rE": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"iZlmSegp6KxVPA65": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"xHHe9GY0eApMvF31": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "SjTilW0Z6db3z5b5"
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.jn29c0so36cgpomq"
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 6,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 12,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 7,
-				"baseMax": 7,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 2,
-					"total": 2
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 30,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 30,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 5,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"darkvision": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": null,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": ""
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>When threatened, flumphs use their Stench Spray and flee. They attack with their tendrils only when cornered.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Flumphs are jellyfish-like aberrations that propel themselves through the air on puffs of harmless gas. Despite their strange appearance, flumphs are intelligent and generally kind-hearted creatures.</p><p><strong>DC 15</strong> Flumphs feed on psychic energy and can “hear” telepathic conversations near them, an ability that makes them excellent spies.</p><p><strong>DC 20</strong> When frightened, flumphs involuntarily emit a foul-smelling gas that nauseates their enemies.</p><p><strong>DESCRIPTION</strong></p><p>The glowing and color-changing flumph is a strange, jellyfish-like creature commonly found in underground caverns. Flumphs possess special glands that emit harmless gases and act as jets, propelling the creature through the air.&nbsp;</p><p><strong><em>Psionic Empaths</em>.</strong> Flumphs communicate through a combination of telepathy and the color of their glow. Flumphs are highly sensitive to the emotional states of nearby creatures. A flumph glowing in muted blue tones might be mourning the loss of another flumph, but it also might be reacting to sadness it senses from a passing traveler.</p><p><strong><em>Benevolent Parasites</em>.</strong> Flumphs feed on psionic energy and are often found lurking near communities of aberrations and psions. Flumphs take this energy stealthily and without doing harm. Their ability to eavesdrop on telepathic conversations makes them a good source of information and gossip.</p><p><strong><em>Flumph Colonies</em>.</strong> Flumph colonies can grow as large as three hundred individuals if their source of psionic energy is plentiful. Within each colony, flumphs have individualized roles. It is common for small colonies to adopt non-flumphs that support the colony by finding food sources, protecting the colony, or healing injured flumphs.</p><p><strong>BEHAVIOR</strong></p><p><strong>Lone Behavior</strong></p><p>1 Turned over on its back and can't get up: if helped, will share information about a nearby monster</p><p>2 Hiding from a predator: telepathically asks for an escort back to its colony</p><p>3 Interested in joining forces with good heroes: it wants to be a hero itself</p><p>4 Scouting for a distant colony of flumphs, staying hidden when possible</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior</strong></p><p>1 Dancing in a silent circle, part of a ritual to keep their presence hidden from enemies</p><p>2 Sending frantic telepathic messages asking for help</p><p>3 Holding a trial to judge a captured creature</p><p>4 Emigrating, having lost their home to a fearsome monster</p><p><strong>SIGNS</strong></p><p>1 A strange, repeated “flumph” sound, like a soft burst of air</p><p>2 A glow like colored lanterns in the distance</p><p>3 DC 14 Wisdom check: a snippet of a telepathic conversation, unintelligible and probably not meant for you</p><p>4 A grimlock or other local monster, covered in flumph Stench Spray and sickened</p><p><strong>ENCOUNTERS</strong></p><p>Flumphs most commonly travel in deep caverns but can also survive in underwater environments.</p><p><strong>CR 0–2</strong> 1d6 flumphs</p>",
-			"creatureTypes": [
-				"aberration"
-			],
-			"isSwarm": false,
-			"cr": 0.125,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"understands Common and Undercommon but can’t speak",
-				"telepathy 60 ft"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			}
-		},
-		"traits": {
-			"size": "sm",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": [
-				"psychic"
-			]
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Flumph",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 1,
-		"height": 1,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/flumph.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "jn29c0so36cgpomq"
+  "name": "Flumph",
+  "type": "npc",
+  "img": "systems/a5e/assets/flumph.webp",
+  "items": [
+    {
+      "_id": "rEnif6RbY8ruHDMp",
+      "name": "Amphibious",
+      "type": "feature",
+      "img": "icons/environment/creatures/frog-spotted-green.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {},
+        "description": "<p>The flumph can breathe air and water.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "zuJqkN37dKjQQCxy",
+      "name": "Telepathic Spy",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {},
+        "description": "<p>The flumph can perceive any telepathic messages sent or received within 60 feet, and can’t be surprised by creatures with telepathy. The flumph is also immune to divination and to any effect that would sense its emotions or read its thoughts, except for the Telepathic Spy feature of another flumph.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "oqAbjPHk1LdvKnR0",
+      "name": "Tippable",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "system": {
+        "actions": {
+          "AgeJiVMMi5CKohnp": {
+            "name": "Tippable",
+            "activation": {
+              "cost": "",
+              "type": "",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "prompts": {
+              "EG03fygocma6O7CR": {
+                "ability": "dex",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "10"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>If a flumph is knocked prone, it lands upside down and is incapacitated. At the end of each of its turns, it can make a DC 10 Dexterity saving throw, flipping itself over and ending the incapacitated condition on a success.</p><p><br></p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": 10,
+          "onSave": "",
+          "targetAbility": "dex"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "hQbOGneLltRlD4KO",
+      "name": "Flump Light",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 200000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.i2cfGU9ofnKwr9OF"
+        }
+      },
+      "system": {
+        "actions": {
+          "vnqryemfTF6v2YkD": {
+            "name": "Flump Light",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>As a bonus action, the flumph can cast dim light for 30 feet, or extinguish its glow. The flumph can change the color of the light it casts at will.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "UGeMf5MKW1A4Z5So",
+      "name": "Tendrils",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 500000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      },
+      "system": {
+        "actions": {
+          "lTfP6hrPI0NJa7GU": {
+            "name": "Tendrils",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "IIkIuUlcUU38C7Ed": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "dex"
+              },
+              "q14MlcJDYOR6UodO": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1",
+                "name": "Tendril",
+                "type": "damage"
+              },
+              "HWMdQOfry8xTVHqE": {
+                "canCrit": true,
+                "damageType": "acid",
+                "formula": "1d6",
+                "name": "Acid",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p></p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "dex",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "XCVl3OfIB7tkIl0W",
+      "name": "Stench Spray",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 100000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      },
+      "system": {
+        "actions": {
+          "bc1pthKyRJvhLl5F": {
+            "name": "Stench Spray",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "cone",
+              "size": "15",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": ""
+            },
+            "prompts": {
+              "Yfk0uoKDFNLj0PT5": {
+                "ability": "dex",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "10"
+                },
+                "type": "savingThrow"
+              }
+            },
+            "consumers": {
+              "TEK8der03eLtrTGg": {
+                "type": "itemUses"
+              }
+            }
+          }
+        },
+        "description": "<p>Each creature in a 15-foot cone makes a DC 10 Dexterity saving throw. On a failure, the creature exudes a horrible stench for 1 hour. While a creature exudes this stench, it and any creature within 5 feet of it are poisoned. A creature can remove the stench on itself by bathing during a rest.</p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 1,
+          "max": 1,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": 10,
+          "onSave": "",
+          "targetAbility": "dex"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        }
+      },
+      "system": {
+        "actions": {
+          "12oyj6MFeb1Cq4Tl": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "0YBtBfyqnFePmlE6": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "iyk8pK8mZtTq2BQN": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "r07WJDYuUb5w4Rcd": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "cvCngEmyTItM0hp2",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        }
+      },
+      "system": {
+        "actions": {
+          "rXsRHai6FKU3DXJh": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "abh2XcOY09BJ55Wh": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "QmiT64zrenx2bDZ6": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "lx3YWYGHqG2Y0kQS": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ssWQBDWhA88x9MuH",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        }
+      },
+      "system": {
+        "actions": {
+          "ZxRFVDpA733rvoSL": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "5xFOXDRMfwFMfft2": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "X28SMXF4JMkuneKp": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "SlQl6bAQeJpQb8Gw",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        }
+      },
+      "system": {
+        "actions": {
+          "vZwGIsf3UlP4TfXx": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "E5tMFR2j1SHZ6Z8h": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "dg8q01t0sM5Oy1gr": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "JLGY5nRRdMvSCLkZ",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        }
+      },
+      "system": {
+        "actions": {
+          "qm1fS7kJPk9X2TPM": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "O6TdWCMkYid3kmGv": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "TDwrBhtnoLi3ukLK": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "6JmyiShAcP1JUW5m",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        }
+      },
+      "system": {
+        "actions": {
+          "MYJgcfwMuSkwd1rE": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "iZlmSegp6KxVPA65": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "xHHe9GY0eApMvF31": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "SjTilW0Z6db3z5b5",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "sheetIsLocked": true
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.jn29c0so36cgpomq"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 6,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 12,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 7,
+        "baseMax": 7,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 2,
+          "total": 2
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 0,
+          "total": 0
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 30,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 30,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 5,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": 60,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": null,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>When threatened, flumphs use their Stench Spray and flee. They attack with their tendrils only when cornered.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Flumphs are jellyfish-like aberrations that propel themselves through the air on puffs of harmless gas. Despite their strange appearance, flumphs are intelligent and generally kind-hearted creatures.</p><p><strong>DC 15</strong> Flumphs feed on psychic energy and can “hear” telepathic conversations near them, an ability that makes them excellent spies.</p><p><strong>DC 20</strong> When frightened, flumphs involuntarily emit a foul-smelling gas that nauseates their enemies.</p><p><strong>DESCRIPTION</strong></p><p>The glowing and color-changing flumph is a strange, jellyfish-like creature commonly found in underground caverns. Flumphs possess special glands that emit harmless gases and act as jets, propelling the creature through the air.&nbsp;</p><p><strong><em>Psionic Empaths</em>.</strong> Flumphs communicate through a combination of telepathy and the color of their glow. Flumphs are highly sensitive to the emotional states of nearby creatures. A flumph glowing in muted blue tones might be mourning the loss of another flumph, but it also might be reacting to sadness it senses from a passing traveler.</p><p><strong><em>Benevolent Parasites</em>.</strong> Flumphs feed on psionic energy and are often found lurking near communities of aberrations and psions. Flumphs take this energy stealthily and without doing harm. Their ability to eavesdrop on telepathic conversations makes them a good source of information and gossip.</p><p><strong><em>Flumph Colonies</em>.</strong> Flumph colonies can grow as large as three hundred individuals if their source of psionic energy is plentiful. Within each colony, flumphs have individualized roles. It is common for small colonies to adopt non-flumphs that support the colony by finding food sources, protecting the colony, or healing injured flumphs.</p><p><strong>BEHAVIOR</strong></p><p><strong>Lone Behavior</strong></p><p>1 Turned over on its back and can't get up: if helped, will share information about a nearby monster</p><p>2 Hiding from a predator: telepathically asks for an escort back to its colony</p><p>3 Interested in joining forces with good heroes: it wants to be a hero itself</p><p>4 Scouting for a distant colony of flumphs, staying hidden when possible</p><hr class=\"a5e-rule u-my-md\"><p><strong>Group Behavior</strong></p><p>1 Dancing in a silent circle, part of a ritual to keep their presence hidden from enemies</p><p>2 Sending frantic telepathic messages asking for help</p><p>3 Holding a trial to judge a captured creature</p><p>4 Emigrating, having lost their home to a fearsome monster</p><p><strong>SIGNS</strong></p><p>1 A strange, repeated “flumph” sound, like a soft burst of air</p><p>2 A glow like colored lanterns in the distance</p><p>3 DC 14 Wisdom check: a snippet of a telepathic conversation, unintelligible and probably not meant for you</p><p>4 A grimlock or other local monster, covered in flumph Stench Spray and sickened</p><p><strong>ENCOUNTERS</strong></p><p>Flumphs most commonly travel in deep caverns but can also survive in underwater environments.</p><p><strong>CR 0–2</strong> 1d6 flumphs</p>",
+      "creatureTypes": [
+        "aberration"
+      ],
+      "isSwarm": false,
+      "cr": 0.125,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "understands Common and Undercommon but can’t speak",
+        "telepathy 60 ft"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "sm",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": [
+        "psychic"
+      ]
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Flumph",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/flumph.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680911668554,
+    "modifiedTime": 1680911668554,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }

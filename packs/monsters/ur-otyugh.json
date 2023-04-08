@@ -1,1847 +1,1980 @@
 {
-	"name": "Ur-Otyugh",
-	"type": "npc",
-	"img": "systems/a5e/assets/otyugh.webp",
-	"items": [
-		{
-			"_id": "MSBxD6Nff962Erz8",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 200000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"actions": {
-					"LKJI8o1jNXE2I7tc": {
-						"name": "Multiattack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						}
-					}
-				},
-				"description": "<p>The otyugh makes two tentacle attacks.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "x4G6H0CMdpRD9xgn",
-			"name": "Tentacle",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 300000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"actions": {
-					"YtCuwjYPUWM37zSC": {
-						"name": "Tentacle",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"Ziw059FyF0hEvyS8": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"xwtFNopWd3R5XyKb": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d8+@str.mod",
-								"name": "Tentacle",
-								"type": "damage"
-							},
-							"hwYZFoSpsMFFrYIm": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8",
-								"name": "Piercing",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"vAVgEasHcYQ2N02k": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>Reach 10 ft., one target. If the target is a Medium or smaller creature, it is grappled (escape DC 14) and restrained until the grapple ends. The otyugh has two tentacles, each of which can grapple one target and can’t attack a different target while doing so.&nbsp;</p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon",
-				"prerequisite": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "",
-					"targetAbility": "dex"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "h8VK1SZyblUDkEof",
-			"name": "Tentacle Slam",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 400000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"actions": {
-					"5WDA1YcTp93jrrem": {
-						"name": "Tentacle Slam",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"VD61kfPWlGXtd2oK": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "2d6+@str.mod",
-								"name": "Slam",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"L8kcdH7tS8mQYh7L": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>The otyugh slams any creatures it is grappling into a hard surface or into each other. Each creature makes a DC 14 Strength saving throw. On a failure, the target takes 10 (2d6 + 3) bludgeoning damage, is stunned until the end of the otyugh’s next turn, and is pulled up to 5 feet towards the otyugh. On a success, the target takes half damage.</p><p><br></p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "f9bFPJnHZK9HLoYw",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 450000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.i2cfGU9ofnKwr9OF"
-				}
-			},
-			"system": {
-				"actions": {
-					"BjyJo0vx4aklMLYM": {
-						"name": "Bite",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"ooQUhOGeaREM3oO4": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"JdkVoqkG5AkfrAGi": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "2d8+@str.mod",
-								"name": "Bite",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"czs9ty0KcP7fymxh": {
-								"ability": "con",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>If the target is a creature, it makes a DC 14 Constitution saving throw. On a failure, the target contracts a disease. While diseased, the target is poisoned. The target repeats the saving throw every 24 hours, reducing its hit point maximum by 5 (1d10) on a failure (to a minimum of 1 hit point) and becoming cured on a success. The reduction in hit points lasts until the disease is cured.</p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "naturalWeapon",
-				"prerequisite": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "",
-					"targetAbility": "con"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "IrViTeECxPtvrKPP",
-			"name": "Swallow",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-tongue-purple.webp",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 475000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.i2cfGU9ofnKwr9OF"
-				}
-			},
-			"system": {
-				"actions": {
-					"3RpWqeFJgwEaKQqj": {
-						"name": "Swallow",
-						"activation": {
-							"cost": 1,
-							"type": "bonusAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"EvovsUXPaIwT1UwI": {
-								"canCrit": false,
-								"damageType": "acid",
-								"formula": "3d6",
-								"name": "Stomach Acid",
-								"type": "damage"
-							}
-						}
-					}
-				},
-				"description": "<p>If the otyugh has no other creature in its stomach, the otyugh bites a Medium or smaller creature that is stunned. On a hit, the creature is swallowed. A swallowed creature has total cover from attacks from outside the otyugh, is blinded and restrained, and takes 10 (3d6) acid damage at the start of each of the otyugh’s turns.</p><p style=\"text-align: start\">If a swallowed creature deals 15 or more damage to the otyugh in a single turn, or if the otyugh dies, the otyugh vomits up the creature.</p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "2uHz7Om2Z7sdFoja",
-			"name": "Legendary Resistance",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>If the ur-otyugh fails a saving throw, it can choose to succeed instead. When it does so, it becomes more sluggish. Each time the ur-otyugh uses Legendary Resistance, its Speed and swim speed decrease by 10 and it loses one of its legendary actions on each of its turns.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 2,
-					"max": 2,
-					"per": "day"
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"actionOptions": [],
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"attack": {
-					"bonus": "",
-					"critThreshold": 20,
-					"type": ""
-				},
-				"area": {
-					"shape": "",
-					"size": ""
-				},
-				"check": {
-					"ability": "str"
-				},
-				"damage": [],
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"healing": [],
-				"proficient": true,
-				"range": [],
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "V2G6mIg7FerlqgXP",
-			"name": "Mad Dash (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 900000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.NJoUhISOPHrdQAvS"
-				}
-			},
-			"system": {
-				"actions": {
-					"MFxXAsm4u9QLDWdB": {
-						"name": "Mad Dash (Legendary)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						}
-					}
-				},
-				"description": "<p><em>The ur-otyugh can take 2 legendary actions. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</em></p><p>The ur-otyugh moves up to half its Speed.</p><p></p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "RUJkPyNuB9TbtDzM",
-			"name": "Tentacle (Legendary)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 800000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.NJoUhISOPHrdQAvS"
-				}
-			},
-			"system": {
-				"actions": {
-					"hOvecq6lUa2Flw5I": {
-						"name": "Tentacle (Legendary)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						}
-					}
-				},
-				"description": "<p><em>The ur-otyugh can take 2 legendary actions. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</em></p><p>The ur-otyugh makes a tentacle attack. This attack has a range of 15 feet.</p><p></p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "",
-					"onSave": "",
-					"targetAbility": ""
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "AuPjCDZubJu7abnz",
-			"name": "Mental Fuzz (Legendary, 2 Actions, Bloodied)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "yKYZJ2BF51Rij43x",
-			"sort": 500000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.NJoUhISOPHrdQAvS"
-				}
-			},
-			"system": {
-				"actions": {
-					"ffVZxCmTyRZzDvIi": {
-						"name": "Mental Fuzz (Legendary, 2 Actions, Bloodied)",
-						"activation": {
-							"cost": 1,
-							"type": "legendaryAction",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"UyCSjYsyMfMLAuL4": {
-								"canCrit": false,
-								"damageType": "psychic",
-								"formula": "4d6",
-								"name": "Mental Fuzz",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"e56w3gqmQd4OisNR": {
-								"ability": "int",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p><em>The ur-otyugh can take 2 legendary actions. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</em></p><p><em>The ur-otuygh can only take this action while Bloodied.</em></p><p>The ur-otyugh transmits a burst of psionic static. Each non-aberration within 30 feet makes a DC 14 Intelligence saving throw. On a failure, a creature takes 14 (4d6) psychic damage and is stunned until the end of the ur-otyugh’s next turn. On a success, the creature takes half damage.</p>",
-				"favorite": true,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"featureType": "",
-				"prerequisite": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": 14,
-					"onSave": "",
-					"targetAbility": "int"
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Shove",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
-			},
-			"system": {
-				"actions": {
-					"o1M9ahRDf45yCsQv": {
-						"name": "Shove",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"DeXRhdiZHKzdwoUX": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": null,
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"agAbXC52GVq4aj1p": {
-								"canCrit": false,
-								"damageType": "bludgeoning",
-								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"e1HGS665ojkaDm3f": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "xKFJSOVsbyISPxS8"
-		},
-		{
-			"name": "Disarm",
-			"type": "maneuver",
-			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
-			},
-			"system": {
-				"actions": {
-					"u4YEGcPzb02rSuyQ": {
-						"name": "Disarm",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"JdJO9x1Jisqcn8iO": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"rolls": {
-							"qQNSvEhEyyEZsfwp": {
-								"canCrit": false,
-								"damageType": "",
-								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"NFV9IDf6brxkneXx": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "str",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "IVT0qj68EaaDmfvS"
-		},
-		{
-			"name": "Grab On",
-			"type": "maneuver",
-			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
-			},
-			"system": {
-				"actions": {
-					"2iLBT7a7Vvf8dGym": {
-						"name": "Grab On",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"gUcsTA5qPPR36rjc": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"QFJVT28Hj22fiyhv": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "eHMYEgqBtgD4eVEJ"
-		},
-		{
-			"name": "Knockdown",
-			"type": "maneuver",
-			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
-			},
-			"system": {
-				"actions": {
-					"TMkyRVR77POlJEUd": {
-						"name": "Knockdown",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"cASGxrYZ2g1J7Xpm": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"qNr2OvekjEi1o7lz": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "TwHLFwILVnR1nBhi"
-		},
-		{
-			"name": "Grapple",
-			"type": "maneuver",
-			"img": "icons/skills/melee/unarmed-punch-fist.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
-			},
-			"system": {
-				"actions": {
-					"cod8IzHPeVvUmPx3": {
-						"name": "Grapple",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"rDBvjGWzLF8nrEnB": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"4J1tXIpbzr6FZmqg": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ZT0qTUBgj1fwixQ6"
-		},
-		{
-			"name": "Overrun",
-			"type": "maneuver",
-			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
-			},
-			"system": {
-				"actions": {
-					"zBEiaXn8U7IvrUVc": {
-						"name": "Overrun",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": null
-						},
-						"ranges": {
-							"Cslb46T7866Bczgs": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creature",
-							"shape": "",
-							"size": ""
-						},
-						"prompts": {
-							"3G1u3oYK7qNzOc90": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "@maneuverDC"
-								},
-								"type": "savingThrow"
-							}
-						}
-					}
-				},
-				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-				"favorite": false,
-				"recharge": {
-					"charged": true,
-					"formula": "",
-					"threshold": ""
-				},
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null
-				},
-				"degree": 0,
-				"exertionCost": 0,
-				"isStance": false,
-				"prerequisite": "",
-				"tradition": "",
-				"ability": "",
-				"proficient": true,
-				"save": {
-					"dc": "@maneuverDC",
-					"onSave": "",
-					"targetAbility": "str"
-				}
-			},
-			"ownership": {
-				"default": 0
-			},
-			"folder": null,
-			"sort": 0,
-			"_id": "ZsAShco4DVgChLmg"
-		}
-	],
-	"effects": [],
-	"flags": {
-		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.ukdw0ixd7g3p88fq"
-		}
-	},
-	"system": {
-		"abilities": {
-			"str": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"dex": {
-				"value": 10,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"con": {
-				"value": 16,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": true,
-					"expertiseDice": 0,
-					"bonus": "",
-					"concentrationBonus": ""
-				}
-			},
-			"int": {
-				"value": 6,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"wis": {
-				"value": 14,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			},
-			"cha": {
-				"value": 5,
-				"check": {
-					"expertiseDice": 0,
-					"bonus": ""
-				},
-				"save": {
-					"proficient": false,
-					"expertiseDice": 0,
-					"bonus": ""
-				}
-			}
-		},
-		"skills": {
-			"acr": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ani": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"arc": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ath": {
-				"ability": "str",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"cul": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"dec": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"eng": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"his": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ins": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"itm": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"inv": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"med": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"nat": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prc": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"prf": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"per": {
-				"ability": "cha",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"rel": {
-				"ability": "int",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"slt": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"ste": {
-				"ability": "dex",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			},
-			"sur": {
-				"ability": "wis",
-				"value": 0,
-				"proficient": false,
-				"specialties": [],
-				"expertiseDice": 0,
-				"minRoll": 1,
-				"bonuses": {
-					"check": "",
-					"passive": 0
-				}
-			}
-		},
-		"spellResources": {
-			"slots": {
-				"0": {
-					"current": 0,
-					"max": 0
-				},
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			}
-		},
-		"attributes": {
-			"ac": 14,
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 144,
-				"baseMax": 144,
-				"temp": "",
-				"bonus": null
-			},
-			"hitDice": {
-				"d6": {
-					"current": 0,
-					"total": 0
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 17,
-					"total": 17
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 50,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 50,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"darkvision": {
-					"distance": 120,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": null,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": null,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": ""
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>The otyugh grasps creatures with its tentacles. If it has two creatures grappled, it uses its Tentacle Slam. If it stuns a target, it swallows it. It retreats once it has swallowed a creature or when it is bloodied.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Otyughs are large, tentacled scavengers that inhabit swamps, sewers, or anywhere rotting organic matter is abundant.</p><p><strong>DC 15</strong> Living in filth as they do, otyughs often carry disease.</p><p><strong>DC 20</strong> Otyughs possess a rudimentary form of telepathy, which they use to project images into the minds of their potential victims.</p><p><strong>DESCRIPTION</strong></p><p>Common otyughs are domesticated descendants of the creatures first summoned from their mysterious nightmare plane. The original ur-otyughs were speedy hunters that overwhelmed their prey with telepathic energy and ate them alive. Some of these ancient creatures still lurk in deep fens and forgotten dungeons.</p><p><strong>BEHAVIOR</strong></p><p>1 Hiding under filth, ambushing any who approach</p><p>2 Sated and non-aggressive</p><p>3 Patrolling and hungry</p><p>4 Asleep under filth; attacks if disturbed</p><p><strong>SIGNS</strong></p><p>1–3 The smell of filth and rot</p><p>4 Piles of stinking carrion</p><p>5 The image of a chocolate cake telepathically appears in a character’s mind</p><p>6 Unusually clean corridors</p><p><strong>ENCOUNTERS</strong></p><p>Otyughs feed on the refuse large settlements create, but they also thrive in stinking bogs or steaming jungles.</p><p><strong>CR 5–10</strong> otyugh; otyugh with ochre jelly; otyugh with 1 or 2 gibbering mouthers or gricks</p><p><strong>Treasure</strong> 400 gp, 600 sp, 150 cp, <em>healing potion</em>, silver map case (75 gp) containing <em>spell scrolls</em> of <em>lesser restoration</em> and <em>sleep</em></p><p><strong>CR 11–16</strong> ur-otyugh; 2 otyughs; otyugh with grick leader</p><p><strong>Treasure</strong> 600 gp, gold-hilted rapier (250 gp), emerald hat pin (75 gp), ruined noble clothing set with 20 gems (50 gp each), <em>elemental gem</em> (water), <em>robe of useful items</em></p>",
-			"creatureTypes": [
-				"aberration"
-			],
-			"isSwarm": false,
-			"cr": 10,
-			"elite": false,
-			"privateNotes": ""
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"telepathy 120 ft. (can transmit but not receive thoughts and images)"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": 0,
-				"per": "",
-				"hideMax": false
-			}
-		},
-		"traits": {
-			"size": "lg",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": []
-		},
-		"target": {}
-	},
-	"prototypeToken": {
-		"name": "Ur-Otyugh",
-		"displayName": 0,
-		"actorLink": false,
-		"width": 2,
-		"height": 2,
-		"lockRotation": false,
-		"rotation": 0,
-		"alpha": 1,
-		"light": {
-			"alpha": 0.5,
-			"angle": 360,
-			"bright": 0,
-			"coloration": 1,
-			"dim": 0,
-			"luminosity": 0.5,
-			"saturation": 0,
-			"contrast": 0,
-			"shadows": 0,
-			"animation": {
-				"speed": 5,
-				"intensity": 5,
-				"reverse": false,
-				"type": null
-			},
-			"darkness": {
-				"min": 0,
-				"max": 1
-			},
-			"attenuation": 0.5,
-			"color": null
-		},
-		"disposition": -1,
-		"displayBars": 0,
-		"bar1": {
-			"attribute": "attributes.hp"
-		},
-		"bar2": {
-			"attribute": null
-		},
-		"flags": {},
-		"randomImg": false,
-		"texture": {
-			"src": "systems/a5e/assets/otyugh.webp",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
-		"sight": {
-			"angle": 360,
-			"enabled": false,
-			"range": 0,
-			"brightness": 1,
-			"color": null,
-			"attenuation": 0.1,
-			"saturation": 0,
-			"contrast": 0,
-			"visionMode": "basic"
-		},
-		"detectionModes": []
-	},
-	"_id": "ukdw0ixd7g3p88fq"
+  "name": "Ur-Otyugh",
+  "type": "npc",
+  "img": "systems/a5e/assets/otyugh.webp",
+  "items": [
+    {
+      "_id": "MSBxD6Nff962Erz8",
+      "name": "Multiattack",
+      "type": "feature",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 200000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      },
+      "system": {
+        "actions": {
+          "LKJI8o1jNXE2I7tc": {
+            "name": "Multiattack",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p>The otyugh makes two tentacle attacks.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "x4G6H0CMdpRD9xgn",
+      "name": "Tentacle",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 300000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      },
+      "system": {
+        "actions": {
+          "YtCuwjYPUWM37zSC": {
+            "name": "Tentacle",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "Ziw059FyF0hEvyS8": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "xwtFNopWd3R5XyKb": {
+                "canCrit": true,
+                "damageType": "bludgeoning",
+                "formula": "1d8+@str.mod",
+                "name": "Tentacle",
+                "type": "damage"
+              },
+              "hwYZFoSpsMFFrYIm": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "1d8",
+                "name": "Piercing",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "vAVgEasHcYQ2N02k": {
+                "ability": "dex",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>Reach 10 ft., one target. If the target is a Medium or smaller creature, it is grappled (escape DC 14) and restrained until the grapple ends. The otyugh has two tentacles, each of which can grapple one target and can’t attack a different target while doing so.&nbsp;</p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon",
+        "prerequisite": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "",
+          "targetAbility": "dex"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "h8VK1SZyblUDkEof",
+      "name": "Tentacle Slam",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 400000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
+        }
+      },
+      "system": {
+        "actions": {
+          "5WDA1YcTp93jrrem": {
+            "name": "Tentacle Slam",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "VD61kfPWlGXtd2oK": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "2d6+@str.mod",
+                "name": "Slam",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "L8kcdH7tS8mQYh7L": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>The otyugh slams any creatures it is grappling into a hard surface or into each other. Each creature makes a DC 14 Strength saving throw. On a failure, the target takes 10 (2d6 + 3) bludgeoning damage, is stunned until the end of the otyugh’s next turn, and is pulled up to 5 feet towards the otyugh. On a success, the target takes half damage.</p><p><br></p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "f9bFPJnHZK9HLoYw",
+      "name": "Bite",
+      "type": "feature",
+      "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 450000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.i2cfGU9ofnKwr9OF"
+        }
+      },
+      "system": {
+        "actions": {
+          "BjyJo0vx4aklMLYM": {
+            "name": "Bite",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "ooQUhOGeaREM3oO4": {
+                "bonus": "",
+                "critThreshold": "20",
+                "type": "attack",
+                "attackType": "meleeWeaponAttack",
+                "ability": "str"
+              },
+              "JdkVoqkG5AkfrAGi": {
+                "canCrit": true,
+                "damageType": "piercing",
+                "formula": "2d8+@str.mod",
+                "name": "Bite",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "czs9ty0KcP7fymxh": {
+                "ability": "con",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>If the target is a creature, it makes a DC 14 Constitution saving throw. On a failure, the target contracts a disease. While diseased, the target is poisoned. The target repeats the saving throw every 24 hours, reducing its hit point maximum by 5 (1d10) on a failure (to a minimum of 1 hit point) and becoming cured on a success. The reduction in hit points lasts until the disease is cured.</p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "naturalWeapon",
+        "prerequisite": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "",
+          "targetAbility": "con"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "IrViTeECxPtvrKPP",
+      "name": "Swallow",
+      "type": "feature",
+      "img": "icons/creatures/abilities/mouth-teeth-tongue-purple.webp",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 475000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.i2cfGU9ofnKwr9OF"
+        }
+      },
+      "system": {
+        "actions": {
+          "3RpWqeFJgwEaKQqj": {
+            "name": "Swallow",
+            "activation": {
+              "cost": 1,
+              "type": "bonusAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "EvovsUXPaIwT1UwI": {
+                "canCrit": false,
+                "damageType": "acid",
+                "formula": "3d6",
+                "name": "Stomach Acid",
+                "type": "damage"
+              }
+            }
+          }
+        },
+        "description": "<p>If the otyugh has no other creature in its stomach, the otyugh bites a Medium or smaller creature that is stunned. On a hit, the creature is swallowed. A swallowed creature has total cover from attacks from outside the otyugh, is blinded and restrained, and takes 10 (3d6) acid damage at the start of each of the otyugh’s turns.</p><p style=\"text-align: start\">If a swallowed creature deals 15 or more damage to the otyugh in a single turn, or if the otyugh dies, the otyugh vomits up the creature.</p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "2uHz7Om2Z7sdFoja",
+      "name": "Legendary Resistance",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "system": {
+        "actions": {},
+        "description": "<p>If the ur-otyugh fails a saving throw, it can choose to succeed instead. When it does so, it becomes more sluggish. Each time the ur-otyugh uses Legendary Resistance, its Speed and swim speed decrease by 10 and it loses one of its legendary actions on each of its turns.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": 2,
+          "max": 2,
+          "per": "day"
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "actionOptions": [],
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "attack": {
+          "bonus": "",
+          "critThreshold": 20,
+          "type": ""
+        },
+        "area": {
+          "shape": "",
+          "size": ""
+        },
+        "check": {
+          "ability": "str"
+        },
+        "damage": [],
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "healing": [],
+        "proficient": true,
+        "range": [],
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "V2G6mIg7FerlqgXP",
+      "name": "Mad Dash (Legendary)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 900000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.NJoUhISOPHrdQAvS"
+        }
+      },
+      "system": {
+        "actions": {
+          "MFxXAsm4u9QLDWdB": {
+            "name": "Mad Dash (Legendary)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p><em>The ur-otyugh can take 2 legendary actions. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</em></p><p>The ur-otyugh moves up to half its Speed.</p><p></p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "RUJkPyNuB9TbtDzM",
+      "name": "Tentacle (Legendary)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 800000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.NJoUhISOPHrdQAvS"
+        }
+      },
+      "system": {
+        "actions": {
+          "hOvecq6lUa2Flw5I": {
+            "name": "Tentacle (Legendary)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            }
+          }
+        },
+        "description": "<p><em>The ur-otyugh can take 2 legendary actions. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</em></p><p>The ur-otyugh makes a tentacle attack. This attack has a range of 15 feet.</p><p></p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "",
+          "onSave": "",
+          "targetAbility": ""
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "_id": "AuPjCDZubJu7abnz",
+      "name": "Mental Fuzz (Legendary, 2 Actions, Bloodied)",
+      "type": "feature",
+      "img": "icons/svg/item-bag.svg",
+      "effects": [],
+      "folder": "yKYZJ2BF51Rij43x",
+      "sort": 500000,
+      "flags": {
+        "core": {
+          "sourceId": "Item.NJoUhISOPHrdQAvS"
+        }
+      },
+      "system": {
+        "actions": {
+          "ffVZxCmTyRZzDvIi": {
+            "name": "Mental Fuzz (Legendary, 2 Actions, Bloodied)",
+            "activation": {
+              "cost": 1,
+              "type": "legendaryAction",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "",
+              "value": ""
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": ""
+            },
+            "rolls": {
+              "UyCSjYsyMfMLAuL4": {
+                "canCrit": false,
+                "damageType": "psychic",
+                "formula": "4d6",
+                "name": "Mental Fuzz",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "e56w3gqmQd4OisNR": {
+                "ability": "int",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "14"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p><em>The ur-otyugh can take 2 legendary actions. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</em></p><p><em>The ur-otuygh can only take this action while Bloodied.</em></p><p>The ur-otyugh transmits a burst of psionic static. Each non-aberration within 30 feet makes a DC 14 Intelligence saving throw. On a failure, a creature takes 14 (4d6) psychic damage and is stunned until the end of the ur-otyugh’s next turn. On a success, the creature takes half damage.</p>",
+        "favorite": true,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "featureType": "",
+        "prerequisite": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": 14,
+          "onSave": "",
+          "targetAbility": "int"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Shove",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+        }
+      },
+      "system": {
+        "actions": {
+          "o1M9ahRDf45yCsQv": {
+            "name": "Shove",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "DeXRhdiZHKzdwoUX": {
+                "range": "fiveFeet"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": null,
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "agAbXC52GVq4aj1p": {
+                "canCrit": false,
+                "damageType": "bludgeoning",
+                "formula": "1 + @str.mod",
+                "name": "Default",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "e1HGS665ojkaDm3f": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "xKFJSOVsbyISPxS8",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Disarm",
+      "type": "maneuver",
+      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+        }
+      },
+      "system": {
+        "actions": {
+          "u4YEGcPzb02rSuyQ": {
+            "name": "Disarm",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "JdJO9x1Jisqcn8iO": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "rolls": {
+              "qQNSvEhEyyEZsfwp": {
+                "canCrit": false,
+                "damageType": "",
+                "formula": "1 + @str.mod",
+                "name": "",
+                "type": "damage"
+              }
+            },
+            "prompts": {
+              "NFV9IDf6brxkneXx": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "str",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "IVT0qj68EaaDmfvS",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Grab On",
+      "type": "maneuver",
+      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+        }
+      },
+      "system": {
+        "actions": {
+          "2iLBT7a7Vvf8dGym": {
+            "name": "Grab On",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "gUcsTA5qPPR36rjc": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "QFJVT28Hj22fiyhv": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "eHMYEgqBtgD4eVEJ",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Knockdown",
+      "type": "maneuver",
+      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+        }
+      },
+      "system": {
+        "actions": {
+          "TMkyRVR77POlJEUd": {
+            "name": "Knockdown",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "cASGxrYZ2g1J7Xpm": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "qNr2OvekjEi1o7lz": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "TwHLFwILVnR1nBhi",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Grapple",
+      "type": "maneuver",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+        }
+      },
+      "system": {
+        "actions": {
+          "cod8IzHPeVvUmPx3": {
+            "name": "Grapple",
+            "activation": {
+              "cost": 1,
+              "type": "action",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "rDBvjGWzLF8nrEnB": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "4J1tXIpbzr6FZmqg": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ZT0qTUBgj1fwixQ6",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    },
+    {
+      "name": "Overrun",
+      "type": "maneuver",
+      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+      "effects": [],
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+        }
+      },
+      "system": {
+        "actions": {
+          "zBEiaXn8U7IvrUVc": {
+            "name": "Overrun",
+            "activation": {
+              "cost": 1,
+              "type": "special",
+              "reactionTrigger": ""
+            },
+            "duration": {
+              "unit": "instantaneous",
+              "value": null
+            },
+            "ranges": {
+              "Cslb46T7866Bczgs": {
+                "range": "touch"
+              }
+            },
+            "area": {
+              "shape": "",
+              "size": "",
+              "placeTemplate": false
+            },
+            "target": {
+              "quantity": "",
+              "type": "creature",
+              "shape": "",
+              "size": ""
+            },
+            "prompts": {
+              "3G1u3oYK7qNzOc90": {
+                "ability": "str",
+                "onSave": "",
+                "saveDC": {
+                  "type": "custom",
+                  "bonus": "@maneuverDC"
+                },
+                "type": "savingThrow"
+              }
+            }
+          }
+        },
+        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+        "favorite": false,
+        "recharge": {
+          "charged": true,
+          "formula": "",
+          "threshold": ""
+        },
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null
+        },
+        "degree": 0,
+        "exertionCost": 0,
+        "isStance": false,
+        "prerequisite": "",
+        "tradition": "",
+        "ability": "",
+        "proficient": true,
+        "save": {
+          "dc": "@maneuverDC",
+          "onSave": "",
+          "targetAbility": "str"
+        }
+      },
+      "ownership": {
+        "default": 0
+      },
+      "folder": null,
+      "sort": 0,
+      "_id": "ZsAShco4DVgChLmg",
+      "_stats": {
+        "systemId": null,
+        "systemVersion": null,
+        "coreVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "a5e": {
+      "sheetIsLocked": true
+    },
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-monsters.ukdw0ixd7g3p88fq"
+    },
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "10.291",
+      "systemVersion": "0.10.5"
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "dex": {
+        "value": 10,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "con": {
+        "value": 16,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": true,
+          "expertiseDice": 0,
+          "bonus": "",
+          "concentrationBonus": ""
+        }
+      },
+      "int": {
+        "value": 6,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "wis": {
+        "value": 14,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      },
+      "cha": {
+        "value": 5,
+        "check": {
+          "expertiseDice": 0,
+          "bonus": ""
+        },
+        "save": {
+          "proficient": false,
+          "expertiseDice": 0,
+          "bonus": ""
+        }
+      }
+    },
+    "skills": {
+      "acr": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ani": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "arc": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ath": {
+        "ability": "str",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "cul": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "dec": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "eng": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "his": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ins": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "itm": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "inv": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "med": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "nat": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prc": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "prf": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "per": {
+        "ability": "cha",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "rel": {
+        "ability": "int",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "slt": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "ste": {
+        "ability": "dex",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      },
+      "sur": {
+        "ability": "wis",
+        "value": 0,
+        "proficient": false,
+        "specialties": [],
+        "expertiseDice": 0,
+        "minRoll": 1,
+        "bonuses": {
+          "check": "",
+          "passive": 0
+        }
+      }
+    },
+    "spellResources": {
+      "slots": {
+        "0": {
+          "current": 0,
+          "max": 0
+        },
+        "1": {
+          "current": 0,
+          "max": 0
+        },
+        "2": {
+          "current": 0,
+          "max": 0
+        },
+        "3": {
+          "current": 0,
+          "max": 0
+        },
+        "4": {
+          "current": 0,
+          "max": 0
+        },
+        "5": {
+          "current": 0,
+          "max": 0
+        },
+        "6": {
+          "current": 0,
+          "max": 0
+        },
+        "7": {
+          "current": 0,
+          "max": 0
+        },
+        "8": {
+          "current": 0,
+          "max": 0
+        },
+        "9": {
+          "current": 0,
+          "max": 0
+        }
+      },
+      "points": {
+        "current": 0,
+        "max": 0
+      }
+    },
+    "attributes": {
+      "ac": 14,
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "hp": {
+        "value": 144,
+        "baseMax": 144,
+        "temp": "",
+        "bonus": null
+      },
+      "hitDice": {
+        "d6": {
+          "current": 0,
+          "total": 0
+        },
+        "d8": {
+          "current": 0,
+          "total": 0
+        },
+        "d10": {
+          "current": 17,
+          "total": 17
+        },
+        "d12": {
+          "current": 0,
+          "total": 0
+        },
+        "d4": {
+          "current": 0,
+          "total": 0
+        },
+        "d20": {
+          "current": 0,
+          "total": 0
+        }
+      },
+      "initiative": {
+        "bonus": "",
+        "expertiseDice": 0
+      },
+      "movement": {
+        "burrow": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "climb": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "fly": {
+          "distance": 0,
+          "unit": "feet"
+        },
+        "swim": {
+          "distance": 50,
+          "unit": "feet"
+        },
+        "walk": {
+          "distance": 50,
+          "unit": "feet"
+        },
+        "traits": {
+          "hover": false
+        }
+      },
+      "senses": {
+        "blindsight": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "darkvision": {
+          "distance": 120,
+          "unit": "feet"
+        },
+        "tremorsense": {
+          "distance": null,
+          "unit": "feet"
+        },
+        "truesight": {
+          "distance": null,
+          "unit": "feet"
+        }
+      },
+      "inspiration": false,
+      "fatigue": 0,
+      "strife": 0,
+      "spellcasting": "int",
+      "casterLevel": 0
+    },
+    "bonuses": {
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "maneuverDC": "",
+      "meleeSpellAttack": "",
+      "meleeWeaponAttack": "",
+      "rangedSpellAttack": "",
+      "rangedWeaponAttack": "",
+      "spellDC": ""
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "details": {
+      "bio": "<h2><strong>COMBAT</strong></h2><p>The otyugh grasps creatures with its tentacles. If it has two creatures grappled, it uses its Tentacle Slam. If it stuns a target, it swallows it. It retreats once it has swallowed a creature or when it is bloodied.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Otyughs are large, tentacled scavengers that inhabit swamps, sewers, or anywhere rotting organic matter is abundant.</p><p><strong>DC 15</strong> Living in filth as they do, otyughs often carry disease.</p><p><strong>DC 20</strong> Otyughs possess a rudimentary form of telepathy, which they use to project images into the minds of their potential victims.</p><p><strong>DESCRIPTION</strong></p><p>Common otyughs are domesticated descendants of the creatures first summoned from their mysterious nightmare plane. The original ur-otyughs were speedy hunters that overwhelmed their prey with telepathic energy and ate them alive. Some of these ancient creatures still lurk in deep fens and forgotten dungeons.</p><p><strong>BEHAVIOR</strong></p><p>1 Hiding under filth, ambushing any who approach</p><p>2 Sated and non-aggressive</p><p>3 Patrolling and hungry</p><p>4 Asleep under filth; attacks if disturbed</p><p><strong>SIGNS</strong></p><p>1–3 The smell of filth and rot</p><p>4 Piles of stinking carrion</p><p>5 The image of a chocolate cake telepathically appears in a character’s mind</p><p>6 Unusually clean corridors</p><p><strong>ENCOUNTERS</strong></p><p>Otyughs feed on the refuse large settlements create, but they also thrive in stinking bogs or steaming jungles.</p><p><strong>CR 5–10</strong> otyugh; otyugh with ochre jelly; otyugh with 1 or 2 gibbering mouthers or gricks</p><p><strong>Treasure</strong> 400 gp, 600 sp, 150 cp, <em>healing potion</em>, silver map case (75 gp) containing <em>spell scrolls</em> of <em>lesser restoration</em> and <em>sleep</em></p><p><strong>CR 11–16</strong> ur-otyugh; 2 otyughs; otyugh with grick leader</p><p><strong>Treasure</strong> 600 gp, gold-hilted rapier (250 gp), emerald hat pin (75 gp), ruined noble clothing set with 20 gems (50 gp each), <em>elemental gem</em> (water), <em>robe of useful items</em></p>",
+      "creatureTypes": [
+        "aberration"
+      ],
+      "isSwarm": false,
+      "cr": 10,
+      "elite": false,
+      "privateNotes": ""
+    },
+    "proficiencies": {
+      "armor": [],
+      "languages": [
+        "telepathy 120 ft. (can transmit but not receive thoughts and images)"
+      ],
+      "tools": [],
+      "weapons": []
+    },
+    "resources": {
+      "primary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "secondary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "tertiary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      },
+      "quaternary": {
+        "label": "",
+        "value": 0,
+        "max": 0,
+        "per": "",
+        "hideMax": false
+      }
+    },
+    "traits": {
+      "size": "lg",
+      "conditionImmunities": [],
+      "damageImmunities": [],
+      "damageResistances": [],
+      "damageVulnerabilities": []
+    },
+    "target": {}
+  },
+  "prototypeToken": {
+    "name": "Ur-Otyugh",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 2,
+    "height": 2,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null
+    },
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "systems/a5e/assets/otyugh.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": null
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0,
+      "visionMode": "basic"
+    },
+    "detectionModes": []
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.10.5",
+    "coreVersion": "10.291",
+    "createdTime": 1680911794067,
+    "modifiedTime": 1680911794067,
+    "lastModifiedBy": "eunZYRLVMq93MkmD"
+  }
 }
