@@ -289,6 +289,8 @@ export default class RollPreparationManager {
     const step = roll.scaling?.step || 1;
     const multiplier = Math.floor(delta / step);
 
+    if (multiplier === 0) return baseRoll;
+
     return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
   }
 
