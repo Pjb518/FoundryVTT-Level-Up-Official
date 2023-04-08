@@ -194,6 +194,7 @@
         &__roll-icon {
             display: none;
             color: #555;
+            transition: all 0.15s ease-in-out;
 
             &--ctrl {
                 color: #ffb63b;
