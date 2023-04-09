@@ -190,7 +190,6 @@ export default class MigrationRunnerBase {
 
     const fromVersion = typeof schema.version === 'number' ? schema.version : null;
     schema.version = latestMigration.version;
-    // TODO: Fix Datetime
     schema.lastMigration = {
       version: {
         schema: fromVersion,
