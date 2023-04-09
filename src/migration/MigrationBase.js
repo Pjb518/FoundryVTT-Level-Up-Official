@@ -1,6 +1,8 @@
 export default class MigrationBase {
-  constructor(version) {
-    this.version = version;
+  static version;
+
+  constructor(requiresFlush = false) {
+    this.version = MigrationBase.version;
     this.requiresFlush = false;
   }
 
