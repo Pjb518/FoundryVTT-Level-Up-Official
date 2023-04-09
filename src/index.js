@@ -6,7 +6,6 @@ import ActorSheetA5e from './apps/ActorSheet';
 import ItemSheetA5e from './apps/ItemSheet';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
-import KeyPressHandler from './apps/KeyPressHandler.svelte';
 
 import A5E from './config';
 import ActiveEffectA5e from './documents/activeEffects';
@@ -30,6 +29,7 @@ import rollInitiative from './combat/rollInitiative';
 
 import createActor from './hooks/createActor';
 import createToken from './hooks/createToken';
+import ready from './hooks/ready';
 
 import setupConditions from './activeEffects/conditions';
 
@@ -135,57 +135,7 @@ Hooks.once('setup', () => {
 Hooks.once('i18nInit', () => performPreLocalization(CONFIG.A5E));
 
 // Once the entire VTT framework is initialized, check to see if we should perform a data migration
-Hooks.once('ready', () => {
-  // eslint-disable-next-line consistent-return
-  Hooks.on('hotbarDrop', (_, data, slot) => {
-    if (data.type === 'Item') {
-      game.a5e.macros.createMacro(data, slot);
-      return false;
-    }
-  });
-
-  // Determine whether a system migration is required
-  if (!game.user.isGM) return;
-
-  const currentVersion = game.settings.get('a5e', 'systemMigrationVersion');
-  const NEEDS_MIGRATION_VERSION = '0.10.0';
-  const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
-
-  if (!currentVersion && totalDocuments === 0) {
-    game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
-    return;
-  }
-
-  const needsMigration = !currentVersion || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
-  if (!needsMigration) return;
-
-  game.a5e.migrations.migrateWorld();
-});
-
-// Hooks.once('ready', () => {
-//   const LATEST_ANNOUNCEMENT_VERSION = '0.8.0';
-//   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
-
-//   const showAnnouncement = !lastAnnouncementShown
-//     || isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
-
-//   if (!showAnnouncement) return;
-
-//   const announcementWindow = new Application({
-//     title: 'Test!',
-//     template: 'systems/a5e/templates/announcements/0.9.0.hbs',
-//     width: 700
-//   });
-
-//   announcementWindow.render(true);
-
-//   game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);
-// });
-
-Hooks.once('ready', () => {
-  // eslint-disable-next-line no-new
-  new KeyPressHandler({ target: document.body });
-});
+Hooks.once('ready', ready);
 
 Hooks.on('canvasInit', () => {
   canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
