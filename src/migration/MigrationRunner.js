@@ -153,4 +153,69 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     return updateData;
   }
+
+  /**
+   *
+   * @param {Object} macro
+   * @param {Array<MigrationBase>} migrations
+   */
+  async #migrateWorldMacro(macro, migrations) {
+    if (!migrations.some((migration) => !!migration.updateMacro)) return;
+
+    try {
+      const updateData = await this.getUpdatedMacro(macro.toObject(), migrations);
+      const changes = foundry.utils.diffObject(macro.toObject(), updateData);
+      if (Object.keys(changes).length > 0) {
+        await macro.update(changes, { noHook: true });
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  /**
+   *
+   * @param {Object} token
+   * @param {Array<MigrationBase>} migrations
+   */
+  async #migrateSceneToken(token, migrations) {
+    if (!migrations.some((migration) => !!migration.updateToken)) return token.toObject();
+
+    try {
+      const tokenData = await this.getUpdatedToken(token, migrations);
+      const updateData = diffObject(token.toObject(), tokenData);
+
+      if (Object.keys(updateData).length > 0) {
+        try {
+          await token.update(updateData, { noHook: true });
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+      return tokenData;
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
+  }
+
+  /**
+   *
+   * @param {Object} user
+   * @param {Array<MigrationBase>} migrations
+   */
+  async #migrateUser(user, migrations) {
+    if (!migrations.some((migration) => !!migration.updateUser)) return;
+
+    try {
+      const userData = user.toObject();
+      const updateData = await this.getUpdatedUser(userData, migrations);
+      const changes = diffObject(user.toObject(), updateData);
+      if (Object.keys(changes).length > 0) {
+        await user.update(changes, { noHook: true });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
