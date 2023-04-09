@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import MigrationBase from './MigrationBase';
 import MigrationRunner from './MigrationRunner';
 
@@ -19,13 +20,24 @@ export default class MigrationList {
     return this.#list.map((Migration) => new Migration());
   }
 
+  /**
+   *
+   * @param {Number} version
+   * @returns {Array<MigrationBase>}
+   */
   static constructFromVersion(version = null) {
-    const minimumVersion = Number(version) || MigrationRunner.SAFE_VERSION;
+    const minimumVersion = Number(version) || MigrationRunner.RECOMMENDED_SAFE_VERSION;
     return this.#list
       .filter((Migration) => Migration.version > minimumVersion)
       .map((Migration) => new Migration());
   }
 
+  /**
+   *
+   * @param {Number} minimum
+   * @param {Number} maximum
+   * @returns {Array<MigrationBase>}
+   */
   static constructRange(minimum, maximum = Infinity) {
     return this.#list
       .filter((Migration) => Migration.version >= minimum && Migration.version <= maximum)

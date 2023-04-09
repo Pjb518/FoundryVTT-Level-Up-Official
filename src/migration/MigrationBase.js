@@ -24,7 +24,7 @@ export default class MigrationBase {
    * @param {*} itemData
    * @returns {Promise<void>}
    */
-  async updateItem(itemData) { }
+  async updateItem(itemData, actorData) { }
 
   /**
    *
@@ -38,7 +38,7 @@ export default class MigrationBase {
    * @param {*} tokenData
    * @returns {Promise<void>}
    */
-  async updateToken(tokenData) { }
+  async updateToken(tokenData, _actor, _scene) { }
 
   /**
    *
