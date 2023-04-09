@@ -342,5 +342,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     ui.notifications.info(localize('A5E.MigrationFinished', { version: systemVersion }), {
       permanent: true
     });
+
+    await game.settings.set('a5e', 'worldSchemaVersion', schemaVersion.latest);
   }
 }
