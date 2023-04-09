@@ -2,9 +2,11 @@
 import MigrationBase from './MigrationBase';
 import MigrationRunner from './MigrationRunner';
 
+import * as Migrations from './migrations';
+
 export default class MigrationList {
   // TODO:: Update this when migrations are ready
-  static #list = Object.values({});
+  static #list = Object.values(Migrations ?? {});
 
   /**
    * @returns {Number}
