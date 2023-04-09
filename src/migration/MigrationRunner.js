@@ -1,6 +1,10 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
+// eslint-disable-next-line no-unused-vars, import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+
 // eslint-disable-next-line no-unused-vars
 import MigrationBase from './MigrationBase';
 import MigrationRunnerBase from './MigrationRunnerBase';
@@ -217,5 +221,126 @@ export default class MigrationRunner extends MigrationRunnerBase {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  /**
+   *
+   * @param {*} compendium
+   * @returns {Promise<void>}
+   */
+  async runCompendiumMigration(compendium) {
+    ui.notifications.info(localize('A5E.MigrationStarting', { version: game.system.version }), {
+      permanent: true
+    });
+
+    const documents = await compendium.getDocuments();
+    const lowestSchemaVersion = Math.min(
+      MigrationRunnerBase.LATEST_SCHEMA_VERSION,
+      ...documents.map((d) => d.system?.schema?.version).filter((d) => !!d)
+    );
+
+    const migrations = this.migrations
+      .filter((migration) => migration.version > lowestSchemaVersion);
+
+    await this.#migrateDocuments(compendium, migrations);
+
+    ui.notifications.info(localize('A5E.MigrationFinished', { version: game.system.version }), {
+      permanent: true
+    });
+  }
+
+  /**
+   *
+   * @param {Array<migrations>} migrations
+   * @returns {Promise<void>}
+   */
+  async runMigrations(migrations) {
+    if (migrations.length === 0) return;
+
+    // Migrate actors && items
+    await this.#migrateDocuments(game.actors, migrations);
+    await this.#migrateDocuments(game.items, migrations);
+
+    // Migrate free form documents
+    const promises = [];
+    game.macros.forEach((m) => promises.push(this.#migrateWorldMacro(m, migrations)));
+    game.users.forEach((u) => promises.push(this.#migrateUser(u, migrations)));
+
+    migrations.forEach((migration) => {
+      if (migration.migrate) promises.push(migration.migrate());
+    });
+
+    await Promise.allSettled(promises);
+
+    // Migrate tokens and synthetic actors
+    for (const scene of game.scenes) {
+      for (const token of scene.tokens) {
+        const { actor } = token;
+        if (!actor) continue;
+
+        const wasSuccessful = !!(await this.#migrateSceneToken(token, migrations));
+        if (!wasSuccessful) continue;
+
+        // Only migrate if the synthetic actor has replaced data to migrate.
+        const hasMigratableData = !!token._source.actorData.flags?.a5e
+          || Object.keys(token._source.actorData).some((k) => ['items', 'system'].includes(k));
+
+        if (actor.isToken && hasMigratableData) {
+          const updateData = await this.#migrateActor(migrations, actor);
+          if (updateData) {
+            try {
+              await actor.update(updateData);
+            } catch (e) {
+              console.warn(e);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   *
+   * @param {Boolean} force
+   * @returns {Promise<void>}
+   */
+  async runMigration(force = false) {
+    const schemaVersion = {
+      latest: MigrationRunner.LATEST_SCHEMA_VERSION,
+      current: game.settings.get('a5e', 'worldSchemaVersion')
+    };
+
+    const systemVersion = game.system.version;
+
+    ui.notifications.info(localize('A5E.MigrationStarting', { version: systemVersion }), {
+      permanent: true
+    });
+
+    const migrationsToRun = force
+      ? this.migrations
+      : this.migrations.filter((x) => schemaVersion.current < x.version);
+
+    // We need to break the migration into phases sometimes.
+    // for instance, if a migration creates an item, we need to push that to
+    // the foundry backend in order to get an id for the item.
+    // This way if a later migration depends on the item actually being created,
+    // it will work.
+    const migrationPhases = [[]];
+    for (const migration of migrationsToRun) {
+      migrationPhases[migrationPhases.length - 1].push(migration);
+      if (migration.requiresFlush) {
+        migrationPhases.push([]);
+      }
+    }
+
+    for (const migrationPhase of migrationPhases) {
+      if (migrationPhase.length > 0) {
+        await this.runMigrations(migrationPhase);
+      }
+    }
+
+    ui.notifications.info(localize('A5E.MigrationFinished', { version: systemVersion }), {
+      permanent: true
+    });
   }
 }
