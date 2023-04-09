@@ -2,7 +2,7 @@ import MigrationBase from '../MigrationBase';
 
 import isStandardRange from '../../utils/isStandardRange';
 
-export default class Migration001ItemData extends MigrationBase {
+export default class Migration001Aboleth extends MigrationBase {
   /** @override */
   static version = 0.001;
 
@@ -269,6 +269,11 @@ export default class Migration001ItemData extends MigrationBase {
    * @returns {Promise<void>}
    */
   async updateItem(itemData) {
+    // Only run this if the system version is below 0.9.0
+    const lastMigrationVersion = game.settings.get('a5e', 'systemMigrationVersion');
+    const isNewer = foundry.utils.isNewerVersion(lastMigrationVersion, '0.8.20');
+    if (isNewer) return;
+
     if (itemData.type === 'object') this.#updateItemWeight(itemData.system);
     this.#updateActionsConfig(itemData);
   }
@@ -279,7 +284,14 @@ export default class Migration001ItemData extends MigrationBase {
    * @returns {Promise<void>}
    */
   async updateActor(actorData) {
+    // Only run this if the system version is below 0.9.0
+    const lastMigrationVersion = game.settings.get('a5e', 'systemMigrationVersion');
+    const isNewer = foundry.utils.isNewerVersion(lastMigrationVersion, '0.8.20');
+    if (isNewer) return;
+
     this.#updateActorBonuses(actorData);
     this.#updateCarryCapacity(actorData);
+    this.#updateMovements(actorData);
+    this.#updateSenses(actorData);
   }
 }
