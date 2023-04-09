@@ -171,9 +171,14 @@ export default class Migration001ItemData extends MigrationBase {
 
     if (attackType && ['meleeWeaponAttack', 'rangedWeaponAttack'].includes(attackType)) {
       if (itemData.system.objectType === 'weapon') {
+        if (attackType === 'rangedWeaponAttack') {
+          return field.replaceAll('@mod', '@dex.mod');
+        }
+
         if (itemData.system.weaponProperties.includes('finesse')) {
           return field.replaceAll('@mod', '@finesse.mod');
         }
+
         return field.replaceAll('@mod', '@str.mod');
       }
     }
@@ -187,12 +192,94 @@ export default class Migration001ItemData extends MigrationBase {
     return field.replaceAll('@mod', `@${fieldAbility}.mod`);
   }
 
+  #updateActorBonuses(actorData) {
+    const old = actorData?.system?.bonuses?.spell;
+
+    actorData.system.bonuses = {
+      meleeSpellAttack: old?.attack ?? '',
+      rangedSpellAttack: old?.attack ?? '',
+      spellDC: old?.dc ?? ''
+    };
+
+    delete actorData.bonuses.spell;
+  }
+
+  #updateCarryCapacity(actorData) {
+    const old = actorData.flags.a5e?.carryCapacityMultiplier;
+    if (!old) return;
+
+    foundry.utils.setProperty(actorData, 'flags.a5e.doubleCarryCapacity', old > 1);
+  }
+
+  #updateMovements(actorData) {
+    const old = actorData?.system?.attributes?.movement;
+    const unitMap = {
+      miles: ['mile', 'miles', 'mi.', 'mi'],
+      kilometers: ['kilometer', 'kilometers', 'km.', 'km'],
+      meters: ['meter', 'meters', 'm.', 'm']
+    };
+
+    const newMovements = Object.entries(old ?? {}).reduce((acc, [mode, distance]) => {
+      if (mode === 'traits') {
+        acc[mode] = { hover: distance.hover };
+        return acc;
+      }
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [unit, strings] of Object.entries(unitMap)) {
+        if (strings.some((el) => distance.toString().includes(el))) {
+          acc[mode] = { distance: parseInt(distance, 10) || 0, unit };
+          return acc;
+        }
+      }
+      acc[mode] = { distance: parseInt(distance, 10) || 0, unit: 'feet' };
+      return acc;
+    }, {});
+
+    foundry.utils.setProperty(actorData, 'system.attributes.movement', newMovements);
+  }
+
+  #updateSenses(actorData) {
+    const old = actorData?.system?.attributes?.senses;
+    const unitMap = {
+      miles: ['mile', 'miles', 'mi.', 'mi'],
+      kilometers: ['kilometer', 'kilometers', 'km.', 'km'],
+      meters: ['meter', 'meters', 'm.', 'm'],
+      unlimited: ['unlimited', 'infinite']
+    };
+
+    const newSenses = Object.entries(old ?? {}).reduce((acc, [sense, distance]) => {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [unit, strings] of Object.entries(unitMap)) {
+        if (strings.some((el) => distance.toString().includes(el))) {
+          acc[sense] = { distance: parseInt(distance, 10), unit };
+          return acc;
+        }
+      }
+
+      acc[sense] = { distance: parseInt(distance, 10), unit: 'feet' };
+      return acc;
+    }, {});
+
+    foundry.utils.setProperty(actorData, 'system.attributes.senses', newSenses);
+  }
+
   /**
-   *
+   * @override
    * @param {Object} itemData
    * @returns {Promise<void>}
    */
   async updateItem(itemData) {
     if (itemData.type === 'object') this.#updateItemWeight(itemData.system);
+    this.#updateActionsConfig(itemData);
+  }
+
+  /**
+   * @override
+   * @param {Object} actorData
+   * @returns {Promise<void>}
+   */
+  async updateActor(actorData) {
+    this.#updateActorBonuses(actorData);
+    this.#updateCarryCapacity(actorData);
   }
 }
