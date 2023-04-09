@@ -192,7 +192,6 @@ export default class MigrationRunnerBase {
     schema.version = latestMigration.version;
     // TODO: Fix Datetime
     schema.lastMigration = {
-      datetime: null,
       version: {
         schema: fromVersion,
         foundry: 'game' in globalThis ? game.version : undefined,
