@@ -1,3 +1,5 @@
+import MigrationRunner from './migration/MigrationRunner';
+
 class ConditionAutomationSettings extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -68,6 +70,14 @@ export default function registerSystemSettings() {
     config: false,
     type: String,
     default: ''
+  });
+
+  game.settings.register('a5e', 'worldSchemaVersion', {
+    name: 'World Schema Version',
+    scope: 'world',
+    config: false,
+    type: Number,
+    default: MigrationRunner.LATEST_SCHEMA_VERSION
   });
 
   // Critical Hit Damage Modes
