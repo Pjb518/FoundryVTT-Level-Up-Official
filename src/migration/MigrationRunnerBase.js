@@ -193,8 +193,8 @@ export default class MigrationRunnerBase {
     schema.lastMigration = {
       version: {
         schema: fromVersion,
-        foundry: 'game' in globalThis ? game.version : undefined,
-        system: 'game' in globalThis ? game.system.version : undefined
+        foundry: game.system.version,
+        system: game.system.version
       }
     };
   }

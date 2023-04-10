@@ -101,6 +101,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
    * @param {Promise<Object>} options
    */
   async #migrateActor(migrations, actor, options = {}) {
+    // TODO: Return if up to schema version.
     const { pack } = options;
     const actorData = actor.toObject();
     const updateData = await (() => {

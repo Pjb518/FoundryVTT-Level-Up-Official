@@ -602,9 +602,6 @@
           "formula": "",
           "threshold": ""
         },
-        "schema": {
-          "version": null
-        },
         "secretDescription": "",
         "source": "",
         "uses": {
@@ -612,9 +609,18 @@
           "max": "",
           "per": null
         }
+      },
+      "schema": {
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        }
       }
     },
     "background": {
+      "templates": [
+        "schema"
+      ],
       "defaultASI": "",
       "includesASI": true,
       "description": "",
@@ -639,6 +645,9 @@
       }
     },
     "culture": {
+      "templates": [
+        "schema"
+      ],
       "description": "",
       "features": {},
       "proficiencies": {
@@ -650,6 +659,9 @@
       }
     },
     "destiny": {
+      "templates": [
+        "schema"
+      ],
       "description": "",
       "sourceOfInspiration": "",
       "inspirationFeature": "",
@@ -657,14 +669,14 @@
     },
     "feature": {
       "templates": [
-        "base"
+        "base", "schema"
       ],
       "featureType": "",
       "prerequisite": ""
     },
     "maneuver": {
       "templates": [
-        "base"
+        "base", "schema"
       ],
       "degree": 0,
       "exertionCost": 0,
@@ -674,7 +686,7 @@
     },
     "object": {
       "templates": [
-        "base"
+        "base", "schema"
       ],
       "ammunitionProperties": [],
       "armorCategory": "",
@@ -701,7 +713,7 @@
     },
     "spell": {
       "templates": [
-        "base"
+        "base", "schema"
       ],
       "components": {
         "vocalized": false,
