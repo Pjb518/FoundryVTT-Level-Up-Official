@@ -286,6 +286,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
     await Promise.allSettled(promises);
 
     console.info(`A5E | Migrating ${game.scenes.size} scenes.`);
+    // TODO: Optimize this to be faster
     // Migrate tokens and synthetic actors
     for (const scene of game.scenes) {
       console.info(`A5E | Migrating ${scene.tokens.size} tokens in ${scene.id}.`);
