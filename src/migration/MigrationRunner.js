@@ -84,6 +84,14 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
       if (updated) updateGroup.push(updated);
     }
+
+    if (updateGroup.length > 0) {
+      try {
+        await documentClass.updateDocuments(updateGroup, { noHook: true, pack });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
   }
 
   /**
@@ -225,7 +233,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
   /**
    *
-   * @param {*} compendium
+   * @param {Object} compendium
    * @returns {Promise<void>}
    */
   async runCompendiumMigration(compendium) {
@@ -256,9 +264,12 @@ export default class MigrationRunner extends MigrationRunnerBase {
    */
   async runMigrations(migrations) {
     if (migrations.length === 0) return;
+    console.info(`AKE | Found ${migrations.length} migrations`);
 
     // Migrate actors && items
+    console.info(`A5E | Migrating ${game.actors.size} actors.`);
     await this.#migrateDocuments(game.actors, migrations);
+    console.info(`A5E | Migrating ${game.items.size} items.`);
     await this.#migrateDocuments(game.items, migrations);
 
     // Migrate free form documents
@@ -266,14 +277,17 @@ export default class MigrationRunner extends MigrationRunnerBase {
     game.macros.forEach((m) => promises.push(this.#migrateWorldMacro(m, migrations)));
     game.users.forEach((u) => promises.push(this.#migrateUser(u, migrations)));
 
+    console.info(`A5E | Migrating ${promises.length} macros & users.`);
     migrations.forEach((migration) => {
       if (migration.migrate) promises.push(migration.migrate());
     });
 
     await Promise.allSettled(promises);
 
+    console.info(`A5E | Migrating ${game.scenes.size} scenes.`);
     // Migrate tokens and synthetic actors
     for (const scene of game.scenes) {
+      console.info(`A5E | Migrating ${scene.tokens.size} tokens in ${scene.id}.`);
       for (const token of scene.tokens) {
         const { actor } = token;
         if (!actor) continue;
@@ -309,7 +323,6 @@ export default class MigrationRunner extends MigrationRunnerBase {
       latest: MigrationRunner.LATEST_SCHEMA_VERSION,
       current: game.settings.get('a5e', 'worldSchemaVersion')
     };
-
     const systemVersion = game.system.version;
 
     ui.notifications.info(localize('A5E.MigrationStarting', { version: systemVersion }), {
@@ -343,6 +356,10 @@ export default class MigrationRunner extends MigrationRunnerBase {
       permanent: true
     });
 
+    // TODO: Uncomment this
     await game.settings.set('a5e', 'worldSchemaVersion', schemaVersion.latest);
+
+    // Legacy Support
+    await game.settings.set('a5e', 'systemMigrationVersion', game.system.version);
   }
 }
