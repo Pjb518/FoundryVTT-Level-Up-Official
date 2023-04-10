@@ -201,7 +201,7 @@ export default class Migration001Aboleth extends MigrationBase {
       spellDC: old?.dc ?? ''
     };
 
-    delete actorData.bonuses.spell;
+    delete actorData.system.bonuses.spell;
   }
 
   #updateCarryCapacity(actorData) {
