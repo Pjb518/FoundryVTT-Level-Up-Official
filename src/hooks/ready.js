@@ -17,7 +17,9 @@ async function handleMigration() {
   if (!game.user.isGM) return;
 
   // Determine whether a system migration is required
-  const currentVersion = game.settings.get('a5e', 'worldSchemaVersion');
+  const legacyVersion = game.settings.get('a5e', 'systemMigrationVersion');
+  const legacyMigrate = foundry.utils.isNewerVersion('0.10.8', legacyVersion);
+  const currentVersion = legacyMigrate ? '0.000' : game.settings.get('a5e', 'worldSchemaVersion');
 
   // Save the current world schema version if hasn't before.
   const storedSchemaVersion = game.settings.storage
@@ -32,6 +34,7 @@ async function handleMigration() {
         Math.min(...new Set(game.actors.map((actor) => actor.schemaVersion ?? minimumVersion))),
         minimumVersion
       );
+
     await game.settings.set('a5e', 'worldSchemaVersion', currVersion);
   }
 

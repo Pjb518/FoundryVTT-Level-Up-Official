@@ -69,7 +69,7 @@ export default class Migration001Aboleth extends MigrationBase {
     // Step 6: Migrate area config
     action.area = foundry.utils.duplicate(itemData.system.area);
     action.area.placeTemplate = itemData.flags.a5e?.placeTemplate ?? false;
-    delete itemData.flags.a5e?.placeTemplate;
+    itemData['flags.a5e.-=placeTemplate'] = null;
 
     // Step 7: Migrate target data
     action.target = foundry.utils.duplicate(itemData.system.target ?? {});
@@ -140,19 +140,19 @@ export default class Migration001Aboleth extends MigrationBase {
     }
 
     // Step 9: Delete old data
-    delete itemData.system.actionOptions;
-    delete itemData.system.activation;
-    delete itemData.system.actionOptions;
-    delete itemData.system.activation;
-    delete itemData.system.duration;
-    delete itemData.system.range;
-    delete itemData.system.area;
-    delete itemData.system.target;
-    delete itemData.system.attack;
-    delete itemData.system.damage;
-    delete itemData.system.healing;
-    delete itemData.system.check;
-    delete itemData.system.savingThrow;
+    itemData['system.-=actionOptions'] = null;
+    itemData['system.-=activation'] = null;
+    itemData['system.-=actionOptions'] = null;
+    itemData['system.-=activation'] = null;
+    itemData['system.-=duration'] = null;
+    itemData['system.-=range'] = null;
+    itemData['system.-=area'] = null;
+    itemData['system.-=target'] = null;
+    itemData['system.-=attack'] = null;
+    itemData['system.-=damage'] = null;
+    itemData['system.-=healing'] = null;
+    itemData['system.-=check'] = null;
+    itemData['system.-=savingThrow'] = null;
 
     // Step 10: Add action to update data
     itemData.system.actions = {
@@ -201,7 +201,7 @@ export default class Migration001Aboleth extends MigrationBase {
       spellDC: old?.dc ?? ''
     };
 
-    delete actorData.system.bonuses.spell;
+    actorData['system.bonuses.-=spell'] = null;
   }
 
   #updateCarryCapacity(actorData) {
