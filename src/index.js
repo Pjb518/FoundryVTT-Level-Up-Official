@@ -39,12 +39,6 @@ import activateItemMacro from './macros/activateItemMacro';
 import createMacro from './macros/createMacro';
 
 // Migrations
-import migrateWorld from './migrations/migrateWorld';
-import migrateActorData from './migrations/migrateActorData';
-import migrateCompendium from './migrations/migrateCompendium';
-import migrateItemData from './migrations/migrateItemData';
-import migrateMacroData from './migrations/migrateMacroData';
-import migrateSceneData from './migrations/migrateSceneData';
 
 Hooks.once('init', () => {
   game.a5e = {
@@ -68,12 +62,7 @@ Hooks.once('init', () => {
       createMacro
     },
     migrations: {
-      migrateWorld,
-      migrateActorData,
-      migrateCompendium,
-      migrateItemData,
-      migrateMacroData,
-      migrateSceneData
+      // TODO: Add migration paths here
     }
   };
 
