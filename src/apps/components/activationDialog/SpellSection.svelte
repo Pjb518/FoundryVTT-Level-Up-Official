@@ -22,7 +22,8 @@
     };
     let disabled = [];
 
-    function calculatePoints() {
+    function updateLevelAndPoints(level) {
+        spellData.level = level;
         spellData.points = A5E.spellLevelCost[spellData.level];
     }
 
@@ -89,7 +90,7 @@
     if (spellData.consume === "spellSlot") disableSpellSlot();
     else disableSpellPoint();
 
-    $: spellData.level, calculatePoints();
+    // $: spellData.level, calculatePoints();
 </script>
 
 {#if ["variable", "spellsOnly"].includes(mode)}
@@ -104,23 +105,14 @@
             </h3>
 
             <!-- Select spell Level -->
-            <ul
-                class="
-                    u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full
-                "
-            >
-                {#each spellLevels as [value, label]}
-                    <Tag
-                        active={spellData.level === value ||
-                            spellData.level.toString() === value}
-                        {value}
-                        {label}
-                        disabled={disabled.includes(value)}
-                        on:tagToggle={({ detail }) =>
-                            (spellData.level = Number(detail))}
-                    />
-                {/each}
-            </ul>
+            <RadioGroup
+                selected={spellData.level}
+                options={spellLevels}
+                allowDeselect={false}
+                {disabled}
+                on:updateSelection={({ detail }) =>
+                    updateLevelAndPoints(Number(detail))}
+            />
 
             <!-- Select Consume Option -->
             <h3 class="u-text-bold u-text-sm">
@@ -148,8 +140,7 @@
                     <input
                         class="number-input"
                         type="number"
-                        value={spellData.points}
-                        on:change={({ target }) => (spellData.points = target)}
+                        bind:value={spellData.points}
                     />
                 </div>
 
