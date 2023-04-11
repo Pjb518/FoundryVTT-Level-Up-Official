@@ -256,6 +256,8 @@ export default class RollPreparationManager {
     if (scalingMode === 'cantrip') return this.#applyCantripScaling(roll);
     if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(roll);
     if (scalingMode === 'spellPoints') return this.#applySpellPointScaling(roll);
+    if (scalingMode === 'actionUses') return this.#applyActionUsesScaling(roll);
+    if (scalingMode === 'itemUses') return this.#applyItemUsesScaling(roll);
 
     return roll.formula ?? 0;
   }
@@ -278,25 +280,30 @@ export default class RollPreparationManager {
   }
 
   #applySpellLevelScaling(roll) {
-    const baseRoll = roll.formula;
     const baseSpellLevel = this.#item.system.level;
     const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
-
-    if (baseSpellLevel === castingLevel) return baseRoll;
-
     const delta = castingLevel - baseSpellLevel;
-    const scalingFormula = new Roll(roll.scaling.formula ?? 0);
-    const step = roll.scaling?.step || 1;
-    const multiplier = Math.floor(delta / step);
 
-    if (multiplier === 0) return baseRoll;
-
-    return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
+    return this.#applyResourceBasedScaling(roll, delta);
   }
 
   #applySpellPointScaling(roll) {
+    const delta = (this.#consumers?.spell?.points || 1) - 1;
+    return this.#applyResourceBasedScaling(roll, delta);
+  }
+
+  #applyActionUsesScaling(roll) {
+    const delta = (this.#consumers?.actionUses?.quantity || 1) - 1;
+    return this.#applyResourceBasedScaling(roll, delta);
+  }
+
+  #applyItemUsesScaling(roll) {
+    const delta = (this.#consumers?.itemUses?.quantity || 1) - 1;
+    return this.#applyResourceBasedScaling(roll, delta);
+  }
+
+  #applyResourceBasedScaling(roll, delta) {
     const baseRoll = roll.formula;
-    const delta = this.#consumers?.spell?.points;
 
     if (!delta) return baseRoll;
 

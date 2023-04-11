@@ -284,9 +284,9 @@ A5E.creatureTypes = {
 A5E.damageScalingModes = {
   cantrip: 'A5E.ScalingModeCantrip',
   spellLevel: 'A5E.ScalingModeSpellLevel',
-  spellPoints: 'A5E.ScalingModeSpellPoints'
-  // actionUses: 'A5E.ScalingModeActionUses',
-  // itemUses: 'A5E.ScalingModeItemUses'
+  spellPoints: 'A5E.ScalingModeSpellPoints',
+  actionUses: 'A5E.ScalingModeActionUses',
+  itemUses: 'A5E.ScalingModeItemUses'
 };
 
 A5E.healingScalingModes = {
