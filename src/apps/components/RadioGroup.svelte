@@ -6,6 +6,7 @@
     export let allowDeselect = true;
     export let listClasses = "";
     export let optionStyles = "";
+    export let disabled = [];
     export let options = [];
     export let selected = "";
 
@@ -40,6 +41,7 @@
             {optionStyles}
             {value}
             {label}
+            disabled={disabled.includes(value)}
             on:tagToggle={({ detail }) => updateSelection(detail)}
         />
     {/each}
