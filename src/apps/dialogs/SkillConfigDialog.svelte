@@ -62,6 +62,7 @@
             optionStyles="min-width:2rem; text-align: center;"
             options={abilityOptions}
             selected={skill.ability}
+            allowDeselect={false}
             on:updateSelection={(event) =>
                 updateDocumentDataFromField(
                     $actor,

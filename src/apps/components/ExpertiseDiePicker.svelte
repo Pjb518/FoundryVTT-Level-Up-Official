@@ -11,6 +11,7 @@
 <RadioGroup
     {options}
     {selected}
+    allowDeselect={false}
     optionStyles="min-width: 1.75rem; text-align: center;"
     on:updateSelection
 />

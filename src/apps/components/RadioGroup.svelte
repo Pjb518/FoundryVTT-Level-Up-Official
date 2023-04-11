@@ -3,6 +3,7 @@
 
     import Tag from "./Tag.svelte";
 
+    export let allowDeselect = true;
     export let listClasses = "";
     export let optionStyles = "";
     export let options = [];
@@ -11,7 +12,11 @@
     const dispatch = createEventDispatcher();
 
     function updateSelection(value) {
-        dispatch("updateSelection", value === selected ? "" : value);
+        if (allowDeselect) {
+            dispatch("updateSelection", value === selected ? "" : value);
+        } else {
+            dispatch("updateSelection", value);
+        }
     }
 </script>
 
