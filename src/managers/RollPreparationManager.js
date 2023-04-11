@@ -8,14 +8,17 @@ import constructRollFormula from '../dice/constructRollFormula';
 export default class RollPreparationManager {
   #actor;
 
+  #actionId;
+
   #consumers;
 
   #item;
 
   #rolls;
 
-  constructor(actor, item, consumers, rolls) {
+  constructor(actor, item, actionId, consumers, rolls) {
     this.#actor = actor;
+    this.#actionId = actionId;
     this.#consumers = consumers;
     this.#item = item;
     this.#rolls = rolls;
@@ -288,17 +291,23 @@ export default class RollPreparationManager {
   }
 
   #applySpellPointScaling(roll) {
-    const delta = (this.#consumers?.spell?.points || 1) - 1;
+    const action = this.#item.actions[this.#actionId];
+    const spellPointConsumer = Object.values(action?.consumers ?? {}).find(({ mode }) => mode === 'pointsOnly');
+    const basePoints = spellPointConsumer?.points ?? 1;
+    const delta = basePoints - this.#consumers.spell.points;
+
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
+  // TODO: Switch this use a base consumption value once the resource consumption
+  // changes are in.
   #applyActionUsesScaling(roll) {
-    const delta = (this.#consumers?.actionUses?.quantity || 1) - 1;
+    const delta = (this.#consumers.actionUses.quantity || 1) - 1;
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
   #applyItemUsesScaling(roll) {
-    const delta = (this.#consumers?.itemUses?.quantity || 1) - 1;
+    const delta = (this.#consumers.itemUses.quantity || 1) - 1;
     return this.#applyResourceBasedScaling(roll, delta);
   }
 

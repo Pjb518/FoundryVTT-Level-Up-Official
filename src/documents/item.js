@@ -130,6 +130,7 @@ export default class ItemA5e extends Item {
     const rollPreparationManager = new RollPreparationManager(
       this.actor,
       this,
+      actionId,
       promise.consumers,
       promise.rolls
     );
