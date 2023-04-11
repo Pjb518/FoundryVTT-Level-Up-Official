@@ -238,9 +238,9 @@ export default class MigrationRunner extends MigrationRunnerBase {
    * @returns {Promise<void>}
    */
   async runCompendiumMigration(compendium) {
-    ui.notifications.info(localize('A5E.MigrationStarting', { version: game.system.version }), {
-      permanent: true
-    });
+    // ui.notifications.info(localize('A5E.MigrationStarting', { version: game.system.version }), {
+    //   permanent: true
+    // });
 
     const documents = await compendium.getDocuments();
     const lowestSchemaVersion = Math.min(
@@ -253,9 +253,9 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     await this.#migrateDocuments(compendium, migrations);
 
-    ui.notifications.info(localize('A5E.MigrationFinished', { version: game.system.version }), {
-      permanent: true
-    });
+    // ui.notifications.info(localize('A5E.MigrationFinished', { version: game.system.version }), {
+    //   permanent: true
+    // });
   }
 
   /**
@@ -312,6 +312,15 @@ export default class MigrationRunner extends MigrationRunnerBase {
           }
         }
       }
+    }
+
+    // Migrate compendiums
+    for (const pack of game.packs) {
+      console.log(pack.metadata.packageType);
+      if (pack.metadata.packageType !== 'world') continue;
+      if (!['Actor', 'Item'].includes(pack.documentName)) continue;
+      console.info(`A5E | Migrating ${pack.index.size} documents in ${pack.metadata.id}.`);
+      await this.runCompendiumMigration(pack);
     }
   }
 
