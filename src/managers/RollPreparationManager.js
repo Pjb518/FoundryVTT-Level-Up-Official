@@ -263,10 +263,10 @@ export default class RollPreparationManager {
   #applyCantripScaling(roll) {
     const actorData = this.#actor.system;
     const casterLevel = actorData.details.level ?? actorData.attributes.casterLevel;
-
-    if (casterLevel < 5) return roll.formula;
-
     const baseRoll = roll.formula;
+
+    if (casterLevel < 5) return baseRoll;
+
     const scalingFormula = new Roll(roll.scaling.formula ?? 0);
     let multiplier = 0;
 
@@ -278,13 +278,13 @@ export default class RollPreparationManager {
   }
 
   #applySpellLevelScaling(roll) {
+    const baseRoll = roll.formula;
     const baseSpellLevel = this.#item.system.level;
     const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
 
-    if (baseSpellLevel === castingLevel) return roll.formula;
+    if (baseSpellLevel === castingLevel) return baseRoll;
 
     const delta = castingLevel - baseSpellLevel;
-    const baseRoll = roll.formula;
     const scalingFormula = new Roll(roll.scaling.formula ?? 0);
     const step = roll.scaling?.step || 1;
     const multiplier = Math.floor(delta / step);
@@ -295,6 +295,17 @@ export default class RollPreparationManager {
   }
 
   #applySpellPointScaling(roll) {
-    return roll.formula;
+    const baseRoll = roll.formula;
+    const delta = this.#consumers?.spell?.points;
+
+    if (!delta) return baseRoll;
+
+    const scalingFormula = new Roll(roll.scaling.formula ?? 0);
+    const step = roll.scaling?.step || 1;
+    const multiplier = Math.floor(delta / step);
+
+    if (multiplier === 0) return baseRoll;
+
+    return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join('+');
   }
 }
