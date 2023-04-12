@@ -93,21 +93,18 @@
     const actor = getContext("actor");
     let usesType = actionId ? "action" : "item";
 
-    $: consumer =
-        item.actions
-            .getConsumers(actionId)
-            .filter(([_, c]) => c?.type === "actionUses")?.[0] ?? [];
-
     $: flags = $actor.flags;
 
     $: uses = {
         action: {
-            value: consumer?.[1]?.value,
-            max: getDeterministicBonus(
-                consumer?.[1]?.max ?? 0,
-                $actor.getRollData()
-            ),
-            updatePath: `system.actions.${actionId}.consumers.${consumer?.[0]}`,
+            value: action ? action.uses?.value : 0,
+            max: action
+                ? getDeterministicBonus(
+                      action.uses?.max ?? 0,
+                      $actor.getRollData()
+                  )
+                : 0,
+            updatePath: `system.actions.uses`,
         },
         item: {
             value: item.system.uses?.value ?? 0,
@@ -318,7 +315,7 @@
     </div>
 {/if}
 
-{#if (!actionId && item.system.uses?.max) || consumer?.[1]?.max}
+{#if (!actionId && item.system.uses?.max) || (action && action.uses?.max)}
     <div class="uses-wrapper">
         <input
             class="number-input"
