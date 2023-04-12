@@ -11,7 +11,6 @@ export default class Migration003Uses extends MigrationBase {
     const actions = Object.entries(itemData.system.actions ?? {});
     actions.forEach(([actionId, action]) => {
       const actionConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'actionUses');
-      const itemConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'itemUses');
       const rechargeConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'recharge');
       const consumerIds = [];
 
