@@ -567,6 +567,7 @@ A5E.resourceConsumerConfig = {
 A5E.resourceRecoveryOptions = {
   shortRest: 'A5E.RestShort',
   longRest: 'A5E.RestLong',
+  recovery: 'A5E.Recovery',
   round: 'A5E.DurationRound',
   turn: 'A5E.DurationTurn',
   minute: 'A5E.DurationMinute',
@@ -574,8 +575,7 @@ A5E.resourceRecoveryOptions = {
   day: 'A5E.DurationDay',
   week: 'A5E.DurationWeek',
   month: 'A5E.DurationMonth',
-  year: 'A5E.DurationYear',
-  recharge: 'A5E.ItemRecharge'
+  year: 'A5E.DurationYear'
 };
 
 A5E.rollModes = {
