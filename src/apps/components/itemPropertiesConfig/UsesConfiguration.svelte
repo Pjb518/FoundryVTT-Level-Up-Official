@@ -3,7 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
-    import handleDeterministicBonus from "../../utils/handleDeterministicInput";
+    import handleDeterministicInput from "../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
@@ -43,7 +43,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>{localize("A5E.TabResourceConsumption")}</h3>
+        <h3>{localize("A5E.UsesConfiguration")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -82,7 +82,7 @@
                             name="system.uses.max"
                             value={$item.system.uses.max}
                             on:change={({ target }) => {
-                                handleDeterministicBonus(target.value);
+                                handleDeterministicInput(target.value);
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
@@ -119,6 +119,51 @@
                     </div>
                 </div>
             </FormSection>
+
+            {#if $item.system.uses.per === "recovery"}
+                <FormSection heading="A5E.ItemRechargeConfiguration">
+                    <div class="u-flex u-gap-md u-w-full">
+                        <div class="u-flex u-flex-col u-gap-md u-w-full">
+                            <label for="{$item.id}-recharge-formula">
+                                {localize("A5E.ItemRechargeFormula")}
+                            </label>
+
+                            <input
+                                id="{$item.id}-recharge-formula"
+                                type="text"
+                                value={$item.system.uses.recharge.formula}
+                                on:change={({ target }) => {
+                                    handleDeterministicInput(target.value);
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        `system.uses.recharge.formula`,
+                                        target.value
+                                    );
+                                }}
+                            />
+                        </div>
+
+                        <div class="u-flex u-flex-col u-gap-md u-w-30">
+                            <label for="{$item.id}-recharge-threshold">
+                                {localize("A5E.ItemRechargeThreshold")}
+                            </label>
+
+                            <input
+                                id="{$item.id}-recharge-threshold"
+                                class="u-text-center"
+                                type="number"
+                                value={$item.system.uses.recharge.threshold}
+                                on:change={({ target }) =>
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        `system.uses.recharge.threshold`,
+                                        Number(target.value)
+                                    )}
+                            />
+                        </div>
+                    </div>
+                </FormSection>
+            {/if}
         </div>
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
@@ -144,6 +189,27 @@
                                 )} )
                             </span>
                         {/if}
+                    </div>
+                {:else}
+                    {localize("A5E.None")}
+                {/if}
+            </dd>
+
+            <dt class="u-text-bold">{localize("A5E.ItemRecharge")}:</dt>
+            <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
+                {#if $item.system.recharge.formula}
+                    <div class="u-flex u-gap-md">
+                        <span>
+                            {$item.system.recharge.formula}
+                        </span>
+
+                        ( Recharges on:
+
+                        <span>
+                            {$item.system.recharge.threshold
+                                ? `${$item.system.recharge.threshold}`
+                                : "6"} )
+                        </span>
                     </div>
                 {:else}
                     {localize("A5E.None")}
