@@ -64,7 +64,7 @@
                 <option value="" />
                 {#each Object.entries(options) as [type, label]}
                     <option value={type}>
-                        {label}
+                        {localize(label)}
                     </option>
                 {/each}
             </select>
@@ -86,24 +86,5 @@
                     )}
             />
         </div>
-
-        {#if action.uses?.per === "recovery"}
-            <div class="u-flex u-flex-col u-gap-sm u-w-30">
-                <h3 class="a5e-field-group__heading">
-                    {localize("A5E.ItemRechargeRecoverCharges")}
-                </h3>
-                <input
-                    type="number"
-                    d-type="Number"
-                    value={consumer.recover ?? 1}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.consumers.${consumerId}.recover`,
-                            Number(target.value)
-                        )}
-                />
-            </div>
-        {/if}
     </div>
 </section>

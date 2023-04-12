@@ -123,7 +123,6 @@
 <article>
     <div class="main-container">
         <!-- Action Resources Section -->
-        <!-- TODO: These boxes need to be thinner -->
         <div class="u-flex u-flex-col u-gap-md u-mb-lg">
             <FormSection heading="A5E.Uses">
                 <div class="u-flex u-gap-lg u-w-full">
@@ -191,7 +190,7 @@
             </FormSection>
 
             <!-- {action.uses?.per} -->
-            {#if action.uses?.per === "recovery"}
+            {#if action.uses?.per === "recharge"}
                 <FormSection heading="A5E.ItemRechargeConfiguration">
                     <div class="u-flex u-gap-md u-w-full">
                         <div class="u-flex u-flex-col u-gap-md u-w-full">
@@ -207,14 +206,14 @@
                                     handleDeterministicInput(target.value);
                                     updateDocumentDataFromField(
                                         $item,
-                                        `system.action.${actionId}.uses.recharge.formula`,
+                                        `system.actions.${actionId}.uses.recharge.formula`,
                                         target.value
                                     );
                                 }}
                             />
                         </div>
 
-                        <div class="u-flex u-flex-col u-gap-md u-w-30">
+                        <div class="u-flex u-flex-col u-gap-md u-w-fit">
                             <label for="{actionId}-recharge-threshold">
                                 {localize("A5E.ItemRechargeThreshold")}
                             </label>
@@ -227,7 +226,7 @@
                                 on:change={({ target }) =>
                                     updateDocumentDataFromField(
                                         $item,
-                                        `system.action.${actionId}.uses.recharge.threshold`,
+                                        `system.actions.${actionId}.uses.recharge.threshold`,
                                         Number(target.value)
                                     )}
                             />

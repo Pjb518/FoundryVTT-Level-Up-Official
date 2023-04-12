@@ -120,7 +120,7 @@
                 </div>
             </FormSection>
 
-            {#if $item.system.uses.per === "recovery"}
+            {#if $item.system.uses.per === "recharge"}
                 <FormSection heading="A5E.ItemRechargeConfiguration">
                     <div class="u-flex u-gap-md u-w-full">
                         <div class="u-flex u-flex-col u-gap-md u-w-full">
@@ -143,7 +143,7 @@
                             />
                         </div>
 
-                        <div class="u-flex u-flex-col u-gap-md u-w-30">
+                        <div class="u-flex u-flex-col u-gap-md u-w-fit">
                             <label for="{$item.id}-recharge-threshold">
                                 {localize("A5E.ItemRechargeThreshold")}
                             </label>
@@ -180,7 +180,16 @@
                             <span>{itemMaxUses}</span>
                         {/if}
 
-                        {#if $item.system.uses.per}
+                        {#if $item.system.uses.per === "recharge"}
+                            <span
+                                data-tooltip={$item.system.uses.recharge
+                                    .formula}
+                                data-tooltip-direction="UP"
+                            >
+                                ( Recharges on {$item.system.uses.recharge
+                                    .threshold} )
+                            </span>
+                        {:else if $item.system.uses.per}
                             <span>
                                 ( Per {localize(
                                     A5E.resourceRecoveryOptions[
@@ -194,25 +203,6 @@
                     {localize("A5E.None")}
                 {/if}
             </dd>
-
-            {#if $item.system.uses.per === "recovery"}
-                <dt class="u-text-bold">{localize("A5E.ItemRecharge")}:</dt>
-                <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
-                    <div class="u-flex u-gap-md">
-                        <span>
-                            {$item.system.uses.recharge.formula}
-                        </span>
-
-                        <span>
-                            ( Recharges on:
-
-                            {$item.system.uses.recharge.threshold
-                                ? `${$item.system.uses.recharge.threshold}`
-                                : "6"} )
-                        </span>
-                    </div>
-                </dd>
-            {/if}
         </dl>
     {/if}
 </section>

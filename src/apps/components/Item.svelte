@@ -31,7 +31,7 @@
             if (!mainAction) return false;
 
             const consumers = Object.values(mainAction.consumers ?? {}).filter(
-                (c) => c.type === "actionUses"
+                (c) => c.type === "uses"
             );
 
             if (consumers.length) return true;

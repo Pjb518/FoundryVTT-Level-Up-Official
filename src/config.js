@@ -567,7 +567,7 @@ A5E.resourceConsumerConfig = {
 A5E.resourceRecoveryOptions = {
   shortRest: 'A5E.RestShort',
   longRest: 'A5E.RestLong',
-  recovery: 'A5E.Recovery',
+  recharge: 'A5E.ItemRecharge',
   round: 'A5E.DurationRound',
   turn: 'A5E.DurationTurn',
   minute: 'A5E.DurationMinute',

@@ -65,22 +65,8 @@
     }
 
     function hasRecharge(item) {
-        if (actionId) {
-            const consumers = item.actions
-                .getConsumers(actionId)
-                .filter(
-                    ([_, consumer]) =>
-                        consumer.type === "recharge" &&
-                        consumer?.consumeType === "action"
-                )[0];
-
-            if (consumers?.length) return true;
-            else return false;
-        }
-
-        if (item.system.recharge?.formula) return true;
-
-        return false;
+        if (actionId) return action.uses?.per === "recharge";
+        return item.system.uses.per === "recharge";
     }
 
     function updateField(event) {
@@ -104,7 +90,7 @@
                       $actor.getRollData()
                   )
                 : 0,
-            updatePath: `system.actions.uses`,
+            updatePath: `system.actions.${actionId}.uses`,
         },
         item: {
             value: item.system.uses?.value ?? 0,
@@ -126,13 +112,8 @@
         );
 
     $: rechargeState = actionId
-        ? item.actions
-              .getConsumers(actionId)
-              .filter(
-                  ([_, c]) =>
-                      c.type === "recharge" && c.consumeType === "action"
-              )?.[0]?.[1]?.charged ?? true
-        : item.system.recharge?.charged ?? true;
+        ? action.uses?.max == action.uses?.value
+        : item.system.uses.max == item.system.uses.value;
 
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
@@ -298,6 +279,23 @@
             {/if}
         </div>
     </div>
+{:else}
+    <div class="indicator-container">
+        <div class="button-wrapper">
+            {#if hasRecharge(item)}
+                <button
+                    class="action-button fas fa-dice"
+                    class:active={rechargeState}
+                    data-tooltip={rechargeState
+                        ? "A5E.ButtonToolTipCharged"
+                        : "A5E.ButtonToolTipRecharge"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() =>
+                        item.recharge(actionId, rechargeState)}
+                />
+            {/if}
+        </div>
+    </div>
 {/if}
 
 {#if !actionId && item?.type === "object"}
@@ -323,6 +321,8 @@
             type="number"
             name="{uses[usesType].updatePath}.value"
             value={uses[usesType].value}
+            min="0"
+            max={uses[usesType].max}
             on:click|stopPropagation
             on:change={updateField}
         />
