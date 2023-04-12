@@ -128,7 +128,8 @@
 						"name": "Infusion (slashing)",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p style=\"text-align: right\"><em>1st degree Cutting Omen (Action)</em></p><p><strong>Requirement</strong>: Unused spell slot of 1st level or higher or at least 2 unspent spell points.</p><blockquote><hr class=\"a5e-rule u-my-md\"></blockquote><blockquote><p>You infuse your weapon with latent magical energy and strike with it.</p></blockquote><blockquote><hr class=\"a5e-rule u-my-md\"></blockquote><p></p><p>Choose a damage type dealt by a cantrip you know or a spell you have prepared.</p><p>Make a melee attack with a weapon or unarmed strike. If the attack hits, it deals 1d6 additional damage of the chosen damage type.</p>",
@@ -138,7 +139,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": "1",
 		"exertionCost": 2,

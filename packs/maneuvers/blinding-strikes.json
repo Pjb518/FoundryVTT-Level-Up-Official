@@ -42,7 +42,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Prerequisite</strong>: Extra Attack With a vicious strike, you blind your enemy.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you use a melee weapon to deal damage against a creature, it is blinded and can't benefit from either blindsight or tremorsense.</p><p>At the beginning of each of its turns, a creature blinded by this maneuver can make a Constitution saving throw, ending the effect on itself on a success.</p>",
@@ -52,7 +53,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 5,
 		"exertionCost": 3,

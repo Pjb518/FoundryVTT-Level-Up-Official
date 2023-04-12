@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>With two deft attacks you rend at your opponent, striking at them first to diminish their defenses then delivering a ferocious second blow.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you hit a creature with two or more melee weapon attacks, each hit after the first deals 1d8 extra damage.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 1,

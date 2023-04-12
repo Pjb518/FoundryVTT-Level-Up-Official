@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>With only a thought you can make this fist-sized ball of jagged ice expand to encase your body in a frigid suit of plate armor constructed out of solid black ice.</p><p>As a bonus action, you can reduce the armor to a 5 pound ball of ice which never melts, or expand the ice back into the suit of armor.</p><p>While wearing this plate armor you gain:</p><ul><li><p>+2 bonus to Armor Class</p></li><li><p>resistance to cold damage</p></li><li><p>once per day you can double your size (as the <em>enlarge/reduce</em> spell) for 10 minutes.</p></li></ul>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "heavy",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

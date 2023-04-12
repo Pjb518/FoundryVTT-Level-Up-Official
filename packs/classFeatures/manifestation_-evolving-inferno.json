@@ -42,7 +42,8 @@
 						"type": "attack",
 						"ability": "spellcasting"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you cast a spell of 1st-level or higher that deals fire damage, you can spend 1 sorcery point to store some of the energy of the spell as a flame you hold in one hand. You can use an action to throw this flame, making a ranged spell attack against a target you can see within 30 feet. On a hit, the creature takes [[/r 1d8 #fire]] fire damage per level of the spell cast to trigger this effect. The flame lasts for up to 1 minute or until it is&nbsp;thrown.</p>",
@@ -52,7 +53,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

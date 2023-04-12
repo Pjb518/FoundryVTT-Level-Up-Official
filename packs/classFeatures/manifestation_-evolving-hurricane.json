@@ -34,7 +34,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you cast a spell of 1st-level or higher that deals thunder or lightning damage, you can spend 1 sorcery point to create a 15-foot radius storm centered on you, which moves with you. The area of the storm is heavily obscured and counts as difficult terrain, but you can see and move through it normally. At the end of each subsequent turn you can spend an additional sorcery point to maintain it, otherwise it dissipates.</p>",
@@ -44,7 +45,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

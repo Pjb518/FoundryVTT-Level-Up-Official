@@ -45,7 +45,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Beginning at 7th level, you gain the ability to mark your foes for judgment by speaking aloud their name and the crime they must answer for. As a bonus action, choose one creature you can see within 30 feet of you. The target is marked for 1 minute, or until either you or the target die. While the target is marked, you gain the following benefits:</p><p>• Damage rolls you make against the creature deal extra damage equal to your spell attack modifier.</p><p>• Attacks made by you or your allies score critical hits against the creature on a roll of 19–20.</p><p>• The creature makes a Dexterity saving throw or it becomes outlined in a nimbus of light (of a color chosen by you) for the duration. This nimbus of light negates the benefits of invisibility on the creature.</p><p>If the marked target is not killed or captured within 1 hour, you have disadvantage on melee weapon attacks made against other creatures until you finish a short or long rest.</p><p>You gain an additional use of this feature at 15th level. You regain all spent uses of this feature whenever you finish a short or long rest.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "",
 		"prerequisite": "",

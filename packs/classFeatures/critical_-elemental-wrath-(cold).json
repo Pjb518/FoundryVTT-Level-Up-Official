@@ -45,7 +45,8 @@
 						"name": "Cold",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p style=\"box-sizing: border-box; user-select: text; visibility: visible; color: #191813;\"><span class=\"fontstyle3\" style=\"box-sizing: border-box; user-select: text;\">Your fury is so great that it incites the very elements to join you. When you score a critical hit, after dealing damage the weapon that dealt the blow is charged with cold.</span></p>\n<p style=\"box-sizing: border-box; user-select: text; visibility: visible; color: #191813;\"><span class=\"fontstyle3\" style=\"box-sizing: border-box; user-select: text;\">The weapon now deals an additional cold damage. This effect lasts for a number of rounds equal to your proficiency bonus and does not stack with successive critical hits.</span></p>\n<p style=\"box-sizing: border-box; user-select: text; visibility: visible; color: #191813;\">&nbsp;</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

@@ -42,7 +42,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Prerequisites: Extra Attack </p><p>With a bone crushing strike you briefly deprive an opponent of their very ability to move.</p><p></p><p>Make a melee weapon attack roll using a weapon that has the heavy property. A creature damaged by the attack makes a Strength saving throw, and on a failure it is paralyzed until it takes damage or the end of your next turn (whichever comes first).</p>",
@@ -52,7 +53,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 2,

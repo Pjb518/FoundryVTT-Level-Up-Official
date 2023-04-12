@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Crafting Components:</strong> Gilded feather of an elderly messenger hawk</p><hr class=\"a5e-rule u-my-md\"><p>Carved by satyr musicians, this wooden whistle resembles a shushing finger when held to one’s mouth, and blowing through it does not produce an audible sound. Puffing on the whistle as an action allows you to cast the @Compendium[a5e.a5e-spells.kahi4y0duaj7skcr]{Message} cantrip once without any other spell components. This ability recharges after 1 week.</p><p>Alternatively, you can use an action to blow extremely hard through the whistle to cast the @Compendium[a5e.a5e-spells.8rapv9v5lo8gqtuj]{Sending} spell without seen, vocal, or material components. Unlike the spell, your message can only contain 10 words and there is a 10% chance the message doesn’t arrive (even if you are on the same plane of existence). The whistle is then destroyed in a burst of sparkles. <br></p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

@@ -67,7 +67,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 2nd level you can magically summon a spiritual vine that can strike and grab your foes. As a bonus action, you create a 10-foot long vine at a point you can see within 60 feet. The vine lasts for 1 minute, until you dismiss it as a bonus action, or until you use this feature to create another vine. When you create the vine, you can make a melee spell attack against one target within 10 feet of it. On a hit the target takes 1d6 force damage, and it must make a Strength saving throw against your spell save DC. On a failure the target is restrained by the vine (escape DC equal to your spell save DC). </p><p>When you reach 10th level in this class, the damage increases to 2d6. </p><p>As a bonus action on your turn, you can move the vine up to 30 feet and repeat the attack, or if a creature is currently restrained by the vine you may move the vine and the restrained creature 10 feet in any direction.</p>",
@@ -77,7 +78,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

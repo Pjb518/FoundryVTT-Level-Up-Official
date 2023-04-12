@@ -59,7 +59,8 @@
 						"name": "d10",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Starting at 3rd level, everything can be a weapon in your hands. You are proficient with improvised weapons. When you hit a target with an improvised weapon, you can spend 1 exertion to deal additional damage equal to your martial arts die or use a basic maneuver against the same target.</p><p>[[/r 1d4 #d4 die]] [[/r 1d6 #d6 die]] [[/r 1d8 #d8 die]] [[/r 1d10 #d10 die]] [[/r 1d12 #d12 die]]</p>",
@@ -69,7 +70,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

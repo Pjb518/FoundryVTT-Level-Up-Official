@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Utilizing reflexes perfected by dedicated training, your body flows into a sublime strike almost without a thought.</p><p>When your exertion pool is not empty, you can use your reaction to make a melee weapon attack.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 2,

@@ -33,7 +33,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you hit a creature with a melee attack, you can attempt to disarm it. If it fails a Strength saving throw , its grip is loosened, and the creature cannot make use of the item until it spends a bonus action or attack on its turn to regain a solid hold. If the creature has disadvantage on the save and fails both rolls, it drops the item.</p>",
@@ -43,7 +44,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

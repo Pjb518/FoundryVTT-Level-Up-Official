@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Crafting Components:</strong> Bag of hag hair</p><hr class=\"a5e-rule u-my-md\"><p>You can use an action to speak a command word while holding one end of this rope, making the other end attempt to entangle a creature you can see within 20 feet of you. The creature makes a DC 15 Dexterity saving throw or is restrained on a failure. You can use a bonus action to speak another command word and release any creatures entangled by the rope. </p><p>An entangled creature can use an action to make a DC 15 Strength or Dexterity check (the creature’s choice), escaping the rope on a success. </p><p>The rope is 30 feet long and weighs 3 pounds. It has AC 20 and 20 hit points, recovering 1 hit point every 5 minutes when damaged. The rope is destroyed when reduced to 0 hit points. <br></p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -68,6 +83,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

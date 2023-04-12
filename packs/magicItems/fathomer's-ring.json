@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p><strong>(Patron Token)</strong></p></blockquote><hr class=\"a5e-rule u-my-md\"><p>This ring reeks of muck dredged from the ocean floor.</p><p>While you wear it, you automatically know the depth of any body of water you can see.</p><p>As an action, you can cause one submerged, unattended object up to Huge size to rise to the surface of the water at a rate of 500 feet per round. You don’t need to be able to see the object you affect, but you must be familiar with it or at least possess a general description of it.</p><p>Once the object reaches the water’s surface, it floats there for 1 hour or until you use another action to return it to its resting place.</p><p>Once you’ve used the ring in this way, it loses its magic and becomes a mundane item.</p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

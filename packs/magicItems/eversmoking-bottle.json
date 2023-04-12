@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This glass bottle is filled with whirling smoke.</p><p>You can use an action to remove the stopper, causing a thick cloud to pour out and fill a 60-foot radius centered on the bottle, making the area heavily obscured. The cloud grows by 10 feet for each minute that the bottle remains open, to a maximum radius of 120 feet.</p><p>The cloud remains until the bottle is closed. Closing the bottle requires the item’s command word and an action, after which the smoke disperses after 10 minutes. Moderate winds disperse the smoke after 1 minute. Strong winds disperse the smoke after 1 round.</p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

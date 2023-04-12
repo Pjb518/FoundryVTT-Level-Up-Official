@@ -45,7 +45,8 @@
 						"name": "Assassin's Gauntlet",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Finesse, Stealthy</em></p><hr class=\"a5e-rule u-my-md\"><p>At a glance this item seems to be perfectly typical, but it conceals a spring-loaded blade deployed by pressing a switch when it is used to make an attack.</p><p>A creature observing it only realizes that the item is a weapon with a DC 15 Investigation check (made with disadvantage if the weapon is being worn at the time and not deployed).</p><p>Once deployed, a bonus action is required to re-sheathe the blade. You gain an expertise die on your attack roll when you deploy this weapon as part of an attack against a target that is unaware you have it.</p><p></p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

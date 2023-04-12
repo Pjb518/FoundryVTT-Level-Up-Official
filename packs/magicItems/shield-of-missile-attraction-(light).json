@@ -53,7 +53,8 @@
 						"name": "Thrown Shield",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Light shields increase your Armor Class by 1.</em></p><ul><li><p>While wearing this shield you have resistance to damage from ranged weapon attacks.</p></li></ul><p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p><hr class=\"a5e-rule u-my-md\"><blockquote><p><strong><em>Curse</em></strong>. Whenever a ranged weapon attack is made against a target within 10 feet of you, you become the target instead. Removing the shield does not stop the curse.</p></blockquote>",
@@ -63,7 +64,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -81,6 +96,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

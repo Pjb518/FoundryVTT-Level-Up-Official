@@ -34,7 +34,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You can use an action to speak this carpet’s command word, making it hover and fly. It moves according to your verbal commands as long as you are within 30 feet of it.</p><p>These carpets come in four sizes. The Narrator can choose or randomly determine which size a given carpet is.</p><p>If the carpet is carrying half its capacity or less, its Speed is doubled.</p><p></p><p>Size: 5ft. x 7ft.</p><p>Capacity: 800 lb.</p><p>Flying Speed: 20 ft.</p>",
@@ -44,7 +45,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -62,6 +77,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

@@ -45,7 +45,8 @@
 						"name": "Sonic Staff",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This metal polearm has complex flanged baffles along its haft and ends with a faintly glowing two-tined cap not unlike a tuning fork.</p><p>When struck it reverberates near-deafeningly and by adjusting its components you can tune it to the destructive resonance of an object.</p><ul><li><p>You have a +1 bonus to attack and damage rolls made with this magic weapon. It constantly emits a high-pitched whine that is uncomfortable to animals. Animals do not willingly approach within 10 feet of the staff without a successful DC 22 Animal Handling check.</p><p></p></li><li><p>Attacks with this weapon deal double damage against doors and other objects.</p><p></p></li><li><p>Once per day, you can use an action to slam it against the ground and generate a wave of thunder and force, either in a 10-foot radius or 30-foot cone. Creatures in the area take 3d6 thunder damage and are pushed 15 feet away. This effect cannot penetrate a <em>silence </em>spell (or any similar magical silence effect).</p></li></ul>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

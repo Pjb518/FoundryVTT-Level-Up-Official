@@ -43,7 +43,8 @@
 						"name": "Acid",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you cast a spell of 1st-level or higher that deals acid damage, you can spend 1 sorcery point to create a 10-foot radius pool of acid centered on either the target of the spell or the spell’s point of origin. The area is difficult terrain, and when a creature ends its turn in the area it takes [[/r 2d8 #acid]] acid damage. The pool remains for 1 minute or until you use a bonus action to dismiss it.</p>",
@@ -53,7 +54,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

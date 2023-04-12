@@ -45,7 +45,8 @@
 						"name": "Quarterstaff",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p>(Requires attunement by a Druid)</p></blockquote><p>You gain a +2 bonus to attack and damage rolls with this magic quarterstaff. Additionally, while holding it you gain a +2 bonus to spell attack rolls.</p><p>While holding this staff, you can use an action to cast <em>pass without trace</em>, or to expend charges to cast one of the following spells, using your spell save DC:</p><ul><li><p><em>animal friendship</em> (1 charge)</p></li><li><p><em>speak with animals</em> (1 charge)</p></li><li><p><em>barkskin </em>(2 charges)</p></li><li><p><em>locate animals or plants</em> (2 charges)</p></li><li><p><em>speak with plants</em> (3 charges)</p></li><li><p><em>awaken </em>(5 charges)</p></li><li><p><em>wall of thorns</em> (6 charges).</p></li></ul><hr class=\"a5e-rule u-my-md\"><p>The staff has 10 charges and regains 1d6+4 expended charges each dawn.</p><p>When the last charge is expended, roll a d20. On a 1, the staff loses its magical properties.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Tree Form</strong>. As an action you can plant the staff in the earth and expend 1 charge, transforming it into a full-grown tree.</p><blockquote><p>The tree is 60 feet tall, has a 5-foot-wide trunk, and its highest branches fill a 20-foot radius.</p><p>The tree looks ordinary but radiates faint transmutation magic if inspected with detect magic. By using an action to touch the tree and speak the staff’s command word, you can transform it back into a staff.</p><p>Creatures in the tree fall when the staff reverts to its original form.</p></blockquote><hr class=\"a5e-rule u-my-md\"><p></p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

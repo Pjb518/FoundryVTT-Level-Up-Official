@@ -47,7 +47,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>With expert timing you apply just the right amount of force to send an opponent's weapon flying just as they strike.</p><p>When a creature makes a melee weapon attack against you and misses, you can use your reaction to force it to make a Dexterity saving throw. On a failure, a weapon it is wielding (your choice) flies from its grip to land in a randomly determined space 10 feet away.</p>",
@@ -57,7 +58,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 2,

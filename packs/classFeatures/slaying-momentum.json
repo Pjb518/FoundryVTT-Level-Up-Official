@@ -37,7 +37,8 @@
 						"name": "Default",
 						"type": "healing"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 14th level, your thirst for battle can be overwhelming. When an ally under the effects of one of your battle hymns reduces a creature to 0 hit points, they regain hit points equal to your Bardic Inspiration die + your Charisma modifier.</p>",
@@ -47,7 +48,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

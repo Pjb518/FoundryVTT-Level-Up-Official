@@ -35,7 +35,8 @@
 						"ability": "con",
 						"type": "abilityCheck"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This tough acorn must be swallowed whole to fortify your muscles and sinews, and after you eat it you gain an expertise die on Strength saving throws for 1 hour.</p>",
@@ -45,7 +46,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -63,6 +78,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

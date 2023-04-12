@@ -45,7 +45,8 @@
 						"name": "1d8",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Starting at 2nd level, whenever you hit a creature with a weapon attack you can choose to deliver a divine smite that deals an additional 1d8 radiant damage. The amount of extra damage increases as you gain levels in this class, as shown in the Smite Damage column of the Herald table.</p><p>You can use this feature a number of times equal to your proficiency bonus, and regain spent uses upon finishing a long rest.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

@@ -31,7 +31,8 @@
 					"type": "",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Prerequisite: </strong>Extra Attack</p><p> A probing blow allows you to take the measure of your foe.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you deal damage to a creature you learn its current hit points, hit point maximum, immunities, resistances, and vulnerabilities.</p><p>If you score a critical hit you can choose one of the creature's resistances or immunities. The creature loses that resistance or immunity until the end of your next turn. In addition, until the beginning of your next turn you gain advantage on melee weapon attacks against that creature.</p>",
@@ -41,7 +42,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 4,
 		"exertionCost": 2,

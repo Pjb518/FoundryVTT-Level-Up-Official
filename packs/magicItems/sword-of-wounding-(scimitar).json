@@ -52,7 +52,8 @@
 						"name": "Wound",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Defensive (Light), Dual-Wielding, Finesse</em></p><hr class=\"a5e-rule u-my-md\"><p>Once per turn, when you use this sword to hit a creature with a melee weapon attack, in addition to dealing the attack damage you may inflict it with a wound.</p><p>A wounded creature takes 1d4 necrotic damage at the start of each of its turns for each wound you have inflicted this way. Whenever the creature is damaged by its wound, it can make a DC 15 Constitution saving throw, ending all wound effects it is suffering from on a success.</p><p>Alternatively, the wounds can be healed if the wounded creature (or a creature within 5 feet of it) uses an action to make a DC 15 Medicine check, ending all wound effects it is suffering from on a success.</p><p>Damage dealt by this sword can only be regained by taking a short or long rest— no other method, magical or otherwise, will restore the hit points.</p>",
@@ -62,7 +63,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -80,6 +95,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

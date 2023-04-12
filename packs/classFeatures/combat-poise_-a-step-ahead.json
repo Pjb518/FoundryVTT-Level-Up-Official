@@ -33,7 +33,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You have a deft ability to predict your opponents’ responses and interfere with them. Whenever a creature within your reach that you are aware of attempts to take a reaction, you can expend your reaction for the round to try to disrupt them. That creature must make an Intelligence saving throw against your trick DC. If they fail, their reaction is wasted.</p>",
@@ -43,7 +44,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

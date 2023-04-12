@@ -56,7 +56,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You trample down enemies in your path.</p><p>You must be mounted to use this maneuver. Move up to half your Speed without provoking opportunity attacks. Creatures in your path that are at least one size smaller than your mount make a Dexterity saving throw. On a failure, a creature takes 2d6 bludgeoning damage and is knocked prone.</p>",
@@ -66,7 +67,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 2,

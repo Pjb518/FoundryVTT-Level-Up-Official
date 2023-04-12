@@ -42,7 +42,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": " You snatch your enemy's weapon and use it against them.</p><p>When a creature misses you with a melee weapon attack against you using a weapon, you can use your reaction to flip it out of the creature's hands. The creature makes a Dexterity saving throw, and on a failure it drops the weapon and you grab it from mid-air.</p><p>You can spend 2 exertion points to immediately use the weapon to make a melee weapon attack against the creature.</p>",
@@ -52,7 +53,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 2,

@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You join in a grapple instigated by an ally.</p><p>Make an Athletics check against the maneuver DC of a creature an ally has grappled. If you succeed, the creature is restrained until the grapple ends, and either you or your ally (your choice) are also restrained until the grapple ends.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 2,

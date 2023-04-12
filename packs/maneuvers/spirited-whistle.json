@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You summon your mount to your side.</p><p>When you have become separated from your mount but can see it, you can use an action to whistle. As long as your mount is able to hear you, it uses its reaction to move until it is adjacent to you.</p><p>Your mount suffers a level of fatigue if this movement is more than twice its Speed.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 4,
 		"exertionCost": 2,

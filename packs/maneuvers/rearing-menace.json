@@ -50,7 +50,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You rear your mount, intimidating nearby opponents.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. You must be mounted to use this maneuver.</p><p>Choose a number of creatures equal to your proficiency bonus that are within 20 feet. Each creature makes a Wisdom saving throw. On a failure, a creature is frightened until the end of your next turn.</p><p>A creature of the same size as your mount or larger has advantage on the saving throw.</p>",
@@ -60,7 +61,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 3,

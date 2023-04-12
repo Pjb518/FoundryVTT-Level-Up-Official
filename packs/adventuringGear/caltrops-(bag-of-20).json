@@ -49,7 +49,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You can use an action to spread a bag of caltrops that covers a square area 5 feet on a side. Any creature that enters the area makes a DC 15 Dexterity saving throw or it stops moving this turn and takes 1d4 piercing damage. Taking this damage reduces the creature’s walking speed by 10 feet until it regains at least 1 hit point. A creature moving through the area at half speed doesn’t need to make the save.</p>",
@@ -59,7 +60,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -77,6 +92,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

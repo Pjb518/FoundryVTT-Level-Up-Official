@@ -49,7 +49,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>A particular kind of creature is chosen when this magic arrow is created. When the arrow of slaying damages a creature belonging to the chosen type, heritage, or group, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 piercing damage on a failed save, or half as much extra damage on a successful one. Once the arrow of slaying deals its extra damage to a creature, it loses its magical properties.</p><p>Other types of magic ammunition of this kind exist, such as bolts meant for a crossbow, or bullets for a firearm or sling.</p>",
@@ -59,7 +60,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -77,6 +92,7 @@
 		"quantity": 1,
 		"rarity": "very rare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

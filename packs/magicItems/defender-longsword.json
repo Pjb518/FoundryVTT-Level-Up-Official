@@ -45,7 +45,8 @@
 						"name": "Longsword",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You gain +3 bonus to attack and damage rolls made with this magic sword. In addition, while you are attuned to the sword, on each of your turns before you make your first attack with it you can transfer some or all of the +3 bonus to your Armor Class (instead of using it for attacks) until the start of your next turn or until you drop the sword (whichever comes first)</p>.",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "legendary",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

@@ -31,7 +31,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": " Focusing your attacks on an opponent's weak points allows you to not just wound, but to confound.</p><p>Until the start of your next turn, when you hit a creature with a melee weapon attack instead of dealing damage you can choose to use pulls, shoves, and strikes to put your target off-balance.</p><p>Until the end of your next turn, the target moves at half Speed, and it has disadvantage on ability checks and Dexterity saving throws.</p>",
@@ -41,7 +42,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 1,

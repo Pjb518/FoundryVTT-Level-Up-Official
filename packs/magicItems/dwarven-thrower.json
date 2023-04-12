@@ -74,7 +74,8 @@
 						"name": "Extra ranged damage against giant",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "You gain +3 bonus to attack and damage rolls made with this magic warhammer. In addition, while you are attuned to the hammer, you may throw it with a normal range of 20 feet and a maximum range of 60 feet. On a hit with a ranged attack using this hammer it deals an extra 1d8 damage (2d8 damage if the target is a giant). When thrown the warhammer immediately flies back to your hand after it hits or misses its target. \n",
@@ -84,7 +85,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -102,6 +117,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

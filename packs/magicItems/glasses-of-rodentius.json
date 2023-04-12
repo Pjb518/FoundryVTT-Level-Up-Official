@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>These round glasses have a thin black metal frame and lenses that softly shimmer green. Engraved into the arms are very subtle rodents arranged into a helix.</p><p>While you are wearing the glasses, you can see the paths that rodents have traveled in the last two days. The paths appear as shimmering green lines that reach upwards. The sooner a rat has traveled the path, the brighter the trail appears.</p><p>When observed under the effects of <em>detect magic</em>, a small spectral rat crawls off of the glasses and squeaks.</p><p>Alternatively, you can use an action to snap the glasses in half and cast <em>charm monster</em> (save DC 13) on up to 10 rats you can see within range. Unlike normal, the duration of the spell is reduced to 1 minute.</p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -68,6 +83,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

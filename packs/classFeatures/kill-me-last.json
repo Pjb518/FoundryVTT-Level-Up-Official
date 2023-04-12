@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 14th level, you are exceptionally good at convincing your foes to attack someone other than yourself. When a creature you can see targets you with an attack or spell, you can use your reaction to focus its attention on a creature you choose within its reach or within range of it. It makes a Charisma saving throw and on a failure, it instead targets the chosen creature with its attack or spell (gaining advantage if the chosen creature is an ally). </p><p>Once you have used this feature a number of times equal to your proficiency bonus, you cannot do so again until you finish a long rest.</p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": "longRest"
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

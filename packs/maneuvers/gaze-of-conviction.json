@@ -47,7 +47,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You lock eyes with an opponent with a fury so potent that it cannot be ignored.</p><p>You stare down a creature you can see within 30 feet, and if it can see you it makes a Wisdom saving throw. On a failure, the creature is compelled to attack you. On its turn the creature moves towards you and makes as many attacks against you as it can.</p><p>The effects of this maneuver end when you attack a different creature or the creature is unable to attack you.</p>",
@@ -57,7 +58,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 2,

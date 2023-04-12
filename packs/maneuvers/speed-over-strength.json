@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>With practiced agility you weave around an opponent wielding a more cumbersome weapon, quickly darting in to strike with a lighter armament.</p><p>When a creature attacks you with a melee weapon that has the heavy property, or a Large sized or larger creature attacks you with a natural weapon, you can use your reaction to make a melee weapon attack against it using a weapon that has the dual-wielding or finesse property.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 1,
 		"exertionCost": 1,

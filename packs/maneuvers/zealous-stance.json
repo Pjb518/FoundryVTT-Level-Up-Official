@@ -36,7 +36,8 @@
 					"type": "self",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>By submitting to your fervor you make yourself vulnerable but gain an edge on your opponents.</p><p>When you make your first attack on your turn, you can decide to gain an expertise die on melee weapon attack rolls until the start of your next turn. When you do so, until the start of your next turn attack rolls against you gain an expertise die.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 1,
 		"exertionCost": 1,

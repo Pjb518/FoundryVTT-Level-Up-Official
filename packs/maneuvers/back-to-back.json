@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You know how to fight while surrounded by foes and can quickly instruct an ally on how to move in concert to survive against an overwhelming number of foes.</p><p>Choose an ally within 5 feet. Until the start of your next turn, as long as that ally remains within 5 feet of you and is able to take actions, and both of you are unmounted, you and your ally increase your AC by 2.</p><p>In addition, each of you gets an extra reaction that can be used before the start of your next turn to either make an opportunity attack or activate a combat maneuver.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 1,

@@ -47,7 +47,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>An expert parry turns a hit into a miss.</p><p>When a creature hits you with a melee attack, you can use your reaction to evade the attack. The creature makes a Dexterity saving throw, and on a failure its attack becomes a miss. A creature that scored a critical hit has advantage on its save.</p>",
@@ -57,7 +58,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 5,
 		"exertionCost": 2,

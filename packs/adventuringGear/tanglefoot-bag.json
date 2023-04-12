@@ -54,7 +54,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p>Unguents and adhesives fill this airtight sack.</p></blockquote><p>You can use an action to throw this bag at a target within 20 feet, treating it as a ranged weapon attack with an improvised weapon. On a hit, rapidly hardening sap covers the target and it makes a DC 13 Strength check or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success.</p><p>The sap can also be destroyed (AC 13, 6 hit points).</p>",
@@ -64,7 +65,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -82,6 +97,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

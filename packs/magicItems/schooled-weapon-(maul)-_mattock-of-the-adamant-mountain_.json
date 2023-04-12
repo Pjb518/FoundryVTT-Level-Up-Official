@@ -52,7 +52,8 @@
 						"name": "Schooled Maneuver",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><p><em>Breaker, Heavy, Two-Handed</em></p><hr class=\"a5e-rule u-my-md\"><p>Each of these weapons comes in a different form depending on the combat tradition it is associated with. You are proficient with this magic weapon as long as you are attuned to it, and you gain a +1 bonus on attack and damage rolls with it.</p><p>You cannot attune to this weapon if you do not know at least one combat maneuver from the tradition it is associated with. When you attune to this weapon, choose a combat maneuver from its associated tradition that you meet the prerequisites for. While you remain attuned to the weapon, you have access to that combat maneuver.</p><p>In addition, any attacks you make with the weapon as part of a combat maneuver from the associated tradition gains an additional +1 bonus to attack and damage.</p>",
@@ -62,7 +63,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -80,6 +95,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

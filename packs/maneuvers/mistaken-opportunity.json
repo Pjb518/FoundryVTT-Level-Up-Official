@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Mastery is making sure even a mistake becomes an opportunity. You follow-through on a miss to attack a different enemy.</p><p>When you miss with a melee weapon attack against a creature, you can use your reaction to take your momentum and target a different creature within your reach with a melee attack using the same weapon.</p><p>This attack is made with advantage and deals extra damage equal to your proficiency bonus. If both attack rolls would hit the creature, it is stunned until the end of its next turn.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 4,
 		"exertionCost": 2,

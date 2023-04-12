@@ -44,7 +44,8 @@
 						"name": "Default",
 						"type": "healing"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You offer inspiring encouragement to an ally and they gain their second wind.</p><p>When an ally you can see takes damage from an attack, you can use your reaction to release a hearty rallying cry. As long as they are able to hear you, your ally regains an amount of hit points equal to twice your proficiency bonus.</p>",
@@ -54,7 +55,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 5,
 		"exertionCost": 3,

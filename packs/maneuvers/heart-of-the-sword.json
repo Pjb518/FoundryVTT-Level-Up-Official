@@ -36,7 +36,8 @@
 					"type": "self",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You focus on the bond between you and your weapon.</p><p>Choose a weapon when you learn this combat maneuver. For the next minute, attacks made with the chosen weapon score a critical hit on a roll of 19-20 and ignore any damage resistances a target might have. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17-20).</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 5,
 		"exertionCost": 3,

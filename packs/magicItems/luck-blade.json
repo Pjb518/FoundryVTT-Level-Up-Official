@@ -45,7 +45,8 @@
 						"name": "Luck Blade",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You gain a +1 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and holding it, you gain a +1 bonus to saving throws. In addition, it has the following properties:</p><p><strong>Luck. </strong>Once per dawn, while the sword is on your person you may reroll one attack roll, ability check, or saving throw. You must use the new roll.</p><p><strong>Wish. </strong>Once per dawn, while holding the weapon you can use an action to expend 1 charge and cast wish. The weapon has 1d4 – 1 charges and loses this property when there are no charges left.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "legendary",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

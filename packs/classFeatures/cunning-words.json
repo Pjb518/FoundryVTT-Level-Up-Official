@@ -34,7 +34,8 @@
 				"target": {
 					"quantity": 1,
 					"type": "creature"
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Also at 3rd level, you can use your cunning to detect, discourage, and distract others. When a creature that you can see within 60 feet makes an ability check, attack roll, or damage roll, you can use your reaction to expend a use of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature’s roll. When you roll the minimum or maximum result for your Bardic Inspiration die, the creature is rattled until the end of your next turn. </p><p>You can choose to use this feature after the creature makes its roll, but before the Narrator determines whether the attack roll or ability check succeeds or fails, or before damage is dealt. The creature is immune if it can’t hear you or if it’s immune to being charmed.</p>",
@@ -44,7 +45,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

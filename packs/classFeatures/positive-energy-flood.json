@@ -37,7 +37,8 @@
 						"name": "Default",
 						"type": "healing"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>As a bonus action, you can use your Channel Divinity to send out a flood of positive energy to heal your allies. Friendly creatures (including yourself) within 30 feet regain hit points equal to your proficiency bonus + your Charisma modifier.</p>",
@@ -47,7 +48,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

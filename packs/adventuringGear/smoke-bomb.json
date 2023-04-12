@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This metal sphere’s casing is pockmarked with holes and capped with a thick fuse. When lit, it spews suffocating black smoke that heavily obscures a 10-foot cube for 1 minute. Air-breathing creatures within the smoke must make a DC 10 Constitution saving throw, or have disadvantage on ability checks, attack rolls, and saving throws made while breathing the fumes. A wind of moderate or greater speed suppresses the smoke effect for 1 round.</p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -68,6 +83,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 18th level, when you successfully hit the same target with two or more melee attacks in a single turn, you may spend 2 exertion points to deal extra bludgeoning damage equal to 2d8 + your Strength modifier. In addition, the target makes a Constitution saving throw (DC 8 + your proficiency bonus + your Strength modifier) or becomes stunned until the end of your next turn.</p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

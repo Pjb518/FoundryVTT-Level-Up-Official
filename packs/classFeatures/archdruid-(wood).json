@@ -54,7 +54,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You can turn nature in its rawest elements into deadly weapons no matter your form. Once each turn, you can use a bonus action to choose a target point within 30 feet and one of the following element options. If the element you choose is not present at or near the target point, any damage dealt by this feature is halved, you have disadvantage on your spell attack, and creatures have advantage on any saving throws made to resist it.</p><p style=\"text-align: start\"><strong>Wood.</strong> Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p><p><br></p>",
@@ -64,7 +65,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

@@ -42,7 +42,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": " A powerful blow smashes a weapon from your enemy's grasp.</p><p>When you hit a creature using a melee weapon that has the heavy property, you can use your reaction to force it to make a Strength saving throw. On a failure, a weapon it is wielding (your choice) flies from its grip to land in a randomly determined space 10 feet away.</p><p>A creature that is two or more size categories larger than you has advantage on its saving throw.</p>",
@@ -52,7 +53,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 1,

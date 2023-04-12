@@ -38,7 +38,8 @@
 						"name": "Missile Snaring Reduction",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>While wearing these gloves, when you are hit by a ranged weapon attack you can use your reaction to reduce the damage by 1d10 + your Dexterity modifier, as long as you have a free hand.</p><p>If the damage is reduced to 0, you can catch the missile if it is small enough to be held in that hand.</p>",
@@ -48,7 +49,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -66,6 +81,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

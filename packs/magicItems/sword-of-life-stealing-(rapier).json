@@ -52,7 +52,8 @@
 						"name": "Life Stealing",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Defensive (Light), Finesse</em></p><hr class=\"a5e-rule u-my-md\"><p>When you use this weapon to make an attack against a creature that is not a construct or undead and roll a natural 20, the creature takes an extra 3d6 necrotic damage and you gain an amount of temporary hit points equal to the necrotic damage dealt.</p>",
@@ -62,7 +63,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -80,6 +95,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

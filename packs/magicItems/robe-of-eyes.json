@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Crafting Components:</strong> Mirror that a basilisk has seen its reflection in</p><hr class=\"a5e-rule u-my-md\"><p>Numerous upraised eyes are sewn into the fabric of this robe. You gain the following benefits while attuned to and wearing the robe:<br>• Advantage on sight-based Perception checks.<br>• Darkvision to a range of 120 feet.<br>• The ability to see 120 feet into the Ethereal Plane.<br>• The ability to see invisible creatures and objects within 120 feet.<br>• The ability to see in all directions.<br>• You are always considered to have your eyes open and may not close or avert  them.</p><p>When a <em>daylight </em>or <em>light</em> spell is cast within 5 feet of you or on the robe, you are blinded for 1 minute. At the end of each of your turns, you make a DC 11 (<em>light</em>) or DC 15 (<em>daylight</em>) Constitution saving throw to end the condition. <br></p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -68,6 +83,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

@@ -22,7 +22,8 @@
 				"target": {
 					"quantity": "",
 					"type": "self"
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p style=\"text-align: right\"><em>1st degree Cutting Omen (Bonus Action)</em></p><p><strong>Requirement</strong>: None.</p><blockquote><hr class=\"a5e-rule u-my-md\"></blockquote><blockquote><p>You draw upon the strength of your resolve to replenish your magical reserves, albeit at a cost.</p><hr class=\"a5e-rule u-my-md\"></blockquote><p></p><p>You may restore spell slots by spending exertion at a rate of 3 exertion points per spell-level of the slot (For example, if you wished to restore a 2nd-level spell slot this way, you would need to expend 6 exertion points).</p><p>Alternatively, you can restore spell points, spending 3 exertion points per 2 spell points.</p><p>You may restore any number of spell slots and spell points this way, provided you have the exertion to pay for them. </p><p>The strain of this process takes a metaphysical toll. You take 1 point of damage per 3 exertion points spent on this maneuver. This damage cannot be reduced or prevented in any way.</p>",
@@ -32,7 +33,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": "1",
 		"exertionCost": null,

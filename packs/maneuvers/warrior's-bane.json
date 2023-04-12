@@ -44,7 +44,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>In response to an attack from a creature within reach, make a melee weapon attack against the attacking creature and expend a dose of basic poison. On a hit, the creature must make a Constitution save or for the next minute, whenever it would make a melee attack, take the Dash action, or make a Strength or Dexterity check, it takes 2d6 acid damage. This effect can be ended early by administering an antitoxin.</p>",
@@ -54,7 +55,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 2,

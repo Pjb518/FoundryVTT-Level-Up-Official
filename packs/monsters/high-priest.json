@@ -1,3309 +1,3582 @@
 {
-  "name": "High Priest",
-  "type": "npc",
-  "img": "icons/containers/kitchenware/goblet-gold-red.webp",
-  "items": [
-    {
-      "_id": "IncQD5UDfjsZy9f8",
-      "name": "Full Plate (Steel)",
-      "type": "object",
-      "img": "icons/equipment/chest/breastplate-collared-steel.webp",
-      "effects": [],
-      "folder": "onWLSm6zKf7dUEaj",
-      "sort": 0,
-      "flags": {
-        "core": {
-          "sourceId": "Item.WuSjw9GdBboMdzBG"
-        }
-      },
-      "system": {
-        "actions": {},
-        "description": "<p><em>Low-Maintenance (Expertise Die), Requires STR 15, Stealth (Disadvantage)</em></p><p>AC 18</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "heavy",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": true,
-        "materialProperties": [
-          "lowMaintenance"
-        ],
-        "objectType": "armor",
-        "plotItem": false,
-        "price": "1,500 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [],
-        "weight": 55,
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "hHOieBzdcdIzdMoz",
-      "name": "Mace",
-      "type": "object",
-      "img": "icons/weapons/maces/mace-flanged-steel.webp",
-      "effects": [],
-      "folder": "scTHNERGpFOFnSlD",
-      "sort": 0,
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.world.weapons.Qq1ZRhuGer3t9co6"
-        }
-      },
-      "system": {
-        "actions": {
-          "3rmo50YTHW94q7d7": {
-            "name": "Mace",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "7yYDb4IJZ14RRpJQ": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "default"
-              },
-              "GT28XxEZa9jvkfDI": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "1d6 + @str.mod",
-                "name": "Mace",
-                "type": "damage"
-              }
-            }
-          }
-        },
-        "description": "<p><em>Defensive (Medium), Simple</em></p>",
-        "favorite": true,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "broken": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "equipped": true,
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "5 gp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "common",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "defensive",
-          "simple"
-        ],
-        "weight": 4,
-        "ability": "default",
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "J0sOitZIwskfBntN",
-      "name": "Spellcasting",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "system": {
-        "actions": {},
-        "description": "<p>The priest is an 11th level spellcaster. Their spellcasting ability is Wisdom (spell save DC 15, +7 to hit with spell attacks). They have the following cleric spells prepared:</p><p style=\"text-align: start\">Cantrips (at will): <em>light</em>,<em> sacred flame</em>,<em> thaumaturgy</em></p><p style=\"text-align: start\">1st-level (4 slots): <em>ceremony</em>,<em> detect evil and good</em>,<em> healing word</em></p><p style=\"text-align: start\">2nd-level (3 slots): <em>augury</em>, <em>hold person</em>,<em> zone of truth</em></p><p style=\"text-align: start\">3rd-level (3 slots): <em>daylight</em>,<em> remove curse</em></p><p style=\"text-align: start\">4th-level (3 slots): <em>divination</em>, <em>guardian of faith</em>, <em>revivify</em></p><p style=\"text-align: start\">5th-level (2 slots): <em>flame strike</em>, <em>greater restoration</em>, <em>raise dead</em></p><p style=\"text-align: start\">6th-level (1 slots): <em>heal</em></p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "featureType": "",
-        "prerequisite": "",
-        "ability": "",
-        "actionOptions": [],
-        "activation": {
-          "cost": "",
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "attack": {
-          "bonus": "",
-          "critThreshold": 20,
-          "type": ""
-        },
-        "area": {
-          "shape": "",
-          "size": ""
-        },
-        "check": {
-          "ability": "str"
-        },
-        "damage": [],
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "healing": [],
-        "proficient": true,
-        "range": [],
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        }
-      },
-      "system": {
-        "actions": {
-          "ZU3XslGJjospQH4T": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "9GcmWcsIbjrw55PL": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "pftHGe195JKnBc6F": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "JpfInhjJdEckeOM3": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "ability": "str",
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "WNveK0v06tnYkQhR"
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        }
-      },
-      "system": {
-        "actions": {
-          "hXhEq14e0q4b4qiT": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "wLhNKqdBaRfgBi5j": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "HezjQgBdTnsrOW4u": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "jgaey3y9DAElz73h": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "ability": "str",
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "PW90iMQPv2vAOhlZ"
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        }
-      },
-      "system": {
-        "actions": {
-          "iYB8JN9airpHJRJx": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "o3rZF7qVPuAUs7LS": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "Y5DQDBkRi7NNUVjz": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "ability": "",
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "TZI2Y49HqfjKIkXK"
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        }
-      },
-      "system": {
-        "actions": {
-          "LUJZkyb2F0J6uPzF": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "j0Ss2cAonhhgNf3T": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "h53gEfyvpoETxMyQ": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "ability": "",
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "lkcCCz6IyxFuaSHN"
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        }
-      },
-      "system": {
-        "actions": {
-          "RieUk7YNpNWBnNgd": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "WGPJ3wP7aVUhCHL4": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "7Rwdh6BObZ5aT8ll": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "ability": "",
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "OOZPDzAVIbdAqXRe"
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        }
-      },
-      "system": {
-        "actions": {
-          "VrTvRGNMiBsT5lg7": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "sT7680BDyIAQ7OgQ": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "V0zpPP9mAQbl3Dnc": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "ability": "",
-        "proficient": true,
-        "save": {
-          "dc": "@maneuverDC",
-          "onSave": "",
-          "targetAbility": "str"
-        }
-      },
-      "ownership": {
-        "default": 0
-      },
-      "folder": null,
-      "sort": 0,
-      "_id": "Mthy4gsTiLa36ao1"
-    },
-    {
-      "name": "Light",
-      "type": "spell",
-      "img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.bqavvq6ju5ti8hr3"
-        }
-      },
-      "system": {
-        "actions": {
-          "YTmdniTcmdDpTVjH": {
-            "name": "Light",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "hour",
-              "value": "1"
-            },
-            "ranges": {
-              "TIPSpMWAXd08fVFw": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "object"
-            },
-            "prompts": {
-              "iNdLjPQnkpNnSZxC": {
-                "ability": "dex",
-                "onSave": "Negates for object held or worn by hostile creature",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": ""
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": false,
-          "material": true
-        },
-        "concentration": false,
-        "level": 0,
-        "materials": "small tinder box",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "arcane",
-            "utility"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "Negates for object held or worn by hostile creature",
-          "targetAbility": "dex"
-        }
-      },
-      "_id": "TNnD6uLzxbymUUEv",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Sacred Flame",
-      "type": "spell",
-      "img": "icons/magic/light/projectile-beam-yellow.webp",
-      "system": {
-        "actions": {
-          "GRovtgPMBRtWUICh": {
-            "name": "Cast Spell",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "SXFYtkwUpfIHcCkZ": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "rolls": {
-              "L1nL06P1tAgjXyw7": {
-                "canCrit": false,
-                "damageType": "radiant",
-                "defaultSelection": true,
-                "formula": "1d8",
-                "name": "",
-                "type": "damage",
-                "scaling": {
-                  "mode": "cantrip",
-                  "formula": "1d8"
-                }
-              }
-            },
-            "prompts": {
-              "F19vETbdh2bsjnOg": {
-                "ability": "dex",
-                "onSave": "Negates effect",
-                "saveDC": {
-                  "type": "spellcasting",
-                  "bonus": ""
-                },
-                "type": "savingThrow"
-              }
-            }
-          }
-        },
-        "description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 0,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "attack",
-            "divine",
-            "radiant"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "@spellDC",
-          "onSave": "Negates effect",
-          "targetAbility": "dex"
-        }
-      },
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.tvtm60k5wxyki9qc"
-        }
-      },
-      "_id": "MWx9NTJBg5Z1N9c1",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Thaumaturgy",
-      "type": "spell",
-      "img": "icons/magic/symbols/runes-triangle-magenta.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.eiek2vbzwijd0qac"
-        }
-      },
-      "system": {
-        "actions": {
-          "C81Tjb3bGFMAmLth": {
-            "name": "Thaumaturgy",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "minute",
-              "value": "1"
-            },
-            "ranges": {
-              "Qkcopjbm7HCEhXJl": {
-                "range": "short"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            }
-          }
-        },
-        "description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li>Your voice booms up to three times louder than normal</li><li>You cause flames to flicker, brighten, dim, or change color</li><li>You send harmless tremors throughout the ground.</li><li>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.</li><li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li><li>You alter the appearance of your eyes.</li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": false,
-          "material": false
-        },
-        "concentration": false,
-        "level": 0,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "transmutation",
-          "secondary": [
-            "divine",
-            "enhancement"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "nuW5szOSvqy36wAN",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Augury",
-      "type": "spell",
-      "img": "icons/sundries/gaming/dice-runed-brown.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.qsa7b22n3y1pbzf6"
-        }
-      },
-      "system": {
-        "actions": {
-          "XIV22O1RFIOcyrMN": {
-            "name": "Augury",
-            "activation": {
-              "cost": 1,
-              "type": "minute",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "yx16o4KTfoQobkxy": {
-                "range": "self"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "self"
-            },
-            "consumers": {
-              "tVhkY6UcDpf5TFcy": {
-                "mode": "variable",
-                "spellLevel": 2,
-                "points": 3,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li>Fortunate omen (good results)</li><li>Calamity omen (bad results)</li><li>Ambivalence omen (both good and bad results)</li><li>No omen (results that aren't especially good or bad)</li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations.<p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 2,
-        "materials": "divinatory items worth at least 25 gold",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "divination",
-          "secondary": [
-            "communication",
-            "divine",
-            "scrying"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "st52UDXLC0AvJDkZ",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Ceremony",
-      "type": "spell",
-      "img": "icons/commodities/treasure/token-gold-cross.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.bq5bki8n1gfhrqz1"
-        }
-      },
-      "system": {
-        "actions": {
-          "cBo77Vw7V3BeIdsm": {
-            "name": "Ceremony",
-            "activation": {
-              "cost": 1,
-              "type": "hour",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "w9OTwZI36lonAMVy": {
-                "range": "short"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creatureObject"
-            },
-            "consumers": {
-              "eMwZZlceSbL9vZGr": {
-                "mode": "variable",
-                "spellLevel": 1,
-                "points": 2,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 1,
-        "materials": "25 gold worth of incense, consumed by the spell",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": true,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "divine"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "7Xy5iU3EAe6AUC7h",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Detect Evil and Good",
-      "type": "spell",
-      "img": "icons/magic/symbols/star-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.jlqrjd03lyl8zb3c"
-        }
-      },
-      "system": {
-        "actions": {
-          "G0DcVgQdfe1ColYJ": {
-            "name": "Detect Evil and Good",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "minute",
-              "value": "10"
-            },
-            "ranges": {
-              "MypYiO8SB0olt3xP": {
-                "range": "30-foot radius"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "self"
-            },
-            "consumers": {
-              "aHSOrc2QtsEjaYxa": {
-                "mode": "variable",
-                "spellLevel": 1,
-                "points": 2,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": true,
-        "level": 1,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "divination",
-          "secondary": [
-            "divine",
-            "senses"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "DycAvyDiAYfwsBD1",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Heal",
-      "type": "spell",
-      "img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
-        }
-      },
-      "system": {
-        "actions": {
-          "XWJ26F7JXKHF8yMo": {
-            "name": "Heal",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "U6bNDrDcAEZ0UYdu": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "rolls": {
-              "J8L7y8BndXrGBe7j": {
-                "defaultSelection": true,
-                "formula": "70",
-                "healingType": "healing",
-                "name": "",
-                "type": "healing",
-                "scaling": {
-                  "mode": "spellLevel",
-                  "formula": "10"
-                }
-              }
-            },
-            "consumers": {
-              "jfElxc8HGrXhyRja": {
-                "mode": "variable",
-                "spellLevel": 6,
-                "points": 9,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 6,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "divine",
-            "healing"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "mbs4DN8rSETunuWk",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Heal",
-      "type": "spell",
-      "img": "icons/magic/life/heart-cross-strong-flame-green.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
-        }
-      },
-      "system": {
-        "actions": {
-          "XWJ26F7JXKHF8yMo": {
-            "name": "Heal",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "U6bNDrDcAEZ0UYdu": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "rolls": {
-              "J8L7y8BndXrGBe7j": {
-                "defaultSelection": true,
-                "formula": "70",
-                "healingType": "healing",
-                "name": "",
-                "type": "healing",
-                "scaling": {
-                  "mode": "spellLevel",
-                  "formula": "10"
-                }
-              }
-            },
-            "consumers": {
-              "jfElxc8HGrXhyRja": {
-                "mode": "variable",
-                "spellLevel": 6,
-                "points": 9,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 6,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "divine",
-            "healing"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "lHT2yjXwL4Vlj75h",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Hold Person",
-      "type": "spell",
-      "img": "icons/magic/control/debuff-chains-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.ztgij3hd5gktogqt"
-        }
-      },
-      "system": {
-        "actions": {
-          "D4D1cBdgTkodRK1D": {
-            "name": "Hold Person",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "minute",
-              "value": "1"
-            },
-            "ranges": {
-              "rmPJFnEeukXjCUNG": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "prompts": {
-              "Npdatp8WDrXifPQc": {
-                "ability": "wis",
-                "onSave": "Negates effect",
-                "saveDC": {
-                  "type": "spellcasting",
-                  "bonus": ""
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {
-              "FDPRrZzlNfwrBCJu": {
-                "mode": "variable",
-                "spellLevel": 2,
-                "points": 3,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 2nd.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": true,
-        "level": 2,
-        "materials": "piece of iron",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "enchantment",
-          "secondary": [
-            "affliction",
-            "arcane"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "@spellDC",
-          "onSave": "Negates effect",
-          "targetAbility": "wis"
-        }
-      },
-      "_id": "0r24ef2HWs1CRBGd",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Zone of Truth",
-      "type": "spell",
-      "img": "icons/magic/symbols/runes-triangle-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.i0o4xqqd86vdkwwu"
-        }
-      },
-      "system": {
-        "actions": {
-          "RX7uW1g9BtTsgwps": {
-            "name": "Zone of Truth",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "minute",
-              "value": "10"
-            },
-            "ranges": {
-              "qjsDrs1DXDvSoRNq": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "consumers": {
-              "e11itXkmsUBqWYFa": {
-                "mode": "variable",
-                "spellLevel": 2,
-                "points": 3,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>You create a zone that minimizes deception. Any creature that is able to be charmed can't speak a deliberate lie while in the area.</p><p>An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. A creature that enters the zone for the first time on its turn or starts its turn there must make a Charisma saving throw. On a failed save, the creature takes 2d4 psychic damage when it intentionally tries to mislead or occlude important information. Each time the spell damages a creature, it makes a Deception check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its saving throw</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 2,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "enchantment",
-          "secondary": [
-            "communication",
-            "compulsion",
-            "law"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "TJTogfLwikfavAio",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Daylight",
-      "type": "spell",
-      "img": "icons/magic/light/beam-strike-orange-gold.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.ew3qtw0gvzelrmgg"
-        }
-      },
-      "system": {
-        "actions": {
-          "AxHjypoPK0igUVLU": {
-            "name": "Daylight",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "hour",
-              "value": "1"
-            },
-            "ranges": {
-              "kwYKtO7uzyc2k5SQ": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "sphere",
-              "radius": "60",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "consumers": {
-              "sJIQQQm7wPAtLgvx": {
-                "mode": "variable",
-                "spellLevel": 3,
-                "points": 5,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>Magical light fills the area. The area is brightly lit and sheds dim light for an additional 60 feet. If any of the area overlaps with magical darkness created by a spell of 3rd-level or lower, the spell that created the darkness is dispelled.</p><p>When cast on an object that is in your possession or unattended, the light shines from it and moves with it. Completely covering the object with something that is not transparent blocks the light.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 3,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "arcane",
-            "divine",
-            "nature"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "fALGVWbj1FSlF0fZ",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Remove Curse",
-      "type": "spell",
-      "img": "icons/magic/symbols/star-inverted-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.l16wg9h1z9s16exb"
-        }
-      },
-      "system": {
-        "actions": {
-          "muINiU1FexJvIEEP": {
-            "name": "Remove Curse",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "lL7aWQlIyHignLSw": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creatureObject"
-            },
-            "consumers": {
-              "r8dQE39kn06BjS5x": {
-                "mode": "variable",
-                "spellLevel": 3,
-                "points": 5,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>This spell ends a curse inflicted with a spell slot of 3rd-level or lower. If the curse was instead inflicted by a feature or trait, the spell ends a curse inflicted by a creature of Challenge Rating 6 or lower. If cast on a cursed object of Rare or lesser rarity, this spell breaks the owner's attunement to the item (although it does not end the curse on the object).</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 3rd, the spell ends a curse inflicted either by a spell one level higher or by a creature with a Challenge Rating two higher. When using a 6th-level spell slot, the spell breaks the owner's attunement to a Very Rare item.</p><p>When using a 9th-level spell slot, the spell breaks the owner's attunement to a Legendary item.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": false
-        },
-        "concentration": false,
-        "level": 3,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "abjuration",
-          "secondary": [
-            "arcane",
-            "divine",
-            "negation"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "VtbL84pf8nk4Vb82",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Revivify",
-      "type": "spell",
-      "img": "icons/magic/life/heart-cross-strong-green.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.0k5zymq9q95l8jwa"
-        }
-      },
-      "system": {
-        "actions": {
-          "JkJW4qH0LTflZxT2": {
-            "name": "Revivify",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "HW3TcVMHSocg6bP6": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "consumers": {
-              "3miwdswkElUMrCxn": {
-                "mode": "variable",
-                "spellLevel": 3,
-                "points": 5,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>The target returns to life with 1 hit point. The spell does not restore any missing body parts and cannot return to life a creature that died of old age.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 3,
-        "materials": "diamonds worth 300 gold, consumed by the spell",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "necromancy",
-          "secondary": [
-            "divine",
-            "healing"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "3StQZk9CBsjpCwcd",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Greater Restoration",
-      "type": "spell",
-      "img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.2fn904xje78xc7de"
-        }
-      },
-      "system": {
-        "actions": {
-          "KGUPgTXH2t97p8lM": {
-            "name": "Greater Restoration",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "apS3wKvUP797ku1n": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "consumers": {
-              "grbuAi6sCpd3xh4D": {
-                "mode": "variable",
-                "spellLevel": 5,
-                "points": 7,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li>a level of fatigue.</li><li>a level of strife.</li><li>a charm or petrification effect.</li><li>a curse or cursed item attunement.</li><li>any reduction to a single ability score.</li><li>an effect that has reduced the target's hit point maximum.</li></ul></p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 5,
-        "materials": "100 gold of diamond dust, consumed by the spell",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "abjuration",
-          "secondary": [
-            "divine",
-            "healing"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "0RrK4qA2fidqUxaK",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Flame Strike",
-      "type": "spell",
-      "img": "icons/magic/fire/beam-jet-stream-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.c2mhqi8hbsck0pdy"
-        }
-      },
-      "system": {
-        "actions": {
-          "YPPkOD7SeVFzpeN4": {
-            "name": "Flame Strike",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "6233HRqX3sXe9C63": {
-                "range": "medium"
-              }
-            },
-            "area": {
-              "shape": "cylinder",
-              "radius": "10",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "rokSzHjKSVZESRRj": {
-                "canCrit": false,
-                "damageType": "fire",
-                "formula": "4d6",
-                "name": "",
-                "type": "damage",
-                "scaling": {
-                  "mode": null,
-                  "formula": "1d6"
-                },
-                "label": "Fire"
-              },
-              "Wq9SeQ4WRZnyyjgi": {
-                "canCrit": false,
-                "damageType": "radiant",
-                "formula": "4d6",
-                "name": "",
-                "type": "damage",
-                "label": "Radiant"
-              },
-              "uYucxxoNH9Ifu8gk": {
-                "type": "damage",
-                "default": true,
-                "canCrit": false,
-                "label": "Upcast",
-                "scaling": {
-                  "mode": "spellLevel",
-                  "formula": "1d6"
-                },
-                "formula": "0"
-              }
-            },
-            "prompts": {
-              "NUrIvPy5hR9xdyLv": {
-                "ability": "dex",
-                "onSave": "Half damage",
-                "saveDC": {
-                  "type": "spellcasting",
-                  "bonus": ""
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {
-              "xKyI3I0xdpQLbOBh": {
-                "mode": "variable",
-                "spellLevel": 5,
-                "points": 7,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 5,
-        "materials": "pinch of sulfur",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "evocation",
-          "secondary": [
-            "divine",
-            "fire"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "@spellDC",
-          "onSave": "Half damage",
-          "targetAbility": "dex"
-        }
-      },
-      "_id": "IAVSkkhcL40AeONS",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Raise Dead",
-      "type": "spell",
-      "img": "icons/magic/death/hand-dirt-undead-zombie.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.9zhsri19dkhm9mcf"
-        }
-      },
-      "system": {
-        "actions": {
-          "aezTN0KTwD4gVIgQ": {
-            "name": "Raise Dead",
-            "activation": {
-              "cost": 1,
-              "type": "hour",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "NPvpvnfXVTUunAHh": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature"
-            },
-            "consumers": {
-              "fbCqyiby6wzQNFNU": {
-                "mode": "variable",
-                "spellLevel": 5,
-                "points": 7,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>You return the target to life, provided its soul is willing and able to return to its body. The creature returns to life with 1 hit point. The spell cannot return an undead creature to life.</p><p>The spell cures any poisons and nonmagical diseases that affected the creature at the time of death. It does not remove any magical diseases, curses, or other magical effects; these must be removed prior to the spell being cast, otherwise they immediately take effect when the creature returns to life.</p><p>The spell does not regrow limbs or organs, and it automatically fails if the target is missing any body parts necessary for life (like its heart or head).</p><p>Being raised from the dead takes a toll on the body, mind, and spirit. The target suffers 3 levels of fatigue and strife. At the conclusion of each long rest, the target removes one level of fatigue and strife until the target completely recovers.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 5,
-        "materials": "diamond worth at least 500 gold, consumed by the spell",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "necromancy",
-          "secondary": [
-            "divine",
-            "healing"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "rdIyj9vMbsjhz3ie",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Divination",
-      "type": "spell",
-      "img": "icons/magic/perception/orb-crystal-ball-scrying.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.bs3wnsid88tbup6c"
-        }
-      },
-      "system": {
-        "actions": {
-          "1Iqhd2x1CUtxUW1Q": {
-            "name": "Divination",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": ""
-            },
-            "ranges": {
-              "l2vCY1jTw48Lw0mU": {
-                "range": "self"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "self"
-            },
-            "consumers": {
-              "4WqjjHwH6zWHQ9Xg": {
-                "mode": "variable",
-                "spellLevel": 4,
-                "points": 6,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>Your offering and magic put you in contact with the higher power you serve or its representatives.</p><p>You ask a single question about something that will (or could) happen in the next 7 days. The Narrator offers a truthful reply, which may be cryptic or even nonverbal as appropriate to the being in question.</p><p>The reply does not account for possible circumstances that could change the outcome, such as making additional precautions.</p><p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 4,
-        "materials": "incense and sacrificial offering worth at least 25 gold appropriate to the higher power, consumed by the spell",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": true,
-        "schools": {
-          "primary": "divination",
-          "secondary": [
-            "communication",
-            "divine",
-            "knowledge"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "AXQeWxGIYrWynAmG",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Guardian of Faith",
-      "type": "spell",
-      "img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
-      "system": {
-        "actions": {
-          "nRvWzSyJWpTiPf2N": {
-            "name": "Cast Spell",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "duration": {
-              "unit": "hour",
-              "value": 8
-            },
-            "ranges": {
-              "9VRc28YBXP02ysPa": {
-                "range": "short"
-              }
-            },
-            "rolls": {
-              "orz8eLbqv1k9Sum1": {
-                "type": "damage",
-                "default": true,
-                "formula": "20",
-                "damageType": "radiant",
-                "canCrit": false
-              }
-            },
-            "prompts": {
-              "49lbuInjSiU0eXmD": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "dex",
-                "saveDC": {
-                  "type": "spellcasting"
-                },
-                "onSave": "Half damage."
-              }
-            }
-          }
-        },
-        "description": "<p>A large spectral guardian appears and hovers for the duration in an unoccupied space of your choice that you can see within range. This guardian occupies that space and is indistinct except for a gleaming sword and sheild emblazoned with the symbol of your deity.</p>\n<p>Any creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn must succeed on a Dexterity saving throw. The creature takes 20 radiant damage on a failed save, or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": false,
-          "material": false
-        },
-        "concentration": false,
-        "level": 4,
-        "materials": "",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "conjuration",
-          "secondary": []
-        }
-      },
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.ch0srltoghg2iu2e"
-        }
-      },
-      "_id": "FmEb2u33jkppPXHp",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    },
-    {
-      "name": "Faithful Hound",
-      "type": "spell",
-      "img": "icons/creatures/mammals/humanoid-wolf-dog-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-spells.oje04eurzq494fzt"
-        }
-      },
-      "system": {
-        "actions": {
-          "0O8q461QaOPgKhOI": {
-            "name": "Faithful Hound",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "hour",
-              "value": "8"
-            },
-            "ranges": {
-              "gpc8X9P4GvRcNLnp": {
-                "range": "short"
-              }
-            },
-            "area": {
-              "shape": "sphere",
-              "radius": "30",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": ""
-            },
-            "rolls": {
-              "QoeA5thPCDagNVBo": {
-                "canCrit": false,
-                "damageType": "piercing",
-                "formula": "4d8",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "consumers": {
-              "yxItTEr61pUJwZSh": {
-                "mode": "variable",
-                "spellLevel": 4,
-                "points": 6,
-                "type": "spell"
-              }
-            }
-          }
-        },
-        "description": "<p>You conjure a phantasmal watchdog. Until the spell ends, the hound remains in the area unless you spend an action to dismiss it or you move more than 100 feet away from it.</p><p>The hound is invisible except to you and can't be harmed. When a Small or larger creature enters the area without speaking a password you specify when casting the spell, the hound starts barking loudly. The hound sees invisible creatures, can see into the Ethereal Plane, and is immune to illusions.</p><p>At the start of each of your turns, the hound makes a bite attack against a hostile creature of your choice that is within the area, using your spell attack bonus and dealing 4d8 piercing damage on a hit.</p>",
-        "favorite": false,
-        "recharge": {
-          "charged": true,
-          "formula": "",
-          "threshold": ""
-        },
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": null,
-          "max": "",
-          "per": null
-        },
-        "components": {
-          "vocalized": true,
-          "seen": true,
-          "material": true
-        },
-        "concentration": false,
-        "level": 4,
-        "materials": "silver whistle, piece of bone, and a thread",
-        "materialsConsumed": false,
-        "prepared": false,
-        "ritual": false,
-        "schools": {
-          "primary": "conjuration",
-          "secondary": [
-            "arcane",
-            "protection",
-            "sound"
-          ]
-        },
-        "ability": "spellcasting",
-        "proficient": true,
-        "save": {
-          "dc": "",
-          "onSave": "",
-          "targetAbility": ""
-        }
-      },
-      "_id": "JmTFuK6b2hsSsKGB",
-      "ownership": {
-        "default": 0
-      },
-      "folder": "BbUxVruynb9EuYXi",
-      "sort": 0
-    }
-  ],
-  "effects": [],
-  "flags": {
-    "a5e": {
-      "availableSpellLevels": [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
-      ],
-      "showSpellSlots": true,
-      "showSpellPoints": false
-    },
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-monsters.fcgzppxbs7bft8ly"
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 14,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 12,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 18,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 16,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "value": 0,
-        "proficient": true,
-        "specialties": [],
-        "expertiseDice": 3,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "value": 0,
-        "proficient": false,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "0": {
-          "current": 0,
-          "max": 0
-        },
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": 18,
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 82,
-        "baseMax": 82,
-        "temp": "",
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 11,
-          "total": 11
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 0,
-          "total": 0
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 30,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "darkvision": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": 0,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "wis",
-      "casterLevel": 11
-    },
-    "bonuses": {
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": ""
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "<h2><strong>DESCRIPTION</strong></h2><p>High priests lead major temples and shrines. Their ability to command angelic forces and return the dead to life make them important political players, whether they seek that role or not. Good high priests protect communities or battle fiends, while evil high priests seek empire or secretly command legions of cultists.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p><em>Desert, Hills, Settlement, Temple</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 0–2</strong> 1d4 acolytes; priest; warhordling orc eye; trickster priest; acolyte with 1d4 commoners</p><p><strong>Treasure</strong> 10 gp, silver ring etched with holy symbol (25 gp), 3x <em>potions of healing</em></p><p></p><p><strong>CR 3–4</strong> 2 priests; priest with 1d4 acolytes; priest with 1d8 commoners or 1d4 guards; warhordling orc eye with 1d4 warhordling orc warriors; trickster priest with cutthroat or 1d6 bandits</p><p><strong>Treasure</strong> 50 gp, fine vestments (100 gp), 3x prayer books (25 gp each), <em>staff of the python</em></p><p></p><p><strong>CR 5–10</strong> high priest with 1d8 acolytes, 1d6 cultists, or 2 priests; high priest with bearded devil, elemental, knight, or walking statue; priest with 2 knights or 1d8 soldiers; shadow elf high priest with 1d8 shadow elf warriors</p><p><strong>Treasure</strong> 200 gp, garnet-topped staff (150 gp), 3x rare holy books (200 gp each), 2x <em>potions of superior healing</em>, <em>pearl of power</em></p><p></p><p><strong>CR 11–16</strong> archpriest; high priest with holy knight and 4 soldiers; high priest with bone devil, clay guardian, deva, or forgotten god; shadow elf high priest with shadow elf champion warrior and 1d20 shadow elf warriors</p><p><strong>Treasure</strong> gold-plated treasure box (200 gp) containing 1,000 gp and 4x tourmaline gemstones (100 gp each), gold holy symbol (250 gp), 2x <em>spell scrolls </em>of<em> greater restoration</em>, <em>ring of protection</em></p><p></p><p><strong>CR 17–22</strong> archpriest with couatl, elemental, or holy knight; archpriest with 2 knights or priests; shadow elf high priest with shadow elf mage and 1 or 2 shadow elf champion warriors</p><p><strong>Treasure</strong> 500 pp, only existing copy of a holy book (5,000 gp), <em>spell scroll</em> of <em>create undead</em> or <em>conjure celestial</em>, <em>candle of invocation</em>, <em>staff of healing</em></p><p></p><p><strong>CR 23–30</strong> archpriest with holy knight and 3 knights; archpriest with high priest and 3 priests; archpriest with clay guardian, deva, or guardian naga</p><p><strong>Treasure</strong> 2,000 gp, gold chalice (2,500 gp), gold-and-diamond holy symbol (7,500 gp), gem prayer beads (10,000 gp), holy relic (10,000 gp), 2x <em>potions of supreme healing</em>, <em>Ioun stone of insight</em>, <em>ring of spell turning</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-      "creatureTypes": [
-        "humanoid"
-      ],
-      "isSwarm": false,
-      "cr": 6,
-      "elite": false,
-      "privateNotes": ""
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "Any Three"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": 0,
-        "per": "",
-        "hideMax": false
-      }
-    },
-    "traits": {
-      "size": "med",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": []
-    },
-    "target": {}
-  },
-  "prototypeToken": {
-    "name": "Priest",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 1,
-    "height": 1,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "icons/commodities/treasure/token-gold-cross.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": []
-  },
-  "_id": "fcgzppxbs7bft8ly"
+	"name": "High Priest",
+	"type": "npc",
+	"img": "icons/containers/kitchenware/goblet-gold-red.webp",
+	"items": [
+		{
+			"_id": "IncQD5UDfjsZy9f8",
+			"name": "Full Plate (Steel)",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-collared-steel.webp",
+			"effects": [],
+			"folder": "onWLSm6zKf7dUEaj",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.WuSjw9GdBboMdzBG"
+				}
+			},
+			"system": {
+				"actions": {},
+				"description": "<p><em>Low-Maintenance (Expertise Die), Requires STR 15, Stealth (Disadvantage)</em></p><p>AC 18</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "heavy",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": true,
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "1,500 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 55,
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "hHOieBzdcdIzdMoz",
+			"name": "Mace",
+			"type": "object",
+			"img": "icons/weapons/maces/mace-flanged-steel.webp",
+			"effects": [],
+			"folder": "scTHNERGpFOFnSlD",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.world.weapons.Qq1ZRhuGer3t9co6"
+				}
+			},
+			"system": {
+				"actions": {
+					"3rmo50YTHW94q7d7": {
+						"name": "Mace",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"7yYDb4IJZ14RRpJQ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"GT28XxEZa9jvkfDI": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d6 + @str.mod",
+								"name": "Mace",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p><em>Defensive (Medium), Simple</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "5 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"simple"
+				],
+				"weight": 4,
+				"ability": "default",
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "J0sOitZIwskfBntN",
+			"name": "Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The priest is an 11th level spellcaster. Their spellcasting ability is Wisdom (spell save DC 15, +7 to hit with spell attacks). They have the following cleric spells prepared:</p><p style=\"text-align: start\">Cantrips (at will): <em>light</em>,<em> sacred flame</em>,<em> thaumaturgy</em></p><p style=\"text-align: start\">1st-level (4 slots): <em>ceremony</em>,<em> detect evil and good</em>,<em> healing word</em></p><p style=\"text-align: start\">2nd-level (3 slots): <em>augury</em>, <em>hold person</em>,<em> zone of truth</em></p><p style=\"text-align: start\">3rd-level (3 slots): <em>daylight</em>,<em> remove curse</em></p><p style=\"text-align: start\">4th-level (3 slots): <em>divination</em>, <em>guardian of faith</em>, <em>revivify</em></p><p style=\"text-align: start\">5th-level (2 slots): <em>flame strike</em>, <em>greater restoration</em>, <em>raise dead</em></p><p style=\"text-align: start\">6th-level (1 slots): <em>heal</em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"featureType": "",
+				"prerequisite": "",
+				"ability": "",
+				"actionOptions": [],
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"attack": {
+					"bonus": "",
+					"critThreshold": 20,
+					"type": ""
+				},
+				"area": {
+					"shape": "",
+					"size": ""
+				},
+				"check": {
+					"ability": "str"
+				},
+				"damage": [],
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"healing": [],
+				"proficient": true,
+				"range": [],
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"actions": {
+					"ZU3XslGJjospQH4T": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"9GcmWcsIbjrw55PL": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"pftHGe195JKnBc6F": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"JpfInhjJdEckeOM3": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "WNveK0v06tnYkQhR"
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"actions": {
+					"hXhEq14e0q4b4qiT": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"wLhNKqdBaRfgBi5j": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"HezjQgBdTnsrOW4u": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"jgaey3y9DAElz73h": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"ability": "str",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "PW90iMQPv2vAOhlZ"
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"actions": {
+					"iYB8JN9airpHJRJx": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"o3rZF7qVPuAUs7LS": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"Y5DQDBkRi7NNUVjz": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "TZI2Y49HqfjKIkXK"
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"actions": {
+					"LUJZkyb2F0J6uPzF": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"j0Ss2cAonhhgNf3T": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"h53gEfyvpoETxMyQ": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "lkcCCz6IyxFuaSHN"
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"actions": {
+					"RieUk7YNpNWBnNgd": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"WGPJ3wP7aVUhCHL4": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"7Rwdh6BObZ5aT8ll": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "OOZPDzAVIbdAqXRe"
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"actions": {
+					"VrTvRGNMiBsT5lg7": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"sT7680BDyIAQ7OgQ": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"V0zpPP9mAQbl3Dnc": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"ability": "",
+				"proficient": true,
+				"save": {
+					"dc": "@maneuverDC",
+					"onSave": "",
+					"targetAbility": "str"
+				}
+			},
+			"ownership": {
+				"default": 0
+			},
+			"folder": null,
+			"sort": 0,
+			"_id": "Mthy4gsTiLa36ao1"
+		},
+		{
+			"name": "Light",
+			"type": "spell",
+			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bqavvq6ju5ti8hr3"
+				}
+			},
+			"system": {
+				"actions": {
+					"YTmdniTcmdDpTVjH": {
+						"name": "Light",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"TIPSpMWAXd08fVFw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "object"
+						},
+						"prompts": {
+							"iNdLjPQnkpNnSZxC": {
+								"ability": "dex",
+								"onSave": "Negates for object held or worn by hostile creature",
+								"saveDC": {
+									"type": "custom",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>Until the spell ends, the target emits bright light in a 20-foot radius and dim light an additional 20 feet. Light emanating from the target may be any color. Completely covering the target with something that is not transparent blocks the light. The spell ends when you use an action to dismiss it or if you cast it again.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "small tinder box",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"utility"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "Negates for object held or worn by hostile creature",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "TNnD6uLzxbymUUEv",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Sacred Flame",
+			"type": "spell",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"system": {
+				"actions": {
+					"GRovtgPMBRtWUICh": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"SXFYtkwUpfIHcCkZ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"L1nL06P1tAgjXyw7": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"defaultSelection": true,
+								"formula": "1d8",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": "cantrip",
+									"formula": "1d8"
+								}
+							}
+						},
+						"prompts": {
+							"F19vETbdh2bsjnOg": {
+								"ability": "dex",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>As long as you can see the target (even if it has cover) radiant holy flame envelops it, dealing 1d8 radiant damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"attack",
+						"divine",
+						"radiant"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "dex"
+				}
+			},
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.tvtm60k5wxyki9qc"
+				}
+			},
+			"_id": "MWx9NTJBg5Z1N9c1",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Thaumaturgy",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-triangle-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.eiek2vbzwijd0qac"
+				}
+			},
+			"system": {
+				"actions": {
+					"C81Tjb3bGFMAmLth": {
+						"name": "Thaumaturgy",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"Qkcopjbm7HCEhXJl": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:</p><ul><li>Your voice booms up to three times louder than normal</li><li>You cause flames to flicker, brighten, dim, or change color</li><li>You send harmless tremors throughout the ground.</li><li>You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.</li><li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li><li>You alter the appearance of your eyes.</li></ul><p>Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 0,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"divine",
+						"enhancement"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "nuW5szOSvqy36wAN",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Augury",
+			"type": "spell",
+			"img": "icons/sundries/gaming/dice-runed-brown.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.qsa7b22n3y1pbzf6"
+				}
+			},
+			"system": {
+				"actions": {
+					"XIV22O1RFIOcyrMN": {
+						"name": "Augury",
+						"activation": {
+							"cost": 1,
+							"type": "minute",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"yx16o4KTfoQobkxy": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"tVhkY6UcDpf5TFcy": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li>Fortunate omen (good results)</li><li>Calamity omen (bad results)</li><li>Ambivalence omen (both good and bad results)</li><li>No omen (results that aren't especially good or bad)</li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations.<p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "divinatory items worth at least 25 gold",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"communication",
+						"divine",
+						"scrying"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "st52UDXLC0AvJDkZ",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Ceremony",
+			"type": "spell",
+			"img": "icons/commodities/treasure/token-gold-cross.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bq5bki8n1gfhrqz1"
+				}
+			},
+			"system": {
+				"actions": {
+					"cBo77Vw7V3BeIdsm": {
+						"name": "Ceremony",
+						"activation": {
+							"cost": 1,
+							"type": "hour",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"w9OTwZI36lonAMVy": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"eMwZZlceSbL9vZGr": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "25 gold worth of incense, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "7Xy5iU3EAe6AUC7h",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Detect Evil and Good",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.jlqrjd03lyl8zb3c"
+				}
+			},
+			"system": {
+				"actions": {
+					"G0DcVgQdfe1ColYJ": {
+						"name": "Detect Evil and Good",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"MypYiO8SB0olt3xP": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"aHSOrc2QtsEjaYxa": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"divine",
+						"senses"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "DycAvyDiAYfwsBD1",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Heal",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
+				}
+			},
+			"system": {
+				"actions": {
+					"XWJ26F7JXKHF8yMo": {
+						"name": "Heal",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"U6bNDrDcAEZ0UYdu": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"J8L7y8BndXrGBe7j": {
+								"defaultSelection": true,
+								"formula": "70",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "10"
+								}
+							}
+						},
+						"consumers": {
+							"jfElxc8HGrXhyRja": {
+								"mode": "variable",
+								"spellLevel": 6,
+								"points": 9,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "mbs4DN8rSETunuWk",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Heal",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.i4869qu4aokvlvxr"
+				}
+			},
+			"system": {
+				"actions": {
+					"XWJ26F7JXKHF8yMo": {
+						"name": "Heal",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"U6bNDrDcAEZ0UYdu": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"rolls": {
+							"J8L7y8BndXrGBe7j": {
+								"defaultSelection": true,
+								"formula": "70",
+								"healingType": "healing",
+								"name": "",
+								"type": "healing",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "10"
+								}
+							}
+						},
+						"consumers": {
+							"jfElxc8HGrXhyRja": {
+								"mode": "variable",
+								"spellLevel": 6,
+								"points": 9,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A torrent of healing energy suffuses the target and it regains 70 hit points. The spell also ends blindness, deafness, and any diseases afflicting the target.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 10 for each slot level above 6th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 6,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "lHT2yjXwL4Vlj75h",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Hold Person",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-chains-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ztgij3hd5gktogqt"
+				}
+			},
+			"system": {
+				"actions": {
+					"D4D1cBdgTkodRK1D": {
+						"name": "Hold Person",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"rmPJFnEeukXjCUNG": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"prompts": {
+							"Npdatp8WDrXifPQc": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"FDPRrZzlNfwrBCJu": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 2nd.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "piece of iron",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Negates effect",
+					"targetAbility": "wis"
+				}
+			},
+			"_id": "0r24ef2HWs1CRBGd",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Zone of Truth",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-triangle-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.i0o4xqqd86vdkwwu"
+				}
+			},
+			"system": {
+				"actions": {
+					"RX7uW1g9BtTsgwps": {
+						"name": "Zone of Truth",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"qjsDrs1DXDvSoRNq": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"e11itXkmsUBqWYFa": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You create a zone that minimizes deception. Any creature that is able to be charmed can't speak a deliberate lie while in the area.</p><p>An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. A creature that enters the zone for the first time on its turn or starts its turn there must make a Charisma saving throw. On a failed save, the creature takes 2d4 psychic damage when it intentionally tries to mislead or occlude important information. Each time the spell damages a creature, it makes a Deception check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its saving throw</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"communication",
+						"compulsion",
+						"law"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "TJTogfLwikfavAio",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Daylight",
+			"type": "spell",
+			"img": "icons/magic/light/beam-strike-orange-gold.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ew3qtw0gvzelrmgg"
+				}
+			},
+			"system": {
+				"actions": {
+					"AxHjypoPK0igUVLU": {
+						"name": "Daylight",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"kwYKtO7uzyc2k5SQ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "60",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"sJIQQQm7wPAtLgvx": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Magical light fills the area. The area is brightly lit and sheds dim light for an additional 60 feet. If any of the area overlaps with magical darkness created by a spell of 3rd-level or lower, the spell that created the darkness is dispelled.</p><p>When cast on an object that is in your possession or unattended, the light shines from it and moves with it. Completely covering the object with something that is not transparent blocks the light.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "fALGVWbj1FSlF0fZ",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Remove Curse",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-inverted-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.l16wg9h1z9s16exb"
+				}
+			},
+			"system": {
+				"actions": {
+					"muINiU1FexJvIEEP": {
+						"name": "Remove Curse",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"lL7aWQlIyHignLSw": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creatureObject"
+						},
+						"consumers": {
+							"r8dQE39kn06BjS5x": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>This spell ends a curse inflicted with a spell slot of 3rd-level or lower. If the curse was instead inflicted by a feature or trait, the spell ends a curse inflicted by a creature of Challenge Rating 6 or lower. If cast on a cursed object of Rare or lesser rarity, this spell breaks the owner's attunement to the item (although it does not end the curse on the object).</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 3rd, the spell ends a curse inflicted either by a spell one level higher or by a creature with a Challenge Rating two higher. When using a 6th-level spell slot, the spell breaks the owner's attunement to a Very Rare item.</p><p>When using a 9th-level spell slot, the spell breaks the owner's attunement to a Legendary item.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"arcane",
+						"divine",
+						"negation"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "VtbL84pf8nk4Vb82",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Revivify",
+			"type": "spell",
+			"img": "icons/magic/life/heart-cross-strong-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.0k5zymq9q95l8jwa"
+				}
+			},
+			"system": {
+				"actions": {
+					"JkJW4qH0LTflZxT2": {
+						"name": "Revivify",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"HW3TcVMHSocg6bP6": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"3miwdswkElUMrCxn": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>The target returns to life with 1 hit point. The spell does not restore any missing body parts and cannot return to life a creature that died of old age.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "diamonds worth 300 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "3StQZk9CBsjpCwcd",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Greater Restoration",
+			"type": "spell",
+			"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.2fn904xje78xc7de"
+				}
+			},
+			"system": {
+				"actions": {
+					"KGUPgTXH2t97p8lM": {
+						"name": "Greater Restoration",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"apS3wKvUP797ku1n": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"grbuAi6sCpd3xh4D": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Healing energy rejuvenates a creature you touch and undoes a debilitating effect. You can remove one of:</p><ul><li>a level of fatigue.</li><li>a level of strife.</li><li>a charm or petrification effect.</li><li>a curse or cursed item attunement.</li><li>any reduction to a single ability score.</li><li>an effect that has reduced the target's hit point maximum.</li></ul></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "100 gold of diamond dust, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "abjuration",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "0RrK4qA2fidqUxaK",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Flame Strike",
+			"type": "spell",
+			"img": "icons/magic/fire/beam-jet-stream-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.c2mhqi8hbsck0pdy"
+				}
+			},
+			"system": {
+				"actions": {
+					"YPPkOD7SeVFzpeN4": {
+						"name": "Flame Strike",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"6233HRqX3sXe9C63": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "cylinder",
+							"radius": "10",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"rokSzHjKSVZESRRj": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "4d6",
+								"name": "",
+								"type": "damage",
+								"scaling": {
+									"mode": null,
+									"formula": "1d6"
+								},
+								"label": "Fire"
+							},
+							"Wq9SeQ4WRZnyyjgi": {
+								"canCrit": false,
+								"damageType": "radiant",
+								"formula": "4d6",
+								"name": "",
+								"type": "damage",
+								"label": "Radiant"
+							},
+							"uYucxxoNH9Ifu8gk": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"label": "Upcast",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d6"
+								},
+								"formula": "0"
+							}
+						},
+						"prompts": {
+							"NUrIvPy5hR9xdyLv": {
+								"ability": "dex",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"xKyI3I0xdpQLbOBh": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>A column of divine flame deals 4d6 fire damage and 4d6 radiant damage to creatures in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Increase either the fire damage or the radiant damage by 1d6 for each slot level above 5th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "pinch of sulfur",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"divine",
+						"fire"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "@spellDC",
+					"onSave": "Half damage",
+					"targetAbility": "dex"
+				}
+			},
+			"_id": "IAVSkkhcL40AeONS",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Raise Dead",
+			"type": "spell",
+			"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.9zhsri19dkhm9mcf"
+				}
+			},
+			"system": {
+				"actions": {
+					"aezTN0KTwD4gVIgQ": {
+						"name": "Raise Dead",
+						"activation": {
+							"cost": 1,
+							"type": "hour",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"NPvpvnfXVTUunAHh": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature"
+						},
+						"consumers": {
+							"fbCqyiby6wzQNFNU": {
+								"mode": "variable",
+								"spellLevel": 5,
+								"points": 7,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You return the target to life, provided its soul is willing and able to return to its body. The creature returns to life with 1 hit point. The spell cannot return an undead creature to life.</p><p>The spell cures any poisons and nonmagical diseases that affected the creature at the time of death. It does not remove any magical diseases, curses, or other magical effects; these must be removed prior to the spell being cast, otherwise they immediately take effect when the creature returns to life.</p><p>The spell does not regrow limbs or organs, and it automatically fails if the target is missing any body parts necessary for life (like its heart or head).</p><p>Being raised from the dead takes a toll on the body, mind, and spirit. The target suffers 3 levels of fatigue and strife. At the conclusion of each long rest, the target removes one level of fatigue and strife until the target completely recovers.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 5,
+				"materials": "diamond worth at least 500 gold, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "necromancy",
+					"secondary": [
+						"divine",
+						"healing"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "rdIyj9vMbsjhz3ie",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Divination",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.bs3wnsid88tbup6c"
+				}
+			},
+			"system": {
+				"actions": {
+					"1Iqhd2x1CUtxUW1Q": {
+						"name": "Divination",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"l2vCY1jTw48Lw0mU": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"consumers": {
+							"4WqjjHwH6zWHQ9Xg": {
+								"mode": "variable",
+								"spellLevel": 4,
+								"points": 6,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Your offering and magic put you in contact with the higher power you serve or its representatives.</p><p>You ask a single question about something that will (or could) happen in the next 7 days. The Narrator offers a truthful reply, which may be cryptic or even nonverbal as appropriate to the being in question.</p><p>The reply does not account for possible circumstances that could change the outcome, such as making additional precautions.</p><p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "incense and sacrificial offering worth at least 25 gold appropriate to the higher power, consumed by the spell",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"communication",
+						"divine",
+						"knowledge"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "AXQeWxGIYrWynAmG",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Guardian of Faith",
+			"type": "spell",
+			"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"system": {
+				"actions": {
+					"nRvWzSyJWpTiPf2N": {
+						"name": "Cast Spell",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"duration": {
+							"unit": "hour",
+							"value": 8
+						},
+						"ranges": {
+							"9VRc28YBXP02ysPa": {
+								"range": "short"
+							}
+						},
+						"rolls": {
+							"orz8eLbqv1k9Sum1": {
+								"type": "damage",
+								"default": true,
+								"formula": "20",
+								"damageType": "radiant",
+								"canCrit": false
+							}
+						},
+						"prompts": {
+							"49lbuInjSiU0eXmD": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Half damage."
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>A large spectral guardian appears and hovers for the duration in an unoccupied space of your choice that you can see within range. This guardian occupies that space and is indistinct except for a gleaming sword and sheild emblazoned with the symbol of your deity.</p>\n<p>Any creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn must succeed on a Dexterity saving throw. The creature takes 20 radiant damage on a failed save, or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": []
+				}
+			},
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.ch0srltoghg2iu2e"
+				}
+			},
+			"_id": "FmEb2u33jkppPXHp",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		},
+		{
+			"name": "Faithful Hound",
+			"type": "spell",
+			"img": "icons/creatures/mammals/humanoid-wolf-dog-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.oje04eurzq494fzt"
+				}
+			},
+			"system": {
+				"actions": {
+					"0O8q461QaOPgKhOI": {
+						"name": "Faithful Hound",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "8"
+						},
+						"ranges": {
+							"gpc8X9P4GvRcNLnp": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "30",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"QoeA5thPCDagNVBo": {
+								"canCrit": false,
+								"damageType": "piercing",
+								"formula": "4d8",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"yxItTEr61pUJwZSh": {
+								"mode": "variable",
+								"spellLevel": 4,
+								"points": 6,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>You conjure a phantasmal watchdog. Until the spell ends, the hound remains in the area unless you spend an action to dismiss it or you move more than 100 feet away from it.</p><p>The hound is invisible except to you and can't be harmed. When a Small or larger creature enters the area without speaking a password you specify when casting the spell, the hound starts barking loudly. The hound sees invisible creatures, can see into the Ethereal Plane, and is immune to illusions.</p><p>At the start of each of your turns, the hound makes a bite attack against a hostile creature of your choice that is within the area, using your spell attack bonus and dealing 4d8 piercing damage on a hit.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 4,
+				"materials": "silver whistle, piece of bone, and a thread",
+				"materialsConsumed": false,
+				"prepared": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane",
+						"protection",
+						"sound"
+					]
+				},
+				"ability": "spellcasting",
+				"proficient": true,
+				"save": {
+					"dc": "",
+					"onSave": "",
+					"targetAbility": ""
+				}
+			},
+			"_id": "JmTFuK6b2hsSsKGB",
+			"ownership": {
+				"default": 0
+			},
+			"folder": "BbUxVruynb9EuYXi",
+			"sort": 0
+		}
+	],
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"availableSpellLevels": [
+				"0",
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6"
+			],
+			"showSpellSlots": true,
+			"showSpellPoints": false
+		},
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-monsters.fcgzppxbs7bft8ly"
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 14,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 12,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 16,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"value": 0,
+				"proficient": true,
+				"specialties": [],
+				"expertiseDice": 3,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"value": 0,
+				"proficient": false,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"0": {
+					"current": 0,
+					"max": 0
+				},
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": 18,
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 82,
+				"baseMax": 82,
+				"temp": "",
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 11,
+					"total": 11
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"darkvision": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "wis",
+			"casterLevel": 11
+		},
+		"bonuses": {
+			"abilities": {
+				"check": "",
+				"save": "",
+				"skill": ""
+			},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": ""
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "<h2><strong>DESCRIPTION</strong></h2><p>High priests lead major temples and shrines. Their ability to command angelic forces and return the dead to life make them important political players, whether they seek that role or not. Good high priests protect communities or battle fiends, while evil high priests seek empire or secretly command legions of cultists.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>TERRAIN</strong></h2><p><em>Desert, Hills, Settlement, Temple</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>CR 0–2</strong> 1d4 acolytes; priest; warhordling orc eye; trickster priest; acolyte with 1d4 commoners</p><p><strong>Treasure</strong> 10 gp, silver ring etched with holy symbol (25 gp), 3x <em>potions of healing</em></p><p></p><p><strong>CR 3–4</strong> 2 priests; priest with 1d4 acolytes; priest with 1d8 commoners or 1d4 guards; warhordling orc eye with 1d4 warhordling orc warriors; trickster priest with cutthroat or 1d6 bandits</p><p><strong>Treasure</strong> 50 gp, fine vestments (100 gp), 3x prayer books (25 gp each), <em>staff of the python</em></p><p></p><p><strong>CR 5–10</strong> high priest with 1d8 acolytes, 1d6 cultists, or 2 priests; high priest with bearded devil, elemental, knight, or walking statue; priest with 2 knights or 1d8 soldiers; shadow elf high priest with 1d8 shadow elf warriors</p><p><strong>Treasure</strong> 200 gp, garnet-topped staff (150 gp), 3x rare holy books (200 gp each), 2x <em>potions of superior healing</em>, <em>pearl of power</em></p><p></p><p><strong>CR 11–16</strong> archpriest; high priest with holy knight and 4 soldiers; high priest with bone devil, clay guardian, deva, or forgotten god; shadow elf high priest with shadow elf champion warrior and 1d20 shadow elf warriors</p><p><strong>Treasure</strong> gold-plated treasure box (200 gp) containing 1,000 gp and 4x tourmaline gemstones (100 gp each), gold holy symbol (250 gp), 2x <em>spell scrolls </em>of<em> greater restoration</em>, <em>ring of protection</em></p><p></p><p><strong>CR 17–22</strong> archpriest with couatl, elemental, or holy knight; archpriest with 2 knights or priests; shadow elf high priest with shadow elf mage and 1 or 2 shadow elf champion warriors</p><p><strong>Treasure</strong> 500 pp, only existing copy of a holy book (5,000 gp), <em>spell scroll</em> of <em>create undead</em> or <em>conjure celestial</em>, <em>candle of invocation</em>, <em>staff of healing</em></p><p></p><p><strong>CR 23–30</strong> archpriest with holy knight and 3 knights; archpriest with high priest and 3 priests; archpriest with clay guardian, deva, or guardian naga</p><p><strong>Treasure</strong> 2,000 gp, gold chalice (2,500 gp), gold-and-diamond holy symbol (7,500 gp), gem prayer beads (10,000 gp), holy relic (10,000 gp), 2x <em>potions of supreme healing</em>, <em>Ioun stone of insight</em>, <em>ring of spell turning</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical—a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"isSwarm": false,
+			"cr": 6,
+			"elite": false,
+			"privateNotes": ""
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"Any Three"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": 0,
+				"per": "",
+				"hideMax": false
+			}
+		},
+		"traits": {
+			"size": "med",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"target": {}
+	},
+	"prototypeToken": {
+		"name": "Priest",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 1,
+		"height": 1,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "icons/commodities/treasure/token-gold-cross.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": []
+	},
+	"_id": "fcgzppxbs7bft8ly"
 }

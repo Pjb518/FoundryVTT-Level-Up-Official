@@ -35,7 +35,8 @@
 						"ability": "dex",
 						"type": "abilityCheck"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This miniature bead is covered with hundreds of small hooks. When you use an action to place it on a creature’s clothing or hide, the bead hangs there imperceptibly and creates a bond between you and the creature. You gain an expertise die on checks made to track the creature while the bead remains on it.</p><p>To place the bead during combat without being noticed, you must succeed on a Dexterity (Sleight of Hand) check against the creature’s maneuver DC (or when outside of combat, the creature’s passive Perception).</p>",
@@ -45,7 +46,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -63,6 +78,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

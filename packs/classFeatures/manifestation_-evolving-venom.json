@@ -43,7 +43,8 @@
 						"name": "Ongoing poison",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you cast a spell that deals poison damage, you can spend 1 sorcery point and choose one creature you can see. If the target creature takes poison damage from the spell, it takes [[/r 2d6 #ongoing poison]] ongoing poison damage for 1 minute or until a creature uses an action to treat the victim (requiring a Medicine check against your spell save DC).</p>",
@@ -53,7 +54,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

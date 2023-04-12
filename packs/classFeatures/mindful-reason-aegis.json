@@ -32,7 +32,8 @@
 						"name": "Saving throw bonus",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you would fail an Intelligence or Wisdom saving throw , you can use your reaction to roll [[/r 1d4]] and add it to your saving throw. You know how much the roll failed by before deciding whether to use this aegis.</p>",
@@ -42,7 +43,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

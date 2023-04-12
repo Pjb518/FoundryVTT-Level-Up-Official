@@ -38,7 +38,8 @@
 						"name": "Master of Poisons",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Starting at 3rd level, you learn the recipe for a special injury poison called Blackblade. During a short or long rest, you can use your poisoner’s kit to brew a number of doses of this poison equal to your proficiency bonus without spending money or resources doing so. These poisons lose their effectiveness at the start of your next short or long rest. </p><p>This poison can be applied to a weapon or piece of ammunition before combat or as a Cunning Action. The first time a poisoned weapon or ammunition deals damage, it deals an additional 3d6 poison damage.</p>",
@@ -48,7 +49,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

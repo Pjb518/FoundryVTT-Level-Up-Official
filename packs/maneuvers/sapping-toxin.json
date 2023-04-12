@@ -53,7 +53,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You expend a dose of basic poison to splash a creature with a toxin that saps its energy. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or take 1d4 poison damage and gain a level of fatigue. If this would result in the creature having levels of fatigue that exceed your proficiency bonus the creature is rattled until the end of your next turn instead.</p>",
@@ -63,7 +64,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 1,
 		"exertionCost": 1,

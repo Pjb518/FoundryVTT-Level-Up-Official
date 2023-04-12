@@ -36,7 +36,8 @@
 					"type": "self",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>With a bit of effort as an opponent strikes at you, you can knock the blow away and divert the attack.</p><p>When a creature hits you with a weapon attack, you can use your reaction to reduce the attack's damage by a number of d6 equal to your proficiency bonus.</p><p>If this maneuver reduces the damage to 0, the attack becomes a miss.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 1,

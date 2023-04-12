@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>While wearing this cloak, you gain advantage on Dexterity (Stealth) checks. In addition, while in an area of dim light or darkness, you gain the following benefits:</p><p>• A fly speed of 40 feet while gripping the edges of the cloak with both hands. </p><p>• Once between long rests you can use an action to cast <em>polymorph</em> on yourself, transforming into a bat. Unlike normal, you retain your Intelligence, Wisdom, and Charisma scores.</p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

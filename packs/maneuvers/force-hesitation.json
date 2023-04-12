@@ -47,7 +47,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>After working your way into an opponent's guard you convince them that every step will lead to a disastrous end, and that to divert their attention away from you for even a moment invites devastation.</p><p>A creature within your reach makes an Intelligence saving throw. On a failure, it reacts to a strike from you that never comes. As long as you remain within the target's reach, until the start of your next turn it cannot attack any creature other than you.</p><p>After you have used this maneuver against a creature, until the end of combat it has advantage on saving throws against Force Hesitation.</p>",
@@ -57,7 +58,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 2,
 		"exertionCost": 2,

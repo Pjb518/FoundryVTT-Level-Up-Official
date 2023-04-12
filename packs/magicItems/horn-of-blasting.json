@@ -54,7 +54,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You can use an action to speak the horn’s command word and blow it, emitting a thunderous blast in a 30-foot cone that is audible 600 feet away. Each creature in the area makes a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half damage and isn’t deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw and take double damage. </p><p>Each use of the horn’s magic has a 20% chance of making it explode, dealing 10d6 fire damage to you and destroying it.</p>",
@@ -64,7 +65,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -82,6 +97,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

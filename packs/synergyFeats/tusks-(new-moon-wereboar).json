@@ -57,7 +57,8 @@
 						"name": "Deadly Tusks",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You gain tusk natural weapons you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your tusks. On a hit, your tusks deal slashing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
@@ -67,7 +68,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "naturalWeapon",
 		"prerequisite": "",

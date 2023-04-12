@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This small neat box contains 1d12 glowing vials. You can use an action to remove a vial and smash it to the ground, creating a randomly determined effect from the Box of Party Tricks table.</p><p><strong>Table: Box of Party Tricks Effects (d8)</strong></p><p>1 - A small bonfire appears in the nearest unoccupied 5-foot cube and remains for 1 minute. All other sources of flame within 50 feet double in brightness.</p><p>2 - For the next minute you gain +1 bonus to ability checks, attack rolls, damage rolls, and saving throws using Strength.</p><p>3 - You summon a small, fiercely loyal armored weasel into your service (with 7 hit points and Armor Class 14 thanks to its miniature mithral outfit) that obeys only your commands.</p><p>4 - A metal ball appears floating in your space and remains there until you say the command word, making it slam into the nearest hostile creature to deal 3d6 bludgeoning damage before disappearing.</p><p>5 - For the next 1d6 hours your voice becomes higher by an octave.</p><p>6 - Until the next dawn you leave a trail of wildflowers wherever you walk.</p><p>7 - A pair of boots of elvenkind appear in the nearest unoccupied square. After this effect has appeared once, any further results of 7 are rerolled.</p><p>8 - All hostile creatures in a 30-foot radius are ensnared by ice. An ensnared creature is grappled until it uses an action to make a DC 16 Strength check to break out.</p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

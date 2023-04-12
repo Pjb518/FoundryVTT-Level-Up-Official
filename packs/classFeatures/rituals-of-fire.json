@@ -38,7 +38,8 @@
 						"name": "Fire snuffed while Dream",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Also at 2nd level, you can peer into flames to learn of what lies ahead. By spending 10 minutes meditating while staring into a flame that fills at least a 5-foot cube, you can cast augury without spending any spell slots. </p><p>At 6th level, by burning an object with a connection to a creature and spending 10 minutes in meditation, you can cast locate creature in this way. </p><p>At 10th level, by creating a fire large enough to fully immerse yourself in and stepping into it (taking no damage), you can cast dream, with yourself as the messenger. If the fire goes out before you end the spell, you take 4d6 psychic damage and the spell ends. After casting it in this way, you cannot do so again until you finish a short or long rest.</p>",
@@ -48,7 +49,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

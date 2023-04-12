@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. When you score a critical hit, the target is deafened for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell it must make a Constitution saving throw in order to do so successfully. The DC equals 10 or half the damage the creature took from the attack that inflicted the condition, whichever number is higher.</p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

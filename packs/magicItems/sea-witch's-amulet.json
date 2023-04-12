@@ -45,7 +45,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Wondrous</em></p><hr class=\"a5e-rule u-my-md\"><p>This locket was dredged from the remains of a long-dead sea monster.</p><p>The amulet has 3 charges.</p><p>While wearing this strange oyster-shaped pendant, you can use an action to expend a charge and choose one creature within 30 feet that is laughing, singing, or speaking. The target makes a DC 15 Wisdom saving throw or you steal its voice.</p><p>As long as you are wearing the amulet, you can speak with the target’s voice.</p><p>For as long as you possess a target’s voice in the amulet, the target is unable to speak. At the end of every 24 hours, the amulet expends 1 charge per voice stored inside of it. When the amulet has no charges to expend, the stolen voice is released and returns to the target.</p><p>You can use a bonus action to release a voice stored in the amulet. When the amulet has no voices stored in it and is soaked in sea water for 24 hours, it regains 1 charge.</p><p>Destroying the amulet releases any stolen voices stored inside and creates a brief piercing shriek in a 100-foot radius. Each creature in the area must make a DC 10 Constitution saving throw or be stunned until the start of its next turn.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

@@ -50,7 +50,8 @@
 						"name": "ongoing fire damage (1 min)",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This sticky, adhesive fluid ignites when exposed to air. You can use an action to throw this flask up to 20 feet where it shatters on impact. Make a ranged weapon attack against a creature or object, treating the alchemist’s fire as an improvised weapon. On a hit, the target takes 1d6 ongoing fire damage. This damage persists for 1 minute. A creature can end all ongoing damage being dealt by alchemist’s fires by using its action to either make a DC 14 Dexterity check to extinguish the flames or by dousing the target with at least 1 gallon of water.</p>",
@@ -60,7 +61,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -78,6 +93,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

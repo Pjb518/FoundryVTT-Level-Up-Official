@@ -37,7 +37,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Your patron grants you a bag of fairy dust, which contains a number of uses equal to your proficiency bonus. You can use a bonus action to sprinkle this fairy dust on yourself or a creature within 15 feet. A creature benefiting from your fairy dust gains a fly speed of 30 feet (with the ability to hover) for 10 minutes.</p><p>A creature other than you attempting to use the fairy dust must succeed on an Arcana check equal to your spell save DC or it has no effect. When you finish a long rest, your previous bag of fairy dust disappears and you receive a new bag of fairy dust.</p>",
@@ -47,7 +48,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": "longRest"
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

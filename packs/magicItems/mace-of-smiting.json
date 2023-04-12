@@ -64,7 +64,8 @@
 						"name": "Crit extra construct",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p style=\"text-align: right\"><em>Defensive (Medium), Simple</em></p><p><strong>Crafting Components</strong>: Treant branch</p><hr class=\"a5e-rule u-my-md\"><p>You gain a +1 bonus to attack and damage rolls made with this magic weapon, which increases to +3 when used to attack a construct.</p><p>When you use this weapon to make an attackand roll a natural 20, it deals an extra [[/r 2d6 #bludgeoning]] bludgeoning  damage, which increases to [[/r 4d6 #bludgeoning ]] against constructs. When this weapon reduces a construct to 25 or fewer hit points, the creature is destroyed. <br></p>",
@@ -74,7 +75,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -92,6 +107,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

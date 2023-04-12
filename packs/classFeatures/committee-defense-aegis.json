@@ -22,7 +22,8 @@
 				"target": {
 					"quantity": "",
 					"type": "self"
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When a creature attacks you, if it is not the first creature to attack you since the start of your last turn, you find an avenue of opportunity amid the massed assault. You can use this trick to impose disadvantage on that creature’s attack. Then, you gain advantage on the next attack roll you make before the end of your next turn that targets a creature that attacked you this round.</p>",
@@ -32,7 +33,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

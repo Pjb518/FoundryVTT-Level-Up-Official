@@ -47,7 +47,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You dart forward and snatch an item from a foe just as they start to use it.</p><p>When a creature within 15 feet draws an item or takes the Use an Object action, you can use your reaction to move adjacent to it and force it to make a Wisdom saving throw. This movement does not provoke opportunity attacks. On a failure, you can either take the item for yourself or choose the target of the creature's Use an Object action.</p>",
@@ -57,7 +58,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 5,
 		"exertionCost": 3,

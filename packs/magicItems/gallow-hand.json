@@ -45,7 +45,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This grisly trophy is the hand of a person hung at the gallows, dipped in wax rendered from their own fat and wicked with their own hair.</p><p>The fingers of this strange and complicated remnant of a malcontent can be lit just like a normal candle to shed bright light in a 5-foot radius and dim light for a further 10 feet. The light shed by a gallow hand is only visible to its holder and is completely invisible to all other creatures.</p><p>Alternatively, all five fingers of the hand can be lit as an action. If the hand is lit in this way, it sheds bright light in a 10-foot radius and dim light for a further 20 feet. This light is invisible to the holder but visible to all other creatures.</p><p>Any creature other than the holder that enters this area of light for the first time on its turn or starts its turn there must make a DC 13 Wisdom saving throw or become charmed. While charmed, a creature’s Speeds are reduced to 0 until the start of its next turn.</p><p>Once lit in this way the gallow hand burns for 1 minute, after which it deteriorates into a molten nub.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

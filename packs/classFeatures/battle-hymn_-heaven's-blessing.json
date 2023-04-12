@@ -34,7 +34,8 @@
 				"target": {
 					"quantity": 1,
 					"type": "creature"
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When the creature benefits from your Bardic Inspiration, it rolls the Bardic Inspiration die twice and uses the higher result.</p>",
@@ -44,7 +45,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": "longRest"
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

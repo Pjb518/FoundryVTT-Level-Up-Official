@@ -49,7 +49,8 @@
 						"name": "Force",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You can use an action to thrash a creature with a scintillating tendril of arcane force. Make a melee spell attack against a creature within 15 feet, dealing [[/r 1d6 #force]] force damage on a hit. At the end of your turn you gain a number of temporary hit points equal to half the damage you dealt with Eldritch Whip this turn (minimum 1), which last until the end of your next turn. When you hit a creature with your Eldritch Whip and you already have temporary hit points, you can end the temporary hit points early to gain a bonus to the Eldritch Whip’s damage roll equal to half the number of temporary hit points you ended early.</p>",
@@ -59,7 +60,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

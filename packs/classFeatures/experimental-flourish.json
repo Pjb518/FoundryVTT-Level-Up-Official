@@ -33,7 +33,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Whenever you miss with an attack, you improvise a follow-up that doesn’t directly attack a foe, such as slicing a rope to pin an enemy with a chandelier or smashing a pipe to spray blinding steam on an enemy. Circumstances will dictate what the effect is, but some examples include shoving or imposing the blinded , deafened , grappled , or prone condition, and may also deal damage equal to your Intelligence modifier. Any conditions imposed should seldom last more than one round. Creatures affected can make an Intelligence saving throw to anticipate your trick and avoid the effect.</p>",
@@ -43,7 +44,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

@@ -38,7 +38,8 @@
 						"name": "Extra Poison",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 10th level your own life force strengthens. Choose one of the following or gain an additional Primal Vitality feature you haven’t previously selected.</p><h3><strong>Deathly Nectar</strong></h3><p><em>Prerequisite: Insidious Nectar</em></p><p>The additional poison damage dealt by your Insidious Nectar feature improves to 1d8 from 1d6. In addition, spells you cast and attacks by you or creatures you’ve summoned ignore resistance to poison damage and treat immunity to poison damage as resistance instead.</p>",
@@ -48,7 +49,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

@@ -45,7 +45,8 @@
 						"name": "Quarterstaff",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p>(Requires attunement by a Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard)</p></blockquote><p>While holding this magical quarterstaff you can use an action and expend charges to cast one of the following spells, using your spell save DC:</p><ul><li><p><em>Charm Person</em> (1 charge)</p></li><li><p><em>Command </em>(1 charge)</p></li><li><p><em>Comprehend Languages</em> (1 charge).</p></li></ul><hr class=\"a5e-rule u-my-md\"><p>Once per dawn, when you are holding the staff and fail a saving throw against an enchantment spell, you can instead choose to succeed. When you succeed on a saving throw against an enchantment spell (with or without the staff’s intervention) you can use your reaction to expend 1 charge from the staff and turn the spell back on its caster (targeting only them), as if you had cast the spell.</p><hr class=\"a5e-rule u-my-md\"><p>The staff has 10 charges and regains 1d8+2 expended charges each dawn.</p><p>When the last charge is expended, roll a d20. On a 1, it loses its magical properties.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

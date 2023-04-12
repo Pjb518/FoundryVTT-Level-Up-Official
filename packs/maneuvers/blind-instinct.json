@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You use all your senses to focus your attacks on a single enemy.</p><p>You gain blindsight out to a range of 30 feet. If a creature leaves the range of your blindsight, you can use your reaction to mark it as prey and move up to your Speed. The next melee weapon attack you make against that creature before the end of your next turn deals an additional weapon damage die.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 4,
 		"exertionCost": 3,

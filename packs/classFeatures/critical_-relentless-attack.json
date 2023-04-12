@@ -34,7 +34,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Your blows fall down mercilessly. When you score a critical hit, you may immediately make an additional melee weapon attack (no action or reaction required). If this subsequent attack is also a critical hit, this feature can be activated again for a number of times equal to half your proficiency bonus. No other Furious Critical can be activated for these additional attacks.</p>",
@@ -44,7 +45,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

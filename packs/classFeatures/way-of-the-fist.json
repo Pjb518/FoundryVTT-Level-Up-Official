@@ -59,7 +59,8 @@
 						"name": "d10 die",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>Starting at 6th level, you regain exertion equal to half your proficiency bonus when you score a critical hit with an unarmed strike. When you hit a creature with an unarmed strike, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p><p>[[/r 1d4 #d4 die]] [[/r 1d6 #d6 die]] [[/r 1d8 #d8 die]] [[/r 1d10 #d10 die]] [[/r 1d12 #d12 die]]</p>",
@@ -69,7 +70,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

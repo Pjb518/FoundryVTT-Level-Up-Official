@@ -22,7 +22,8 @@
 				"target": {
 					"quantity": "",
 					"type": "self"
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When a creature’s attack, spell, or ability would damage you, you can use your reaction to devise a momentary defense (using a chair as a shield, predicting a safe spot in an explosion, diluting a spray of acid with a solvent, etc). You gain resistance to one type of damage you would take, which protects you only against the triggering hostile act.</p>",
@@ -32,7 +33,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

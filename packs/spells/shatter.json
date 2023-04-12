@@ -1,114 +1,123 @@
 {
-  "name": "Shatter",
-  "type": "spell",
-  "img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-spells.7e9cvnpmbg3knm9l"
-    }
-  },
-  "system": {
-    "actions": {
-      "yXeSZOPIsrmAThIN": {
-        "name": "Shatter",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "EvHFEGUcyQTmKGf3": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": "10",
-          "placeTemplate": true
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "rolls": {
-          "C3oTsTKrSzRw6k20": {
-            "canCrit": false,
-            "damageType": "thunder",
-            "formula": "3d8",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d8"
-            }
-          }
-        },
-        "prompts": {
-          "bsqDTMKJveP4gUoq": {
-            "ability": "con",
-            "onSave": "Constitution halves.",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "jxRHPNMir340nn9d": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>An ear-splitting ringing sound emanates through the area. Creatures in the area take 3d8 thunder damage. A creature made of stone, metal, or other inorganic material has disadvantage on its saving throw.</p><p>Any nonmagical items within the area that are not worn or carried also take damage.</p><p><strong>Cast at Higher Levels. </strong>The damage increases by 1d8 for each slot level above 2nd.</p>",
-    "favorite": false,
-    "recharge": {
-      "charged": true,
-      "formula": "",
-      "threshold": ""
-    },
-    "secretDescription": "",
-    "source": "",
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null
-    },
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "A silver bell or chime",
-    "materialsConsumed": false,
-    "prepared": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "sound",
-        "arcane",
-        "thunder"
-      ]
-    },
-    "ability": "spellcasting",
-    "proficient": true,
-    "save": {
-      "dc": "@spellDC",
-      "onSave": "Constitution halves.",
-      "targetAbility": "con"
-    }
-  },
-  "_id": "7e9cvnpmbg3knm9l"
+	"name": "Shatter",
+	"type": "spell",
+	"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-spells.7e9cvnpmbg3knm9l"
+		}
+	},
+	"system": {
+		"actions": {
+			"yXeSZOPIsrmAThIN": {
+				"name": "Shatter",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"EvHFEGUcyQTmKGf3": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "10",
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"rolls": {
+					"C3oTsTKrSzRw6k20": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "3d8",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {
+					"bsqDTMKJveP4gUoq": {
+						"ability": "con",
+						"onSave": "Constitution halves.",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"jxRHPNMir340nn9d": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>An ear-splitting ringing sound emanates through the area. Creatures in the area take 3d8 thunder damage. A creature made of stone, metal, or other inorganic material has disadvantage on its saving throw.</p><p>Any nonmagical items within the area that are not worn or carried also take damage.</p><p><strong>Cast at Higher Levels. </strong>The damage increases by 1d8 for each slot level above 2nd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "",
+				"threshold": ""
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "A silver bell or chime",
+		"materialsConsumed": false,
+		"prepared": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"sound",
+				"arcane",
+				"thunder"
+			]
+		},
+		"ability": "spellcasting",
+		"proficient": true,
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Constitution halves.",
+			"targetAbility": "con"
+		}
+	},
+	"_id": "7e9cvnpmbg3knm9l"
 }

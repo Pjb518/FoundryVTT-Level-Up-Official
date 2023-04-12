@@ -33,7 +33,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you hit a creature with a melee attack, you can try to trick it into moving. If it fails a Dexterity saving throw , it moves up to 10 feet in a direction of your choice. This movement doesn’t provoke opportunity attacks . If this movement would cause it to take damage (such as by falling or entering fire), the creature has advantage on this saving throw.</p>",
@@ -43,7 +44,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

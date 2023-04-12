@@ -49,7 +49,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This small vial of unstable magical waste can make for a powerful explosive. You can set and light one or more vials of unstable arcanum as an action, causing each to explode at the start of your next turn. Any creatures or objects within 10 feet of the exploding charge make a DC 14 Dexterity saving throw, taking 2d10 force damage on a failure, or half damage on a success. Increase this damage by 2d10 for each charge set beyond the first. Whenever a creature carrying unstable arcanum takes damage from a spell or cantrip, it must roll a d4. On a result of a 1 the unstable arcanum instantly explodes as if set and lit.</p>",
@@ -59,7 +60,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -77,6 +92,7 @@
 		"quantity": 1,
 		"rarity": "common",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

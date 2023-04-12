@@ -22,7 +22,8 @@
 				"target": {
 					"quantity": 1,
 					"type": "creature"
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 2nd level you train your mind to pick up languages as needed. By spending a short or long rest in the presence of a speaker of any language, you can acquire a rudimentary understanding of that language, enough to have a basic conversation. Any abilities you have that rely on sharing a common language and require a saving throw can work, but the target has advantage on their save.</p><p style=\"text-align: start\">The cognitive effort to decode the unfamiliar tongue means that if you use this ability again, you lose access to any other language you learned through it.</p>",
@@ -32,7 +33,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

@@ -52,7 +52,8 @@
 						"name": "Attuned Damage",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p>Defensive (Medium)</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>When exposed to freezing temperatures the blade of this magic sword sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>While you are attuned to the sword, attacks using it deal an extra 1d6 cold damage and you gain resistance to fire damage.</p><p>Once per hour, when you draw the sword you can choose to extinguish all nonmagical flames within 30 feet.</p>",
@@ -62,7 +63,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -80,6 +95,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

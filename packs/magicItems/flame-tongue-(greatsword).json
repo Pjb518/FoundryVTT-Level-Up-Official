@@ -52,7 +52,8 @@
 						"name": "When Lit",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p>Heavy, Parrying, Two-Handed</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>While you are attuned to this magic sword, you can use a bonus action and speak its command word to make flames erupt from the blade, shedding bright light in a 40-foot radius and dim light for an additional 40 feet.</p><p>While lit, attacks using the sword deal an extra 2d6 fire damage.</p><p>The flames last until you use a bonus action to put them out or until you drop or sheathe the sword.</p>",
@@ -62,7 +63,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -80,6 +95,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

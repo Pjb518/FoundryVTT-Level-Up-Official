@@ -37,7 +37,8 @@
 						"name": "Initiative Beast HP",
 						"type": "healing"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>At 3rd level when you choose this archetype, you gain the Beast Friend knack if you don’t already know it, and the beast can be of CR 1/4 or less. In addition, whenever the beast rolls initiative, it gains a number of temporary hit points equal to your level multiplied by your proficiency bonus, and its Armor Class increases by an amount equal to your proficiency bonus.</p><p style=\"text-align: start\">As a bonus action on your turn, you can order the beast to take an action on its turn. If you order the beast to attack, it adds your proficiency bonus to attack and damage rolls.</p>",
@@ -47,7 +48,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

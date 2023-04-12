@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Crafting Components: </strong>Large ruby</p><hr class=\"a5e-rule u-my-md\"><p>This large, gleaming red ruby book contains􀀃 the spirit of an elven archmage named Madam􀀃 Yolanda. She lived a life of adventure and riches􀀃 before eventually retiring in a vast mansion with a much younger elf. Identifying the ruby causes􀀃 Madam Yolanda to appear—she uses the statistics􀀃 of an archmage fluent in Common and Elvish, and􀀃 is vain, flirtatious, and mistrustful of almost everyone’s motives. The Narrator randomly determines􀀃 her attitude towards her finders using the Madam􀀃 Yolanda’s Prison table.</p><p style=\"text-align: center\"><strong>TABLE: MADAM YOLANDA’S PRISON</strong></p><p style=\"text-align: center\"><strong><em>[[/r 1d100]] </em></strong>&amp; EFFECT</p><p style=\"text-align: center\"><strong><em>1–10 </em></strong><br>Madam Yolanda is gravely offended by her discovery and attacks. The ruby is inert after her defeat and can be sold for up to 1,500 gold.</p><p style=\"text-align: center\"><strong><em>11–90</em></strong><br>Madam Yolanda stays and assists her finders for 1 hour before returning to the gem (she only returns to assist again if a 1–5 are rolled in subsequent uses of this item).</p><p style=\"text-align: center\"><strong><em>91–100 </em></strong><br>Madam Yolanda gifts two uncommon magic items to the creature holding her gem (rolled on Table: Magic Items #4 on page 188). The ruby is inert afterwards and can be sold for up to 1,500 gold.</p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

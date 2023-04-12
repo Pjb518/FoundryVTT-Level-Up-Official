@@ -43,7 +43,8 @@
 						"healingType": "",
 						"type": "healing"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Crafting Components:</strong> Holy herbs from a druid grove</p><hr class=\"a5e-rule u-my-md\"><p>This green glass jar holds [[/r 1d4+1 #doses]] doses of a freshsmelling mixture. You can use an action to swallow or apply one dose, restoring 2d8+2 hit points and curing both poison and disease. <br></p>",
@@ -53,7 +54,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -71,6 +86,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

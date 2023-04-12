@@ -29,7 +29,8 @@
 				"target": {
 					"quantity": "",
 					"type": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This unassuming-looking signet ring comes with sinister features. The first is a four-chambered extradimensional space, each of which can hold one dose of poison. While wearing the ring, you can use an action to press part of its filigree to deploy one of the poisons and apply it to a weapon or piece of ammunition. You have advantage on checks made to conceal this action from observers.</p><p>In addition, you can use a bonus action to whisper a command word that makes a garrote of shadowy force unspool from the ring. A creature grappled using this garrote has disadvantage on saving throws made to escape the grapple.</p><p>This ring’s magic is subtle and creatures have disadvantage on checks made to notice it is magical or determine its purpose.</p>",
@@ -39,7 +40,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -57,6 +72,7 @@
 		"quantity": 1,
 		"rarity": "rare",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

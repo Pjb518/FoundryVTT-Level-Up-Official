@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>The potency of magic is dependent upon whoever wields it, and whether arcane or divine most spells and spellcasters pale in comparison to your obsessive conviction.</p><p>When you see a creature within 30 feet make a spell attack against you, you can use your reaction to defy it. The creature makes a spellcasting ability check against your maneuver DC or automatically misses with its spell attack.</p><p>If the spell is of 7th-level or higher, this combat maneuver has no effect.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 3,
 		"exertionCost": 2,

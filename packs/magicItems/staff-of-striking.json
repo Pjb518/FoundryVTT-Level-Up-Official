@@ -66,7 +66,8 @@
 						"name": "3x Expended Charges",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You have a +3 bonus to attack and damage rolls made with this magic quarterstaff. When you hit with a melee attack using this staff, you can expend up to 3 of its charges, dealing an extra 1d6 force damage per expended charge.</p><hr class=\"a5e-rule u-my-md\"><p>The staff has 10 charges and regains 1d6+4 expended charges each dawn.</p><p>When the last charge is expended, roll a d20. On a 1, it loses its magical properties.</p>",
@@ -76,7 +77,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -94,6 +109,7 @@
 		"quantity": 1,
 		"rarity": "veryRare",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

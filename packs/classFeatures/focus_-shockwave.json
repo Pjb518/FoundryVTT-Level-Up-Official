@@ -40,7 +40,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><em>Requirement: 5th level</em></p><p style=\"text-align: start\">You can use an action and spend 3 exertion to hit the ground so hard it sends a shockwave in a 40-foot line that is 5 feet wide. Each creature in that line must make a Dexterity saving throw. A creature takes 4d6 bludgeoning damage and falls prone on a failed save, or half as much damage on a successful one.</p>",
@@ -50,7 +51,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

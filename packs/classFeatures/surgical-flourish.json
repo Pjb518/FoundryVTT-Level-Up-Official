@@ -33,7 +33,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>When you have advantage on a melee attack and both dice results are high enough to hit, choose one of the creature’s limbs or eyes to debilitate. If the creature succeeds a Constitution saving throw, you debilitate that body part only until the end of your next turn. If it fails the saving throw, the body part is debilitated until it can take a short rest.</p><p>A creature cannot use a debilitated limb to attack, and cannot hold any items or effectively wear a shield with a debilitated limb. A creature with a debilitated leg has its speed reduced by half, it falls prone after using the Dash action, and it has disadvantage on Dexterity checks to balance. A creature with a debilitated eye has disadvantage on Wisdom (Perception) checks that rely on sight and on ranged attack rolls.</p>",
@@ -43,7 +44,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

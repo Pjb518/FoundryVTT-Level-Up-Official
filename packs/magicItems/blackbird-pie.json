@@ -49,7 +49,8 @@
 						},
 						"type": "savingThrow"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>This item appears to be a freshly baked pie in a tin. When the crust is fully punctured the pie explodes as 24 magic blackbirds fly out and flit through the air in a 20-foot radius for 2d4 rounds, at which point the birds and the pie disappear. A creature that starts its turn in the area or first enters into the area on its turn makes a DC 15 Dexterity saving throw, taking 1 slashing damage on a failure.</p><p>A creature damaged by the blackbirds has disadvantage on ability checks and attack rolls until the beginning of its next turn. The blackbirds are magical and cannot be interacted with like normal animals, and attacking them has no effect.</p>",
@@ -59,7 +60,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -77,6 +92,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": false,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

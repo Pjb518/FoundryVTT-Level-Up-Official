@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>You have a preternatural ability to inspire those around you. You can use a bonus action to choose one creature other than yourself within 60 feet of you who can hear or see you. That creature gains one Bardic Inspiration die, a d6. </p><p>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the Narrator says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time. </p><p>You can use this feature a number of times equal to your Charisma modifier (minimum once). You regain any expended uses when you finish a long rest. </p><p>At 5th level your Bardic Inspiration die increases to d8, at 10th level it increases to d10, and at 15th level it increases to d12.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": "longRest"
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"featureType": "class",
 		"prerequisite": "",

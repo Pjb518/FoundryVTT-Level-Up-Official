@@ -45,7 +45,8 @@
 						"name": "Quarterstaff",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<blockquote><p>(Requires attunement by a Sorcerer, Warlock, or Wizard)</p></blockquote><p>You have a +2 bonus to attack and damage rolls made with this magic quarterstaff. Additionally, while holding it you gain a +2 bonus to spell attack rolls and advantage on saving throws against spells.</p><p>While holding this staff, you can use an action to expend charges to cast one of the following spells, using your spell save DC and spell attack bonus:</p><ul><li><p><em>flaming sphere</em> (2 charges)</p></li><li><p><em>invisibility </em>(2 charges)</p></li><li><p><em>knock </em>(2 charges)</p></li><li><p><em>web </em>(2 charges)</p></li><li><p><em>dispel magic</em> (3 charges)</p></li><li><p><em>ice storm</em> (4 charges)</p></li><li><p><em>wall of fire</em> (4 charges)</p></li><li><p><em>passwall </em>(5 charges)</p></li><li><p><em>telekinesis </em>(5 charges)</p></li><li><p><em>conjure elemental</em> (7 charges)</p></li><li><p><em>fireball </em>(7th-level version, 7 charges)</p></li><li><p><em>lightning bolt</em> (7th-level version, 7 charges)</p></li><li><p><em>plane shift</em> (7 charges)</p></li></ul><p>You can also use an action to cast the following spells from the staff without expending any charges:</p><ul><li><p><em>arcane lock</em></p></li><li><p><em>detect magic</em></p></li><li><p><em>enlarge/reduce</em></p></li><li><p><em>light</em></p></li><li><p><em>mage hand</em></p></li><li><p><em>protection from evil and good</em></p></li></ul><hr class=\"a5e-rule u-my-md\"><p>The staff has 50 charges and regains 4d6+2 expended charges each dawn.</p><p>When the last charge is expended, roll a d20. On a 20, the staff immediately regains 1d12+1 charges.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Retributive Strike</strong>. You can use an action to destroy the staff, releasing its magic in a 30-foot-radius explosion. Roll a d6:</p><blockquote><blockquote><p><strong>Even</strong>: You teleport to a random plane of existence and avoid the explosion.</p><p><strong>Odd</strong>: You take damage equal to 16 x the remaining charges.</p><p>Every other creature in the area makes a DC 17 Dexterity saving throw.</p><p>On a failed save, a creature takes damage based on how far away it is from the point of origin, as on the Retributive Strike table below. On a successful save, a creature takes half as much damage.</p><p style=\"text-align: center\"><strong><em>TABLE: RETRIBUTIVE STRIKE</em></strong></p><p><strong><em>DISTANCE FROM ORIGIN</em></strong><em> (DAMAGE)</em></p><ul><li><p><strong><em>0 to 10 feet</em></strong><em> (8 x remaining charges)</em></p></li><li><p><strong><em>11 to 20 feet</em></strong><em> (6 x remaining charges)</em></p></li><li><p><strong><em>21 to 30 feet</em></strong><em> (4 x remaining charges)</em></p></li></ul></blockquote></blockquote><hr class=\"a5e-rule u-my-md\"><p><strong>Spell Absorption</strong>. When another creature casts a spell which targets only you, you can use your reaction to cause the staff to absorb the magic of the spell, cancelling its effect and gaining charges equal to the spell’s level. If this brings the staff’s total charges above 50, the staff explodes as if you activated its Retributive Strike.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "legendary",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

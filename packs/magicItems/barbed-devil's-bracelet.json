@@ -45,7 +45,8 @@
 						"name": "Clawed Hand",
 						"type": "damage"
 					}
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p>The hand on which you wear this bracelet transforms into a claw covered with a <strong>dozen wicked spines</strong>.</p><p>Your unarmed attacks with the claw deal 1d6 piercing damage, and you gain an expertise die on Sleight of Hand checks made to steal small items. Your hand returns to normal if you remove the bracelet.</p><p>As an action, you can draw upon the claw’s magic to cast produce flame. Whenever you use the claw in this way, one of the bracelet’s spines disappears and your hit point maximum is reduced by 1d8. This reduction lasts until you finish a long rest. If this effect reduces your hit point maximum to 0, you die and your body permanently transforms into a barbed devil. When the bracelet has no more spines it becomes a mundane item.</p>",
@@ -55,7 +56,21 @@
 		"uses": {
 			"value": null,
 			"max": null,
-			"per": ""
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -73,6 +88,7 @@
 		"quantity": 1,
 		"rarity": "uncommon",
 		"requiresAttunement": true,
+		"shieldCategory": "",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",

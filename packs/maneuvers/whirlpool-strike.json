@@ -36,7 +36,8 @@
 					"type": "creature",
 					"shape": "",
 					"size": ""
-				}
+				},
+				"consumers": {}
 			}
 		},
 		"description": "<p><strong>Prerequisites</strong>: Extra Attack </p><p>You spin around, gathering momentum as you strike your foes harder and harder.</p><p>Make a melee weapon attack against any number of creatures within 5 feet of you, making a separate attack roll for each target. For each subsequent hit after the first, you deal an additional 1d6 damage.</p>",
@@ -46,7 +47,21 @@
 		"uses": {
 			"value": null,
 			"max": "",
-			"per": null
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
 		},
 		"degree": 4,
 		"exertionCost": 3,
