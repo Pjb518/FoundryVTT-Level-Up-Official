@@ -1,11 +1,9 @@
-import prepareActionUsesConsumer from './prepareActionUsesConsumer';
-import prepareItemUsesConsumer from './prepareItemUsesConsumer';
+import prepareUsesConsumer from './prepareUsesConsumer';
 import prepareSpellConsumer from './prepareSpellConsumer';
 
 const consumerHandlerMap = {
-  actionUses: prepareActionUsesConsumer,
-  itemUses: prepareItemUsesConsumer,
-  spell: prepareSpellConsumer
+  spell: prepareSpellConsumer,
+  uses: prepareUsesConsumer
 };
 
 export default function prepareConsumers(consumers) {

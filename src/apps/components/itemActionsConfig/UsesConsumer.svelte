@@ -14,7 +14,7 @@
     const options = {
         item: "A5E.Item",
         action: "A5E.Action",
-        both: "A5E.Both",
+        both: "A5E.ItemAndAction",
     };
 
     function updateSelection() {

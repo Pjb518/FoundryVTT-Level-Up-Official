@@ -50,7 +50,7 @@
 
         if (type === "uses") {
             data["consumeType"] = "item";
-            data["default"] = 1;
+            data["quantity"] = 1;
         }
 
         $item.update({
@@ -189,7 +189,6 @@
                 </div>
             </FormSection>
 
-            <!-- {action.uses?.per} -->
             {#if action.uses?.per === "recharge"}
                 <FormSection heading="A5E.ItemRechargeConfiguration">
                     <div class="u-flex u-gap-md u-w-full">

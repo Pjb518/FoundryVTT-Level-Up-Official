@@ -205,19 +205,6 @@
         {/if}
 
         <div class="button-wrapper">
-            {#if hasRecharge(item)}
-                <button
-                    class="action-button fas fa-dice"
-                    class:active={rechargeState}
-                    data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
-                        : "A5E.ButtonToolTipRecharge"}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() =>
-                        item.recharge(actionId, rechargeState)}
-                />
-            {/if}
-
             {#if flags.a5e?.showFavoritesSection ?? true}
                 <button
                     class="action-button fas fa-star"
@@ -275,6 +262,19 @@
                         : "A5E.ButtonToolTipPrepare"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.togglePrepared()}
+                />
+            {/if}
+
+            {#if hasRecharge(item)}
+                <button
+                    class="action-button fas fa-dice"
+                    class:active={rechargeState}
+                    data-tooltip={rechargeState
+                        ? "A5E.ButtonToolTipCharged"
+                        : "A5E.ButtonToolTipRecharge"}
+                    data-tooltip-direction="UP"
+                    on:click|stopPropagation={() =>
+                        item.recharge(actionId, rechargeState)}
                 />
             {/if}
         </div>

@@ -7,46 +7,46 @@
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
 
     export let consumers;
-    export let actionUsesData;
-    export let itemUsesData;
+    export let usesData;
 
-    function getActionConsumer(consumers) {
-        if (foundry.utils.isEmpty(consumers.actionUses)) return null;
-        const [actionUses] = Object.values(consumers.actionUses);
-        if (foundry.utils.isEmpty(actionUses)) return null;
-        return actionUses[1];
-    }
+    function getConsumer(consumers, type) {
+        if (foundry.utils.isEmpty(consumers.uses)) return null;
+        const [uses] = Object.values(consumers.uses);
+        if (foundry.utils.isEmpty(uses)) return null;
 
-    function getItemConsumer(consumers) {
-        if (foundry.utils.isEmpty(consumers.itemUses)) return null;
-        const [itemUses] = Object.values(consumers.itemUses);
-        if (foundry.utils.isEmpty(itemUses)) return null;
-        return itemUses[1];
+        const consumeType =
+            uses[1].consumeType === "both" ? type : uses[1].consumeType;
+
+        // Update consumeData as well
+        usesData.consumeType = uses[1].consumeType;
+
+        return type === consumeType ? uses[1] : null;
     }
 
     const actor = getContext("actor");
+    const actionId = getContext("actionId");
     const item = getContext("item");
 
     // =======================================================
     // Consumer data
-    const actionConsumer = getActionConsumer(consumers);
-    const itemConsumer = getItemConsumer(consumers);
+    const actionConsumer = getConsumer(consumers, "action");
+    const itemConsumer = getConsumer(consumers, "item");
 
-    actionUsesData.quantity = 1;
-    itemUsesData.quantity = 1;
+    usesData.itemQuantity = itemConsumer?.quantity ?? 0;
+    usesData.actionQuantity = actionConsumer?.quantity ?? 0;
 
+    $: actionUses = $item.actions[actionId].uses ?? {};
     $: itemUses = $item.system.uses;
 
     $: actionMaxUses = getDeterministicBonus(
-        actionConsumer?.max ?? 0,
+        actionUses?.max ?? 0,
         $actor.getRollData()
     );
-
     $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
 </script>
 
 <div class="side-by-side">
-    {#if actionConsumer?.max}
+    {#if actionConsumer && actionUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
@@ -58,14 +58,14 @@
                         <input
                             class="number-input"
                             type="number"
-                            bind:value={actionUsesData.quantity}
+                            bind:value={usesData.actionQuantity}
                             min="0"
-                            max={actionConsumer.max}
+                            max={actionUses.max}
                         />
                     </div>
 
                     <p class="u-text-xs">
-                        ( {actionConsumer.value} / {actionMaxUses}
+                        ( {actionUses.value} / {actionMaxUses}
                         {localize("A5E.UsesRemaining")})
                     </p>
                 </div>
@@ -85,7 +85,7 @@
                         <input
                             class="number-input"
                             type="number"
-                            bind:value={itemUsesData.quantity}
+                            bind:value={usesData.itemQuantity}
                             min="0"
                             max={itemUses.max}
                         />
