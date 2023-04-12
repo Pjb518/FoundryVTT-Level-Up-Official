@@ -22,38 +22,6 @@ export default class ItemA5e extends Item {
     html.find('.a5e-js-toggle-roll-tooltip-visibility').click(this._onToggleRollTooltipVisibility.bind(this));
   }
 
-  get abilityMod() {
-    const itemData = this.system;
-
-    if (!itemData.ability) return null;
-
-    if (itemData.ability === 'spellcasting') {
-      return this.actor ? this.actor.system.attributes.spellcasting : 'int';
-    }
-
-    if (itemData.ability === 'default') {
-      if (this.type === 'object' && itemData.objectType === 'weapon') {
-        if (itemData.actionOptions.includes('attack') && itemData.attack.type === 'rangedWeaponAttack') {
-          return 'dex';
-        }
-
-        if (this.actor && itemData.weaponProperties.includes('finesse')) {
-          const { str, dex } = this.actor.system.abilities;
-
-          return dex.value > str.value ? 'dex' : 'str';
-        }
-      }
-
-      if (this.type === 'spell') {
-        return this.actor ? this.actor.system.attributes.spellcasting : 'int';
-      }
-
-      return 'str';
-    }
-
-    return itemData.ability || 'str';
-  }
-
   get actions() {
     return new ActionsManager(this);
   }
