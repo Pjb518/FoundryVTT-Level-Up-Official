@@ -8,7 +8,7 @@
     import ActionsDescriptionTab from "../components/pages/ActionsDescriptionTab.svelte";
     import ActionsPromptsTab from "../components/pages/ActionsPromptsTab.svelte";
     import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
-    import ActionsConsumerTab from "../components/pages/ActionsConsumerTab.svelte";
+    import ActionsResourceManagementTab from "../components/pages/ActionsResourceManagementTab.svelte";
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
@@ -52,8 +52,8 @@
         },
         {
             name: "consumers",
-            label: "A5E.TabResourceConsumption",
-            component: ActionsConsumerTab,
+            label: "A5E.TabResourceManagement",
+            component: ActionsResourceManagementTab,
         },
     ];
 

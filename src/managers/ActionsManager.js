@@ -94,7 +94,19 @@ export default class ActionsManager extends DataProxy {
 
   /** ************************************************ */
   async add(name = 'New Action', data = {}) {
-    const newAction = { name };
+    // TODO: Update this function
+    const newAction = {
+      name,
+      uses: {
+        value: 0,
+        max: '',
+        per: '',
+        recharge: {
+          formula: '1d6',
+          threshold: 6
+        }
+      }
+    };
 
     await this.#item.update({
       'system.actions': {

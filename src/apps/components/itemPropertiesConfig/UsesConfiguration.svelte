@@ -43,7 +43,7 @@
         "
         on:click={toggleEditMode}
     >
-        <h3>{localize("A5E.UsesConfiguration")}</h3>
+        <h3>{localize("A5E.ItemUsesConfiguration")}</h3>
         <i
             class="u-text-sm fas"
             class:fa-chevron-up={editMode}
@@ -195,26 +195,24 @@
                 {/if}
             </dd>
 
-            <dt class="u-text-bold">{localize("A5E.ItemRecharge")}:</dt>
-            <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
-                {#if $item.system.recharge.formula}
+            {#if $item.system.uses.per === "recovery"}
+                <dt class="u-text-bold">{localize("A5E.ItemRecharge")}:</dt>
+                <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
                     <div class="u-flex u-gap-md">
                         <span>
-                            {$item.system.recharge.formula}
+                            {$item.system.uses.recharge.formula}
                         </span>
 
-                        ( Recharges on:
-
                         <span>
-                            {$item.system.recharge.threshold
-                                ? `${$item.system.recharge.threshold}`
+                            ( Recharges on:
+
+                            {$item.system.uses.recharge.threshold
+                                ? `${$item.system.uses.recharge.threshold}`
                                 : "6"} )
                         </span>
                     </div>
-                {:else}
-                    {localize("A5E.None")}
-                {/if}
-            </dd>
+                </dd>
+            {/if}
         </dl>
     {/if}
 </section>
