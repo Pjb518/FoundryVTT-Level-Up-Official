@@ -11,12 +11,6 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const options = {
-        item: "A5E.Item",
-        action: "A5E.Action",
-        both: "A5E.ItemAndAction",
-    };
-
     function updateSelection() {
         updateDocumentDataFromField(
             $item,
@@ -26,7 +20,6 @@
     }
 
     let selectedType = consumer.consumeType;
-    $: action = $item.actions[actionId];
     $: selectedType, updateSelection();
 </script>
 
@@ -50,30 +43,9 @@
         />
     </div>
 
-    <div class="a5e-field-group u-flex-row u-gap-lg">
-        <div class="u-flex u-flex-col u-gap-sm">
-            <h3 class="a5e-field-group__heading">
-                {localize("A5E.ItemType")}
-            </h3>
-
-            <select
-                id="{actionId}-{consumerId}-item-id"
-                class="u-w-fit"
-                bind:value={selectedType}
-            >
-                <option value="" />
-                {#each Object.entries(options) as [type, label]}
-                    <option value={type}>
-                        {localize(label)}
-                    </option>
-                {/each}
-            </select>
-        </div>
-
-        <div class="u-flex u-flex-col u-gap-sm u-w-30">
-            <h3 class="a5e-field-group__heading">
-                {localize("A5E.ItemDefaultQuantity")}
-            </h3>
+    <div class="a5e-field-group">
+        <div class="u-flex u-flex-col u-gap-sm u-w-fit">
+            <h3 class="a5e-field-group__heading">Default Consumption Amount</h3>
             <input
                 type="number"
                 d-type="Number"

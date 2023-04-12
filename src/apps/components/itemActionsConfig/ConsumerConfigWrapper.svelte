@@ -16,24 +16,11 @@
             },
         });
     }
-
-    function duplicateConsumer() {
-        const newConsumer = foundry.utils.duplicate(consumer);
-
-        $item.update({
-            [`system.actions.${actionId}.consumers`]: {
-                [foundry.utils.randomID()]: newConsumer,
-            },
-        });
-    }
 </script>
 
 <li class="consumer" data-consumer-id={consumerId}>
     <article class="config-wrapper">
         <div class="button-wrapper">
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <i class="button fa-solid fa-clone" on:click={duplicateConsumer} />
-
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <i
                 class="button button--delete fas fa-trash"

@@ -226,23 +226,50 @@ export default class ItemA5e extends Item {
     const consumers = Object.entries(this.actions[actionId]?.consumers ?? {});
     consumers.forEach(([consumerId, consumer]) => {
       switch (consumer?.type) {
+        case 'actionUses':
+          return this.#consumeActionUses(actionId, promiseData.actionUses);
         case 'ammunition':
           return this.#consumeAmmunition(consumer);
+        case 'itemUses':
+          return this.#consumeItemUses(promiseData.itemUses);
         case 'quantity':
           return this.#consumeQuantity(consumer);
         case 'resource':
           return this.#consumeResource(consumer);
         case 'spell':
           return this.#consumeSpellResource(promiseData.spell);
-        case 'uses':
-          return this.#consumeUses(actionId, promiseData.uses);
         default: return null;
       }
     });
   }
 
+  async #consumeActionUses(actionId, promiseData) {
+    const { quantity } = promiseData;
+    if (!quantity || !this.actor) return;
+
+    const actionUses = this.actions[actionId]?.uses;
+    if (!actionUses) return;
+
+    const newValue = Math.max(actionUses.value - quantity, 0);
+    if (newValue !== 0 && !newValue) return;
+
+    await this.update({
+      [`system.actions.${actionId}.uses.value`]: newValue
+    });
+  }
+
   async #consumeAmmunition(consumer) {
     return this.#consumeQuantity(consumer);
+  }
+
+  async #consumeItemUses(promiseData) {
+    const { value } = this.system.uses;
+    const { quantity } = promiseData;
+    if (!value || !quantity) return;
+
+    await this.update({
+      'system.uses.value': Math.max(value - quantity, 0)
+    });
   }
 
   async #consumeQuantity(consumer) {
@@ -309,27 +336,6 @@ export default class ItemA5e extends Item {
     if (this.system?.objectType === 'consumable') {
       this.update({ 'system.quantity': Math.max(this.system.quantity - 1, 0) });
     }
-  }
-
-  async #consumeUses(actionId, promiseData) {
-    const { itemQuantity, actionQuantity, consumeType } = promiseData;
-    const updates = {};
-
-    // Consume Action Uses
-    if (!consumeType || !this.actor) return;
-    const actionUses = this.actions[actionId]?.uses;
-    if (actionQuantity && actionUses?.max) {
-      const newValue = Math.max(actionUses.value - actionQuantity, 0);
-      updates[`system.actions.${actionId}.uses.value`] = newValue;
-    }
-
-    // Consume Item Uses
-    if (itemQuantity && this.system.uses?.max) {
-      const newValue = Math.max(this.system.uses.value - itemQuantity, 0);
-      updates['system.uses.value'] = newValue;
-    }
-
-    await this.update(updates);
   }
 
   async configureItem() {

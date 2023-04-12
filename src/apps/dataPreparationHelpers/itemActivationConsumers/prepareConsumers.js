@@ -2,8 +2,9 @@ import prepareUsesConsumer from './prepareUsesConsumer';
 import prepareSpellConsumer from './prepareSpellConsumer';
 
 const consumerHandlerMap = {
-  spell: prepareSpellConsumer,
-  uses: prepareUsesConsumer
+  actionUses: prepareUsesConsumer,
+  itemUses: prepareUsesConsumer,
+  spell: prepareSpellConsumer
 };
 
 export default function prepareConsumers(consumers) {

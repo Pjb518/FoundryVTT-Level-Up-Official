@@ -64,8 +64,9 @@
                 formula: rollFormula,
             },
             consumers: {
+                actionUses: actionUsesData,
+                itemUses: itemUsesData,
                 spell: spellData,
-                uses: usesData,
             },
             prompts: Object.entries(action.prompts ?? {}).reduce(
                 (acc, [key, prompt]) => {
@@ -145,7 +146,8 @@
     );
 
     let spellData = {};
-    let usesData = {};
+    let actionUsesData = {};
+    let itemUsesData = {};
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
@@ -218,6 +220,7 @@
 
 <form>
     <!-- TODO: Extract this to its own component -->
+    <!-- svelte-ignore missing-declaration -->
     {#if !foundry.utils.isEmpty(attackRoll)}
         <section class="a5e-box u-flex u-flex-col u-gap-lg u-p-md">
             <section>
@@ -316,8 +319,8 @@
         <SpellSection {consumers} bind:spellData />
     {/if}
 
-    {#if Object.values(consumers?.uses ?? {}).flat().length}
-        <UsesSection {consumers} bind:usesData />
+    {#if Object.values(consumers?.actionUses ?? {}).flat().length || Object.values(consumers?.itemUses ?? {}).flat().length}
+        <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
     {/if}
 
     <!-- If there are no prompts, hide this section -->
