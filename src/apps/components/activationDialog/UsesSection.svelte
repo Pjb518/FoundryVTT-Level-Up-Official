@@ -7,20 +7,21 @@
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
 
     export let consumers;
-    export let usesData;
+    export let actionUsesData;
+    export let itemUsesData;
 
-    function getConsumer(consumers, type) {
-        if (foundry.utils.isEmpty(consumers.uses)) return null;
-        const [uses] = Object.values(consumers.uses);
-        if (foundry.utils.isEmpty(uses)) return null;
+    function getActionConsumer(consumers) {
+        if (foundry.utils.isEmpty(consumers.actionUses)) return null;
+        const [actionUses] = Object.values(consumers.actionUses);
+        if (foundry.utils.isEmpty(actionUses)) return null;
+        return actionUses[1];
+    }
 
-        const consumeType =
-            uses[1].consumeType === "both" ? type : uses[1].consumeType;
-
-        // Update consumeData as well
-        usesData.consumeType = uses[1].consumeType;
-
-        return type === consumeType ? uses[1] : null;
+    function getItemConsumer(consumers) {
+        if (foundry.utils.isEmpty(consumers.itemUses)) return null;
+        const [itemUses] = Object.values(consumers.itemUses);
+        if (foundry.utils.isEmpty(itemUses)) return null;
+        return itemUses[1];
     }
 
     const actor = getContext("actor");
@@ -29,11 +30,11 @@
 
     // =======================================================
     // Consumer data
-    const actionConsumer = getConsumer(consumers, "action");
-    const itemConsumer = getConsumer(consumers, "item");
+    const actionConsumer = getActionConsumer(consumers);
+    const itemConsumer = getItemConsumer(consumers);
 
-    usesData.itemQuantity = itemConsumer?.quantity ?? 0;
-    usesData.actionQuantity = actionConsumer?.quantity ?? 0;
+    actionUsesData.quantity = actionConsumer?.quantity ?? 0;
+    itemUsesData.quantity = itemConsumer?.quantity ?? 0;
 
     $: actionUses = $item.actions[actionId].uses ?? {};
     $: itemUses = $item.system.uses;
@@ -58,7 +59,7 @@
                         <input
                             class="number-input"
                             type="number"
-                            bind:value={usesData.actionQuantity}
+                            bind:value={actionUsesData.quantity}
                             min="0"
                             max={actionUses.max}
                         />
@@ -85,7 +86,7 @@
                         <input
                             class="number-input"
                             type="number"
-                            bind:value={usesData.itemQuantity}
+                            bind:value={itemUsesData.quantity}
                             min="0"
                             max={itemUses.max}
                         />

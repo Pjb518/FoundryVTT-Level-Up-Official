@@ -101,11 +101,11 @@
     $: menuItems = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
             if (
-                existingConsumers.has(consumerType) &&
-                consumerType !== "resource"
+                consumerType === "resource" ||
+                !existingConsumers.has(consumerType)
             )
-                return acc;
-            acc.push([singleLabel, consumerType]);
+                acc.push([singleLabel, consumerType]);
+
             return acc;
         },
         []
