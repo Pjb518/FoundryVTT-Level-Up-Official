@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
+import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getChatCardTargets from '../utils/getChatCardTargets';
 import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
@@ -440,23 +441,18 @@ export default class ItemA5e extends Item {
 
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
-    let formula = this.system.recharge.formula ?? '1d6';
-    let threshold = this.system.recharge.threshold ?? 6;
-    let newState = false;
-    let updatePath = 'system.recharge.charged';
+    let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData());
+    let formula = this.system.uses.recharge.formula ?? '1d6';
+    let threshold = this.system.uses.recharge.threshold ?? 6;
+    let updatePath = 'system.uses.value';
 
     if (actionId) {
-      const consumers = this.actions.getConsumers(actionId)
-        .filter(([_, c]) => c.type === 'recharge' && c.consumeType === 'action');
+      const action = this.actions[actionId];
 
-      if (!consumers.length) return;
-      if (!consumers[0].length) return;
-
-      const [consumerId, consumer] = consumers[0];
-
-      formula = consumer?.formula ?? '1d6';
-      threshold = consumer?.threshold ?? 6;
-      updatePath = `system.actions.${actionId}.consumers.${consumerId}.charged`;
+      max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData());
+      formula = action.uses?.recharge?.formula ?? '1d6';
+      threshold = action.uses?.recharge?.threshold ?? 6;
+      updatePath = `system.actions.${actionId}.uses.value`;
     }
 
     // Roll
@@ -464,8 +460,7 @@ export default class ItemA5e extends Item {
     // TODO: Make the message prettier
     roll.toMessage();
 
-    if (roll.total >= threshold) newState = true;
-    await this.update({ [updatePath]: newState });
+    if (roll.total >= threshold) { await this.update({ [updatePath]: max }); }
   }
 
   static async _onClickChatAbilityCheckButton(event) {
