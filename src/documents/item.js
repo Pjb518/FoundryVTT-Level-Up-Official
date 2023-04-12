@@ -234,8 +234,6 @@ export default class ItemA5e extends Item {
           return this.#consumeResource(consumer);
         case 'spell':
           return this.#consumeSpellResource(promiseData.spell);
-        case 'recharge':
-          return this.#consumeCharge(actionId, consumerId, consumer);
         case 'uses':
           return this.#consumeUses(actionId, promiseData.uses);
         default: return null;
@@ -245,18 +243,6 @@ export default class ItemA5e extends Item {
 
   async #consumeAmmunition(consumer) {
     return this.#consumeQuantity(consumer);
-  }
-
-  async #consumeCharge(actionId, consumerId, consumer) {
-    if (consumer?.consumeType === 'item') {
-      await this.update({ 'system.recharge.charged': false });
-      return;
-    }
-
-    // Consume action charge
-    await this.update({
-      [`system.actions.${actionId}.consumers.${consumerId}.charged`]: false
-    });
   }
 
   async #consumeQuantity(consumer) {
