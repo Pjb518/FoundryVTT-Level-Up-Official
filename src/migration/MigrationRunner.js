@@ -367,7 +367,6 @@ export default class MigrationRunner extends MigrationRunnerBase {
       permanent: true
     });
 
-    // TODO: Uncomment this
     await game.settings.set('a5e', 'worldSchemaVersion', schemaVersion.latest);
 
     // Legacy Support
