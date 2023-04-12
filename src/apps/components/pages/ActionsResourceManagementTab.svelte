@@ -82,37 +82,29 @@
             singleLabel: "A5E.Spell",
             component: SpellConsumer,
         },
-        uses: {
-            heading: "A5E.ConsumerUses",
-            singleLabel: "A5E.ConsumerUses",
+        actionUses: {
+            heading: "A5E.ConsumerUsesAction",
+            singleLabel: "A5E.ConsumerActionUses",
+            component: UsesConsumer,
+        },
+        itemUses: {
+            heading: "A5E.ConsumerUsesItem",
+            singleLabel: "A5E.ConsumerItemUses",
             component: UsesConsumer,
         },
     };
 
     $: action = $item.actions[actionId];
     $: consumers = action.consumers ?? {};
-    $: ammunitionConsumers = Object.values(consumers ?? {}).filter(
-        (c) => c.type === "ammunition"
-    );
-    $: quantityConsumers = Object.values(consumers ?? {}).filter(
-        (c) => c.type === "quantity"
-    );
-    $: spellConsumers = Object.entries(consumers ?? {}).filter(
-        (c) => c.type === "spell"
-    );
-    $: usesConsumers = Object.entries(consumers ?? {}).filter(
-        (c) => c.type === "uses"
-    );
+    $: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
 
     $: menuItems = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
-            if (consumerType === "ammunition" && ammunitionConsumers.length)
+            if (
+                existingConsumers.has(consumerType) &&
+                consumerType !== "resource"
+            )
                 return acc;
-            if (consumerType === "quantity" && quantityConsumers.length)
-                return acc;
-            if (consumerType === "spell" && spellConsumers.length) return acc;
-            if (consumerType === "uses" && usesConsumers.length) return acc;
-
             acc.push([singleLabel, consumerType]);
             return acc;
         },
