@@ -574,7 +574,8 @@ A5E.resourceRecoveryOptions = {
   day: 'A5E.DurationDay',
   week: 'A5E.DurationWeek',
   month: 'A5E.DurationMonth',
-  year: 'A5E.DurationYear'
+  year: 'A5E.DurationYear',
+  recharge: 'A5E.ItemRecharge'
 };
 
 A5E.rollModes = {
