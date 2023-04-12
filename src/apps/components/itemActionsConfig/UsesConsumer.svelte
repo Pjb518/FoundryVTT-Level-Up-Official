@@ -26,6 +26,7 @@
     }
 
     let selectedType = consumer.consumeType;
+    $: action = $item.actions[actionId];
     $: selectedType, updateSelection();
 </script>
 
@@ -76,14 +77,33 @@
             <input
                 type="number"
                 d-type="Number"
-                value={consumer.default ?? 1}
+                value={consumer.quantity ?? 1}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $item,
-                        `system.actions.${actionId}.consumers.${consumerId}.default`,
+                        `system.actions.${actionId}.consumers.${consumerId}.quantity`,
                         Number(target.value)
                     )}
             />
         </div>
+
+        {#if action.uses?.per === "recovery"}
+            <div class="u-flex u-flex-col u-gap-sm u-w-30">
+                <h3 class="a5e-field-group__heading">
+                    {localize("A5E.ItemRechargeRecoverCharges")}
+                </h3>
+                <input
+                    type="number"
+                    d-type="Number"
+                    value={consumer.recover ?? 1}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            `system.actions.${actionId}.consumers.${consumerId}.recover`,
+                            Number(target.value)
+                        )}
+                />
+            </div>
+        {/if}
     </div>
 </section>

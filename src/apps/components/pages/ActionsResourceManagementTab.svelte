@@ -123,6 +123,7 @@
 <article>
     <div class="main-container">
         <!-- Action Resources Section -->
+        <!-- TODO: These boxes need to be thinner -->
         <div class="u-flex u-flex-col u-gap-md u-mb-lg">
             <FormSection heading="A5E.Uses">
                 <div class="u-flex u-gap-lg u-w-full">
@@ -130,7 +131,6 @@
                         <h3 class="u-text-sm">{localize("A5E.UsesCurrent")}</h3>
 
                         <input
-                            class="a5e-input"
                             type="number"
                             d-type="Number"
                             name="system.actions.{actionId}.uses.value"
@@ -148,7 +148,6 @@
                         <h3 class="u-text-sm">{localize("A5E.UsesMax")}</h3>
 
                         <input
-                            class="a5e-input"
                             type="text"
                             name="system.actions.{actionId}.uses.max"
                             value={action.uses?.max ?? ""}
@@ -166,7 +165,7 @@
                     <div class="u-flex u-flex-col u-gap-xs u-w-fit">
                         <h3 class="u-text-sm">{localize("A5E.UsesPer")}</h3>
                         <select
-                            class="u-h-8 u-w-40"
+                            class="u-w-40"
                             name="system.actions.{actionId}.uses.per"
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
