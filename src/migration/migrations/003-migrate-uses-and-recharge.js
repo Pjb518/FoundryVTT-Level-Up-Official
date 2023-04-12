@@ -14,7 +14,6 @@ export default class Migration003Uses extends MigrationBase {
       const itemConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'itemUses');
       const rechargeConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'recharge');
       const consumerIds = [];
-      let consumeType;
 
       // Move action uses to proper place
       if (actionConsumers.length) {
@@ -31,25 +30,7 @@ export default class Migration003Uses extends MigrationBase {
 
           // Set action uses
           itemData.system.actions[actionId].uses = uses;
-
-          // Delete actionUses consumer
-          consumerIds.push(id);
-          delete itemData.system.actions[actionId].consumers[id];
-          consumeType = 'action';
         });
-      }
-
-      // Move data for item consumer
-      if (itemConsumers.length) {
-        const [id, consumer] = itemConsumers[0];
-
-        // Update consume Type
-        if (consumeType === 'action') consumeType = 'both';
-        else consumeType = 'item';
-
-        // Delete itemUses consumer
-        consumerIds.push(id);
-        delete itemData.system.actions[actionId].consumers[id];
       }
 
       // Move data for recharges
@@ -69,16 +50,9 @@ export default class Migration003Uses extends MigrationBase {
         });
       }
 
-      if (!['item', 'action', 'both'].includes(consumeType)) return;
-
       // Create new uses consumers
       const newObject = {
-        ...itemData.system.actions[actionId].consumers,
-        [foundry.utils.randomID()]: {
-          quantity: 1,
-          consumeType,
-          type: 'uses'
-        }
+        ...itemData.system.actions[actionId].consumers
       };
 
       consumerIds.forEach((id) => {
