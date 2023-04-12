@@ -10,7 +10,23 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
-    const A5E = CONFIG.A5E;
+
+    const options = {
+        item: "A5E.Item",
+        action: "A5E.Action",
+        both: "A5E.Both",
+    };
+
+    function updateSelection() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.consumers.${consumerId}.consumeType`,
+            selectedType
+        );
+    }
+
+    let selectedType = consumer.consumeType;
+    $: selectedType, updateSelection();
 </script>
 
 <section class="action-config__wrapper">
@@ -33,73 +49,41 @@
         />
     </div>
 
-    {#if consumer.type === "actionUses"}
-        <div
-            class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md"
-        >
-            <div class="u-flex u-flex-col u-gap-sm u-w-30">
-                <h3 class="a5e-field-group__heading">
-                    {localize("A5E.UsesCurrent")}
-                </h3>
+    <div class="a5e-field-group u-flex-row u-gap-lg">
+        <div class="u-flex u-flex-col u-gap-sm">
+            <h3 class="a5e-field-group__heading">
+                {localize("A5E.ItemType")}
+            </h3>
 
-                <input
-                    type="number"
-                    d-type="Number"
-                    value={consumer.value}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.consumers.${consumerId}.value`,
-                            Number(target.value)
-                        )}
-                />
-            </div>
-
-            <div class="u-flex u-flex-col u-gap-sm u-w-30">
-                <h3 class="a5e-field-group__heading">
-                    {localize("A5E.UsesMax")}
-                </h3>
-
-                <input
-                    type="text"
-                    value={consumer.max ?? ""}
-                    on:change={({ target }) => {
-                        handleDeterministicInput(target.value);
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.consumers.${consumerId}.max`,
-                            target.value
-                        );
-                    }}
-                />
-            </div>
-
-            <div class="u-flex u-flex-col u-gap-sm u-w-fit">
-                <h3 class="a5e-field-group__heading">
-                    {localize("A5E.UsesPer")}
-                </h3>
-                <select
-                    class="u-w-40"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            `system.actions.${actionId}.consumers.${consumerId}.per`,
-                            target.value
-                        )}
-                >
-                    <option value="" />
-
-                    {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
-                        <option
-                            {key}
-                            value={key}
-                            selected={consumer.per === key}
-                        >
-                            {localize(name)}
-                        </option>
-                    {/each}
-                </select>
-            </div>
+            <select
+                id="{actionId}-{consumerId}-item-id"
+                class="u-w-fit"
+                bind:value={selectedType}
+            >
+                <option value="" />
+                {#each Object.entries(options) as [type, label]}
+                    <option value={type}>
+                        {label}
+                    </option>
+                {/each}
+            </select>
         </div>
-    {/if}
+
+        <div class="u-flex u-flex-col u-gap-sm u-w-30">
+            <h3 class="a5e-field-group__heading">
+                {localize("A5E.ItemDefaultQuantity")}
+            </h3>
+            <input
+                type="number"
+                d-type="Number"
+                value={consumer.default ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.consumers.${consumerId}.default`,
+                        Number(target.value)
+                    )}
+            />
+        </div>
+    </div>
 </section>

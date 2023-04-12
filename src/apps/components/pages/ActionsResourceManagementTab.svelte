@@ -12,7 +12,6 @@
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
     import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
-    import RechargeConsumer from "../itemActionsConfig/RechargeConsumer.svelte";
     import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
     import FormSection from "../FormSection.svelte";
@@ -49,9 +48,9 @@
                 CONFIG.A5E.spellLevelCost?.[$item.system.level] ?? 1;
         }
 
-        if (type === "recharge") {
-            data["charged"] = true;
+        if (type === "uses") {
             data["consumeType"] = "item";
+            data["default"] = 1;
         }
 
         $item.update({
@@ -83,33 +82,17 @@
             singleLabel: "A5E.Spell",
             component: SpellConsumer,
         },
-        actionUses: {
-            heading: "A5E.ConsumerUsesAction",
-            singleLabel: "A5E.ConsumerActionUses",
+        uses: {
+            heading: "A5E.ConsumerUses",
+            singleLabel: "A5E.ConsumerUses",
             component: UsesConsumer,
-        },
-        itemUses: {
-            heading: "A5E.ConsumerUsesItem",
-            singleLabel: "A5E.ConsumerItemUses",
-            component: UsesConsumer,
-        },
-        recharge: {
-            heading: "A5E.ConsumerCharges",
-            singleLabel: "A5E.Charge",
-            component: RechargeConsumer,
         },
     };
 
     $: action = $item.actions[actionId];
     $: consumers = action.consumers ?? {};
-    $: actionUsesConsumers = Object.values(consumers ?? {}).filter(
-        (c) => c.type === "actionUses"
-    );
     $: ammunitionConsumers = Object.values(consumers ?? {}).filter(
         (c) => c.type === "ammunition"
-    );
-    $: itemUsesConsumers = Object.values(consumers ?? {}).filter(
-        (c) => c.type === "itemUses"
     );
     $: quantityConsumers = Object.values(consumers ?? {}).filter(
         (c) => c.type === "quantity"
@@ -117,18 +100,18 @@
     $: spellConsumers = Object.entries(consumers ?? {}).filter(
         (c) => c.type === "spell"
     );
+    $: usesConsumers = Object.entries(consumers ?? {}).filter(
+        (c) => c.type === "uses"
+    );
 
     $: menuItems = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
-            if (consumerType === "itemUses" && itemUsesConsumers.length)
-                return acc;
-            if (consumerType === "actionUses" && actionUsesConsumers.length)
-                return acc;
             if (consumerType === "ammunition" && ammunitionConsumers.length)
                 return acc;
             if (consumerType === "quantity" && quantityConsumers.length)
                 return acc;
             if (consumerType === "spell" && spellConsumers.length) return acc;
+            if (consumerType === "uses" && usesConsumers.length) return acc;
 
             acc.push([singleLabel, consumerType]);
             return acc;
@@ -287,7 +270,7 @@
     </div>
     <div class="sticky-add-button">
         <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
-            <TJSMenu offset={{ x: -110, y: -140 }}>
+            <TJSMenu offset={{ x: -110, y: -105 }}>
                 <AddMenu
                     menuList={menuItems}
                     on:press={({ detail }) => addConsumer(detail)}
