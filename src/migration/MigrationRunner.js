@@ -265,7 +265,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
    */
   async runMigrations(migrations) {
     if (migrations.length === 0) return;
-    console.info(`AKE | Found ${migrations.length} migrations`);
+    console.info(`A5E | Found ${migrations.length} migrations`);
 
     // Migrate actors && items
     console.info(`A5E | Migrating ${game.actors.size} actors.`);
@@ -316,7 +316,6 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     // Migrate compendiums
     for (const pack of game.packs) {
-      console.log(pack.metadata.packageType);
       if (pack.metadata.packageType !== 'world') continue;
       if (!['Actor', 'Item'].includes(pack.documentName)) continue;
       console.info(`A5E | Migrating ${pack.index.size} documents in ${pack.metadata.id}.`);

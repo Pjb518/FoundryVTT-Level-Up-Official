@@ -3,9 +3,9 @@ import MigrationBase from '../MigrationBase';
 
 const FEATURE_ITEMS = ['background', 'class', 'culture', 'destiny', 'heritage', 'subclass'];
 
-export default class Migration002Ooze extends MigrationBase {
+export default class Migration003Uses extends MigrationBase {
   /** @override */
-  static version = 0.002;
+  static version = 0.003;
 
   #updateActionUses(itemData) {
     const actions = Object.entries(itemData.system.actions ?? {});
@@ -13,12 +13,8 @@ export default class Migration002Ooze extends MigrationBase {
       const actionConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'actionUses');
       const itemConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'itemUses');
       const rechargeConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'recharge');
-      const createConsumer = actionConsumers.length
-        && itemConsumers.length
-        && rechargeConsumers.length;
+      const consumerIds = [];
       let consumeType;
-
-      if (!createConsumer) return;
 
       // Move action uses to proper place
       if (actionConsumers.length) {
@@ -37,21 +33,23 @@ export default class Migration002Ooze extends MigrationBase {
           itemData.system.actions[actionId].uses = uses;
 
           // Delete actionUses consumer
-          itemData[`system.actions.${actionId}.consumers.-=${id}`] = null;
+          consumerIds.push(id);
+          delete itemData.system.actions[actionId].consumers[id];
           consumeType = 'action';
         });
       }
 
       // Move data for item consumer
       if (itemConsumers.length) {
-        const [id] = itemConsumers;
+        const [id, consumer] = itemConsumers[0];
 
         // Update consume Type
         if (consumeType === 'action') consumeType = 'both';
         else consumeType = 'item';
 
         // Delete itemUses consumer
-        itemData[`system.actions.${actionId}.consumers.-=${id}`] = null;
+        consumerIds.push(id);
+        delete itemData.system.actions[actionId].consumers[id];
       }
 
       // Move data for recharges
@@ -66,12 +64,15 @@ export default class Migration002Ooze extends MigrationBase {
           itemData[`system.actions.${actionId}.uses.recharge`] = recharge;
 
           // Delete consumer
-          itemData[`system.actions.${actionId}.consumers.-=${id}`] = null;
+          consumerIds.push(id);
+          delete itemData.system.actions[actionId].consumers[id];
         });
       }
 
+      if (!['item', 'action', 'both'].includes(consumeType)) return;
+
       // Create new uses consumers
-      itemData[`system.actions.${actionId}.consumers`] = {
+      const newObject = {
         ...itemData.system.actions[actionId].consumers,
         [foundry.utils.randomID()]: {
           quantity: 1,
@@ -79,6 +80,12 @@ export default class Migration002Ooze extends MigrationBase {
           type: 'uses'
         }
       };
+
+      consumerIds.forEach((id) => {
+        newObject[`-=${id}`] = null;
+      });
+
+      itemData[`system.actions.${actionId}.consumers`] = newObject;
     });
   }
 
@@ -89,6 +96,7 @@ export default class Migration002Ooze extends MigrationBase {
     };
 
     itemData['system.uses.recharge'] = recharge;
+    itemData['system.-=recharge'] = null;
   }
 
   /**
@@ -97,6 +105,8 @@ export default class Migration002Ooze extends MigrationBase {
    * @returns {Promise<void>}
    */
   async updateItem(itemData) {
+    if (FEATURE_ITEMS.includes(itemData.type)) return;
+
     this.#updateActionUses(itemData);
     this.#updateRechargeData(itemData);
   }
