@@ -632,12 +632,12 @@ export default class ActorA5e extends Actor {
   }
 
   async restoreUses(restType) {
-    const restTypes = ['shortRest'];
+    const restTypes = ['shortRest', 'recharge', 'round', 'turn', 'minute', 'hour'];
     const rollData = this.getRollData();
     const items = Array.from(this.items);
     const numRestored = { item: 0, action: 0 };
 
-    if (restType === 'long') restTypes.push('longRest');
+    if (restType === 'long') restTypes.concat(['longRest', 'day']);
 
     const restore = async (item) => {
       const { uses } = item.system;
@@ -655,18 +655,14 @@ export default class ActorA5e extends Actor {
       // Restore action uses
       const actionIds = item.actions.keys();
       actionIds.forEach(async (actionId) => {
-        const [consumerId, consumer] = item.actions.getConsumers(actionId)
-          // eslint-disable-next-line no-unused-vars
-          .filter(([_, c]) => c.type === 'actionUses')?.[0] ?? [[], []];
-
-        if (!consumerId || !consumer) return;
-        if (restTypes.includes(consumer.per)) {
-          if (consumer.max) {
-            const maxValue = getDeterministicBonus(consumer.max, rollData);
-            if (maxValue > consumer.value) {
-              numRestored.action += (maxValue - consumer.value);
+        const actionUses = item.actions[actionId]?.uses ?? {};
+        if (restTypes.includes(actionUses?.per)) {
+          if (actionUses?.max) {
+            const maxValue = getDeterministicBonus(actionUses.max, rollData);
+            if (maxValue > actionUses.value) {
+              numRestored.action += (maxValue - actionUses.value);
               await item.update({
-                [`system.actions.${actionId}.consumers.${consumerId}.value`]: maxValue
+                [`system.actions.${actionId}.uses.value`]: maxValue
               });
             }
           }

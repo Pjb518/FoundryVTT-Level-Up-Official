@@ -299,15 +299,15 @@ export default class RollPreparationManager {
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
-  // TODO: Switch this use a base consumption value once the resource consumption
-  // changes are in.
   #applyActionUsesScaling(roll) {
-    const delta = (this.#consumers.actionUses.quantity || 1) - 1;
+    if (!['both', 'action'].includes(this.#consumers.uses?.consumeType)) return roll;
+    const delta = (this.#consumers.uses.actionQuantity || 1) - 1;
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
   #applyItemUsesScaling(roll) {
-    const delta = (this.#consumers.itemUses.quantity || 1) - 1;
+    if (!['both', 'item'].includes(this.#consumers.uses.consumeType)) return roll;
+    const delta = (this.#consumers.uses.itemQuantity || 1) - 1;
     return this.#applyResourceBasedScaling(roll, delta);
   }
 

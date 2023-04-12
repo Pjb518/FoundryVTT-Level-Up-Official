@@ -291,10 +291,10 @@ A5E.damageScalingModes = {
 
 A5E.healingScalingModes = {
   cantrip: 'A5E.ScalingModeCantrip',
-  spellLevel: 'A5E.ScalingModeSpellLevel'
-  // spellPoints: 'A5E.ScalingModeSpellPoints',
-  // actionUses: 'A5E.ScalingModeActionUses',
-  // itemUses: 'A5E.ScalingModeItemUses'
+  spellLevel: 'A5E.ScalingModeSpellLevel',
+  spellPoints: 'A5E.ScalingModeSpellPoints',
+  actionUses: 'A5E.ScalingModeActionUses',
+  itemUses: 'A5E.ScalingModeItemUses'
 };
 
 /**

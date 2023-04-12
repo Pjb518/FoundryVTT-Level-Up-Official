@@ -105,12 +105,12 @@
     {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
         <section class="row u-flex-wrap">
             <div class="a5e-field-group a5e-field-group--formula">
-                <label for="{actionId}-{rollId}-damage-scaling-formula">
-                    Damage Increment
+                <label for="{actionId}-{rollId}-healing-scaling-formula">
+                    Healing Increment
                 </label>
 
                 <input
-                    id="{actionId}-{rollId}-damage-scaling-formula"
+                    id="{actionId}-{rollId}-healing-scaling-formula"
                     type="text"
                     name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
                     value={roll.scaling?.formula ?? 0}
@@ -124,12 +124,12 @@
             </div>
 
             <div class="a5e-field-group u-w-12">
-                <label for="{actionId}-{rollId}-damage-scaling-step">
+                <label for="{actionId}-{rollId}-healing-scaling-step">
                     Per
                 </label>
 
                 <input
-                    id="{actionId}-{rollId}-damage-scaling-step"
+                    id="{actionId}-{rollId}-healing-scaling-step"
                     type="number"
                     name="system.actions.{actionId}.rolls.{rollId}.scaling.step"
                     value={roll.scaling?.step ?? 1}
