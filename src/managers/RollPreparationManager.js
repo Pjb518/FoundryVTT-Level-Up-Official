@@ -291,21 +291,35 @@ export default class RollPreparationManager {
   }
 
   #applySpellPointScaling(roll) {
-    const action = this.#item.actions[this.#actionId];
-    const spellPointConsumer = Object.values(action?.consumers ?? {}).find(({ mode }) => mode === 'pointsOnly');
-    const basePoints = spellPointConsumer?.points ?? 1;
-    const delta = basePoints - this.#consumers.spell.points;
+    const spellConsumer = this.#consumers.spell;
+    if (foundry.utils.isEmpty(spellConsumer ?? {})) return roll.formula;
 
+    const { basePoints } = spellConsumer;
+    if (basePoints >= spellConsumer.points) return roll.formula;
+
+    const delta = Math.max(0, spellConsumer.points - basePoints);
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
   #applyActionUsesScaling(roll) {
-    const delta = (this.#consumers.actionUses?.quantity || 1) - 1;
+    const actionConsumer = this.#consumers.actionUses;
+    if (foundry.utils.isEmpty(actionConsumer ?? {})) return roll.formula;
+
+    const baseQuantity = actionConsumer.baseUses;
+    if (baseQuantity >= actionConsumer.quantity) return roll.formula;
+
+    const delta = Math.max(0, actionConsumer.quantity - baseQuantity);
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
   #applyItemUsesScaling(roll) {
-    const delta = (this.#consumers.itemUses?.quantity || 1) - 1;
+    const itemConsumer = this.#consumers.itemUses;
+    if (foundry.utils.isEmpty(itemConsumer ?? {})) return roll.formula;
+
+    const baseQuantity = itemConsumer.baseUses;
+    if (baseQuantity >= itemConsumer.quantity) return roll.formula;
+
+    const delta = Math.max(0, itemConsumer.quantity - baseQuantity);
     return this.#applyResourceBasedScaling(roll, delta);
   }
 

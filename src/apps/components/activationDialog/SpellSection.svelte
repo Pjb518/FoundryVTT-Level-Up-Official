@@ -80,6 +80,9 @@
 
     spellData.level = consumer.spellLevel;
     spellData.points = consumer.points;
+    spellData.basePoints = consumer.points ?? 1;
+    spellData.baseLevel = consumer.spellLevel ?? 1;
+
     spellData.consume =
         mode === "pointsOnly"
             ? "spellPoint"

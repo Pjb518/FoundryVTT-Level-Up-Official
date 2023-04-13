@@ -34,7 +34,9 @@
     const itemConsumer = getItemConsumer(consumers);
 
     actionUsesData.quantity = actionConsumer?.quantity ?? 1;
+    actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
     itemUsesData.quantity = itemConsumer?.quantity ?? 1;
+    itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
 
     $: actionUses = $item.actions[actionId].uses ?? {};
     $: itemUses = $item.system.uses;
