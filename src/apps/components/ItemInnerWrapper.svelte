@@ -66,7 +66,7 @@
 
     function hasRecharge(item) {
         if (actionId) return action.uses?.per === "recharge";
-        return item.system.uses.per === "recharge";
+        return item.system?.uses?.per === "recharge";
     }
 
     function updateField(event) {
@@ -93,9 +93,9 @@
             updatePath: `system.actions.${actionId}.uses`,
         },
         item: {
-            value: item.system.uses?.value ?? 0,
+            value: item.system?.uses?.value ?? 0,
             max: getDeterministicBonus(
-                item.system.uses?.max ?? 0,
+                item.system?.uses?.max ?? 0,
                 $actor.getRollData()
             ),
             updatePath: "system.uses",
@@ -113,7 +113,7 @@
 
     $: rechargeState = actionId
         ? action.uses?.max == action.uses?.value
-        : item.system.uses.max == item.system.uses.value;
+        : item.system?.uses?.max == item.system?.uses?.value;
 
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
@@ -313,7 +313,7 @@
     </div>
 {/if}
 
-{#if (!actionId && item.system.uses?.max) || (action && action.uses?.max)}
+{#if (!actionId && item.system?.uses?.max) || (action && action.uses?.max)}
     <div class="uses-wrapper">
         <input
             class="number-input"
