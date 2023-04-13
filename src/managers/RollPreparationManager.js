@@ -292,7 +292,7 @@ export default class RollPreparationManager {
 
   #applySpellPointScaling(roll) {
     const spellConsumer = this.#consumers.spell;
-    if (foundry.utils.isEmpty(spellConsumer ?? {})) return roll.formula;
+    if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
 
     const { basePoints } = spellConsumer;
     if (basePoints >= spellConsumer.points) return roll.formula;
@@ -303,7 +303,7 @@ export default class RollPreparationManager {
 
   #applyActionUsesScaling(roll) {
     const actionConsumer = this.#consumers.actionUses;
-    if (foundry.utils.isEmpty(actionConsumer ?? {})) return roll.formula;
+    if (foundry.utils.isEmpty(actionConsumer)) return roll.formula;
 
     const baseQuantity = actionConsumer.baseUses;
     if (baseQuantity >= actionConsumer.quantity) return roll.formula;
@@ -314,7 +314,7 @@ export default class RollPreparationManager {
 
   #applyItemUsesScaling(roll) {
     const itemConsumer = this.#consumers.itemUses;
-    if (foundry.utils.isEmpty(itemConsumer ?? {})) return roll.formula;
+    if (foundry.utils.isEmpty(itemConsumer)) return roll.formula;
 
     const baseQuantity = itemConsumer.baseUses;
     if (baseQuantity >= itemConsumer.quantity) return roll.formula;
