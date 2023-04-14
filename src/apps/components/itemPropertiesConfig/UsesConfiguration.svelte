@@ -143,7 +143,10 @@
                             />
                         </div>
 
-                        <div class="u-flex u-flex-col u-gap-md u-w-fit">
+                        <div
+                            class="u-flex u-flex-col u-gap-md u-w-fit u-flex-nowrap"
+                            style="white-space:nowrap"
+                        >
                             <label for="{$item.id}-recharge-threshold">
                                 {localize("A5E.ItemRechargeThreshold")}
                             </label>
