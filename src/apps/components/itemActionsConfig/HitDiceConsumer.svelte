@@ -27,7 +27,9 @@
         return acc;
     }, []);
 
-    const defaultSelection = $item.actor ? availableHitDice[0][0] : "";
+    const defaultSelection = availableHitDice.length
+        ? availableHitDice[0][0]
+        : "";
 
     $: selected = consumer.defaultDie ?? defaultSelection;
     $: selected, updateSelection();
@@ -58,7 +60,7 @@
     <div class="a5e-field-group">
         {#if $item.actor}
             <h3 class="a5e-field-group__heading">
-                {localize("A5E.HitDiceLabel")}
+                {localize("A5E.ConsumerHitDiceDefault")}
             </h3>
 
             <RadioGroup
