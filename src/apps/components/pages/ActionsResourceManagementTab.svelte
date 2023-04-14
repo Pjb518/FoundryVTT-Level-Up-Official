@@ -48,8 +48,7 @@
                 CONFIG.A5E.spellLevelCost?.[$item.system.level] ?? 1;
         }
 
-        if (type === "uses") {
-            data["consumeType"] = "item";
+        if (["actionUses", "itemUses"].includes(type)) {
             data["quantity"] = 1;
         }
 

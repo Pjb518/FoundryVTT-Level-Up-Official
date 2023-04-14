@@ -2,7 +2,6 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import handleDeterministicInput from "../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let consumer;
@@ -10,17 +9,6 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
-
-    function updateSelection() {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.consumers.${consumerId}.consumeType`,
-            selectedType
-        );
-    }
-
-    let selectedType = consumer.consumeType;
-    $: selectedType, updateSelection();
 </script>
 
 <section class="action-config__wrapper">
