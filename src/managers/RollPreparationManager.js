@@ -308,7 +308,7 @@ export default class RollPreparationManager {
     const baseQuantity = actionConsumer.baseUses;
     if (baseQuantity >= actionConsumer.quantity) return roll.formula;
 
-    const delta = Math.max(0, actionConsumer.quantity - baseQuantity);
+    const delta = actionConsumer.quantity - baseQuantity;
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
@@ -319,7 +319,7 @@ export default class RollPreparationManager {
     const baseQuantity = itemConsumer.baseUses;
     if (baseQuantity >= itemConsumer.quantity) return roll.formula;
 
-    const delta = Math.max(0, itemConsumer.quantity - baseQuantity);
+    const delta = itemConsumer.quantity - baseQuantity;
     return this.#applyResourceBasedScaling(roll, delta);
   }
 
