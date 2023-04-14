@@ -9,6 +9,7 @@
     import AddMenu from "../AddMenu.svelte";
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
+    import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
     import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
@@ -31,6 +32,10 @@
             data["quantity"] = 1;
         }
 
+        if (type === "hitDice") {
+            data["quantity"] = 1;
+        }
+
         if (type === "quantity") {
             data["itemId"] = "";
             data["quantity"] = 1;
@@ -48,9 +53,7 @@
                 CONFIG.A5E.spellLevelCost?.[$item.system.level] ?? 1;
         }
 
-        if (["actionUses", "itemUses"].includes(type)) {
-            data["quantity"] = 1;
-        }
+        if (["actionUses", "itemUses"].includes(type)) data["quantity"] = 1;
 
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
@@ -65,6 +68,11 @@
             heading: "A5E.ConsumerAmmunition",
             singleLabel: "A5E.ObjectTypeAmmunition",
             component: AmmoConsumer,
+        },
+        hitDice: {
+            heading: "A5E.ConsumerHitDice",
+            singleLabel: "A5E.HitDiceLabel",
+            component: HitDiceConsumer,
         },
         quantity: {
             heading: "A5E.ConsumerQuantity",
