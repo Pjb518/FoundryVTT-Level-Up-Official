@@ -120,7 +120,10 @@
 
 <div class="name-wrapper">
     <div class="name">
-        {action?.name ?? item.name}
+        {action?.name ??
+            (item.system.unidentified
+                ? item.system.unidentifiedName
+                : item.name)}
     </div>
 
     {#if hasAmmunition(item, action)}

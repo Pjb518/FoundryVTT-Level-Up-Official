@@ -35,6 +35,8 @@
     // $: name = getItemName($item);
 
     let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
+
+    $: unidentified = $item.system.unidentified;
 </script>
 
 <header class="sheet-header">
@@ -50,10 +52,12 @@
     <div class="name-wrapper">
         <input
             type="text"
-            name="name"
-            value={$item.name}
+            name={unidentified ? "system.unidentifiedName" : "name"}
+            value={unidentified ? $item.system.unidentifiedName : $item.name}
             class="item-name"
-            placeholder={"A5E.Name"}
+            placeholder={localize(
+                unidentified ? "A5E.ItemUnidentifiedName" : "A5E.Name"
+            )}
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
