@@ -3,6 +3,7 @@ import prepareSpellConsumer from './prepareSpellConsumer';
 
 const consumerHandlerMap = {
   actionUses: prepareUsesConsumer,
+  hitDice: prepareUsesConsumer,
   itemUses: prepareUsesConsumer,
   spell: prepareSpellConsumer
 };

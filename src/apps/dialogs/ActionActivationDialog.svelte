@@ -18,6 +18,7 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
+    import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
     import SpellSection from "../components/activationDialog/SpellSection.svelte";
     import UsesSection from "../components/activationDialog/UsesSection.svelte";
 
@@ -65,6 +66,7 @@
             },
             consumers: {
                 actionUses: actionUsesData,
+                hitDice: hitDiceData,
                 itemUses: itemUsesData,
                 spell: spellData,
             },
@@ -145,9 +147,10 @@
         {}
     );
 
-    let spellData = {};
     let actionUsesData = {};
+    let hitDiceData = {};
     let itemUsesData = {};
+    let spellData = {};
     let disabledRolls = getInvalidSelections(rolls);
     let disabledPrompts = getInvalidSelections(prompts);
     let expertiseDie = 0;
@@ -321,6 +324,10 @@
 
     {#if Object.values(consumers?.actionUses ?? {}).flat().length || Object.values(consumers?.itemUses ?? {}).flat().length}
         <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
+    {/if}
+
+    {#if Object.values(consumers?.hitDice ?? {}).flat().length}
+        <HitDiceSection {consumers} bind:hitDiceData />
     {/if}
 
     <!-- If there are no prompts, hide this section -->
