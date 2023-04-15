@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getChatCardTargets from '../utils/getChatCardTargets';
 import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
@@ -17,12 +16,6 @@ import RollPreparationManager from '../managers/RollPreparationManager';
  * @extends {Item}
  */
 export default class ItemA5e extends Item {
-  static chatListeners(html) {
-    html.find('.a5e-js-chat-ability-check-button').click(this._onClickChatAbilityCheckButton.bind(this));
-    html.find('.a5e-js-chat-saving-throw-button').click(this._onClickChatSavingThrowButton.bind(this));
-    html.find('.a5e-js-toggle-roll-tooltip-visibility').click(this._onToggleRollTooltipVisibility.bind(this));
-  }
-
   get actions() {
     return new ActionsManager(this);
   }
@@ -315,35 +308,5 @@ export default class ItemA5e extends Item {
     roll.toMessage();
 
     if (roll.total >= threshold) { await this.update({ [updatePath]: max }); }
-  }
-
-  static async _onClickChatAbilityCheckButton(event) {
-    /* eslint-disable no-await-in-loop, no-restricted-syntax */
-    event.preventDefault();
-
-    const { ability } = event.currentTarget.dataset;
-    const targets = getChatCardTargets();
-
-    for (const token of targets) {
-      await token.actor.rollAbilityCheck(ability);
-    }
-  }
-
-  static async _onClickChatSavingThrowButton(event) {
-    event.preventDefault();
-
-    const { ability } = event.currentTarget.dataset;
-    const targets = getChatCardTargets();
-
-    for (const token of targets) {
-      await token.actor.rollSavingThrow(ability);
-    }
-  }
-
-  static _onToggleRollTooltipVisibility(event) {
-    event.preventDefault();
-
-    const tooltip = Array.from($(event.currentTarget).siblings('.a5e-dice-tooltip'))[0];
-    $(tooltip).slideToggle();
   }
 }
