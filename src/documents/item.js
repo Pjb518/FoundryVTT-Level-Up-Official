@@ -9,6 +9,7 @@ import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionD
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
 import ActionsManager from '../managers/ActionsManager';
+import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 
 /**
@@ -111,7 +112,14 @@ export default class ItemA5e extends Item {
       if (validTemplate) { await this.#placeActionTemplate(actionId); }
     }
 
-    this.#consume(actionId, promise.consumers);
+    const resourceConsumptionManager = new ResourceConsumptionManager(
+      this.actor,
+      this,
+      actionId,
+      promise.consumers
+    );
+
+    await resourceConsumptionManager.consumeResources();
 
     const chatData = {
       user: game.user?.id,
@@ -217,120 +225,7 @@ export default class ItemA5e extends Item {
     return chatCard;
   }
 
-  async #consume(actionId, promiseData) {
-    // Consume self if consumable
-    this.#consumeSelf();
-
-    // Get other consumers
-    const consumers = Object.entries(this.actions[actionId]?.consumers ?? {});
-    consumers.forEach(([consumerId, consumer]) => {
-      switch (consumer?.type) {
-        case 'actionUses':
-          return this.#consumeActionUses(actionId, promiseData.actionUses);
-        case 'ammunition':
-          return this.#consumeAmmunition(consumer);
-        case 'itemUses':
-          return this.#consumeItemUses(promiseData.itemUses);
-        case 'quantity':
-          return this.#consumeQuantity(consumer);
-        case 'resource':
-          return this.#consumeResource(consumer);
-        case 'spell':
-          return this.#consumeSpellResource(promiseData.spell);
-        default: return null;
-      }
-    });
-  }
-
-  async #consumeActionUses(actionId, promiseData) {
-    const { quantity } = promiseData;
-    if (!quantity || !this.actor) return;
-
-    const actionUses = this.actions[actionId]?.uses;
-    if (!actionUses) return;
-
-    const newValue = Math.max(actionUses.value - quantity, 0);
-    if (newValue !== 0 && !newValue) return;
-
-    await this.update({
-      [`system.actions.${actionId}.uses.value`]: newValue
-    });
-  }
-
-  async #consumeAmmunition(consumer) {
-    return this.#consumeQuantity(consumer);
-  }
-
-  async #consumeItemUses(promiseData) {
-    const { value } = this.system.uses;
-    const { quantity } = promiseData;
-    if (!value || !quantity) return;
-
-    await this.update({
-      'system.uses.value': Math.max(value - quantity, 0)
-    });
-  }
-
-  async #consumeQuantity(consumer) {
-    const { itemId, quantity } = consumer;
-    if (!this.actor || itemId === '') return;
-
-    const item = this.actor.items.get(itemId);
-    if (!item) return;
-
-    const newQuantity = Math.max(item.system.quantity - quantity, 0);
-    await this.actor.updateEmbeddedDocuments(
-      'Item',
-      [{ _id: item.id, 'system.quantity': newQuantity }]
-    );
-  }
-
-  async #consumeResource(consumer) {
-    const { resource, quantity, restore } = consumer;
-    if (!this.actor || !resource) return;
-
-    const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
-    if (!config) return;
-
-    const { path, type } = config;
-    const value = foundry.utils.getProperty(this.actor.system, path);
-    if (!value && !restore) return;
-
-    let updateObject;
-
-    if (type === 'boolean') {
-      updateObject = { [`system.${path}`]: (restore ?? false) };
-    } else {
-      updateObject = { [`system.${path}`]: Math.max(value - quantity, 0) };
-    }
-
-    await this.actor.update(updateObject);
-  }
-
-  async #consumeSpellResource(promiseData) {
-    if (!promiseData || !this.actor) return;
-
-    const {
-      consume,
-      level,
-      points
-    } = promiseData;
-
-    let updateObject = {};
-
-    if (consume === 'spellSlot') {
-      const value = this.actor.system.spellResources.slots?.[level]?.current;
-      updateObject = { [`system.spellResources.slots.${level}.current`]: Math.max(value - 1, 0) };
-    } else if (consume === 'spellPoint') {
-      const value = this.actor.system.spellResources.points.current;
-      updateObject = { 'system.spellResources.points.current': Math.max(value - points, 0) };
-    } else {
-      return;
-    }
-
-    this.actor.update(updateObject);
-  }
-
+  // TODO: Reevaluate the approach here. It's completely separate from our other consumers.
   async #consumeSelf() {
     if (this.system?.objectType === 'consumable') {
       this.update({ 'system.quantity': Math.max(this.system.quantity - 1, 0) });
