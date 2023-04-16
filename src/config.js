@@ -775,6 +775,7 @@ A5E.spellSchools = {
     cold: 'A5E.SpellSchoolCold',
     communication: 'A5E.SpellSchoolCommunication',
     compulsion: 'A5E.SpellSchoolCompulsion',
+    control: 'A5E.SpellSchoolControl',
     divine: 'A5E.SpellSchoolDivine',
     earth: 'A5E.SpellSchoolEarth',
     enhancement: 'A5E.SpellSchoolEnhancement',
