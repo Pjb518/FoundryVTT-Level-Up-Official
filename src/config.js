@@ -769,6 +769,7 @@ A5E.spellSchools = {
     affliction: 'A5E.SpellSchoolAffliction',
     air: 'A5E.SpellSchoolAir',
     arcane: 'A5E.SpellSchoolArcane',
+    architecture: 'A5E.SpellSchoolArchitecture',
     attack: 'A5E.SpellSchoolAttack',
     beasts: 'A5E.SpellSchoolBeasts',
     chaos: 'A5E.SpellSchoolChaos',
