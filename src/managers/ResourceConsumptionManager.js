@@ -15,7 +15,10 @@ export default class ResourceConsumptionManager {
     this.#actionId = actionId;
     this.#consumptionData = consumptionData;
 
-    this.#updates = {};
+    this.#updates = {
+      actor: {},
+      item: {}
+    };
   }
 
   get action() {
@@ -23,7 +26,6 @@ export default class ResourceConsumptionManager {
   }
 
   async consumeResources() {
-    // TODO: Make this all into one update
     if (this.#item.system.objectType === 'consumable') {
       this.#consumeQuantity({ itemId: this.#item.id, quantity: 1 });
     }
@@ -45,9 +47,13 @@ export default class ResourceConsumptionManager {
       else if (consumerType === 'resource') this.#consumeResource(consumer);
       else if (['ammunition', 'quantity'].includes(consumerType)) this.#consumeQuantity(consumer);
     });
+
+    // Updates documents
+    await this.#item.update(this.#updates.item);
+    await this.#actor.update(this.#updates.actor);
   }
 
-  async #consumeActionUses({ quantity }) {
+  #consumeActionUses({ quantity }) {
     const actionUses = this.action?.uses;
 
     if (!quantity || !actionUses || !this.#actor) return;
@@ -55,12 +61,10 @@ export default class ResourceConsumptionManager {
     const newValue = Math.max(actionUses.value - quantity, 0);
     if (newValue !== 0 && !newValue) return;
 
-    await this.#item.update({
-      [`system.actions.${this.#actionId}.uses.value`]: newValue
-    });
+    this.#updates.item[`system.actions.${this.#actionId}.uses.value`] = newValue;
   }
 
-  async #consumeHitDice({ selected }) {
+  #consumeHitDice({ selected }) {
     const { hitDice } = this.#actor.system.attributes;
 
     if (!selected || !this.#actor) return;
@@ -70,19 +74,15 @@ export default class ResourceConsumptionManager {
       hitDice[die].current = Math.max(current - consumeValue, 0);
     });
 
-    await this.#actor.update({
-      'system.attributes.hitDice': hitDice
-    });
+    this.#updates.actor['system.attributes.hitDice'] = hitDice;
   }
 
-  async #consumeItemUses({ quantity }) {
+  #consumeItemUses({ quantity }) {
     const { value } = this.#item.system.uses;
 
     if (!value || !quantity) return;
 
-    await this.#item.update({
-      'system.uses.value': Math.max(value - quantity, 0)
-    });
+    this.#updates.item['system.uses.value'] = Math.max(value - quantity, 0);
   }
 
   async #consumeQuantity({ itemId, quantity }) {
@@ -99,7 +99,7 @@ export default class ResourceConsumptionManager {
     );
   }
 
-  async #consumeResource({ quantity, resource, restore }) {
+  #consumeResource({ quantity, resource, restore }) {
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 
     if (!this.#actor || !resource || !config) return;
@@ -109,34 +109,24 @@ export default class ResourceConsumptionManager {
 
     if (!value && !restore) return;
 
-    let updateObject;
-
     if (type === 'boolean') {
-      updateObject = { [`system.${path}`]: (restore ?? false) };
+      this.#updates.actor[`system.${path}`] = (restore ?? false);
     } else {
-      updateObject = { [`system.${path}`]: Math.max(value - quantity, 0) };
+      this.#updates.actor[`system.${path}`] = Math.max(value - quantity, 0);
     }
-
-    await this.#actor.update(updateObject);
   }
 
-  async #consumeSpellResource(consumptionData) {
+  #consumeSpellResource(consumptionData) {
     if (!consumptionData || !this.#actor) return;
 
     const { consume, level, points } = consumptionData;
 
-    let updateObject = {};
-
     if (consume === 'spellSlot') {
       const value = this.#actor.system.spellResources.slots?.[level]?.current;
-      updateObject = { [`system.spellResources.slots.${level}.current`]: Math.max(value - 1, 0) };
+      this.#updates.actor[`system.spellResources.slots.${level}.current`] = Math.max(value - 1, 0);
     } else if (consume === 'spellPoint') {
       const value = this.#actor.system.spellResources.points.current;
-      updateObject = { 'system.spellResources.points.current': Math.max(value - points, 0) };
-    } else {
-      return;
+      this.#updates.actor['system.spellResources.points.current'] = Math.max(value - points, 0);
     }
-
-    this.#actor.update(updateObject);
   }
 }
