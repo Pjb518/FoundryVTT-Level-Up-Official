@@ -2,8 +2,8 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FormSection from "../FormSection.svelte";
 
-    export let selectedRolls;
-    export let rolls;
+    export let selectedPrompts;
+    export let prompts;
 
     function getInvalidSelections(property) {
         return Object.values(property ?? {})
@@ -20,47 +20,34 @@
             }, []);
     }
 
-    const rollHeadingMap = {
-        abilityCheck: "Ability Checks",
-        damage: "Damage Rolls",
-        generic: "Generic Rolls",
-        healing: "Healing Rolls",
-        savingThrow: "Saving Throws",
-        skillCheck: "Skill Checks",
-        toolCheck: "Tool Checks",
+    const promptHeadingMap = {
+        abilityCheck: "Ability Check Prompts",
+        savingThrow: "Saving Throw Prompts",
+        skillCheck: "Skill Check Prompts",
+        generic: "Generic Roll Prompts",
     };
 
-    const otherRolls = Object.entries(rolls).reduce(
-        (acc, [rollType, rolls]) => {
-            if (rollType === "attack") return acc;
-            acc[rollType] = rolls;
-
-            return acc;
-        },
-        {}
-    );
-
-    let disabledRolls = getInvalidSelections(rolls);
+    let disabledPrompts = getInvalidSelections(prompts);
 </script>
 
-<FormSection hint="A5E.RollsHint">
-    <div class="roll-wrapper">
-        {#each Object.entries(otherRolls) as [rollType, _rolls]}
-            {#if _rolls.length}
+<FormSection hint="A5E.PromptsHint">
+    <div class="prompt-wrapper">
+        {#each Object.entries(prompts) as [promptType, _prompts]}
+            {#if _prompts.length}
                 <section>
                     <h3 class="section-subheading">
-                        {rollHeadingMap[rollType]}
+                        {promptHeadingMap[promptType]}
                     </h3>
 
                     <CheckboxGroup
-                        options={_rolls.map(([key, roll]) => [
+                        options={_prompts.map(([key, prompt]) => [
                             key,
-                            roll.label ?? roll.defaultLabel,
+                            prompt.label ?? prompt.defaultLabel,
                         ])}
-                        disabledOptions={disabledRolls}
-                        selected={selectedRolls}
+                        disabledOptions={disabledPrompts}
+                        selected={selectedPrompts}
                         on:updateSelection={(event) =>
-                            (selectedRolls = event.detail)}
+                            (selectedPrompts = event.detail)}
                     />
                 </section>
             {/if}
@@ -69,7 +56,7 @@
 </FormSection>
 
 <style lang="scss">
-    .roll-wrapper {
+    .prompt-wrapper {
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
