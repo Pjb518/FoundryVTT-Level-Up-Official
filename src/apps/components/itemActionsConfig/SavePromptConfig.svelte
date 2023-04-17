@@ -92,6 +92,7 @@
             optionStyles="min-width: 2rem; text-align: center;"
             options={prepareAbilityOptions()}
             selected={selectedAbility}
+            allowDeselect={false}
             on:updateSelection={({ detail }) => (selectedAbility = detail)}
         />
     </div>
@@ -153,7 +154,7 @@
         {/if}
     </div>
 
-    <div class="a5e-field-group ">
+    <div class="a5e-field-group">
         <label for="{actionId}-{promptId}-save-effect">
             {localize("A5E.ItemEffectOnSave")}
         </label>

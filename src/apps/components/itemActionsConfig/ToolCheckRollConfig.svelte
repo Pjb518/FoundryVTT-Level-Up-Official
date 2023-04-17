@@ -77,6 +77,7 @@
             optionStyles="min-width: 2rem; text-align: center;"
             options={prepareAbilityOptions(false, true)}
             selected={selectedAbility}
+            allowDeselect={false}
             on:updateSelection={({ detail }) => (selectedAbility = detail)}
         />
     </div>
