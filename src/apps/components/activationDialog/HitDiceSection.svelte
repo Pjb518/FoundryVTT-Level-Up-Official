@@ -54,7 +54,7 @@
         </h3>
 
         <!-- Type -->
-        <div class="u-flex u-gap-md">
+        <div class="u-flex u-gap-lg u-flex-wrap">
             {#each availableHitDice as die}
                 <div class="hit-die__wrapper">
                     <button
@@ -70,13 +70,22 @@
                         </span>
                     </button>
 
-                    <span class="hit-die--selected">
-                        {hitDiceData.selected[die]}
-                    </span>
-                    /
-                    <span class="hit-die--quantity">
-                        {hitDice[die].current}
-                    </span>
+                    <div class="quantity__wrapper">
+                        <input
+                            type="number"
+                            min="0"
+                            max={hitDice[die].current}
+                            bind:value={hitDiceData.selected[die]}
+                        />
+
+                        /
+
+                        <input
+                            type="number"
+                            value={hitDice[die].current}
+                            disabled
+                        />
+                    </div>
                 </div>
             {/each}
         </div>
@@ -86,4 +95,26 @@
 </FormSection>
 
 <style lang="scss">
+    .hit-die__wrapper {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hit-die__button {
+    }
+
+    .quantity__wrapper {
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+
+        input {
+            width: 2.5rem;
+            height: 1.5rem;
+            text-align: center;
+        }
+    }
 </style>
