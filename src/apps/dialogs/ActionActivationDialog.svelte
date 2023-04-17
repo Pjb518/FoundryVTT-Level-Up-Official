@@ -344,7 +344,7 @@
                             <CheckboxGroup
                                 options={_prompts.map(([key, prompt]) => [
                                     key,
-                                    prompt.label,
+                                    prompt.label ?? prompt.defaultLabel,
                                 ])}
                                 disabledOptions={disabledPrompts}
                                 selected={selectedPrompts}

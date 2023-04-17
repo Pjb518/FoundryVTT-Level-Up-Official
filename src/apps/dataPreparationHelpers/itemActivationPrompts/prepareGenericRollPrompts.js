@@ -8,7 +8,7 @@ export default function prepareGenericRollPrompts(prompts) {
       const label = game.i18n.localize('A5E.Other');
       count += 1;
 
-      prompt.label = `${label} #${count}`;
+      prompt.defaultLabel = `${label} #${count}`;
     }
 
     return [key, prompt];

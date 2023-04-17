@@ -14,7 +14,7 @@ export default function prepareSavingThrowPrompts(prompts) {
       counts[prompt.ability] ??= 0;
       counts[prompt.ability] += 1;
 
-      prompt.label = `${label} #${counts[prompt.ability]}`;
+      prompt.defaultLabel = `${label} #${counts[prompt.ability]}`;
     }
 
     return [key, prompt];

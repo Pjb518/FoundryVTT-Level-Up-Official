@@ -14,7 +14,7 @@ export default function prepareSkillCheckPrompts(prompts) {
       counts[prompt.skill] ??= 0;
       counts[prompt.skill] += 1;
 
-      prompt.label = `${label} #${counts[prompt.skill]}`;
+      prompt.defaultLabel = `${label} #${counts[prompt.skill]}`;
     }
 
     return [key, prompt];
