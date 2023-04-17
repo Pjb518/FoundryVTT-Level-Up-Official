@@ -7,11 +7,15 @@ export default class ResourceConsumptionManager {
 
   #consumptionData;
 
+  #updates;
+
   constructor(actor, item, actionId, consumptionData) {
     this.#actor = actor;
     this.#item = item;
     this.#actionId = actionId;
     this.#consumptionData = consumptionData;
+
+    this.#updates = {};
   }
 
   get action() {
@@ -19,12 +23,15 @@ export default class ResourceConsumptionManager {
   }
 
   async consumeResources() {
+    // TODO: Make this all into one update
     if (this.#item.system.objectType === 'consumable') {
       this.#consumeQuantity({ itemId: this.#item.id, quantity: 1 });
     }
 
     const consumers = Object.values(this.action?.consumers ?? {});
-    const { actionUses, itemUses, spell } = this.#consumptionData;
+    const {
+      actionUses, hitDice, itemUses, spell
+    } = this.#consumptionData;
 
     consumers.forEach((consumer) => {
       const consumerType = consumer?.type;
@@ -32,6 +39,7 @@ export default class ResourceConsumptionManager {
       if (!consumerType) return;
 
       if (consumerType === 'actionUses') this.#consumeActionUses(actionUses);
+      else if (consumerType === 'hitDice') this.#consumeHitDice(hitDice);
       else if (consumerType === 'itemUses') this.#consumeItemUses(itemUses);
       else if (consumerType === 'spell') this.#consumeSpellResource(spell);
       else if (consumerType === 'resource') this.#consumeResource(consumer);
@@ -49,6 +57,21 @@ export default class ResourceConsumptionManager {
 
     await this.#item.update({
       [`system.actions.${this.#actionId}.uses.value`]: newValue
+    });
+  }
+
+  async #consumeHitDice({ selected }) {
+    const { hitDice } = this.#actor.system.attributes;
+
+    if (!selected || !this.#actor) return;
+
+    Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
+      const consumeValue = selected[die] ?? 0;
+      hitDice[die].current = Math.max(current - consumeValue, 0);
+    });
+
+    await this.#actor.update({
+      'system.attributes.hitDice': hitDice
     });
   }
 
