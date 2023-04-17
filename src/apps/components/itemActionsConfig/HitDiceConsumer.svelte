@@ -57,7 +57,7 @@
     </div>
 
     <!-- Select HIt Dice that can be consumed -->
-    <div class="a5e-field-group">
+    <!-- <div class="a5e-field-group">
         {#if $item.actor}
             <h3 class="a5e-field-group__heading">
                 {localize("A5E.ConsumerHitDiceDefault")}
@@ -92,7 +92,7 @@
                     )}
             />
         </div>
-    </div>
+    </div> -->
 
     <!-- Add resource to add ish too -->
 </section>
