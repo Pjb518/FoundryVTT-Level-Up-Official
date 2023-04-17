@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     export let passiveFields;
 
@@ -7,11 +8,11 @@
 
     $: passiveFields = [
         {
-            label: "Maneuver DC",
+            label: "A5E.ManeuverDC",
             value: $actor.system.attributes.maneuverDC,
         },
         {
-            label: "Spell DC",
+            label: "A5E.SpellDC",
             value: $actor.system.attributes.spellDC,
         },
         {
@@ -23,7 +24,7 @@
 
 {#each passiveFields as { label, value }}
     <div class="passive-box">
-        <h4 class="passive-label">{label}</h4>
+        <h4 class="passive-label">{localize(label)}</h4>
 
         <div class="passive-value">
             {value}

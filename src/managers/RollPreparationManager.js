@@ -8,17 +8,14 @@ import constructRollFormula from '../dice/constructRollFormula';
 export default class RollPreparationManager {
   #actor;
 
-  #actionId;
-
   #consumers;
 
   #item;
 
   #rolls;
 
-  constructor(actor, item, actionId, consumers, rolls) {
+  constructor(actor, item, consumers, rolls) {
     this.#actor = actor;
-    this.#actionId = actionId;
     this.#consumers = consumers;
     this.#item = item;
     this.#rolls = rolls;
