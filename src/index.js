@@ -137,8 +137,6 @@ Hooks.on('canvasInit', () => {
   game.canvas.hud.token = new TokenHUDA5e();
 });
 
-Hooks.on('renderChatMessage', (_, html) => ItemA5e.chatListeners(html));
-
 Hooks.on('init', () => {
   class FastTooltipManager extends TooltipManager {
     static TOOLTIP_ACTIVATION_MS = 100;

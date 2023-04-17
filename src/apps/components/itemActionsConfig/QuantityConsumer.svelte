@@ -23,7 +23,6 @@
     $: selectedItem, updateItemSelection();
     $: optGroup = $item.actor
         ? $item.actor.items.reduce((acc, i) => {
-              if (i.type !== "object" || i.id === $item.id) return acc;
               if (i.system.objectType === "ammunition") return acc;
 
               const type = i.system.objectType;
@@ -59,9 +58,9 @@
         />
     </div>
 
-    <div class="a5e-field-group u-flex-row u-gap-md ">
+    <div class="a5e-field-group u-flex-row u-gap-md">
         <div class="u-flex u-flex-col u-gap-sm">
-            <h3 class="a5e-field-group__heading ">
+            <h3 class="a5e-field-group__heading">
                 {localize("A5E.Item")}
             </h3>
 

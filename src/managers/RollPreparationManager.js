@@ -59,7 +59,10 @@ export default class RollPreparationManager {
   }
 
   async #prepareAbilityCheckRoll(_roll) {
-    const { rollFormula } = this.#actor.getDefaultAbilityCheckData(_roll.ability);
+    const { rollFormula } = this.#actor.getDefaultAbilityCheckData(
+      _roll.ability,
+      { situationalMods: _roll.bonus }
+    );
 
     if (!rollFormula) return null;
 
@@ -159,7 +162,10 @@ export default class RollPreparationManager {
   }
 
   async #prepareSavingThrowRoll(_roll) {
-    const { rollFormula } = this.#actor.getDefaultSavingThrowData(_roll.ability);
+    const { rollFormula } = this.#actor.getDefaultSavingThrowData(
+      _roll.ability,
+      { situationalMods: _roll.bonus }
+    );
 
     if (!rollFormula) return null;
 
@@ -179,7 +185,9 @@ export default class RollPreparationManager {
 
     const { abilityKey: ability, rollFormula } = this.#actor.getDefaultSkillCheckData(
       _roll.skill,
-      _roll.ability
+      _roll.ability,
+      { situationalMods: _roll.bonus }
+
     );
 
     if (!rollFormula) return null;
@@ -233,6 +241,11 @@ export default class RollPreparationManager {
     modifiers.push({
       label: localize('A5E.AbilityCheckBonusGlobal'),
       value: this.#actor.system.bonuses.abilities.check
+    });
+
+    // Add Custom Bonus to Roll
+    modifiers.push({
+      value: _roll.bonus
     });
 
     const { rollFormula } = constructD20RollFormula({ actor: this.#actor, modifiers });

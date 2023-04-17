@@ -54,6 +54,7 @@
             optionStyles="min-width: 2rem; text-align: center;"
             options={Object.entries(abilities)}
             selected={selectedAbility}
+            allowDeselect={false}
             on:updateSelection={({ detail }) => (selectedAbility = detail)}
         />
     </div>
