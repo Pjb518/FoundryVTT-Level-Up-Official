@@ -6,6 +6,29 @@
 
     const actor = getContext("actor");
 
+    function updateCr(target) {
+        const { value } = target;
+        let newValue;
+
+        if (value === "1/2") newValue = 0.5;
+        else if (value === "1/4") newValue = 0.25;
+        else if (value === "1/8") newValue = 0.125;
+        else newValue = parseInt(value, 10);
+
+        if (isNaN(newValue)) newValue = $actor.system.details.cr;
+        updateDocumentDataFromField($actor, target.name, newValue);
+    }
+
+    function displayCr() {
+        const cr = $actor.system.details.cr;
+        if (cr === 0.5) return "1/2";
+        else if (cr === 0.25) return "1/4";
+        else if (cr === 0.125) return "1/8";
+
+        return cr;
+    }
+
+    $: cr = displayCr();
     $: xp = prepareXP($actor);
     $: isElite = $actor.system.details.elite;
     $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
@@ -32,18 +55,13 @@
         <input
             id="{$actor.id}-cr"
             class="xp-input"
-            type="number"
+            type="text"
             name="system.details.cr"
-            value={$actor.system.details.cr}
+            value={cr}
             placeholder="0"
             min="0"
             disabled={sheetIsLocked}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value)
-                )}
+            on:change={({ target }) => updateCr(target)}
             on:click={({ target }) => !sheetIsLocked && target.select()}
         />
     </div>
