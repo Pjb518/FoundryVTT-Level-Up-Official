@@ -260,6 +260,10 @@ A5E.conditions = {
   unconscious: 'A5E.ConditionUnconscious'
 };
 
+A5E.configurableConsumers = new Set([
+  'actionUses', 'itemUses', 'hitDice', 'spell'
+]);
+
 /**
  * The default creature types.
  * @enum {string}

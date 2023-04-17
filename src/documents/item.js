@@ -62,6 +62,25 @@ export default class ItemA5e extends Item {
     }
   }
 
+  async showActionActivationDialog(actionId, action) {
+    if (
+      !foundry.utils.isEmpty(action?.rolls)
+      || !foundry.utils.isEmpty(action?.prompts)
+      || validateTemplateData(this, actionId)
+    ) { return true; }
+
+    // Check if consumers need a dialog
+    const consumerTypes = new Set(
+      Object.values(action?.consumers ?? {}).map((c) => c.type)
+    );
+
+    if (consumerTypes.intersects(CONFIG.A5E.configurableConsumers)) {
+      return true;
+    }
+
+    return false;
+  }
+
   async #activateAction(actionId, options) {
     const dialog = new ActionActivationDialog({
       actionId,
@@ -71,21 +90,14 @@ export default class ItemA5e extends Item {
     });
 
     const action = this.actions[actionId];
+    let promise = {};
 
-    if (
-      foundry.utils.isEmpty(action?.rolls)
-      && foundry.utils.isEmpty(action?.prompts)
-      && foundry.utils.isEmpty(action?.consumers)
-      && !validateTemplateData(this, actionId)
-    ) {
-      return this.shareItemDescription(action);
+    // Skip dialog if nothing configured.
+    if (await this.showActionActivationDialog(actionId, action)) {
+      dialog.render(true);
+      promise = await dialog.promise;
+      if (!promise) return null;
     }
-
-    dialog.render(true);
-
-    const promise = await dialog.promise;
-
-    if (!promise) return null;
 
     promise.rolls ??= [];
     promise.rolls.push(promise?.attack ?? {});
@@ -93,8 +105,8 @@ export default class ItemA5e extends Item {
     const rollPreparationManager = new RollPreparationManager(
       this.actor,
       this,
-      promise.consumers,
-      promise.rolls
+      promise.consumers ?? {},
+      promise.rolls ?? {}
     );
 
     const rolls = await rollPreparationManager.prepareRolls();
@@ -109,7 +121,7 @@ export default class ItemA5e extends Item {
       this.actor,
       this,
       actionId,
-      promise.consumers
+      promise.consumers ?? {}
     );
 
     await resourceConsumptionManager.consumeResources();
