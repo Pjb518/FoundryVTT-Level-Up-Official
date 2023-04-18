@@ -672,6 +672,19 @@ export default class ActorA5e extends Actor {
 
     await Promise.allSettled(items.map((i) => restore(i)));
 
+    // Restore generic actor uses
+    // TODO: Update this when improvements are made
+    const updateObject = {};
+    ['primary', 'secondary', 'tertiary', 'quaternary'].forEach((r) => {
+      const resource = this.system.resources[r];
+      if (restTypes.includes(resource.per) && resource.max) {
+        const maxValue = getDeterministicBonus(resource.max, rollData);
+        updateObject[`system.resources.${r}.value`] = maxValue;
+      }
+    });
+
+    this.update(updateObject);
+
     return {
       name: 'uses',
       value: numRestored
