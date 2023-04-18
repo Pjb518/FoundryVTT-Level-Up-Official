@@ -1,5 +1,4 @@
 <script>
-    // import { slide } from "svelte/transition";
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
@@ -26,17 +25,11 @@
 
     function determineActionListVisibility(action, item, sheetIsLocked) {
         if (action) return false;
+
         if (item.actions.count < 2) {
-            const mainAction = item.actions.values()?.[0];
-            if (!mainAction) return false;
-
-            const consumers = Object.values(mainAction.consumers ?? {}).filter(
-                (c) => c.type === "actionUses"
-            );
-
-            if (consumers.length) return true;
-
-            return false;
+            return item.actions
+                ?.values()
+                ?.some((action) => action.uses?.value || action.uses?.max);
         }
 
         if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked)
