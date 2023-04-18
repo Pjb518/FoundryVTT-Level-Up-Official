@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     import GenericActorResourceConfigDialog from "../dialogs/initializers/GenericActorResourceConfigDialog";
@@ -96,16 +97,13 @@
             <input
                 type="number"
                 name="system.resources.{source}.max"
-                value={resource.max}
+                value={getDeterministicBonus(
+                    resource.max,
+                    $actor.getRollData()
+                )}
                 class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
                 placeholder="0"
-                disabled={sheetIsLocked}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value)
-                    )}
+                disabled
             />
         {/if}
     </div>

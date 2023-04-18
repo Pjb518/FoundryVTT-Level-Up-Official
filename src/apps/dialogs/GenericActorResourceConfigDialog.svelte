@@ -6,6 +6,7 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import handleDeterministicInput from "../utils/handleDeterministicInput";
 
     export let { actor, source, appId } = getContext("#external").application;
 
@@ -27,6 +28,23 @@
                         target.name,
                         target.value
                     )}
+            />
+        </FormSection>
+
+        <FormSection heading="A5E.GenericResourceMaxFormula">
+            <input
+                class="a5e-input"
+                type="text"
+                name="system.resources.{source}.max"
+                value={resource.max}
+                on:change={({ target }) => {
+                    handleDeterministicInput(target.value);
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    );
+                }}
             />
         </FormSection>
 
