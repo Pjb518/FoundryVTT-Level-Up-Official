@@ -637,7 +637,7 @@ export default class ActorA5e extends Actor {
     const items = Array.from(this.items);
     const numRestored = { item: 0, action: 0 };
 
-    if (restType === 'long') restTypes.concat(['longRest', 'day']);
+    if (restType === 'long') restTypes.push('longRest', 'day');
 
     const restore = async (item) => {
       const { uses } = item.system;
