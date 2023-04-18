@@ -26,10 +26,6 @@ export default class ResourceConsumptionManager {
   }
 
   async consumeResources() {
-    if (this.#item.system.objectType === 'consumable') {
-      this.#consumeQuantity({ itemId: this.#item.id, quantity: 1 });
-    }
-
     const consumers = Object.values(this.action?.consumers ?? {});
     const {
       actionUses, hitDice, itemUses, spell

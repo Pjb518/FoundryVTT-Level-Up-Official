@@ -224,17 +224,8 @@ export default class ItemA5e extends Item {
 
     const chatCard = ChatMessage.create(chatData);
 
-    await this.#consumeSelf();
-
     Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
-  }
-
-  // TODO: Reevaluate the approach here. It's completely separate from our other consumers.
-  async #consumeSelf() {
-    if (this.system?.objectType === 'consumable') {
-      this.update({ 'system.quantity': Math.max(this.system.quantity - 1, 0) });
-    }
   }
 
   async configureItem() {
