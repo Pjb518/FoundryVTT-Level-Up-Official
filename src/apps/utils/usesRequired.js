@@ -4,8 +4,6 @@ export default function usesRequired(items) {
 
     return item.actions
       ?.values()
-      .some((action) => Object.values(action.consumers ?? {}).some(
-        (consumer) => consumer.type === 'actionUses'
-      ));
+      .some((action) => action.uses?.value || action.uses?.max);
   });
 }
