@@ -38,6 +38,11 @@ import activateActionMacro from './macros/activateActionMacro';
 import activateItemMacro from './macros/activateItemMacro';
 import createMacro from './macros/createMacro';
 
+// Managers
+import ActionsManager from './managers/ActionsManager';
+import ResourceConsumptionManager from './managers/ResourceConsumptionManager';
+import RestManager from './managers/RestManager';
+
 // Migrations
 import MigrationList from './migration/MigrationList';
 import MigrationRunner from './migration/MigrationRunner';
@@ -63,6 +68,11 @@ Hooks.once('init', () => {
       activateActionMacro,
       activateItemMacro,
       createMacro
+    },
+    managers: {
+      ActionsManager,
+      ResourceConsumptionManager,
+      RestManager
     },
     migrations: {
       MigrationList,
