@@ -6,6 +6,8 @@
         TJSToggleIconButton,
     } from "@typhonjs-fvtt/svelte-standard/component";
 
+    import ActionsManager from "../../../managers/ActionsManager";
+
     import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
     import AddMenu from "../AddMenu.svelte";
     import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
@@ -15,34 +17,6 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
-
-    function addPrompt(type) {
-        const promptData = {
-            type,
-            default: true,
-        };
-
-        if (type === "savingThrow" || type === "abilityCheck") {
-            promptData.ability = "str";
-        }
-
-        if (type === "savingThrow") {
-            promptData.saveDC = {
-                type: "spellcasting",
-            };
-        }
-
-        if (type === "skillCheck") {
-            promptData.skill = "acr";
-        }
-
-        $item.update({
-            [`system.actions.${actionId}.prompts`]: {
-                ...action.prompts,
-                [foundry.utils.randomID()]: promptData,
-            },
-        });
-    }
 
     const promptTypes = {
         savingThrow: {
@@ -87,7 +61,12 @@
 
                         <button
                             class="add-button"
-                            on:click={() => addPrompt(promptType)}
+                            on:click={() =>
+                                ActionsManager.addPrompt(
+                                    $item,
+                                    [actionId, action],
+                                    promptType
+                                )}
                         >
                             {localize("A5E.ButtonAddPrompt", {
                                 type: localize(singleLabel),
@@ -120,7 +99,12 @@
             <TJSMenu offset={{ x: -110, y: -105 }}>
                 <AddMenu
                     menuList={menuItems}
-                    on:press={({ detail }) => addPrompt(detail)}
+                    on:press={({ detail }) =>
+                        ActionsManager.addPrompt(
+                            $item,
+                            [actionId, action],
+                            detail
+                        )}
                 />
             </TJSMenu>
         </TJSToggleIconButton>

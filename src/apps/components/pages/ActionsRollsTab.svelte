@@ -6,6 +6,8 @@
         TJSToggleIconButton,
     } from "@typhonjs-fvtt/svelte-standard/component";
 
+    import ActionsManager from "../../../managers/ActionsManager";
+
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
     import AddMenu from "../AddMenu.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
@@ -19,39 +21,6 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
-
-    function addRoll(type) {
-        const rollData = { type, default: true };
-
-        if (type === "attack" && attackRolls.length > 0)
-            return ui.notifications.error(
-                "An action can have no more than 1 attack roll."
-            );
-
-        if (type === "attack") {
-            rollData.attackType = "meleeWeaponAttack";
-            rollData.proficient = true;
-        }
-
-        if (type === "abilityCheck" || type === "savingThrow") {
-            rollData.ability = "str";
-        }
-
-        if (type === "skillCheck") {
-            rollData.skill = "acr";
-        }
-
-        if (type === "toolCheck") {
-            rollData.tool = "airVehicles";
-        }
-
-        $item.update({
-            [`system.actions.${actionId}.rolls`]: {
-                ...action.rolls,
-                [foundry.utils.randomID()]: rollData,
-            },
-        });
-    }
 
     const rollTypes = {
         attack: {
@@ -126,7 +95,12 @@
                         {#if rollType !== "attack"}
                             <button
                                 class="add-button"
-                                on:click={() => addRoll(rollType)}
+                                on:click={() =>
+                                    ActionsManager.addRoll(
+                                        $item,
+                                        [actionId, action],
+                                        rollType
+                                    )}
                             >
                                 {localize("A5E.ButtonAddRoll", {
                                     type: localize(
@@ -164,7 +138,12 @@
             <TJSMenu offset={{ x: -110, y: -140 }}>
                 <AddMenu
                     menuList={menuItems}
-                    on:press={({ detail }) => addRoll(detail)}
+                    on:press={({ detail }) =>
+                        ActionsManager.addRoll(
+                            $item,
+                            [actionId, action],
+                            detail
+                        )}
                 />
             </TJSMenu>
         </TJSToggleIconButton>

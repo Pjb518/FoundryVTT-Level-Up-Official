@@ -6,6 +6,8 @@
         TJSToggleIconButton,
     } from "@typhonjs-fvtt/svelte-standard/component";
 
+    import ActionsManager from "../../../managers/ActionsManager";
+
     import AddMenu from "../AddMenu.svelte";
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
@@ -23,45 +25,6 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
     const { A5E } = CONFIG;
-
-    function addConsumer(type) {
-        const data = { type };
-
-        if (type === "ammunition") {
-            data["itemId"] = "";
-            data["quantity"] = 1;
-        }
-
-        if (type === "hitDice") {
-            data["quantity"] = 1;
-        }
-
-        if (type === "quantity") {
-            data["itemId"] = "";
-            data["quantity"] = 1;
-        }
-
-        if (type === "resource") {
-            data["resource"] = "";
-            data["quantity"] = 1;
-        }
-
-        if (type === "spell") {
-            data["mode"] = "variable";
-            data["spellLevel"] = $item.system.level ?? 1;
-            data["points"] =
-                CONFIG.A5E.spellLevelCost?.[$item.system.level] ?? 1;
-        }
-
-        if (["actionUses", "itemUses"].includes(type)) data["quantity"] = 1;
-
-        $item.update({
-            [`system.actions.${actionId}.consumers`]: {
-                ...action.consumers,
-                [foundry.utils.randomID()]: data,
-            },
-        });
-    }
 
     const consumerTypes = {
         ammunition: {
@@ -269,7 +232,12 @@
             <TJSMenu offset={{ x: -110, y: -105 }}>
                 <AddMenu
                     menuList={menuItems}
-                    on:press={({ detail }) => addConsumer(detail)}
+                    on:press={({ detail }) =>
+                        ActionsManager.addConsumer(
+                            $item,
+                            [actionId, action],
+                            detail
+                        )}
                 />
             </TJSMenu>
         </TJSToggleIconButton>
