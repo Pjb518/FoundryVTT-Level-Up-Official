@@ -302,7 +302,7 @@ A5E.healingScalingModes = {
 };
 
 A5E.targetScalingModes = {
-  // cantrip: 'A5E.ScalingModeCantrip',
+  cantrip: 'A5E.ScalingModeCantrip',
   spellLevel: 'A5E.ScalingModeSpellLevel',
   spellPoints: 'A5E.ScalingModeSpellPoints',
   actionUses: 'A5E.ScalingModeActionUses',

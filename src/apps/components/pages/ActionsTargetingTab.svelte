@@ -141,6 +141,8 @@
                     <small>
                         {localize("A5E.ScalingHintCantripTarget", {
                             formula: action.target?.scaling.formula ?? 0,
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
                         })}
                     </small>
                 {:else if action.target?.scaling?.mode === "spellLevel"}

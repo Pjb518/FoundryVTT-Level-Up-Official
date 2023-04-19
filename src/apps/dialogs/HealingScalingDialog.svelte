@@ -104,53 +104,56 @@
             </section>
         </FormSection>
     {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
-        <section class="row u-flex-wrap">
-            <div class="a5e-field-group a5e-field-group--formula">
-                <label for="{actionId}-{rollId}-healing-scaling-formula">
-                    Healing Increment
-                </label>
+        <FormSection>
+            <section class="row u-flex-wrap">
+                <div class="a5e-field-group a5e-field-group--formula">
+                    <label for="{actionId}-{rollId}-healing-scaling-formula">
+                        Healing Increment
+                    </label>
 
-                <input
-                    id="{actionId}-{rollId}-healing-scaling-formula"
-                    type="text"
-                    name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
-                    value={roll.scaling?.formula ?? 0}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value
-                        )}
-                />
-            </div>
+                    <input
+                        id="{actionId}-{rollId}-healing-scaling-formula"
+                        type="text"
+                        name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
+                        value={roll.scaling?.formula ?? 0}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
 
-            <div class="a5e-field-group u-w-12">
-                <label for="{actionId}-{rollId}-healing-scaling-step">
-                    Per
-                </label>
+                <div class="a5e-field-group u-w-12">
+                    <label for="{actionId}-{rollId}-healing-scaling-step">
+                        Per
+                    </label>
 
-                <input
-                    id="{actionId}-{rollId}-healing-scaling-step"
-                    type="number"
-                    name="system.actions.{actionId}.rolls.{rollId}.scaling.step"
-                    value={roll.scaling?.step ?? 1}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            parseInt(target.value, 10)
-                        )}
-                />
-            </div>
+                    <input
+                        id="{actionId}-{rollId}-healing-scaling-step"
+                        style="text-align: center;"
+                        type="number"
+                        name="system.actions.{actionId}.rolls.{rollId}.scaling.step"
+                        value={roll.scaling?.step ?? 1}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                parseInt(target.value, 10)
+                            )}
+                    />
+                </div>
 
-            <div class="a5e-field-group levels-wrapper">
-                <span class="levels">
-                    Additional {scalingMode === "spellPoints"
-                        ? "Points"
-                        : "Uses"}
-                </span>
-            </div>
-        </section>
+                <div class="a5e-field-group levels-wrapper">
+                    <span class="levels">
+                        Additional {scalingMode === "spellPoints"
+                            ? "Points"
+                            : "Uses"}
+                    </span>
+                </div>
+            </section>
+        </FormSection>
     {/if}
 </form>
 

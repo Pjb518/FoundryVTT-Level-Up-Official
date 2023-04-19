@@ -35,7 +35,23 @@
     </FormSection>
 
     {#if scalingMode === "cantrip"}
-        <!--  -->
+        <FormSection
+            heading="Targets Increment"
+            hint="This increment will be applied automatically based on your caster level."
+        >
+            <input
+                class="a5e-input"
+                type="text"
+                name="system.actions.{actionId}.target.scaling.formula"
+                value={action.target.scaling?.formula ?? 0}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value
+                    )}
+            />
+        </FormSection>
     {:else if scalingMode === "spellLevel"}
         <FormSection>
             <section class="row u-flex-wrap">
@@ -85,51 +101,54 @@
             </section>
         </FormSection>
     {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
-        <section class="row u-flex-wrap">
-            <div class="a5e-field-group a5e-field-group--formula">
-                <label for="{actionId}-targets-healing-scaling-formula">
-                    Targets Increment
-                </label>
+        <FormSection>
+            <section class="row u-flex-wrap">
+                <div class="a5e-field-group a5e-field-group--formula">
+                    <label for="{actionId}-targets-healing-scaling-formula">
+                        Targets Increment
+                    </label>
 
-                <input
-                    id="{actionId}-targets-scaling-formula"
-                    type="text"
-                    name="system.actions.{actionId}.target.scaling.formula"
-                    value={target?.scaling?.formula ?? 0}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value
-                        )}
-                />
-            </div>
+                    <input
+                        id="{actionId}-targets-scaling-formula"
+                        type="text"
+                        name="system.actions.{actionId}.target.scaling.formula"
+                        value={target?.scaling?.formula ?? 0}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
 
-            <div class="a5e-field-group u-w-12">
-                <label for="{actionId}-targets-scaling-step"> Per </label>
+                <div class="a5e-field-group u-w-12">
+                    <label for="{actionId}-targets-scaling-step"> Per </label>
 
-                <input
-                    id="{actionId}-targets-scaling-step"
-                    type="number"
-                    name="system.actions.{actionId}.target.scaling.step"
-                    value={target?.scaling?.step ?? 1}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            parseInt(target.value, 10)
-                        )}
-                />
-            </div>
+                    <input
+                        id="{actionId}-targets-scaling-step"
+                        style="text-align: center;"
+                        type="number"
+                        name="system.actions.{actionId}.target.scaling.step"
+                        value={target?.scaling?.step ?? 1}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                parseInt(target.value, 10)
+                            )}
+                    />
+                </div>
 
-            <div class="a5e-field-group levels-wrapper">
-                <span class="levels">
-                    Additional {scalingMode === "spellPoints"
-                        ? "Points"
-                        : "Uses"}
-                </span>
-            </div>
-        </section>
+                <div class="a5e-field-group levels-wrapper">
+                    <span class="levels">
+                        Additional {scalingMode === "spellPoints"
+                            ? "Points"
+                            : "Uses"}
+                    </span>
+                </div>
+            </section>
+        </FormSection>
     {/if}
 </form>
 
