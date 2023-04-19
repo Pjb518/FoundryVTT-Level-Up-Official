@@ -76,7 +76,7 @@ export default class ResourceConsumptionManager {
   #consumeItemUses({ quantity }) {
     const { value } = this.#item.system.uses;
 
-    if (!value || !quantity) return;
+    if ((value !== 0 && !value) || !quantity) return;
 
     this.#updates.item['system.uses.value'] = Math.max(value - quantity, 0);
   }
@@ -87,7 +87,7 @@ export default class ResourceConsumptionManager {
     const item = this.#actor.items.get(itemId);
     if (!item) return;
 
-    const newQuantity = Math.max(item.system.quantity - quantity, 0);
+    const newQuantity = Math.max(item.system.quantity ?? 0 - quantity, 0);
 
     await this.#actor.updateEmbeddedDocuments(
       'Item',
@@ -101,9 +101,9 @@ export default class ResourceConsumptionManager {
     if (!this.#actor || !resource || !config) return;
 
     const { path, type } = config;
-    const value = foundry.utils.getProperty(this.#actor.system, path);
+    const value = foundry.utils.getProperty(this.#actor.system, path) ?? 0;
 
-    if (!value && !restore) return;
+    if (!restore) return;
 
     if (type === 'boolean') {
       this.#updates.actor[`system.${path}`] = (restore ?? false);
