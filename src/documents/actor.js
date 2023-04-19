@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
+import RestManager from '../managers/RestManager';
+
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
 import ActorHpConfigDialog from '../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../apps/dialogs/ActorInitConfigDialog.svelte';
@@ -1087,6 +1089,11 @@ export default class ActorA5e extends Actor {
     const restData = await dialog?.promise;
 
     if (!restData) return;
+    const restManger = new RestManager(this, restData);
+
+    await restManger.restoreResources();
+    return;
+
     const {
       consumeSupply, haven, restType, recoverStrifeAndFatigue
     } = restData;

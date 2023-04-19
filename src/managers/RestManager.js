@@ -1,3 +1,5 @@
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 export default class RestManager {
   #actor;
 
@@ -12,17 +14,21 @@ export default class RestManager {
     this.#restData = restData;
     this.#type = restData.restType ?? 'short';
 
-    this.#updates = { actor: {}, effects: {}, items: {} };
+    this.#updates = { actor: {}, effects: [], items: [] };
   }
 
   get restTypes() {
-    const data = ['shortRest', 'recharge', 'round', 'turn', 'minute', 'hour'];
-    if (this.type === 'long') data.push('longRest', 'day');
-    return data;
+    if (this.#type === 'long') {
+      return ['shortRest', 'recharge', 'round', 'turn', 'minute', 'hour', 'longRest', 'day'];
+    }
+
+    return ['shortRest', 'recharge', 'round', 'turn', 'minute', 'hour'];
   }
 
   async restoreResources() {
-    const { consumeSupply } = this.#restData;
+    const {
+      consumeSupply, haven, recoverStrifeAndFatigue, restType
+    } = this.#restData;
 
     // Restore long rest resources
     if (this.#type === 'long') {
@@ -42,23 +48,28 @@ export default class RestManager {
 
     // Call pre-hook
 
-    // Update
+    // Update documents
+    await this.#actor.update(this.#updates.actor);
+    await this.#actor.updateEmbeddedDocuments('Item', this.#updates.items);
 
     // Call Hook
+    Hooks.callAll('a5e.restCompleted', this, {
+      consumeSupply, haven, restType, recoverStrifeAndFatigue
+    });
   }
 
   #adjustStrifeAndFatigue() {
-    const { haven, supply } = this.#restData;
+    const { haven, recoverStrifeAndFatigue } = this.#restData;
     const { strife, fatigue } = this.#actor.system.attributes;
 
-    if (!supply) {
+    if (!recoverStrifeAndFatigue) {
       this.#updates.actor['system.attributes.fatigue'] = fatigue + 1;
     } else if (!haven) {
       this.#updates.actor['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
       this.#updates.actor['system.attributes.strife'] = strife === 1 ? 0 : strife;
     } else {
       this.#updates.actor['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
-      this.#updates.actor['system.attributes.fatigue'] = Math.max(strife - 1, 0);
+      this.#updates.actor['system.attributes.strife'] = Math.max(strife - 1, 0);
     }
   }
 
@@ -73,7 +84,14 @@ export default class RestManager {
     this.#updates.actor['system.attributes.exertion.current'] = exertion.max;
   }
 
-  #restoreGenericResources() { }
+  #restoreGenericResources() {
+    ['primary', 'secondary', 'tertiary', 'quaternary'].forEach((r) => {
+      const resource = this.#actor.system.resources[r];
+      if (!this.restTypes.includes(resource.per) || !resource.max) return;
+
+      this.#updates.actor[`system.resources.${r}.value`] = getDeterministicBonus(resource.max, this.#actor.getRollData());
+    });
+  }
 
   #restoreHitDice() {
     const { hitDice } = this.#actor.system.attributes;
@@ -118,14 +136,42 @@ export default class RestManager {
   }
 
   #restoreHitPoints() {
-    const { baseMax } = this.system.attributes.hp;
+    const { baseMax } = this.#actor.system.attributes.hp;
 
     this.#updates.actor['system.attributes.hp'] = {
       bonus: 0, value: baseMax, temp: 0
     };
   }
 
-  #restoreUses() { }
+  #restoreUses() {
+    const items = Array.from(this.#actor.items);
+    const rollData = this.#actor.getRollData();
+
+    items.forEach((item) => {
+      const { uses } = item.system;
+      const updates = { _id: item.id };
+
+      // Restore action uses
+      item.actions.entries().forEach(([id, action]) => {
+        const actionUses = action.uses ?? {};
+
+        if (!this.restTypes.includes(actionUses?.per) || !actionUses?.max) return;
+
+        updates[`system.actions.${id}.uses.value`] = getDeterministicBonus(actionUses.max, rollData);
+      });
+
+      // Restore Item uses
+      if (!this.restTypes.includes(uses.per) || !uses.max) {
+        if (Object.keys(updates).length < 2) return;
+
+        this.#updates.items.push(updates);
+        return;
+      }
+
+      updates['system.uses.value'] = getDeterministicBonus(uses.max, rollData);
+      this.#updates.items.push(updates);
+    });
+  }
 
   #restoreSpellResources() {
     const { spellResources } = this.#actor.system;
