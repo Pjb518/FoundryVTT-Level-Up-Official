@@ -103,8 +103,6 @@ export default class ResourceConsumptionManager {
     const { path, type } = config;
     const value = foundry.utils.getProperty(this.#actor.system, path) ?? 0;
 
-    if (!restore) return;
-
     if (type === 'boolean') {
       this.#updates.actor[`system.${path}`] = (restore ?? false);
     } else {
