@@ -98,7 +98,7 @@
                 type="number"
                 name="system.resources.{source}.max"
                 value={getDeterministicBonus(
-                    resource.max,
+                    resource.max ?? 0,
                     $actor.getRollData()
                 )}
                 class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
