@@ -11,58 +11,13 @@ export default class ActionsManager extends DataProxy {
     this.#item = item;
   }
 
+  /** ************************************************
+   * Getters
+   * ************************************************ */
   get count() {
     return Object.keys(this.#item.system.actions ?? {}).length;
   }
 
-  /**
-   *
-   * @returns {Array}
-   */
-  entries() {
-    return Object.entries(this.#item.system.actions ?? {});
-  }
-
-  keys() {
-    return Object.keys(this.#item.system.actions ?? {});
-  }
-
-  values() {
-    return Object.values(this.#item.system.actions ?? {});
-  }
-
-  /** ************************************************ */
-  /**
-   * @param {String} id
-   */
-  get(id) {
-    return this.#item.system.actions?.[id];
-  }
-
-  /**
-   * @param {String} name
-   */
-  getName(name) {
-    // eslint-disable-next-line no-unused-vars
-    const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
-    return this.#item.system.actions?.[actionId] ?? null;
-  }
-
-  /** ************************************************ */
-  // Subsection getters
-  getRolls(actionId) {
-    return Object.entries(this.get(actionId)?.rolls ?? {});
-  }
-
-  getPrompts(actionId) {
-    return Object.entries(this.get(actionId)?.prompts ?? {});
-  }
-
-  getConsumers(actionId) {
-    return Object.entries(this.get(actionId)?.consumers ?? {});
-  }
-
-  /** ************************************************ */
   get activationTypes() {
     const actions = Object.values(this.#item.system.actions ?? {});
 
@@ -92,28 +47,62 @@ export default class ActionsManager extends DataProxy {
     return Object.values(actions).some((action) => (!!Object.values(action.ranges)?.length));
   }
 
-  /** ************************************************ */
-  async add(name = 'New Action', data = {}) {
-    // TODO: Update this function
-    const newAction = {
-      name,
-      uses: {
-        value: 0,
-        max: '',
-        per: '',
-        recharge: {
-          formula: '1d6',
-          threshold: 6
-        }
-      }
-    };
+  /** ************************************************
+   * Iterator Returns
+   * ************************************************ */
+  /**
+   *
+   * @returns {Array}
+   */
+  entries() {
+    return Object.entries(this.#item.system.actions ?? {});
+  }
 
-    await this.#item.update({
-      'system.actions': {
-        ...this.#item.system.actions,
-        [foundry.utils.randomID()]: Object.keys(data).length ? data : newAction
-      }
-    });
+  keys() {
+    return Object.keys(this.#item.system.actions ?? {});
+  }
+
+  values() {
+    return Object.values(this.#item.system.actions ?? {});
+  }
+
+  /** ************************************************
+   * Get actions or subsections
+   * ************************************************ */
+  /**
+   * @param {String} id
+   */
+  get(id) {
+    return this.#item.system.actions?.[id];
+  }
+
+  /**
+   * @param {String} name
+   */
+  getName(name) {
+    // eslint-disable-next-line no-unused-vars
+    const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
+    return this.#item.system.actions?.[actionId] ?? null;
+  }
+
+  getRolls(actionId) {
+    return Object.entries(this.get(actionId)?.rolls ?? {});
+  }
+
+  getPrompts(actionId) {
+    return Object.entries(this.get(actionId)?.prompts ?? {});
+  }
+
+  getConsumers(actionId) {
+    return Object.entries(this.get(actionId)?.consumers ?? {});
+  }
+
+  /** ************************************************
+   * Internal methods
+   * ************************************************ */
+
+  async add(data = {}) {
+    await ActionsManager.addAction(this.#item, data);
   }
 
   configure(id) {
@@ -139,5 +128,44 @@ export default class ActionsManager extends DataProxy {
         [`-=${id}`]: null
       }
     });
+  }
+
+  /** ************************************************
+   * Static Methods
+   * ************************************************ */
+  /**
+   *
+   * @param {ItemA5e} item
+   * @param {Object} data
+   * @param {Boolean} update
+   * @returns {Action}
+   */
+  static async addAction(item, data = {}, update = true) {
+    const newAction = foundry.utils.mergeObject({
+      name: 'New Action',
+      activation: {},
+      consumers: {},
+      rolls: {},
+      prompts: {},
+      uses: {
+        value: 0,
+        max: '',
+        per: '',
+        recharge: {
+          formula: '1d6',
+          threshold: 6
+        }
+      }
+    }, data);
+
+    const updateData = {
+      'system.actions': {
+        ...item.system.actions,
+        [foundry.utils.randomID()]: newAction
+      }
+    };
+
+    if (update) await item.update(updateData);
+    return updateData;
   }
 }
