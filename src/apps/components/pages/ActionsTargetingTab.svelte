@@ -2,22 +2,29 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import TargetScalingConfigDialog from "../../dialogs/initializers/TargetScalingConfigDialog";
+    import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
     import FormSection from "../FormSection.svelte";
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
-    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
+    import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
     const item = getContext("item");
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
 
     function onClickTargetScalingButton() {
-        const dialog = new TargetScalingConfigDialog($item, actionId);
+        const title = `${$item.name} Target Scaling Configuration`;
+        const dialog = new GenericScalingConfigDialog(
+            $item,
+            actionId,
+            title,
+            TargetScalingDialog
+        );
         dialog.render(true);
     }
 
