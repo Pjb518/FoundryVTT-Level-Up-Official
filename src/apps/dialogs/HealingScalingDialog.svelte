@@ -24,6 +24,7 @@
         <RadioGroup
             options={getHealingScalingOptions()}
             selected={scalingMode}
+            allowDeselect={false}
             on:updateSelection={(event) => {
                 updateDocumentDataFromField(
                     $item,
