@@ -2,6 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import TargetScalingConfigDialog from "../../dialogs/initializers/TargetScalingConfigDialog";
+
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
@@ -12,6 +15,11 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
+
+    function onClickTargetScalingButton() {
+        const dialog = new TargetScalingConfigDialog($item, actionId);
+        dialog.render(true);
+    }
 
     function addRangeIncrement() {
         const newRange = {
@@ -113,6 +121,94 @@
                         </option>
                     {/each}
                 </select>
+
+                {#if ["creature", "object", "creatureObject"].includes(action?.target?.type)}
+                    <div class="a5e-field-group scaling-button-wrapper">
+                        <button
+                            class="scaling-button"
+                            on:click|preventDefault={onClickTargetScalingButton}
+                        >
+                            <i
+                                class="fa-solid fa-arrow-up-right-dots"
+                                data-tooltip="A5E.ConfigureTargetScaling"
+                                data-tooltip-direction="UP"
+                            />
+                        </button>
+                    </div>
+                {/if}
+
+                {#if action.target?.scaling?.mode === "cantrip"}
+                    <small>
+                        {localize("A5E.ScalingHintCantripTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                        })}
+                    </small>
+                {:else if action.target?.scaling?.mode === "spellLevel"}
+                    <small>
+                        {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
+                            {localize("A5E.ScalingHintSpellLevelTarget", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                level: getOrdinalNumber($item.system.level),
+                                targetType:
+                                    A5E.targetTypesPlural[action?.target?.type],
+                            })}
+                        {:else}
+                            {localize(
+                                "A5E.ScalingHintSteppedSpellLevelTarget",
+                                {
+                                    formula:
+                                        action.target?.scaling.formula ?? 0,
+                                    step: action.target?.scaling.step,
+                                    level: getOrdinalNumber($item.system.level),
+                                    targetType:
+                                        A5E.targetTypesPlural[
+                                            action?.target?.type
+                                        ],
+                                }
+                            )}
+                        {/if}
+                    </small>
+                {:else if action.target?.scaling?.mode === "spellPoints"}
+                    <small>
+                        {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
+                            {localize("A5E.ScalingHintSpellPointTarget", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                targetType:
+                                    A5E.targetTypesPlural[action?.target?.type],
+                            })}
+                        {:else}
+                            {localize(
+                                "A5E.ScalingHintSteppedSpellPointTarget",
+                                {
+                                    formula:
+                                        action.target?.scaling.formula ?? 0,
+                                    step: action.target?.scaling.step,
+                                    targetType:
+                                        A5E.targetTypesPlural[
+                                            action?.target?.type
+                                        ],
+                                }
+                            )}
+                        {/if}
+                    </small>
+                {:else if ["actionUses", "itemUses"].includes(action.target?.scaling?.mode)}
+                    <small>
+                        {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
+                            {localize("A5E.ScalingHintUsesTarget", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                targetType:
+                                    A5E.targetTypesPlural[action?.target?.type],
+                            })}
+                        {:else}
+                            {localize("A5E.ScalingHintSteppedUsesTarget", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                step: action.target?.scaling.step,
+                                targetType:
+                                    A5E.targetTypesPlural[action?.target?.type],
+                            })}
+                        {/if}
+                    </small>
+                {/if}
             </div>
         </FormSection>
     </section>
@@ -131,5 +227,36 @@
         padding: 0;
         gap: 0.25rem;
         list-style: none;
+    }
+
+    .scaling-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 1.625rem;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        background: transparent;
+        color: #999;
+        border: 1px solid #7a7971;
+        border-radius: 3px;
+        cursor: pointer;
+
+        transition: all 0.15s ease-in-out;
+
+        i {
+            margin: 0;
+        }
+
+        &:focus,
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .scaling-button-wrapper {
+        justify-content: flex-end;
     }
 </style>

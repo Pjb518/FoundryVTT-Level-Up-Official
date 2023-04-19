@@ -133,3 +133,36 @@
         </FormSection>
     </section>
 </section>
+
+<style lang="scss">
+    .scaling-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 1.625rem;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        background: transparent;
+        color: #999;
+        border: 1px solid #7a7971;
+        border-radius: 3px;
+        cursor: pointer;
+
+        transition: all 0.15s ease-in-out;
+
+        i {
+            margin: 0;
+        }
+
+        &:focus,
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .scaling-button-wrapper {
+        justify-content: flex-end;
+    }
+</style>

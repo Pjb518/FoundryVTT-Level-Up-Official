@@ -10,12 +10,12 @@ import TargetScalingDialog from '../TargetScalingDialog.svelte';
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class TargetScalingConfigDialog extends TJSDialog {
-  constructor(item, actionId, rollId, options = {}) {
+  constructor(item, actionId, options = {}) {
     super({
       title: `${item.name} Target Scaling Configuration`,
       content: {
         class: TargetScalingDialog,
-        props: { item: new TJSDocument(item), actionId, rollId }
+        props: { item: new TJSDocument(item), actionId }
       }
     }, {
       classes: ['a5e-sheet'],
