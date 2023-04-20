@@ -20,11 +20,13 @@
     class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
     style="grid-auto-rows: min-content;"
 >
-    <section class="u-flex u-flex-col u-gap-md">
-        <h3>Inventory Settings</h3>
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Inventory Settings</h3>
+        </header>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -50,7 +52,7 @@
 
         {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
             <FormSection>
-                <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
                         type="checkbox"
@@ -75,7 +77,7 @@
             </FormSection>
 
             <FormSection hint="A5E.SettingsCoinWeightHint">
-                <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
                         type="checkbox"
@@ -102,12 +104,14 @@
         {/if}
     </section>
 
-    <section class="u-flex u-flex-col u-gap-md">
-        <h3>Roll Modifiers</h3>
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Roll Modifiers</h3>
+        </header>
 
         {#if $actor.type === "character"}
             <FormSection hint="A5E.SettingsHalflingLuckHint">
-                <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
                         type="checkbox"
@@ -129,7 +133,7 @@
             </FormSection>
 
             <FormSection hint="A5E.JackOfAllTrades">
-                <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
                         type="checkbox"
@@ -155,11 +159,13 @@
         {/if}
     </section>
 
-    <section class="u-flex u-flex-col u-gap-md">
-        <h3>Sheet Customization</h3>
+    <section class="setting-group">
+        <header class="setting-header">
+            <h3 class="setting-heading">Sheet Customization</h3>
+        </header>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -185,7 +191,7 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -211,7 +217,7 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -236,7 +242,7 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -258,7 +264,7 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -283,7 +289,7 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
+            <div class="u-align-center u-flex u-gap-md u-text-sm">
                 <input
                     class="u-pointer"
                     type="checkbox"
@@ -306,7 +312,7 @@
 
         {#if $actor.type === "character"}
             <FormSection>
-                <div class="u-align-center u-flex u-gap-md">
+                <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
                         type="checkbox"
@@ -329,3 +335,24 @@
         {/if}
     </section>
 </section>
+
+<style lang="scss">
+    .setting-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        &:not(:last-child) {
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    .setting-header {
+        padding: 0 0.5rem 0.25rem 0.125rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .setting-heading {
+        font-size: 0.833rem;
+    }
+</style>
