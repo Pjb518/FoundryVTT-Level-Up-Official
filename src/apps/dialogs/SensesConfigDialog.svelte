@@ -22,7 +22,11 @@
 
 <article>
     {#each Object.entries($actor.system.attributes.senses) as [sense, senseData]}
-        <FormSection heading={headings[sense]} inline={true}>
+        <FormSection
+            heading={headings[sense]}
+            --item-alignment="center"
+            --label-width="7.5rem"
+        >
             <div class="u-w-20">
                 <input
                     class="a5e-input"

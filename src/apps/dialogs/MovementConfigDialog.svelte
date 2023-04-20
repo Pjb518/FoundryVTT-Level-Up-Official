@@ -48,31 +48,7 @@
                             />
                         </div>
                     </div>
-                    {#if mode === "fly"}
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                id="{appId}-hover"
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.attributes.movement.traits.hover"
-                                checked={$actor.system.attributes.movement
-                                    .traits?.hover}
-                                on:change={({ target }) => {
-                                    updateDocumentDataFromField(
-                                        $actor,
-                                        target.name,
-                                        target.checked
-                                    );
-                                }}
-                            />
 
-                            <label for="{appId}-hover" class="u-pointer">
-                                {localize("A5E.MovementHover")}
-                            </label>
-                        </div>
-                    {/if}
-                </div>
-                <div class="u-w-20">
                     <select
                         class="u-w-30"
                         name={`system.attributes.movement.${mode}.unit`}
@@ -96,6 +72,30 @@
                         {/each}
                     </select>
                 </div>
+
+                {#if mode === "fly"}
+                    <div class="u-align-center u-flex u-gap-md">
+                        <input
+                            id="{appId}-hover"
+                            class="u-pointer"
+                            type="checkbox"
+                            name="system.attributes.movement.traits.hover"
+                            checked={$actor.system.attributes.movement.traits
+                                ?.hover}
+                            on:change={({ target }) => {
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    target.checked
+                                );
+                            }}
+                        />
+
+                        <label for="{appId}-hover" class="u-pointer">
+                            {localize("A5E.MovementHover")}
+                        </label>
+                    </div>
+                {/if}
             </FormSection>
         {/if}
     {/each}
@@ -124,7 +124,7 @@
 
     .outer-wrapper {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
     }
 

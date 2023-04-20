@@ -3,17 +3,11 @@
 
     export let heading = null;
     export let hint = null;
-    export let inline = false;
 </script>
 
-<div
-    class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative"
-    class:u-align-center={inline}
->
+<section class="form-section">
     {#if heading}
-        <h3 class="form-heading u-flex-shrink-0" class:u-w-30={inline}>
-            {localize(heading)}
-        </h3>
+        <h3 class="form-heading">{localize(heading)}</h3>
     {/if}
 
     <slot />
@@ -21,12 +15,25 @@
     {#if hint}
         <small>{localize(hint)}</small>
     {/if}
-</div>
+</section>
 
 <style lang="scss">
+    .form-section {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: var(--item-alignment, initial);
+        gap: var(--gap, 0.375rem);
+        padding: 0.5rem;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+    }
+
     .form-heading {
         font-size: 0.833rem;
         font-weight: bold;
+        flex-shrink: 0;
+        width: var(--label-width, auto);
     }
 
     small {

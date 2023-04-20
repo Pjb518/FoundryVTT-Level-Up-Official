@@ -30,7 +30,11 @@
 <article>
     <div class="u-flex u-flex-col u-gap-md">
         {#each hpFields as { label, updateAttribute }}
-            <FormSection heading={label} inline={true}>
+            <FormSection
+                heading={label}
+                --item-alignment="center"
+                --label-width="7.5rem"
+            >
                 <div class="u-w-20">
                     <input
                         class="a5e-input"

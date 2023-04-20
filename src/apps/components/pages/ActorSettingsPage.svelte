@@ -76,7 +76,7 @@
                 </div>
             </FormSection>
 
-            <FormSection hint="A5E.SettingsCoinWeightHint">
+            <FormSection hint="A5E.SettingsCoinWeightHint" --gap="0.25rem">
                 <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
@@ -110,7 +110,7 @@
         </header>
 
         {#if $actor.type === "character"}
-            <FormSection hint="A5E.SettingsHalflingLuckHint">
+            <FormSection hint="A5E.SettingsHalflingLuckHint" --gap="0.25rem">
                 <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
@@ -132,7 +132,7 @@
                 </div>
             </FormSection>
 
-            <FormSection hint="A5E.JackOfAllTrades">
+            <FormSection hint="A5E.JackOfAllTrades" --gap="0.25rem">
                 <div class="u-align-center u-flex u-gap-md u-text-sm">
                     <input
                         class="u-pointer"
