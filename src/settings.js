@@ -52,7 +52,7 @@ class ConditionAutomationSettings extends FormApplication {
     super.activateListeners(html);
   }
 
-  async _updateObject(event, formData) {
+  async _updateObject(_, formData) {
     const updatedConditions = formData.conditions.filter((c) => c);
     await game.settings.set('a5e', 'automatedConditions', updatedConditions);
 
@@ -82,25 +82,25 @@ export default function registerSystemSettings() {
 
   // Critical Hit Damage Modes
   game.settings.register('a5e', 'critCalculationMode', {
-    name: 'A5E.SettingsCritCalculationMode',
-    hint: 'A5E.SettingsCritCalculationModeHint',
+    name: 'A5E.settings.critCalculationMode',
+    hint: 'A5E.settings.hints.critCalculationModeHint',
     scope: 'world',
     config: true,
     default: 'doubleAllDamage',
     type: String,
     choices: {
-      doubleAllDamage: 'A5E.SettingsCritDoubleAllDamage',
-      doubleDiceDamage: 'A5E.SettingsCritDoubleDiceDamage',
-      doubleDiceQuantity: 'A5E.SettingsCritDoubleDiceQuantity',
-      doubleDiceQuantityAndMods: 'A5E.SettingsCritDoubleDiceQuantityAndMods',
-      maxDamage: 'A5E.SettingsCritMaxDamage',
-      maxDamagePlusRoll: 'A5E.SettingsCritMaxDamagePlusRoll'
+      doubleAllDamage: 'A5E.settings.critDoubleAllDamage',
+      doubleDiceDamage: 'A5E.settings.critDoubleDiceDamage',
+      doubleDiceQuantity: 'A5E.settings.critDoubleDiceQuantity',
+      doubleDiceQuantityAndMods: 'A5E.settings.critDoubleDiceQuantityAndMods',
+      maxDamage: 'A5E.settings.critMaxDamage',
+      maxDamagePlusRoll: 'A5E.settings.critMaxDamagePlusRoll'
     }
   });
 
   game.settings.register('a5e', 'itemRightClickConfigure', {
-    name: 'A5E.SettingsItemRightClickConfigureName',
-    hint: 'A5E.SettingsItemRightClickConfigureHint',
+    name: 'A5E.settings.itemRightClickConfigure',
+    hint: 'A5E.settings.itemRightClickConfigure',
     scope: 'client',
     config: true,
     type: Boolean,
@@ -108,8 +108,8 @@ export default function registerSystemSettings() {
   });
 
   game.settings.register('a5e', 'hideDeleteConfirmation', {
-    name: 'Hide Deletion Confirmation Dialog',
-    hint: 'When this setting is enabled, you can delete items from actor sheets without being presented with a dialog window to confirm the deletion.',
+    name: 'A5E.settings.hideDeletionConfirmationDialog',
+    hint: 'A5E.settings.hints.hideDeletionConfirmationDialog',
     scope: 'client',
     config: true,
     type: Boolean,
@@ -117,8 +117,8 @@ export default function registerSystemSettings() {
   });
 
   game.settings.register('a5e', 'collapseActionList', {
-    name: 'Hide Action List in Locked Mode',
-    hint: 'When enabled, the action list will be hidden on locked sheets to reduce clutter.',
+    name: 'A5E.settings.hideActionListInLockedMode',
+    hint: 'A5E.settings.hints.hideActionListInLockedMode',
     scope: 'client',
     config: true,
     type: Boolean,
@@ -127,8 +127,8 @@ export default function registerSystemSettings() {
   });
 
   game.settings.register('a5e', 'reverseInitiativeAltBehavior', {
-    name: 'Reverse Alt Behavior for Initiative',
-    hint: 'By default, holding the left alt key will skip the roll dialog for initiative rolls. If this setting is checked, the initiative roll dialog will be skipped unless the left key is held when clicking the roll button.',
+    name: 'A5E.settings.reverseInitiativeAltBehavior',
+    hint: 'A5E.settings.hints.reverseInitiativeAltBehavior',
     scope: 'client',
     config: true,
     default: false,
@@ -137,8 +137,8 @@ export default function registerSystemSettings() {
   });
 
   game.settings.register('a5e', 'hideChatDescriptionsByDefault', {
-    name: 'Hide Descriptions in Chat Cards',
-    hint: 'When this setting is enabled, the description sections of Item chat cards will be hidden by default. You can still reveal the description sections by clicking on the header of the chat card.',
+    name: 'A5E.settings.hideChatDescriptionsByDefault',
+    hint: 'A5E.settings.hints.hideChatDescriptionsByDefault',
     scope: 'client',
     config: true,
     default: false,
@@ -147,8 +147,8 @@ export default function registerSystemSettings() {
   });
 
   game.settings.register('a5e', 'protectRolls', {
-    name: 'Enable Protected Roll Mode',
-    hint: 'When enabled, players will be unable to see roll formulae for any rolls made by actors they do not have at least observer permissions for. The DCs of any saving throws will also be hidden from them.',
+    name: 'A5E.settings.protectRolls',
+    hint: 'A5E.settings.hints.protectRolls',
     scope: 'world',
     config: true,
     default: false,
@@ -157,8 +157,8 @@ export default function registerSystemSettings() {
   });
 
   game.settings.register('a5e', 'terseRollFormulae', {
-    name: 'Hide System Roll Annotations',
-    hint: 'The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.',
+    name: 'A5E.settings.terseRollFormulae',
+    hint: 'A5E.settings.hints.terseRollFormulae',
     scope: 'client',
     config: true,
     default: false,
@@ -168,8 +168,8 @@ export default function registerSystemSettings() {
 
   // Currency Weight
   game.settings.register('a5e', 'currencyWeight', {
-    name: 'A5E.SettingsCoinWeightName',
-    hint: 'A5E.SettingsCoinWeightHint',
+    name: 'A5E.settings.trackCurrencyWeight',
+    hint: 'A5E.settings.hints.trackCurrencyWeight',
     scope: 'world',
     config: true,
     default: true,
@@ -178,24 +178,24 @@ export default function registerSystemSettings() {
 
   // Diagonal Movement Rule
   game.settings.register('a5e', 'diagonalRule', {
-    name: 'A5E.SettingsDiagName',
-    hint: 'A5E.SettingsDiagHint',
+    name: 'A5E.settings.diagonalMovementMeasurement',
+    hint: 'A5E.settings.hints.diagonalMovementMeasurement',
     scope: 'world',
     config: true,
     default: 'normal',
     type: String,
     choices: {
-      normal: 'A5E.SettingsDiagNormal',
-      euclidean: 'A5E.SettingsDiagEuclidean',
-      5105: 'A5E.SettingsDiag5105'
+      normal: 'A5E.settings.diagonalMovementMeasurementNormal',
+      euclidean: 'A5E.settings.diagonalMovementMeasurementEuclidean',
+      5105: 'A5E.settings.diagonalMovementMeasurementAlternating'
     },
     onChange: (rule) => { canvas.grid.diagonalRule = rule; }
   });
 
   // Default GM Setting for placing templates
   game.settings.register('a5e', 'placeItemTemplateDefault', {
-    name: 'Place Templates by Default',
-    hint: 'Automatically select the "Place Measured Template" option in the roll dialog for features, spells, etc.',
+    name: 'A5E.settings.placeItemTemplateDefault',
+    hint: 'A5E.settings.hints.placeItemTemplateDefault',
     scope: 'world',
     config: true,
     type: Boolean,
@@ -204,8 +204,8 @@ export default function registerSystemSettings() {
 
   // Default GM Setting for NPC Health Randomization
   game.settings.register('a5e', 'randomizeNPCHitPoints', {
-    name: 'Randomize NPC Hit Points',
-    hint: 'When enabled, the hit points of NPCs with be randomly rolled based on their hit point formula when an actor is dragged to a scene.',
+    name: 'A5E.settings.randomizeNPCHitPoints',
+    hint: 'A5E.settings.hints.randomizeNPCHitPoints',
     scope: 'world',
     config: true,
     type: Boolean,
@@ -214,7 +214,7 @@ export default function registerSystemSettings() {
 
   // Enable settings for condition automation
   game.settings.register('a5e', 'automatedConditions', {
-    name: 'Enable Condition Automation',
+    name: 'A5E.settings.automateConditions',
     scope: 'world',
     config: false,
     type: Array,

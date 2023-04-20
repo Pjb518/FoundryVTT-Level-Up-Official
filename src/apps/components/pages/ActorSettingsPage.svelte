@@ -45,7 +45,7 @@
                     class="u-pointer"
                     for="{$actor.id}-track-inventory-weight"
                 >
-                    {localize("A5E.SettingsTrackInventoryWeight")}
+                    {localize("A5E.settings.trackInventoryWeight")}
                 </label>
             </div>
         </FormSection>
@@ -71,12 +71,15 @@
                         class="u-pointer"
                         for="{$actor.id}-double-carry-capacity"
                     >
-                        {localize("A5E.SettingsDoubleCarryCapacity")}
+                        {localize("A5E.settings.doubleCarryingCapacity")}
                     </label>
                 </div>
             </FormSection>
 
-            <FormSection hint="A5E.SettingsCoinWeightHint" --gap="0.25rem">
+            <FormSection
+                hint="A5E.settings.hints.trackCurrencyWeight"
+                --gap="0.25rem"
+            >
                 <div class="checkbox-row">
                     <input
                         class="checkbox"
@@ -97,7 +100,7 @@
                         class="u-pointer"
                         for="{$actor.id}-track-currency-weight"
                     >
-                        {localize("A5E.SettingsTrackCurrencyWeight")}
+                        {localize("A5E.settings.trackCurrencyWeight")}
                     </label>
                 </div>
             </FormSection>
@@ -110,7 +113,7 @@
         </header>
 
         {#if $actor.type === "character"}
-            <FormSection hint="A5E.SettingsHalflingLuckHint" --gap="0.25rem">
+            <FormSection hint="A5E.settings.hints.halflingLuck" --gap="0.25rem">
                 <div class="checkbox-row">
                     <input
                         class="checkbox"
@@ -127,12 +130,15 @@
                     />
 
                     <label class="u-pointer" for="{$actor.id}-halfling-luck">
-                        {localize("A5E.SettingsHalflingLuck")}
+                        {localize("A5E.settings.halflingLuck")}
                     </label>
                 </div>
             </FormSection>
 
-            <FormSection hint="A5E.JackOfAllTrades" --gap="0.25rem">
+            <FormSection
+                hint="A5E.settings.hints.jackOfAllTrades"
+                --gap="0.25rem"
+            >
                 <div class="checkbox-row">
                     <input
                         class="checkbox"
@@ -152,7 +158,7 @@
                         class="u-pointer"
                         for="{$actor.id}-jack-of-all-trades"
                     >
-                        {localize("A5E.SettingsJackOfAllTrades")}
+                        {localize("A5E.settings.jackOfAllTrades")}
                     </label>
                 </div>
             </FormSection>
@@ -211,7 +217,7 @@
                     class="u-pointer"
                     for="{$actor.id}-include-ability-mods-for-skills"
                 >
-                    {localize("A5E.SettingsIncludeAbilityModifiersForSkills")}
+                    {localize("A5E.settings.includeAbilityModifiersForSkills")}
                 </label>
             </div>
         </FormSection>
@@ -236,7 +242,7 @@
                     class="u-pointer"
                     for="{$actor.id}-show-favorites-section"
                 >
-                    {localize("A5E.SettingsShowFavoritesSection")}
+                    {localize("A5E.settings.showFavoritesSection")}
                 </label>
             </div>
         </FormSection>
@@ -258,7 +264,7 @@
                 />
 
                 <label class="u-pointer" for="{$actor.id}-show-maneuver-tab">
-                    {localize("A5E.SettingsShowManeuverTab")}
+                    {localize("A5E.settings.showManeuverTab")}
                 </label>
             </div>
         </FormSection>
@@ -283,7 +289,7 @@
                     class="u-pointer"
                     for="{$actor.id}-include-show-passive-scores"
                 >
-                    {localize("A5E.SettingsShowPassiveScores")}
+                    {localize("A5E.settings.showPassiveScores")}
                 </label>
             </div>
         </FormSection>
@@ -305,7 +311,7 @@
                 />
 
                 <label class="u-pointer" for="{$actor.id}-show-spell-tab">
-                    {localize("A5E.SettingsShowSpellTab")}
+                    {localize("A5E.settings.showSpellTab")}
                 </label>
             </div>
         </FormSection>
@@ -328,7 +334,7 @@
                     />
 
                     <label class="u-pointer" for="{actor.id}-show-xp">
-                        {localize("A5E.SettingsShowXP")}
+                        {localize("A5E.settings.showXP")}
                     </label>
                 </div>
             </FormSection>
