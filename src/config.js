@@ -61,12 +61,12 @@ A5E.CR_EXP_LEVELS = {
  * @enum {string}
  */
 A5E.abilities = {
-  str: 'A5E.AbilityStr',
-  dex: 'A5E.AbilityDex',
-  con: 'A5E.AbilityCon',
-  int: 'A5E.AbilityInt',
-  wis: 'A5E.AbilityWis',
-  cha: 'A5E.AbilityCha'
+  str: 'A5E.abilities.strength',
+  dex: 'A5E.abilities.dexterity',
+  con: 'A5E.abilities.constitution',
+  int: 'A5E.abilities.intelligence',
+  wis: 'A5E.abilities.wisdom',
+  cha: 'A5E.abilities.charisma'
 };
 
 /**
@@ -74,12 +74,12 @@ A5E.abilities = {
  * @enum {string}
  */
 A5E.abilityAbbreviations = {
-  str: 'A5E.AbilityStrAbbr',
-  dex: 'A5E.AbilityDexAbbr',
-  con: 'A5E.AbilityConAbbr',
-  int: 'A5E.AbilityIntAbbr',
-  wis: 'A5E.AbilityWisAbbr',
-  cha: 'A5E.AbilityChaAbbr'
+  str: 'A5E.abilities.abbreviations.strength',
+  dex: 'A5E.abilities.abbreviations.dexterity',
+  con: 'A5E.abilities.abbreviations.constitution',
+  int: 'A5E.abilities.abbreviations.intelligence',
+  wis: 'A5E.abilities.abbreviations.wisdom',
+  cha: 'A5E.abilities.abbreviations.charisma'
 };
 
 /**
@@ -314,19 +314,19 @@ A5E.targetScalingModes = {
  * @enum {string}
  */
 A5E.damageTypes = {
-  acid: 'A5E.DamageAcid',
-  bludgeoning: 'A5E.DamageBludgeoning',
-  cold: 'A5E.DamageCold',
-  fire: 'A5E.DamageFire',
-  force: 'A5E.DamageForce',
-  lightning: 'A5E.DamageLightning',
-  necrotic: 'A5E.DamageNecrotic',
-  piercing: 'A5E.DamagePiercing',
-  poison: 'A5E.DamagePoison',
-  psychic: 'A5E.DamagePsychic',
-  radiant: 'A5E.DamageRadiant',
-  slashing: 'A5E.DamageSlashing',
-  thunder: 'A5E.DamageThunder'
+  acid: 'A5E.damageTypes.acid',
+  bludgeoning: 'A5E.damageTypes.bludgeoning',
+  cold: 'A5E.damageTypes.cold',
+  fire: 'A5E.damageTypes.fire',
+  force: 'A5E.damageTypes.force',
+  lightning: 'A5E.damageTypes.lightning',
+  necrotic: 'A5E.damageTypes.necrotic',
+  piercing: 'A5E.damageTypes.piercing',
+  poison: 'A5E.damageTypes.poison',
+  psychic: 'A5E.damageTypes.psychic',
+  radiant: 'A5E.damageTypes.radiant',
+  slashing: 'A5E.damageTypes.slashing',
+  thunder: 'A5E.damageTypes.thunder'
 };
 
 A5E.featureTypes = {
@@ -426,24 +426,24 @@ A5E.maneuverDegrees = {
 };
 
 A5E.maneuverTraditions = {
-  adamantMountain: 'A5E.ManeuverTraditionAdamantMountain',
-  arcaneArtillery: 'A5E.ManeuverTraditionArcaneArtillery',
-  arcaneKnight: 'A5E.ManeuverTraditionArcaneKnight',
-  awakenedMind: 'A5E.ManeuverTraditionAwakenedMind',
-  beastUnity: 'A5E.ManeuverTraditionBeastUnity',
-  bitingZephyr: 'A5E.ManeuverTraditionBitingZephyr',
-  cuttingOmen: 'A5E.ManeuverTraditionCuttingOmen',
-  eldritchBlackguard: 'A5E.ManeuverTraditionEldritchBlackguard',
-  mirrorsGlint: 'A5E.ManeuverTraditionMirrorsGlint',
-  mistAndShade: 'A5E.ManeuverTraditionMistAndShade',
-  rapidCurrent: 'A5E.ManeuverTraditionRapidCurrent',
-  razorsEdge: 'A5E.ManeuverTraditionRazorsEdge',
-  sanguineKnot: 'A5E.ManeuverTraditionSanguineKnot',
-  spiritedSteed: 'A5E.ManeuverTraditionSpiritedSteed',
-  temperedIron: 'A5E.ManeuverTraditionTemperedIron',
-  toothAndClaw: 'A5E.ManeuverTraditionToothAndClaw',
-  unendingWheel: 'A5E.ManeuverTraditionUnendingWheel',
-  vipersFangs: 'A5E.ManeuverTraditionVipersFangs'
+  adamantMountain: 'A5E.maneuverTraditions.adamantMountain',
+  arcaneArtillery: 'A5E.maneuverTraditions.arcaneArtillery',
+  arcaneKnight: 'A5E.maneuverTraditions.arcaneKnight',
+  awakenedMind: 'A5E.maneuverTraditions.awakenedMind',
+  beastUnity: 'A5E.maneuverTraditions.beastUnity',
+  bitingZephyr: 'A5E.maneuverTraditions.bitingZephyr',
+  cuttingOmen: 'A5E.maneuverTraditions.cuttingOmen',
+  eldritchBlackguard: 'A5E.maneuverTraditions.eldritchBlackguard',
+  mirrorsGlint: 'A5E.maneuverTraditions.mirrorsGlint',
+  mistAndShade: 'A5E.maneuverTraditions.mistAndShade',
+  rapidCurrent: 'A5E.maneuverTraditions.rapidCurrent',
+  razorsEdge: 'A5E.maneuverTraditions.razorsEdge',
+  sanguineKnot: 'A5E.maneuverTraditions.sanguineKnot',
+  spiritedSteed: 'A5E.maneuverTraditions.spiritedSteed',
+  temperedIron: 'A5E.maneuverTraditions.temperedIron',
+  toothAndClaw: 'A5E.maneuverTraditions.toothAndClaw',
+  unendingWheel: 'A5E.maneuverTraditions.unendingWheel',
+  vipersFangs: 'A5E.maneuverTraditions.vipersFangs'
 };
 
 A5E.materialProperties = {

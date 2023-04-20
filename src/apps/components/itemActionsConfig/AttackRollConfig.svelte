@@ -24,8 +24,8 @@
     const A5E = CONFIG.A5E;
     const abilityOptions = [
         ["none", "A5E.None"],
-        ["default", "A5E.AbilityDefault"],
-        ["spellcasting", "A5E.AbilitySpellcasting"],
+        ["default", "A5E.abilities.default"],
+        ["spellcasting", "A5E.abilities.spellcasting"],
         ...prepareAbilityOptions(),
     ];
 
