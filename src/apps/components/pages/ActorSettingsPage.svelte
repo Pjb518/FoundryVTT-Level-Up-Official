@@ -26,9 +26,9 @@
         </header>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.trackInventoryWeight"
                     id="{$actor.id}-track-inventory-weight"
@@ -52,9 +52,9 @@
 
         {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
             <FormSection>
-                <div class="u-align-center u-flex u-gap-md u-text-sm">
+                <div class="checkbox-row">
                     <input
-                        class="u-pointer"
+                        class="checkbox"
                         type="checkbox"
                         name="flags.a5e.doubleCarryCapacity"
                         id="{$actor.id}-double-carry-capacity"
@@ -77,9 +77,9 @@
             </FormSection>
 
             <FormSection hint="A5E.SettingsCoinWeightHint" --gap="0.25rem">
-                <div class="u-align-center u-flex u-gap-md u-text-sm">
+                <div class="checkbox-row">
                     <input
-                        class="u-pointer"
+                        class="checkbox"
                         type="checkbox"
                         name="flags.a5e.trackCurrencyWeight"
                         id="{$actor.id}-track-currency-weight"
@@ -111,9 +111,9 @@
 
         {#if $actor.type === "character"}
             <FormSection hint="A5E.SettingsHalflingLuckHint" --gap="0.25rem">
-                <div class="u-align-center u-flex u-gap-md u-text-sm">
+                <div class="checkbox-row">
                     <input
-                        class="u-pointer"
+                        class="checkbox"
                         type="checkbox"
                         name="flags.a5e.halflingLuck"
                         id="{$actor.id}-halfling-luck"
@@ -133,9 +133,9 @@
             </FormSection>
 
             <FormSection hint="A5E.JackOfAllTrades" --gap="0.25rem">
-                <div class="u-align-center u-flex u-gap-md u-text-sm">
+                <div class="checkbox-row">
                     <input
-                        class="u-pointer"
+                        class="checkbox"
                         type="checkbox"
                         name="flags.a5e.jackOfAllTrades"
                         id="{$actor.id}-jack-of-all-trades"
@@ -165,9 +165,9 @@
         </header>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.hideGenericResources"
                     id="{$actor.id}-hide-generic-resources"
@@ -191,9 +191,9 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.includeAbilityModifiersForSkills"
                     id="{$actor.id}-include-ability-mods-for-skills"
@@ -217,9 +217,9 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.showFavoritesSection"
                     id="{$actor.id}-show-favorites-section"
@@ -242,9 +242,9 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.showManeuverTab"
                     id="{$actor.id}-show-maneuver-tab"
@@ -264,9 +264,9 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.showPassiveScores"
                     id="{$actor.id}-include-show-passive-scores"
@@ -289,9 +289,9 @@
         </FormSection>
 
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md u-text-sm">
+            <div class="checkbox-row">
                 <input
-                    class="u-pointer"
+                    class="checkbox"
                     type="checkbox"
                     name="flags.a5e.showSpellTab"
                     id="{$actor.id}-show-spell-tab"
@@ -312,9 +312,9 @@
 
         {#if $actor.type === "character"}
             <FormSection>
-                <div class="u-align-center u-flex u-gap-md u-text-sm">
+                <div class="checkbox-row">
                     <input
-                        class="u-pointer"
+                        class="checkbox"
                         type="checkbox"
                         name="flags.a5e.showXP"
                         id="{actor.id}-show-xp"
@@ -337,6 +337,18 @@
 </section>
 
 <style lang="scss">
+    .checkbox {
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .checkbox-row {
+        display: flex;
+        align-items: center;
+        font-size: 0.833rem;
+        gap: 0.75rem;
+    }
+
     .setting-group {
         display: flex;
         flex-direction: column;
