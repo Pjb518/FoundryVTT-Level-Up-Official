@@ -20,81 +20,8 @@
     class="u-flex-grow u-flex u-flex-col u-overflow-y-auto u-gap-md u-px-md"
     style="grid-auto-rows: min-content;"
 >
-    <div class="u-flex u-flex-col u-gap-md">
-        <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="u-pointer"
-                    type="checkbox"
-                    name="flags.a5e.hideGenericResources"
-                    id="{$actor.id}-hide-generic-resources"
-                    checked={flags.a5e?.hideGenericResources ??
-                        $actor.type === "npc"}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-hide-generic-resources"
-                >
-                    {localize("A5E.HideGenericResources")}
-                </label>
-            </div>
-        </FormSection>
-
-        {#if $actor.type === "character"}
-            <FormSection hint="A5E.JackOfAllTrades">
-                <div class="u-align-center u-flex u-gap-md">
-                    <input
-                        class="u-pointer"
-                        type="checkbox"
-                        name="flags.a5e.jackOfAllTrades"
-                        id="{$actor.id}-jack-of-all-trades"
-                        checked={flags.a5e?.jackOfAllTrades ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label
-                        class="u-pointer"
-                        for="{$actor.id}-jack-of-all-trades"
-                    >
-                        {localize("A5E.SettingsJackOfAllTrades")}
-                    </label>
-                </div>
-            </FormSection>
-
-            <FormSection hint="A5E.SettingsHalflingLuckHint">
-                <div class="u-align-center u-flex u-gap-md">
-                    <input
-                        class="u-pointer"
-                        type="checkbox"
-                        name="flags.a5e.halflingLuck"
-                        id="{$actor.id}-halfling-luck"
-                        checked={flags.a5e?.halflingLuck ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label class="u-pointer" for="{$actor.id}-halfling-luck">
-                        {localize("A5E.SettingsHalflingLuck")}
-                    </label>
-                </div>
-            </FormSection>
-        {/if}
+    <section class="u-flex u-flex-col u-gap-md">
+        <h3>Inventory Settings</h3>
 
         <FormSection>
             <div class="u-align-center u-flex u-gap-md">
@@ -173,16 +100,20 @@
                 </div>
             </FormSection>
         {/if}
+    </section>
+
+    <section class="u-flex u-flex-col u-gap-md">
+        <h3>Roll Modifiers</h3>
 
         {#if $actor.type === "character"}
-            <FormSection>
+            <FormSection hint="A5E.SettingsHalflingLuckHint">
                 <div class="u-align-center u-flex u-gap-md">
                     <input
                         class="u-pointer"
                         type="checkbox"
-                        name="flags.a5e.showXP"
-                        id="{actor.id}-show-xp"
-                        checked={flags.a5e?.showXP ?? true}
+                        name="flags.a5e.halflingLuck"
+                        id="{$actor.id}-halfling-luck"
+                        checked={flags.a5e?.halflingLuck ?? false}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $actor,
@@ -191,12 +122,67 @@
                             )}
                     />
 
-                    <label class="u-pointer" for="{actor.id}-show-xp">
-                        {localize("A5E.SettingsShowXP")}
+                    <label class="u-pointer" for="{$actor.id}-halfling-luck">
+                        {localize("A5E.SettingsHalflingLuck")}
+                    </label>
+                </div>
+            </FormSection>
+
+            <FormSection hint="A5E.JackOfAllTrades">
+                <div class="u-align-center u-flex u-gap-md">
+                    <input
+                        class="u-pointer"
+                        type="checkbox"
+                        name="flags.a5e.jackOfAllTrades"
+                        id="{$actor.id}-jack-of-all-trades"
+                        checked={flags.a5e?.jackOfAllTrades ?? false}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            )}
+                    />
+
+                    <label
+                        class="u-pointer"
+                        for="{$actor.id}-jack-of-all-trades"
+                    >
+                        {localize("A5E.SettingsJackOfAllTrades")}
                     </label>
                 </div>
             </FormSection>
         {/if}
+    </section>
+
+    <section class="u-flex u-flex-col u-gap-md">
+        <h3>Sheet Customization</h3>
+
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
+                    name="flags.a5e.hideGenericResources"
+                    id="{$actor.id}-hide-generic-resources"
+                    checked={flags.a5e?.hideGenericResources ??
+                        $actor.type === "npc"}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.checked
+                        )}
+                />
+
+                <label
+                    class="u-pointer"
+                    for="{$actor.id}-hide-generic-resources"
+                >
+                    {localize("A5E.HideGenericResources")}
+                </label>
+            </div>
+        </FormSection>
 
         <FormSection>
             <div class="u-align-center u-flex u-gap-md">
@@ -220,31 +206,6 @@
                     for="{$actor.id}-include-ability-mods-for-skills"
                 >
                     {localize("A5E.SettingsIncludeAbilityModifiersForSkills")}
-                </label>
-            </div>
-        </FormSection>
-
-        <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="u-pointer"
-                    type="checkbox"
-                    name="flags.a5e.showPassiveScores"
-                    id="{$actor.id}-include-show-passive-scores"
-                    checked={flags.a5e?.showPassiveScores ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-include-show-passive-scores"
-                >
-                    {localize("A5E.SettingsShowPassiveScores")}
                 </label>
             </div>
         </FormSection>
@@ -301,6 +262,31 @@
                 <input
                     class="u-pointer"
                     type="checkbox"
+                    name="flags.a5e.showPassiveScores"
+                    id="{$actor.id}-include-show-passive-scores"
+                    checked={flags.a5e?.showPassiveScores ?? true}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.checked
+                        )}
+                />
+
+                <label
+                    class="u-pointer"
+                    for="{$actor.id}-include-show-passive-scores"
+                >
+                    {localize("A5E.SettingsShowPassiveScores")}
+                </label>
+            </div>
+        </FormSection>
+
+        <FormSection>
+            <div class="u-align-center u-flex u-gap-md">
+                <input
+                    class="u-pointer"
+                    type="checkbox"
                     name="flags.a5e.showSpellTab"
                     id="{$actor.id}-show-spell-tab"
                     checked={flags.a5e?.showSpellTab ?? true}
@@ -317,5 +303,29 @@
                 </label>
             </div>
         </FormSection>
-    </div>
+
+        {#if $actor.type === "character"}
+            <FormSection>
+                <div class="u-align-center u-flex u-gap-md">
+                    <input
+                        class="u-pointer"
+                        type="checkbox"
+                        name="flags.a5e.showXP"
+                        id="{actor.id}-show-xp"
+                        checked={flags.a5e?.showXP ?? true}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            )}
+                    />
+
+                    <label class="u-pointer" for="{actor.id}-show-xp">
+                        {localize("A5E.SettingsShowXP")}
+                    </label>
+                </div>
+            </FormSection>
+        {/if}
+    </section>
 </section>
