@@ -144,30 +144,36 @@ A5E.ammunitionProperties = {
 };
 
 A5E.areaIcons = {
-  cone: '<i class="fas fa-wifi"></i>',
-  cube: '<i class="fas fa-cube"></i>',
-  cylinder: '<i class="fas fa-circle"></i>',
-  line: '<i class="fas fa-grip-lines"></i>',
-  sphere: '<i class="far fa-circle"></i>'
+  circle: '<i class="fa-regular fa-circle"></i>',
+  cone: '<i class="fa-solid fa-wifi"></i>',
+  cube: '<i class="fa-solid fa-cube"></i>',
+  cylinder: '<i class="fa-solid fa-circle"></i>',
+  line: '<i class="fa-solid fa-grip-lines"></i>',
+  sphere: '<i class="fa-solid fa-meteor"></i>',
+  square: '<i class="fa-regular fa-square-full"></i>'
 };
 
 A5E.areaTypes = {
+  circle: 'A5E.AreaCircle',
   cone: 'A5E.AreaCone',
   cube: 'A5E.AreaCube',
   cylinder: 'A5E.AreaCylinder',
   line: 'A5E.AreaLine',
-  sphere: 'A5E.AreaSphere'
+  sphere: 'A5E.AreaSphere',
+  square: 'A5E.AreaSquare'
 };
 
 /**
  * Maps the area types to template shapes
  */
 A5E.areaTemplates = {
+  circle: 'circle',
   cone: 'cone',
   cube: 'rect',
   cylinder: 'circle',
   line: 'ray',
-  sphere: 'circle'
+  sphere: 'circle',
+  square: 'rect'
 };
 
 /**

@@ -17,14 +17,12 @@ export default function validateTemplateData(item, actionId) {
   if (area.shape === 'cone') {
     const length = parseInt(area?.length, 10);
     if (!length || length <= 0) return false;
-  } else if (area.shape === 'cube') {
+  } else if (area.shape === 'cube' || area.shape === 'square') {
     const size = parseInt(area?.width, 10);
     if (!size || size <= 0) return false;
-  } else if (area.shape === 'cylinder' || area.shape === 'sphere') {
+  } else if (['circle', 'cylinder', 'sphere'].includes(area.shape)) {
     const radius = parseInt(area?.radius, 10);
-    if (!radius || radius <= 0) {
-      return false;
-    }
+    if (!radius || radius <= 0) return false;
   } else if (area.shape === 'line') {
     const length = parseInt(area?.length, 10);
     const width = parseInt(area?.width, 10);

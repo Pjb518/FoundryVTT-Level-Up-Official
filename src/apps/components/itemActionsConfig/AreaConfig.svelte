@@ -1,6 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getShapeProperties from "../../../utils/measuredTemplates/getShapeProperties";
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -16,24 +17,16 @@
 
     const A5E = CONFIG.A5E;
 
-    function getProperties(shape) {
-        if (shape === "cone") return ["length"];
-        else if (shape === "cube") return ["width"];
-        else if (shape === "cylinder") return ["radius", "height"];
-        else if (shape === "line") return ["length", "width"];
-        else if (shape === "sphere") return ["radius"];
-
-        return [];
-    }
-
     function onClickScalingButton() {
         const title = `${$item.name} Target Scaling Configuration`;
+
         const dialog = new GenericScalingConfigDialog(
             $item,
             actionId,
             title,
             TemplateScalingDialog
         );
+
         dialog.render(true);
     }
 
@@ -66,7 +59,7 @@
 
     console.log(action);
 
-    $: properties = getProperties(action.area?.shape);
+    $: properties = getShapeProperties(action.area?.shape);
 </script>
 
 <section class="action-config__section">
@@ -122,7 +115,7 @@
                     />
                 </div>
 
-                {#if ["cylinder", "sphere"].includes(action.area?.shape)}
+                {#if getShapeProperties(action.area.shape).includes("radius")}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
                         <label for="{actionId}-area-radius">Radius</label>
                         <input
@@ -139,7 +132,7 @@
                     </div>
                 {/if}
 
-                {#if ["cone", "line"].includes(action.area?.shape)}
+                {#if getShapeProperties(action.area.shape).includes("length")}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
                         <label for="{actionId}-area-length">Length</label>
                         <input
@@ -156,7 +149,7 @@
                     </div>
                 {/if}
 
-                {#if ["cube", "line"].includes(action.area?.shape)}
+                {#if getShapeProperties(action.area.shape).includes("width")}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
                         <label for="{actionId}-area-width">Width</label>
                         <input
@@ -173,7 +166,7 @@
                     </div>
                 {/if}
 
-                {#if action.area?.shape === "cylinder"}
+                {#if getShapeProperties(action.area.shape).includes("height")}
                     <div class="u-flex u-flex-col u-gap-xs u-w-30">
                         <label for="{actionId}-area-height">Height</label>
                         <input
@@ -305,30 +298,36 @@
                 border-color: darken($color: #425f65, $amount: 5);
                 box-shadow: 0 0 10px darken($color: #425f65, $amount: 10) inset;
                 color: #f6f2eb;
+
+                &:hover {
+                    background: #425f65;
+                }
             }
         }
 
         &-label {
             display: flex;
-            flex-direction: column;
             align-items: center;
             flex-grow: 1;
-            gap: 0.375rem;
-            width: 100%;
+            gap: 0.75rem;
             border-radius: 3px;
             border: 1px solid #bbb;
             font-size: 0.833rem;
-            padding: 0.5rem;
+            padding: 0.375rem 0.75rem;
             cursor: pointer;
             transition: all 0.15s ease-in-out;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
         }
 
         &-list {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             width: 100%;
             gap: 0.375rem;
             margin: 0;
-            padding-block: 0.25rem;
         }
     }
 

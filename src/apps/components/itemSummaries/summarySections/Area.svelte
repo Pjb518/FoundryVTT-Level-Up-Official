@@ -12,6 +12,10 @@
         }
 
         switch (area.shape) {
+            case "circle":
+                return localize("A5E.AreaCircleSpecific", {
+                    radius: area.radius,
+                });
             case "cone":
                 return localize("A5E.AreaConeSpecific", {
                     length: area.length,
@@ -37,6 +41,10 @@
             case "sphere":
                 return localize("A5E.AreaSphereSpecific", {
                     radius: area.radius,
+                });
+            case "square":
+                return localize("A5E.AreaSquareSpecific", {
+                    width: area.width,
                 });
         }
     }

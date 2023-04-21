@@ -1,6 +1,8 @@
 <script>
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+
+    import getShapeProperties from "../../utils/measuredTemplates/getShapeProperties";
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     function getScalingOptions() {
@@ -10,14 +12,6 @@
         ];
     }
 
-    function getProperties(shape) {
-        if (shape === "cone") return ["length"];
-        else if (shape === "cube") return ["width"];
-        else if (shape === "cylinder") return ["radius", "height"];
-        else if (shape === "line") return ["length", "width"];
-        else if (shape === "sphere") return ["radius"];
-    }
-
     export let actionId;
     export let item;
 
@@ -25,7 +19,7 @@
     $: area = action.area ?? {};
     $: scalingMode = area?.scaling?.mode ?? null;
 
-    $: properties = getProperties(area?.shape);
+    $: properties = getShapeProperties(area?.shape);
 </script>
 
 <form>

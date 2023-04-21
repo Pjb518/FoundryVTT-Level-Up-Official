@@ -13,7 +13,7 @@
 </script>
 
 <input
-    class="area-shape-input"
+    class="area-shape__input"
     id="area-{actionId}-{key}"
     name="{actionId}-area-shape"
     value={key}
@@ -28,7 +28,7 @@
         )}
 />
 
-<label class="area-shape-label" for="area-{actionId}-{key}">
+<label class="area-shape__label" for="area-{actionId}-{key}">
     <span class="u-text-sm">
         {@html A5E.areaIcons[key]}
     </span>
@@ -38,30 +38,36 @@
 
 <style lang="scss">
     .area-shape {
-        &-input {
+        &__input {
             display: none;
 
-            &:checked + .area-shape-label {
+            &:checked + .area-shape__label {
                 background: #425f65;
                 border-color: darken($color: #425f65, $amount: 5);
                 box-shadow: 0 0 10px darken($color: #425f65, $amount: 10) inset;
                 color: #f6f2eb;
+
+                &:hover {
+                    background: #425f65;
+                }
             }
         }
 
-        &-label {
+        &__label {
             display: flex;
-            flex-direction: column;
             align-items: center;
             flex-grow: 1;
-            gap: 0.375rem;
-            width: 100%;
+            gap: 0.75rem;
             border-radius: 3px;
             border: 1px solid #bbb;
             font-size: 0.833rem;
-            padding: 0.5rem;
+            padding: 0.375rem 0.75rem;
             cursor: pointer;
             transition: all 0.15s ease-in-out;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
         }
     }
 </style>
