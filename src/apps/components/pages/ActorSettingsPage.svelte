@@ -22,6 +22,180 @@
 >
     <section class="setting-group">
         <header class="setting-header">
+            <h3 class="setting-heading">Global Bonuses</h3>
+        </header>
+
+        <small class="hint">
+            All of the fields in this section accept any values valid in roll
+            formulae.
+        </small>
+
+        <div class="global-bonus-container">
+            <FormSection heading="Melee Weapon Attack">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.meleeWeaponAttack"
+                        value={$actor.system.bonuses.meleeWeaponAttack}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+
+            <FormSection heading="Ranged Weapon Attack">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.rangedWeaponAttack"
+                        value={$actor.system.bonuses.rangedWeaponAttack}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+
+            <FormSection heading="Melee Spell Attack">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.meleeSpellAttack"
+                        value={$actor.system.bonuses.meleeSpellAttack}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+
+            <FormSection heading="Ranged Spell Attack">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.rangedSpellAttack"
+                        value={$actor.system.bonuses.rangedSpellAttack}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="global-bonus-container">
+            <FormSection heading="A5E.ManeuverDCBonus">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.maneuverDC"
+                        value={$actor.system.bonuses.maneuverDC}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+
+            <FormSection heading="A5E.SpellDCBonus">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.spellDC"
+                        value={$actor.system.bonuses.spellDC}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="global-bonus-container">
+            <FormSection heading="A5E.AbilityCheckBonusGlobal">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.abilities.check"
+                        value={$actor.system.bonuses.abilities.check}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+
+            <FormSection heading="A5E.SavingThrowBonusGlobal">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.abilities.save"
+                        value={$actor.system.bonuses.abilities.save}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+
+            <FormSection heading="A5E.SkillCheckBonusGlobal">
+                <div class="u-w-full">
+                    <input
+                        class="a5e-input"
+                        type="text"
+                        name="system.bonuses.abilities.skill"
+                        value={$actor.system.bonuses.abilities.skill}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.value
+                            )}
+                    />
+                </div>
+            </FormSection>
+        </div>
+    </section>
+
+    <section class="setting-group">
+        <header class="setting-header">
             <h3 class="setting-heading">Inventory Settings</h3>
         </header>
 
@@ -343,6 +517,10 @@
 </section>
 
 <style lang="scss">
+    .a5e-input[type="text"] {
+        height: 1.75rem;
+    }
+
     .checkbox {
         margin: 0;
         cursor: pointer;
@@ -353,6 +531,22 @@
         align-items: center;
         font-size: 0.833rem;
         gap: 0.75rem;
+    }
+
+    .divider {
+        border: 0;
+        border-bottom: 0.5px solid #ccc;
+        margin: 0.375rem 0;
+    }
+
+    .global-bonus-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.25rem;
+    }
+
+    .hint {
+        margin-block: 0.25rem;
     }
 
     .setting-group {
