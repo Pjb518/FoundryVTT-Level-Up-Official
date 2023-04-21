@@ -4,11 +4,13 @@ import getCubeTemplateData from './getCubeTemplateData';
 import getLineTemplateData from './getLineTemplateData';
 
 const TEMPLATE_FUNCTION_MAP = {
+  circle: getCircleTemplateData,
   cone: getConeTemplateData,
   cube: getCubeTemplateData,
   cylinder: getCircleTemplateData,
   line: getLineTemplateData,
-  sphere: getCircleTemplateData
+  sphere: getCircleTemplateData,
+  square: getCubeTemplateData
 };
 
 export default function createTemplateDocument(item, actionId) {
