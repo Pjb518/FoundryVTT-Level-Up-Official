@@ -74,7 +74,7 @@ export default class RestManager {
   }
 
   #consumeSupply() {
-    this.#updates.actor['system.supply'] = Math.max(this.#actor.system.supply, 0);
+    this.#updates.actor['system.supply'] = Math.max(this.#actor.system.supply - 1, 0);
   }
 
   #restoreExertion() {
