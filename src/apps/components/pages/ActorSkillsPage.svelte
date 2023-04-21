@@ -22,7 +22,9 @@
                 <dl class="skill-specialties">
                     {#each Object.entries(skills) as [key, skill]}
                         {#if skill.specialties.length}
-                            <dt>{localize(CONFIG.A5E.skills[key])}</dt>
+                            <dt class="skill-specialties__skill">
+                                {localize(CONFIG.A5E.skills[key])}
+                            </dt>
                             <dd class="skill-specialties__list">
                                 {skill.specialties
                                     .sort((a, b) =>
@@ -87,6 +89,10 @@
         &__list {
             margin: 0;
             padding: 0;
+        }
+
+        &__skill {
+            white-space: nowrap;
         }
     }
 </style>
