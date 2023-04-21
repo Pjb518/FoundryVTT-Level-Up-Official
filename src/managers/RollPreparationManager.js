@@ -282,7 +282,7 @@ export default class RollPreparationManager {
 
     if (casterLevel < 5) return baseRoll;
 
-    const scalingFormula = new Roll(roll.scaling.formula ?? 0);
+    const scalingFormula = new Roll(roll.scaling?.formula ?? 0);
     let multiplier = 0;
 
     if (casterLevel >= 17) multiplier = 3;
@@ -338,7 +338,7 @@ export default class RollPreparationManager {
 
     if (!delta) return baseRoll;
 
-    const scalingFormula = new Roll(roll.scaling.formula ?? 0);
+    const scalingFormula = new Roll(roll.scaling?.formula ?? 0);
     const step = roll.scaling?.step || 1;
     const multiplier = Math.floor(delta / step);
 

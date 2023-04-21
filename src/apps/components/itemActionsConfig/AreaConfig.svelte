@@ -209,15 +209,15 @@
                 <small>
                     {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
                         {localize("A5E.ScalingHintSpellLevelTarget", {
-                            formula: action.target?.scaling.formula ?? 0,
+                            formula: action.target?.scaling?.formula ?? 0,
                             level: getOrdinalNumber($item.system.level),
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
                         })}
                     {:else}
                         {localize("A5E.ScalingHintSteppedSpellLevelTarget", {
-                            formula: action.target?.scaling.formula ?? 0,
-                            step: action.target?.scaling.step,
+                            formula: action.target?.scaling?.formula ?? 0,
+                            step: action.target?.scaling?.step,
                             level: getOrdinalNumber($item.system.level),
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
@@ -228,14 +228,14 @@
                 <small>
                     {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
                         {localize("A5E.ScalingHintSpellPointTarget", {
-                            formula: action.target?.scaling.formula ?? 0,
+                            formula: action.target?.scaling?.formula ?? 0,
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
                         })}
                     {:else}
                         {localize("A5E.ScalingHintSteppedSpellPointTarget", {
-                            formula: action.target?.scaling.formula ?? 0,
-                            step: action.target?.scaling.step,
+                            formula: action.target?.scaling?.formula ?? 0,
+                            step: action.target?.scaling?.step,
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
                         })}
@@ -245,14 +245,14 @@
                 <small>
                     {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
                         {localize("A5E.ScalingHintUsesTarget", {
-                            formula: action.target?.scaling.formula ?? 0,
+                            formula: action.target?.scaling?.formula ?? 0,
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
                         })}
                     {:else}
                         {localize("A5E.ScalingHintSteppedUsesTarget", {
-                            formula: action.target?.scaling.formula ?? 0,
-                            step: action.target?.scaling.step,
+                            formula: action.target?.scaling?.formula ?? 0,
+                            step: action.target?.scaling?.step,
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
                         })}

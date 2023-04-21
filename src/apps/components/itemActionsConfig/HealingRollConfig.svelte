@@ -98,7 +98,7 @@
         {#if roll.scaling?.mode === "cantrip"}
             <small>
                 {localize("A5E.ScalingHintCantripHealing", {
-                    formula: roll.scaling.formula ?? 0,
+                    formula: roll.scaling?.formula ?? 0,
                     healingType: localize(
                         CONFIG.A5E.healingTypes[roll.healingType ?? "healing"]
                     ),
@@ -108,7 +108,7 @@
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
                     {localize("A5E.ScalingHintSpellLevelHealing", {
-                        formula: roll.scaling.formula ?? 0,
+                        formula: roll.scaling?.formula ?? 0,
                         level: getOrdinalNumber($item.system.level),
                         healingType: localize(
                             CONFIG.A5E.healingTypes[
@@ -118,8 +118,8 @@
                     })}
                 {:else}
                     {localize("A5E.ScalingHintSteppedSpellLevelHealing", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
+                        formula: roll.scaling?.formula ?? 0,
+                        step: roll.scaling?.step,
                         level: getOrdinalNumber($item.system.level),
                         healingType: localize(
                             CONFIG.A5E.healingTypes[
@@ -133,12 +133,12 @@
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
                     {localize("A5E.ScalingHintSpellPointHealing", {
-                        formula: roll.scaling.formula ?? 0,
+                        formula: roll.scaling?.formula ?? 0,
                     })}
                 {:else}
                     {localize("A5E.ScalingHintSteppedSpellPointHealing", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
+                        formula: roll.scaling?.formula ?? 0,
+                        step: roll.scaling?.step,
                     })}
                 {/if}
             </small>
@@ -146,12 +146,12 @@
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
                     {localize("A5E.ScalingHintUsesHealing", {
-                        formula: roll.scaling.formula ?? 0,
+                        formula: roll.scaling?.formula ?? 0,
                     })}
                 {:else}
                     {localize("A5E.ScalingHintSteppedUsesHealing", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
+                        formula: roll.scaling?.formula ?? 0,
+                        step: roll.scaling?.step,
                     })}
                 {/if}
             </small>

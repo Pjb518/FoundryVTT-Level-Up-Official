@@ -102,20 +102,20 @@
         {#if roll.scaling?.mode === "cantrip"}
             <small>
                 {localize("A5E.ScalingHintCantripDamage", {
-                    formula: roll.scaling.formula ?? 0,
+                    formula: roll.scaling?.formula ?? 0,
                 })}
             </small>
         {:else if roll.scaling?.mode === "spellLevel"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
                     {localize("A5E.ScalingHintSpellLevelDamage", {
-                        formula: roll.scaling.formula ?? 0,
+                        formula: roll.scaling?.formula ?? 0,
                         level: getOrdinalNumber($item.system.level),
                     })}
                 {:else}
                     {localize("A5E.ScalingHintSteppedSpellLevelDamage", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
+                        formula: roll.scaling?.formula ?? 0,
+                        step: roll.scaling?.step,
                         level: getOrdinalNumber($item.system.level),
                     })}
                 {/if}
@@ -124,12 +124,12 @@
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
                     {localize("A5E.ScalingHintSpellPointDamage", {
-                        formula: roll.scaling.formula ?? 0,
+                        formula: roll.scaling?.formula ?? 0,
                     })}
                 {:else}
                     {localize("A5E.ScalingHintSteppedSpellPointDamage", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
+                        formula: roll.scaling?.formula ?? 0,
+                        step: roll.scaling?.step,
                     })}
                 {/if}
             </small>
@@ -137,12 +137,12 @@
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
                     {localize("A5E.ScalingHintUsesDamage", {
-                        formula: roll.scaling.formula ?? 0,
+                        formula: roll.scaling?.formula ?? 0,
                     })}
                 {:else}
                     {localize("A5E.ScalingHintSteppedUsesDamage", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
+                        formula: roll.scaling?.formula ?? 0,
+                        step: roll.scaling?.step,
                     })}
                 {/if}
             </small>
