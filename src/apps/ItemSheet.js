@@ -119,7 +119,7 @@ export default class ItemSheet extends SvelteApplication {
     // Change image
     action.img ??= document.img;
 
-    this.item.actions.add(null, foundry.utils.duplicate(action));
+    this.item.actions.add(foundry.utils.duplicate(action));
   }
 
   async #onDropItem(dragData) {
@@ -143,7 +143,7 @@ export default class ItemSheet extends SvelteApplication {
     });
 
     data.forEach((a) => {
-      this.item.actions.add(null, foundry.utils.duplicate(a));
+      this.item.actions.add(foundry.utils.duplicate(a));
     });
   }
 
