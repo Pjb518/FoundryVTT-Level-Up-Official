@@ -13,12 +13,6 @@
     const A5E = CONFIG.A5E;
     const specialActivationTypes = ["none", "special"];
     const specialTimeTypes = ["instantaneous", "permanent", "special"];
-    const rechargeTypes = {
-        none: "A5E.None",
-        item: "A5E.Item",
-        action: "A5E.Action",
-    };
-
     $: action = $item.actions[actionId];
 </script>
 
