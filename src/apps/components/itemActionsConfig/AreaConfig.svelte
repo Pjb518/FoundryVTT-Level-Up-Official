@@ -3,14 +3,28 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
+
     import AreaShape from "./AreaShape.svelte";
     import FormSection from "../FormSection.svelte";
+    import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
 
     export let action;
     export let actionId;
     export let item;
 
     const A5E = CONFIG.A5E;
+
+    function onClickScalingButton() {
+        const title = `${$item.name} Target Scaling Configuration`;
+        const dialog = new GenericScalingConfigDialog(
+            $item,
+            actionId,
+            title,
+            TemplateScalingDialog
+        );
+        dialog.render(true);
+    }
 
     function removeArea() {
         $item.update({
@@ -19,6 +33,8 @@
             },
         });
     }
+
+    console.log(action);
 </script>
 
 <section class="action-config__section">
@@ -141,10 +157,28 @@
                         />
                     </div>
                 {/if}
+
+                {#if action.area.shape}
+                    <div class="a5e-field-group scaling-button-wrapper">
+                        <button
+                            class="scaling-button"
+                            on:click|preventDefault={onClickScalingButton}
+                        >
+                            <i
+                                class="fa-solid fa-arrow-up-right-dots"
+                                data-tooltip="A5E.ConfigureTargetScaling"
+                                data-tooltip-direction="UP"
+                            />
+                        </button>
+                    </div>
+                {/if}
             </div>
         </FormSection>
     {/if}
 
+    <!-- Scaling -->
+
+    <!-- Place Template -->
     {#if action.area?.shape}
         <FormSection>
             <div class="u-flex u-gap-lg u-w-full u-mt-xs">
@@ -205,5 +239,36 @@
             margin: 0;
             padding-block: 0.25rem;
         }
+    }
+
+    .scaling-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 1.625rem;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        background: transparent;
+        color: #999;
+        border: 1px solid #7a7971;
+        border-radius: 3px;
+        cursor: pointer;
+
+        transition: all 0.15s ease-in-out;
+
+        i {
+            margin: 0;
+        }
+
+        &:focus,
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .scaling-button-wrapper {
+        justify-content: flex-end;
     }
 </style>
