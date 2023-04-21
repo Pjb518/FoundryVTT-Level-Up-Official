@@ -15,7 +15,7 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const A5E = CONFIG.A5E;
+    const { healingTypes } = CONFIG.A5E;
 
     export let roll;
     export let rollId;
@@ -87,7 +87,7 @@
                         target.value
                     )}
             >
-                {#each Object.entries(A5E.healingTypes) as [key, name] (key)}
+                {#each Object.entries(healingTypes) as [key, name] (key)}
                     <option value={key} selected={roll.healingType === key}>
                         {localize(name)}
                     </option>
@@ -100,7 +100,7 @@
                 {localize("A5E.ScalingHintCantripHealing", {
                     formula: roll.scaling?.formula ?? 0,
                     healingType: localize(
-                        CONFIG.A5E.healingTypes[roll.healingType ?? "healing"]
+                        healingTypes[roll.healingType ?? "healing"]
                     ),
                 })}
             </small>
@@ -111,9 +111,7 @@
                         formula: roll.scaling?.formula ?? 0,
                         level: getOrdinalNumber($item.system.level),
                         healingType: localize(
-                            CONFIG.A5E.healingTypes[
-                                roll.healingType ?? "healing"
-                            ]
+                            healingTypes[roll.healingType ?? "healing"]
                         ),
                     })}
                 {:else}
@@ -122,9 +120,7 @@
                         step: roll.scaling?.step,
                         level: getOrdinalNumber($item.system.level),
                         healingType: localize(
-                            CONFIG.A5E.healingTypes[
-                                roll.healingType ?? "healing"
-                            ]
+                            healingTypes[roll.healingType ?? "healing"]
                         ),
                     })}
                 {/if}

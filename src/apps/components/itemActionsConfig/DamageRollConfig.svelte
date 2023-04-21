@@ -15,7 +15,7 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const A5E = CONFIG.A5E;
+    const { damageTypes } = CONFIG.A5E;
 
     export let roll;
     export let rollId;
@@ -91,7 +91,7 @@
                     {localize("A5E.None")}
                 </option>
 
-                {#each Object.entries(A5E.damageTypes) as [key, name] (key)}
+                {#each Object.entries(damageTypes) as [key, name] (key)}
                     <option value={key} selected={roll.damageType === key}>
                         {localize(name)}
                     </option>
