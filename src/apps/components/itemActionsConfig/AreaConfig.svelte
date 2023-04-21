@@ -1,6 +1,7 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
@@ -15,6 +16,16 @@
 
     const A5E = CONFIG.A5E;
 
+    function getProperties(shape) {
+        if (shape === "cone") return ["length"];
+        else if (shape === "cube") return ["width"];
+        else if (shape === "cylinder") return ["radius", "height"];
+        else if (shape === "line") return ["length", "width"];
+        else if (shape === "sphere") return ["radius"];
+
+        return [];
+    }
+
     function onClickScalingButton() {
         const title = `${$item.name} Target Scaling Configuration`;
         const dialog = new GenericScalingConfigDialog(
@@ -26,6 +37,25 @@
         dialog.render(true);
     }
 
+    function getLocalization(type) {
+        if (properties.length === 1)
+            return localize(`A5E.scaling.summaries.${type}.template`, {
+                shape: action?.area.shape,
+                formula: action?.area.scaling?.formula?.[properties[0]],
+                property: properties[0],
+                unit: "feet",
+            });
+        else if (properties.length === 2)
+            return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
+                shape: action?.area.shape,
+                formula1: action.area.scaling?.formula?.[properties[0]],
+                formula2: action.area.scaling?.formula?.[properties[1]],
+                property1: properties[0],
+                property2: properties[1],
+                unit: "feet",
+            });
+    }
+
     function removeArea() {
         $item.update({
             [`system.actions.${actionId}`]: {
@@ -35,6 +65,8 @@
     }
 
     console.log(action);
+
+    $: properties = getProperties(action.area?.shape);
 </script>
 
 <section class="action-config__section">
@@ -158,6 +190,7 @@
                     </div>
                 {/if}
 
+                <!-- Scaling -->
                 {#if action.area.shape}
                     <div class="a5e-field-group scaling-button-wrapper">
                         <button
@@ -173,10 +206,68 @@
                     </div>
                 {/if}
             </div>
+            {#if action.area?.scaling?.mode === "cantrip"}
+                <small>
+                    {getLocalization("cantrip")}
+
+                    {properties}
+                </small>
+            {:else if action.area?.scaling?.mode === "spellLevel"}
+                <small>
+                    {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
+                        {localize("A5E.ScalingHintSpellLevelTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                            level: getOrdinalNumber($item.system.level),
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
+                        })}
+                    {:else}
+                        {localize("A5E.ScalingHintSteppedSpellLevelTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                            step: action.target?.scaling.step,
+                            level: getOrdinalNumber($item.system.level),
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
+                        })}
+                    {/if}
+                </small>
+            {:else if action.area?.scaling?.mode === "spellPoints"}
+                <small>
+                    {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
+                        {localize("A5E.ScalingHintSpellPointTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
+                        })}
+                    {:else}
+                        {localize("A5E.ScalingHintSteppedSpellPointTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                            step: action.target?.scaling.step,
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
+                        })}
+                    {/if}
+                </small>
+            {:else if ["actionUses", "itemUses"].includes(action.area?.scaling?.mode)}
+                <small>
+                    {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
+                        {localize("A5E.ScalingHintUsesTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
+                        })}
+                    {:else}
+                        {localize("A5E.ScalingHintSteppedUsesTarget", {
+                            formula: action.target?.scaling.formula ?? 0,
+                            step: action.target?.scaling.step,
+                            targetType:
+                                A5E.targetTypesPlural[action?.target?.type],
+                        })}
+                    {/if}
+                </small>
+            {/if}
         </FormSection>
     {/if}
-
-    <!-- Scaling -->
 
     <!-- Place Template -->
     {#if action.area?.shape}
