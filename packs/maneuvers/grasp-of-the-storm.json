@@ -1,0 +1,76 @@
+{
+	"name": "Grasp of the Storm",
+	"type": "maneuver",
+	"img": "icons/magic/symbols/cog-shield-white-blue.webp",
+	"system": {
+		"actions": {
+			"Mq7ThZONowEakSvW": {
+				"name": "Grasp of the Storm",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"LEhQ9VBmHLUm0Gp9": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"prompts": {
+					"4OSfgv6owcHZTcHd": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "not pulled closer"
+					}
+				},
+				"consumers": {
+					"HphTcQX86bGRtUxm": {
+						"type": "resource",
+						"resource": "exertion",
+						"quantity": 2
+					}
+				}
+			}
+		},
+		"description": "<p><span class=\"fontstyle0\">With a sharp gesture, you reach out toward a nearby foe, sending a hand made of lightning to violently draw them in.</span></p>\n<p><span class=\"fontstyle0\">Make a single melee weapon attack against a creature within 15 feet. The range of this attack increases to 15 feet and deals lightning damage. The target must then make a Strength saving throw, whether you dealt damage or not, or be pulled up to 10 feet closer to you.</span></p>",
+		"favorite": false,
+		"secretDescription": "<p><em>Source: Gate Pass Gazette #9</em></p>",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"degree": 1,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "Arcane Knight Combat Maneuver",
+		"tradition": "arcaneKnight"
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Item.J35JE4ZfVIsiudUF"
+		}
+	},
+	"_id": "J35JE4ZfVIsiudUF"
+}

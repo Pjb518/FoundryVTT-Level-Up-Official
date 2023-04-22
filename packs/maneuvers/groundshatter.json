@@ -1,0 +1,106 @@
+{
+	"name": "Groundshatter",
+	"type": "maneuver",
+	"img": "icons/magic/symbols/cog-shield-white-blue.webp",
+	"system": {
+		"actions": {
+			"p9OoqPdQmWVbryFm": {
+				"name": "Groundshatter Line Out",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 50,
+					"width": 5,
+					"placeTemplate": true
+				},
+				"rolls": {
+					"kYPiEhkKBWslWN2U": {
+						"type": "damage",
+						"default": true,
+						"label": "Basic",
+						"formula": "1+@str.mod",
+						"canCrit": false,
+						"damageType": "bludgeoning"
+					}
+				},
+				"consumers": {
+					"NKq0ZLWiFWwrknCZ": {
+						"type": "resource",
+						"resource": "exertion",
+						"quantity": 3
+					}
+				}
+			},
+			"CK3Tg9EUd9ZiKGPr": {
+				"name": "Groundshatter Line Center",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 2,
+					"length": 20,
+					"width": 5,
+					"placeTemplate": true
+				},
+				"rolls": {
+					"kYPiEhkKBWslWN2U": {
+						"type": "damage",
+						"default": true,
+						"label": "Basic",
+						"formula": "1+@str.mod",
+						"canCrit": false,
+						"damageType": "bludgeoning"
+					}
+				},
+				"consumers": {
+					"QrbU8Gr5rQWqzBxr": {
+						"type": "resource",
+						"resource": "exertion",
+						"quantity": 3
+					}
+				}
+			}
+		},
+		"description": "<p><span class=\"fontstyle0\">With a mighty swing, you strike the ground and unleash a powerful burst of energy.</span></p>\n<p><span class=\"fontstyle0\">When you use this ability, choose an adjacent square. When you strike this square a 50 feet long, 5 feet wide, line of difficult terrain appears in the direction of your choosing. You may also choose to make the square you&rsquo;ve chosen the center of a 40-foot line. Creatures and objects within the line when it is created take basic melee damage. Striking a surface that is 1 foot thick or less, such as a rooftop or bridge, severely damages it, causing creatures and objects in the area of effect to fall.</span></p>",
+		"favorite": false,
+		"secretDescription": "<p><em>Source: Gate Pass Gazette #9</em></p>",
+		"source": "",
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"degree": 3,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "Arcane Knight Combat Maneuver",
+		"tradition": "arcaneKnight"
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Item.kPpkp1BTPl4l84Ix"
+		}
+	},
+	"_id": "kPpkp1BTPl4l84Ix"
+}
