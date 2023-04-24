@@ -15,7 +15,8 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const { healingTypes } = CONFIG.A5E;
+    const A5E = CONFIG;
+    const { healingTypes } = A5E;
 
     export let roll;
     export let rollId;
@@ -97,57 +98,63 @@
 
         {#if roll.scaling?.mode === "cantrip"}
             <small>
-                {localize("A5E.ScalingHintCantripHealing", {
-                    formula: roll.scaling?.formula ?? 0,
+                {localize("A5E.scaling.summaries.cantrip.healing", {
+                    formula: roll.scaling.formula ?? 0,
                     healingType: localize(
-                        healingTypes[roll.healingType ?? "healing"]
+                        A5E.healingTypes[roll.healingType ?? "healing"]
                     ),
                 })}
             </small>
         {:else if roll.scaling?.mode === "spellLevel"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintSpellLevelHealing", {
-                        formula: roll.scaling?.formula ?? 0,
+                    {localize("A5E.scaling.summaries.spellLevel.healing", {
+                        formula: roll.scaling.formula ?? 0,
                         level: getOrdinalNumber($item.system.level),
                         healingType: localize(
-                            healingTypes[roll.healingType ?? "healing"]
+                            A5E.healingTypes[roll.healingType ?? "healing"]
                         ),
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedSpellLevelHealing", {
-                        formula: roll.scaling?.formula ?? 0,
-                        step: roll.scaling?.step,
-                        level: getOrdinalNumber($item.system.level),
-                        healingType: localize(
-                            healingTypes[roll.healingType ?? "healing"]
-                        ),
-                    })}
+                    {localize(
+                        "A5E.scaling.summaries.steppedSpellLevel.healing",
+                        {
+                            formula: roll.scaling.formula ?? 0,
+                            step: roll.scaling.step,
+                            level: getOrdinalNumber($item.system.level),
+                            healingType: localize(
+                                A5E.healingTypes[roll.healingType ?? "healing"]
+                            ),
+                        }
+                    )}
                 {/if}
             </small>
         {:else if roll.scaling?.mode === "spellPoints"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintSpellPointHealing", {
-                        formula: roll.scaling?.formula ?? 0,
+                    {localize("A5E.scaling.summaries.spellPoint.healing", {
+                        formula: roll.scaling.formula ?? 0,
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedSpellPointHealing", {
-                        formula: roll.scaling?.formula ?? 0,
-                        step: roll.scaling?.step,
-                    })}
+                    {localize(
+                        "A5E.scaling.summaries.steppedSpellPoint.healing",
+                        {
+                            formula: roll.scaling.formula ?? 0,
+                            step: roll.scaling.step,
+                        }
+                    )}
                 {/if}
             </small>
         {:else if ["actionUses", "itemUses"].includes(roll.scaling?.mode)}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintUsesHealing", {
-                        formula: roll.scaling?.formula ?? 0,
+                    {localize("A5E.scaling.summaries.uses.healing", {
+                        formula: roll.scaling.formula ?? 0,
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedUsesHealing", {
-                        formula: roll.scaling?.formula ?? 0,
-                        step: roll.scaling?.step,
+                    {localize("A5E.scaling.summaries.steppedUses.healing", {
+                        formula: roll.scaling.formula ?? 0,
+                        step: roll.scaling.step,
                     })}
                 {/if}
             </small>

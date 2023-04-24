@@ -146,8 +146,8 @@
 
                 {#if action.target?.scaling?.mode === "cantrip"}
                     <small>
-                        {localize("A5E.ScalingHintCantripTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
+                        {localize("A5E.scaling.summaries.cantrip.target", {
+                            formula: action.target?.scaling.formula ?? 0,
                             targetType:
                                 A5E.targetTypesPlural[action?.target?.type],
                         })}
@@ -155,15 +155,21 @@
                 {:else if action.target?.scaling?.mode === "spellLevel"}
                     <small>
                         {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
-                            {localize("A5E.ScalingHintSpellLevelTarget", {
-                                formula: action.target?.scaling?.formula ?? 0,
-                                level: getOrdinalNumber($item.system.level),
-                                targetType:
-                                    A5E.targetTypesPlural[action?.target?.type],
-                            })}
+                            {localize(
+                                "A5E.scaling.summaries.spellLevel.target",
+                                {
+                                    formula:
+                                        action.target?.scaling.formula ?? 0,
+                                    level: getOrdinalNumber($item.system.level),
+                                    targetType:
+                                        A5E.targetTypesPlural[
+                                            action?.target?.type
+                                        ],
+                                }
+                            )}
                         {:else}
                             {localize(
-                                "A5E.ScalingHintSteppedSpellLevelTarget",
+                                "A5E.scaling.summaries.steppedSpellLevel.target",
                                 {
                                     formula:
                                         action.target?.scaling?.formula ?? 0,
@@ -180,14 +186,20 @@
                 {:else if action.target?.scaling?.mode === "spellPoints"}
                     <small>
                         {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
-                            {localize("A5E.ScalingHintSpellPointTarget", {
-                                formula: action.target?.scaling?.formula ?? 0,
-                                targetType:
-                                    A5E.targetTypesPlural[action?.target?.type],
-                            })}
+                            {localize(
+                                "A5E.scaling.summaries.spellPoint.target",
+                                {
+                                    formula:
+                                        action.target?.scaling.formula ?? 0,
+                                    targetType:
+                                        A5E.targetTypesPlural[
+                                            action?.target?.type
+                                        ],
+                                }
+                            )}
                         {:else}
                             {localize(
-                                "A5E.ScalingHintSteppedSpellPointTarget",
+                                "A5E.scaling.summaries.steppedSpellPoint.target",
                                 {
                                     formula:
                                         action.target?.scaling?.formula ?? 0,
@@ -203,18 +215,24 @@
                 {:else if ["actionUses", "itemUses"].includes(action.target?.scaling?.mode)}
                     <small>
                         {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
-                            {localize("A5E.ScalingHintUsesTarget", {
-                                formula: action.target?.scaling?.formula ?? 0,
+                            {localize("A5E.scaling.summaries.uses.target", {
+                                formula: action.target?.scaling.formula ?? 0,
                                 targetType:
                                     A5E.targetTypesPlural[action?.target?.type],
                             })}
                         {:else}
-                            {localize("A5E.ScalingHintSteppedUsesTarget", {
-                                formula: action.target?.scaling?.formula ?? 0,
-                                step: action.target?.scaling?.step,
-                                targetType:
-                                    A5E.targetTypesPlural[action?.target?.type],
-                            })}
+                            {localize(
+                                "A5E.scaling.summaries.steppedUses.target",
+                                {
+                                    formula:
+                                        action.target?.scaling.formula ?? 0,
+                                    step: action.target?.scaling.step,
+                                    targetType:
+                                        A5E.targetTypesPlural[
+                                            action?.target?.type
+                                        ],
+                                }
+                            )}
                         {/if}
                     </small>
                 {/if}

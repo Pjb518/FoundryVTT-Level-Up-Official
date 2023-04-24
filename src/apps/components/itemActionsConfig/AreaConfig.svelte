@@ -34,18 +34,22 @@
         if (properties.length === 1)
             return localize(`A5E.scaling.summaries.${type}.template`, {
                 shape: action?.area.shape,
-                formula: action?.area.scaling?.formula?.[properties[0]],
+                formula: action?.area.scaling?.formula?.[properties[0]] ?? 0,
                 property: properties[0],
                 unit: "feet",
+                level: getOrdinalNumber($item.system.level ?? 0),
+                step: action.area?.scaling?.step,
             });
         else if (properties.length === 2)
             return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
                 shape: action?.area.shape,
-                formula1: action.area.scaling?.formula?.[properties[0]],
-                formula2: action.area.scaling?.formula?.[properties[1]],
+                formula1: action.area.scaling?.formula?.[properties[0]] ?? 0,
+                formula2: action.area.scaling?.formula?.[properties[1]] ?? 0,
                 property1: properties[0],
                 property2: properties[1],
                 unit: "feet",
+                level: getOrdinalNumber($item.system.level ?? 0),
+                step: action.area?.scaling?.step,
             });
     }
 
@@ -57,9 +61,7 @@
         });
     }
 
-    console.log(action);
-
-    $: properties = getShapeProperties(action.area?.shape);
+    $: properties = getProperties(action.area?.shape);
 </script>
 
 <section class="action-config__section">
@@ -201,61 +203,30 @@
             </div>
             {#if action.area?.scaling?.mode === "cantrip"}
                 <small>
-                    {getLocalization("cantrip")}
-
-                    {properties}
+                    {getLocalization("cantrip", action.area)}
                 </small>
             {:else if action.area?.scaling?.mode === "spellLevel"}
                 <small>
                     {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
-                        {localize("A5E.ScalingHintSpellLevelTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
-                            level: getOrdinalNumber($item.system.level),
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
-                        })}
+                        {getLocalization("spellLevel", action.area)}
                     {:else}
-                        {localize("A5E.ScalingHintSteppedSpellLevelTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
-                            step: action.target?.scaling?.step,
-                            level: getOrdinalNumber($item.system.level),
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
-                        })}
+                        {getLocalization("steppedSpellLevel", action.area)}
                     {/if}
                 </small>
             {:else if action.area?.scaling?.mode === "spellPoints"}
                 <small>
                     {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
-                        {localize("A5E.ScalingHintSpellPointTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
-                        })}
+                        {getLocalization("spellPoint", action.area)}
                     {:else}
-                        {localize("A5E.ScalingHintSteppedSpellPointTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
-                            step: action.target?.scaling?.step,
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
-                        })}
+                        {getLocalization("steppedSpellPoint", action.area)}
                     {/if}
                 </small>
             {:else if ["actionUses", "itemUses"].includes(action.area?.scaling?.mode)}
                 <small>
                     {#if !action.area?.scaling?.step || action.area?.scaling?.step === 1}
-                        {localize("A5E.ScalingHintUsesTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
-                        })}
+                        {getLocalization("steppedSpellLevel", action.area)}
                     {:else}
-                        {localize("A5E.ScalingHintSteppedUsesTarget", {
-                            formula: action.target?.scaling?.formula ?? 0,
-                            step: action.target?.scaling?.step,
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
-                        })}
+                        {getLocalization("steppedSpellLevel", action.area)}
                     {/if}
                 </small>
             {/if}

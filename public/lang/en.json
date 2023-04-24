@@ -62,6 +62,73 @@
     "unendingWheel": "Unending Wheel",
     "vipersFangs": "Viper's Fangs"
   },
+  "A5E.scaling": {
+    "modes": {
+      "actionUses": "Action Uses",
+      "cantrip": "Cantrip",
+      "itemUses": "Item Uses",
+      "spellLevel": "Spell Level",
+      "spellPoints": "Spell Points"
+    },
+    "summaries": {
+      "cantrip": {
+        "damage": "Plus an additional {formula} damage at 5th, 11th, and 17th level.",
+        "duration": "",
+        "healing":  "Plus an additional {formula} {healingType} per slot level above {level}.",
+        "target": "Plus an additional {formula} {targetType} at 5th, 11th, and 17th level.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} at 5th, 11th, and 17th level.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} at 5th, 11th, and 17th level."
+      },
+      "spellLevel": {
+        "damage": "Plus an additional {formula} damage per slot level above {level}.",
+        "duration": "",
+        "healing": "Plus an additional {formula} {healingType} per {step} slot levels above {level}.",
+        "target": "Plus an additional {formula} {targetType} per slot level above {level}.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} for every slot level above {level}.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} for every slot level about {level}."
+      },
+      "steppedSpellLevel": {
+        "damage": "Plus an additional {formula} damage per {step} slot levels above {level}.",
+        "duration": "",
+        "healing": "Plus an additional {formula} {healingType} per additional spell point expended.",
+        "target": "Plus an additional {formula} {targetType} per {step} slot levels above {level}.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} for every {step} slot level above {level}.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} for every {step} slot level about {level}."
+      },
+      "spellPoint": {
+        "damage": "Plus an additional {formula} damage per additional spell point expended.",
+        "duration": "",
+        "healing": "Plus an additional {formula} {healingType} per additional spell point expended.",
+        "target": "Plus an additional {formula} {targetType} per additional spell point expended.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} for every additional spell point expended.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} for every additional spell point expended."
+      },
+      "steppedSpellPoint": {
+        "damage": "Plus an additional {formula} damage per additional {step} spell points expended.",
+        "duration": "",
+        "healing": "Plus an additional {formula} {healingType} per additional {step} spell points expended.",
+        "target": "Plus an additional {formula} {targetType} per additional {step} spell points expended.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} for every {step} additional spell points expended.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} for every {step} additional spell points expended."
+      },
+      "uses": {
+        "damage": "Plus an additional {formula} damage per additional use expended.",
+        "duration": "",
+        "healing": "Plus an additional {formula} {healingType} per additional use expended.",
+        "target": "Plus an additional {formula} {targetType} per additional use expended.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} for every additional use expended.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} for every additional use expended."
+      },
+      "steppedUses": {
+        "damage": "Plus an additional {formula} {healingType} at 5th, 11th, and 17th level.",
+        "duration": "",
+        "healing": "Plus an additional {formula} {healingType} per additional {step} use expended.",
+        "target": "Plus an additional {formula} {targetType} per additional {step} uses expended.",
+        "template": "The {shape}'s {property} increases by {formula} {unit} for every {step} additional uses expended.",
+        "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} for every {step} additional uses expended."
+      }
+    }
+  },
   "A5E.settings": {
     "automateConditions": "Automate conditions",
     "critCalculationMode": "Critical damage calculation mode",
@@ -789,83 +856,6 @@
   "A5E.SavingThrowPromptTitle": "{name}: {ability} Saving Throw",
   "A5E.SavingThrowBonus": "{ability} Save Bonus",
   "A5E.SavingThrowBonusGlobal": "Global Saving Throw Bonus",
-  "A5E.scaling.summaries": {
-    "cantrip": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": "The {shape}'s {property} increases by {formula} {unit} at 5th, 11th, and 17th level.",
-      "templateMulti": "The {shape}'s {property1} increases by {formula1} {unit} and its {property2} increases by {formula2} {unit} at 5th, 11th, and 17th level."
-    },
-    "spellLevel": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": ""
-    },
-    "steppedSpellLevel": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": ""
-    },
-    "spellPoint": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": ""
-    },
-    "steppedSpellPoint": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": ""
-    },
-    "uses": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": ""
-    },
-    "steppedUses": {
-      "damage": "",
-      "duration": "",
-      "healing": "",
-      "target": "",
-      "template": ""
-    }
-  },
-  "A5E.ScalingHintCantripDamage": "Plus an additional {formula} damage at 5th, 11th, and 17th level.",
-  "A5E.ScalingHintSpellLevelDamage": "Plus an additional {formula} damage per slot level above {level}.",
-  "A5E.ScalingHintSteppedSpellLevelDamage": "Plus an additional {formula} damage per {step} slot levels above {level}.",
-  "A5E.ScalingHintSpellPointDamage": "Plus an additional {formula} damage per additional spell point expended.",
-  "A5E.ScalingHintSteppedSpellPointDamage": "Plus an additional {formula} damage per additional {step} spell points expended.",
-  "A5E.ScalingHintUsesDamage": "Plus an additional {formula} damage per additional use expended.",
-  "A5E.ScalingHintSteppedUsesDamage": "Plus an additional {formula} damage per additional {step} uses expended.",
-  "A5E.ScalingHintCantripHealing": "Plus an additional {formula} {healingType} at 5th, 11th, and 17th level.",
-  "A5E.ScalingHintSpellLevelHealing": "Plus an additional {formula} {healingType} per slot level above {level}.",
-  "A5E.ScalingHintSteppedSpellLevelHealing": "Plus an additional {formula} {healingType} per {step} slot levels above {level}.",
-  "A5E.ScalingHintSpellPointHealing": "Plus an additional {formula} {healingType} per additional spell point expended.",
-  "A5E.ScalingHintSteppedSpellPointHealing": "Plus an additional {formula} {healingType} per additional {step} spell points expended.",
-  "A5E.ScalingHintUsesHealing": "Plus an additional {formula} {healingType} per additional use expended.",
-  "A5E.ScalingHintCantripTarget": "Plus an additional {formula} {targetType} at 5th, 11th, and 17th level.",
-  "A5E.ScalingHintSpellLevelTarget": "Plus an additional {formula} {targetType} per slot level above {level}.",
-  "A5E.ScalingHintSteppedSpellLevelTarget": "Plus an additional {formula} {targetType} per {step} slot levels above {level}.",
-  "A5E.ScalingHintSpellPointTarget": "Plus an additional {formula} {targetType} per additional spell point expended.",
-  "A5E.ScalingHintSteppedSpellPointTarget": "Plus an additional {formula} {targetType} per additional {step} spell points expended.",
-  "A5E.ScalingHintUsesTarget": "Plus an additional {formula} {targetType} per additional use expended.",
-  "A5E.ScalingHintSteppedUsesTarget": "Plus an additional {formula} {targetType} per additional {step} uses expended.",
-  "A5E.ScalingModeActionUses": "Action Uses",
-  "A5E.ScalingModeCantrip": "Cantrip",
-  "A5E.ScalingModeItemUses": "Item Uses",
-  "A5E.ScalingModeSpellLevel": "Spell Level",
-  "A5E.ScalingModeSpellPoints": "Spell Points",
   "A5E.SenseBlindsight": "Blindsight",
   "A5E.SenseBlindsightRange": "Blindsight Range",
   "A5E.SenseDarkvision": "Darkvision",
