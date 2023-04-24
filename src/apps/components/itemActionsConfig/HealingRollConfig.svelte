@@ -97,59 +97,61 @@
 
         {#if roll.scaling?.mode === "cantrip"}
             <small>
-                {localize("A5E.ScalingHintCantripHealing", {
+                {localize("A5E.scaling.summaries.cantrip.healing", {
                     formula: roll.scaling.formula ?? 0,
                     healingType: localize(
-                        CONFIG.A5E.healingTypes[roll.healingType ?? "healing"]
+                        A5E.healingTypes[roll.healingType ?? "healing"]
                     ),
                 })}
             </small>
         {:else if roll.scaling?.mode === "spellLevel"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintSpellLevelHealing", {
+                    {localize("A5E.scaling.summaries.spellLevel.healing", {
                         formula: roll.scaling.formula ?? 0,
                         level: getOrdinalNumber($item.system.level),
                         healingType: localize(
-                            CONFIG.A5E.healingTypes[
-                                roll.healingType ?? "healing"
-                            ]
+                            A5E.healingTypes[roll.healingType ?? "healing"]
                         ),
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedSpellLevelHealing", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
-                        level: getOrdinalNumber($item.system.level),
-                        healingType: localize(
-                            CONFIG.A5E.healingTypes[
-                                roll.healingType ?? "healing"
-                            ]
-                        ),
-                    })}
+                    {localize(
+                        "A5E.scaling.summaries.steppedSpellLevel.healing",
+                        {
+                            formula: roll.scaling.formula ?? 0,
+                            step: roll.scaling.step,
+                            level: getOrdinalNumber($item.system.level),
+                            healingType: localize(
+                                A5E.healingTypes[roll.healingType ?? "healing"]
+                            ),
+                        }
+                    )}
                 {/if}
             </small>
         {:else if roll.scaling?.mode === "spellPoints"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintSpellPointHealing", {
+                    {localize("A5E.scaling.summaries.spellPoint.healing", {
                         formula: roll.scaling.formula ?? 0,
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedSpellPointHealing", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
-                    })}
+                    {localize(
+                        "A5E.scaling.summaries.steppedSpellPoint.healing",
+                        {
+                            formula: roll.scaling.formula ?? 0,
+                            step: roll.scaling.step,
+                        }
+                    )}
                 {/if}
             </small>
         {:else if ["actionUses", "itemUses"].includes(roll.scaling?.mode)}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintUsesHealing", {
+                    {localize("A5E.scaling.summaries.uses.healing", {
                         formula: roll.scaling.formula ?? 0,
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedUsesHealing", {
+                    {localize("A5E.scaling.summaries.steppedUses.healing", {
                         formula: roll.scaling.formula ?? 0,
                         step: roll.scaling.step,
                     })}

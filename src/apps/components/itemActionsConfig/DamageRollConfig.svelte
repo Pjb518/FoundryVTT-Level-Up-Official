@@ -101,46 +101,52 @@
 
         {#if roll.scaling?.mode === "cantrip"}
             <small>
-                {localize("A5E.ScalingHintCantripDamage", {
+                {localize("A5E.scaling.summaries.cantrip.damage", {
                     formula: roll.scaling.formula ?? 0,
                 })}
             </small>
         {:else if roll.scaling?.mode === "spellLevel"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintSpellLevelDamage", {
+                    {localize("A5E.scaling.summaries.spellLevel.damage", {
                         formula: roll.scaling.formula ?? 0,
                         level: getOrdinalNumber($item.system.level),
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedSpellLevelDamage", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
-                        level: getOrdinalNumber($item.system.level),
-                    })}
+                    {localize(
+                        "A5E.scaling.summaries.steppedSpellLevel.damage",
+                        {
+                            formula: roll.scaling.formula ?? 0,
+                            step: roll.scaling.step,
+                            level: getOrdinalNumber($item.system.level),
+                        }
+                    )}
                 {/if}
             </small>
         {:else if roll.scaling?.mode === "spellPoints"}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintSpellPointDamage", {
+                    {localize("A5E.scaling.summaries.spellPoint.damage", {
                         formula: roll.scaling.formula ?? 0,
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedSpellPointDamage", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
-                    })}
+                    {localize(
+                        "A5E.scaling.summaries.steppedSpellPoint.damage",
+                        {
+                            formula: roll.scaling.formula ?? 0,
+                            step: roll.scaling.step,
+                        }
+                    )}
                 {/if}
             </small>
         {:else if ["actionUses", "itemUses"].includes(roll.scaling?.mode)}
             <small>
                 {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.ScalingHintUsesDamage", {
+                    {localize("A5E.scaling.summaries.uses.damage", {
                         formula: roll.scaling.formula ?? 0,
                     })}
                 {:else}
-                    {localize("A5E.ScalingHintSteppedUsesDamage", {
+                    {localize("A5E.scaling.summaries.steppedUses.damage", {
                         formula: roll.scaling.formula ?? 0,
                         step: roll.scaling.step,
                     })}

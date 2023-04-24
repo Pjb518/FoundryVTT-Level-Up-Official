@@ -38,7 +38,6 @@
     }
 
     function getLocalization(type) {
-        console.log(properties);
         if (properties.length === 1)
             return localize(`A5E.scaling.summaries.${type}.template`, {
                 shape: action?.area.shape,
