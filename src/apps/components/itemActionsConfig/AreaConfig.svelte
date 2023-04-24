@@ -61,7 +61,7 @@
         });
     }
 
-    $: properties = getProperties(action.area?.shape);
+    $: properties = getShapeProperties(action.area?.shape);
 </script>
 
 <section class="action-config__section">
