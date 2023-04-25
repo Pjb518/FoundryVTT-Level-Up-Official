@@ -32,6 +32,7 @@ export default class ItemSheet extends SvelteApplication {
     super(foundry.utils.mergeObject(
       options,
       {
+        baseApplication: 'ItemSheet',
         id: `item-sheet-${item.id}`,
         title: item.name,
         svelte: {
@@ -58,6 +59,7 @@ export default class ItemSheet extends SvelteApplication {
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
+      baseApplication: 'ItemSheet',
       classes: ['a5e-sheet', 'a5e-item-sheet'],
       minimizable: true,
       svelte: {
