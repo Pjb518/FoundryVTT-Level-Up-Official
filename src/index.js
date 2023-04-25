@@ -42,6 +42,7 @@ import createMacro from './macros/createMacro';
 import ActionsManager from './managers/ActionsManager';
 import ResourceConsumptionManager from './managers/ResourceConsumptionManager';
 import RestManager from './managers/RestManager';
+import TemplatePreparationManager from './managers/TemplatePreparationManager';
 
 // Migrations
 import MigrationList from './migration/MigrationList';
@@ -72,7 +73,8 @@ Hooks.once('init', () => {
     managers: {
       ActionsManager,
       ResourceConsumptionManager,
-      RestManager
+      RestManager,
+      TemplatePreparationManager
     },
     migrations: {
       MigrationList,

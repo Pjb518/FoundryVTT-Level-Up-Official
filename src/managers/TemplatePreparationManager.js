@@ -35,13 +35,12 @@ export default class TemplatePreparationManager {
   // --------------------------------------------
 
   async placeActionTemplates() {
-    const area = foundry.utils.deepClone(this.#action.area);
+    const { area } = this.#action;
     const quantity = area.quantity ?? 1;
 
     try {
       for (let i = 0; i < quantity; i += 1) {
         const templateDocument = this.#createTemplateDocument(area);
-        console.log(area);
 
         const template = new ItemMeasuredTemplate(templateDocument);
         if (!template) return;
@@ -144,9 +143,10 @@ export default class TemplatePreparationManager {
 
     // Get scaled data
     // eslint-disable-next-line no-param-reassign
-    area = this.#applyTemplateScaling(area);
+    let scaledArea = foundry.utils.deepClone(area);
+    scaledArea = this.#applyTemplateScaling(scaledArea);
 
-    const templateData = templateConfigFunction(area);
+    const templateData = templateConfigFunction(scaledArea);
     if (!templateData) return null;
 
     const TemplateDocument = CONFIG.MeasuredTemplate.documentClass;
