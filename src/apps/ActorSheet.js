@@ -31,8 +31,10 @@ export default class ActorSheet extends SvelteApplication {
     super(foundry.utils.mergeObject(
       options,
       {
+        baseApplication: 'ActorSheet',
         id: `actor-sheet-${actor.isToken ? actor.parent?.id : actor.id}`,
         title: actor.name,
+        token: null,
         svelte: {
           props: {
             actor: null
@@ -55,20 +57,27 @@ export default class ActorSheet extends SvelteApplication {
    * Default Application options
    *
    * @returns {object} options - Application options.
-   * @see https://foundryvtt.com/api/Application.html#options
+   * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
+      baseApplication: 'ActorSheet',
       classes: ['a5e-sheet', 'a5e-actor-sheet'],
       minimizable: true,
       svelte: {
         target: document.body
-      }
+      },
+      token: null
     });
+  }
+
+  get token() {
+    return this.options?.token || this.actor.token || null;
   }
 
   _getHeaderButtons() {
     const buttons = super._getHeaderButtons();
+
     const PERMS = {
       isGM: game.user.isGM,
       isOwner: this.actor.isOwner,
@@ -78,7 +87,7 @@ export default class ActorSheet extends SvelteApplication {
 
     if (!PERMS.isPack && (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))) {
       buttons.unshift({
-        label: this.actor.isToken ? 'Token' : 'Prototype Token',
+        label: this.options.token ? 'Token' : 'Prototype Token',
         class: 'configure-token',
         icon: 'fas fa-user-circle',
         onclick: (event) => this._onConfigureToken(event)
@@ -115,13 +124,9 @@ export default class ActorSheet extends SvelteApplication {
 
   _onConfigureToken(event) {
     if (event) event.preventDefault();
-
-    const { token, prototypeToken } = this.actor;
-
-    if (token) return token.sheet.render(true);
-
+    if (this.token) return this.token.sheet.render(true);
     // eslint-disable-next-line new-cap
-    return new CONFIG.Token.prototypeSheetClass(prototypeToken).render(true);
+    return new CONFIG.Token.prototypeSheetClass(this.actor.prototypeToken).render(true);
   }
 
   _onConfigureSheet(event) {
@@ -343,5 +348,11 @@ export default class ActorSheet extends SvelteApplication {
     }, {});
 
     this.actor.createEmbeddedDocuments('Item', [scroll]);
+  }
+
+  /** @inheritdoc */
+  async close(options) {
+    this.options.token = null;
+    return super.close(options);
   }
 }
