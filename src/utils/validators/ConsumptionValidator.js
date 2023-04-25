@@ -84,5 +84,18 @@ export default class ConsumptionValidator {
     this.warnings.push(localize('A5E.validation.warnings.itemUses'));
   }
 
-  #validateResource() { }
+  #validateResource(_, consumer) {
+    const config = CONFIG.A5E.resourceConsumerConfig?.[consumer.resource];
+    if (!config) return;
+
+    const { path, type } = config;
+    if (type !== 'value') return;
+
+    const availableUses = foundry.utils.getProperty(this.#actor.system, path);
+
+    if (typeof availableUses !== 'number') return;
+    if (availableUses >= consumer.quantity) return;
+
+    this.warnings.push(localize('A5E.validations.warnings.resource', { type: consumer.resource }));
+  }
 }
