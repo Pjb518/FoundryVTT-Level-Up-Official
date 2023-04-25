@@ -1,3 +1,4 @@
+/** @deprecated In favour of TemplatePreparationManager */
 export default function getShapeProperties(shape) {
   switch (shape) {
     case 'circle':

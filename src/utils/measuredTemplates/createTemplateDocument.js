@@ -13,6 +13,7 @@ const TEMPLATE_FUNCTION_MAP = {
   square: getCubeTemplateData
 };
 
+// TODO: Possibly move to TemplatePreparationManager
 export default function createTemplateDocument(item, actionId) {
   const { shape } = item.actions[actionId].area;
   const templateConfigFunction = TEMPLATE_FUNCTION_MAP[shape];
