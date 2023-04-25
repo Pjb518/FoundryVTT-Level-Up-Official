@@ -10,6 +10,7 @@ import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 import ActionsManager from '../managers/ActionsManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
+import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 /**
  * Override and extend the basic Item implementation.
@@ -111,10 +112,16 @@ export default class ItemA5e extends Item {
 
     const rolls = await rollPreparationManager.prepareRolls();
 
-    let validTemplate = false;
-    if (promise.placeTemplate) {
-      validTemplate = validateTemplateData(this, actionId);
-      if (validTemplate) { await this.#placeActionTemplate(actionId); }
+    const templateManager = new TemplatePreparationManager(
+      this.actor,
+      this,
+      action,
+      promise.consumers
+    );
+
+    const validTemplate = templateManager.validateBaseTemplateData();
+    if (promise.placeTemplate && validTemplate) {
+      await templateManager.placeActionTemplates();
     }
 
     const resourceConsumptionManager = new ResourceConsumptionManager(

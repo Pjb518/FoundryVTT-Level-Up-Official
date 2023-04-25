@@ -1,12 +1,20 @@
 import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 export default class TemplatePreparationManager {
   #action;
 
+  #actor;
+
+  #consumers;
+
   #item;
 
-  constructor(item, action) {
+  constructor(actor, item, action, consumers = {}) {
+    this.#actor = actor;
     this.#action = action;
+    this.#consumers = consumers;
     this.#item = item;
   }
 
@@ -27,17 +35,19 @@ export default class TemplatePreparationManager {
   // --------------------------------------------
 
   async placeActionTemplates() {
-    const { area } = this.#action;
+    const area = foundry.utils.deepClone(this.#action.area);
     const quantity = area.quantity ?? 1;
 
     try {
       for (let i = 0; i < quantity; i += 1) {
         const templateDocument = this.#createTemplateDocument(area);
+        console.log(area);
+
         const template = new ItemMeasuredTemplate(templateDocument);
         if (!template) return;
 
         template.item = this.#item;
-        template.actorSheet = this.#item.actor?.sheet || null;
+        template.actorSheet = this.#actor?.sheet || null;
 
         let placed = false;
         setTimeout(() => {
@@ -77,7 +87,7 @@ export default class TemplatePreparationManager {
     if (['cube', 'square'].includes(area.shape)) return this.#validateQuadrilateral(area);
     if (['circle', 'sphere'].includes(area.shape)) return this.#validateRadialObject(area);
     if (area.shape === 'cylinder') return this.#validateCylinder(area);
-    if (area.shape === 'line') return this.#validateLine(area.shape);
+    if (area.shape === 'line') return this.#validateLine(area);
     return false;
   }
 
@@ -146,8 +156,6 @@ export default class TemplatePreparationManager {
   #getCircleTemplateData(area) {
     const radius = parseInt(area.radius, 10);
 
-    // Scale
-
     return {
       direction: 0,
       distance: radius,
@@ -161,8 +169,6 @@ export default class TemplatePreparationManager {
 
   #getConeTemplateData(area) {
     const length = parseInt(area.length, 10);
-
-    // Scale
 
     return {
       angle: CONFIG.MeasuredTemplate.defaults.angle,
@@ -179,8 +185,6 @@ export default class TemplatePreparationManager {
   #getCubeTemplateData(area) {
     const size = parseInt(area.width, 10);
 
-    // Scale
-
     return {
       direction: 45,
       distance: Math.hypot(size, size),
@@ -196,8 +200,6 @@ export default class TemplatePreparationManager {
   #getLineTemplateData(area) {
     const length = parseInt(area.length, 10);
     const width = parseInt(area.width, 10);
-
-    // Scale
 
     return {
       direction: 0,
@@ -227,15 +229,94 @@ export default class TemplatePreparationManager {
     return area;
   }
 
-  #applyCantripScaling(area) { }
+  #applyCantripScaling(area) {
+    const actorData = this.#actor.system;
+    const casterLevel = actorData.details.level ?? actorData.attributes.casterLevel;
+    if (casterLevel < 5) return area;
 
-  #applySpellLevelScaling(area) { }
+    const properties = TemplatePreparationManager.getShapeProperties(area.shape);
+    let multiplier = 0;
 
-  #applySpellPointScaling(area) { }
+    if (casterLevel >= 17) multiplier = 3;
+    else if (casterLevel >= 11) multiplier = 2;
+    else if (casterLevel >= 5) multiplier = 1;
 
-  #applyActionUsesScaling(area) { }
+    // Apply scaling to properties
+    properties.forEach((property) => {
+      const scalingFormula = getDeterministicBonus(
+        area.scaling?.formula?.[property] ?? 0,
+        this.#actor.getRollData()
+      ) ?? 1;
 
-  #applyItemUsesScaling(area) { }
+      area[property] = parseInt(area[property], 10) + (scalingFormula * multiplier);
+    });
+
+    return area;
+  }
+
+  #applySpellLevelScaling(area) {
+    const baseSpellLevel = this.#item.system.level;
+    const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
+    const delta = castingLevel - baseSpellLevel;
+
+    return this.#applyResourceBasedScaling(area, delta);
+  }
+
+  #applySpellPointScaling(area) {
+    const spellConsumer = this.#consumers.spell;
+    if (foundry.utils.isEmpty(spellConsumer)) return area;
+
+    const { basePoints } = spellConsumer;
+    if (basePoints >= spellConsumer.points) return area;
+
+    const delta = Math.max(0, spellConsumer.points - basePoints);
+    return this.#applyResourceBasedScaling(area, delta);
+  }
+
+  #applyActionUsesScaling(area) {
+    const actionConsumer = this.#consumers.actionUses;
+    if (foundry.utils.isEmpty(actionConsumer)) return area;
+
+    const baseQuantity = actionConsumer.baseUses;
+    if (baseQuantity >= actionConsumer.quantity) return area;
+
+    const delta = actionConsumer.quantity - baseQuantity;
+    return this.#applyResourceBasedScaling(area, delta);
+  }
+
+  #applyItemUsesScaling(area) {
+    const itemConsumer = this.#consumers.itemUses;
+    if (foundry.utils.isEmpty(itemConsumer)) return area;
+
+    const baseQuantity = itemConsumer.baseUses;
+    if (baseQuantity >= itemConsumer.quantity) return area;
+
+    const delta = itemConsumer.quantity - baseQuantity;
+    return this.#applyResourceBasedScaling(area, delta);
+  }
+
+  #applyResourceBasedScaling(area, delta) {
+    const { shape, scaling } = area;
+    if (!delta || foundry.utils.isEmpty(scaling)) return area;
+
+    const properties = TemplatePreparationManager.getShapeProperties(shape);
+    const step = area.scaling?.step || 1;
+    const multiplier = Math.floor(delta / step);
+
+    if (multiplier === 0) return area;
+
+    // Apply scaling to properties
+    properties.forEach((property) => {
+      const scalingFormula = getDeterministicBonus(
+        area.scaling?.formula?.[property] ?? 0,
+        this.#actor.getRollData()
+      ) ?? 1;
+
+      area[property] = parseInt(area[property], 10) + (scalingFormula * multiplier);
+    });
+
+    return area;
+  }
 
   // --------------------------------------------
   // Static Functions
