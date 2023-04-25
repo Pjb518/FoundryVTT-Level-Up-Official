@@ -23,6 +23,7 @@
     $: selectedItem, updateItemSelection();
     $: optGroup = $item.actor
         ? $item.actor.items.reduce((acc, i) => {
+              if (i.type !== "object") return acc;
               if (i.system.objectType === "ammunition") return acc;
 
               const type = i.system.objectType;
