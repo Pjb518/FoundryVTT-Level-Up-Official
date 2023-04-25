@@ -1,11 +1,8 @@
 /* eslint-disable no-unused-vars */
-import createTemplateDocument from '../utils/measuredTemplates/createTemplateDocument';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import validateTemplateData from '../utils/measuredTemplates/validateTemplateData';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
-import ItemMeasuredTemplate from '../pixi/ItemMeasuredTemplate';
 
 import ActionsManager from '../managers/ActionsManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
@@ -67,7 +64,6 @@ export default class ItemA5e extends Item {
     if (
       !foundry.utils.isEmpty(action?.rolls)
       || !foundry.utils.isEmpty(action?.prompts)
-      || validateTemplateData(this, actionId)
     ) { return true; }
 
     // Check if consumers need a dialog
@@ -171,37 +167,6 @@ export default class ItemA5e extends Item {
     });
 
     return chatCard;
-  }
-
-  async #placeActionTemplate(actionId) {
-    const quantity = this.actions[actionId].area.quantity ?? 1;
-
-    try {
-      // eslint-disable-next-line no-plusplus
-      for (let i = 0; i < quantity; i++) {
-        const templateDocument = createTemplateDocument(this, actionId);
-        const template = new ItemMeasuredTemplate(templateDocument);
-        if (!template) return;
-
-        template.item = this;
-        template.actorSheet = this.actor?.sheet || null;
-
-        let placed = false;
-        setTimeout(() => {
-          if (placed) return;
-
-          template?._onCancel();
-          throw new Error('Time limit for placing template exceeded');
-        }, 30000);
-
-        // eslint-disable-next-line no-await-in-loop
-        const templateData = await template?.drawPreview();
-        placed = true;
-
-        if (templateData) { Hooks.callAll('a5e.templateCreated', this, templateData, game.user.id); }
-      }
-    } catch (err) { // Empty Block
-    }
   }
 
   async shareItemDescription(action) {

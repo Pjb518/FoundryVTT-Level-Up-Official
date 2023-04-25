@@ -2,7 +2,8 @@
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import getShapeProperties from "../../utils/measuredTemplates/getShapeProperties";
+    import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
+
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     function getScalingOptions() {
@@ -19,7 +20,7 @@
     $: area = action.area ?? {};
     $: scalingMode = area?.scaling?.mode ?? null;
 
-    $: properties = getShapeProperties(area?.shape);
+    $: properties = TemplatePreparationManager.getShapeProperties(area?.shape);
 </script>
 
 <form>

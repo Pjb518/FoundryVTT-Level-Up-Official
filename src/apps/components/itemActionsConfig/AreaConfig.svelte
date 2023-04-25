@@ -1,7 +1,8 @@
 <script>
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import getShapeProperties from "../../../utils/measuredTemplates/getShapeProperties";
+    import TemplatePreparationManager from "../../../managers/TemplatePreparationManager";
+
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -16,6 +17,7 @@
     export let item;
 
     const A5E = CONFIG.A5E;
+    const getShapeProperties = TemplatePreparationManager.getShapeProperties;
 
     function onClickScalingButton() {
         const title = `${$item.name} Target Scaling Configuration`;
