@@ -50,7 +50,15 @@ export default class ConsumptionValidator {
     this.warnings.push(localize('A5E.validation.warnings.actionUses'));
   }
 
-  #validateHitDice(consumer, inputData) { }
+  #validateHitDice(inputData) {
+    const actorHitDie = this.#actor.system.attributes.hitDice;
+
+    const selectedUses = inputData.selected;
+    const hasResource = Object.keys(selectedUses ?? {})
+      .every((die) => (actorHitDie[die].current) >= selectedUses[die]);
+
+    if (!hasResource) this.warnings.push(localize('A5E.validation.warnings.hitDice'));
+  }
 
   #validateItemQuantity(_, consumer) {
     const item = this.#actor.items.get(consumer.itemId);
@@ -76,5 +84,5 @@ export default class ConsumptionValidator {
     this.warnings.push(localize('A5E.validation.warnings.itemUses'));
   }
 
-  #validateResource(consumer) { }
+  #validateResource() { }
 }
