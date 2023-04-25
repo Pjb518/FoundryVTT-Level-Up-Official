@@ -118,10 +118,21 @@
         hitDice: hitDiceData,
         itemUses: itemUsesData,
     };
+
+    $: warnings = validator.validateData(consumerData);
 </script>
 
 <form>
-    {validator.validateData(consumerData)}
+    {#if warnings.length}
+        <section class="warning__wrapper">
+            {#each warnings as warning}
+                <p class="warning" style="color: #8b6225;">
+                    <i class="fa-solid fa-circle-exclamation" />
+                    {warning}
+                </p>
+            {/each}
+        </section>
+    {/if}
 
     <!-- svelte-ignore missing-declaration -->
     {#if !foundry.utils.isEmpty(attackRoll)}
@@ -169,7 +180,14 @@
 
     <section>
         <button on:click|preventDefault={onSubmit}>
-            <i class="fa-solid fa-dice" />
+            {#if warnings.length}
+                <i
+                    class="fa-solid fa-circle-exclamation"
+                    style="color: #8b6225;"
+                />
+            {:else}
+                <i class="fa-solid fa-dice" />
+            {/if}
             {localize("A5E.DialogSubmitRoll")}
         </button>
     </section>
@@ -187,5 +205,18 @@
 
     :global(small) {
         margin-top: 0.25rem;
+    }
+
+    .warning__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-block: 0.125rem;
+        padding-inline: 0.25rem;
+
+        .warning {
+            font-family: "Signika", sans-serif;
+            font-size: 0.694rem;
+        }
     }
 </style>
