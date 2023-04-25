@@ -268,17 +268,12 @@ export default class ActionsManager extends DataProxy {
       default: true
     };
 
-    if (type === 'ammunition') {
+    if (['ammunition', 'quantity'].includes(type)) {
       defaultData.itemId = '';
       defaultData.quantity = 1;
     }
 
     if (type === 'hitDice') {
-      defaultData.quantity = 1;
-    }
-
-    if (type === 'quantity') {
-      defaultData.itemId = '';
       defaultData.quantity = 1;
     }
 

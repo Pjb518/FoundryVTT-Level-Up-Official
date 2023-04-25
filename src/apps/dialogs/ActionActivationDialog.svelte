@@ -3,6 +3,8 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
+
     import computeSaveDC from "../utils/computeSaveDC";
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
@@ -99,13 +101,28 @@
     let selectedPrompts = getDefaultSelections(prompts);
     let selectedRolls = getDefaultSelections(rolls);
 
+    const validator = new ConsumptionValidator(
+        $actor,
+        $item,
+        action,
+        consumers
+    );
+
     setContext("actionId", actionId);
     setContext("actor", actor);
     setContext("dialog", dialog);
     setContext("item", item);
+
+    $: consumerData = {
+        actionUses: actionUsesData,
+        hitDice: hitDiceData,
+        itemUses: itemUsesData,
+    };
 </script>
 
 <form>
+    {validator.validateData(consumerData)}
+
     <!-- svelte-ignore missing-declaration -->
     {#if !foundry.utils.isEmpty(attackRoll)}
         <AttackRollSection {attackRoll} {options} bind:attackRollData />
