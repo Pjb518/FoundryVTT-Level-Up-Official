@@ -40,7 +40,7 @@
     const hitDiceConsumer = getConsumer(consumers);
 
     hitDiceData.selected = Object.fromEntries(
-        availableHitDice.map((hd) => [hd, 0])
+        availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])
     );
     hitDiceData.default = hitDiceConsumer.default;
 
