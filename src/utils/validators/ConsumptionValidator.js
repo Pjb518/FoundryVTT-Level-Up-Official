@@ -47,7 +47,7 @@ export default class ConsumptionValidator {
     const availableUses = uses.value;
     if (availableUses >= inputData.quantity) return;
 
-    this.warnings.push(localize('A5E.validation.warnings.actionUses'));
+    this.warnings.push(localize('A5E.validations.warnings.actionUses'));
   }
 
   #validateHitDice(inputData) {
@@ -57,7 +57,7 @@ export default class ConsumptionValidator {
     const hasResource = Object.keys(selectedUses ?? {})
       .every((die) => (actorHitDie[die].current) >= selectedUses[die]);
 
-    if (!hasResource) this.warnings.push(localize('A5E.validation.warnings.hitDice'));
+    if (!hasResource) this.warnings.push(localize('A5E.validations.warnings.hitDice'));
   }
 
   #validateItemQuantity(_, consumer) {
@@ -68,9 +68,9 @@ export default class ConsumptionValidator {
     if (quantity >= consumer.quantity) return;
 
     if (consumer.type === 'ammunition') {
-      this.warnings.push(localize('A5E.validation.warnings.ammunition'));
+      this.warnings.push(localize('A5E.validations.warnings.ammunition'));
     } else {
-      this.warnings.push(localize('A5E.validation.warnings.quantity'));
+      this.warnings.push(localize('A5E.validations.warnings.quantity', { name: item.name }));
     }
   }
 
@@ -81,7 +81,7 @@ export default class ConsumptionValidator {
     const availableUses = uses.value;
     if (availableUses >= inputData.quantity) return;
 
-    this.warnings.push(localize('A5E.validation.warnings.itemUses'));
+    this.warnings.push(localize('A5E.validations.warnings.itemUses'));
   }
 
   #validateResource(_, consumer) {
