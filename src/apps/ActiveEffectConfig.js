@@ -23,7 +23,8 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
           props: {
             document: null
           }
-        }
+        },
+        resizable: true
       }
     ));
 
@@ -47,6 +48,7 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
       baseApplication: 'ActiveEffectConfig',
       classes: ['a5e-sheet', 'a5e-sheet--active-effect'],
       minimizable: true,
+      resizable: true,
       svelte: {
         target: document.body
       }
