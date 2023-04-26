@@ -16,6 +16,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   source = undefined;
 
+  /**
+   * Returns the label of the effect. This getter is to keep in line with other documents.
+   * @returns {String}
+   */
+  get name() {
+    return this.label;
+  }
+
   get isSuppressed() {
     const { parentItem } = this;
 
