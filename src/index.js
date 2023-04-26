@@ -3,6 +3,7 @@
 import './scss/main.scss';
 
 import ActorSheetA5e from './apps/ActorSheet';
+import ActiveEffectConfigA5e from './apps/ActiveEffectConfig';
 import ItemSheetA5e from './apps/ItemSheet';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
@@ -113,6 +114,12 @@ Hooks.once('init', () => {
   Items.registerSheet('a5e', ItemSheetA5e, {
     makeDefault: true,
     label: 'A5E.SheetClassItem'
+  });
+
+  DocumentSheetConfig.unregisterSheet(ActiveEffect, 'core', ActiveEffectConfig);
+  DocumentSheetConfig.registerSheet(ActiveEffect, 'a5e', ActiveEffectConfigA5e, {
+    makeDefault: true,
+    label: 'A5E.SheetClassActiveEffectConfig'
   });
 
   // TODO: In a future version, this helper can be removed. It is currently needed to support legacy
