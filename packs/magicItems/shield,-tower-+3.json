@@ -5,14 +5,69 @@
 	"effects": [],
 	"flags": {
 		"core": {
-			"sourceId": "Compendium.a5e.a5e-adventuring-gear.udvqt7222qrr3ibu"
+			"sourceId": "Compendium.a5e.a5e-magic-items.sql8bnk5f2hnbu26"
 		}
 	},
 	"system": {
-		"actions": {},
-		"description": "<p><em>Acrobatics (Disadvantage), Stealth (Disadvantage)</em></p><hr class=\"a5e-rule u-my-md\"><p><strong>AC +2</strong></p><hr class=\"a5e-rule u-my-md\"><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p><hr class=\"a5e-rule u-my-md\"><p>You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</p><hr class=\"a5e-rule u-my-md\"><p>You cannot squeeze through spaces smaller than your size category.</p><hr class=\"a5e-rule u-my-md\"><p>These shields cover the entire body and reduce your Speed by 10 feet.</p><hr class=\"a5e-rule u-my-md\"><p>On your turn, you may use an object interaction to plant it in the ground, gaining half cover (+2 bonus to AC, Dexterity saving throws, and ability checks made to hide) and advantage on saving throws made to resist being shoved or knocked prone and while you remain behind it. Unplanting a tower shield requires a bonus action.</p><hr class=\"a5e-rule u-my-md\"><p>Tower shields are bulky items, and count as such even when donned.</p><p></p>",
+		"actions": {
+			"zw0Y49z67DBaIL0i": {
+				"name": "Attack",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"0onujWd69TrxSFx9": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"LtAo4IlsDvgZtY4N": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @default.mod",
+						"name": "Shield Throw (Improvised Weapon)",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"ranges": {
+					"EpKqbUWwQUWXS2jo": {
+						"range": "fiveFeet"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			}
+		},
+		"description": "<p><strong>AC: </strong>+5</p>\n<p><em>Acrobatics (Disadvantage), Stealth (Disadvantage)</em></p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>\n<p>You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</p>\n<p>You cannot squeeze through spaces smaller than your size category.</p>\n<p>These shields cover the entire body and reduce your Speed by 10 feet.</p>\n<p>On your turn, you may use an object interaction to plant it in the ground, gaining half cover (+2 bonus to AC, Dexterity saving throws, and ability checks made to hide) and advantage on saving throws made to resist being shoved or knocked prone and while you remain behind it. Unplanting a tower shield requires a bonus action.</p>\n<p>Tower shields are bulky items, and count as such even when donned.</p>",
 		"favorite": false,
-		"secretDescription": "",
+		"secretDescription": "<p>Trials &amp; Treasures p294</p>",
 		"source": "",
 		"uses": {
 			"value": null,
@@ -44,12 +99,12 @@
 		"materialProperties": [],
 		"objectType": "shield",
 		"plotItem": false,
-		"price": "75 gp",
+		"price": "49000",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
+		"rarity": "veryRare",
 		"requiresAttunement": false,
-		"shieldCategory": "",
+		"shieldCategory": "tower",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
@@ -98,5 +153,5 @@
 			"type": ""
 		}
 	},
-	"_id": "tt597umdfgqa61rg"
+	"_id": "sql8bnk5f2hnbu26"
 }

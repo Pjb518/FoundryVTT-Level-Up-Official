@@ -5,20 +5,47 @@
 	"effects": [],
 	"flags": {
 		"core": {
-			"sourceId": "Compendium.a5e.a5e-adventuring-gear.xy2bn4687azmkadw"
+			"sourceId": "Compendium.a5e.a5e-magic-items.uuw61vd06csonti0"
 		}
 	},
 	"system": {
 		"actions": {
-			"Fsk0DmVywpob10fl": {
-				"name": "Shield, Light +3",
+			"RDajAnKEbTDYUGTd": {
+				"name": "Attack",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
+				"consumers": {},
+				"rolls": {
+					"0onujWd69TrxSFx9": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"LtAo4IlsDvgZtY4N": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @default.mod",
+						"name": "Shield Throw (Improvised Weapon)",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
 				"duration": {
-					"unit": "",
+					"unit": "instantaneous",
 					"value": ""
 				},
 				"area": {
@@ -30,6 +57,21 @@
 					"quantity": 1,
 					"type": "creatureObject"
 				},
+				"ranges": {
+					"EpKqbUWwQUWXS2jo": {
+						"range": "fiveFeet"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			},
+			"lIYmqVhtV6KdIfZb": {
+				"name": "Throw Shield",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
 				"rolls": {
 					"vV1SqDEbycch5fyq": {
 						"bonus": "",
@@ -46,12 +88,44 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"ranges": {
+					"nXycDivUjsF1iPtC": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"PaS4lTDIKjOk6kJR": {
+						"range": "medium"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
 			}
 		},
-		"description": "<p><strong>AC +1</strong></p><hr class=\"a5e-rule u-my-md\"><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p><hr class=\"a5e-rule u-my-md\"><p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p>",
+		"description": "<p><strong>AC:&nbsp;</strong>+4</p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>\n<p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p>",
 		"favorite": false,
-		"secretDescription": "",
+		"secretDescription": "<p>Trials &amp; Treasures p294</p>",
 		"source": "",
 		"uses": {
 			"value": null,
@@ -83,12 +157,12 @@
 		"materialProperties": [],
 		"objectType": "shield",
 		"plotItem": false,
-		"price": "10 gp",
+		"price": "49000",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
+		"rarity": "veryRare",
 		"requiresAttunement": false,
-		"shieldCategory": "",
+		"shieldCategory": "light",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
@@ -101,5 +175,5 @@
 			"targetAbility": ""
 		}
 	},
-	"_id": "w7spblp1eqqvm1gv"
+	"_id": "uuw61vd06csonti0"
 }

@@ -5,14 +5,69 @@
 	"effects": [],
 	"flags": {
 		"core": {
-			"sourceId": "Compendium.a5e.a5e-adventuring-gear.19oc64en7c6kmk1w"
+			"sourceId": "Compendium.a5e.a5e-magic-items.uqqvygdiy0n4xajp"
 		}
 	},
 	"system": {
-		"actions": {},
-		"description": "<p><strong>AC +2</strong></p><hr class=\"a5e-rule u-my-md\"><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
+		"actions": {
+			"RIkvVYOSKCcisK00": {
+				"name": "Attack",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"0onujWd69TrxSFx9": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"LtAo4IlsDvgZtY4N": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @default.mod",
+						"name": "Shield Throw (Improvised Weapon)",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"ranges": {
+					"EpKqbUWwQUWXS2jo": {
+						"range": "fiveFeet"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			}
+		},
+		"description": "<p><strong>AC:&nbsp;</strong>+3</p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
 		"favorite": false,
-		"secretDescription": "",
+		"secretDescription": "<p>Trials &amp; Treasures p294</p>",
 		"source": "",
 		"uses": {
 			"value": null,
@@ -44,12 +99,12 @@
 		"materialProperties": [],
 		"objectType": "shield",
 		"plotItem": false,
-		"price": "20 gp",
+		"price": "1000",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "common",
+		"rarity": "rare",
 		"requiresAttunement": false,
-		"shieldCategory": "",
+		"shieldCategory": "medium",
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
@@ -91,5 +146,5 @@
 			"type": ""
 		}
 	},
-	"_id": "vqlyypu2hxlfkyku"
+	"_id": "uqqvygdiy0n4xajp"
 }
