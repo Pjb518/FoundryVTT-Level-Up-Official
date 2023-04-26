@@ -2,10 +2,12 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import Item from "../Item.svelte";
+    import Effect from "../Effect.svelte";
 
     const actor = getContext("actor");
     const { activeEffects } = actor;
+
+    function addEffect() {}
 </script>
 
 <header class="section-header">
@@ -14,14 +16,16 @@
     </h3>
 </header>
 
-<ul class="items-container">
-    {#each [...$activeEffects] as item}
-        <!-- <Item {item} /> -->
+<button on:click={addEffect}> + Add Effect </button>
+
+<ul class="effects-container">
+    {#each [...$activeEffects] as effect}
+        <Effect {effect} />
     {/each}
 </ul>
 
 <style lang="scss">
-    .items-container {
+    .effects-container {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
