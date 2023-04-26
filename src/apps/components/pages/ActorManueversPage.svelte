@@ -75,6 +75,17 @@
                             Number(target.value)
                         )}
                 />
+
+                {#if exertion.current < exertion.max && exertion.max}
+                    <button
+                        class="recharge-button"
+                        data-tooltip="A5E.ExertionRechargeFromHitDice"
+                        data-tooltip-direction="UP"
+                        on:click={() => $actor.recoverExertionUsingHitDice()}
+                    >
+                        <i class="fa-solid fa-bolt" />
+                    </button>
+                {/if}
             </div>
         {/if}
 
@@ -113,5 +124,28 @@
         gap: 0.75rem;
         overflow-y: auto;
         overflow-x: hidden;
+    }
+
+    .recharge-button {
+        flex-grow: 0;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.25rem;
+        background: none;
+        color: #999;
+        border: 0;
+
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
     }
 </style>

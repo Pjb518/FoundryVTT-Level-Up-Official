@@ -520,6 +520,33 @@ export default class ActorA5e extends Actor {
     return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
   }
 
+  async recoverExertionUsingHitDice() {
+    const { current, max } = this.system.attributes.exertion;
+
+    const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
+      ([_, { current: c, total: t }]) => c > 0 && t > 0
+    );
+
+    if (!lowestAvailableHitDie) {
+      ui.notifications.warn(`${this.name} has no hit dice remaining.`);
+      return;
+    }
+
+    const roll = await new Roll('1d4');
+
+    // TODO: Make the message prettier
+    await roll.toMessage();
+    const newExertion = Math.min((current ?? 0) + roll.total, max);
+    const newHitDieCount = this.system.attributes.hitDice[lowestAvailableHitDie].current - 1;
+
+    await this.update({
+      'system.attributes': {
+        'exertion.current': newExertion,
+        [`hitDice.${lowestAvailableHitDie}.current`]: newHitDieCount
+      }
+    });
+  }
+
   /**
    * Rolls an ability check for a given skill. A dialog is presented to the user so that they can
    * perform choose the size of the expertise die to use for the check.
