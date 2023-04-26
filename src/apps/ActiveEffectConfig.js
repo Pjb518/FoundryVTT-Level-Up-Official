@@ -1,7 +1,7 @@
-// eslint-disable-next-line import/no-unresolved
+/* eslint-disable import/no-unresolved */
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
-// eslint-disable-next-line import/no-unresolved
 import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActiveEffectConfigSheet from './sheets/ActiveEffectConfig.svelte';
 
@@ -35,6 +35,20 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
     );
 
     this.options.svelte.props.sheet = this;
+
+    // Add Status Effects
+    this.statusEffectList = {};
+    const effectList = CONFIG.statusEffects
+      .filter((effect) => effect.id)
+      .map((effect) => ({ id: effect.id, label: localize(effect.label) }))
+      .sort((a, b) => (a.label < b.label ? -1 : 1));
+
+    effectList.forEach((effect) => {
+      this.statusEffectList[effect.id] = effect.label;
+    });
+
+    // TODO: Add reference properties
+    // https://gitlab.com/tposney/dae/-/blob/v10/src/module/Systems/DAESystem.ts#L43
   }
 
   /**
