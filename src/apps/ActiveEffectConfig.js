@@ -17,11 +17,11 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
       {
         baseApplication: 'ActiveEffectConfig',
         id: activeEffect.id,
-        title: `Configure Active Effect: ${activeEffect.label}`,
+        title: `Configure Active Effect: ${activeEffect.name}`,
         svelte: {
           class: ActiveEffectConfigSheet,
           props: {
-            effect: null
+            document: null
           }
         }
       }
@@ -54,7 +54,7 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
   }
 
   get title() {
-    return `${game.i18n.localize('EFFECT.ConfigTitle')}: ${this.activeEffect.label}`;
+    return `${game.i18n.localize('EFFECT.ConfigTitle')}: ${this.activeEffect.name}`;
   }
 
   get isActorEffect() {
