@@ -70,7 +70,7 @@
             class="item-image"
             src={$item?.actions[actionId]?.img ?? $item.img}
             alt="{$item.name} image"
-            on:click={() => editDocumentImage($item, actionId, dialog)}
+            on:click={() => editDocumentImage($item, { actionId, dialog })}
         />
 
         <input
