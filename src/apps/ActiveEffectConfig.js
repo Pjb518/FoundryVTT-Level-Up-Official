@@ -45,7 +45,7 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       baseApplication: 'ActiveEffectConfig',
-      classes: ['a5e-sheet', 'a5e-active-effect-sheet'],
+      classes: ['a5e-sheet', 'a5e-sheet--active-effect'],
       minimizable: true,
       svelte: {
         target: document.body

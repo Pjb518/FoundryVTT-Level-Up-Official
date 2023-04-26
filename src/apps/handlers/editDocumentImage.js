@@ -19,6 +19,8 @@ export default async function editDocumentImage(document, options = {}) {
     callback: async (path) => {
       if (options?.actionId) {
         await document.update({ [`system.actions.${options?.actionId}.img`]: path });
+      } else if (options?.type === 'effect') {
+        await document.update({ icon: path });
       } else {
         await document.update({ img: path });
       }
