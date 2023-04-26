@@ -5,6 +5,7 @@ export default async function createToken(token, options, userId) {
 async function rollTokenHitDie(token, userID) {
   const { actor } = token;
   const userPlacingToken = game.users.get(userID);
+  if (!actor) return;
 
   if (![game.user.isGM, game.user === userPlacingToken, actor.type === 'npc', game.settings.get('a5e', 'randomizeNPCHitPoints')
   ].every(Boolean)) return;
