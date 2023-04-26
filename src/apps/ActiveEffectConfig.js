@@ -29,10 +29,69 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
 
     this.activeEffect = activeEffect;
     this.options.svelte.props.document = new TJSDocument(
-      document,
+      activeEffect,
       { delete: this.close.bind(this) }
     );
 
     this.options.svelte.props.sheet = this;
+  }
+
+  /**
+   * Default Application options
+   *
+   * @returns {object} options - Application options.
+   * @see https://foundryvtt.com/api/Application.html#options
+   */
+  static get defaultOptions() {
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      baseApplication: 'ActiveEffectConfig',
+      classes: ['a5e-sheet', 'a5e-active-effect-sheet'],
+      minimizable: true,
+      svelte: {
+        target: document.body
+      }
+    });
+  }
+
+  get title() {
+    return `${game.i18n.localize('EFFECT.ConfigTitle')}: ${this.activeEffect.label}`;
+  }
+
+  get isActorEffect() {
+    return this.activeEffect?.parent.documentName === 'Actor';
+  }
+
+  get isActionEffect() {
+    return this.activeEffect?.parent.documentName === 'Action';
+  }
+
+  get isItemEffect() {
+    return this.activeEffect?.parent.documentName === 'Item';
+  }
+
+  _getHeaderButtons() {
+    const buttons = super._getHeaderButtons();
+
+    if (!this.activeEffect.pack) {
+      buttons.unshift({
+        label: 'Sheet Configuration',
+        class: 'configure-sheet',
+        icon: 'fas fa-cog fa-fw',
+        title: 'Configure Sheet',
+        onclick: (event) => this._onConfigureSheet(event)
+      });
+    }
+
+    return buttons;
+  }
+
+  _onConfigureSheet(event) {
+    if (event) event.preventDefault();
+
+    const sheetConfigDialog = new DocumentSheetConfig(
+      this.activeEffect,
+      { top: this.position.top + 40 }
+    );
+    sheetConfigDialog.render(true);
   }
 }
