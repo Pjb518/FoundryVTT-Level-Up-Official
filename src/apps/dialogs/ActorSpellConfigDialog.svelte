@@ -18,22 +18,6 @@
 </script>
 
 <article>
-    <FormSection>
-        <CustomTagGroup
-            heading="A5E.AvailableSpellLevels"
-            options={Object.entries(spellLevels)}
-            selected={flags?.availableSpellLevels ||
-                [...Array(10).keys()].map((x) => x.toString())}
-            showCustomInput={false}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    "flags.a5e.availableSpellLevels",
-                    event.detail
-                )}
-        />
-    </FormSection>
-
     <FormSection heading="A5E.SpellcastingAbilityScore">
         <RadioGroup
             optionStyles="min-width:2rem; text-align: center;"
