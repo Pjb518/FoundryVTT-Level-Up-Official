@@ -12,7 +12,7 @@
     export let skill;
 
     const actor = getContext("actor");
-    const label = CONFIG.A5E.skills[key];
+    const { skills } = CONFIG.A5E;
 
     let showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ??
@@ -77,7 +77,7 @@
             getKeyPressAsOptions($pressedKeysStore)
         )}
     >
-        {label}
+        {skills[key]}
 
         {#if skill.expertiseDice}
             <span class="u-text-xs">
@@ -95,7 +95,7 @@
             <span
                 class="skill__passive"
                 data-tooltip={localize("A5E.SkillPassiveScore", {
-                    skill: CONFIG.A5E.skills[key],
+                    skill: skills[key],
                 })}
                 data-tooltip-direction="UP"
             >
@@ -108,7 +108,7 @@
         <button
             class="fas fa-cog skill__config-button"
             data-tooltip={localize("A5E.SkillConfigurationTooltip", {
-                skill: CONFIG.A5E.skills[key],
+                skill: skills[key],
             })}
             data-tooltip-direction="UP"
             on:click={() => $actor.configureSkill({ skillKey: key })}
