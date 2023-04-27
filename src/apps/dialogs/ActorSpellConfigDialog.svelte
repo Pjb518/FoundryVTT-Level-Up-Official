@@ -5,7 +5,6 @@
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
-    import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -90,6 +89,31 @@
                     {localize("A5E.SpellShowSpellPoints")}
                 </label>
             </div>
+        </div>
+    </FormSection>
+
+    <FormSection>
+        <div class="u-align-center u-flex u-gap-md">
+            <input
+                class="u-pointer"
+                type="checkbox"
+                name="flags.a5e.restoreSpellPointsOnShortRest"
+                id="{appId}-restore-spell-points-on-short-rest"
+                checked={flags.restoreSpellPointsOnShortRest ?? true}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.checked
+                    )}
+            />
+
+            <label
+                class="u-pointer"
+                for="{appId}-restore-spell-points-on-short-rest"
+            >
+                {localize("A5E.settings.restoreSpellPointsOnShortRest")}
+            </label>
         </div>
     </FormSection>
 </article>
