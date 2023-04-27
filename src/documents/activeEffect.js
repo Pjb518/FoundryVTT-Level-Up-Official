@@ -1,6 +1,8 @@
 /* eslint-disable consistent-return */
 // import A5E from '../config';
 
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 /** TODO:
  * - Allow editing of owned items.
  * - Enable active effects on item equip/unequip.
@@ -48,6 +50,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   apply(document, change) {
     if (this.isSuppressed) return null;
+
+    // TODO: Possibly apply for documents of type items?
+    if (document.documentName === 'Actor' && change.mode !== CONST.ACTIVE_EFFECT_MODES.CUSTOM) {
+      change.value = getDeterministicBonus(
+        change.value ?? 0,
+        document.getRollData()
+      ) ?? change.value;
+    }
 
     return super.apply(document, change);
   }
