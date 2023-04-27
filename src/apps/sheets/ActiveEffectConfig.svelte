@@ -33,8 +33,9 @@
 
     let currentTab = tabs[0];
 
-    setContext("effect", effect);
     setContext("appId", appId);
+    setContext("effect", effect);
+    setContext("sheet", sheet);
 </script>
 
 <ApplicationShell bind:elementRoot>

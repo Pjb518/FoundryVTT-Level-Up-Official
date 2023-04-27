@@ -15,7 +15,11 @@ export default class EffectOptions {
         derivedOptionsObj: {}
       };
 
-      const characterOptions = foundry.utils.duplicate(game.system.model.Actor[type]);
+      const characterOptions = {
+        flags: {},
+        system: foundry.utils.duplicate(game.system.model.Actor[type])
+      };
+
       const baseValues = foundry.utils.flattenObject(characterOptions);
 
       Object.keys(baseValues).forEach((prop) => {

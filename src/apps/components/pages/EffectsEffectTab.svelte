@@ -3,6 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     const effect = getContext("effect");
+    const sheet = getContext("sheet");
 
     function addChange() {
         const change = {
@@ -40,20 +41,18 @@
     <button on:click={addChange}>+ Add Change</button>
 
     <ul class="changes__list">
-        {#each changes as { key, value }, idx (idx)}
+        {#each changes as { value }, idx (idx)}
             <li class="changes__item">
-                <input
-                    class=""
-                    list="attributes"
-                    type="text"
-                    value={key}
-                    on:change={({ target }) =>
-                        (changes[idx].key = target.value)}
-                />
-
-                <datalist id="attribues">
-                    <option value="" />
-                </datalist>
+                <select name="" id="" bind:value={changes[idx].key}>
+                    <!-- TODO: Add system to this -->
+                    {#each sheet.optionsList as option}
+                        <option value={option}>
+                            {option.startsWith("system")
+                                ? option.replace("system.", "")
+                                : option}</option
+                        >
+                    {/each}
+                </select>
 
                 <input
                     style="width:30rem;"

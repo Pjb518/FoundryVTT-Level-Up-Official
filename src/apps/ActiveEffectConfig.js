@@ -47,8 +47,12 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
       this.statusEffectList[effect.id] = effect.label;
     });
 
-    // TODO: Add reference properties
-    // https://gitlab.com/tposney/dae/-/blob/v10/src/module/Systems/DAESystem.ts#L43
+    // TODO: Add a union type for items
+    const usableOptions = game.a5e.activeEffects.EffectOptions
+      .options[this.activeEffect.parent.type];
+
+    this.optionsList = Object.keys(usableOptions.allOptionsObj);
+    this.optionsList.sort();
   }
 
   /**
