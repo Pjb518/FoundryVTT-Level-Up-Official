@@ -13,9 +13,14 @@ export default function getDeterministicBonus(formula, rollData = {}) {
   if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
 
   // If the formula contains complex terms, return null to avoid giving incorrect results.
-  if (roll.terms.find((term) => term instanceof ParentheticalTerm || term instanceof MathTerm)) {
-    return null;
-  }
+  const notDeterministic = roll.terms.find((term) => {
+    const deterministicParenthetical = term instanceof ParentheticalTerm && !term.isDeterministic;
+    const deterministicMathTerm = term instanceof MathTerm && !term.isDeterministic;
+
+    return deterministicMathTerm || deterministicParenthetical;
+  });
+
+  if (notDeterministic) return null;
 
   // Make a dummy roll and calculate what portion of that came from dice.
   const result = roll.roll({ async: false });
