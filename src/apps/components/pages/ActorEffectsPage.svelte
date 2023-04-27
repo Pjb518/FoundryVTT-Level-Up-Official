@@ -7,7 +7,15 @@
     const actor = getContext("actor");
     const { activeEffects } = actor;
 
-    function addEffect() {}
+    function addEffect() {
+        $actor.createEmbeddedDocuments("ActiveEffect", [
+            {
+                label: game.i18n.localize("A5E.effects.new"),
+                icon: "icons/svg/aura.svg",
+                origin: $actor.uuid,
+            },
+        ]);
+    }
 </script>
 
 <header class="section-header">
