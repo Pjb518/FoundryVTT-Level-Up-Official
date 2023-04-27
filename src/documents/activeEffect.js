@@ -50,12 +50,19 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   apply(document, change) {
     if (this.isSuppressed) return null;
+    if (CONST.ACTIVE_EFFECT_MODES.CUSTOM) return super.apply(document, change);
 
-    // TODO: Possibly apply for documents of type items?
-    if (document.documentName === 'Actor' && change.mode !== CONST.ACTIVE_EFFECT_MODES.CUSTOM) {
+    if (document.documentName === 'Actor') {
       change.value = getDeterministicBonus(
         change.value ?? 0,
         document.getRollData()
+      ) ?? change.value;
+    }
+
+    if (document.documentName === 'Item' && document.parent?.documentName === 'Actor') {
+      change.value = getDeterministicBonus(
+        change.value ?? 0,
+        document.parent?.getRollData()
       ) ?? change.value;
     }
 
