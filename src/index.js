@@ -17,6 +17,8 @@ import TokenA5e from './documents/token';
 import TokenDocumentA5e from './documents/tokenDocument';
 import TokenHUDA5e from './documents/tokenHUD';
 
+import EffectOptions from './activeEffects/EffectOptions';
+
 import _onCombatControl from './combat/_onCombatControl';
 import _onCombatantControl from './combat/_onCombatantControl';
 import getInitiativeFormula from './combat/getInitiativeFormula';
@@ -55,6 +57,9 @@ Hooks.once('init', () => {
     applications: {
       ActorSheetA5e,
       ItemSheetA5e
+    },
+    activeEffects: {
+      EffectOptions
     },
     config: A5E,
     dice: {
@@ -142,6 +147,8 @@ Hooks.once('init', () => {
 Hooks.once('setup', () => {
   registerSystemSettings();
   setupConditions();
+
+  game.a5e.activeEffects.EffectOptions.createOptions();
 });
 
 // Prelocalize any static strings once localization files become available.
