@@ -110,6 +110,32 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {() => boolean} predicate
    */
   static applyEffects(document, effects, predicate = () => true) {
+    const overrides = {};
+
+    // Extract and organize changes and apply a priority if it doesn't exist.
+    // BasePriority is determined by CONST.ACTIVE_EFFECTS_MODE * 10
+    const applyObjects = effects.flatMap((effect) => {
+      if (effect.disabled || effect.isSuppressed) return [];
+
+      return effect.changes.filter(predicate).map((change) => {
+        change.priority = change.priority ?? change.mode * 10;
+        return { effect, change };
+      });
+    });
+    applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
+
+    // Apply changes to calling document
+    applyObjects.forEach((applyObject) => {
+      if (!applyObject.change?.key) return;
+      const appliedChange = applyObject.effect.apply(document, applyObject.change);
+      Object.assign(overrides, appliedChange);
+    });
+
+    // Update document overrides
+    document.overrides = foundry.utils.expandObject({
+      ...foundry.utils.flattenObject(document.overrides),
+      ...overrides
+    });
   }
 
 }

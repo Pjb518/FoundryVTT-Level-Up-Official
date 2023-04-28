@@ -1,6 +1,13 @@
 export default class EffectOptions {
   static options = {};
 
+  constructor(fieldOption, sampleValue, forcedMode = -1) {
+    this.fieldOption = fieldOption;
+    this.label = fieldOption;
+    this.sampleValue = sampleValue;
+    this.forcedMode = forcedMode;
+  }
+
   static createOptions() {
     this.options = {};
     const MODES = CONST.ACTIVE_EFFECT_MODES;
@@ -100,8 +107,9 @@ export default class EffectOptions {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
   }
 
-  static modifyDerivedValues(actorType, derivedValues = {}, characterOptions = {}) {
+  static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
+    derivedValues.push(new EffectOptions('system.attributes.hp.max', 0));
   }
 
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
