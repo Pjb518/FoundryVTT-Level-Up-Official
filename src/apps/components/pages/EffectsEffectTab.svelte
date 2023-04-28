@@ -44,13 +44,10 @@
         {#each changes as { value }, idx (idx)}
             <li class="changes__item">
                 <select name="" id="" bind:value={changes[idx].key}>
-                    <!-- TODO: Add system to this -->
-                    {#each sheet.optionsList as option}
+                    {#each sheet.optionsList as [option, label]}
                         <option value={option}>
-                            {option.startsWith("system")
-                                ? option.replace("system.", "")
-                                : option}</option
-                        >
+                            {localize(label)}
+                        </option>
                     {/each}
                 </select>
 

@@ -51,8 +51,9 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
     const usableOptions = game.a5e.activeEffects.EffectOptions
       .options[this.activeEffect.parent.type];
 
-    this.optionsList = Object.keys(usableOptions.allOptionsObj);
-    this.optionsList.sort();
+    this.optionsList = Object.values(usableOptions.allOptionsObj)
+      .map((o) => [o.fieldOption, o.label]);
+    // this.optionsList.sort();
   }
 
   /**

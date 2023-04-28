@@ -1533,7 +1533,10 @@ A5E.reducerSortMap = {
  * @enum {String}
  */
 A5E.effectsKeyLocalizations = {
-
+  'system.attributes.hp.bonus': 'A5E.HitPointsBonus',
+  'system.attributes.hp.current': 'A5E.HitPointsCurrent',
+  'system.attributes.hp.temp': 'A5E.HitPointsTemporary',
+  'system.attributes.prof': 'A5E.Proficiency'
 };
 
 /* A list of all of the keys that can be prelocalized. Any new objects with static content should
