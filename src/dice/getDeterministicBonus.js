@@ -29,3 +29,31 @@ export default function getDeterministicBonus(formula, rollData = {}) {
   // Return the roll total minus the dice component.
   return result.total - diceTotal;
 }
+
+function zeroDiceTerms(formula) {
+  const subTerms = Roll._splitParentheses(formula);
+
+  const component = subTerms.map((term) => {
+    if (!(term instanceof ParentheticalTerm || term instanceof MathTerm)) return term;
+
+    const parsedTerms = Roll.parse(term.term);
+    if (parsedTerms.find((t) => t instanceof ParentheticalTerm)) {
+      return zeroDiceTerms(term.term);
+    }
+
+    if (parsedTerms.find((t) => t instanceof MathTerm)) {
+      return zeroDiceTerms(term.term);
+    }
+
+    if (!term.isDeterministic) return '0';
+
+    if (term instanceof MathTerm) {
+      const f = term.terms.join(', ');
+      return `${term.fn}(${f})`;
+    }
+
+    return term;
+  }).join(' ');
+
+  return `(${component})`;
+}
