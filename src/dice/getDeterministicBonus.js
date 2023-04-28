@@ -9,7 +9,7 @@
  *                           calculated.
  */
 export default function getDeterministicBonus(formula, rollData = {}) {
-  const zeroedFormula = zeroDiceTerms(formula.toString() || '0');
+  const zeroedFormula = zeroDiceTerms(formula.toString() || '0', rollData);
 
   const roll = new Roll(zeroedFormula, rollData);
   if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
@@ -26,13 +26,13 @@ export default function getDeterministicBonus(formula, rollData = {}) {
 // TODO: Remove this before release
 window.zeroDiceTerms = getDeterministicBonus;
 
-function zeroDiceTerms(formula) {
+function zeroDiceTerms(formula, rollData) {
   const subTerms = Roll._splitParentheses(formula);
   const component = subTerms.map((term) => {
     // Create parsed terms and remove any dice terms at top level.
     let parsedTerms = [];
     if (typeof term === 'string' || term instanceof ParentheticalTerm) {
-      parsedTerms = Roll.parse(term.term ?? term).map((t) => {
+      parsedTerms = Roll.parse(term.term ?? term, rollData).map((t) => {
         if (t instanceof DiceTerm) return new NumericTerm({ number: 0 });
         return t;
       });
