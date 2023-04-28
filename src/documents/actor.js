@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
+import ActiveEffectA5e from './activeEffect';
 import RestManager from '../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -89,6 +90,17 @@ export default class ActorA5e extends Actor {
   /**
    * @override
    */
+  prepareData() {
+    this.prepareBaseData();
+    super.prepareEmbeddedDocuments();
+    this.applyActiveEffectsToBaseData();
+    this.prepareDerivedData();
+    this.applyActiveEffectsToDerivedData();
+  }
+
+  /**
+   * @override
+   */
   prepareBaseData() {
     const actorType = this.type;
 
@@ -150,6 +162,7 @@ export default class ActorA5e extends Actor {
         Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
       ].join(' + '), this.getRollData());
     } catch {
+      // eslint-disable-next-line no-console
       console.error(`Failed to calculate a maneuver DC for ${this.name}`);
       actorData.attributes.maneuverDC = null;
     }
@@ -162,6 +175,7 @@ export default class ActorA5e extends Actor {
         actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
       ].join(' + '), this.getRollData());
     } catch {
+      // eslint-disable-next-line no-console
       console.error(`Failed to calculate a spell DC for ${this.name}`);
       actorData.attributes.spellDC = null;
     }
@@ -184,6 +198,24 @@ export default class ActorA5e extends Actor {
   prepareNPCData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
+  }
+
+  /**
+     * Empty return because we apply affects with custom handlers
+     * @override
+     */
+  applyActiveEffects() { }
+
+  /**
+   * Apply active effects to base data once base data is ready.
+   */
+  applyActiveEffectsToBaseData() {
+  }
+
+  /**
+   * Apply active effects to derived data once derived properties are read.
+   */
+  applyActiveEffectsToDerivedData() {
   }
 
   /** @inheritdoc */
@@ -320,6 +352,7 @@ export default class ActorA5e extends Actor {
           this.getRollData()
         );
       } catch {
+        // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
       }
 
@@ -328,6 +361,7 @@ export default class ActorA5e extends Actor {
       try {
         skill.passive = calculatePassiveScore(skill, this.getRollData());
       } catch {
+        // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
         skill.passive = null;
       }
@@ -524,6 +558,7 @@ export default class ActorA5e extends Actor {
     const { current, max } = this.system.attributes.exertion;
 
     const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
+      // eslint-disable-next-line no-unused-vars
       ([_, { current: c, total: t }]) => c > 0 && t > 0
     );
 
