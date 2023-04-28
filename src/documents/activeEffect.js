@@ -108,6 +108,33 @@ export default class ActiveEffectA5e extends ActiveEffect {
   /**
    *
    * @param {import("./actor").default| import("./item").default} document
+   * @param {*} change
+   */
+  #convertToDeterministicBonus(document, change) {
+    try {
+      console.log(change.value);
+      if (document.documentName === 'Actor') {
+        change.value = getDeterministicBonus(
+          change.value ?? 0,
+          document.getRollData()
+        ) ?? change.value;
+      }
+
+      if (document.documentName === 'Item' && document.parent?.documentName === 'Actor') {
+        change.value = getDeterministicBonus(
+          change.value ?? 0,
+          document.parent?.getRollData()
+        ) ?? change.value;
+      }
+    } catch (e) {
+      console.log(e);
+      console.log(typeof e);
+    }
+  }
+
+  /**
+   *
+   * @param {import("./actor").default| import("./item").default} document
    * @param {Array<ActiveEffectA5e>} effects
    * @param {() => boolean} predicate
    */

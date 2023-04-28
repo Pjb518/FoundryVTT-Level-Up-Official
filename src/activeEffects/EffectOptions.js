@@ -3,7 +3,7 @@ export default class EffectOptions {
 
   constructor(fieldOption, sampleValue, forcedMode = -1) {
     this.fieldOption = fieldOption;
-    this.label = fieldOption;
+    this.label = CONFIG.A5E.effectsKeyLocalizations?.[fieldOption] ?? fieldOption;
     this.sampleValue = sampleValue;
     this.forcedMode = forcedMode;
   }
@@ -36,8 +36,9 @@ export default class EffectOptions {
       EffectOptions.modifyBaseValues(type, baseValues, characterOptions);
 
       const specialOptions = {};
-      specialOptions.StatusEffect = ['', MODES.CUSTOM];
-      specialOptions.StatusEffectLabel = ['', MODES.CUSTOM];
+      // TODO: Figure out what this is
+      // specialOptions.StatusEffect = ['', MODES.CUSTOM];
+      // specialOptions.StatusEffectLabel = ['', MODES.CUSTOM];
 
       EffectOptions.modifySpecialValues(type, specialOptions, characterOptions);
       Object.keys(specialOptions).forEach((key) => delete baseValues[key]);
@@ -45,12 +46,11 @@ export default class EffectOptions {
       // Base Options are all those fields defined in template.json,
       // game.system.model and are things the user can directly change
       this.options[type].baseOptions = Object.keys(baseValues).map((option) => {
-        const effectOption = {
-          fieldOption: option,
-          label: option,
-          sampleValue: baseValues[option][0],
-          forcedMode: option.includes('flags.a5e') ? MODES.CUSTOM : baseValues[option][1]
-        };
+        const effectOption = new EffectOptions(
+          option,
+          baseValues[option][0],
+          option.includes('flags.a5e') ? MODES.CUSTOM : baseValues[option][1]
+        );
 
         this.options[type].baseOptionsObj[option] = effectOption;
         return effectOption;
@@ -59,13 +59,11 @@ export default class EffectOptions {
       // Add Derived options
       EffectOptions.modifyDerivedValues(type, this.options[type].derivedOptions, characterOptions);
       Object.entries(specialOptions).forEach((option) => {
-        const effectOption = {
-          fieldOption: option[0],
-          label: option[0],
-          sampleValue: option[1][0],
-          forcedMode: option[1][1]
-        };
-
+        const effectOption = new EffectOptions(
+          option[0],
+          option[1][0],
+          option[1][1]
+        );
         this.options[type].derivedOptions.push(effectOption);
       });
 
@@ -105,6 +103,13 @@ export default class EffectOptions {
 
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
+
+    // Proficiency is prepared in base data so we add it here.
+    baseValues['system.attributes.prof'] = [0, -1];
+
+    // TODO: Possibly need to add something for bonus to damage
+
+    // Delete text details like bio, class, etc.
   }
 
   static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {

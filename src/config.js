@@ -1528,6 +1528,14 @@ A5E.reducerSortMap = {
   }
 };
 
+/**
+ * A set of human-interpretable names that we should display for each active effect key.
+ * @enum {String}
+ */
+A5E.effectsKeyLocalizations = {
+
+};
+
 /* A list of all of the keys that can be prelocalized. Any new objects with static content should
  * be added to this list.
  */

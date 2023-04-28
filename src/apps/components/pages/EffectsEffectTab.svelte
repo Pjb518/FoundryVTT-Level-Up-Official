@@ -100,6 +100,7 @@
             flex-direction: column;
             gap: 0.5rem;
             list-style: none;
+            padding: 0;
         }
 
         &__item {
