@@ -1,5 +1,7 @@
 /* eslint-disable consistent-return */
-// import A5E from '../config';
+
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
@@ -14,7 +16,7 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
  * Add system-specific logic to the base ActiveEffect Class
 */
 export default class ActiveEffectA5e extends ActiveEffect {
-  static fallbackIcon = 'icons/svg/aura.svg';
+  static FALLBACK_ICON = 'icons/svg/aura.svg';
 
   source = undefined;
 
@@ -138,4 +140,16 @@ export default class ActiveEffectA5e extends ActiveEffect {
     });
   }
 
+  /**
+   * Creates a new active effect on an actor or an item
+   * @param {import("./actor").default| import("./item").default} parentDocument
+   * @returns
+   */
+  static create(parentDocument) {
+    const data = {
+      label: localize('A5E.effects.new'),
+      icon: this.FALLBACK_ICON
+    };
+    return super.create(data, { parent: parentDocument });
+  }
 }
