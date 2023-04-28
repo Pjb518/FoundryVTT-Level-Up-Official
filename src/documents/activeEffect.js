@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable consistent-return */
 
 // eslint-disable-next-line import/no-unresolved
@@ -52,21 +53,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   apply(document, change) {
     if (this.isSuppressed) return null;
-    if (CONST.ACTIVE_EFFECT_MODES.CUSTOM) return super.apply(document, change);
-
-    if (document.documentName === 'Actor') {
-      change.value = getDeterministicBonus(
-        change.value ?? 0,
-        document.getRollData()
-      ) ?? change.value;
-    }
-
-    if (document.documentName === 'Item' && document.parent?.documentName === 'Actor') {
-      change.value = getDeterministicBonus(
-        change.value ?? 0,
-        document.parent?.getRollData()
-      ) ?? change.value;
-    }
 
     return super.apply(document, change);
   }
@@ -78,6 +64,16 @@ export default class ActiveEffectA5e extends ActiveEffect {
       else current.add(delta);
       return;
     }
+
+    delta = this.#convertToDeterministicBonus(document, change, delta);
+
+    super._applyAdd(document, change, current, delta, changes);
+  }
+
+  /** @inheritdoc */
+  _applyMultiply(document, change, current, delta, changes) {
+    delta = this.#convertToDeterministicBonus(document, change, delta);
+
     super._applyAdd(document, change, current, delta, changes);
   }
 
@@ -89,6 +85,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       else current.add(delta);
       return;
     }
+
+    delta = this.#convertToDeterministicBonus(document, change, delta);
     return super._applyOverride(document, change, current, delta, changes);
   }
 
@@ -109,26 +107,30 @@ export default class ActiveEffectA5e extends ActiveEffect {
    *
    * @param {import("./actor").default| import("./item").default} document
    * @param {*} change
+   * @param {*} delta
    */
-  #convertToDeterministicBonus(document, change) {
+  #convertToDeterministicBonus(document, change, delta) {
+    const isActor = document.documentName === 'Actor';
+    const isItem = document.documentName === 'Item';
+
     try {
-      console.log(change.value);
-      if (document.documentName === 'Actor') {
-        change.value = getDeterministicBonus(
+      if (isActor) {
+        return getDeterministicBonus(
           change.value ?? 0,
           document.getRollData()
         ) ?? change.value;
       }
 
-      if (document.documentName === 'Item' && document.parent?.documentName === 'Actor') {
-        change.value = getDeterministicBonus(
+      if (isItem && document.parent?.documentName === 'Actor') {
+        return getDeterministicBonus(
           change.value ?? 0,
           document.parent?.getRollData()
         ) ?? change.value;
       }
     } catch (e) {
-      console.log(e);
-      console.log(typeof e);
+      // TODO: Handle invalid roll formula ui side to make sure it's always correct.
+      // Invalid roll formula is handled in UI.
+      return delta;
     }
   }
 
