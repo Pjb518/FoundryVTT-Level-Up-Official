@@ -68,6 +68,25 @@ export default class ActorA5e extends Actor {
     };
   }
 
+  /**
+   * @returns {Array<ActiveEffectA5e>}
+   */
+  get actorEffects() {
+    return this.effects.map((e) => e);
+  }
+
+  /**
+   * @returns {Set<String>}
+   */
+  get derivedProperties() {
+    return new Set(Object.keys(
+      game.a5e.activeEffects.EffectOptions.options[this.type].derivedOptionsObj
+    ));
+  }
+
+  /**
+   * @returns {String} hitPointFormula
+   */
   get hitPointFormula() {
     const { hitDice } = this.system.attributes;
     const { mod } = this.system.abilities.con;
@@ -210,12 +229,23 @@ export default class ActorA5e extends Actor {
    * Apply active effects to base data once base data is ready.
    */
   applyActiveEffectsToBaseData() {
+    this.overrides = {};
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      (change) => !this.derivedProperties.has(change.key)
+    );
   }
 
   /**
    * Apply active effects to derived data once derived properties are read.
    */
   applyActiveEffectsToDerivedData() {
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      (change) => this.derivedProperties.has(change.key)
+    );
   }
 
   /** @inheritdoc */

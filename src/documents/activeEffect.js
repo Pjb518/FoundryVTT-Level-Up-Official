@@ -102,4 +102,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     token.actor.createEmbeddedDocuments('ActiveEffect', data);
   }
+
+  /**
+   *
+   * @param {import("./actor").default| import("./item").default} document
+   * @param {Array<ActiveEffectA5e>} effects
+   * @param {() => boolean} predicate
+   */
+  static applyEffects(document, effects, predicate = () => true) {
+  }
+
 }
