@@ -9,19 +9,12 @@
  *                           calculated.
  */
 export default function getDeterministicBonus(formula, rollData = {}) {
-  const roll = new Roll(formula.toString() || '0', rollData);
+  const zeroedFormula = zeroDiceTerms(formula.toString() || '0');
+
+  const roll = new Roll(zeroedFormula, rollData);
   if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
 
-  // If the formula contains complex terms, return null to avoid giving incorrect results.
-  const notDeterministic = roll.terms.find((term) => {
-    const deterministicParenthetical = term instanceof ParentheticalTerm && !term.isDeterministic;
-    const deterministicMathTerm = term instanceof MathTerm && !term.isDeterministic;
-
-    return deterministicMathTerm || deterministicParenthetical;
-  });
-
-  if (notDeterministic) return null;
-
+  // TODO: Can possibly remove this version
   // Make a dummy roll and calculate what portion of that came from dice.
   const result = roll.roll({ async: false });
   const diceTotal = roll.dice.reduce((acc, curr) => acc + curr.total, 0);
@@ -30,29 +23,51 @@ export default function getDeterministicBonus(formula, rollData = {}) {
   return result.total - diceTotal;
 }
 
+// TODO: Remove this before release
+window.zeroDiceTerms = getDeterministicBonus;
+
 function zeroDiceTerms(formula) {
   const subTerms = Roll._splitParentheses(formula);
-
   const component = subTerms.map((term) => {
-    if (!(term instanceof ParentheticalTerm || term instanceof MathTerm)) return term;
+    // Create parsed terms and remove any dice terms at top level.
+    let parsedTerms = [];
+    if (typeof term === 'string' || term instanceof ParentheticalTerm) {
+      parsedTerms = Roll.parse(term.term ?? term).map((t) => {
+        if (t instanceof DiceTerm) return new NumericTerm({ number: 0 });
+        return t;
+      });
+    }
 
-    const parsedTerms = Roll.parse(term.term);
+    // Create Modified Formula without dice terms
+    const modifiedFormula = Roll.getFormula(parsedTerms);
+
+    // Return modified formula if string type term and if the string has no bad terms in it.
+    if ((typeof term === 'string' || term instanceof ParentheticalTerm) && parsedTerms.every(
+      (t) => !(t instanceof ParentheticalTerm || t instanceof MathTerm || t instanceof DiceTerm)
+    )) return modifiedFormula;
+
+    // Rerun for terms that have parenthesis in them.
     if (parsedTerms.find((t) => t instanceof ParentheticalTerm)) {
-      return zeroDiceTerms(term.term);
+      return zeroDiceTerms(modifiedFormula);
     }
 
+    // Rerun for terms that have complex math formulas in them.
     if (parsedTerms.find((t) => t instanceof MathTerm)) {
-      return zeroDiceTerms(term.term);
+      return zeroDiceTerms(modifiedFormula);
     }
 
+    // Return if term isn't deterministic. This also takes care of math terms with
+    // dice terms. Eg: `min(1d4, 1) = 0`
     if (!term.isDeterministic) return '0';
 
+    // Return math term as a formula.
     if (term instanceof MathTerm) {
       const f = term.terms.join(', ');
       return `${term.fn}(${f})`;
     }
 
-    return term;
+    // Return modified formula as an edge case.
+    return modifiedFormula;
   }).join(' ');
 
   return `(${component})`;
