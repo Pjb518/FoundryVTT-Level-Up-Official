@@ -36,6 +36,7 @@
         id="{$actor.id}-{key}-proficient"
         name="system.skills.{key}.proficient"
         checked={skill.proficient}
+        disabled={sheetIsLocked}
         on:change={({ target }) =>
             updateDocumentDataFromField($actor, target.name, target.checked)}
     />
