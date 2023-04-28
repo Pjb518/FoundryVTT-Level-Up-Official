@@ -187,8 +187,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"7jbEFFswKABYcXL8": {
@@ -278,8 +278,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"e369voDic12LwR9g": {
@@ -294,31 +294,26 @@
 								"damageType": "slashing",
 								"formula": "1d6+@str.mod",
 								"name": "Talons (Normal)",
-								"type": "damage"
+								"type": "damage",
+								"label": "Normal"
 							},
 							"mfEMSK3TpC2LQZMf": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "2d6+@str.mod",
 								"name": "Talons (if started turn 20 feet above target)",
-								"type": "damage"
+								"type": "damage",
+								"label": "High altitude"
 							}
 						},
-						"prompts": {
-							"XGNHIgh17EyMsHlL": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
+						"prompts": {},
+						"consumers": {},
+						"descriptionOutputs": [
+							"item"
+						]
 					}
 				},
-				"description": "<p>On a hit, the target is grappled (escape DC 14). Until this grapple ends, the griffon can’t attack a different target with its talons.</p>",
+				"description": "<p>On a hit, the target is grappled (escape DC 14). Until this grapple ends, the griffon can&rsquo;t attack a different target with its talons. If the griffon started its turn at least 20 feet above the target, the damage is 11 (2d6 + 4) instead of 7 (1d6 + 4).</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -953,7 +948,8 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
+			"sheetIsLocked": false,
+			"currentTab": "features"
 		},
 		"core": {
 			"sourceId": "Compendium.a5e.a5e-monsters.njaexe9rt4gd8voi"
