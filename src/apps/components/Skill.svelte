@@ -45,6 +45,7 @@
         <label
             for="{$actor.id}-{key}-proficient"
             class="fa-solid fa-star skill__proficiency-icon skill__proficiency-icon--proficient"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
             data-tooltip="A5E.ProficiencyProficient"
             data-tooltip-direction="UP"
         />
@@ -52,6 +53,7 @@
         <label
             for="{$actor.id}-{key}-proficient"
             class="fa-solid fa-star-half-stroke skill__proficiency-icon skill__proficiency-icon--jack"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
             data-tooltip="Jack of All Trades"
             data-tooltip-direction="UP"
         />
@@ -59,6 +61,7 @@
         <label
             for="{$actor.id}-{key}-proficient"
             class="fa-regular fa-star skill__proficiency-icon"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
         />
     {/if}
 
@@ -196,6 +199,10 @@
             &--jack,
             &--proficient {
                 color: #425f65;
+            }
+
+            &--locked {
+                cursor: unset;
             }
 
             &:has(~ .skill__name:hover) {
