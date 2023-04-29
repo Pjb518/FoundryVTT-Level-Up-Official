@@ -15,7 +15,7 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const A5E = CONFIG;
+    const { A5E } = CONFIG;
     const { healingTypes } = A5E;
 
     export let roll;
