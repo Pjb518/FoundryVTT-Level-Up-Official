@@ -6,6 +6,13 @@ A5E.ROLL_MODE = {
   DISADVANTAGE: -1
 };
 
+A5E.DICE_ROLL_MODES = {
+  blindroll: 'A5E.diceRollModes.blind',
+  gmroll: 'A5E.diceRollModes.gm',
+  publicroll: 'A5E.diceRollModes.public',
+  selfroll: 'A5E.diceRollModes.self'
+};
+
 /**
  * XP required to achieve each character level.
  * @type {number[]}
@@ -1532,6 +1539,7 @@ A5E.reducerSortMap = {
  * be added to this list.
  */
 A5E.PRELOCALIZED_KEYS = [
+  'DICE_ROLL_MODES',
   'abilities',
   'abilityAbbreviations',
   'abilityActivationTypes',
