@@ -9,7 +9,7 @@
     import FormSection from "../FormSection.svelte";
 
     const item = getContext("item");
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     let editMode = false;
 

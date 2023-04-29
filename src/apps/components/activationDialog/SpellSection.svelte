@@ -4,7 +4,6 @@
 
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import Tag from "../Tag.svelte";
 
     export let consumers;
     export let spellData;

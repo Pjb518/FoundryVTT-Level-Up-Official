@@ -9,7 +9,7 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     let editMode = false;
 

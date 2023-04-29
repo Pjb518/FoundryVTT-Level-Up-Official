@@ -67,10 +67,11 @@
     };
 
     $: action = $item.actions[actionId];
+    $: rolls = action.rolls ?? {};
+
     $: attackRolls = Object.entries(action.rolls ?? {}).filter(
         ([_, roll]) => roll.type === "attack"
     );
-    $: rolls = action.rolls ?? {};
 
     $: menuItems = Object.entries(rollTypes).reduce(
         (acc, [rollType, { singleLabel }]) => {
