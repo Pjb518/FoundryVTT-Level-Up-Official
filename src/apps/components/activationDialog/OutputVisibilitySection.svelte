@@ -8,7 +8,7 @@
     export let visibilityMode;
 </script>
 
-<FormSection heading="Card Visibility Mode">
+<FormSection heading="Visibility Mode">
     <RadioGroup
         options={Object.entries(rollModes).map(([_, mode]) => [
             mode,

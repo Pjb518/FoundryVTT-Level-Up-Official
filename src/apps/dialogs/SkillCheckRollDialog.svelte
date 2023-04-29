@@ -5,6 +5,7 @@
 
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
+    import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
@@ -31,7 +32,7 @@
     });
 
     function onSubmit() {
-        dialog.submit({ rollFormula, abilityKey });
+        dialog.submit({ rollFormula, abilityKey, visibilityMode });
     }
 
     let abilityKey =
@@ -44,6 +45,7 @@
     let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+    let visibilityMode = game.settings.get("core", "rollMode");
 
     $: rollFormula = constructD20RollFormula({
         actor: $actor,
@@ -92,29 +94,23 @@
 </script>
 
 <form>
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.RollModeHeading")}
-        </h3>
+    <OutputVisibilitySection bind:visibilityMode />
 
+    <FormSection heading="A5E.RollModeHeading">
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
             on:updateSelection={({ detail }) => (rollMode = detail)}
         />
-    </section>
+    </FormSection>
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <h3 class="heading">
-            {localize("A5E.AbilityScore")}
-        </h3>
-
+    <FormSection heading="A5E.AbilityScore">
         <RadioGroup
             options={Object.entries(abilities)}
             selected={abilityKey}
             on:updateSelection={({ detail }) => (abilityKey = detail)}
         />
-    </section>
+    </FormSection>
 
     <FormSection heading="A5E.ExpertiseDie">
         <ExpertiseDiePicker
@@ -123,18 +119,14 @@
         />
     </FormSection>
 
-    <section class="a5e-box u-flex u-flex-wrap u-gap-sm u-p-md u-pos-relative">
-        <label class="heading" for="{$actor.id}-{appId}-situational-mods">
-            {localize("A5E.SituationalMods")}
-        </label>
-
+    <FormSection heading="A5E.SituationalMods">
         <input
             class="a5e-input"
             type="text"
             id="{$actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
-    </section>
+    </FormSection>
 
     <section class="roll-formula-preview">
         {rollFormula}
@@ -151,12 +143,6 @@
         flex-direction: column;
         gap: 0.5rem;
         padding: 0.75rem;
-    }
-
-    .heading {
-        display: block;
-        font-weight: bold;
-        font-size: 0.833rem;
     }
 
     .roll-formula-preview {
