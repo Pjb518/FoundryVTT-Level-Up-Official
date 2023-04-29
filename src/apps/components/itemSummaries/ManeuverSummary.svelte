@@ -10,7 +10,7 @@
     export let actionId = "";
     export let item;
 
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     let listHeight;
 </script>

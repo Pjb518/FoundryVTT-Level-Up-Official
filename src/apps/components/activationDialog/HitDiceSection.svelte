@@ -10,8 +10,6 @@
     export let hitDiceData;
 
     const actor = getContext("actor");
-    const actionId = getContext("actionId");
-    const item = getContext("item");
 
     function getConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.hitDice)) return null;
@@ -101,9 +99,6 @@
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
-    }
-
-    .hit-die__button {
     }
 
     .quantity__wrapper {

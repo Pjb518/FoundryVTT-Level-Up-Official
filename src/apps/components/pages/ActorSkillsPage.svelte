@@ -6,7 +6,8 @@
     import Skill from "../Skill.svelte";
 
     const actor = getContext("actor");
-    const { skillSpecialties } = CONFIG.A5E;
+    const { A5E } = CONFIG;
+    const { skillSpecialties } = A5E;
 
     $: skills = $actor.system.skills;
 
@@ -23,7 +24,7 @@
                     {#each Object.entries(skills) as [key, skill]}
                         {#if skill.specialties.length}
                             <dt class="skill-specialties__skill">
-                                {localize(CONFIG.A5E.skills[key])}
+                                {localize(A5E.skills[key])}
                             </dt>
                             <dd class="skill-specialties__list">
                                 {skill.specialties

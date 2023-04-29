@@ -40,12 +40,12 @@
 
     $: actionUses = $item.actions[actionId].uses ?? {};
     $: itemUses = $item.system.uses;
+    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
 
     $: actionMaxUses = getDeterministicBonus(
         actionUses?.max ?? 0,
         $actor.getRollData()
     );
-    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData());
 </script>
 
 <div class="side-by-side">

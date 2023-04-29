@@ -1,5 +1,5 @@
 <script>
-    import { getContext, setContext } from "svelte";
+    import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import constructD20RollFormula from "../../../dice/constructD20RollFormula";
@@ -15,7 +15,6 @@
 
     const actor = getContext("actor");
     const dialog = getContext("dialog");
-    const actionId = getContext("actionId");
     const item = getContext("item");
 
     function updateData() {
