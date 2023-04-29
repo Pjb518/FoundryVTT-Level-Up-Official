@@ -135,7 +135,6 @@ export default class ItemA5e extends Item {
       type: rolls.length ? CONST.CHAT_MESSAGE_TYPES.ROLL : CONST.CHAT_MESSAGE_TYPES.OTHER,
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: promise.visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
           actorId: this.actor.uuid,
@@ -161,6 +160,7 @@ export default class ItemA5e extends Item {
       content: '<article></article>'
     };
 
+    ChatMessage.applyRollMode(chatData, promise.visibilityMode ?? game.settings.get('core', 'rollMode'));
     const chatCard = await ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, {
@@ -195,6 +195,7 @@ export default class ItemA5e extends Item {
       content: '<article></article>'
     };
 
+    ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
     const chatCard = ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, { action });
