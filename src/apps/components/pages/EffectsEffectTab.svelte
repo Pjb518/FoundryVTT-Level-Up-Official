@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     const effect = getContext("effect");
     const sheet = getContext("sheet");
@@ -46,7 +45,7 @@
                 <select name="" id="" bind:value={changes[idx].key}>
                     {#each sheet.optionsList as [option, label]}
                         <option value={option}>
-                            {localize(label)}
+                            {label}
                         </option>
                     {/each}
                 </select>
