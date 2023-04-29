@@ -1637,6 +1637,7 @@ A5E.PRELOCALIZED_KEYS = [
   'damageTypes',
   'distanceAbbreviations',
   'distanceUnits',
+  'effectsKeyLocalizations',
   'featureTypes',
   'healingTypes',
   'itemRarity',
