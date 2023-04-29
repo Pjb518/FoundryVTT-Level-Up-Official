@@ -126,6 +126,10 @@ export default class EffectOptions {
     delete baseValues['system.details.skinColor'];
     delete baseValues['system.details.weight'];
     delete baseValues['system.details.notes'];
+
+    // Delete schema information
+    delete baseValues['system.schema.lastMigration'];
+    delete baseValues['system.schema.version'];
   }
 
   static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
