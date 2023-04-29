@@ -1588,7 +1588,7 @@ A5E.effectsKeyLocalizations = {
   'system.attributes.hitDice.d8.current': 'A5E.effects.keys.hitDiceD8Current',
   'system.attributes.hitDice.d8.total': 'A5E.effects.keys.hitDiceD8Max',
   'system.attributes.hp.bonus': 'A5E.effects.keys.hitPointsBonus',
-  'system.attributes.hp.current': 'A5E.effects.keys.hitPointsCurrent',
+  'system.attributes.hp.value': 'A5E.effects.keys.hitPointsCurrent',
   'system.attributes.hp.temp': 'A5E.effects.keys.hitPointsTemp',
   'system.attributes.initiative.bonus': 'A5E.effects.keys.initiativeBonus',
   'system.attributes.initiative.expertiseDice': 'A5E.effects.keys.initiativeExpertiseDice',
