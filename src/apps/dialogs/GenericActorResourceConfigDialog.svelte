@@ -26,18 +26,24 @@
         />
     </FormSection>
 
-    <FormSection heading="A5E.GenericResourceMaxFormula">
-        <input
-            class="a5e-input"
-            type="text"
-            name="system.resources.{source}.max"
-            value={resource.max}
-            on:change={({ target }) => {
-                handleDeterministicInput(target.value);
-                updateDocumentDataFromField($actor, target.name, target.value);
-            }}
-        />
-    </FormSection>
+    {#if !resource.hideMax}
+        <FormSection heading="A5E.GenericResourceMaxFormula">
+            <input
+                class="a5e-input"
+                type="text"
+                name="system.resources.{source}.max"
+                value={resource.max}
+                on:change={({ target }) => {
+                    handleDeterministicInput(target.value);
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    );
+                }}
+            />
+        </FormSection>
+    {/if}
 
     <FormSection>
         <div class="u-flex u-gap-md u-align-center">
