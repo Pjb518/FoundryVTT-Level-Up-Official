@@ -102,8 +102,7 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => applyDamage(0.25)}
                 >
-                    &frac14;
-                    <i class="fa-solid fa-heart-crack button__background" />
+                    <i class="fa-solid fa-shield button__icon" />
                 </button>
             </li>
 
@@ -114,8 +113,7 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => applyDamage(0.5)}
                 >
-                    &frac12;
-                    <i class="fa-solid fa-heart-crack button__background" />
+                    <i class="fa-solid fa-shield-halved button__icon" />
                 </button>
             </li>
 
@@ -126,8 +124,7 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={applyDamage}
                 >
-                    &times;1
-                    <i class="fa-solid fa-heart-crack button__background" />
+                    <i class="fa-solid fa-heart-crack button__icon" />
                 </button>
             </li>
 
@@ -138,8 +135,7 @@
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => applyDamage(2)}
                 >
-                    &times;2
-                    <i class="fa-solid fa-heart-crack button__background" />
+                    <i class="fa-solid fa-skull button__icon" />
                 </button>
             </li>
         </ul>
@@ -147,21 +143,31 @@
 
     {#if rollData.type === "healing"}
         <ul class="button-list">
-            <li>
-                <button
-                    class="button"
-                    data-tooltip={rollData.healingType === "Healing"
-                        ? "Apply healing"
-                        : "Apply temporary healing"}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() =>
-                        applyHealing(rollData.healingType)}
-                >
-                    <i
-                        class="fa-solid fa-heart button__background button__background--full"
-                    />
-                </button>
-            </li>
+            {#if rollData.healingType === "Healing"}
+                <li>
+                    <button
+                        class="button"
+                        data-tooltip={"Apply healing"}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() =>
+                            applyHealing(rollData.healingType)}
+                    >
+                        <i class="fa-solid fa-heart-circle-plus button__icon" />
+                    </button>
+                </li>
+            {:else}
+                <li>
+                    <button
+                        class="button"
+                        data-tooltip={"Apply temporary healing"}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() =>
+                            applyHealing(rollData.healingType)}
+                    >
+                        <i class="fa-solid fa-heart-circle-bolt button__icon" />
+                    </button>
+                </li>
+            {/if}
         </ul>
     {/if}
 </div>
@@ -196,23 +202,12 @@
         width: 1.375rem;
         padding: 0;
         margin: 0;
-        background: #eee;
         font-size: 1rem;
+        background: #eee;
+        color: #777;
 
-        &__background {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 1rem;
-            width: 1rem;
+        &__icon {
             margin: 0;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            opacity: 0.1;
-
-            &--full {
-                opacity: 0.375;
-            }
         }
     }
 </style>
