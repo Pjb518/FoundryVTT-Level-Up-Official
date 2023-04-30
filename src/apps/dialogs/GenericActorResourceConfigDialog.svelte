@@ -14,78 +14,120 @@
     $: resource = $actor.system.resources[source];
 </script>
 
-<article>
-    <div class="u-flex u-flex-col u-gap-md">
-        <FormSection heading="A5E.Label">
+<article class="u-flex u-flex-col u-gap-md">
+    <FormSection heading="A5E.Label">
+        <input
+            class="a5e-input"
+            type="text"
+            name="system.resources.{source}.label"
+            value={resource.label}
+            on:change={({ target }) =>
+                updateDocumentDataFromField($actor, target.name, target.value)}
+        />
+    </FormSection>
+
+    <FormSection heading="A5E.GenericResourceMaxFormula">
+        <input
+            class="a5e-input"
+            type="text"
+            name="system.resources.{source}.max"
+            value={resource.max}
+            on:change={({ target }) => {
+                handleDeterministicInput(target.value);
+                updateDocumentDataFromField($actor, target.name, target.value);
+            }}
+        />
+    </FormSection>
+
+    <FormSection>
+        <div class="u-flex u-gap-md u-align-center">
             <input
                 class="a5e-input"
-                type="text"
-                name="system.resources.{source}.label"
-                value={resource.label}
+                type="checkbox"
+                id="{appId}-resources-{source}-hideMax"
+                name="system.resources.{source}.hideMax"
+                checked={resource.hideMax ?? false}
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,
                         target.name,
-                        target.value
+                        target.checked
                     )}
             />
-        </FormSection>
 
-        <FormSection heading="A5E.GenericResourceMaxFormula">
-            <input
-                class="a5e-input"
-                type="text"
-                name="system.resources.{source}.max"
-                value={resource.max}
-                on:change={({ target }) => {
-                    handleDeterministicInput(target.value);
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.value
-                    );
-                }}
-            />
-        </FormSection>
+            <label
+                class="u-pointer u-text-sm"
+                for="{appId}-resources-{source}-hideMax"
+            >
+                {localize("A5E.GenericResourceHideMax")}
+            </label>
+        </div>
+    </FormSection>
 
-        <FormSection>
-            <div class="u-flex u-gap-md u-align-center">
-                <input
-                    class="a5e-input"
-                    type="checkbox"
-                    id="{appId}-resources-{source}-hideMax"
-                    name="system.resources.{source}.hideMax"
-                    checked={resource.hideMax ?? false}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
+    <FormSection heading="A5E.RecoverResourceAt">
+        <RadioGroup
+            options={recoveryOptions}
+            selected={resource.per}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.resources.${source}.per`,
+                    event.detail
+                )}
+        />
+    </FormSection>
 
-                <label
-                    class="u-pointer u-text-sm"
-                    for="{appId}-resources-{source}-hideMax"
+    {#if resource.per === "recharge"}
+        <FormSection heading="A5E.ItemRechargeConfiguration">
+            <div class="u-flex u-gap-md u-w-full">
+                <div class="u-flex u-flex-col u-gap-md u-w-full">
+                    <label
+                        for="{$actor.id}-resource-${source}-recharge-formula"
+                    >
+                        {localize("A5E.ItemRechargeFormula")}
+                    </label>
+
+                    <input
+                        id="{$actor.id}-resource-${source}-recharge-formula"
+                        type="text"
+                        value={resource.recharge.formula}
+                        on:change={({ target }) => {
+                            handleDeterministicInput(target.value);
+                            updateDocumentDataFromField(
+                                $actor,
+                                `system.resources.${source}.recharge.formula`,
+                                target.value
+                            );
+                        }}
+                    />
+                </div>
+
+                <div
+                    class="u-flex u-flex-col u-gap-md u-w-fit u-flex-nowrap"
+                    style="white-space:nowrap"
                 >
-                    {localize("A5E.GenericResourceHideMax")}
-                </label>
+                    <label
+                        for="{$actor.id}-resource-${source}-recharge-threshold"
+                    >
+                        {localize("A5E.ItemRechargeThreshold")}
+                    </label>
+
+                    <input
+                        id="{$actor.id}-resource-${source}-recharge-threshold"
+                        class="u-text-center"
+                        type="number"
+                        value={resource.recharge.threshold}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                `system.resources.${source}.recharge.threshold`,
+                                Number(target.value)
+                            )}
+                    />
+                </div>
             </div>
         </FormSection>
-
-        <FormSection heading="A5E.RecoverResourceAt">
-            <RadioGroup
-                options={recoveryOptions}
-                selected={resource.per}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.resources.${source}.per`,
-                        event.detail
-                    )}
-            />
-        </FormSection>
-    </div>
+    {/if}
 </article>
 
 <style lang="scss">

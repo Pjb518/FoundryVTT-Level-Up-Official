@@ -117,6 +117,16 @@
             />
         </div>
     {/if}
+
+    {#if sheetIsLocked && resource.per === "recharge"}
+        <div class="resource-setting">
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <i
+                class="fas fa-dice a5e-config-button"
+                on:click={() => $actor.rechargeGenericResource(source)}
+            />
+        </div>
+    {/if}
 </li>
 
 <style lang="scss">
