@@ -267,7 +267,7 @@ export default class ItemA5e extends Item {
     if (state || !this.actor) return;
     let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData());
     let current = this.system.uses.value;
-    let formula = this.system.uses.recharge.formula ?? '1d6';
+    let formula = this.system.uses.recharge.formula || '1d6';
     let threshold = this.system.uses.recharge.threshold ?? 6;
     let updatePath = 'system.uses.value';
 
@@ -276,7 +276,7 @@ export default class ItemA5e extends Item {
 
       max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData());
       current = action.uses?.value ?? 0;
-      formula = action.uses?.recharge?.formula ?? '1d6';
+      formula = action.uses?.recharge?.formula || '1d6';
       threshold = action.uses?.recharge?.threshold ?? 6;
       updatePath = `system.actions.${actionId}.uses.value`;
     }
