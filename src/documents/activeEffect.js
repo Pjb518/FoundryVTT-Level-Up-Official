@@ -170,11 +170,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   /**
-   * Creates a new active effect on an actor or an item
+   * Creates a new default active effect on an actor or an item
    * @param {import("./actor").default| import("./item").default} parentDocument
    * @returns
    */
-  static create(parentDocument) {
+  static createDefaultEffect(parentDocument) {
     const data = {
       label: localize('A5E.effects.new'),
       icon: this.FALLBACK_ICON
