@@ -35,10 +35,24 @@
         );
     }
 
+    function canRecharge(_, sheetIsLocked) {
+        if (!sheetIsLocked) return false;
+        if (resource.per !== "recharge") return false;
+        if (resource.hideMax) return true;
+
+        const max = getDeterministicBonus(resource.max, $actor.getRollData());
+
+        // Return false if the resource has a max value and the current value equals the max value
+        return resource.value < max;
+    }
+
     $: resource = resource;
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    $: showRechargeButton = canRecharge($actor, sheetIsLocked);
 </script>
 
 <li class="resource">
@@ -118,9 +132,7 @@
         </div>
     {/if}
 
-    <!-- TODO: Update the condition for showing this button to take into account max uses
-        and whether the resource has a max count -->
-    {#if sheetIsLocked && resource.per === "recharge"}
+    {#if showRechargeButton}
         <div
             class="resource-setting"
             data-tooltip="Recharge resource"
