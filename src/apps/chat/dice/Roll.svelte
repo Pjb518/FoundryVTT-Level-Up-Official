@@ -36,7 +36,7 @@
                 const currentTempHp = hp.temp;
                 const maxHP = hp.max;
 
-                if (healingType === "Healing") {
+                if (healingType === "healing") {
                     token.actor.update({
                         "system.attributes.hp.value": Math.min(
                             maxHP,
@@ -55,7 +55,7 @@
             const currentTempHp = hp.temp;
             const maxHP = hp.max;
 
-            if (healingType === "Healing") {
+            if (healingType === "healing") {
                 token.actor.update({
                     "system.attributes.hp.value": Math.min(
                         maxHP,
@@ -143,7 +143,7 @@
 
     {#if rollData.type === "healing"}
         <ul class="button-list">
-            {#if rollData.healingType === "Healing"}
+            {#if rollData.healingType === "healing"}
                 <li>
                     <button
                         class="button"

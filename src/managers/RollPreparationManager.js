@@ -158,7 +158,7 @@ export default class RollPreparationManager {
     return {
       label,
       userLabel: _roll.label,
-      healingType,
+      healingType: _roll.healingType,
       roll,
       type: 'healing'
     };
