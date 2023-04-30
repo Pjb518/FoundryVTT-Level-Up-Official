@@ -67,6 +67,23 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField($actor, target.name, target.value)}
         />
+
+        {#if !sheetIsLocked}
+            <button class="resource-setting" on:click={configureResource}>
+                <i class="fas fa-gear" />
+            </button>
+        {/if}
+
+        {#if showRechargeButton}
+            <button
+                class="resource-setting"
+                data-tooltip="Recharge resource"
+                data-tooltip-direction="UP"
+                on:click={() => $actor.rechargeGenericResource(source)}
+            >
+                <i class="fas fa-dice" />
+            </button>
+        {/if}
     </header>
 
     <div class="resource-value-container">
@@ -121,30 +138,6 @@
             />
         {/if}
     </div>
-
-    {#if !sheetIsLocked}
-        <div class="resource-setting">
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <i
-                class="fas fa-gear a5e-config-button"
-                on:click={configureResource}
-            />
-        </div>
-    {/if}
-
-    {#if showRechargeButton}
-        <div
-            class="resource-setting"
-            data-tooltip="Recharge resource"
-            data-tooltip-direction="UP"
-        >
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <i
-                class="fas fa-dice a5e-config-button"
-                on:click={() => $actor.rechargeGenericResource(source)}
-            />
-        </div>
-    {/if}
 </li>
 
 <style lang="scss">
@@ -158,6 +151,11 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         min-width: 7rem;
+    }
+
+    .resource-header {
+        display: flex;
+        gap: 0.125rem;
     }
 
     .resource-label {
@@ -184,10 +182,27 @@
     }
 
     .resource-setting {
-        position: absolute;
-        top: 0.25rem;
-        right: 0.25rem;
+        padding: 0;
+        margin: 0;
+        height: 27px;
+        width: fit-content;
+        background: transparent;
+        color: #7e7960;
         cursor: pointer;
+
+        &:hover {
+            box-shadow: none;
+            color: #555;
+        }
+
+        i {
+            height: 27px;
+            transition: all 0.15s ease-in-out;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
     }
 
     .resource-btn {
