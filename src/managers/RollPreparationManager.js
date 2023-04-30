@@ -150,12 +150,12 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const healingType = CONFIG.A5E.healingTypes[roll.healingType ?? 'healing'];
+    const healingType = CONFIG.A5E.healingTypes[_roll.healingType ?? 'healing'];
     const label = `${_roll.label ?? ''} [${localize(healingType)}]`;
 
     return {
       label,
-      healingType: roll?.healingType,
+      healingType,
       roll,
       type: 'healing'
     };
