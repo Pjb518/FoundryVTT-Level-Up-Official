@@ -123,8 +123,11 @@
             {#if $item.system.uses.per === "recharge"}
                 <FormSection heading="A5E.ItemRechargeConfiguration">
                     <div class="u-flex u-gap-md u-w-full">
-                        <div class="u-flex u-flex-col u-gap-md u-w-full">
-                            <label for="{$item.id}-recharge-formula">
+                        <div class="recharge-formula">
+                            <label
+                                class="recharge-formula__label"
+                                for="{$item.id}-recharge-formula"
+                            >
                                 {localize("A5E.ItemRechargeFormula")}
                             </label>
 
@@ -132,6 +135,7 @@
                                 id="{$item.id}-recharge-formula"
                                 type="text"
                                 value={$item.system.uses.recharge.formula}
+                                placeholder="1d6"
                                 on:change={({ target }) => {
                                     handleDeterministicInput(target.value);
                                     updateDocumentDataFromField(
@@ -143,11 +147,11 @@
                             />
                         </div>
 
-                        <div
-                            class="u-flex u-flex-col u-gap-md u-w-fit u-flex-nowrap"
-                            style="white-space:nowrap"
-                        >
-                            <label for="{$item.id}-recharge-threshold">
+                        <div class="recharge-threshold">
+                            <label
+                                class="recharge-threshold__label"
+                                for="{$item.id}-recharge-threshold"
+                            >
                                 {localize("A5E.ItemRechargeThreshold")}
                             </label>
 
@@ -209,3 +213,28 @@
         </dl>
     {/if}
 </section>
+
+<style lang="scss">
+    .recharge-formula,
+    .recharge-threshold {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        white-space: nowrap;
+        font-size: 0.833rem;
+
+        &__label {
+            display: block;
+            padding-right: 0.75rem;
+        }
+    }
+
+    .recharge-threshold {
+        width: fit-content;
+        flex-shrink: 0;
+    }
+
+    .recharge-formula {
+        width: 100%;
+    }
+</style>

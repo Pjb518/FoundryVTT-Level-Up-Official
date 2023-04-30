@@ -80,8 +80,9 @@
     {#if resource.per === "recharge"}
         <FormSection heading="A5E.ItemRechargeConfiguration">
             <div class="u-flex u-gap-md u-w-full">
-                <div class="u-flex u-flex-col u-gap-md u-w-full">
+                <div class="recharge-formula">
                     <label
+                        class="recharge-formula__label"
                         for="{$actor.id}-resource-${source}-recharge-formula"
                     >
                         {localize("A5E.ItemRechargeFormula")}
@@ -91,6 +92,7 @@
                         id="{$actor.id}-resource-${source}-recharge-formula"
                         type="text"
                         value={resource.recharge.formula}
+                        placeholder="1d6"
                         on:change={({ target }) => {
                             handleDeterministicInput(target.value);
                             updateDocumentDataFromField(
@@ -102,11 +104,9 @@
                     />
                 </div>
 
-                <div
-                    class="u-flex u-flex-col u-gap-md u-w-fit u-flex-nowrap"
-                    style="white-space:nowrap"
-                >
+                <div class="recharge-threshold">
                     <label
+                        class="recharge-threshold__label"
                         for="{$actor.id}-resource-${source}-recharge-threshold"
                     >
                         {localize("A5E.ItemRechargeThreshold")}
@@ -139,5 +139,28 @@
         gap: 0.5rem;
         overflow: auto;
         background: rgba(246, 242, 235, 0.5);
+    }
+
+    .recharge-formula,
+    .recharge-threshold {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        white-space: nowrap;
+        font-size: 0.833rem;
+
+        &__label {
+            display: block;
+            padding-right: 0.75rem;
+        }
+    }
+
+    .recharge-threshold {
+        width: fit-content;
+        flex-shrink: 0;
+    }
+
+    .recharge-formula {
+        width: 100%;
     }
 </style>
