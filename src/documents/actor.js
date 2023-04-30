@@ -955,7 +955,7 @@ export default class ActorA5e extends Actor {
     const current = this.system.resources[resource].value;
     const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
     const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
-    const updatePath = `system.resources.${resource}.value`;)
+    const updatePath = `system.resources.${resource}.value`;
 
     // Roll
     const roll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
