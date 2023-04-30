@@ -10,8 +10,8 @@
 
     const item = getContext("item");
     const appId = getContext("appId");
+    const { A5E } = CONFIG;
 
-    const A5E = CONFIG.A5E;
     let editMode = false;
 
     function toggleEditMode() {

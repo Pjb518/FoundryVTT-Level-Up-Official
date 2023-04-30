@@ -10,7 +10,7 @@
     export let { actorDocument, appId } = getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     const headings = {
         burrow: "A5E.MovementBurrowingSpeed",

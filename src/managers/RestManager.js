@@ -161,7 +161,7 @@ export default class RestManager {
       });
 
       // Restore Item uses
-      if (!this.restTypes.includes(uses.per) || !uses.max) {
+      if (!this.restTypes.includes(uses?.per) || !uses?.max) {
         if (Object.keys(updates).length < 2) return;
 
         this.#updates.items.push(updates);
@@ -175,8 +175,12 @@ export default class RestManager {
 
   #restoreSpellResources() {
     const { spellResources } = this.#actor.system;
+    const flags = this.#actor.flags.a5e;
+    const restoreSpellPointsOnShortRest = flags?.restoreSpellPointsOnShortRest ?? true;
 
-    this.#updates.actor['system.spellResources.points.current'] = Math.max(spellResources.points.max, 0);
+    if (this.#type === 'long' || restoreSpellPointsOnShortRest) {
+      this.#updates.actor['system.spellResources.points.current'] = Math.max(spellResources.points.max, 0);
+    }
 
     if (this.#type === 'long') {
       Object.entries(spellResources.slots ?? {}).forEach(([level, { max }]) => {

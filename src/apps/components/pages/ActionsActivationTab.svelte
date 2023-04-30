@@ -10,9 +10,10 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
     const specialActivationTypes = ["none", "special"];
     const specialTimeTypes = ["instantaneous", "permanent", "special"];
+
     $: action = $item.actions[actionId];
 </script>
 

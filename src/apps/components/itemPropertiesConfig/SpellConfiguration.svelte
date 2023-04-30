@@ -13,7 +13,7 @@
 
     const item = getContext("item");
     const appId = getContext("appId");
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     let editMode = false;
 

@@ -5,6 +5,7 @@
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
 
     const actor = getContext("actor");
+    const { settings } = game;
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -28,7 +29,7 @@
                     createCombatants: true,
                     initiativeOptions: {
                         rollOptions: getKeyPressAsOptions($pressedKeysStore, {
-                            reverseAlt: game.settings.get(
+                            reverseAlt: settings.get(
                                 "a5e",
                                 "reverseInitiativeAltBehavior"
                             ),

@@ -84,7 +84,7 @@
                 {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
                     <D20Roll {roll} critThreshold={rollData.critThreshold} />
                 {:else}
-                    <Roll {roll} />
+                    <Roll {roll} {rollData} />
                 {/if}
             </div>
         {/each}

@@ -13,15 +13,23 @@
     const { spells } = actor;
     const { spellLevels } = CONFIG.A5E;
 
-    $: isSpellLevelVisible = (level) => {
-        const flags = $actor.flags?.a5e ?? {};
-        if (!flags.availableSpellLevels?.length) return true;
-        return flags.availableSpellLevels.includes(level.toString());
-    };
     $: spellResources = $actor.system.spellResources;
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    $: isSpellLevelVisible = (level) => {
+        if (!sheetIsLocked) return true;
+
+        const maxSlots = $actor.system.spellResources.slots[level]?.max;
+        const showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
+        const spellQuantity = [...$spells._levels[level]].length;
+
+        if (spellQuantity) return true;
+        if (showSpellSlots && maxSlots > 0) return true;
+
+        return false;
+    };
 </script>
 
 <div class="spells-page">

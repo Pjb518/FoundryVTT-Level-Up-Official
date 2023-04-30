@@ -16,9 +16,10 @@
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
     import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
-    import SpellSection from "../components/activationDialog/SpellSection.svelte";
+    import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import PromptsSection from "../components/activationDialog/PromptsSection.svelte";
     import RollsSection from "../components/activationDialog/RollsSection.svelte";
+    import SpellSection from "../components/activationDialog/SpellSection.svelte";
     import UsesSection from "../components/activationDialog/UsesSection.svelte";
 
     export let { actionId, actorDocument, dialog, itemDocument, options } =
@@ -79,6 +80,7 @@
                 []
             ),
             placeTemplate,
+            visibilityMode,
         });
     }
 
@@ -100,6 +102,7 @@
     let placeTemplate = action?.area?.placeTemplate ?? false;
     let selectedPrompts = getDefaultSelections(prompts);
     let selectedRolls = getDefaultSelections(rolls);
+    let visibilityMode = game.settings.get("core", "rollMode");
 
     const validator = new ConsumptionValidator(
         $actor,
@@ -133,6 +136,8 @@
             {/each}
         </section>
     {/if}
+
+    <OutputVisibilitySection bind:visibilityMode />
 
     <!-- svelte-ignore missing-declaration -->
     {#if !foundry.utils.isEmpty(attackRoll)}
@@ -194,6 +199,11 @@
 </form>
 
 <style lang="scss">
+    :global(.a5e-activation-dialog .window-content) {
+        overflow-y: auto;
+        max-height: 90vh;
+    }
+
     form {
         display: flex;
         flex-direction: column;

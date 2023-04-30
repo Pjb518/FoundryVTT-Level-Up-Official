@@ -4,22 +4,21 @@
 
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import Tag from "../Tag.svelte";
 
     export let consumers;
     export let spellData;
 
     const actionId = getContext("actionId");
     const actor = getContext("actor");
-    const item = getContext("item");
-
     const { A5E } = CONFIG;
     const spellLevels = Object.entries(A5E.spellLevels).slice(1);
+
     const consumeOptions = {
         spellSlot: "A5E.ConsumeSpellSlot",
         spellPoint: "A5E.SpellPoints",
         noConsume: "A5E.ConsumeNothing",
     };
+
     let disabled = [];
 
     function updateLevelAndPoints(level) {
@@ -64,6 +63,8 @@
     // =======================================================
     // Actor data
     let spellResources = $actor.system.spellResources;
+    let availablePoints = spellResources.points.current;
+
     let availableSpellSlots = Object.entries(spellResources.slots).reduce(
         (acc, [level, slot]) => {
             if (slot.max > 0 && slot.current > 0) acc.push(level);
@@ -71,7 +72,6 @@
         },
         []
     );
-    let availablePoints = spellResources.points.current;
 
     // =======================================================
     // Consumer data
@@ -92,8 +92,6 @@
 
     if (spellData.consume === "spellSlot") disableSpellSlot();
     else disableSpellPoint();
-
-    // $: spellData.level, calculatePoints();
 </script>
 
 {#if ["variable", "spellsOnly"].includes(mode)}

@@ -15,7 +15,7 @@
 
     const item = getContext("item");
     const actionId = getContext("actionId");
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     function onClickTargetScalingButton() {
         const title = `${$item.name} Target Scaling Configuration`;

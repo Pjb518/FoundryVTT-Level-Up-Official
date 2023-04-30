@@ -160,6 +160,7 @@ export default class ItemA5e extends Item {
       content: '<article></article>'
     };
 
+    ChatMessage.applyRollMode(chatData, promise.visibilityMode ?? game.settings.get('core', 'rollMode'));
     const chatCard = await ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, {
@@ -194,6 +195,7 @@ export default class ItemA5e extends Item {
       content: '<article></article>'
     };
 
+    ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
     const chatCard = ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, { action });

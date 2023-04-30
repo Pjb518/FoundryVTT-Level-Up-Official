@@ -629,7 +629,7 @@ export default class ActorA5e extends Actor {
 
     if (!dialogData) return null;
 
-    const { rollFormula } = dialogData;
+    const { rollFormula, visibilityMode } = dialogData;
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -638,6 +638,7 @@ export default class ActorA5e extends Actor {
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
       rolls: [roll],
+      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
           abilityKey,
@@ -771,7 +772,7 @@ export default class ActorA5e extends Actor {
 
     if (dialogData === null) return null;
 
-    const { rollFormula } = dialogData;
+    const { rollFormula, visibilityMode } = dialogData;
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -780,6 +781,7 @@ export default class ActorA5e extends Actor {
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
       rolls: [roll],
+      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
           abilityKey,
@@ -875,7 +877,7 @@ export default class ActorA5e extends Actor {
 
     if (!rollData) return null;
 
-    const { rollFormula, abilityKey } = rollData;
+    const { rollFormula, abilityKey, visibilityMode } = rollData;
     const roll = await new Roll(rollFormula).roll({ async: true });
 
     const chatData = {
@@ -884,6 +886,7 @@ export default class ActorA5e extends Actor {
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: CONFIG.sounds.dice,
       rolls: [roll],
+      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
           abilityKey,

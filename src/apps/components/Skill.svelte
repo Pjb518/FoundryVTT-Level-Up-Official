@@ -6,12 +6,13 @@
 
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
 
     export let key;
     export let skill;
 
     const actor = getContext("actor");
-    const label = CONFIG.A5E.skills[key];
+    const { skills } = CONFIG.A5E;
 
     let showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ??
@@ -29,23 +30,43 @@
 </script>
 
 <li class="skill">
+    <input
+        style="display: none;"
+        type="checkbox"
+        id="{$actor.id}-{key}-proficient"
+        name="system.skills.{key}.proficient"
+        checked={skill.proficient}
+        disabled={sheetIsLocked}
+        on:change={({ target }) =>
+            updateDocumentDataFromField($actor, target.name, target.checked)}
+    />
+
     {#if skill.proficient}
-        <i
+        <label
+            for="{$actor.id}-{key}-proficient"
             class="fa-solid fa-star skill__proficiency-icon skill__proficiency-icon--proficient"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
             data-tooltip="A5E.ProficiencyProficient"
             data-tooltip-direction="UP"
         />
     {:else if jackOfAllTrades}
-        <i
+        <label
+            for="{$actor.id}-{key}-proficient"
             class="fa-solid fa-star-half-stroke skill__proficiency-icon skill__proficiency-icon--jack"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
             data-tooltip="Jack of All Trades"
             data-tooltip-direction="UP"
         />
     {:else}
-        <i class="fa-regular fa-star skill__proficiency-icon" />
+        <label
+            for="{$actor.id}-{key}-proficient"
+            class="fa-regular fa-star skill__proficiency-icon"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
+        />
     {/if}
 
-    <i
+    <label
+        for="{$actor.id}-{key}-proficient"
         class="fa-solid fa-dice-d20 skill__roll-icon"
         class:skill__roll-icon--shift={$pressedKeysStore.Shift}
         class:skill__roll-icon--ctrl={$pressedKeysStore.Control}
@@ -60,7 +81,7 @@
             getKeyPressAsOptions($pressedKeysStore)
         )}
     >
-        {label}
+        {skills[key]}
 
         {#if skill.expertiseDice}
             <span class="u-text-xs">
@@ -78,7 +99,7 @@
             <span
                 class="skill__passive"
                 data-tooltip={localize("A5E.SkillPassiveScore", {
-                    skill: CONFIG.A5E.skills[key],
+                    skill: skills[key],
                 })}
                 data-tooltip-direction="UP"
             >
@@ -91,7 +112,7 @@
         <button
             class="fas fa-cog skill__config-button"
             data-tooltip={localize("A5E.SkillConfigurationTooltip", {
-                skill: CONFIG.A5E.skills[key],
+                skill: skills[key],
             })}
             data-tooltip-direction="UP"
             on:click={() => $actor.configureSkill({ skillKey: key })}
@@ -173,10 +194,15 @@
         &__proficiency-icon {
             display: flex;
             color: rgba(0, 0, 0, 0.25);
+            cursor: pointer;
 
             &--jack,
             &--proficient {
                 color: #425f65;
+            }
+
+            &--locked {
+                cursor: unset;
             }
 
             &:has(~ .skill__name:hover) {
