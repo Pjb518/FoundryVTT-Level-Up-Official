@@ -118,8 +118,14 @@
         </div>
     {/if}
 
+    <!-- TODO: Update the condition for showing this button to take into account max uses
+        and whether the resource has a max count -->
     {#if sheetIsLocked && resource.per === "recharge"}
-        <div class="resource-setting">
+        <div
+            class="resource-setting"
+            data-tooltip="Recharge resource"
+            data-tooltip-direction="UP"
+        >
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <i
                 class="fas fa-dice a5e-config-button"
