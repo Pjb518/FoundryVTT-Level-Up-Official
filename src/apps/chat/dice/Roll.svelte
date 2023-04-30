@@ -75,8 +75,6 @@
     export let roll;
     export let rollData;
 
-    console.log(rollData);
-
     let tooltipIsVisible = false;
 </script>
 
