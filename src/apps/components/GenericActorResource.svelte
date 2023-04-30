@@ -212,9 +212,5 @@
         font-size: 0.833rem;
         color: #555;
         background-color: rgba(0 0 0 / 0.1);
-
-        & > i {
-            margin: 0;
-        }
     }
 </style>
