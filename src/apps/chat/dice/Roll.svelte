@@ -185,7 +185,7 @@
         position: absolute;
         display: none;
         top: 50%;
-        right: 0;
+        right: 1px;
         transform: translateY(-50%);
         gap: 0.25rem;
         padding: 0;
