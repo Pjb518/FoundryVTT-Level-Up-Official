@@ -89,13 +89,11 @@
     <div class="resource-value-container">
         {#if resource.hideMax}
             <button
-                class="a5e-button resource-btn"
+                class="a5e-button resource-btn fas fa-minus"
                 type="button"
                 disabled={resource.value === 0}
                 on:click={decrementResource}
-            >
-                <i class="fas fa-minus" />
-            </button>
+            />
         {/if}
 
         <input
@@ -116,12 +114,10 @@
 
         {#if resource.hideMax}
             <button
-                class="a5e-button resource-btn"
+                class="a5e-button resource-btn fas fa-plus"
                 type="button"
                 on:click={incrementResource}
-            >
-                <i class="fas fa-plus" />
-            </button>
+            />
         {:else}
             <span class="resource-seperator"> / </span>
 
@@ -179,6 +175,7 @@
 
     .resource-number-input {
         flex-grow: 1;
+        height: 1.125rem;
     }
 
     .resource-setting {
@@ -207,11 +204,13 @@
 
     .resource-btn {
         display: flex;
-        padding: 0;
         justify-content: center;
         align-items: center;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        padding: 0;
+        font-size: 0.833rem;
+        color: #555;
         background-color: rgba(0 0 0 / 0.1);
 
         & > i {
