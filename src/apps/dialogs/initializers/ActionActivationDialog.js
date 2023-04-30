@@ -19,7 +19,7 @@ export default class ActionActivationDialog extends TJSDialog {
         }
       }
     }, {
-      classes: ['a5e-sheet'],
+      classes: ['a5e-sheet', 'a5e-activation-dialog'],
       width: 420
     });
 

@@ -199,6 +199,11 @@
 </form>
 
 <style lang="scss">
+    :global(.a5e-activation-dialog .window-content) {
+        overflow-y: auto;
+        max-height: 90vh;
+    }
+
     form {
         display: flex;
         flex-direction: column;
