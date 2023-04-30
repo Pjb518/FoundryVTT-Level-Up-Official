@@ -110,6 +110,7 @@ export default class EffectOptions {
     // TODO: Possibly need to add something for bonus to damage
 
     // Delete text details like bio, class, etc.
+    delete baseValues['system.details.age'];
     delete baseValues['system.details.appearance'];
     delete baseValues['system.details.background'];
     delete baseValues['system.details.bio'];
@@ -121,11 +122,13 @@ export default class EffectOptions {
     delete baseValues['system.details.hairColor'];
     delete baseValues['system.details.height'];
     delete baseValues['system.details.heritage'];
+    delete baseValues['system.details.level'];
     delete baseValues['system.details.notes'];
     delete baseValues['system.details.prestige'];
     delete baseValues['system.details.skinColor'];
     delete baseValues['system.details.weight'];
     delete baseValues['system.details.notes'];
+    delete baseValues['system.details.xp'];
 
     // Delete schema information
     delete baseValues['system.schema.lastMigration'];
