@@ -77,7 +77,7 @@
         {#if showRechargeButton}
             <button
                 class="resource-setting"
-                data-tooltip="Recharge resource"
+                data-tooltip="Recharge Resource"
                 data-tooltip-direction="UP"
                 on:click={() => $actor.rechargeGenericResource(source)}
             >

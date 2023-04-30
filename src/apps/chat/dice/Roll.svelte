@@ -98,7 +98,7 @@
             <li>
                 <button
                     class="button"
-                    data-tooltip="Apply quarter damage"
+                    data-tooltip="Apply Quarter Damage"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => applyDamage(0.25)}
                 >
@@ -109,7 +109,7 @@
             <li>
                 <button
                     class="button"
-                    data-tooltip="Apply half damage"
+                    data-tooltip="Apply Half Damage"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => applyDamage(0.5)}
                 >
@@ -120,7 +120,7 @@
             <li>
                 <button
                     class="button"
-                    data-tooltip="Apply damage"
+                    data-tooltip="Apply Damage"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={applyDamage}
                 >
@@ -131,7 +131,7 @@
             <li>
                 <button
                     class="button"
-                    data-tooltip="Apply double damage"
+                    data-tooltip="Apply Double Damage"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => applyDamage(2)}
                 >
@@ -147,7 +147,7 @@
                 <li>
                     <button
                         class="button"
-                        data-tooltip={"Apply healing"}
+                        data-tooltip={"Apply Healing"}
                         data-tooltip-direction="UP"
                         on:click|stopPropagation={() =>
                             applyHealing(rollData.healingType)}
@@ -159,7 +159,7 @@
                 <li>
                     <button
                         class="button"
-                        data-tooltip={"Apply temporary healing"}
+                        data-tooltip={"Apply Temporary Healing"}
                         data-tooltip-direction="UP"
                         on:click|stopPropagation={() =>
                             applyHealing(rollData.healingType)}
