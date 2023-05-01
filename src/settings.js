@@ -17,22 +17,22 @@ class ConditionAutomationSettings extends FormApplication {
   // eslint-disable-next-line no-unused-vars
   getData(options = {}) {
     this.conditions = [
-      // 'blinded',
+      'blinded',
       'encumbered',
       // 'fatigue',
       // 'frightened',
       'grappled',
-      // 'invisible',
-      // 'paralyzed',
+      'invisible',
+      'paralyzed',
       'petrified',
-      // 'poisoned',
-      // 'prone',
-      // 'rattled',
+      'poisoned',
+      'prone',
+      'rattled',
       'restrained',
-      'slowed'
+      'slowed',
       // 'strife',
-      // 'stunned',
-      // 'unconscious'
+      'stunned',
+      'unconscious'
     ];
 
     const enabledConditions = game.settings.get('a5e', 'automatedConditions');

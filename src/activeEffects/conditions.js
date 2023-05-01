@@ -290,7 +290,7 @@ function getConditions() {
       flags: { a5e: {} }
     }
   ].map((c) => {
-    if (enabledConditions.has(c.id)) {
+    if (!enabledConditions.has(c.id)) {
       if (c.changes.length !== 0) { c.changes = []; }
     }
 
