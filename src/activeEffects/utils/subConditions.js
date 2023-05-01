@@ -1,12 +1,18 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
+import getTokenFromActor from '../../utils/getTokenFromActor';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                    Create Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/**
+ *
+ * @param {*} conditionData
+ * @returns
+ */
 export async function addSubConditions(conditionData) {
   const conditions = Object.keys(CONFIG.A5E.conditions);
-  const token = conditionData?.parent?.parent;
+  const token = await getTokenFromActor(conditionData.parent);
 
   // Guards
   if (!token) return;
@@ -25,7 +31,7 @@ export async function addSubConditions(conditionData) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export async function removeSubConditions(conditionData) {
   const conditions = Object.keys(CONFIG.A5E.conditions);
-  const token = conditionData?.parent?.parent;
+  const token = await getTokenFromActor(conditionData.parent);
 
   // Guards
   if (!token) return;
