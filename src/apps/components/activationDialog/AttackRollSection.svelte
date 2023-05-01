@@ -17,6 +17,19 @@
     const dialog = getContext("dialog");
     const item = getContext("item");
 
+    function getRollModeFromFlags() {
+        const flags = $actor.getFlag("a5e", "effects.rollMode.attack");
+        if (!flags) return undefined;
+
+        if (typeof flags.all === "number") return flags.all;
+
+        const { attackType } = attackRoll;
+        if (flags[attackType] && typeof flags[attackType] === "number")
+            return flags[attackType];
+
+        return undefined;
+    }
+
     function updateData() {
         attackRollData = {
             ...attackRoll,
@@ -36,7 +49,10 @@
     );
 
     let expertiseDie = 0;
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let rollMode =
+        getRollModeFromFlags() ??
+        options.rollMode ??
+        CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = "";
 
     $: rollFormula = constructD20RollFormula({
