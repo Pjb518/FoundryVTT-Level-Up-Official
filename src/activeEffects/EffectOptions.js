@@ -190,6 +190,8 @@ export default class EffectOptions {
     specialValues['flags.a5e.effects.grants.rollMode.attack.rangedWeaponAttack'] = [0, -1];
     specialValues['flags.a5e.effects.grants.rollMode.attack.rangedSpellAttack'] = [0, -1];
 
+    specialValues['flags.a5e.effects.expertiseDie'] = [0, -1];
+
     // TODO: Maybe add something to automatically fail?
   }
 }
