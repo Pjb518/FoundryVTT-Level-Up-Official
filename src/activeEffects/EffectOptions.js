@@ -102,8 +102,6 @@ export default class EffectOptions {
   }
 
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
-
     // Proficiency is prepared in base data so we add it here.
     baseValues['system.attributes.prof'] = [0, -1];
 
@@ -136,11 +134,67 @@ export default class EffectOptions {
   }
 
   static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
     derivedValues.push(new EffectOptions('system.attributes.hp.max', 0));
   }
 
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
-    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    // Add advantage values
+    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.attack.meleeWeaponAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.attack.meleeSpellAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.attack.rangedWeaponAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.attack.rangedSpellAttack'] = [0, -1];
+
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.str'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.dex'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.con'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.int'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.wis'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.cha'] = [0, -1];
+
+    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.str'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.dex'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.con'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.int'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.wis'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.cha'] = [0, -1];
+
+    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, -1];
+
+    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.acr'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.ani'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.arc'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.ath'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.cul'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.dec'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.eng'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.his'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.ins'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.itm'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.inv'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.med'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.nat'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.prc'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.prf'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.per'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.rel'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.slt'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.ste'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.sur'] = [0, -1];
+
+    // Add grants
+    specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, -1];
+    specialValues['flags.a5e.effects.grants.rollMode.attack.meleeWeaponAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.grants.rollMode.attack.meleeSpellAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.grants.rollMode.attack.rangedWeaponAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.grants.rollMode.attack.rangedSpellAttack'] = [0, -1];
+
+    specialValues['flags.a5e.effects.expertiseDie'] = [0, -1];
+
+    // TODO: Maybe add something to automatically fail?
   }
 }

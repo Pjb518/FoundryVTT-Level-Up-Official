@@ -1,12 +1,71 @@
 import A5E from '../config';
 
+const MODES = CONST.ACTIVE_EFFECT_MODES;
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                         Changes
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export const changes = {
-  blinded: [],
+  blinded: [
+    {
+      key: 'flags.a5e.effects.rollMode.attack.all',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionBlinded'
+    },
+    {
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
+      value: 1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionBlinded'
+    }
+  ],
+
+  bloodied: [],
+
+  charmed: [],
+
+  concentration: [],
+
+  confused: [],
+
+  deafened: [],
+
+  dead: [],
+
+  doomed: [],
 
   encumbered: [
+    {
+      key: 'system.attributes.movement.burrow',
+      value: '5',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionEncumbered'
+    },
+    {
+      key: 'system.attributes.movement.climb',
+      value: '5',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionEncumbered'
+    },
+    {
+      key: 'system.attributes.movement.fly',
+      value: '5',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionEncumbered'
+    },
+    {
+      key: 'system.attributes.movement.swim',
+      value: '5',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionEncumbered'
+    },
     {
       key: 'system.attributes.movement.walk',
       value: '5',
@@ -22,38 +81,174 @@ export const changes = {
 
   grappled: [
     {
+      key: 'system.attributes.movement.burrow',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionGrappled'
+    },
+    {
+      key: 'system.attributes.movement.climb',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionGrappled'
+    },
+    {
+      key: 'system.attributes.movement.fly',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionGrappled'
+    },
+    {
+      key: 'system.attributes.movement.swim',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionGrappled'
+    },
+    {
       key: 'system.attributes.movement.walk',
       value: '0',
-      mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-      priority: 20,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionGrappled'
     }
   ],
 
-  invisible: [],
+  incapacitated: [],
 
-  paralyzed: [],
+  invisible: [
+    {
+      key: 'flags.a5e.effects.rollMode.attack.all',
+      value: 1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionInvisible'
+    },
+    {
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionInvisible'
+    }
+  ],
 
-  petrified: Object.keys(A5E.damageTypes).map((damageType) => ({
-    key: 'system.traits.damageResistances',
-    value: damageType,
-    mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-    priority: 20,
-    label: 'A5E.ConditionPetrified'
-  })),
+  paralyzed: [
+    {
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionParalyzed'
+    }
+  ],
 
-  poisoned: [],
+  petrified: [
+    ...Object.keys(A5E.damageTypes).map((damageType) => ({
+      key: 'system.traits.damageResistances',
+      value: damageType,
+      mode: MODES.ADD,
+      priority: MODES.ADD * 10,
+      label: 'A5E.ConditionPetrified'
+    }))
+    // TODO: Possible immunity to poisoned?
+  ],
 
-  prone: [],
+  poisoned: [
+    {
+      key: 'flags.a5e.effects.rollMode.attack.all',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionPoisoned'
+    },
+    {
+      key: 'flags.a5e.effects.rollMode.abilityCheck.all',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionPoisoned'
+    }
+  ],
 
-  rattled: [],
+  prone: [
+    {
+      key: 'flags.a5e.effects.rollMode.attack.meleeWeapon',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionProne'
+    }
+  ],
+
+  rattled: [
+    {
+      key: 'flags.a5e.effects.expertiseDice',
+      value: -100,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRattled'
+    }
+  ],
 
   restrained: [
     {
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
+      value: 1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
+      key: 'flags.a5e.effects.rollMode.attack.all',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
+      key: 'flags.a5e.effects.rollMode.abilitySave.dex',
+      value: -1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
+      key: 'system.attributes.movement.burrow',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
+      key: 'system.attributes.movement.climb',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
+      key: 'system.attributes.movement.fly',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
+      key: 'system.attributes.movement.swim',
+      value: '0',
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionRestrained'
+    },
+    {
       key: 'system.attributes.movement.walk',
       value: '0',
-      mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-      priority: 20,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     }
   ],
@@ -62,24 +257,47 @@ export const changes = {
     {
       key: 'system.attributes.ac',
       value: '-2',
-      mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-      priority: 20,
+      mode: MODES.ADD,
+      priority: MODES.ADD * 10,
+      label: 'A5E.ConditionSlowed'
+    },
+    {
+      key: 'system.abilities.dex.save.bonus',
+      value: '-2',
+      mode: MODES.ADD,
+      priority: MODES.ADD * 10,
       label: 'A5E.ConditionSlowed'
     },
     ...Object.keys(A5E.movement).map((movementType) => ({
       key: `system.attributes.movement.${movementType}`,
       value: 0.5,
-      mode: CONST.ACTIVE_EFFECT_MODES.MULTIPLY,
-      priority: 20,
+      mode: MODES.MULTIPLY,
+      priority: MODES.MULTIPLY * 10,
       label: 'A5E.ConditionSlowed'
     }))
   ],
 
   strife: [],
 
-  stunned: [],
+  stunned: [
+    {
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
+      value: 1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionStunned'
+    }
+  ],
 
-  unconscious: []
+  unconscious: [
+    {
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
+      value: 1,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
+      label: 'A5E.ConditionStunned'
+    }
+  ]
 
 };
 
@@ -88,82 +306,94 @@ export const changes = {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export const flags = {
   blinded: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
+  },
+
+  bloodied: {
+    conditions: []
+  },
+
+  charmed: {
+    conditions: []
+  },
+
+  concentration: {
+    conditions: []
+  },
+
+  confused: {
+    conditions: []
+  },
+
+  deafened: {
+    conditions: []
+  },
+
+  dead: {
+    conditions: []
+  },
+
+  doomed: {
+    conditions: []
   },
 
   encumbered: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   fatigue: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   frightened: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   grappled: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
-  invisible: {
-    conditions: [],
-    rollModifiers: {}
+  incapacitated: {
+    conditions: []
   },
 
   paralyzed: {
-    conditions: ['incapacitated'],
-    rollModifiers: {}
+    conditions: ['incapacitated']
   },
 
   petrified: {
-    conditions: ['incapacitated'],
-    rollModifiers: {}
+    conditions: ['incapacitated']
   },
 
   poisoned: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   prone: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   rattled: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   restrained: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   slowed: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   strife: {
-    conditions: [],
-    rollModifiers: {}
+    conditions: []
   },
 
   stunned: {
-    conditions: ['incapacitated'],
-    rollModifiers: {}
+    conditions: ['incapacitated']
   },
 
   unconscious: {
-    conditions: ['incapacitated'],
-    rollModifiers: {}
+    conditions: ['incapacitated']
   }
 };

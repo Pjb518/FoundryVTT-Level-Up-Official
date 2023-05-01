@@ -127,10 +127,6 @@ Hooks.once('init', () => {
     label: 'A5E.SheetClassActiveEffectConfig'
   });
 
-  // TODO: In a future version, this helper can be removed. It is currently needed to support legacy
-  // chat cards as we go into 0.9.0.
-  Handlebars.registerHelper('containsSubstring', (string, searchTerm) => string.toString().includes(searchTerm));
-
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula; // eslint-disable-line
   Combatant.prototype.getInitiativeRoll = getInitiativeRoll;
   Combatant.prototype.rollInitiative = rollCombatantInitiative;
