@@ -243,6 +243,8 @@ export default class ActorA5e extends Actor {
   async applyDamage(damage) {
     const updates = {};
     const { value, temp } = this.system.attributes.hp;
+    // eslint-disable-next-line no-param-reassign
+    damage = Math.floor(damage);
 
     if (temp) {
       updates['system.attributes.hp'] = {
@@ -276,6 +278,8 @@ export default class ActorA5e extends Actor {
   async applyHealing(healing, options = { temp: false }) {
     const updates = {};
     const { value, max, temp } = this.system.attributes.hp;
+    // eslint-disable-next-line no-param-reassign
+    healing = Math.floor(healing);
 
     if (options.temp) {
       if (healing <= temp) {

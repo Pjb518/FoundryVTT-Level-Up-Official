@@ -6,67 +6,26 @@
         const selectedTokens = canvas.tokens.controlled;
         const damage = roll.total * multiplier;
 
-        if (selectedTokens.length) {
-            selectedTokens.forEach((token) => {
-                const currentHP = token.actor.system.attributes.hp.value;
-
-                token.actor.update({
-                    "system.attributes.hp.value": currentHP - damage,
-                });
-            });
-        } else if (character) {
-            const currentHP = character.system.attributes.hp.value;
-
-            character.update({
-                "system.attributes.hp.value": currentHP - damage,
-            });
-        } else {
-            ui.notifications.warn("No tokens selected");
-        }
+        if (selectedTokens.length)
+            selectedTokens.forEach((t) => t.actor.applyDamage(damage));
+        else if (character) character.applyDamage(damage);
+        else ui.notifications.warn("No tokens selected");
     }
 
-    function applyHealing(healingType) {
+    async function applyHealing(healingType) {
         const { character } = game.user;
         const selectedTokens = canvas.tokens.controlled;
 
         if (selectedTokens.length) {
-            selectedTokens.forEach((token) => {
-                const hp = token.actor.system.attributes.hp;
-                const currentHP = hp.value;
-                const currentTempHp = hp.temp;
-                const maxHP = hp.max;
-
-                if (healingType === "healing") {
-                    token.actor.update({
-                        "system.attributes.hp.value": Math.min(
-                            maxHP,
-                            currentHP + roll.total
-                        ),
-                    });
-                } else if (roll.total > currentTempHp) {
-                    token.actor.update({
-                        "system.attributes.hp.temp": roll.total,
-                    });
-                }
+            selectedTokens.forEach((t) => {
+                t.actor.applyHealing(roll.total, {
+                    temp: healingType !== "healing",
+                });
             });
         } else if (character) {
-            const hp = token.actor.system.attributes.hp;
-            const currentHP = hp.value;
-            const currentTempHp = hp.temp;
-            const maxHP = hp.max;
-
-            if (healingType === "healing") {
-                token.actor.update({
-                    "system.attributes.hp.value": Math.min(
-                        maxHP,
-                        currentHP + roll.total
-                    ),
-                });
-            } else if (roll.total > currentTempHp) {
-                token.actor.update({
-                    "system.attributes.hp.temp": roll.total,
-                });
-            }
+            character.applyHealing(roll.total, {
+                temp: healingType !== "healing",
+            });
         } else {
             ui.notifications.warn("No tokens selected");
         }
@@ -122,7 +81,7 @@
                     class="button"
                     data-tooltip="Apply Damage"
                     data-tooltip-direction="UP"
-                    on:click|stopPropagation={applyDamage}
+                    on:click|stopPropagation={() => applyDamage()}
                 >
                     <i class="fa-solid fa-heart-crack button__icon" />
                 </button>
