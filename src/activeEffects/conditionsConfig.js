@@ -8,14 +8,14 @@ const MODES = CONST.ACTIVE_EFFECT_MODES;
 export const changes = {
   blinded: [
     {
-      key: 'flags.a5e.effects.disadvantage.attack.all',
+      key: 'flags.a5e.effects.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionBlinded'
     },
     {
-      key: 'flags.a5e.effects.grants.advantage.attack.all',
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -121,14 +121,14 @@ export const changes = {
 
   invisible: [
     {
-      key: 'flags.a5e.effects.advantage.attack.all',
+      key: 'flags.a5e.effects.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionInvisible'
     },
     {
-      key: 'flags.a5e.effects.grants.disadvantage.attack.all',
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -138,7 +138,7 @@ export const changes = {
 
   paralyzed: [
     {
-      key: 'flags.a5e.effects.grants.advantage.attack.all',
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -159,14 +159,14 @@ export const changes = {
 
   poisoned: [
     {
-      key: 'flags.a5e.effects.disadvantage.attack.all',
+      key: 'flags.a5e.effects.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionPoisoned'
     },
     {
-      key: 'flags.a5e.effects.disadvantage.abilityCheck.all',
+      key: 'flags.a5e.effects.rollMode.abilityCheck.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -176,7 +176,7 @@ export const changes = {
 
   prone: [
     {
-      key: 'flags.a5e.effects.disadvantage.attack.mwak',
+      key: 'flags.a5e.effects.rollMode.attack.meleeWeapon',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -196,21 +196,21 @@ export const changes = {
 
   restrained: [
     {
-      key: 'flags.a5e.effects.grants.advantage.attack.all',
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     },
     {
-      key: 'flags.a5e.effects.disadvantage.attack.all',
+      key: 'flags.a5e.effects.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     },
     {
-      key: 'flags.a5e.effects.disadvantage.abilitySave.dex',
+      key: 'flags.a5e.effects.rollMode.abilitySave.dex',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -281,7 +281,7 @@ export const changes = {
 
   stunned: [
     {
-      key: 'flags.a5e.effects.grants.advantage.attack.all',
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
@@ -291,7 +291,7 @@ export const changes = {
 
   unconscious: [
     {
-      key: 'flags.a5e.effects.grants.advantage.attack.all',
+      key: 'flags.a5e.effects.grants.rollMode.attack.all',
       value: true,
       mode: MODES.OVERRIDE,
       priority: MODES.OVERRIDE * 10,
