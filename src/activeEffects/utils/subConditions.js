@@ -6,9 +6,8 @@ import getTokenFromActor from '../../utils/getTokenFromActor';
 //                    Create Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /**
- *
- * @param {*} conditionData
- * @returns
+ * Add linked conditions to the token.
+ * @param {Object} conditionData
  */
 export async function addSubConditions(conditionData) {
   const conditions = Object.keys(CONFIG.A5E.conditions);
@@ -29,6 +28,10 @@ export async function addSubConditions(conditionData) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                    Delete Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/**
+ * Remove linked conditions to the token.
+ * @param {Object} conditionData
+ */
 export async function removeSubConditions(conditionData) {
   const conditions = Object.keys(CONFIG.A5E.conditions);
   const token = await getTokenFromActor(conditionData.parent);

@@ -27,14 +27,13 @@ export default function setupConditions() {
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function getConditions() {
-  const enabledConditions = game.settings.get('a5e', 'automatedConditions');
+  const enabledConditions = new Set(game.settings.get('a5e', 'automatedConditions'));
   return [
     // Blinded
     {
       id: 'blinded',
       label: 'A5E.ConditionBlinded',
       icon: 'icons/svg/blind.svg',
-      // TODO: Impose adv and disadv on attacks.
       changes: changes.blinded,
       duration: {},
       flags: { a5e: flags.blinded }
@@ -44,7 +43,7 @@ function getConditions() {
       id: 'bloodied',
       label: 'A5E.ConditionBloodied',
       icon: 'icons/svg/blood.svg',
-      changes: [],
+      changes: changes.bloodied,
       duration: {},
       flags: { a5e: {} }
     },
@@ -53,7 +52,7 @@ function getConditions() {
       id: 'charmed',
       label: 'A5E.ConditionCharmed',
       icon: 'systems/a5e/assets/icons/charmed.svg',
-      changes: [],
+      changes: changes.charmed,
       duration: {},
       flags: { a5e: {} }
     },
@@ -62,7 +61,7 @@ function getConditions() {
       id: 'concentration',
       label: 'A5E.ConditionConcentration',
       icon: 'systems/a5e/assets/icons/concentration.svg',
-      changes: [],
+      changes: changes.concentration,
       duration: {},
       flags: { a5e: {} }
     },
@@ -71,7 +70,7 @@ function getConditions() {
       id: 'confused',
       label: 'A5E.ConditionConfused',
       icon: 'systems/a5e/assets/icons/confused.svg',
-      changes: [],
+      changes: changes.confused,
       duration: {},
       flags: { a5e: {} }
     },
@@ -80,16 +79,16 @@ function getConditions() {
       id: 'deafened',
       label: 'A5E.ConditionDeafened',
       icon: 'icons/svg/deaf.svg',
-      changes: [],
+      changes: changes.deafened,
       duration: {},
       flags: { a5e: {} }
     },
-    // Deafened
+    // Dead
     {
       id: 'dead',
       label: 'EFFECT.StatusDead',
       icon: 'icons/svg/skull.svg',
-      changes: [],
+      changes: changes.dead,
       duration: {},
       flags: { a5e: {} }
     },
@@ -98,7 +97,7 @@ function getConditions() {
       id: 'doomed',
       label: 'A5E.ConditionDoomed',
       icon: 'systems/a5e/assets/icons/doomed.svg',
-      changes: [],
+      changes: changes.doomed,
       duration: {},
       flags: { a5e: {} }
     },
@@ -143,7 +142,7 @@ function getConditions() {
       id: 'incapacitated',
       label: 'A5E.ConditionIncapacitated',
       icon: 'systems/a5e/assets/icons/incapacitated.svg',
-      changes: [],
+      changes: changes.incapacitated,
       duration: {},
       flags: { a5e: {} }
     },
@@ -291,9 +290,8 @@ function getConditions() {
       flags: { a5e: {} }
     }
   ].map((c) => {
-    if (!enabledConditions.includes(c.id)) {
+    if (enabledConditions.has(c.id)) {
       if (c.changes.length !== 0) { c.changes = []; }
-      if (c.flags.a5e.rollModifiers) { c.flags.a5e.rollModifiers = {}; }
     }
 
     return c;

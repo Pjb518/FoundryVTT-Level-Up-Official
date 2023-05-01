@@ -1401,7 +1401,6 @@ A5E.weaponProperties = {
 
 // ---------------------------------------------------
 // Filter Data
-
 /**
  * Data for filters on the spells page. Schools of magic are added in on the page.
  */
