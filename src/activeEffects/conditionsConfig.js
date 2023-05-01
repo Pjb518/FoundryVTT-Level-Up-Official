@@ -10,15 +10,15 @@ export const changes = {
     {
       key: 'flags.a5e.effects.disadvantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionBlinded'
     },
     {
       key: 'flags.a5e.effects.grants.advantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionBlinded'
     }
   ],
@@ -123,15 +123,15 @@ export const changes = {
     {
       key: 'flags.a5e.effects.advantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionInvisible'
     },
     {
       key: 'flags.a5e.effects.grants.disadvantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionInvisible'
     }
   ],
@@ -140,8 +140,8 @@ export const changes = {
     {
       key: 'flags.a5e.effects.grants.advantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionParalyzed'
     }
   ],
@@ -161,15 +161,15 @@ export const changes = {
     {
       key: 'flags.a5e.effects.disadvantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionPoisoned'
     },
     {
       key: 'flags.a5e.effects.disadvantage.abilityCheck.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionPoisoned'
     }
   ],
@@ -178,8 +178,8 @@ export const changes = {
     {
       key: 'flags.a5e.effects.disadvantage.attack.mwak',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionProne'
     }
   ],
@@ -188,8 +188,8 @@ export const changes = {
     {
       key: 'flags.a5e.effects.expertiseDice',
       value: -100,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRattled'
     }
   ],
@@ -198,22 +198,22 @@ export const changes = {
     {
       key: 'flags.a5e.effects.grants.advantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     },
     {
       key: 'flags.a5e.effects.disadvantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     },
     {
       key: 'flags.a5e.effects.disadvantage.abilitySave.dex',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     },
     {
@@ -283,8 +283,8 @@ export const changes = {
     {
       key: 'flags.a5e.effects.grants.advantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionStunned'
     }
   ],
@@ -293,8 +293,8 @@ export const changes = {
     {
       key: 'flags.a5e.effects.grants.advantage.attack.all',
       value: true,
-      mode: MODES.CUSTOM,
-      priority: MODES.CUSTOM * 10,
+      mode: MODES.OVERRIDE,
+      priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionStunned'
     }
   ]
