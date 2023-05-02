@@ -5,12 +5,16 @@ type options = {
   attackType?: string;
   ability?: string;
   skill?: string;
+  concentration?: boolean;
+  deathSave?: boolean;
 }
 
 type overrideFlags = {
-  attack?: { [key: string]: number };
   abilityCheck?: { [key: string]: number };
   abilitySave?: { [key: string]: number };
+  concentration?: number;
+  deathSave?: number;
+  attack?: { [key: string]: number };
   skillCheck?: { [key: string]: number };
 }
 
@@ -26,7 +30,7 @@ export function overrideRollMode(actor: ActorA5e, rollMode: Number, options: opt
   const flags: overrideFlags | undefined = actor.getFlag('a5e', 'effects.rollMode');
   if (!flags) return rollMode;
 
-  const { attackType, ability, skill, type } = options;
+  const { attackType, ability, concentration, deathSave, skill, type } = options;
 
   if (type === 'attack') {
     if (typeof flags.attack?.all === 'number') return flags.attack.all;
@@ -50,10 +54,18 @@ export function overrideRollMode(actor: ActorA5e, rollMode: Number, options: opt
 
   if (type === 'save') {
     if (typeof flags.abilitySave?.all === 'number') return flags.abilitySave.all;
-    if (!ability) return rollMode;
+    if (!ability) {
+      if (deathSave && typeof flags.deathSave === 'number')
+        return flags.deathSave;
+
+      return rollMode
+    }
 
     if (flags.abilitySave?.[ability] && typeof flags.abilitySave[ability] === "number")
       return flags.abilitySave[ability];
+
+    if (concentration && ability === 'con' && typeof flags.concentration === 'number')
+      return flags.concentration
 
     return rollMode;
   }

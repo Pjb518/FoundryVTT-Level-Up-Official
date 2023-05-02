@@ -820,7 +820,7 @@ export default class ActorA5e extends Actor {
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, type: 'save' }),
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }),
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', {

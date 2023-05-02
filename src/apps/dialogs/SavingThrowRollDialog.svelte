@@ -58,13 +58,16 @@
 
     let saveType = options.saveType ?? "standard";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    let rollMode = overrideRollMode($actor, selectedRollMode, {
-        ability: abilityKey,
-        type: "save",
-    });
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");
+
+    $: rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        type: "save",
+        concentration: saveType === "concentration",
+        deathSave: !!!abilityKey,
+    });
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
