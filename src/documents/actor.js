@@ -666,7 +666,7 @@ export default class ActorA5e extends Actor {
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability, type: 'check' }),
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, type: 'check' }),
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
@@ -812,10 +812,11 @@ export default class ActorA5e extends Actor {
 
   getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, type: 'save' }),
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', {
@@ -917,10 +918,11 @@ export default class ActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const ability = this.system.abilities[abilityKey];
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, skill: skillKey, type: 'skill' }),
       minRoll: options?.minRoll ?? skill.minRoll,
       modifiers: [
         {
