@@ -10,6 +10,7 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import { overrideRollMode } from "../../utils/overrideRollOptions";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -37,7 +38,11 @@
         options.expertiseDice ??
         $actor.system.abilities[abilityKey]?.check.expertiseDice;
 
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        type: "check",
+    });
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");
@@ -80,7 +85,7 @@
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
-            on:updateSelection={({ detail }) => (rollMode = detail)}
+            on:updateSelection={({ detail }) => (selectedRollMode = detail)}
         />
     </FormSection>
 

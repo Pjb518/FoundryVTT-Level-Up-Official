@@ -5,7 +5,7 @@
     import constructD20RollFormula from "../../../dice/constructD20RollFormula";
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
-    import { overrideRollMode } from "../../../utils/overrideRolloptions";
+    import { overrideRollMode } from "../../../utils/overrideRollOptions";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -17,19 +17,6 @@
     const actor = getContext("actor");
     const dialog = getContext("dialog");
     const item = getContext("item");
-
-    function getRollModeFromFlags() {
-        const flags = $actor.getFlag("a5e", "effects.rollMode.attack");
-        if (!flags) return undefined;
-
-        if (typeof flags.all === "number") return flags.all;
-
-        const { attackType } = attackRoll;
-        if (flags[attackType] && typeof flags[attackType] === "number")
-            return flags[attackType];
-
-        return undefined;
-    }
 
     function updateData() {
         attackRollData = {
@@ -50,10 +37,14 @@
     );
 
     let expertiseDie = 0;
-    let rollMode = overrideRollMode($actor, options.rollMode, {
-        attackType: attackRoll.attackType,
-        type: "attack",
-    });
+    let rollMode = overrideRollMode(
+        $actor,
+        options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+        {
+            attackType: attackRoll.attackType,
+            type: "attack",
+        }
+    );
     let situationalMods = "";
 
     $: rollFormula = constructD20RollFormula({

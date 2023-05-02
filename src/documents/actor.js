@@ -34,6 +34,8 @@ import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
+// @ts-ignore
+import { overrideRollMode } from '../utils/overrideRollOptions.ts';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -660,10 +662,11 @@ export default class ActorA5e extends Actor {
 
   getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: overrideRollMode(this, defaultRollMode, { ability, type: 'check' }),
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
