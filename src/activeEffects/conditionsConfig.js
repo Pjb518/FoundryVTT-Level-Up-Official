@@ -187,9 +187,9 @@ export const changes = {
   rattled: [
     {
       key: 'flags.a5e.effects.expertiseDice',
-      value: -100,
+      value: 0,
       mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
+      priority: 200,
       label: 'A5E.ConditionRattled'
     }
   ],

@@ -5,6 +5,7 @@
     import constructD20RollFormula from "../../../dice/constructD20RollFormula";
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
+    import { overrideRollMode } from "../../../utils/overrideRolloptions";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -49,10 +50,10 @@
     );
 
     let expertiseDie = 0;
-    let rollMode =
-        getRollModeFromFlags() ??
-        options.rollMode ??
-        CONFIG.A5E.ROLL_MODE.NORMAL;
+    let rollMode = overrideRollMode($actor, options.rollMode, {
+        attackType: attackRoll.attackType,
+        type: "attack",
+    });
     let situationalMods = "";
 
     $: rollFormula = constructD20RollFormula({

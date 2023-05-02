@@ -18,6 +18,7 @@ class ConditionAutomationSettings extends FormApplication {
   getData(options = {}) {
     this.conditions = [
       'blinded',
+      'bloodied',
       'encumbered',
       // 'fatigue',
       // 'frightened',
@@ -218,7 +219,7 @@ export default function registerSystemSettings() {
     scope: 'world',
     config: false,
     type: Array,
-    default: ['petrified'],
+    default: ['bloodied'],
     onChange: reload
   });
 
