@@ -89,5 +89,18 @@ export function overrideRollMode(actor: ActorA5e, rollMode: Number, options: opt
   return rollMode;
 }
 
-export function overrideExpertise() {
+/**
+ *
+ * @param actor
+ * @param expertiseDie
+ */
+export function overrideExpertiseDie(actor: ActorA5e, dieCount: Number): Number {
+  //@ts-ignore
+  const flag: Number | undefined = actor.getFlag('a5e', 'effects.expertiseDie');
+  if (!flag) return dieCount;
+
+  if (flag === 0) return 0;
+
+  //@ts-ignore
+  return Math.clamped(dieCount + flag, 0, 5)
 }
