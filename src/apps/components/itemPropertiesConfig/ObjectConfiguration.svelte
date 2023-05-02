@@ -211,6 +211,12 @@
                                 name="system.equipped"
                                 id="{appId}-equipped"
                                 checked={$item.system.equipped}
+                                on:change={({ target }) =>
+                                    updateDocumentDataFromField(
+                                        $item,
+                                        target.name,
+                                        target.checked
+                                    )}
                             />
 
                             <label class="u-pointer" for="{appId}-equipped">
