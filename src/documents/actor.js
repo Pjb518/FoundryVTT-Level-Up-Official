@@ -307,6 +307,8 @@ export default class ActorA5e extends Actor {
   async applyDamage(damage) {
     const updates = {};
     const { value, temp } = this.system.attributes.hp;
+    // eslint-disable-next-line no-param-reassign
+    damage = Math.floor(damage);
 
     if (temp) {
       updates['system.attributes.hp'] = {
@@ -340,6 +342,8 @@ export default class ActorA5e extends Actor {
   async applyHealing(healing, options = { temp: false }) {
     const updates = {};
     const { value, max, temp } = this.system.attributes.hp;
+    // eslint-disable-next-line no-param-reassign
+    healing = Math.floor(healing);
 
     if (options.temp) {
       if (healing <= temp) {
@@ -1015,5 +1019,24 @@ export default class ActorA5e extends Actor {
     else updates['system.attributes.death'].success += 1;
 
     await this.update(updates);
+  }
+
+  async rechargeGenericResource(resource) {
+    if (!this.system.resources[resource]) return;
+
+    // eslint-disable-next-line max-len
+    const max = getDeterministicBonus(this.system.resources[resource].max, this.getRollData());
+    const current = this.system.resources[resource].value;
+    const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
+    const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
+    const updatePath = `system.resources.${resource}.value`;
+
+    // Roll
+    const roll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+
+    // TODO: Make the message prettier
+    roll.toMessage();
+
+    if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
   }
 }

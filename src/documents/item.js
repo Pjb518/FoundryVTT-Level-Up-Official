@@ -266,7 +266,8 @@ export default class ItemA5e extends Item {
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
     let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData());
-    let formula = this.system.uses.recharge.formula ?? '1d6';
+    let current = this.system.uses.value;
+    let formula = this.system.uses.recharge.formula || '1d6';
     let threshold = this.system.uses.recharge.threshold ?? 6;
     let updatePath = 'system.uses.value';
 
@@ -274,16 +275,18 @@ export default class ItemA5e extends Item {
       const action = this.actions[actionId];
 
       max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData());
-      formula = action.uses?.recharge?.formula ?? '1d6';
+      current = action.uses?.value ?? 0;
+      formula = action.uses?.recharge?.formula || '1d6';
       threshold = action.uses?.recharge?.threshold ?? 6;
       updatePath = `system.actions.${actionId}.uses.value`;
     }
 
     // Roll
     const roll = await new Roll(formula, this.actor.getRollData()).evaluate({ async: true });
+
     // TODO: Make the message prettier
     roll.toMessage();
 
-    if (roll.total >= threshold) { await this.update({ [updatePath]: max }); }
+    if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
   }
 }

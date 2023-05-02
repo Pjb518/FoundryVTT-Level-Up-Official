@@ -32,71 +32,63 @@
 
         <div class="global-bonus-container">
             <FormSection heading="Melee Weapon Attack">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.meleeWeaponAttack"
-                        value={$actor.system.bonuses.meleeWeaponAttack}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.meleeWeaponAttack"
+                    value={$actor.system.bonuses.meleeWeaponAttack}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="Ranged Weapon Attack">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.rangedWeaponAttack"
-                        value={$actor.system.bonuses.rangedWeaponAttack}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.rangedWeaponAttack"
+                    value={$actor.system.bonuses.rangedWeaponAttack}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="Melee Spell Attack">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.meleeSpellAttack"
-                        value={$actor.system.bonuses.meleeSpellAttack}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.meleeSpellAttack"
+                    value={$actor.system.bonuses.meleeSpellAttack}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="Ranged Spell Attack">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.rangedSpellAttack"
-                        value={$actor.system.bonuses.rangedSpellAttack}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.rangedSpellAttack"
+                    value={$actor.system.bonuses.rangedSpellAttack}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
         </div>
 
@@ -104,37 +96,33 @@
 
         <div class="global-bonus-container">
             <FormSection heading="A5E.ManeuverDCBonus">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.maneuverDC"
-                        value={$actor.system.bonuses.maneuverDC}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.maneuverDC"
+                    value={$actor.system.bonuses.maneuverDC}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="A5E.SpellDCBonus">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.spellDC"
-                        value={$actor.system.bonuses.spellDC}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.spellDC"
+                    value={$actor.system.bonuses.spellDC}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
         </div>
 
@@ -142,54 +130,48 @@
 
         <div class="global-bonus-container">
             <FormSection heading="A5E.AbilityCheckBonusGlobal">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.abilities.check"
-                        value={$actor.system.bonuses.abilities.check}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.abilities.check"
+                    value={$actor.system.bonuses.abilities.check}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="A5E.SavingThrowBonusGlobal">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.abilities.save"
-                        value={$actor.system.bonuses.abilities.save}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.abilities.save"
+                    value={$actor.system.bonuses.abilities.save}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="A5E.SkillCheckBonusGlobal">
-                <div class="u-w-full">
-                    <input
-                        class="a5e-input"
-                        type="text"
-                        name="system.bonuses.abilities.skill"
-                        value={$actor.system.bonuses.abilities.skill}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.value
-                            )}
-                    />
-                </div>
+                <input
+                    class="a5e-input"
+                    type="text"
+                    name="system.bonuses.abilities.skill"
+                    value={$actor.system.bonuses.abilities.skill}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value
+                        )}
+                />
             </FormSection>
         </div>
     </section>

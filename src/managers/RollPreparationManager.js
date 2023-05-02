@@ -68,10 +68,11 @@ export default class RollPreparationManager {
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = `${localize('A5E.AbilityCheckSpecific', { ability })} ${_roll.label ? `(${_roll.label})` : ''}`;
+    const label = localize('A5E.AbilityCheckSpecific', { ability });
 
     return {
       label,
+      userLabel: _roll.label,
       roll,
       type: 'abilityCheck'
     };
@@ -113,14 +114,15 @@ export default class RollPreparationManager {
       roll = await constructCritDamageRoll(roll, critBonus);
     }
 
-    const label = `${damageType
-      ? `${localize('A5E.DamageSpecific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })}`
-      : `${localize('A5E.Damage')}`} ${_roll.label ? `(${_roll.label})` : ''}`;
+    const label = damageType
+      ? localize('A5E.DamageSpecific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })
+      : localize('A5E.Damage');
 
     return {
       canCrit,
       damageType,
       label,
+      userLabel: _roll.label,
       roll,
       type: 'damage'
     };
@@ -151,11 +153,12 @@ export default class RollPreparationManager {
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
     const healingType = CONFIG.A5E.healingTypes[_roll.healingType ?? 'healing'];
-    const label = `${localize(healingType)} ${_roll.label ? `(${_roll.label})` : ''}`;
+    const label = localize(healingType);
 
     return {
       label,
-      healingType,
+      userLabel: _roll.label,
+      healingType: _roll.healingType,
       roll,
       type: 'healing'
     };
@@ -171,10 +174,11 @@ export default class RollPreparationManager {
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
     const roll = await new Roll(rollFormula).evaluate({ async: true });
-    const label = `${localize('A5E.SavingThrowSpecific', { ability })} ${_roll.label ? `(${_roll.label})` : ''}`;
+    const label = localize('A5E.SavingThrowSpecific', { ability });
 
     return {
       label,
+      userLabel: _roll.label,
       roll,
       type: 'savingThrow'
     };
@@ -194,12 +198,13 @@ export default class RollPreparationManager {
 
     const roll = await new Roll(rollFormula).evaluate({ async: true });
 
-    const label = `${ability
+    const label = ability
       ? localize('A5E.SkillCheckAbility', { skill, ability: localize(CONFIG.A5E.abilities[ability]) })
-      : localize('A5E.SkillCheck', { skill })} ${_roll.label ? `(${_roll.label})` : ''}`;
+      : localize('A5E.SkillCheck', { skill });
 
     return {
       label,
+      userLabel: _roll.label,
       roll,
       type: 'skillCheck'
     };
@@ -210,14 +215,13 @@ export default class RollPreparationManager {
     const isProficient = this.#actor.system.proficiencies?.tools?.includes(_roll.tool);
     const modifiers = [];
 
+    // Flatten the tools array
     const tools = Object.values(CONFIG.A5E.tools).reduce(
       (acc, curr) => ({ ...acc, ...curr }),
       {}
     );
 
-    const label = `${localize('A5E.ToolCheckSpecific', {
-      tool: localize(tools[_roll?.tool] ?? '')
-    })} ${_roll.label ? `(${_roll.label})` : ''}`;
+    const label = localize('A5E.ToolCheckSpecific', { tool: localize(tools[_roll?.tool] ?? '') });
 
     // Check if ability configured
     if (abilityKey) {
@@ -256,6 +260,7 @@ export default class RollPreparationManager {
 
     return {
       label,
+      userLabel: _roll.label,
       roll,
       type: 'toolCheck'
     };

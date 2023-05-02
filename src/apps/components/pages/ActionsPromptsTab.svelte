@@ -151,5 +151,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        color: #999;
     }
 </style>

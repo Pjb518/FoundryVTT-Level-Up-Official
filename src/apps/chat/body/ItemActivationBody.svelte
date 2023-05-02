@@ -78,8 +78,12 @@
         <hr class="a5e-rule a5e-rule--card" />
 
         {#each rolls ?? [] as [roll, rollData]}
-            <div>
+            <div class="roll-container">
                 <h3 class="roll-label">{rollData.label}</h3>
+
+                {#if rollData.userLabel}
+                    <span class="roll-sublabel">{rollData.userLabel}</span>
+                {/if}
 
                 {#if ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
                     <D20Roll {roll} critThreshold={rollData.critThreshold} />
@@ -125,11 +129,21 @@
         gap: 0.25rem;
     }
 
+    .roll-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
     .roll-label {
         margin: 0;
-        padding-bottom: 0.125rem;
         font-size: 0.833rem;
         font-weight: bold;
         border: 0;
+    }
+
+    .roll-sublabel {
+        font-size: 0.694rem;
+        color: #7e7960;
     }
 </style>

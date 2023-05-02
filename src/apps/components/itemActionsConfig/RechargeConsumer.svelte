@@ -106,12 +106,12 @@
 
             <!-- Threshold -->
             <div class="a5e-field-group u-w-30">
-                <label for="{actionId}-recharge-formula">
+                <label for="{actionId}-recharge-threshold">
                     {localize("A5E.ItemRechargeThreshold")}
                 </label>
 
                 <input
-                    id="{actionId}-recharge-formula"
+                    id="{actionId}-recharge-threshold"
                     class="small-input"
                     type="number"
                     value={consumer?.threshold ?? 6}

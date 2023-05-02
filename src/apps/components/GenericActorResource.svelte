@@ -35,10 +35,24 @@
         );
     }
 
+    function canRecharge(_, sheetIsLocked) {
+        if (!sheetIsLocked) return false;
+        if (resource.per !== "recharge") return false;
+        if (resource.hideMax) return true;
+
+        const max = getDeterministicBonus(resource.max, $actor.getRollData());
+
+        // Return false if the resource has a max value and the current value equals the max value
+        return resource.value < max;
+    }
+
     $: resource = resource;
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    $: showRechargeButton = canRecharge($actor, sheetIsLocked);
 </script>
 
 <li class="resource">
@@ -53,18 +67,33 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField($actor, target.name, target.value)}
         />
+
+        {#if !sheetIsLocked}
+            <button class="resource-setting" on:click={configureResource}>
+                <i class="fas fa-gear" />
+            </button>
+        {/if}
+
+        {#if showRechargeButton}
+            <button
+                class="resource-setting"
+                data-tooltip="Recharge Resource"
+                data-tooltip-direction="UP"
+                on:click={() => $actor.rechargeGenericResource(source)}
+            >
+                <i class="fas fa-dice" />
+            </button>
+        {/if}
     </header>
 
     <div class="resource-value-container">
         {#if resource.hideMax}
             <button
-                class="a5e-button resource-btn"
+                class="a5e-button resource-btn fas fa-minus"
                 type="button"
                 disabled={resource.value === 0}
                 on:click={decrementResource}
-            >
-                <i class="fas fa-minus" />
-            </button>
+            />
         {/if}
 
         <input
@@ -85,12 +114,10 @@
 
         {#if resource.hideMax}
             <button
-                class="a5e-button resource-btn"
+                class="a5e-button resource-btn fas fa-plus"
                 type="button"
                 on:click={incrementResource}
-            >
-                <i class="fas fa-plus" />
-            </button>
+            />
         {:else}
             <span class="resource-seperator"> / </span>
 
@@ -107,16 +134,6 @@
             />
         {/if}
     </div>
-
-    {#if !sheetIsLocked}
-        <div class="resource-setting">
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <i
-                class="fas fa-gear a5e-config-button"
-                on:click={configureResource}
-            />
-        </div>
-    {/if}
 </li>
 
 <style lang="scss">
@@ -130,6 +147,11 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         min-width: 7rem;
+    }
+
+    .resource-header {
+        display: flex;
+        gap: 0.125rem;
     }
 
     .resource-label {
@@ -153,26 +175,42 @@
 
     .resource-number-input {
         flex-grow: 1;
+        height: 1.125rem;
     }
 
     .resource-setting {
-        position: absolute;
-        top: 0.25rem;
-        right: 0.25rem;
+        padding: 0;
+        margin: 0;
+        height: 27px;
+        width: fit-content;
+        background: transparent;
+        color: #7e7960;
         cursor: pointer;
+
+        &:hover {
+            box-shadow: none;
+            color: #555;
+        }
+
+        i {
+            height: 27px;
+            transition: all 0.15s ease-in-out;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
     }
 
     .resource-btn {
         display: flex;
-        padding: 0;
         justify-content: center;
         align-items: center;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        padding: 0;
+        font-size: 0.833rem;
+        color: #555;
         background-color: rgba(0 0 0 / 0.1);
-
-        & > i {
-            margin: 0;
-        }
     }
 </style>
