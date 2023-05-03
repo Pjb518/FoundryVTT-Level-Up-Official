@@ -1,21 +1,39 @@
 import { SvelteApplication, TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
+import { gameSettings } from './SettingsStore.js';
+
 import SystemSettingsComponent from '../apps/settings/SystemSettings.svelte';
 
 export default class SystemSettings extends SvelteApplication {
+  refresh: boolean;
+
   constructor(options = {}, dialogData = {}) {
     super({
       id: 'a5e-system-settings',
       title: localize('A5E.settings.title'),
       svelte: {
         class: SystemSettingsComponent,
-        target: document.body
+        target: document.body,
+        props: {
+          settings: gameSettings
+        }
       },
       width: 600,
       height: 800,
       ...options
     }, { dialogData });
+
+    this.refresh = false;
+
+    // @ts-ignore
+    Hooks.on('updateSetting', (updateData) => {
+      const { key } = updateData;
+      const parts = key.split('.');
+      if (parts[0] !== 'a5e') return;
+
+      if (gameSettings.refreshSettings.includes(parts.at(-1))) this.refresh = true;
+    });
   }
 
   /**
@@ -50,5 +68,13 @@ export default class SystemSettings extends SvelteApplication {
       options.resolve = resolve;
       new this(options, dialogData).render(true, { focus: true });
     });
+  }
+
+  close() {
+    if (this.refresh) {
+      // @ts-ignore
+      foundry.utils.debounce(() => window.location.reload(), 250)();
+    }
+    super.close();
   }
 }

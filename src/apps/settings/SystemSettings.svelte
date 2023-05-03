@@ -7,7 +7,7 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
 
-    export let { appId } = getContext("#external").application;
+    export let { appId, settings } = getContext("#external").application;
     export let elementRoot;
 
     function updateCurrentTab(event) {
@@ -24,6 +24,7 @@
 
     let currentTab = tabs[0];
 
+    setContext("settings", settings);
     setContext("appId", appId);
 </script>
 

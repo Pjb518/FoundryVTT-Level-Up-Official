@@ -6,6 +6,7 @@
     import FormSection from "../components/FormSection.svelte";
 
     const appId = getContext("appId");
+    const settings = getContext("settings");
 
     // Conditions Automation
     const conditions = [
@@ -28,10 +29,14 @@
         "unconscious",
     ].map((c) => [c, localize(`A5E.Condition${c.capitalize()}`)]);
 
-    $: selectedConditions = game.settings.get();
+    const automatedConditions = settings.getStore("automatedConditions");
 </script>
 
 <!-- Condition Automation -->
 <FormSection heading="A5E.settings.automateConditions">
-    <CheckboxGroup options={conditions} />
+    <CheckboxGroup
+        options={conditions}
+        selected={$automatedConditions}
+        on:updateSelection={({ detail }) => automatedConditions.set(detail)}
+    />
 </FormSection>

@@ -1,6 +1,8 @@
 import MigrationRunner from './migration/MigrationRunner';
 import SettingsShim from './settings/SettingsShim';
 
+import { gameSettings } from './settings/SettingsStore';
+
 class ConditionAutomationSettings extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -63,6 +65,8 @@ class ConditionAutomationSettings extends FormApplication {
 }
 
 export default function registerSystemSettings() {
+  gameSettings.init();
+
   const reload = foundry.utils.debounce(() => window.location.reload(), 250);
 
   // Internal System Migration Version
@@ -215,22 +219,22 @@ export default function registerSystemSettings() {
   });
 
   // Enable settings for condition automation
-  game.settings.register('a5e', 'automatedConditions', {
-    name: 'A5E.settings.automateConditions',
-    scope: 'world',
-    config: false,
-    type: Array,
-    default: ['bloodied'],
-    onChange: reload
-  });
+  // game.settings.register('a5e', 'automatedConditions', {
+  //   name: 'A5E.settings.automateConditions',
+  //   scope: 'world',
+  //   config: false,
+  //   type: Array,
+  //   default: ['bloodied'],
+  //   onChange: reload
+  // });
 
-  game.settings.registerMenu('a5e', 'ConditionAutomationMenu', {
-    name: 'Condition Automation Menu',
-    label: 'Configure Condition Automation',
-    icon: 'fas fa bars',
-    type: ConditionAutomationSettings,
-    restricted: true
-  });
+  // game.settings.registerMenu('a5e', 'ConditionAutomationMenu', {
+  //   name: 'Condition Automation Menu',
+  //   label: 'Configure Condition Automation',
+  //   icon: 'fas fa bars',
+  //   type: ConditionAutomationSettings,
+  //   restricted: true
+  // });
 
   game.settings.registerMenu('a5e', 'SystemSettings', {
     name: 'System Settings',
