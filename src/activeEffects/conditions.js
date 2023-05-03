@@ -93,7 +93,7 @@ function getConditions() {
       icon: 'icons/svg/skull.svg',
       changes: changes.dead,
       duration: {},
-      flags: { a5e: {} }
+      flags: { core: { overlay: true }, a5e: {} }
     },
     // Doomed
     {
