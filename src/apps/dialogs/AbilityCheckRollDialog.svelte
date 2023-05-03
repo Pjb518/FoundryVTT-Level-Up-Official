@@ -10,11 +10,12 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
-    import { overrideRollMode } from "../../utils/overrideRollOptions";
+    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    console.log("here");
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -85,7 +86,7 @@
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
-            on:updateSelection={({ detail }) => (selectedRollMode = detail)}
+            on:updateSelection={({ detail }) => (rollMode = detail)}
         />
     </FormSection>
 

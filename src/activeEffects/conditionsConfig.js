@@ -38,41 +38,14 @@ export const changes = {
   doomed: [],
 
   encumbered: [
-    {
-      key: 'system.attributes.movement.burrow',
-      value: '5',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionEncumbered'
-    },
-    {
-      key: 'system.attributes.movement.climb',
-      value: '5',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionEncumbered'
-    },
-    {
-      key: 'system.attributes.movement.fly',
-      value: '5',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionEncumbered'
-    },
-    {
-      key: 'system.attributes.movement.swim',
-      value: '5',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionEncumbered'
-    },
-    {
-      key: 'system.attributes.movement.walk',
-      value: '5',
-      mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-      priority: 20,
-      label: 'A5E.ConditionEncumbered'
-    }
+    ...Object.keys(A5E.movement).map((type) => (
+      {
+        key: `system.attributes.movement.${type}.distance`,
+        value: '5',
+        mode: MODES.OVERRIDE,
+        priority: MODES.OVERRIDE * 10,
+        label: 'A5E.ConditionGrappled'
+      }))
   ],
 
   fatigue: [],
@@ -80,41 +53,14 @@ export const changes = {
   frightened: [],
 
   grappled: [
-    {
-      key: 'system.attributes.movement.burrow',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionGrappled'
-    },
-    {
-      key: 'system.attributes.movement.climb',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionGrappled'
-    },
-    {
-      key: 'system.attributes.movement.fly',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionGrappled'
-    },
-    {
-      key: 'system.attributes.movement.swim',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionGrappled'
-    },
-    {
-      key: 'system.attributes.movement.walk',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionGrappled'
-    }
+    ...Object.keys(A5E.movement).map((type) => (
+      {
+        key: `system.attributes.movement.${type}.distance`,
+        value: '0',
+        mode: MODES.OVERRIDE,
+        priority: MODES.OVERRIDE * 10,
+        label: 'A5E.ConditionGrappled'
+      }))
   ],
 
   incapacitated: [],
@@ -216,41 +162,14 @@ export const changes = {
       priority: MODES.OVERRIDE * 10,
       label: 'A5E.ConditionRestrained'
     },
-    {
-      key: 'system.attributes.movement.burrow',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionRestrained'
-    },
-    {
-      key: 'system.attributes.movement.climb',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionRestrained'
-    },
-    {
-      key: 'system.attributes.movement.fly',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionRestrained'
-    },
-    {
-      key: 'system.attributes.movement.swim',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionRestrained'
-    },
-    {
-      key: 'system.attributes.movement.walk',
-      value: '0',
-      mode: MODES.OVERRIDE,
-      priority: MODES.OVERRIDE * 10,
-      label: 'A5E.ConditionRestrained'
-    }
+    ...Object.keys(A5E.movement).map((type) => (
+      {
+        key: `system.attributes.movement.${type}.distance`,
+        value: '0',
+        mode: MODES.OVERRIDE,
+        priority: MODES.OVERRIDE * 10,
+        label: 'A5E.ConditionGrappled'
+      }))
   ],
 
   slowed: [
@@ -269,8 +188,8 @@ export const changes = {
       label: 'A5E.ConditionSlowed'
     },
     ...Object.keys(A5E.movement).map((movementType) => ({
-      key: `system.attributes.movement.${movementType}`,
-      value: 0.5,
+      key: `system.attributes.movement.${movementType}.distance`,
+      value: '0.5',
       mode: MODES.MULTIPLY,
       priority: MODES.MULTIPLY * 10,
       label: 'A5E.ConditionSlowed'

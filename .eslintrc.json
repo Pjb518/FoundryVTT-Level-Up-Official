@@ -3,16 +3,18 @@
     "shared-node-browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "@typhonjs-fvtt/eslint-config-foundry.js"],
+  "extends": ["airbnb-base", "airbnb-typescript/base", "@typhonjs-fvtt/eslint-config-foundry.js"],
   "parserOptions": {
     "ecmaVersion": 13,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "plugins": ["import", "svelte3"],
   "ignorePatterns": ["dist/**/*"],
   "rules": {
     "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
+    "@typescript-eslint/comma-dangle": ["error", "never"],
     "no-constant-binary-expression": ["error"],
     "no-underscore-dangle": "off",
     "no-use-before-define": ["error", { "functions": false, "classes": true }],

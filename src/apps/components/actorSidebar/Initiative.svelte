@@ -3,7 +3,7 @@
 
     import pressedKeysStore from "../../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
-    import { overrideRollMode } from "../../../utils/overrideRollOptions";
+    import overrideRollMode from "../../../utils/overrideRollMode";
 
     const actor = getContext("actor");
     const { settings } = game;

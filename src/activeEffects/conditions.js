@@ -4,7 +4,7 @@
 /* eslint-disable no-underscore-dangle */
 import { changes, flags } from './conditionsConfig';
 import automateBloodied from './utils/bloodied';
-import { addSubConditions, removeSubConditions } from './utils/subConditions';
+import { addSubConditions, removeSubConditions, preventIfSourceActivated } from './utils/subConditions';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Conditions Object
@@ -15,6 +15,9 @@ export default function setupConditions() {
 
   // Setup Hook to apply sub-conditions
   Hooks.on('createActiveEffect', addSubConditions);
+
+  // Setup Hook to prevent deletion of condition id source is active
+  Hooks.on('preDeleteActiveEffect', preventIfSourceActivated);
 
   // Setup Hook to remove sub-conditions
   Hooks.on('deleteActiveEffect', removeSubConditions);
@@ -90,7 +93,7 @@ function getConditions() {
       icon: 'icons/svg/skull.svg',
       changes: changes.dead,
       duration: {},
-      flags: { a5e: {} }
+      flags: { core: { overlay: true }, a5e: {} }
     },
     // Doomed
     {

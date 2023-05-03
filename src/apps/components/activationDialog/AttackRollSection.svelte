@@ -5,10 +5,7 @@
     import constructD20RollFormula from "../../../dice/constructD20RollFormula";
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
-    import {
-        overrideRollMode,
-        overrideExpertiseDie,
-    } from "../../../utils/overrideRollOptions";
+    import overrideRollMode from "../../../utils/overrideRollMode";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import RadioGroup from "../RadioGroup.svelte";

@@ -34,8 +34,7 @@ import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
-// @ts-ignore
-import { overrideRollMode } from '../utils/overrideRollOptions.ts';
+import overrideRollMode from '../utils/overrideRollMode.ts';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
