@@ -4,7 +4,7 @@
 export default function getAttackAbility(
   actor: ActorA5e,
   item: ItemA5e,
-  attackData: object
+  attackData: AttackRoll
 ): string {
   const actorData: object = actor.system;
   const itemData: object = item.system;

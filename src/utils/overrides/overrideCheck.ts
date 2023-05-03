@@ -4,7 +4,7 @@ import type { OverrideFlags } from '../overrideRollMode';
 export default function overrideCheck(
   flags: OverrideFlags,
   rollMode: number,
-  ability: string | undefined
+  ability: AbilityScoreKey | undefined
 ): number {
   if (typeof flags.abilityCheck?.all === 'number') return determineRollMode(rollMode, flags.abilityCheck.all);
   if (!ability) return rollMode;
