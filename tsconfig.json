@@ -6,6 +6,12 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "ES2022",
+    "paths": {
+      "types/*": [
+        "./src/types/*"
+      ]
+    },
+
     /**
       Svelte Preprocess cannot figure out whether you have a value or a type, so tell TypeScript
       to enforce using `import type` instead of `import` for Types.

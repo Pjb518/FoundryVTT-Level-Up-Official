@@ -1,7 +1,3 @@
-import {
-  CircleArea, ConeArea, CubeArea, CylinderArea, LineArea, SphereArea
-} from './templateArea';
-
 type ActionConsumer = {
 
 };
@@ -28,7 +24,7 @@ type ScalingConfig = {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
 //      Action Type
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
-export type Action = {
+type Action = {
   name: string;
   description?: string;
 

@@ -1,6 +1,6 @@
 type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
 
-type BaseTemplateArea = {
+interface BaseTemplateArea {
   quantity: number;
   shape: AreaShape;
 
@@ -11,34 +11,34 @@ type BaseTemplateArea = {
   }
 
   placeTemplate?: boolean;
-};
+}
 
-export type CircleArea = {
+interface CircleArea extends BaseTemplateArea {
   radius: number
-} & BaseTemplateArea;
+}
 
-export type ConeArea = {
+interface ConeArea extends BaseTemplateArea {
   length: number
-} & BaseTemplateArea;
+}
 
-export type CubeArea = {
+interface CubeArea extends BaseTemplateArea {
   width: number
-} & BaseTemplateArea;
+}
 
-export type CylinderArea = {
+interface CylinderArea extends BaseTemplateArea {
   radius: number
   height: number
-} & BaseTemplateArea;
+}
 
-export type LineArea = {
+interface LineArea extends BaseTemplateArea {
   length: number
   width: number
-} & BaseTemplateArea;
+}
 
-export type SphereArea = {
+interface SphereArea extends BaseTemplateArea {
   radius: number
-} & BaseTemplateArea;
+}
 
-export type SquareArea = {
+interface SquareArea extends BaseTemplateArea {
   width: number
-} & BaseTemplateArea;
+}
