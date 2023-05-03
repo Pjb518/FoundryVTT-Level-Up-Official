@@ -1,3 +1,77 @@
+// ---------------------------------------------------
+//      Action Area Helpers
+// ---------------------------------------------------
+type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
+
+type BaseActionArea = {
+  quantity: number;
+  shape: AreaShape;
+
+  scaling?: {
+    formula: { [prop: string]: string };
+    mode: string;
+    step?: number;
+  }
+
+  placeTemplate?: boolean;
+};
+
+type CircleArea = {
+  radius: number
+} & BaseActionArea;
+
+type ConeArea = {
+  length: number
+} & BaseActionArea;
+
+type CubeArea = {
+  width: number
+} & BaseActionArea;
+
+type CylinderArea = {
+  radius: number
+  height: number
+} & BaseActionArea;
+
+type LineArea = {
+  length: number
+  width: number
+} & BaseActionArea;
+
+type SphereArea = {
+  radius: number
+} & BaseActionArea;
+
+type SquareArea = {
+  width: number
+} & BaseActionArea;
+
+type ActionConsumer = {
+
+};
+
+type ActionRoll = {
+
+};
+
+type ActionPrompt = {
+
+};
+
+type ActionRange = {
+  range: string | number;
+  unit?: string
+};
+
+type ScalingConfig = {
+  formula: string;
+  mode: string;
+  step?: number;
+};
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+//      Action Type
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
 export type Action = {
   name: string;
   description?: string;
@@ -8,13 +82,12 @@ export type Action = {
     reactionTrigger?: string;
   };
 
-  area: ActionArea | undefined;
+  area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
 
   duration: {
     unit: string;
     value?: number;
   };
-
 
   consumers: {};
 
@@ -39,49 +112,4 @@ export type Action = {
       threshold: number;
     }
   };
-};
-
-// ---------------------------------------------------
-//      Action Area Helpers
-// ---------------------------------------------------
-type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
-
-type ActionArea = {
-  quantity: number;
-  shape: AreaShape;
-  height?: number;
-  length?: number;
-  radius?: number;
-  width?: number;
-
-  scaling?: {
-    formula: { [prop: string]: string };
-    mode: string;
-    step?: number;
-  }
-
-  placeTemplate?: boolean;
-}
-
-type ActionConsumer = {
-
-};
-
-type ActionRoll = {
-
-};
-
-type ActionPrompt = {
-
-};
-
-type ActionRange = {
-  range: string | number;
-  unit?: string
-};
-
-type ScalingConfig = {
-  formula: string;
-  mode: string;
-  step?: number;
 };
