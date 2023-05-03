@@ -6,6 +6,7 @@
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
     import overrideRollMode from "../../../utils/overrideRollMode";
+    import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import RadioGroup from "../RadioGroup.svelte";
