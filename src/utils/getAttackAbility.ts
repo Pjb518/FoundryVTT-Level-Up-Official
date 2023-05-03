@@ -1,9 +1,16 @@
-export default function getAttackAbility(actor, item, attackData) {
-  const actorData = actor.system;
-  const itemData = item.system;
+/**
+ * A utility function for determining the correct attribute to use for a given attack roll.
+ */
+export default function getAttackAbility(
+  actor: ActorA5e,
+  item: ItemA5e,
+  attackData: object
+): string {
+  const actorData: object = actor.system;
+  const itemData: object = item.system;
 
-  const dexMod = actorData.abilities.dex.mod;
-  const strMod = actorData.abilities.str.mod;
+  const dexMod: number = actorData.abilities.dex.mod;
+  const strMod: number = actorData.abilities.str.mod;
 
   if (Object.values(attackData).length) {
     attackData.attackType ??= 'meleeWeaponAttack';
