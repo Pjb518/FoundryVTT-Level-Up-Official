@@ -29,7 +29,6 @@ import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRol
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
@@ -432,7 +431,7 @@ export default class ActorA5e extends Actor {
     };
 
     data.spell = {
-      mod: calculateSpellcastingMod(this.system)
+      mod: this.#calculateSpellcastingMod()
     };
 
     data.spellcasting = {
@@ -459,6 +458,13 @@ export default class ActorA5e extends Actor {
       // Remove the double addition of the global check bonus
       `- ${getDeterministicBonus(rollData.bonuses.abilities.check, rollData)}`
     ].filter(Boolean).join(' + '), rollData);
+  }
+
+  #calculateSpellcastingMod() {
+    const { abilities, attributes } = this.system;
+    const spellcastingAbility = attributes.spellcasting || 'int';
+
+    return abilities[spellcastingAbility].check.mod;
   }
 
   #configure(key, title, data, options) {
