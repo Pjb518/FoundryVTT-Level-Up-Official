@@ -10,7 +10,7 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
-    import { overrideRollMode } from "../../utils/overrideRollOptions";
+    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
