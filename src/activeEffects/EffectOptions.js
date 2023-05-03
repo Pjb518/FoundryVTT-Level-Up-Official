@@ -106,6 +106,7 @@ export default class EffectOptions {
     });
   }
 
+  // eslint-disable-next-line no-unused-vars
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
     const _M = Object.values(MODES);
@@ -141,10 +142,12 @@ export default class EffectOptions {
     delete baseValues['system.schema.version'];
   }
 
+  // eslint-disable-next-line no-unused-vars
   static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
     derivedValues.push(new EffectOptions('system.attributes.hp.max', 0));
   }
 
+  // eslint-disable-next-line no-unused-vars
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
     const AO_M = [MODES.ADD, MODES.OVERRIDE];
