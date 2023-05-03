@@ -1,4 +1,4 @@
-export type action = {
+export type Action = {
   name: string;
   description?: string;
 
@@ -8,7 +8,7 @@ export type action = {
     reactionTrigger?: string;
   };
 
-  area: actionArea | undefined;
+  area: ActionArea | undefined;
 
   duration: {
     unit: string;
@@ -20,13 +20,13 @@ export type action = {
 
   prompts: {};
 
-  ranges: { [id: string]: actionRange };
+  ranges: { [id: string]: ActionRange };
 
   rolls: {};
 
   target: {
     quantity?: number;
-    scaling: scalingConfig;
+    scaling: ScalingConfig;
     type: string;
   }
 
@@ -44,11 +44,11 @@ export type action = {
 // ---------------------------------------------------
 //      Action Area Helpers
 // ---------------------------------------------------
-type areaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
+type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
 
-type actionArea = {
+type ActionArea = {
   quantity: number;
-  shape: areaShape;
+  shape: AreaShape;
   height?: number;
   length?: number;
   radius?: number;
@@ -63,27 +63,24 @@ type actionArea = {
   placeTemplate?: boolean;
 }
 
-
-
-
-type actionConsumer = {
+type ActionConsumer = {
 
 };
 
-type actionRoll = {
+type ActionRoll = {
 
 };
 
-type actionPrompt = {
+type ActionPrompt = {
 
 };
 
-type actionRange = {
+type ActionRange = {
   range: string | number;
   unit?: string
 };
 
-type scalingConfig = {
+type ScalingConfig = {
   formula: string;
   mode: string;
   step?: number;
