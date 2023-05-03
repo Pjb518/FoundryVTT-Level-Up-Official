@@ -15,6 +15,7 @@
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    console.log("here");
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],

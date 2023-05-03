@@ -12,7 +12,7 @@ export default function overrideRollMode(actor: ActorA5e, rollMode: number, opti
   const flags: overrideFlags | undefined = actor.getFlag('a5e', 'effects.rollMode');
   if (!flags) return rollMode;
 
-  const { attackType, ability, skill, type } = options;
+  const { attackType, ability, type } = options;
 
   if (type === 'attack') return overrideAttack(flags, rollMode, attackType);
   if (type === 'check') return overrideCheck(flags, rollMode, ability);
@@ -23,8 +23,7 @@ export default function overrideRollMode(actor: ActorA5e, rollMode: number, opti
 }
 
 function determineRollMode(original: number, override: number): number {
-  const cancels = (original ^ override) < 0
-
+  const cancels = (original ^ override) < -1;
   return cancels ? 0 : override;
 }
 

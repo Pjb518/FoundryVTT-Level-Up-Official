@@ -1,11 +1,14 @@
+import A5E from '../config';
+
 export default class EffectOptions {
   static options = {};
 
-  constructor(fieldOption, sampleValue, forcedMode = -1) {
+  constructor(fieldOption, sampleValue, modes = [], options = []) {
     this.fieldOption = fieldOption;
     this.label = CONFIG.A5E.effectsKeyLocalizations?.[fieldOption] ?? fieldOption;
     this.sampleValue = sampleValue;
-    this.forcedMode = forcedMode;
+    this.modes = modes;
+    this.options = options;
   }
 
   static createOptions() {
@@ -30,7 +33,7 @@ export default class EffectOptions {
       const baseValues = foundry.utils.flattenObject(characterOptions);
 
       Object.keys(baseValues).forEach((prop) => {
-        baseValues[prop] = [baseValues[prop], -1];
+        baseValues[prop] = [baseValues[prop], Object.values(MODES)];
       });
 
       EffectOptions.modifyBaseValues(type, baseValues, characterOptions);
@@ -49,7 +52,8 @@ export default class EffectOptions {
         const effectOption = new EffectOptions(
           option,
           baseValues[option][0],
-          option.includes('flags.a5e') ? MODES.CUSTOM : baseValues[option][1]
+          baseValues[option][1],
+          []
         );
 
         this.options[type].baseOptionsObj[option] = effectOption;
@@ -62,7 +66,8 @@ export default class EffectOptions {
         const effectOption = new EffectOptions(
           option[0],
           option[1][0],
-          option[1][1]
+          option[1][1],
+          []
         );
         this.options[type].derivedOptions.push(effectOption);
       });
@@ -73,21 +78,21 @@ export default class EffectOptions {
       // Sort all the keys
       this.options[type].allOptions
         .sort((a, b) => (
-          a.fieldOption.toLocaleLowerCase() < b.fieldOption.toLocaleLowerCase()
+          a.label.toLocaleLowerCase() < b.label.toLocaleLowerCase()
             ? -1
             : 1
         ));
 
       this.options[type].baseOptions
         .sort((a, b) => (
-          a.fieldOption.toLocaleLowerCase() < b.fieldOption.toLocaleLowerCase()
+          a.label.toLocaleLowerCase() < b.label.toLocaleLowerCase()
             ? -1
             : 1
         ));
 
       this.options[type].derivedOptions
         .sort((a, b) => (
-          a.fieldOption.toLocaleLowerCase() < b.fieldOption.toLocaleLowerCase()
+          a.label.toLocaleLowerCase() < b.label.toLocaleLowerCase()
             ? -1
             : 1
         ));
@@ -102,8 +107,11 @@ export default class EffectOptions {
   }
 
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
+    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const _M = Object.values(MODES);
+
     // Proficiency is prepared in base data so we add it here.
-    baseValues['system.attributes.prof'] = [0, -1];
+    baseValues['system.attributes.prof'] = [0, _M];
 
     // TODO: Possibly need to add something for bonus to damage
 
@@ -138,62 +146,35 @@ export default class EffectOptions {
   }
 
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
+    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const AO_M = [MODES.ADD, MODES.OVERRIDE];
+    const O_M = [MODES.OVERRIDE];
+
     // Add advantage values
-    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.attack.meleeWeaponAttack'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.attack.meleeSpellAttack'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.attack.rangedWeaponAttack'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.attack.rangedSpellAttack'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, O_M];
+    specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, O_M];
 
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.str'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.dex'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.con'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.int'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.wis'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.cha'] = [0, -1];
+    Object.keys(A5E.attackTypes).forEach((key) => {
+      specialValues[`flags.a5e.effects.rollMode.attack.${key}`] = [0, O_M];
+      specialValues[`flags.a5e.effects.grants.rollMode.attack.${key}`] = [0, O_M];
+    });
 
-    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.str'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.dex'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.con'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.int'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.wis'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.cha'] = [0, -1];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, O_M];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, O_M];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, O_M];
+    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, O_M];
+    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, O_M];
 
-    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, -1];
+    Object.keys(A5E.abilities).forEach((key) => {
+      specialValues[`flags.a5e.effects.rollMode.abilityCheck.${key}`] = [0, O_M];
+      specialValues[`flags.a5e.effects.rollMode.abilitySave.${key}`] = [0, O_M];
+    });
 
-    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.acr'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.ani'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.arc'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.ath'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.cul'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.dec'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.eng'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.his'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.ins'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.itm'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.inv'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.med'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.nat'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.prc'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.prf'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.per'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.rel'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.slt'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.ste'] = [0, -1];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.sur'] = [0, -1];
+    Object.keys(A5E.skills).forEach((key) => {
+      specialValues[`flags.a5e.effects.rollMode.skillCheck.${key}`] = [0, O_M];
+    });
 
-    // Add grants
-    specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, -1];
-    specialValues['flags.a5e.effects.grants.rollMode.attack.meleeWeaponAttack'] = [0, -1];
-    specialValues['flags.a5e.effects.grants.rollMode.attack.meleeSpellAttack'] = [0, -1];
-    specialValues['flags.a5e.effects.grants.rollMode.attack.rangedWeaponAttack'] = [0, -1];
-    specialValues['flags.a5e.effects.grants.rollMode.attack.rangedSpellAttack'] = [0, -1];
-
-    specialValues['flags.a5e.effects.expertiseDie'] = [0, -1];
+    specialValues['flags.a5e.effects.expertiseDie'] = [0, AO_M];
 
     // TODO: Maybe add something to automatically fail?
   }
