@@ -1,4 +1,5 @@
 import MigrationRunner from './migration/MigrationRunner';
+import SettingsShim from './settings/SettingsShim';
 
 class ConditionAutomationSettings extends FormApplication {
   static get defaultOptions() {
@@ -228,6 +229,14 @@ export default function registerSystemSettings() {
     label: 'Configure Condition Automation',
     icon: 'fas fa bars',
     type: ConditionAutomationSettings,
+    restricted: true
+  });
+
+  game.settings.registerMenu('a5e', 'SystemSettings', {
+    name: 'System Settings',
+    label: 'Configure System Settings',
+    icon: 'fas fa bars',
+    type: SettingsShim,
     restricted: true
   });
 }
