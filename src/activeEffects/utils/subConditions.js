@@ -61,12 +61,8 @@ export function preventIfSourceActivated(conditionData) {
   if (!token) return;
   if (!sourceId) return;
   if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
-
-  // Get active status effects
-  const statusEffects = token.actor.effects
-    .filter((effect) => !!effect.flags?.core?.statusId)
-    .map((effect) => effect.flags.core.statusId);
+  const hasEffect = token.hasStatusEffect(sourceId);
 
   // eslint-disable-next-line consistent-return
-  if (statusEffects.includes(sourceId)) return false;
+  return !hasEffect;
 }
