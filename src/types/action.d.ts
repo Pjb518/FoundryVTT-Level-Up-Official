@@ -66,7 +66,10 @@ interface Action {
 
   ranges: { [id: string]: ActionRange };
 
-  rolls: {};
+  rolls: {
+    [id: string]: AbilityCheckRoll | AttackRoll | DamageRoll | GenericRoll | HealingRoll
+    | SavingThrowRoll | SkillCheckRoll | ToolCheckRoll
+  };
 
   target: TargetConfig;
   uses: UsesConfig;
