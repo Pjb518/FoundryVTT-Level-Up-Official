@@ -29,8 +29,6 @@ import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRol
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import calculatePassiveScore from '../utils/calculatePassiveScore';
-import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
@@ -394,7 +392,7 @@ export default class ActorA5e extends Actor {
       skill.deterministicBonus = deterministicBonus ?? skill.mod;
 
       try {
-        skill.passive = calculatePassiveScore(skill, this.getRollData());
+        skill.passive = this.#calculatePassiveScore(skill);
       } catch {
         // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
@@ -433,7 +431,7 @@ export default class ActorA5e extends Actor {
     };
 
     data.spell = {
-      mod: calculateSpellcastingMod(this.system)
+      mod: this.#calculateSpellcastingMod()
     };
 
     data.spellcasting = {
@@ -446,6 +444,27 @@ export default class ActorA5e extends Actor {
     data.maneuverDC = this.system.attributes.maneuverDC;
 
     return data;
+  }
+
+  #calculatePassiveScore(skill) {
+    const rollData = this.getRollData();
+
+    return getDeterministicBonus([
+      10,
+      skill.deterministicBonus,
+      skill.bonuses.passive,
+      rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
+
+      // Remove the double addition of the global check bonus
+      `- ${getDeterministicBonus(rollData.bonuses.abilities.check, rollData)}`
+    ].filter(Boolean).join(' + '), rollData);
+  }
+
+  #calculateSpellcastingMod() {
+    const { abilities, attributes } = this.system;
+    const spellcastingAbility = attributes.spellcasting || 'int';
+
+    return abilities[spellcastingAbility].check.mod;
   }
 
   #configure(key, title, data, options) {
