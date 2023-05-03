@@ -1,50 +1,6 @@
-// ---------------------------------------------------
-//      Action Area Helpers
-// ---------------------------------------------------
-type AreaShape = 'circle' | 'cone' | 'cube' | 'cylinder' | 'line' | 'sphere' | 'square';
-
-type BaseActionArea = {
-  quantity: number;
-  shape: AreaShape;
-
-  scaling?: {
-    formula: { [prop: string]: string };
-    mode: string;
-    step?: number;
-  }
-
-  placeTemplate?: boolean;
-};
-
-type CircleArea = {
-  radius: number
-} & BaseActionArea;
-
-type ConeArea = {
-  length: number
-} & BaseActionArea;
-
-type CubeArea = {
-  width: number
-} & BaseActionArea;
-
-type CylinderArea = {
-  radius: number
-  height: number
-} & BaseActionArea;
-
-type LineArea = {
-  length: number
-  width: number
-} & BaseActionArea;
-
-type SphereArea = {
-  radius: number
-} & BaseActionArea;
-
-type SquareArea = {
-  width: number
-} & BaseActionArea;
+import {
+  CircleArea, ConeArea, CubeArea, CylinderArea, LineArea, SphereArea
+} from './templateArea';
 
 type ActionConsumer = {
 
