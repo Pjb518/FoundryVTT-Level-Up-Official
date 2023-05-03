@@ -1,10 +1,6 @@
 import TokenDocumentA5e from '../documents/tokenDocument';
 
-/**
- * @param {import("../documents/actor").default} actor
- * @returns {TokenDocumentA5e | undefined} tokenDocument
- */
-export default function getTokenFromActor(actor) {
+export default function getTokenFromActor(actor: ActorA5e): TokenDocumentA5e | null {
   // Check parent
   if (actor?.parent instanceof TokenDocumentA5e) {
     return actor.parent;
@@ -21,5 +17,5 @@ export default function getTokenFromActor(actor) {
 
   if (availableTokens.length) return availableTokens[0];
 
-  return undefined;
+  return null;
 }
