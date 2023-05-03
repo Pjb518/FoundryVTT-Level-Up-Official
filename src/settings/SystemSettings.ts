@@ -8,6 +8,8 @@ import SystemSettingsComponent from '../apps/settings/SystemSettings.svelte';
 export default class SystemSettings extends SvelteApplication {
   refresh: boolean;
 
+  refreshHook: any;
+
   constructor(options = {}, dialogData = {}) {
     super({
       id: 'a5e-system-settings',
@@ -27,7 +29,7 @@ export default class SystemSettings extends SvelteApplication {
     this.refresh = false;
 
     // @ts-ignore
-    Hooks.on('updateSetting', (updateData) => {
+    this.refreshHook = Hooks.on('updateSetting', (updateData) => {
       const { key } = updateData;
       const parts = key.split('.');
       if (parts[0] !== 'a5e') return;
@@ -71,6 +73,8 @@ export default class SystemSettings extends SvelteApplication {
   }
 
   close() {
+    // @ts-ignore
+    Hooks.off('updateSetting', this.refreshHook);
     if (this.refresh) {
       // @ts-ignore
       foundry.utils.debounce(() => window.location.reload(), 250)();
