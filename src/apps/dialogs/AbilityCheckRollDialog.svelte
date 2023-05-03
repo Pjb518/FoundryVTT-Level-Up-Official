@@ -85,7 +85,7 @@
         <RadioGroup
             options={rollModeOptions}
             selected={rollMode}
-            on:updateSelection={({ detail }) => (selectedRollMode = detail)}
+            on:updateSelection={({ detail }) => (rollMode = detail)}
         />
     </FormSection>
 

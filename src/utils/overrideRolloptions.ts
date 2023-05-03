@@ -25,7 +25,7 @@ type overrideFlags = {
  * @param {options} options
  * @returns {Number} rollMode
  */
-export function overrideRollMode(actor: ActorA5e, rollMode: Number, options: options): Number {
+export function overrideRollMode(actor: ActorA5e, rollMode: number, options: options): number {
   //@ts-ignore
   const flags: overrideFlags | undefined = actor.getFlag('a5e', 'effects.rollMode');
   if (!flags) return rollMode;
@@ -33,55 +33,55 @@ export function overrideRollMode(actor: ActorA5e, rollMode: Number, options: opt
   const { attackType, ability, concentration, deathSave, skill, type } = options;
 
   if (type === 'attack') {
-    if (typeof flags.attack?.all === 'number') return flags.attack.all;
+    if (typeof flags.attack?.all === 'number') return determineRollMode(rollMode, flags.attack.all);
     if (!attackType) return rollMode;
 
     if (flags.attack?.[attackType] && typeof flags.attack[attackType] === "number")
-      return flags.attack[attackType];
+      return determineRollMode(rollMode, flags.attack[attackType]);;
 
     return rollMode;
   }
 
   if (type === 'check') {
-    if (typeof flags.abilityCheck?.all === 'number') return flags.abilityCheck.all;
+    if (typeof flags.abilityCheck?.all === 'number') return determineRollMode(rollMode, flags.abilityCheck.all);
     if (!ability) return rollMode;
 
     if (flags.abilityCheck?.[ability] && typeof flags.abilityCheck[ability] === "number")
-      return flags.abilityCheck[ability];
+      return determineRollMode(rollMode, flags.abilityCheck[ability]);
 
     return rollMode;
   }
 
   if (type === 'save') {
-    if (typeof flags.abilitySave?.all === 'number') return flags.abilitySave.all;
+    if (typeof flags.abilitySave?.all === 'number') return determineRollMode(rollMode, flags.abilitySave.all);
     if (!ability) {
       if (deathSave && typeof flags.deathSave === 'number')
-        return flags.deathSave;
+        return determineRollMode(rollMode, flags.deathSave);
 
       return rollMode
     }
 
     if (flags.abilitySave?.[ability] && typeof flags.abilitySave[ability] === "number")
-      return flags.abilitySave[ability];
+      return determineRollMode(rollMode, flags.abilitySave[ability]);
 
     if (concentration && ability === 'con' && typeof flags.concentration === 'number')
-      return flags.concentration
+      return determineRollMode(rollMode, flags.concentration);
 
     return rollMode;
   }
 
   if (type === 'skill') {
-    if (typeof flags.abilityCheck?.all === 'number') return flags.abilityCheck.all;
+    if (typeof flags.abilityCheck?.all === 'number') return determineRollMode(rollMode, flags.abilityCheck.all);
     if (!ability) return rollMode;
 
     if (flags.abilityCheck?.[ability] && typeof flags.abilityCheck[ability] === "number")
-      return flags.abilityCheck[ability];
+      return determineRollMode(rollMode, flags.abilityCheck[ability]);
 
-    if (typeof flags.skillCheck?.all === 'number') return flags.skillCheck.all;
+    if (typeof flags.skillCheck?.all === 'number') return determineRollMode(rollMode, flags.skillCheck.all);
     if (!skill) return rollMode;
 
     if (flags.skillCheck?.[skill] && typeof flags.skillCheck[skill] === "number")
-      return flags.skillCheck[skill];
+      return determineRollMode(rollMode, flags.skillCheck[skill]);
 
     return rollMode;
   }
@@ -94,13 +94,20 @@ export function overrideRollMode(actor: ActorA5e, rollMode: Number, options: opt
  * @param actor
  * @param expertiseDie
  */
-export function overrideExpertiseDie(actor: ActorA5e, dieCount: Number): Number {
+export function overrideExpertiseDie(actor: ActorA5e, dieCount: number): number {
   //@ts-ignore
-  const flag: Number | undefined = actor.getFlag('a5e', 'effects.expertiseDie');
+  const flag: number | undefined = actor.getFlag('a5e', 'effects.expertiseDie');
   if (!flag) return dieCount;
 
   if (flag === 0) return 0;
 
   //@ts-ignore
   return Math.clamped(dieCount + flag, 0, 5)
+}
+
+
+function determineRollMode(original: number, override: number): number {
+  const cancels = (original ^ override) < 0
+
+  return cancels ? 0 : override;
 }
