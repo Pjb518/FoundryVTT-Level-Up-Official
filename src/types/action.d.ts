@@ -15,10 +15,39 @@ interface ActionRange {
   unit?: string
 }
 
+interface ActivationConfig {
+  cost?: number;
+  type: string;
+  reactionTrigger?: string;
+}
+
+interface DurationConfig {
+  unit: string;
+  value?: number;
+}
+
+interface RechargeConfig {
+  formula: string;
+  threshold: number;
+}
+
 interface ScalingConfig {
   formula: string;
   mode: string;
   step?: number;
+}
+
+interface TargetConfig {
+  quantity?: number;
+  scaling: ScalingConfig;
+  type: string;
+}
+
+interface UsesConfig {
+  value: number;
+  max: string;
+  per: string;
+  recharge?: RechargeConfig
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -27,19 +56,9 @@ interface ScalingConfig {
 interface Action {
   name: string;
   description?: string;
-
-  activation: {
-    cost?: number;
-    type: string;
-    reactionTrigger?: string;
-  };
-
+  activation: ActivationConfig;
   area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
-
-  duration: {
-    unit: string;
-    value?: number;
-  };
+  duration: DurationConfig
 
   consumers: {};
 
@@ -49,19 +68,6 @@ interface Action {
 
   rolls: {};
 
-  target: {
-    quantity?: number;
-    scaling: ScalingConfig;
-    type: string;
-  }
-
-  uses: {
-    value: number;
-    max: string;
-    per: string;
-    recharge?: {
-      formula: string;
-      threshold: number;
-    }
-  };
+  target: TargetConfig;
+  uses: UsesConfig;
 }
