@@ -15,39 +15,39 @@ interface ActionRange {
   unit?: string
 }
 
-interface ActivationConfig {
+interface ActivationProperties {
   cost?: number;
   type: string;
   reactionTrigger?: string;
 }
 
-interface DurationConfig {
+interface DurationProperties {
   unit: string;
   value?: number;
 }
 
-interface RechargeConfig {
+interface RechargeProperties {
   formula: string;
   threshold: number;
 }
 
-interface ScalingConfig {
+interface ScalingProperties {
   formula: string;
   mode: string;
   step?: number;
 }
 
-interface TargetConfig {
+interface TargetProperties {
   quantity?: number;
-  scaling: ScalingConfig;
+  scaling: ScalingProperties;
   type: string;
 }
 
-interface UsesConfig {
+interface UsesProperties {
   value: number;
   max: string;
   per: string;
-  recharge?: RechargeConfig
+  recharge?: RechargeProperties
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -56,21 +56,17 @@ interface UsesConfig {
 interface Action {
   name: string;
   description?: string;
-  activation: ActivationConfig;
+  activation: ActivationProperties;
   area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
-  duration: DurationConfig
+  duration: DurationProperties
 
   consumers: {};
 
   prompts: {};
 
   ranges: { [id: string]: ActionRange };
+  rolls: { [id: string]: Rolls };
 
-  rolls: {
-    [id: string]: AbilityCheckRoll | AttackRoll | DamageRoll | GenericRoll | HealingRoll
-    | SavingThrowRoll | SkillCheckRoll | ToolCheckRoll
-  };
-
-  target: TargetConfig;
-  uses: UsesConfig;
+  target: TargetProperties;
+  uses: UsesProperties;
 }
