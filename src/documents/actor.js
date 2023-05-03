@@ -32,7 +32,7 @@ import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDia
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
-import overrideRollMode from '../utils/overrideRollMode.ts';
+import overrideRollMode from '../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
