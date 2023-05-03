@@ -10,21 +10,21 @@ type ActionPrompt = {
 
 };
 
-type ActionRange = {
+interface ActionRange {
   range: string | number;
   unit?: string
-};
+}
 
-type ScalingConfig = {
+interface ScalingConfig {
   formula: string;
   mode: string;
   step?: number;
-};
+}
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
 //      Action Type
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
-type Action = {
+interface Action {
   name: string;
   description?: string;
 
@@ -64,4 +64,4 @@ type Action = {
       threshold: number;
     }
   };
-};
+}
