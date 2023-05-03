@@ -1,6 +1,9 @@
-import ActorA5e from '../documents/actor';
+import overrideAttack from './overrides/overrideAttack';
+import overrideCheck from './overrides/overrideCheck';
+import overrideSave from './overrides/overrideSave';
+import overrideSkill from './overrides/overrideSkill';
 
-type Options = {
+export type OverrideRollModeOptions = {
   type: 'attack' | 'check' | 'save' | 'skill';
   attackType?: string;
   ability?: string;
@@ -9,7 +12,7 @@ type Options = {
   deathSave?: boolean;
 };
 
-type OverrideFlags = {
+export type OverrideFlags = {
   abilityCheck?: { [key: string]: number };
   abilitySave?: { [key: string]: number };
   concentration?: number;
@@ -26,9 +29,9 @@ type OverrideFlags = {
  * @returns {Number} rollMode
  */
 export default function overrideRollMode(
-  actor: ActorA5e,
+  actor: { getFlag: (scope: string, flag: string) => OverrideFlags; },
   rollMode: number,
-  options: Options
+  options: OverrideRollModeOptions
 ): number {
   // @ts-ignore
   const flags: OverrideFlags | undefined = actor.getFlag('a5e', 'effects.rollMode');
@@ -40,69 +43,6 @@ export default function overrideRollMode(
   if (type === 'check') return overrideCheck(flags, rollMode, ability);
   if (type === 'save') return overrideSave(flags, rollMode, options);
   if (type === 'skill') return overrideSkill(flags, rollMode, options);
-
-  return rollMode;
-}
-
-function determineRollMode(original: number, override: number): number {
-  const cancels = (original ^ override) < -1;
-  return cancels ? 0 : override;
-}
-
-function overrideAttack(
-  flags: OverrideFlags,
-  rollMode: number,
-  attackType: string | undefined
-): number {
-  if (typeof flags.attack?.all === 'number') return determineRollMode(rollMode, flags.attack.all);
-  if (!attackType) return rollMode;
-
-  if (flags.attack?.[attackType] && typeof flags.attack[attackType] === 'number') return determineRollMode(rollMode, flags.attack[attackType]);
-
-  return rollMode;
-}
-
-function overrideCheck(
-  flags: OverrideFlags,
-  rollMode: number,
-  ability: string | undefined
-): number {
-  if (typeof flags.abilityCheck?.all === 'number') return determineRollMode(rollMode, flags.abilityCheck.all);
-  if (!ability) return rollMode;
-
-  if (flags.abilityCheck?.[ability] && typeof flags.abilityCheck[ability] === 'number') return determineRollMode(rollMode, flags.abilityCheck[ability]);
-
-  return rollMode;
-}
-
-function overrideSave(flags: OverrideFlags, rollMode: number, options: Options): number {
-  const { ability, concentration, deathSave } = options;
-
-  if (typeof flags.abilitySave?.all === 'number') return determineRollMode(rollMode, flags.abilitySave.all);
-  if (!ability) {
-    if (deathSave && typeof flags.deathSave === 'number') return determineRollMode(rollMode, flags.deathSave);
-
-    return rollMode;
-  }
-
-  if (flags.abilitySave?.[ability] && typeof flags.abilitySave[ability] === 'number') return determineRollMode(rollMode, flags.abilitySave[ability]);
-
-  if (concentration && ability === 'con' && typeof flags.concentration === 'number') return determineRollMode(rollMode, flags.concentration);
-
-  return rollMode;
-}
-
-function overrideSkill(flags: OverrideFlags, rollMode: number, options: Options): number {
-  const { ability, skill } = options;
-
-  // Early exit if ability is being overridden
-  const override = overrideCheck(flags, rollMode, ability);
-  if (override !== rollMode) return override;
-
-  if (typeof flags.skillCheck?.all === 'number') return determineRollMode(rollMode, flags.skillCheck.all);
-  if (!skill) return rollMode;
-
-  if (flags.skillCheck?.[skill] && typeof flags.skillCheck[skill] === 'number') return determineRollMode(rollMode, flags.skillCheck[skill]);
 
   return rollMode;
 }
