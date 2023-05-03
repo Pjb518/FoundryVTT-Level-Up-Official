@@ -29,7 +29,7 @@ class A5eGameSettings extends TJSGameSettings {
     ];
 
     this.registerAll(settings, false);
-    this.refreshRequiredSettings = settings
+    this.refreshSettings = settings
       .filter((s) => s.options.refreshRequired)
       .map((s) => s.key);
   }
