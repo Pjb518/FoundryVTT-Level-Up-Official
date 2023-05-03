@@ -74,7 +74,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   _applyMultiply(document, change, current, delta, changes) {
     delta = this.#convertToDeterministicBonus(document, change, delta);
 
-    super._applyAdd(document, change, current, delta, changes);
+    super._applyMultiply(document, change, current, delta, changes);
   }
 
   /** @inheritdoc */
