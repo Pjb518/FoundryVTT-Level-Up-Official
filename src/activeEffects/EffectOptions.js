@@ -155,11 +155,11 @@ export default class EffectOptions {
 
     // Add advantage values
     specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, O_M];
-    specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, O_M];
+    // specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, O_M];
 
     Object.keys(A5E.attackTypes).forEach((key) => {
       specialValues[`flags.a5e.effects.rollMode.attack.${key}`] = [0, O_M];
-      specialValues[`flags.a5e.effects.grants.rollMode.attack.${key}`] = [0, O_M];
+      // specialValues[`flags.a5e.effects.grants.rollMode.attack.${key}`] = [0, O_M];
     });
 
     specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, O_M];
