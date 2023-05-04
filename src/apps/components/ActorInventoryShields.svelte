@@ -6,6 +6,32 @@
 
     const actor = getContext("actor");
 
+    function getBulkyTooltip(actor) {
+        let bulkyLimit;
+        const { supply } = actor.system;
+
+        if (supply) {
+            bulkyLimit = Math.max(1 + actor.system.abilities.str.mod, 0);
+        } else {
+            bulkyLimit = Math.max(2 + actor.system.abilities.str.mod, 0);
+        }
+
+        return `Bulky Limit: ${bulkyLimit}`;
+    }
+
+    function getSupplyTooltip(actor) {
+        const { supply } = actor.system;
+        const freeSupplyLimit = actor.system.abilities.str.value;
+
+        const excessSupply = Math.abs(Math.min(freeSupplyLimit - supply, 0));
+
+        if (excessSupply) {
+            return `Free Supply: ${freeSupplyLimit} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: ${excessSupply}`;
+        } else {
+            return `Free Supply: ${supply} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: 0`;
+        }
+    }
+
     $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
         if (item.system.bulky) bulkyCount += 1;
         return bulkyCount;
@@ -16,8 +42,10 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: attunement = $actor.system.attributes.attunement;
+    $: bulkyTooltip = getBulkyTooltip($actor);
     $: currency = $actor.system.currency;
     $: supply = $actor.system.supply;
+    $: supplyTooltip = getSupplyTooltip($actor);
 </script>
 
 <section class="shield-container">
@@ -55,7 +83,11 @@
 
         <!-- Supply -->
         <div class="shield">
-            <h3 class="footer-shield-header">
+            <h3
+                class="footer-shield-header"
+                data-tooltip={supplyTooltip}
+                data-tooltip-direction="UP"
+            >
                 {localize("A5E.Supply")}
             </h3>
 
@@ -78,7 +110,11 @@
 
         <!-- Bulky Items -->
         <div class="shield">
-            <h3 class="footer-shield-header">
+            <h3
+                class="footer-shield-header"
+                data-tooltip={bulkyTooltip}
+                data-tooltip-direction="UP"
+            >
                 {localize("Bulky Items")}
             </h3>
 
