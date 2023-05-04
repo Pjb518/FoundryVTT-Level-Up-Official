@@ -109,10 +109,9 @@ export default class EffectOptions {
   // eslint-disable-next-line no-unused-vars
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
-    const _M = Object.values(MODES);
 
     // Proficiency is prepared in base data so we add it here.
-    baseValues['system.attributes.prof'] = [0, _M];
+    baseValues['system.attributes.prof'] = [0, Object.values(MODES)];
 
     // TODO: Possibly need to add something for bonus to damage
 
@@ -150,34 +149,44 @@ export default class EffectOptions {
   // eslint-disable-next-line no-unused-vars
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
-    const AO_M = [MODES.ADD, MODES.OVERRIDE];
-    const O_M = [MODES.OVERRIDE];
+    const ADD_AND_OVERRIDE = [MODES.ADD, MODES.OVERRIDE];
+    const OVERRIDE_ONLY = [MODES.OVERRIDE];
+    const CUSTOM_ONLY = [MODES.OVERRIDE];
 
     // Add advantage values
-    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, O_M];
+    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, OVERRIDE_ONLY];
     // specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, O_M];
 
     Object.keys(A5E.attackTypes).forEach((key) => {
-      specialValues[`flags.a5e.effects.rollMode.attack.${key}`] = [0, O_M];
+      specialValues[`flags.a5e.effects.rollMode.attack.${key}`] = [0, OVERRIDE_ONLY];
       // specialValues[`flags.a5e.effects.grants.rollMode.attack.${key}`] = [0, O_M];
     });
 
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, O_M];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, O_M];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, O_M];
-    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, O_M];
-    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, O_M];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, OVERRIDE_ONLY];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, OVERRIDE_ONLY];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, OVERRIDE_ONLY];
+    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, OVERRIDE_ONLY];
+    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, OVERRIDE_ONLY];
 
     Object.keys(A5E.abilities).forEach((key) => {
-      specialValues[`flags.a5e.effects.rollMode.abilityCheck.${key}`] = [0, O_M];
-      specialValues[`flags.a5e.effects.rollMode.abilitySave.${key}`] = [0, O_M];
+      specialValues[`flags.a5e.effects.rollMode.abilityCheck.${key}`] = [0, OVERRIDE_ONLY];
+      specialValues[`flags.a5e.effects.rollMode.abilitySave.${key}`] = [0, OVERRIDE_ONLY];
     });
 
     Object.keys(A5E.skills).forEach((key) => {
-      specialValues[`flags.a5e.effects.rollMode.skillCheck.${key}`] = [0, O_M];
+      specialValues[`flags.a5e.effects.rollMode.skillCheck.${key}`] = [0, OVERRIDE_ONLY];
     });
 
-    specialValues['flags.a5e.effects.expertiseDie'] = [0, AO_M];
+    // TODO: Re-implement when better UI is available
+    // specialValues['flags.a5e.effects.expertiseDie'] = [0, ADD_AND_OVERRIDE];
+
+    // Damage and Conditions
+    specialValues['flags.a5e.effects.damageImmunities.all'] = [[], CUSTOM_ONLY];
+    specialValues['flags.a5e.effects.damageResistances.all'] = [[], CUSTOM_ONLY];
+    specialValues['flags.a5e.effects.damageVulnerabilities.all'] = [[], CUSTOM_ONLY];
+    specialValues['flags.a5e.effects.conditionImmunities.all'] = [[], CUSTOM_ONLY];
+
+
 
     // TODO: Maybe add something to automatically fail?
   }

@@ -91,6 +91,36 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   /**
+   * @inheritdoc
+   */
+  _applyCustom(document, change, current, delta, changes) {
+    console.log("Here");
+    if (!change.key.startsWith('flags.a5e.effects'))
+      return super._applyCustom(document, change, current, delta, changes);
+    console.log("Override");
+    console.log(change.key);
+
+    let newKey = "";
+    let update = "";
+
+    // TODO: Move to own utility function
+    switch (change.key) {
+      case 'flags.a5e.effects.damageResistances.all':
+      case 'flags.a5e.effects.damageVulnerabilities.all':
+      case 'flags.a5e.effects.damageImmunities.all':
+        newKey = `system.traits.${change.key.split(".").at(-2)}`
+        update = Object.keys(CONFIG.A5E.damageTypes);
+        break;
+      case 'flags.a5e.effects.conditionImmunities.all':
+        newKey = `system.traits.${change.key.split(".").at(-2)}`
+        update = Object.keys(CONFIG.A5E.conditions);
+        break;
+    }
+
+    changes[newKey] = update;
+  }
+
+  /**
    * Transfer the affect to another token.
    */
   transferEffect(token) {
