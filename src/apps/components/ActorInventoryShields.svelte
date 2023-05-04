@@ -6,6 +6,11 @@
 
     const actor = getContext("actor");
 
+    $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
+        if (item.system.bulky) bulkyCount += 1;
+        return bulkyCount;
+    }, 0);
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -22,6 +27,7 @@
             <h3 class="footer-shield-header">
                 {localize("A5E.Attunement")}
             </h3>
+
             <span
                 class="a5e-footer-group__value a5e-footer-group__value--attunement"
             >
@@ -48,7 +54,7 @@
         </div>
 
         <!-- Supply -->
-        <div class="shield shield--supply">
+        <div class="shield">
             <h3 class="footer-shield-header">
                 {localize("A5E.Supply")}
             </h3>
@@ -68,6 +74,17 @@
                         Number(target.value)
                     )}
             />
+        </div>
+
+        <!-- Bulky Items -->
+        <div class="shield">
+            <h3 class="footer-shield-header">
+                {localize("Bulky Items")}
+            </h3>
+
+            <span class="a5e-footer-group__value">
+                {bulkyItems}
+            </span>
         </div>
     {/if}
 
