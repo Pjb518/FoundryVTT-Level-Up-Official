@@ -29,7 +29,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return this.label;
   }
 
+  /**
+   * @returns {Boolean}
+   */
   get isSuppressed() {
+    let state = false;
+    // TODO: Refactor this when item effects are added
+    if (this.disabled || this.parent.documentName !== 'Actor') return state;
+
     const { parentItem } = this;
 
     if (!parentItem) return false;
