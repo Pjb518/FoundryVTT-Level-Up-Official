@@ -5,7 +5,7 @@
     import ScalingConfigDialog from "../../dialogs/initializers/HealingScalingConfigDialog";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     function onClickScalingButton() {
         const dialog = new ScalingConfigDialog($item, actionId, rollId);

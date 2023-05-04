@@ -5,8 +5,8 @@
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import objectEntriesNumberKeyConverter from "../../utils/objectEntriesNumberKeyConverter";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
 
     const item = getContext("item");
     const appId = getContext("appId");

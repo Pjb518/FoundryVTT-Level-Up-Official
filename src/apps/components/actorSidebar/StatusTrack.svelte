@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     export let icon;
     export let tooltipText;

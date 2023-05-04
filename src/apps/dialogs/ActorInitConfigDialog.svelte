@@ -5,7 +5,7 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId } = getContext("#external").application;
 

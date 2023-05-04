@@ -2,8 +2,8 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import usesRequired from "../../utils/usesRequired";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import usesRequired from "../../../utils/usesRequired";
 
     import ItemCategory from "../ItemCategory.svelte";
     import TabFooter from "../TabFooter.svelte";

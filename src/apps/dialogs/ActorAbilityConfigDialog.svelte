@@ -8,7 +8,7 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, abilityKey } =
         getContext("#external").application;

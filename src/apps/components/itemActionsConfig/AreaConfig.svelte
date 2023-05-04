@@ -4,7 +4,7 @@
     import TemplatePreparationManager from "../../../managers/TemplatePreparationManager";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
 

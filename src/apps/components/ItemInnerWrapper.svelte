@@ -3,7 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import getDeterministicBonus from "../../dice/getDeterministicBonus";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let item;
     export let action;

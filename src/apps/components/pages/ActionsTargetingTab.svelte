@@ -6,7 +6,7 @@
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
     import FormSection from "../FormSection.svelte";

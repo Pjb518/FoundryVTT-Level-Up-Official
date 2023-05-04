@@ -1,7 +1,7 @@
 <script>
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     function getTargetScalingOptions() {
         return [

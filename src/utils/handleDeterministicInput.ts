@@ -1,6 +1,6 @@
-import getDeterministicBonus from '../../dice/getDeterministicBonus';
+import getDeterministicBonus from '../dice/getDeterministicBonus';
 
-export default function handleDeterministicInput(formula, rollData = {}) {
+export default function handleDeterministicInput(formula: string, rollData: object = {}): number {
   try {
     getDeterministicBonus(formula, rollData);
   } catch (e) {

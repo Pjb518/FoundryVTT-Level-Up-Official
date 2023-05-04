@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
 

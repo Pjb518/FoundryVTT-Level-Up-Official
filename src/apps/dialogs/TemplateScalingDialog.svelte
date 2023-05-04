@@ -4,7 +4,7 @@
 
     import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     function getScalingOptions() {
         return [

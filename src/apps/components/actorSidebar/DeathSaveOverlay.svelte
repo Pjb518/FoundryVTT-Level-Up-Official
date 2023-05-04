@@ -4,7 +4,7 @@
     import pressedKeysStore from "../../../stores/pressedKeysStore";
 
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
 

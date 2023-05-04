@@ -5,7 +5,7 @@
     import CharacterShields from "./CharacterShields.svelte";
     import NpcShields from "./NpcShields.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
 </script>
