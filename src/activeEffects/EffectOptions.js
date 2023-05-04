@@ -67,7 +67,7 @@ export default class EffectOptions {
           option[0],
           option[1][0],
           option[1][1],
-          []
+          option[1]?.[2] ?? []
         );
         this.options[type].derivedOptions.push(effectOption);
       });
@@ -149,42 +149,43 @@ export default class EffectOptions {
   // eslint-disable-next-line no-unused-vars
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const ROLL_MODES = CONFIG.A5E.ROLL_MODES;
     const ADD_AND_OVERRIDE = [MODES.ADD, MODES.OVERRIDE];
     const OVERRIDE_ONLY = [MODES.OVERRIDE];
-    const CUSTOM_ONLY = [MODES.OVERRIDE];
+    const CUSTOM_ONLY = [MODES.CUSTOM];
 
     // Add advantage values
-    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, OVERRIDE_ONLY];
+    specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, OVERRIDE_ONLY, ROLL_MODES];
     // specialValues['flags.a5e.effects.grants.rollMode.attack.all'] = [0, O_M];
 
     Object.keys(A5E.attackTypes).forEach((key) => {
-      specialValues[`flags.a5e.effects.rollMode.attack.${key}`] = [0, OVERRIDE_ONLY];
+      specialValues[`flags.a5e.effects.rollMode.attack.${key}`] = [0, OVERRIDE_ONLY, ROLL_MODES];
       // specialValues[`flags.a5e.effects.grants.rollMode.attack.${key}`] = [0, O_M];
     });
 
-    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, OVERRIDE_ONLY];
-    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, OVERRIDE_ONLY];
-    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, OVERRIDE_ONLY];
-    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, OVERRIDE_ONLY];
-    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, OVERRIDE_ONLY];
+    specialValues['flags.a5e.effects.rollMode.abilityCheck.all'] = [0, OVERRIDE_ONLY, ROLL_MODES];
+    specialValues['flags.a5e.effects.rollMode.abilitySave.all'] = [0, OVERRIDE_ONLY, ROLL_MODES];
+    specialValues['flags.a5e.effects.rollMode.skillCheck.all'] = [0, OVERRIDE_ONLY, ROLL_MODES];
+    specialValues['flags.a5e.effects.rollMode.concentration'] = [0, OVERRIDE_ONLY, ROLL_MODES];
+    specialValues['flags.a5e.effects.rollMode.deathSave'] = [0, OVERRIDE_ONLY, ROLL_MODES];
 
     Object.keys(A5E.abilities).forEach((key) => {
-      specialValues[`flags.a5e.effects.rollMode.abilityCheck.${key}`] = [0, OVERRIDE_ONLY];
-      specialValues[`flags.a5e.effects.rollMode.abilitySave.${key}`] = [0, OVERRIDE_ONLY];
+      specialValues[`flags.a5e.effects.rollMode.abilityCheck.${key}`] = [0, OVERRIDE_ONLY, ROLL_MODES];
+      specialValues[`flags.a5e.effects.rollMode.abilitySave.${key}`] = [0, OVERRIDE_ONLY, ROLL_MODES];
     });
 
     Object.keys(A5E.skills).forEach((key) => {
-      specialValues[`flags.a5e.effects.rollMode.skillCheck.${key}`] = [0, OVERRIDE_ONLY];
+      specialValues[`flags.a5e.effects.rollMode.skillCheck.${key}`] = [0, OVERRIDE_ONLY, ROLL_MODES];
     });
 
     // TODO: Re-implement when better UI is available
     // specialValues['flags.a5e.effects.expertiseDie'] = [0, ADD_AND_OVERRIDE];
 
     // Damage and Conditions
-    specialValues['flags.a5e.effects.damageImmunities.all'] = [[], CUSTOM_ONLY];
-    specialValues['flags.a5e.effects.damageResistances.all'] = [[], CUSTOM_ONLY];
-    specialValues['flags.a5e.effects.damageVulnerabilities.all'] = [[], CUSTOM_ONLY];
-    specialValues['flags.a5e.effects.conditionImmunities.all'] = [[], CUSTOM_ONLY];
+    specialValues['flags.a5e.effects.damageImmunities.all'] = [[], CUSTOM_ONLY, null];
+    specialValues['flags.a5e.effects.damageResistances.all'] = [[], CUSTOM_ONLY, null];
+    specialValues['flags.a5e.effects.damageVulnerabilities.all'] = [[], CUSTOM_ONLY, null];
+    specialValues['flags.a5e.effects.conditionImmunities.all'] = [[], CUSTOM_ONLY, null];
 
 
 

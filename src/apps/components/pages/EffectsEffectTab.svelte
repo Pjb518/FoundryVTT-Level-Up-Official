@@ -29,7 +29,10 @@
     }
 
     const MODES = Object.fromEntries(
-        Object.entries(CONST.ACTIVE_EFFECT_MODES).map(([k, v]) => [v, k])
+        Object.entries(CONST.ACTIVE_EFFECT_MODES).map(([k, v]) => [
+            v,
+            k.toLowerCase().capitalize(),
+        ])
     );
     const optionsList = sheet.optionsList;
 

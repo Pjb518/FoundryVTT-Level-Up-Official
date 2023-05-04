@@ -94,11 +94,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @inheritdoc
    */
   _applyCustom(document, change, current, delta, changes) {
-    console.log("Here");
     if (!change.key.startsWith('flags.a5e.effects'))
       return super._applyCustom(document, change, current, delta, changes);
-    console.log("Override");
-    console.log(change.key);
 
     let newKey = "";
     let update = "";
