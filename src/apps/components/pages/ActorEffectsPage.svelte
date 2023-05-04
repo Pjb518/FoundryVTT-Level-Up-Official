@@ -2,9 +2,9 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import Effect from "../Effect.svelte";
     import EffectCategory from "../EffectCategory.svelte";
-    import SortFilter from "../SortFilter.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     const actor = getContext("actor");
     const { activeEffects } = actor;
@@ -29,10 +29,17 @@
 
 <div class="effects-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="activeEffects" hideFilter={true} {subTypes} />
+        <UtilityBar>
+            <!-- Search Bar -->
+            <Search reducerType="activeEffects" />
+            <!-- Sort -->
+            <!-- Filter -->
+            <!-- Quick Search -->
+            <!-- Add -->
+        </UtilityBar>
     {/if}
 
-    <section class="effects__main-container">
+    <section class="effects-main-container">
         {#each Object.entries($activeEffects._types) as [label, effects]}
             {#if effects.length}
                 <EffectCategory label={subTypes[label]} {effects} />
@@ -50,7 +57,7 @@
         overflow: hidden;
     }
 
-    .effects__main-container {
+    .effects-main-container {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
