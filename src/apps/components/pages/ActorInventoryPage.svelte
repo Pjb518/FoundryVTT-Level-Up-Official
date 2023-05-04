@@ -7,8 +7,8 @@
     import TabFooter from "../TabFooter.svelte";
     import SortFilter from "../SortFilter.svelte";
 
-    import usesRequired from "../../utils/usesRequired";
-    import quantityRequired from "../../utils/quantityRequired";
+    import usesRequired from "../../../utils/usesRequired";
+    import quantityRequired from "../../../utils/quantityRequired";
 
     const actor = getContext("actor");
     const { objects } = actor;

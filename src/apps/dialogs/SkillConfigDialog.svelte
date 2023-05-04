@@ -10,7 +10,7 @@
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
     import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, skillKey } =
         getContext("#external").application;

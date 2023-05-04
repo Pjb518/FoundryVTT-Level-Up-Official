@@ -3,7 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import editDocumentImage from "../../handlers/editDocumentImage";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
     const prerequisiteTypes = ["maneuver", "feature"];

@@ -1,9 +1,10 @@
 <script>
     import { getContext } from "svelte";
 
-    import computeTotalAvailableHitDice from "../../utils/computeTotalAvailableHitDice";
+    import computeTotalAvailableHitDice from "../../../utils/computeTotalAvailableHitDice";
 
     const actor = getContext("actor");
+
     $: availableHitDice = computeTotalAvailableHitDice($actor);
 </script>
 

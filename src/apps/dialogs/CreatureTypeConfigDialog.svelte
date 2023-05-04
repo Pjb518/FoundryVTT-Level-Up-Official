@@ -3,7 +3,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import FormSection from "../components/FormSection.svelte";

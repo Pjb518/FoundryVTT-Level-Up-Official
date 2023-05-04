@@ -5,7 +5,7 @@
 
     import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
 
-    import computeSaveDC from "../utils/computeSaveDC";
+    import computeSaveDC from "../../utils/computeSaveDC";
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";

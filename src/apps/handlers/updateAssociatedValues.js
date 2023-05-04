@@ -1,4 +1,4 @@
-import updateDocumentDataFromField from '../utils/updateDocumentDataFromField';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
 export default function updateAssociatedValues(
   document,
