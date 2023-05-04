@@ -4,7 +4,7 @@
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import isStandardRange from "../../../utils/isStandardRange";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";

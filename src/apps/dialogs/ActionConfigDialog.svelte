@@ -13,7 +13,7 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     import editDocumentImage from "../handlers/editDocumentImage";
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { actionId, dialog, itemDocument } =
         getContext("#external").application;

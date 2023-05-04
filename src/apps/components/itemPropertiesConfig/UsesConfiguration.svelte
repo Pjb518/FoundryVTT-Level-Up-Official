@@ -4,7 +4,7 @@
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FormSection from "../FormSection.svelte";
 

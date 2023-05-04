@@ -4,7 +4,7 @@
     import ItemCategory from "../ItemCategory.svelte";
     import SortFilter from "../SortFilter.svelte";
 
-    import usesRequired from "../../utils/usesRequired";
+    import usesRequired from "../../../utils/usesRequired";
 
     const actor = getContext("actor");
     const { features } = actor;

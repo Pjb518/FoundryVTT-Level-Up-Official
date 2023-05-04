@@ -4,7 +4,7 @@
 
     import Editor from "../Editor.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     let currentEditor = "bio";
 

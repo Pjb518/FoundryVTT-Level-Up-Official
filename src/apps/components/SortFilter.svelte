@@ -14,8 +14,8 @@
     } from "../handlers/handleSearchFilter";
     import { sortAscending, sortDescending } from "../handlers/sortingHandlers";
 
-    import createItem from "../utils/createItem";
-    import updateFilters from "../utils/updateFilters";
+    import createItem from "../../utils/createItem";
+    import updateFilters from "../../utils/updateFilters";
 
     import AddMenu from "./AddMenu.svelte";
     import FilterBox from "./FilterBox.svelte";

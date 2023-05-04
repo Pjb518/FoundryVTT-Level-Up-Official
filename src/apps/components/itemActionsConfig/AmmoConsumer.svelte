@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     export let consumer;
     export let consumerId;
@@ -55,9 +55,9 @@
         />
     </div>
 
-    <div class="a5e-field-group u-flex-row u-gap-md ">
+    <div class="a5e-field-group u-flex-row u-gap-md">
         <div class="u-flex u-flex-col u-gap-sm">
-            <h3 class="a5e-field-group__heading ">
+            <h3 class="a5e-field-group__heading">
                 {localize("A5E.Item")}
             </h3>
 

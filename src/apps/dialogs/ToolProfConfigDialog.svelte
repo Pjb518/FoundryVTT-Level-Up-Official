@@ -6,7 +6,7 @@
     import TagGroup from "../components/TagGroup.svelte";
     import InputField from "../components/InputField.svelte";
 
-    import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { application } = getContext("#external");
     export let {

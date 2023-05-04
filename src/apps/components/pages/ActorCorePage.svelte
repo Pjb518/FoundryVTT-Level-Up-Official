@@ -5,7 +5,7 @@
     import ItemCategory from "../ItemCategory.svelte";
     import ActorSkillsPage from "./ActorSkillsPage.svelte";
 
-    import usesRequired from "../../utils/usesRequired";
+    import usesRequired from "../../../utils/usesRequired";
     import quantityRequired from "../../../utils/quantityRequired";
 
     export let resources;

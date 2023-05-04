@@ -4,7 +4,7 @@
 
     import FormSection from "../FormSection.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
 

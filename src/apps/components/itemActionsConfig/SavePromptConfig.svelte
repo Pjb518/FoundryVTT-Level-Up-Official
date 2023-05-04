@@ -3,9 +3,9 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import computeSaveDC from "../../utils/computeSaveDC";
+    import computeSaveDC from "../../../utils/computeSaveDC";
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import RadioGroup from "../RadioGroup.svelte";
 
