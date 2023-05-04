@@ -3,6 +3,8 @@
     import { getContext } from "svelte";
 
     import Effect from "../Effect.svelte";
+    import EffectCategory from "../EffectCategory.svelte";
+    import SortFilter from "../SortFilter.svelte";
 
     const actor = getContext("actor");
     const { activeEffects } = actor;
@@ -16,44 +18,44 @@
             },
         ]);
     }
+
+    const subTypes = {
+        temporary: "A5E.effects.type.temporary",
+        passive: "A5E.effects.type.passive",
+        inactive: "A5E.effects.type.inactive",
+    };
+    console.log($activeEffects._types);
 </script>
 
-<header class="section-header">
-    <h3>
-        {localize("A5E.TabEffects")}
-    </h3>
-</header>
+<div class="effects-page">
+    {#if $actor.isOwner}
+        <SortFilter itemType="activeEffects" hideFilter={true} {subTypes} />
+    {/if}
 
-<button on:click={addEffect}> + Add Effect </button>
-
-<ul class="effects-container">
-    {#each [...$activeEffects] as effect}
-        <Effect {effect} />
-    {/each}
-</ul>
+    <section class="effects__main-container">
+        {#each Object.entries($activeEffects._types) as [label, effects]}
+            {#if effects.length}
+                <EffectCategory label={subTypes[label]} {effects} />
+            {/if}
+        {/each}
+    </section>
+</div>
 
 <style lang="scss">
-    .effects-container {
+    .effects-page {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
-        padding: 0;
-        padding-right: 0.375rem;
-        margin: 0;
-        margin-right: -0.375rem;
-        list-style: none;
-        overflow-y: auto;
+        flex: 1;
+        gap: 0.5rem;
+        overflow: hidden;
     }
 
-    .section-header {
+    .effects__main-container {
         display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 0.25rem;
-        padding-top: 0;
-        border-bottom: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: "Modesto Condensed", serif;
+        flex-grow: 1;
+        flex-direction: column;
+        gap: 0.75rem;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 </style>

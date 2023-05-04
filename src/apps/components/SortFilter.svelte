@@ -20,6 +20,7 @@
     import AddMenu from "./AddMenu.svelte";
     import FilterBox from "./FilterBox.svelte";
 
+    export let hideFilter = false;
     export let itemType;
     export let subTypes;
 
@@ -32,11 +33,11 @@
     onDestroy(() => removeSearchFilter(reducer));
 
     // Get filterOptions
-    const filterSections = Object.values(CONFIG.A5E.filters[itemType]);
+    const filterSections = Object.values(CONFIG.A5E.filters[itemType] ?? {});
     const filterFlag = $actor.getFlag("a5e", `filters.${itemType}`) ?? {};
 
     // Apply any filters previously applied
-    updateFilters(reducer, itemType, filterFlag);
+    if (!hideFilter) updateFilters(reducer, itemType, filterFlag);
 
     function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
         $actor.setFlag("a5e", `filters.${itemType}`, {
@@ -92,15 +93,17 @@
             onPress={onSortReducer}
         />
 
-        <TJSToggleIconButton title="Filters" icon="fas fa-filter">
-            <TJSMenu>
-                <FilterBox
-                    {filterSections}
-                    activeFilters={filters}
-                    {onUpdateFilters}
-                />
-            </TJSMenu>
-        </TJSToggleIconButton>
+        {#if !hideFilter}
+            <TJSToggleIconButton title="Filters" icon="fas fa-filter">
+                <TJSMenu>
+                    <FilterBox
+                        {filterSections}
+                        activeFilters={filters}
+                        {onUpdateFilters}
+                    />
+                </TJSMenu>
+            </TJSToggleIconButton>
+        {/if}
 
         <TJSToggleIconButton title="Add Item" icon="fas fa-plus">
             <TJSMenu>
