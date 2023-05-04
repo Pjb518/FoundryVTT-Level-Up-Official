@@ -4,6 +4,7 @@
 
     import EffectCategory from "../EffectCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     const actor = getContext("actor");
@@ -24,15 +25,15 @@
         passive: "A5E.effects.type.passive",
         inactive: "A5E.effects.type.inactive",
     };
-    console.log($activeEffects._types);
+
+    const reducerType = "activeEffects";
 </script>
 
 <div class="effects-page">
     {#if $actor.isOwner}
         <UtilityBar>
-            <!-- Search Bar -->
-            <Search reducerType="activeEffects" />
-            <!-- Sort -->
+            <Search {reducerType} />
+            <Sort {reducerType} documentName="ActiveEffect" />
             <!-- Filter -->
             <!-- Quick Search -->
             <!-- Add -->

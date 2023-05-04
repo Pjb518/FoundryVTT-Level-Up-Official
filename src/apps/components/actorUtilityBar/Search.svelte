@@ -17,11 +17,13 @@
 </script>
 
 <div class="search-container">
-    <TJSInput {input} />
+    <TJSInput {input} --tjs-input-placeholder-color="#555" />
 </div>
 
 <style lang="scss">
     .search-container {
         flex-grow: 1;
+
+        color: black;
     }
 </style>

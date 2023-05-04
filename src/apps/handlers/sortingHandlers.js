@@ -1,25 +1,25 @@
-export function sortAscending(document, reducer) {
-  const items = [...reducer];
-  items.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+export function sortAscending(document, reducer, documentName) {
+  const entities = [...reducer];
+  entities.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
-  const updateData = items.map((item, idx) => ({
-    _id: item.id,
+  const updateData = entities.map((entity, idx) => ({
+    _id: entity.id,
     sort: idx
   }));
 
-  document.updateEmbeddedDocuments('Item', updateData);
+  document.updateEmbeddedDocuments(documentName, updateData);
 }
 
-export function sortDescending(document, reducer) {
-  const items = [...reducer];
-  items
+export function sortDescending(document, reducer, documentName) {
+  const entities = [...reducer];
+  entities
     .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
     .reverse();
 
-  const updateData = items.map((item, idx) => ({
-    _id: item.id,
+  const updateData = entities.map((entity, idx) => ({
+    _id: entity.id,
     sort: idx
   }));
 
-  document.updateEmbeddedDocuments('Item', updateData);
+  document.updateEmbeddedDocuments(documentName, updateData);
 }
