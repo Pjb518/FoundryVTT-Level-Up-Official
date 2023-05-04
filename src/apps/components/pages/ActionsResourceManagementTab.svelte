@@ -19,7 +19,7 @@
 
     import FormSection from "../FormSection.svelte";
 
-    import handleDeterministicInput from "../../utils/handleDeterministicInput";
+    import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");

@@ -6,7 +6,7 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import updateDocumentDataFromField from "../utils/updateDocumentDataFromField";
-    import handleDeterministicInput from "../utils/handleDeterministicInput";
+    import handleDeterministicInput from "../../utils/handleDeterministicInput";
 
     export let { actor, source, appId } = getContext("#external").application;
 
