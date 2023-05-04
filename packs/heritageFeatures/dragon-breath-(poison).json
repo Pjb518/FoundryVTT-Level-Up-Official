@@ -1,0 +1,198 @@
+{
+	"name": "Dragon Breath (poison)",
+	"type": "feature",
+	"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-heritage-features.20aq17g4msiy6odz"
+		}
+	},
+	"system": {
+		"actions": {
+			"f43Pn9axVgO8KEHt": {
+				"name": "Line",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"S3Umm0bvdv2igZ3a": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"4tqcmsWVPcMhG0fg": {
+						"canCrit": true,
+						"damageType": "poison",
+						"formula": "(2 + floor((@level + 1) / 5))d6",
+						"name": "Breath Weapon",
+						"type": "damage",
+						"scaling": {
+							"mode": "itemUses"
+						},
+						"defaultLabel": " Damage #1"
+					}
+				},
+				"prompts": {
+					"Pi0Mm5Cnx1lI9lYh": {
+						"ability": "con",
+						"onSave": "half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@con.mod+@prof"
+						},
+						"type": "savingThrow",
+						"defaultLabel": "Dexterity Saving Throw #1",
+						"dc": 16
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "line",
+					"size": "",
+					"placeTemplate": true,
+					"quantity": 1,
+					"width": 5,
+					"length": 30
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+				"ranges": {
+					"POQwMnnODaajvMZd": {
+						"range": "self"
+					}
+				}
+			},
+			"xCL4eHwST5GKcfug": {
+				"name": "Cone",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"PnKYej8dpEfGNIz8": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"4tqcmsWVPcMhG0fg": {
+						"canCrit": true,
+						"damageType": "poison",
+						"formula": "(2 + floor((@level + 1) / 5))d6",
+						"name": "Breath Weapon",
+						"type": "damage",
+						"scaling": {
+							"mode": "itemUses"
+						},
+						"defaultLabel": " Damage #1"
+					}
+				},
+				"prompts": {
+					"Pi0Mm5Cnx1lI9lYh": {
+						"ability": "con",
+						"onSave": "half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@con.mod+@prof"
+						},
+						"type": "savingThrow",
+						"defaultLabel": "Dexterity Saving Throw #1",
+						"dc": 16
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "cone",
+					"size": "",
+					"placeTemplate": true,
+					"quantity": 1,
+					"width": 5,
+					"length": 15
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+				"ranges": {
+					"bWNRsUFgclCFFasA": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>Drawing upon great reservoirs of draconic power, you can unleash magical destruction upon your foes. You can use your dragon breath as an action.</p>\n<p>Choose the type of damage dealt by your breath weapon from the following list: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder.</p>\n<p>Additionally, choose between a 30-foot line that is 5 feet wide or a 15-foot cone for the area that your breath weapon affects. Each creature in the breath&rsquo;s area makes a Dexterity saving throw . If your breath weapon deals psychic damage, a Wisdom saving throw is made instead of Dexterity; if cold, necrotic, poison, radiant, or thunder, a Constitution saving throw . The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus.</p>\n<p>A creature takes 2d6 damage on a failed saving throw, and half damage on a success. The damage increases to 3d6 at 4th level, 4d6 at 9th level, 5d6 at 14th level, and 6d6 at 19th level.</p>\n<p>After you use your dragon breath, you can&rsquo;t use it again until you finish a short or long rest</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
+		},
+		"featureType": "heritage",
+		"prerequisite": "Dragonborn Heritage",
+		"ability": null,
+		"proficient": true,
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": "dex"
+		}
+	},
+	"_id": "20aq17g4msiy6odz"
+}

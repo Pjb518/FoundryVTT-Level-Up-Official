@@ -11,14 +11,14 @@
 	"system": {
 		"actions": {
 			"g3R1pKM5ztl3lA1S": {
-				"name": "Claws (Draconic Armor Dragonborn)",
+				"name": "Melee Weapon Attack",
 				"activation": {
 					"cost": 1,
 					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "",
+					"unit": "instantaneous",
 					"value": ""
 				},
 				"area": {
@@ -27,25 +27,32 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 1,
+					"type": "creatureObject"
 				},
 				"rolls": {
 					"EpZHsOUfSK5wAMVl": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"ability": "str"
+						"ability": "str",
+						"label": "Melee Weapon Attack"
 					},
 					"i4l3hKx0eUJcYV23": {
 						"canCrit": true,
 						"damageType": "slashing",
-						"formula": "1d4",
+						"formula": "1d4+@str.mod",
 						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"label": "Slashing"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"ranges": {
+					"er11bwfe8Kv1qrZb": {
+						"range": "fiveFeet"
+					}
+				}
 			}
 		},
 		"description": "<p>You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes that deal slashing damage equal to 1d4 + your Strength modifier.</p>",
@@ -72,7 +79,7 @@
 			}
 		},
 		"featureType": "heritage",
-		"prerequisite": "",
+		"prerequisite": "Dragonborn Heritage, Draconic Armor Gift",
 		"ability": "str",
 		"proficient": true,
 		"save": {
