@@ -8,11 +8,16 @@
     import ItemCategory from "../ItemCategory.svelte";
     import TabFooter from "../TabFooter.svelte";
     import SortFilter from "../SortFilter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
 
     const subTypes = CONFIG.A5E.maneuverDegrees;
+    const reducerType = "maneuvers";
 
     $: exertion = $actor.system.attributes.exertion;
     $: sheetIsLocked = !$actor.isOwner
@@ -22,7 +27,13 @@
 
 <div class="maneuvers-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="maneuvers" {subTypes} />
+        <!-- <SortFilter itemType="maneuvers" {subTypes} /> -->
+
+        <UtilityBar>
+            <Search {reducerType} />
+            <Sort {reducerType} />
+            <Filter {reducerType} />
+        </UtilityBar>
     {/if}
 
     <section class="maneuvers-main-container">

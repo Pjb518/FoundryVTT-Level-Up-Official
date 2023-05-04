@@ -18,6 +18,13 @@
     }
 
     :global {
+        // .tjs-menu {
+        //     --tjs-menu-background: url("/ui/denim075.png") repeat,
+        //         rgba(0 0 0 / 0.15);
+        //     --tjs-menu-primary-color: #deddd3;
+        //     --tjs-menu-border: 2px solid #555;
+        // }
+
         .tjs-icon-button,
         .tjs-toggle-icon-button {
             a:hover {
