@@ -12,6 +12,6 @@ export default class ActiveEffectMapReducer extends DynMapReducer {
 
     this._types.temporary.filters.add(effect => effect.isTemporary);
     this._types.passive.filters.add(effect => !effect.isTemporary && !effect.isSuppressed);
-    this._types.temporary.filters.add(effect => effect.isSuppressed);
+    this._types.inactive.filters.add(effect => effect.isSuppressed);
   }
 }
