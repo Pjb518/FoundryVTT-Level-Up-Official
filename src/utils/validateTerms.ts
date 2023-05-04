@@ -5,10 +5,9 @@
  * The function accepts an array of objects, each containing a value to test and an error message
  * for if that value fails validation.
  *
- * @param {Object[]} terms
- * @returns {string[]} An array of error messages resulting from validating the terms.
+ * Returns array of error messages resulting from validating the terms.
  */
-export default function validateTerms(terms) {
+export default function validateTerms(terms: object[]): string[] {
   return terms.reduce((errors, { value, message }) => {
     try {
       if (value && !Roll.validate(value.toString())) throw Error(message);

@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
+import ActiveEffectA5e from './activeEffect';
 import RestManager from '../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -28,11 +29,10 @@ import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRol
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import calculatePassiveScore from '../utils/calculatePassiveScore';
-import calculateSpellcastingMod from '../utils/calculateSpellcastingMod';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getExpertiseDieSize from '../utils/getExpertiseDieSize';
+import overrideRollMode from '../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
@@ -67,6 +67,25 @@ export default class ActorA5e extends Actor {
     };
   }
 
+  /**
+   * @returns {Array<ActiveEffectA5e>}
+   */
+  get actorEffects() {
+    return this.effects.map((e) => e);
+  }
+
+  /**
+   * @returns {Set<String>}
+   */
+  get derivedProperties() {
+    return new Set(Object.keys(
+      game.a5e.activeEffects.EffectOptions.options[this.type].derivedOptionsObj
+    ));
+  }
+
+  /**
+   * @returns {String} hitPointFormula
+   */
   get hitPointFormula() {
     const { hitDice } = this.system.attributes;
     const { mod } = this.system.abilities.con;
@@ -84,6 +103,17 @@ export default class ActorA5e extends Actor {
     if (hitDiceCount === 0) return null;
 
     return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+  }
+
+  /**
+   * @override
+   */
+  prepareData() {
+    this.prepareBaseData();
+    super.prepareEmbeddedDocuments();
+    this.applyActiveEffectsToBaseData();
+    this.prepareDerivedData();
+    this.applyActiveEffectsToDerivedData();
   }
 
   /**
@@ -150,6 +180,7 @@ export default class ActorA5e extends Actor {
         Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod)
       ].join(' + '), this.getRollData());
     } catch {
+      // eslint-disable-next-line no-console
       console.error(`Failed to calculate a maneuver DC for ${this.name}`);
       actorData.attributes.maneuverDC = null;
     }
@@ -162,6 +193,7 @@ export default class ActorA5e extends Actor {
         actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod
       ].join(' + '), this.getRollData());
     } catch {
+      // eslint-disable-next-line no-console
       console.error(`Failed to calculate a spell DC for ${this.name}`);
       actorData.attributes.spellDC = null;
     }
@@ -184,6 +216,35 @@ export default class ActorA5e extends Actor {
   prepareNPCData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
+  }
+
+  /**
+     * Empty return because we apply affects with custom handlers
+     * @override
+     */
+  applyActiveEffects() { }
+
+  /**
+   * Apply active effects to base data once base data is ready.
+   */
+  applyActiveEffectsToBaseData() {
+    this.overrides = {};
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      (change) => !this.derivedProperties.has(change.key)
+    );
+  }
+
+  /**
+   * Apply active effects to derived data once derived properties are read.
+   */
+  applyActiveEffectsToDerivedData() {
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      (change) => this.derivedProperties.has(change.key)
+    );
   }
 
   /** @inheritdoc */
@@ -324,14 +385,16 @@ export default class ActorA5e extends Actor {
           this.getRollData()
         );
       } catch {
+        // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
       }
 
       skill.deterministicBonus = deterministicBonus ?? skill.mod;
 
       try {
-        skill.passive = calculatePassiveScore(skill, this.getRollData());
+        skill.passive = this.#calculatePassiveScore(skill);
       } catch {
+        // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
         skill.passive = null;
       }
@@ -368,7 +431,7 @@ export default class ActorA5e extends Actor {
     };
 
     data.spell = {
-      mod: calculateSpellcastingMod(this.system)
+      mod: this.#calculateSpellcastingMod()
     };
 
     data.spellcasting = {
@@ -381,6 +444,27 @@ export default class ActorA5e extends Actor {
     data.maneuverDC = this.system.attributes.maneuverDC;
 
     return data;
+  }
+
+  #calculatePassiveScore(skill) {
+    const rollData = this.getRollData();
+
+    return getDeterministicBonus([
+      10,
+      skill.deterministicBonus,
+      skill.bonuses.passive,
+      rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
+
+      // Remove the double addition of the global check bonus
+      `- ${getDeterministicBonus(rollData.bonuses.abilities.check, rollData)}`
+    ].filter(Boolean).join(' + '), rollData);
+  }
+
+  #calculateSpellcastingMod() {
+    const { abilities, attributes } = this.system;
+    const spellcastingAbility = attributes.spellcasting || 'int';
+
+    return abilities[spellcastingAbility].check.mod;
   }
 
   #configure(key, title, data, options) {
@@ -528,6 +612,7 @@ export default class ActorA5e extends Actor {
     const { current, max } = this.system.attributes.exertion;
 
     const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
+      // eslint-disable-next-line no-unused-vars
       ([_, { current: c, total: t }]) => c > 0 && t > 0
     );
 
@@ -599,10 +684,11 @@ export default class ActorA5e extends Actor {
 
   getDefaultAbilityCheckData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, type: 'check' }),
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
@@ -748,10 +834,11 @@ export default class ActorA5e extends Actor {
 
   getDefaultSavingThrowData(abilityKey, options = {}) {
     const ability = this.system.abilities[abilityKey];
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }),
       modifiers: [
         {
           label: localize('A5E.AbilityCheckMod', {
@@ -853,10 +940,11 @@ export default class ActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const ability = this.system.abilities[abilityKey];
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, skill: skillKey, type: 'skill' }),
       minRoll: options?.minRoll ?? skill.minRoll,
       modifiers: [
         {

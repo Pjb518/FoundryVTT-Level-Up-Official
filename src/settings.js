@@ -1,4 +1,7 @@
 import MigrationRunner from './migration/MigrationRunner';
+import SettingsShim from './settings/SettingsShim';
+
+import { gameSettings } from './settings/SettingsStore';
 
 class ConditionAutomationSettings extends FormApplication {
   static get defaultOptions() {
@@ -17,22 +20,23 @@ class ConditionAutomationSettings extends FormApplication {
   // eslint-disable-next-line no-unused-vars
   getData(options = {}) {
     this.conditions = [
-      // 'blinded',
+      'blinded',
+      'bloodied',
       'encumbered',
       // 'fatigue',
       // 'frightened',
       'grappled',
-      // 'invisible',
-      // 'paralyzed',
+      'invisible',
+      'paralyzed',
       'petrified',
-      // 'poisoned',
-      // 'prone',
-      // 'rattled',
+      'poisoned',
+      'prone',
+      'rattled',
       'restrained',
-      'slowed'
+      'slowed',
       // 'strife',
-      // 'stunned',
-      // 'unconscious'
+      'stunned',
+      'unconscious'
     ];
 
     const enabledConditions = game.settings.get('a5e', 'automatedConditions');
@@ -61,6 +65,8 @@ class ConditionAutomationSettings extends FormApplication {
 }
 
 export default function registerSystemSettings() {
+  gameSettings.init();
+
   const reload = foundry.utils.debounce(() => window.location.reload(), 250);
 
   // Internal System Migration Version
@@ -213,20 +219,28 @@ export default function registerSystemSettings() {
   });
 
   // Enable settings for condition automation
-  game.settings.register('a5e', 'automatedConditions', {
-    name: 'A5E.settings.automateConditions',
-    scope: 'world',
-    config: false,
-    type: Array,
-    default: ['petrified'],
-    onChange: reload
-  });
+  // game.settings.register('a5e', 'automatedConditions', {
+  //   name: 'A5E.settings.automateConditions',
+  //   scope: 'world',
+  //   config: false,
+  //   type: Array,
+  //   default: ['bloodied'],
+  //   onChange: reload
+  // });
 
-  game.settings.registerMenu('a5e', 'ConditionAutomationMenu', {
-    name: 'Condition Automation Menu',
-    label: 'Configure Condition Automation',
+  // game.settings.registerMenu('a5e', 'ConditionAutomationMenu', {
+  //   name: 'Condition Automation Menu',
+  //   label: 'Configure Condition Automation',
+  //   icon: 'fas fa bars',
+  //   type: ConditionAutomationSettings,
+  //   restricted: true
+  // });
+
+  game.settings.registerMenu('a5e', 'SystemSettings', {
+    name: 'System Settings',
+    label: 'Configure System Settings',
     icon: 'fas fa bars',
-    type: ConditionAutomationSettings,
+    type: SettingsShim,
     restricted: true
   });
 }

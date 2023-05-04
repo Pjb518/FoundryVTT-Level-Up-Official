@@ -10,6 +10,7 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
@@ -42,7 +43,12 @@
         options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
 
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        skill: skillKey,
+        type: "skill",
+    });
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");

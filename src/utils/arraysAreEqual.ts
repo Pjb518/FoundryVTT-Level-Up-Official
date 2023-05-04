@@ -4,12 +4,9 @@
  *
  * Note that the order of elements is irrelevant as the provided arrays are sorted.
  *
- * @param {Array} _a
- * @param {Array} _b
- *
- * @returns {Boolean} Returns true is the two arrays are exactly equal, excluding order.
+ * Returns true is the two arrays are exactly equal, disregarding order.
  */
-export default function arraysAreEqual(_a, _b) {
+export default function arraysAreEqual(_a: array, _b: array): boolean {
   if (!Array.isArray(_a) || !Array.isArray(_b)) return false;
 
   const a = Array.from(_a).sort();

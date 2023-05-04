@@ -3,9 +3,23 @@
 
     import pressedKeysStore from "../../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
+    import overrideRollMode from "../../../utils/overrideRollMode";
 
     const actor = getContext("actor");
     const { settings } = game;
+
+    function getRollOptions() {
+        const options = getKeyPressAsOptions($pressedKeysStore, {
+            reverseAlt: settings.get("a5e", "reverseInitiativeAltBehavior"),
+        });
+
+        options.rollMode = overrideRollMode($actor, options.rollMode, {
+            ability: "dex",
+            type: "check",
+        });
+
+        return options;
+    }
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -28,12 +42,7 @@
                 $actor.rollInitiative({
                     createCombatants: true,
                     initiativeOptions: {
-                        rollOptions: getKeyPressAsOptions($pressedKeysStore, {
-                            reverseAlt: settings.get(
-                                "a5e",
-                                "reverseInitiativeAltBehavior"
-                            ),
-                        }),
+                        rollOptions: getRollOptions(),
                     },
                 })}
         />

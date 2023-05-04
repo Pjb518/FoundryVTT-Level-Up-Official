@@ -10,10 +10,12 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
 
+    console.log("here");
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -37,7 +39,11 @@
         options.expertiseDice ??
         $actor.system.abilities[abilityKey]?.check.expertiseDice;
 
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        type: "check",
+    });
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");

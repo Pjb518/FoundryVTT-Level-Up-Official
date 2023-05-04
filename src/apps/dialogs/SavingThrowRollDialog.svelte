@@ -10,6 +10,7 @@
 
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -56,10 +57,17 @@
         $actor.system.abilities[abilityKey]?.save.expertiseDice;
 
     let saveType = options.saveType ?? "standard";
-    let rollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");
+
+    $: rollMode = overrideRollMode($actor, selectedRollMode, {
+        ability: abilityKey,
+        type: "save",
+        concentration: saveType === "concentration",
+        deathSave: !!!abilityKey,
+    });
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 

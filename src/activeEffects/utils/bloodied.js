@@ -1,6 +1,14 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// eslint-disable-next-line no-unused-vars
+import ActorA5e from '../../documents/actor';
+
+/**
+ * Apply the bloodied condition to token on half hp
+ * @param {ActorA5e} actor
+ * @param {Object} changes
+ */
 export default async function automateBloodied(actor, changes) {
   // Guard for non-gm users
   if (!game.user.isGM) return;
@@ -15,6 +23,7 @@ export default async function automateBloodied(actor, changes) {
   const isBloodied = (value <= (max / 2));
   const hasCondition = actor.effects.find((c) => c.flags?.core?.statusId === 'bloodied');
 
+  // TODO: Call hook to recharge uses on bloodied
   // Handle Application of Condition
   if (actor.type === 'character' && actor.parent === null) {
     if (isBloodied && !hasCondition) {

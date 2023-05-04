@@ -3,18 +3,21 @@
 import './scss/main.scss';
 
 import ActorSheetA5e from './apps/ActorSheet';
+import ActiveEffectConfigA5e from './apps/ActiveEffectConfig';
 import ItemSheetA5e from './apps/ItemSheet';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
 
 import A5E from './config';
-import ActiveEffectA5e from './documents/activeEffects';
+import ActiveEffectA5e from './documents/activeEffect';
 import ActorA5e from './documents/actor';
 import D20Roll from './dice/d20Roll';
 import ItemA5e from './documents/item';
 import TokenA5e from './documents/token';
 import TokenDocumentA5e from './documents/tokenDocument';
 import TokenHUDA5e from './documents/tokenHUD';
+
+import EffectOptions from './activeEffects/EffectOptions';
 
 import _onCombatControl from './combat/_onCombatControl';
 import _onCombatantControl from './combat/_onCombatantControl';
@@ -54,6 +57,9 @@ Hooks.once('init', () => {
     applications: {
       ActorSheetA5e,
       ItemSheetA5e
+    },
+    activeEffects: {
+      EffectOptions
     },
     config: A5E,
     dice: {
@@ -115,9 +121,11 @@ Hooks.once('init', () => {
     label: 'A5E.SheetClassItem'
   });
 
-  // TODO: In a future version, this helper can be removed. It is currently needed to support legacy
-  // chat cards as we go into 0.9.0.
-  Handlebars.registerHelper('containsSubstring', (string, searchTerm) => string.toString().includes(searchTerm));
+  DocumentSheetConfig.unregisterSheet(ActiveEffect, 'core', ActiveEffectConfig);
+  DocumentSheetConfig.registerSheet(ActiveEffect, 'a5e', ActiveEffectConfigA5e, {
+    makeDefault: true,
+    label: 'A5E.SheetClassActiveEffectConfig'
+  });
 
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula; // eslint-disable-line
   Combatant.prototype.getInitiativeRoll = getInitiativeRoll;
@@ -135,6 +143,8 @@ Hooks.once('init', () => {
 Hooks.once('setup', () => {
   registerSystemSettings();
   setupConditions();
+
+  game.a5e.activeEffects.EffectOptions.createOptions();
 });
 
 // Prelocalize any static strings once localization files become available.
