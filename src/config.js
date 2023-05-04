@@ -1539,6 +1539,10 @@ A5E.reducerSortMap = {
  * @enum {String}
  */
 A5E.effectsKeyLocalizations = {
+  'flags.a5e.effects.conditionImmunities.all': "A5E.effects.keys.flags.conditionImmunities.all",
+  'flags.a5e.effects.damageImmunities.all': "A5E.effects.keys.flags.damageImmunities.all",
+  'flags.a5e.effects.damageResistances.all': "A5E.effects.keys.flags.damageResistances.all",
+  'flags.a5e.effects.damageVulnerabilities.all': "A5E.effects.keys.flags.damageVulnerabilities.all",
   'flags.a5e.effects.expertiseDie': 'A5E.effects.keys.flags.expertiseDie',
   'flags.a5e.effects.grants.rollMode.attack.all': 'A5E.effects.keys.flags.grantsRollMode.all',
   'flags.a5e.effects.grants.rollMode.attack.meleeSpellAttack': 'A5E.effects.keys.flags.grantsRollMode.meleeSpellAttack',
