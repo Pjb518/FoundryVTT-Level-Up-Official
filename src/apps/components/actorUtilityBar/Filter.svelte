@@ -9,11 +9,9 @@
     import arraysAreEqual from "../../../utils/arraysAreEqual";
     import updateFilters from "../../../utils/updateFilters";
 
-    // import FilterBox from "../FilterBox.svelte";
     import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
     export let reducerType;
-    export let offset = { x: -300, y: 25 };
 
     const actor = getContext("actor");
     const reducer = actor[reducerType];

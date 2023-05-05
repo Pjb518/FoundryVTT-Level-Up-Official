@@ -12,6 +12,7 @@
     import Search from "../actorUtilityBar/Search.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
@@ -20,6 +21,7 @@
     const reducerType = "maneuvers";
 
     $: exertion = $actor.system.attributes.exertion;
+    $: menuList = Object.entries(subTypes).map(([key, label]) => [label, key]);
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -27,12 +29,11 @@
 
 <div class="maneuvers-page">
     {#if $actor.isOwner}
-        <!-- <SortFilter itemType="maneuvers" {subTypes} /> -->
-
         <UtilityBar>
             <Search {reducerType} />
             <Sort {reducerType} />
             <Filter {reducerType} />
+            <CreateMenu {reducerType} {menuList} />
         </UtilityBar>
     {/if}
 
