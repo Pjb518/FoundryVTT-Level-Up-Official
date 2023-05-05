@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { slide } from "svelte/transition";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
@@ -127,7 +128,7 @@
 </li>
 
 {#if showDescription}
-    <div class="description-wrapper">
+    <div class="description-wrapper" transition:slide|local>
         {#if !isGM && item.type === "object" && item.system.unidentified}
             {@html item.system.unidentifiedDescription ??
                 localize("A5E.NoUnidentifiedDescription")}
