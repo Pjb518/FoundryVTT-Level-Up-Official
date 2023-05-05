@@ -8,6 +8,7 @@
     import { createEventDispatcher } from "svelte";
 
     import createItem from "../../../utils/createItem";
+    import createEffect from "../../../utils/createActiveEffect";
 
     export let documentName = "Item";
     export let menuList = [[]];
@@ -22,8 +23,8 @@
         if (documentName === "Item" && $document.documentName === "Actor")
             return createItem($document, reducerType.slice(0, -1), entityType);
 
-        // if (documentName === "ActiveEffect")
-        //     return createItem($document, entityType);
+        if (documentName === "ActiveEffect")
+            return createEffect($document, entityType);
     }
 
     const document = getContext("actor") ?? getContext("item");

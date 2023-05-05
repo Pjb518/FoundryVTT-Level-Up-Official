@@ -130,6 +130,13 @@ A5E.actionOptions = {
   savingThrow: 'A5E.ActionOptionSavingThrow'
 };
 
+
+A5E.activeEffectTypes = {
+  temporary: "A5E.effects.type.temporary",
+  passive: "A5E.effects.type.passive",
+  inactive: "A5E.effects.type.inactive",
+}
+
 /**
  * The set of possible creature sizes in the system.
  * @enum {string}
@@ -341,6 +348,7 @@ A5E.damageTypes = {
   slashing: 'A5E.damageTypes.slashing',
   thunder: 'A5E.damageTypes.thunder'
 };
+
 
 A5E.featureTypes = {
   background: 'A5E.FeatureBackground',

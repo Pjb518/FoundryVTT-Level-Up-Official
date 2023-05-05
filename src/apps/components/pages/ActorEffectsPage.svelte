@@ -1,42 +1,26 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import EffectCategory from "../EffectCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
-    import Sort from "../actorUtilityBar/Sort.svelte";
+    // import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     const actor = getContext("actor");
     const { activeEffects } = actor;
-
-    function addEffect() {
-        $actor.createEmbeddedDocuments("ActiveEffect", [
-            {
-                label: game.i18n.localize("A5E.effects.new"),
-                icon: "icons/svg/aura.svg",
-                origin: $actor.uuid,
-            },
-        ]);
-    }
-
-    const subTypes = {
-        temporary: "A5E.effects.type.temporary",
-        passive: "A5E.effects.type.passive",
-        inactive: "A5E.effects.type.inactive",
-    };
-
+    const subTypes = CONFIG.A5E.activeEffectTypes;
     const reducerType = "activeEffects";
+
+    $: menuList = Object.entries(subTypes);
 </script>
 
 <div class="effects-page">
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
-            <Sort {reducerType} documentName="ActiveEffect" />
-            <!-- Filter -->
-            <!-- Quick Search -->
-            <!-- Add -->
+            <!-- <Sort {reducerType} documentName="ActiveEffect" /> TODO: Reimplement in the future-->
+            <CreateMenu {reducerType} {menuList} documentName="ActiveEffect" />
         </UtilityBar>
     {/if}
 
