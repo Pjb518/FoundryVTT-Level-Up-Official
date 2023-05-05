@@ -89,7 +89,7 @@ export default function registerSystemSettings() {
   // Critical Hit Damage Modes
   game.settings.register('a5e', 'critCalculationMode', {
     name: 'A5E.settings.critCalculationMode',
-    hint: 'A5E.settings.hints.critCalculationModeHint',
+    hint: 'A5E.settings.hints.critCalculationMode',
     scope: 'world',
     config: true,
     default: 'doubleAllDamage',
