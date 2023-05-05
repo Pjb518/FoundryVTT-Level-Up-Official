@@ -1,16 +1,12 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import {
-        TJSMenu,
-        TJSToggleIconButton,
-    } from "@typhonjs-fvtt/svelte-standard/component";
 
     import ActionsManager from "../../../managers/ActionsManager";
 
-    import AddMenu from "../AddMenu.svelte";
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
     import ConsumerConfigWrapper from "../itemActionsConfig/ConsumerConfigWrapper.svelte";
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
@@ -68,13 +64,13 @@
     $: consumers = action.consumers ?? {};
     $: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
 
-    $: menuItems = Object.entries(consumerTypes).reduce(
+    $: menuList = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
             if (
                 consumerType === "resource" ||
                 !existingConsumers.has(consumerType)
             )
-                acc.push([singleLabel, consumerType]);
+                acc.push([consumerType, singleLabel]);
 
             return acc;
         },
@@ -235,19 +231,13 @@
         </ul>
     </div>
     <div class="sticky-add-button">
-        <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
-            <TJSMenu offset={{ x: -110, y: -105 }}>
-                <AddMenu
-                    menuList={menuItems}
-                    on:press={({ detail }) =>
-                        ActionsManager.addConsumer(
-                            $item,
-                            [actionId, action],
-                            detail
-                        )}
-                />
-            </TJSMenu>
-        </TJSToggleIconButton>
+        <CreateMenu
+            {menuList}
+            offset={{ x: -110, y: -130 }}
+            documentName="Consumer"
+            on:press={({ detail }) =>
+                ActionsManager.addConsumer($item, [actionId, action], detail)}
+        />
     </div>
 </article>
 

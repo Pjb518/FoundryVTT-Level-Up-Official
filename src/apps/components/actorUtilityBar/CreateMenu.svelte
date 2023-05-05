@@ -9,9 +9,10 @@
 
     import createItem from "../../../utils/createItem";
 
-    export let reducerType;
     export let documentName = "Item";
     export let menuList = [[]];
+    export let offset = null;
+    export let reducerType = null;
 
     // Default createDocument
     function createDocument(entityType) {
@@ -40,7 +41,7 @@
     --tjs-icon-button-text-shadow-focus="none"
     --tjs-icon-button-transition="all 0.15s ease-in-out"
 >
-    <TJSMenu>
+    <TJSMenu {offset}>
         <article>
             {#each menuList as [type, heading]}
                 <button on:click|preventDefault={() => createDocument(type)}>

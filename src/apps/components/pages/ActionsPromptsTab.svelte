@@ -1,15 +1,11 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import {
-        TJSMenu,
-        TJSToggleIconButton,
-    } from "@typhonjs-fvtt/svelte-standard/component";
 
     import ActionsManager from "../../../managers/ActionsManager";
 
     import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
-    import AddMenu from "../AddMenu.svelte";
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
     import PromptsConfigWrapper from "../itemActionsConfig/PromptsConfigWrapper.svelte";
     import SavePromptConfig from "../itemActionsConfig/SavePromptConfig.svelte";
@@ -44,8 +40,8 @@
     $: action = $item.actions[actionId];
     $: prompts = action.prompts ?? {};
 
-    $: menuItems = Object.entries(promptTypes).map(
-        ([promptType, { heading }]) => [heading, promptType]
+    $: menuList = Object.entries(promptTypes).map(
+        ([promptType, { heading }]) => [promptType, heading]
     );
 </script>
 
@@ -95,19 +91,13 @@
     </ul>
 
     <div class="sticky-add-button">
-        <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
-            <TJSMenu offset={{ x: -110, y: -105 }}>
-                <AddMenu
-                    menuList={menuItems}
-                    on:press={({ detail }) =>
-                        ActionsManager.addPrompt(
-                            $item,
-                            [actionId, action],
-                            detail
-                        )}
-                />
-            </TJSMenu>
-        </TJSToggleIconButton>
+        <CreateMenu
+            {menuList}
+            offset={{ x: -110, y: -105 }}
+            documentName="Prompt"
+            on:press={({ detail }) =>
+                ActionsManager.addPrompt($item, [actionId, action], detail)}
+        />
     </div>
 </article>
 

@@ -1,16 +1,12 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
-    import {
-        TJSMenu,
-        TJSToggleIconButton,
-    } from "@typhonjs-fvtt/svelte-standard/component";
 
     import ActionsManager from "../../../managers/ActionsManager";
 
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
-    import AddMenu from "../AddMenu.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import DamageRollConfig from "../itemActionsConfig/DamageRollConfig.svelte";
     import GenericRollConfig from "../itemActionsConfig/GenericRollConfig.svelte";
     import HealingRollConfig from "../itemActionsConfig/HealingRollConfig.svelte";
@@ -73,10 +69,10 @@
         ([_, roll]) => roll.type === "attack"
     );
 
-    $: menuItems = Object.entries(rollTypes).reduce(
+    $: menuList = Object.entries(rollTypes).reduce(
         (acc, [rollType, { singleLabel }]) => {
             if (!(rollType === "attack" && attackRolls.length > 0))
-                acc.push([singleLabel, rollType]);
+                acc.push([rollType, singleLabel]);
             return acc;
         },
         []
@@ -135,19 +131,13 @@
     </ul>
 
     <div class="sticky-add-button">
-        <TJSToggleIconButton title="A5E.ButtonAddRoll" icon="fas fa-plus">
-            <TJSMenu offset={{ x: -110, y: -140 }}>
-                <AddMenu
-                    menuList={menuItems}
-                    on:press={({ detail }) =>
-                        ActionsManager.addRoll(
-                            $item,
-                            [actionId, action],
-                            detail
-                        )}
-                />
-            </TJSMenu>
-        </TJSToggleIconButton>
+        <CreateMenu
+            {menuList}
+            offset={{ x: -110, y: -140 }}
+            documentName="Roll"
+            on:press={({ detail }) =>
+                ActionsManager.addRoll($item, [actionId, action], detail)}
+        />
     </div>
 </article>
 
