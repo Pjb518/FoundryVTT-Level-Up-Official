@@ -16,6 +16,18 @@
     const actor = getContext("actor");
     const reducer = actor[reducerType];
 
+    function getFilterTooltip(numInclusiveFilters, numExclusiveFilters) {
+        if (numInclusiveFilters && numExclusiveFilters) {
+            return `Inclusive Filters: ${numInclusiveFilters} &nbsp;&nbsp;|&nbsp;&nbsp; Exclusive Filers: ${numExclusiveFilters}`;
+        } else if (numInclusiveFilters) {
+            return `Inclusive Filters: ${numInclusiveFilters}`;
+        } else if (numExclusiveFilters) {
+            return `Exclusive Filters: ${numExclusiveFilters}`;
+        } else {
+            return null;
+        }
+    }
+
     function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
         $actor.setFlag("a5e", `filters.${reducerType}`, {
             inclusive: inclusiveFilters,
@@ -54,6 +66,10 @@
 
     $: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
     $: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
+    $: filterTooltip = getFilterTooltip(
+        numInclusiveFilters,
+        numExclusiveFilters
+    );
 
     updateFilters(reducer, reducerType, activeFilters);
 </script>
@@ -62,6 +78,8 @@
     class="filter-hints"
     class:filter-hints--green={numInclusiveFilters}
     class:filter-hints--red={numExclusiveFilters}
+    data-tooltip={filterTooltip}
+    data-tooltip-direction="UP"
 >
     <TJSToggleIconButton
         title="Filters"
@@ -73,6 +91,8 @@
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
         --tjs-icon-button-transition="all 0.15s ease-in-out"
+        --tjs-icon-button-diameter="1rem"
+        --tjs-icon-button-border-radius="0"
     >
         <TJSMenu>
             <article class="filter-box">

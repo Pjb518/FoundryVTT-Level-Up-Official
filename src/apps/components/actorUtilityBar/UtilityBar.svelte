@@ -8,12 +8,12 @@
 <style lang="scss">
     .utility-bar {
         position: relative;
-        font-size: 0.833rem;
-
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        gap: 0.125rem;
-
+        gap: 0.75rem;
+        padding-right: 0.25rem;
+        font-size: 1rem;
         color: rgba(0 0 0 / 0.2);
     }
 
@@ -22,7 +22,7 @@
             --tjs-menu-background: url("/ui/denim075.png") repeat,
                 rgba(0 0 0 / 0.15);
             --tjs-menu-primary-color: #deddd3;
-            --tjs-menu-border: 2px solid #555;
+            --tjs-menu-border: 1px solid #555;
         }
 
         .tjs-icon-button,
