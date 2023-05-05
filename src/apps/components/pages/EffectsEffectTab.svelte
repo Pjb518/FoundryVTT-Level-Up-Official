@@ -1,5 +1,7 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+
     import FormSection from "../FormSection.svelte";
 
     const effect = getContext("effect");
@@ -22,6 +24,30 @@
         changes = changes.filter((_, idx) => idx !== id);
     }
 
+    function getOptionGroups(optionsList) {
+        const options = Object.values(optionsList);
+
+        const groupMap = Object.values(CONFIG.A5E.effectKeyGroups).reduce(
+            (acc, curr) => {
+                curr.items.forEach((item) => {
+                    acc[item] = curr.label;
+                });
+
+                return acc;
+            },
+            {}
+        );
+
+        return options.reduce((acc, curr) => {
+            const group = groupMap[curr.fieldOption] ?? "Other";
+
+            acc[group] ??= [];
+            acc[group].push(curr);
+
+            return acc;
+        }, {});
+    }
+
     function updateChange() {
         $effect.update({
             changes,
@@ -34,7 +60,9 @@
             k.toLowerCase().capitalize(),
         ])
     );
+
     const optionsList = sheet.optionsList;
+    const optionGroups = getOptionGroups(sheet.optionsList);
 
     /** @type {Array<Object>}*/
     $: changes = $effect.changes;
@@ -53,10 +81,14 @@
                     <div class="change__section u-flex-grow">
                         <h3 class="u-text-sm u-text-bold">Key</h3>
                         <select name="" id="" bind:value={changes[idx].key}>
-                            {#each Object.values(optionsList) as { fieldOption, label }}
-                                <option value={fieldOption}>
-                                    {label}
-                                </option>
+                            {#each Object.entries(optionGroups) as [groupLabel, items]}
+                                <optgroup label={groupLabel}>
+                                    {#each items as { fieldOption, label }}
+                                        <option value={fieldOption}>
+                                            {label}
+                                        </option>
+                                    {/each}
+                                </optgroup>
                             {/each}
                         </select>
                     </div>
