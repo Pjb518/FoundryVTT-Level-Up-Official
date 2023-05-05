@@ -144,37 +144,37 @@
         color: rgba(0 0 0 / 0.2);
     }
 
-    // :global {
-    //     .tjs-menu {
-    //         --tjs-menu-background: url("/ui/denim075.png") repeat,
-    //             rgba(0 0 0 / 0.15);
-    //         --tjs-menu-primary-color: #deddd3;
-    //         --tjs-menu-border: 2px solid #555;
-    //     }
+    :global {
+        .tjs-menu {
+            --tjs-menu-background: url("/ui/denim075.png") repeat,
+                rgba(0 0 0 / 0.15);
+            --tjs-menu-primary-color: #deddd3;
+            --tjs-menu-border: 2px solid #555;
+        }
 
-    //     .tjs-icon-button,
-    //     .tjs-toggle-icon-button {
-    //         --tjs-icon-button-background-hover: none;
-    //         --tjs-icon-button-background-focus: none;
-    //         --tjs-icon-button-background-focus-visible: none;
-    //         --tjs-icon-button-background-selected: none;
-    //         --tjs-icon-button-text-shadow-hover: none;
-    //         --tjs-icon-button-text-shadow-focus: none;
-    //         --tjs-icon-button-transition: all 0.15s ease-in-out;
+        // .tjs-icon-button,
+        // .tjs-toggle-icon-button {
+        //     --tjs-icon-button-background-hover: none;
+        //     --tjs-icon-button-background-focus: none;
+        //     --tjs-icon-button-background-focus-visible: none;
+        //     --tjs-icon-button-background-selected: none;
+        //     --tjs-icon-button-text-shadow-hover: none;
+        //     --tjs-icon-button-text-shadow-focus: none;
+        //     --tjs-icon-button-transition: all 0.15s ease-in-out;
 
-    //         a:hover {
-    //             color: #555;
-    //             transform: scale(1.2);
-    //         }
+        //     a:hover {
+        //         color: #555;
+        //         transform: scale(1.2);
+        //     }
 
-    //         a.selected {
-    //             color: #555;
-    //             transform: scale(1.2);
+        //     a.selected {
+        //         color: #555;
+        //         transform: scale(1.2);
 
-    //             :hover {
-    //                 transform: none;
-    //             }
-    //         }
-    //     }
-    // }
+        //         :hover {
+        //             transform: none;
+        //         }
+        //     }
+        // }
+    }
 </style>
