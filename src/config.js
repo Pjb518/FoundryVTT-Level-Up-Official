@@ -1949,7 +1949,7 @@ A5E.effectKeyGroups = {
     ]
   },
   attacks: {
-    label: 'Attacks',
+    label: 'Attack Roll Modes',
     items: [
       'flags.a5e.effects.rollMode.attack.all',
       'flags.a5e.effects.rollMode.attack.meleeSpellAttack',
