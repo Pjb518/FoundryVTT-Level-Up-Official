@@ -27,6 +27,8 @@
     function getOptionGroups(optionsList) {
         const options = Object.values(optionsList);
 
+        // Invert the effectKeyGroups array so that each effect key points to a group. The config
+        // object cannot be used directly, as it may contain invalid keys.
         const groupMap = Object.values(CONFIG.A5E.effectKeyGroups).reduce(
             (acc, curr) => {
                 curr.items.forEach((item) => {
@@ -38,14 +40,31 @@
             {}
         );
 
-        return options.reduce((acc, curr) => {
-            const group = groupMap[curr.fieldOption] ?? "Other";
+        // Use the currently valid keys to construct groups from the groupMap. If a key does not
+        // have a group defined, put it in the "Other" category.
+        const groups = Object.entries(
+            options.reduce((acc, curr) => {
+                const group = groupMap[curr.fieldOption] ?? "Other";
 
-            acc[group] ??= [];
-            acc[group].push(curr);
+                acc[group] ??= [];
+                acc[group].push(curr);
 
-            return acc;
-        }, {});
+                return acc;
+            }, {})
+        );
+
+        // Sort the groups alphabetically
+        groups.sort((a, b) => a[0].localeCompare(b[0]));
+
+        // Shunt the Other category to the end.
+        groups.push(
+            groups.splice(
+                groups.findIndex((item) => item[0] === "Other"),
+                1
+            )[0]
+        );
+
+        return groups;
     }
 
     function updateChange() {
@@ -81,7 +100,7 @@
                     <div class="change__section u-flex-grow">
                         <h3 class="u-text-sm u-text-bold">Key</h3>
                         <select name="" id="" bind:value={changes[idx].key}>
-                            {#each Object.entries(optionGroups) as [groupLabel, items]}
+                            {#each optionGroups as [groupLabel, items]}
                                 <optgroup label={groupLabel}>
                                     {#each items as { fieldOption, label }}
                                         <option value={fieldOption}>
