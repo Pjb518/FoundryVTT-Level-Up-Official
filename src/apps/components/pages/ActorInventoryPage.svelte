@@ -1,11 +1,15 @@
 <script>
     import { getContext } from "svelte";
 
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
     import ActorInventoryShields from "../ActorInventoryShields.svelte";
     import ItemCategory from "../ItemCategory.svelte";
     import ItemWeightTrack from "../ItemWeightTrack.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
-    import SortFilter from "../SortFilter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     import usesRequired from "../../../utils/usesRequired";
     import quantityRequired from "../../../utils/quantityRequired";
@@ -16,7 +20,9 @@
 
     const sortMap = A5E.reducerSortMap.objects;
     const subTypes = A5E.objectTypes;
+    const reducerType = "objects";
 
+    $: menuList = Object.entries(subTypes);
     $: sortedObjects = Object.entries($objects._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
@@ -24,7 +30,12 @@
 
 <div class="inventory-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="objects" {subTypes} />
+        <UtilityBar>
+            <Search {reducerType} />
+            <Sort {reducerType} />
+            <Filter {reducerType} />
+            <CreateMenu {reducerType} {menuList} />
+        </UtilityBar>
     {/if}
 
     <section class="inventory-main-container">

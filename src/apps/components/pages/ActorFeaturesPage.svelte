@@ -1,8 +1,12 @@
 <script>
     import { getContext } from "svelte";
 
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
-    import SortFilter from "../SortFilter.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     import usesRequired from "../../../utils/usesRequired";
 
@@ -10,9 +14,11 @@
     const { features } = actor;
     const { A5E } = CONFIG;
 
+    const reducerType = "features";
     const subTypes = A5E.featureTypes;
     const sortMap = CONFIG.A5E.reducerSortMap.features;
 
+    $: menuList = Object.entries(subTypes);
     $: sortedFeatures = Object.entries($features._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]]
     );
@@ -20,7 +26,12 @@
 
 <div class="features-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="features" {subTypes} />
+        <UtilityBar>
+            <Search {reducerType} />
+            <Sort {reducerType} />
+            <Filter {reducerType} />
+            <CreateMenu {reducerType} {menuList} />
+        </UtilityBar>
     {/if}
 
     <section class="features-main-container">

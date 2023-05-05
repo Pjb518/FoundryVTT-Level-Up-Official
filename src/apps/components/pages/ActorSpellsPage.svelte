@@ -5,14 +5,20 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
     import TabFooter from "../TabFooter.svelte";
-    import SortFilter from "../SortFilter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     const actor = getContext("actor");
     const { spells } = actor;
     const { spellLevels } = CONFIG.A5E;
+    const reducerType = "spells";
 
+    $: menuList = Object.entries(spellLevels);
     $: spellResources = $actor.system.spellResources;
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -34,7 +40,12 @@
 
 <div class="spells-page">
     {#if $actor.isOwner}
-        <SortFilter itemType="spells" subTypes={spellLevels} />
+        <UtilityBar>
+            <Search {reducerType} />
+            <Sort {reducerType} />
+            <Filter {reducerType} />
+            <CreateMenu {reducerType} {menuList} />
+        </UtilityBar>
     {/if}
 
     <section class="spells-main-container">

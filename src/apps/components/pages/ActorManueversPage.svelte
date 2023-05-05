@@ -5,14 +5,13 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
-    import TabFooter from "../TabFooter.svelte";
-    import SortFilter from "../SortFilter.svelte";
-    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
-    import Filter from "../actorUtilityBar/Filter.svelte";
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import TabFooter from "../TabFooter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     const actor = getContext("actor");
     const { maneuvers } = actor;
@@ -21,7 +20,7 @@
     const reducerType = "maneuvers";
 
     $: exertion = $actor.system.attributes.exertion;
-    $: menuList = Object.entries(subTypes).map(([key, label]) => [label, key]);
+    $: menuList = Object.entries(subTypes);
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;

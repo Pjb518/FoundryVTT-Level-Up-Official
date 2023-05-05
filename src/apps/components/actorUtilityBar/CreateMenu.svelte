@@ -42,7 +42,7 @@
 >
     <TJSMenu>
         <article>
-            {#each menuList as [heading, type]}
+            {#each menuList as [type, heading]}
                 <button on:click|preventDefault={() => createDocument(type)}>
                     {localize(heading)}
                 </button>
