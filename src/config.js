@@ -1958,6 +1958,13 @@ A5E.effectKeyGroups = {
       'flags.a5e.effects.rollMode.attack.rangedWeaponAttack'
     ]
   },
+  attunement: {
+    label: 'Attunement',
+    items: [
+      'system.attributes.attunement.current',
+      'system.attributes.attunement.max'
+    ]
+  },
   bonuses: {
     label: 'Bonuses',
     items: [
@@ -1980,6 +1987,30 @@ A5E.effectKeyGroups = {
       'system.currency.gp',
       'system.currency.pp',
       'system.currency.sp'
+    ]
+  },
+  creatureTraits: {
+    label: 'Creature Traits',
+    items: [
+      'system.traits.size',
+      'system.details.creatureTypes',
+      'system.details.isSwarm'
+    ]
+  },
+  deathSaves: {
+    label: 'Death Saves',
+    items: [
+      'flags.a5e.effects.rollMode.deathSave',
+      'system.attributes.death.failure',
+      'system.attributes.death.success'
+    ]
+  },
+  exertion: {
+    label: 'Exertion',
+    items: [
+      'system.attributes.exertion.current',
+      'system.attributes.exertion.max',
+      'system.attributes.exertion.recoverOnRest'
     ]
   },
   hitDice: {
@@ -2005,6 +2036,13 @@ A5E.effectKeyGroups = {
       'system.attributes.hp.temp'
     ]
   },
+  initiative: {
+    label: 'Initiative',
+    items: [
+      'system.attributes.initiative.bonus',
+      'system.attributes.initiative.expertiseDice'
+    ]
+  },
   movement: {
     label: 'Movement',
     items: [
@@ -2028,6 +2066,19 @@ A5E.effectKeyGroups = {
       'system.proficiencies.languages',
       'system.proficiencies.tools',
       'system.proficiencies.weapons'
+    ]
+  },
+  resistancesVulnerabilitiesImmunities: {
+    label: 'Resistances, Vulnerabilities, and Immunities',
+    items: [
+      'flags.a5e.effects.conditionImmunities.all',
+      'flags.a5e.effects.damageImmunities.all',
+      'flags.a5e.effects.damageResistances.all',
+      'flags.a5e.effects.damageVulnerabilities.all',
+      'system.traits.conditionImmunities',
+      'system.traits.damageImmunities',
+      'system.traits.damageResistances',
+      'system.traits.damageVulnerabilities'
     ]
   },
   resources: {
@@ -2073,6 +2124,7 @@ A5E.effectKeyGroups = {
       'flags.a5e.effects.rollMode.abilitySave.int',
       'flags.a5e.effects.rollMode.abilitySave.str',
       'flags.a5e.effects.rollMode.abilitySave.wis',
+      'flags.a5e.effects.rollMode.concentration',
       'system.abilities.cha.save.bonus',
       'system.abilities.cha.save.expertiseDice',
       'system.abilities.cha.save.proficient',
