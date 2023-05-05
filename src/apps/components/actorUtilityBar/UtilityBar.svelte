@@ -12,7 +12,7 @@
 
         display: flex;
         justify-content: space-between;
-        gap: 0.275rem;
+        gap: 0.125rem;
 
         color: rgba(0 0 0 / 0.2);
     }

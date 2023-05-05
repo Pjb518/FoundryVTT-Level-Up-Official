@@ -52,60 +52,70 @@
     const filterSections = Object.values(CONFIG.A5E.filters[reducerType] ?? {});
     let activeFilters = $actor.getFlag("a5e", `filters.${reducerType}`) ?? {};
 
+    $: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
+    $: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
+
     updateFilters(reducer, reducerType, activeFilters);
 </script>
 
-<TJSToggleIconButton
-    title="Filters"
-    icon="fas fa-filter"
-    --tjs-icon-button-background-hover="none"
-    --tjs-icon-button-background-focus="none"
-    --tjs-icon-button-background-focus-visible="none"
-    --tjs-icon-button-background-selected="none"
-    --tjs-icon-button-text-shadow-hover="none"
-    --tjs-icon-button-text-shadow-focus="none"
-    --tjs-icon-button-transition="all 0.15s ease-in-out"
+<span
+    class="filter-hints"
+    class:filter-hints--green={numInclusiveFilters}
+    class:filter-hints--red={numExclusiveFilters}
 >
-    <TJSMenu>
-        <article class="filter-box">
-            {#each filterSections as { label, filters }}
-                <section class="filter-section">
-                    <header class="u-align-center u-flex u-gap-lg">
-                        <h3 class="u-text-sm u-text-bold">
-                            {localize(label)}
-                        </h3>
+    <TJSToggleIconButton
+        title="Filters"
+        icon="fas fa-filter"
+        --tjs-icon-button-background-hover="none"
+        --tjs-icon-button-background-focus="none"
+        --tjs-icon-button-background-focus-visible="none"
+        --tjs-icon-button-background-selected="none"
+        --tjs-icon-button-text-shadow-hover="none"
+        --tjs-icon-button-text-shadow-focus="none"
+        --tjs-icon-button-transition="all 0.15s ease-in-out"
+    >
+        <TJSMenu>
+            <article class="filter-box">
+                {#each filterSections as { label, filters }}
+                    <section class="filter-section">
+                        <header class="u-align-center u-flex u-gap-lg">
+                            <h3 class="u-text-sm u-text-bold">
+                                {localize(label)}
+                            </h3>
 
-                        <button
-                            class=" filter-button u-text-xs"
-                            on:click|stopPropagation={() => toggleAll(filters)}
-                        >
-                            {localize("A5E.ButtonToggleAll")}
-                        </button>
-                    </header>
+                            <button
+                                class=" filter-button u-text-xs"
+                                on:click|stopPropagation={() =>
+                                    toggleAll(filters)}
+                            >
+                                {localize("A5E.ButtonToggleAll")}
+                            </button>
+                        </header>
 
-                    <div class="filters u-text-xs u-w-full">
-                        <MultiStateCheckBoxGroup
-                            options={Object.entries(filters).map(
-                                ([value, { label }]) => [value, label]
-                            )}
-                            selected={[
-                                activeFilters?.inclusive ?? [],
-                                activeFilters?.exclusive ?? [],
-                            ]}
-                            on:updateSelection={({ detail }) =>
-                                onUpdateFilters(detail[0], detail[1])}
-                        />
-                    </div>
-                </section>
-            {/each}
+                        <div class="filters u-text-xs u-w-full">
+                            <MultiStateCheckBoxGroup
+                                options={Object.entries(filters).map(
+                                    ([value, { label }]) => [value, label]
+                                )}
+                                selected={[
+                                    activeFilters?.inclusive ?? [],
+                                    activeFilters?.exclusive ?? [],
+                                ]}
+                                on:updateSelection={({ detail }) =>
+                                    onUpdateFilters(detail[0], detail[1])}
+                            />
+                        </div>
+                    </section>
+                {/each}
 
-            <div class="hint">
-                Hint: Right-click a filter to quickly remove it from the
-                selection.
-            </div>
-        </article>
-    </TJSMenu>
-</TJSToggleIconButton>
+                <div class="hint">
+                    Hint: Right-click a filter to quickly remove it from the
+                    selection.
+                </div>
+            </article>
+        </TJSMenu>
+    </TJSToggleIconButton>
+</span>
 
 <style lang="scss">
     .filter-box {
@@ -146,5 +156,17 @@
 
     .hint {
         font-size: 0.694rem;
+    }
+
+    .filter-hints {
+        position: relative;
+
+        &--green {
+            color: #425f65;
+        }
+
+        &--red {
+            color: #8b2525;
+        }
     }
 </style>
