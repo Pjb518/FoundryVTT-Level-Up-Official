@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Tag from "../Tag.svelte";
+
     import prepareArmorProficiencies from "../../dataPreparationHelpers/prepareArmorProficiencies";
     import prepareConditionImmunities from "../../dataPreparationHelpers/prepareConditionImmunities";
     import prepareCreatureTypes from "../../dataPreparationHelpers/prepareCreatureTypes";
@@ -14,7 +16,6 @@
     import prepareMovementData from "../../dataPreparationHelpers/prepareMovementData";
     import prepareToolProficiencies from "../../dataPreparationHelpers/prepareToolProficiencies";
     import prepareWeaponProficiencies from "../../dataPreparationHelpers/prepareWeaponProficiencies";
-    import Tag from "../Tag.svelte";
 
     const actor = getContext("actor");
 

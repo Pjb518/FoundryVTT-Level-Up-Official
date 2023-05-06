@@ -69,6 +69,30 @@
                     {/each}
                 </select>
             </div>
+
+            {#if sense === "blindsight"}
+                <div class="u-flex u-align-center u-gap-md u-w-full">
+                    <input
+                        id="{appId}-hover"
+                        class="u-pointer checkbox"
+                        type="checkbox"
+                        name="system.attributes.senses.blindsight.otherwiseBlind"
+                        checked={$actor.system.attributes.senses.blindsight
+                            ?.otherwiseBlind}
+                        on:change={({ target }) => {
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            );
+                        }}
+                    />
+
+                    <label for="{appId}-hover" class="u-pointer">
+                        Blind Beyond this Range
+                    </label>
+                </div>
+            {/if}
         </FormSection>
     {/each}
 </article>
@@ -82,5 +106,9 @@
         gap: 0.5rem;
         overflow: auto;
         background: rgba(246, 242, 235, 0.5);
+    }
+
+    .checkbox {
+        margin-left: 0;
     }
 </style>
