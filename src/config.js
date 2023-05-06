@@ -808,6 +808,7 @@ A5E.spellSchools = {
     communication: 'A5E.SpellSchoolCommunication',
     compulsion: 'A5E.SpellSchoolCompulsion',
     control: 'A5E.SpellSchoolControl',
+    displacement: 'A5E.SpellSchoolDisplacement',
     divine: 'A5E.SpellSchoolDivine',
     earth: 'A5E.SpellSchoolEarth',
     enhancement: 'A5E.SpellSchoolEnhancement',
