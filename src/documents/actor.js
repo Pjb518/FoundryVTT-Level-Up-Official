@@ -158,7 +158,7 @@ export default class ActorA5e extends Actor {
             [
               ability[key].mod,
               ability[key].bonus,
-              actorData.bonuses.abilities[key]
+              actorData.bonuses.abilities[key].trim()
             ].filter(Boolean).join(' + '),
             this.getRollData()
           );
@@ -379,8 +379,8 @@ export default class ActorA5e extends Actor {
           [
             skill.mod,
             skill.bonuses.check,
-            globalSkillBonus,
-            globalCheckBonus
+            globalSkillBonus.trim(),
+            globalCheckBonus.trim()
           ].filter(Boolean).join(' + '),
           this.getRollData()
         );
@@ -456,7 +456,7 @@ export default class ActorA5e extends Actor {
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
 
       // Remove the double addition of the global check bonus
-      `- ${getDeterministicBonus(rollData.bonuses.abilities.check, rollData)}`
+      `- ${getDeterministicBonus(rollData.bonuses.abilities.check.trim(), rollData)}`
     ].filter(Boolean).join(' + '), rollData);
   }
 
@@ -704,7 +704,7 @@ export default class ActorA5e extends Actor {
         },
         {
           label: localize('A5E.AbilityCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.check
+          value: this.system.bonuses.abilities.check.trim()
         },
         {
           label: localize('A5E.ExpertiseDie'),
@@ -861,7 +861,7 @@ export default class ActorA5e extends Actor {
         },
         {
           label: localize('A5E.SavingThrowBonusGlobal'),
-          value: this.system.bonuses.abilities.save
+          value: this.system.bonuses.abilities.save.trim()
         },
         {
           label: localize('A5E.ExpertiseDie'),
@@ -969,11 +969,11 @@ export default class ActorA5e extends Actor {
         },
         {
           label: localize('A5E.SkillCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.skill
+          value: this.system.bonuses.abilities.skill.trim()
         },
         {
           label: localize('A5E.AbilityCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.check
+          value: this.system.bonuses.abilities.check.trim()
         },
         {
           label: localize('A5E.ExpertiseDie'),
