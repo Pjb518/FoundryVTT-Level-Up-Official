@@ -102,19 +102,7 @@
 
     {#if rollData.type === "healing"}
         <ul class="button-list">
-            {#if rollData.healingType === "healing"}
-                <li>
-                    <button
-                        class="button"
-                        data-tooltip={"Apply Healing"}
-                        data-tooltip-direction="UP"
-                        on:click|stopPropagation={() =>
-                            applyHealing(rollData.healingType)}
-                    >
-                        <i class="fa-solid fa-heart-circle-plus button__icon" />
-                    </button>
-                </li>
-            {:else}
+            {#if rollData.healingType === "temporaryHealing"}
                 <li>
                     <button
                         class="button"
@@ -124,6 +112,18 @@
                             applyHealing(rollData.healingType)}
                     >
                         <i class="fa-solid fa-heart-circle-bolt button__icon" />
+                    </button>
+                </li>
+            {:else}
+                <li>
+                    <button
+                        class="button"
+                        data-tooltip={"Apply Healing"}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() =>
+                            applyHealing(rollData.healingType)}
+                    >
+                        <i class="fa-solid fa-heart-circle-plus button__icon" />
                     </button>
                 </li>
             {/if}
