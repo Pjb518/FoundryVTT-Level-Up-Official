@@ -29,10 +29,10 @@
 
         // Invert the effectKeyGroups array so that each effect key points to a group. The config
         // object cannot be used directly, as it may contain invalid keys.
-        const groupMap = Object.values(CONFIG.A5E.effectKeyGroups).reduce(
-            (acc, curr) => {
-                curr.items.forEach((item) => {
-                    acc[item] = curr.label;
+        const groupMap = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
+            (acc, [group, { items }]) => {
+                items.forEach((item) => {
+                    acc[item] = group;
                 });
 
                 return acc;
@@ -41,10 +41,10 @@
         );
 
         // Use the currently valid keys to construct groups from the groupMap. If a key does not
-        // have a group defined, put it in the "Other" category.
+        // have a group defined, put it in the "other" category.
         const groups = Object.entries(
             options.reduce((acc, curr) => {
-                const group = groupMap[curr.fieldOption] ?? "Other";
+                const group = groupMap[curr.fieldOption] ?? "other";
 
                 acc[group] ??= [];
                 acc[group].push(curr);
@@ -56,10 +56,10 @@
         // Sort the groups alphabetically
         groups.sort((a, b) => a[0].localeCompare(b[0]));
 
-        // Shunt the Other category to the end.
+        // Shunt the "other" category to the end.
         groups.push(
             groups.splice(
-                groups.findIndex((item) => item[0] === "Other"),
+                groups.findIndex((item) => item[0] === "other"),
                 1
             )[0]
         );
@@ -83,11 +83,17 @@
     const optionsList = sheet.optionsList;
     const optionGroups = getOptionGroups(sheet.optionsList);
 
+    const groupLabels = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
+        (acc, [group, { label }]) => {
+            acc[group] = localize(label);
+            return acc;
+        },
+        {}
+    );
+
     /** @type {Array<Object>}*/
     $: changes = $effect.changes;
     $: changes, updateChange();
-
-    console.log($effect);
 </script>
 
 <section class="changes__container">
@@ -101,7 +107,10 @@
                         <h3 class="u-text-sm u-text-bold">Key</h3>
                         <select name="" id="" bind:value={changes[idx].key}>
                             {#each optionGroups as [groupLabel, items]}
-                                <optgroup label={groupLabel}>
+                                <optgroup
+                                    label={groupLabels[groupLabel] ??
+                                        groupLabel}
+                                >
                                     {#each items as { fieldOption, label }}
                                         <option value={fieldOption}>
                                             {label}
@@ -179,21 +188,6 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-        }
-
-        &__list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            list-style: none;
-            padding: 0;
-        }
-
-        &__item {
-            position: relative;
-            display: flex;
-            gap: 0.25rem;
-            width: 100%;
         }
     }
 

@@ -1919,7 +1919,7 @@ A5E.effectsKeyLocalizations = {
 
 A5E.effectKeyGroups = {
   abilityChecks: {
-    label: 'Ability Checks',
+    label: 'A5E.effects.groups.abilityChecks',
     items: [
       'flags.a5e.effects.rollMode.abilityCheck.all',
       'flags.a5e.effects.rollMode.abilityCheck.cha',
@@ -1948,8 +1948,8 @@ A5E.effectKeyGroups = {
       'system.abilities.wis.value'
     ]
   },
-  attacks: {
-    label: 'Attack Roll Modes',
+  attackRollModes: {
+    label: 'A5E.effects.groups.attackRollModes',
     items: [
       'flags.a5e.effects.rollMode.attack.all',
       'flags.a5e.effects.rollMode.attack.meleeSpellAttack',
@@ -1959,14 +1959,14 @@ A5E.effectKeyGroups = {
     ]
   },
   attunement: {
-    label: 'Attunement',
+    label: 'A5E.effects.groups.attunement',
     items: [
       'system.attributes.attunement.current',
       'system.attributes.attunement.max'
     ]
   },
   bonuses: {
-    label: 'Bonuses',
+    label: 'A5E.effects.groups.bonuses',
     items: [
       'system.bonuses.abilities.check',
       'system.bonuses.abilities.save',
@@ -1980,7 +1980,7 @@ A5E.effectKeyGroups = {
     ]
   },
   currency: {
-    label: 'Currency',
+    label: 'A5E.effects.groups.currency',
     items: [
       'system.currency.cp',
       'system.currency.ep',
@@ -1990,7 +1990,7 @@ A5E.effectKeyGroups = {
     ]
   },
   creatureTraits: {
-    label: 'Creature Traits',
+    label: 'A5E.effects.groups.creatureTraits',
     items: [
       'system.traits.size',
       'system.details.creatureTypes',
@@ -1998,7 +1998,7 @@ A5E.effectKeyGroups = {
     ]
   },
   deathSaves: {
-    label: 'Death Saves',
+    label: 'A5E.effects.groups.deathSaves',
     items: [
       'flags.a5e.effects.rollMode.deathSave',
       'system.attributes.death.failure',
@@ -2006,7 +2006,7 @@ A5E.effectKeyGroups = {
     ]
   },
   exertion: {
-    label: 'Exertion',
+    label: 'A5E.effects.groups.exertion',
     items: [
       'system.attributes.exertion.current',
       'system.attributes.exertion.max',
@@ -2014,7 +2014,7 @@ A5E.effectKeyGroups = {
     ]
   },
   hitDice: {
-    label: 'Hit Dice',
+    label: 'A5E.effects.groups.hitDice',
     items: [
       'system.attributes.hitDice.d10.current',
       'system.attributes.hitDice.d10.total',
@@ -2027,7 +2027,7 @@ A5E.effectKeyGroups = {
     ]
   },
   hitPoints: {
-    label: 'Hit Points',
+    label: 'A5E.effects.groups.hitPoints',
     items: [
       'system.attributes.hp.baseMax',
       'system.attributes.hp.bonus',
@@ -2037,14 +2037,14 @@ A5E.effectKeyGroups = {
     ]
   },
   initiative: {
-    label: 'Initiative',
+    label: 'A5E.effects.groups.initiative',
     items: [
       'system.attributes.initiative.bonus',
       'system.attributes.initiative.expertiseDice'
     ]
   },
   movement: {
-    label: 'Movement',
+    label: 'A5E.effects.groups.movement',
     items: [
       'system.attributes.movement.burrow.distance',
       'system.attributes.movement.burrow.unit',
@@ -2060,7 +2060,7 @@ A5E.effectKeyGroups = {
     ]
   },
   proficiencies: {
-    label: 'Proficiencies',
+    label: 'A5E.effects.groups.proficiencies',
     items: [
       'system.proficiencies.armor',
       'system.proficiencies.languages',
@@ -2069,7 +2069,7 @@ A5E.effectKeyGroups = {
     ]
   },
   resistancesVulnerabilitiesImmunities: {
-    label: 'Resistances, Vulnerabilities, and Immunities',
+    label: 'A5E.effects.groups.resistancesVulnerabilitiesImmunities',
     items: [
       'flags.a5e.effects.conditionImmunities.all',
       'flags.a5e.effects.damageImmunities.all',
@@ -2082,7 +2082,7 @@ A5E.effectKeyGroups = {
     ]
   },
   resources: {
-    label: 'Resources',
+    label: 'A5E.effects.groups.resources',
     items: [
       'system.resources.primary.hideMax',
       'system.resources.primary.label',
@@ -2115,7 +2115,7 @@ A5E.effectKeyGroups = {
     ]
   },
   savingThrows: {
-    label: 'Saving Throws',
+    label: 'A5E.effects.groups.savingThrows',
     items: [
       'flags.a5e.effects.rollMode.abilitySave.all',
       'flags.a5e.effects.rollMode.abilitySave.cha',
@@ -2147,7 +2147,7 @@ A5E.effectKeyGroups = {
     ]
   },
   senses: {
-    label: 'Senses',
+    label: 'A5E.effects.groups.senses',
     items: [
       'system.attributes.senses.blindsight.distance',
       'system.attributes.senses.blindsight.unit',
@@ -2160,7 +2160,7 @@ A5E.effectKeyGroups = {
     ]
   },
   skills: {
-    label: 'Skills',
+    label: 'A5E.effects.groups.skills',
     items: [
       'flags.a5e.effects.rollMode.skillCheck.all',
       'flags.a5e.effects.rollMode.skillCheck.acr',
@@ -2346,7 +2346,7 @@ A5E.effectKeyGroups = {
     ]
   },
   spellResources: {
-    label: 'Spell Resources',
+    label: 'A5E.effects.groups.spellResources',
     items: [
       'system.spellResources.points.current',
       'system.spellResources.points.max',
@@ -2369,6 +2369,10 @@ A5E.effectKeyGroups = {
       'system.spellResources.slots.9.current',
       'system.spellResources.slots.9.max'
     ]
+  },
+  other: {
+    label: 'A5E.effects.groups.other',
+    items: []
   }
 };
 
