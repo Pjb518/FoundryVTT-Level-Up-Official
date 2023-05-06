@@ -496,6 +496,39 @@
             </FormSection>
         {/if}
     </section>
+
+    {#if $actor.type === "npc" && game.settings.get("a5e", "randomizeNPCHitPoints")}
+        <section class="setting-group">
+            <header class="setting-header">
+                <h3 class="setting-heading">Token Options</h3>
+            </header>
+
+            <FormSection --gap="0.25rem">
+                <div class="checkbox-row">
+                    <input
+                        class="checkbox"
+                        type="checkbox"
+                        name="flags.a5e.disableRandomizedHP"
+                        id="{$actor.id}-disable-randomized-hp"
+                        checked={flags.a5e?.disableRandomizedHP ?? false}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $actor,
+                                target.name,
+                                target.checked
+                            )}
+                    />
+
+                    <label
+                        class="u-pointer"
+                        for="{$actor.id}-disable-randomized-hp"
+                    >
+                        Disable Randomized HP Rolls
+                    </label>
+                </div>
+            </FormSection>
+        </section>
+    {/if}
 </section>
 
 <style lang="scss">
