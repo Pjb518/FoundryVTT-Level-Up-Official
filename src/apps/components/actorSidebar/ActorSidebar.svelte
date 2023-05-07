@@ -18,6 +18,28 @@
 
     const actor = getContext("actor");
 
+    const fatigueOptions = [
+        { value: 0, hint: null },
+        { value: 1, hint: "A5E.tracks.fatigue.hints.1" },
+        { value: 2, hint: "A5E.tracks.fatigue.hints.2" },
+        { value: 3, hint: "A5E.tracks.fatigue.hints.3" },
+        { value: 4, hint: "A5E.tracks.fatigue.hints.4" },
+        { value: 5, hint: "A5E.tracks.fatigue.hints.5" },
+        { value: 6, hint: "A5E.tracks.fatigue.hints.6" },
+        { value: 7, hint: "A5E.tracks.fatigue.hints.7" },
+    ];
+
+    const strifeOptions = [
+        { value: 0, hint: null },
+        { value: 1, hint: "A5E.tracks.strife.hints.1" },
+        { value: 2, hint: "A5E.tracks.strife.hints.2" },
+        { value: 3, hint: "A5E.tracks.strife.hints.3" },
+        { value: 4, hint: "A5E.tracks.strife.hints.4" },
+        { value: 5, hint: "A5E.tracks.strife.hints.5" },
+        { value: 6, hint: "A5E.tracks.strife.hints.6" },
+        { value: 7, hint: "A5E.tracks.strife.hints.7" },
+    ];
+
     async function onEditImage() {
         await editDocumentImage($actor);
     }
@@ -46,14 +68,16 @@
             icon="fa-running"
             tooltipText="A5E.Fatigue"
             trackProperty="fatigue"
-            value={$actor.system.attributes.fatigue}
+            options={fatigueOptions}
+            selectedOption={$actor.system.attributes.fatigue}
         />
 
         <StatusTrack
             icon="fa-brain"
             tooltipText="A5E.Strife"
             trackProperty="strife"
-            value={$actor.system.attributes.strife}
+            options={strifeOptions}
+            selectedOption={$actor.system.attributes.strife}
         />
 
         <RestTrack />

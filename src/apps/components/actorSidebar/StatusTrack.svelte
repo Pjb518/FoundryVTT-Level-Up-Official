@@ -6,35 +6,35 @@
     export let icon;
     export let tooltipText;
     export let trackProperty;
-    export let value;
+    export let options;
+    export let selectedOption;
 
     const actor = getContext("actor");
 </script>
 
 <div
     class="track track-{trackProperty}"
-    data-track={trackProperty}
     data-tooltip={tooltipText}
     data-tooltip-direction="DOWN"
 >
-    <i class="track-icon fas {icon} track-icon-level-{value}" />
+    <i class="track-icon fas {icon} track-icon-level-{selectedOption}" />
 
     <ul class="track-items">
-        {#each [0, 1, 2, 3, 4, 5, 6, 7] as degree}
-            <li>
+        {#each options as { value, hint }}
+            <li data-tooltip={hint || null} data-tooltip-direction="DOWN">
                 <button
                     class="track-item"
-                    class:track-item-selected={value === degree}
+                    class:track-item-selected={value === selectedOption}
                     class:disable-pointer-events={!$actor.isOwner}
-                    data-degree={degree}
+                    data-degree={value}
                     on:click={() =>
                         updateDocumentDataFromField(
                             $actor,
                             `system.attributes.${trackProperty}`,
-                            degree
+                            value
                         )}
                 >
-                    {degree}
+                    {value}
                 </button>
             </li>
         {/each}
@@ -42,6 +42,14 @@
 </div>
 
 <style lang="scss">
+    :global(.tooltip-list) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.833rem;
+        text-align: left;
+    }
+
     $colors: (
         "1": #919f00,
         "2": #a09200,
