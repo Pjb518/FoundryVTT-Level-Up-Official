@@ -131,9 +131,10 @@ A5E.actionOptions = {
 };
 
 A5E.activeEffectTypes = {
-  temporary: 'A5E.effects.type.temporary',
+  ongoing: 'A5E.effects.type.ongoing',
+  inactive: 'A5E.effects.type.inactive',
   passive: 'A5E.effects.type.passive',
-  inactive: 'A5E.effects.type.inactive'
+  temporary: 'A5E.effects.type.temporary'
 };
 
 /**

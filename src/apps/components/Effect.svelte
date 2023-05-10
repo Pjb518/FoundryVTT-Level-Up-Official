@@ -75,6 +75,18 @@
     </div>
 
     <div class="indicator-wrapper">
+        {#if effect.isTemporary}
+            <div class="component-wrapper">
+                <div
+                    class="component"
+                    data-tooltip="A5E.effects.type.temporary"
+                    data-tooltip-direction="UP"
+                >
+                    <i class="fa-solid fa-hourglass-half" />
+                </div>
+            </div>
+        {/if}
+
         <div class="button-wrapper">
             <button
                 class="effect-button fas"
@@ -203,12 +215,32 @@
         grid-area: indicators;
     }
 
-    .button-wrapper {
+    .button-wrapper,
+    .component-wrapper {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        margin-inline: 0.5rem 0.375rem;
+    }
+
+    .button-wrapper {
         margin-inline: 0.25rem;
         gap: 0.5rem;
+    }
+
+    .component-wrapper {
+        gap: 0.5rem;
+    }
+
+    .component {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 3px;
+        font-size: 0.833rem;
+        color: #808080;
     }
 
     .effect-button {

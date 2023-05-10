@@ -11,8 +11,6 @@
     const { activeEffects } = actor;
     const subTypes = CONFIG.A5E.activeEffectTypes;
     const reducerType = "activeEffects";
-
-    $: menuList = Object.entries(subTypes);
 </script>
 
 <div class="effects-page">
@@ -20,7 +18,7 @@
         <UtilityBar>
             <Search {reducerType} />
             <!-- <Sort {reducerType} documentName="ActiveEffect" /> TODO: Reimplement in the future-->
-            <CreateMenu {reducerType} {menuList} documentName="ActiveEffect" />
+            <CreateMenu {reducerType} documentName="ActiveEffect" />
         </UtilityBar>
     {/if}
 
