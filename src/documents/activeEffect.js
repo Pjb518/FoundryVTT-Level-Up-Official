@@ -223,7 +223,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
   static createDefaultEffect(parentDocument) {
     const data = {
       label: localize('A5E.effects.new'),
-      icon: this.FALLBACK_ICON
+      icon: this.FALLBACK_ICON,
+      flags: { a5e: { sort: 0 } }
     };
     return super.create(data, { parent: parentDocument });
   }

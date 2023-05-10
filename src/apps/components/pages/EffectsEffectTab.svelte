@@ -94,6 +94,8 @@
     /** @type {Array<Object>}*/
     $: changes = $effect.changes;
     $: changes, updateChange();
+
+    console.log($effect);
 </script>
 
 <section class="changes__container">

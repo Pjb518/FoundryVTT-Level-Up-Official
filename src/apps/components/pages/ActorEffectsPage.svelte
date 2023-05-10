@@ -4,7 +4,7 @@
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import EffectCategory from "../EffectCategory.svelte";
     import Search from "../actorUtilityBar/Search.svelte";
-    // import Sort from "../actorUtilityBar/Sort.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     const actor = getContext("actor");
@@ -17,7 +17,7 @@
     {#if $actor.isOwner}
         <UtilityBar>
             <Search {reducerType} />
-            <!-- <Sort {reducerType} documentName="ActiveEffect" /> TODO: Reimplement in the future-->
+            <Sort {reducerType} documentName="ActiveEffect" />
             <CreateMenu {reducerType} documentName="ActiveEffect" />
         </UtilityBar>
     {/if}

@@ -25,8 +25,6 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: effectTemplateConfiguration =
         getEffectTemplateConfiguration(sheetIsLocked);
-
-    console.log(getEffectTemplateConfiguration(sheetIsLocked));
 </script>
 
 <section class="category-container">
