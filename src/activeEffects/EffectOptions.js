@@ -122,6 +122,7 @@ export default class EffectOptions {
     baseValues['system.attributes.movement.traits.hover'] = [false, OVERRIDE_ONLY, [[true, 'Can Hover'], [false, 'Cannot Hover']]];
     baseValues['system.attributes.inspiration'] = [false, OVERRIDE_ONLY, [[true, 'Has Inspiration'], [false, "Doesn't Have Inspiration"]]];
     baseValues['system.details.isSwarm'] = [false, OVERRIDE_ONLY, [[true, 'Is Swarm'], [false, 'Not a Swarm']]];
+    baseValues['system.attributes.exertion.recoverOnRest'] = [false, OVERRIDE_ONLY, [[true, 'Can Recover'], [false, "Can't Recover"]]];
 
     Object
       .keys(A5E.abilities)
@@ -160,7 +161,6 @@ export default class EffectOptions {
     delete baseValues['system.details.xp'];
 
     // Delete Configuration options
-    delete baseValues['system.attributes.exertion.recoverOnRest'];
     delete baseValues['system.resources.primary.hideMax'];
     delete baseValues['system.resources.secondary.hideMax'];
     delete baseValues['system.resources.tertiary.hideMax'];
@@ -179,7 +179,10 @@ export default class EffectOptions {
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
-    const { ROLL_MODES } = CONFIG.A5E;
+    const ROLL_MODES = Object
+      .entries(A5E.ROLL_MODE)
+      .map(([k, v]) => [v, k.toLowerCase().capitalize()]);
+
     // const ADD_AND_OVERRIDE = [MODES.ADD, MODES.OVERRIDE];
     const OVERRIDE_ONLY = Object.keys(MODES).filter((k) => k === 'OVERRIDE');
     const CUSTOM_ONLY = Object.keys(MODES).filter((k) => k === 'CUSTOM');

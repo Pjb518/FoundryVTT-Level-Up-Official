@@ -76,7 +76,9 @@
                 <div class="row">
                     <!-- Key Section -->
                     <div class="change-section u-flex-grow">
-                        <h3 class="u-text-sm u-text-bold">Key</h3>
+                        <h3 class="u-text-sm u-text-bold">
+                            {localize("A5E.effects.key")}
+                        </h3>
                         <select
                             name=""
                             id=""
@@ -101,7 +103,9 @@
 
                     <!-- Priority -->
                     <div class="change-section">
-                        <h3 class="u-text-sm u-text-bold">Priority</h3>
+                        <h3 class="u-text-sm u-text-bold">
+                            {localize("A5E.effects.priority")}
+                        </h3>
                         <input
                             class="small-input"
                             type="number"
@@ -115,7 +119,9 @@
                     <!-- Mode - Show if available -->
                     {#if optionsList[key]?.modes?.length > 1}
                         <div class="change-section">
-                            <h3 class="u-text-sm u-text-bold">Mode</h3>
+                            <h3 class="u-text-sm u-text-bold">
+                                {localize("A5E.effects.mode")}
+                            </h3>
                             <select
                                 name=""
                                 id=""
@@ -133,33 +139,57 @@
                     {/if}
                 </div>
 
-                <!-- Components Based on value type -->
+                <!-- TODO: Add Components Based on value type -->
                 <!--  -->
                 {#if typeof optionsList[key]?.sampleValue === "boolean"}
-                    <RadioGroup
-                        options={optionsList[key].options ?? [[null, null]]}
-                        selected={changes[idx].value}
-                        on:updateSelection={({ detail }) =>
-                            updateChange(idx, "value", detail)}
-                    />
+                    <div class="change-section">
+                        <h3 class="u-text-sm u-text-bold">
+                            {localize("A5E.effects.options")}
+                        </h3>
+                        <RadioGroup
+                            options={optionsList[key].options ?? [[null, null]]}
+                            selected={changes[idx].value}
+                            on:updateSelection={({ detail }) =>
+                                updateChange(idx, "value", detail)}
+                        />
+                    </div>
                 {:else}
-                    <div class="row">
-                        <div class="change-section u-w-full">
+                    <!-- Show either options or value field -->
+                    {#if optionsList[key]?.options?.length}
+                        <div class="change-section">
                             <h3 class="u-text-sm u-text-bold">
-                                Value (Components Go Here)
+                                {localize("A5E.effects.options")}
                             </h3>
-
-                            <!-- Hide  -->
-
-                            <input
-                                type="text"
-                                name=""
-                                {value}
-                                on:change={({ target }) =>
-                                    updateChange(idx, "value", target.value)}
+                            <RadioGroup
+                                options={optionsList[key].options ?? [
+                                    [null, null],
+                                ]}
+                                selected={changes[idx].value}
+                                on:updateSelection={({ detail }) =>
+                                    updateChange(idx, "value", detail)}
                             />
                         </div>
-                    </div>
+                    {:else}
+                        <div class="row">
+                            <div class="change-section u-w-full">
+                                <h3 class="u-text-sm u-text-bold">
+                                    {localize("A5E.effects.value")}
+                                </h3>
+
+                                <input
+                                    type="text"
+                                    name=""
+                                    {value}
+                                    on:change={({ target }) =>
+                                        updateChange(
+                                            idx,
+                                            "value",
+                                            target.value
+                                        )}
+                                />
+                            </div>
+                        </div>
+                    {/if}
                 {/if}
             </div>
         </FormSection>
