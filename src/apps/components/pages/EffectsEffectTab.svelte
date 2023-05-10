@@ -5,6 +5,7 @@
     import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
 
     import FormSection from "../FormSection.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
     const effect = getContext("effect");
     const sheet = getContext("sheet");
@@ -13,7 +14,7 @@
         const change = {
             key: "",
             mode: null,
-            value: 0,
+            value: "",
             priority: null,
         };
 
@@ -26,17 +27,20 @@
         changes = changes.filter((_, idx) => idx !== id);
     }
 
-    function updateChange() {
-        const updated = changes.map((c) => {
-            if (c.mode || !optionsList?.[c.key]) return c;
+    function updateChange(idx, key, value) {
+        changes[idx] ??= {};
 
-            c.mode = MODES[optionsList[c.key]?.modes?.[0]] ?? null;
-            return c;
-        });
+        changes[idx][key] = value;
 
-        $effect.update({
-            changes: updated,
-        });
+        // Change mode and reset value if key has changed
+        if (key === "key") {
+            changes[idx]["value"] = "";
+            changes[idx]["mode"] =
+                MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
+        }
+
+        // Update Document
+        $effect.update({ changes });
     }
 
     const MODES = CONST.ACTIVE_EFFECT_MODES;
@@ -52,8 +56,7 @@
     );
 
     /** @type {Array<Object>}*/
-    $: changes = $effect.changes;
-    $: changes, updateChange();
+    let changes = $effect.changes;
 
     // Dynamic Data for each change
     console.log($effect);
@@ -74,7 +77,13 @@
                     <!-- Key Section -->
                     <div class="change-section u-flex-grow">
                         <h3 class="u-text-sm u-text-bold">Key</h3>
-                        <select name="" id="" bind:value={changes[idx].key}>
+                        <select
+                            name=""
+                            id=""
+                            value={changes[idx].key}
+                            on:change={({ target }) =>
+                                updateChange(idx, "key", target.value)}
+                        >
                             {#each optionGroups as [groupLabel, items]}
                                 <optgroup
                                     label={groupLabels[groupLabel] ??
@@ -97,7 +106,9 @@
                             class="small-input"
                             type="number"
                             name=""
-                            bind:value={changes[idx].priority}
+                            value={changes[idx].priority}
+                            on:change={({ target }) =>
+                                updateChange(idx, "priority", target.value)}
                         />
                     </div>
 
@@ -108,7 +119,9 @@
                             <select
                                 name=""
                                 id=""
-                                bind:value={changes[idx].mode}
+                                value={changes[idx].mode}
+                                on:change={({ target }) =>
+                                    updateChange(idx, "mode", target.value)}
                             >
                                 {#each optionsList[key]?.modes ?? [] as label}
                                     <option value={MODES[label]}>
@@ -120,21 +133,34 @@
                     {/if}
                 </div>
 
-                <div class="row">
-                    <div class="change-section u-w-full">
-                        <h3 class="u-text-sm u-text-bold">
-                            Value (Components Go Here)
-                        </h3>
+                <!-- Components Based on value type -->
+                <!--  -->
+                {#if typeof optionsList[key]?.sampleValue === "boolean"}
+                    <RadioGroup
+                        options={optionsList[key].options ?? [[null, null]]}
+                        selected={changes[idx].value}
+                        on:updateSelection={({ detail }) =>
+                            updateChange(idx, "value", detail)}
+                    />
+                {:else}
+                    <div class="row">
+                        <div class="change-section u-w-full">
+                            <h3 class="u-text-sm u-text-bold">
+                                Value (Components Go Here)
+                            </h3>
 
-                        <input
-                            type="text"
-                            name=""
-                            {value}
-                            on:change={({ target }) =>
-                                (changes[idx].value = target.value)}
-                        />
+                            <!-- Hide  -->
+
+                            <input
+                                type="text"
+                                name=""
+                                {value}
+                                on:change={({ target }) =>
+                                    updateChange(idx, "value", target.value)}
+                            />
+                        </div>
                     </div>
-                </div>
+                {/if}
             </div>
         </FormSection>
     {/each}

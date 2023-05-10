@@ -41,14 +41,6 @@ export default class EffectOptions {
 
       EffectOptions.modifyBaseValues(type, baseValues, characterOptions);
 
-      const specialOptions = {};
-      // TODO: Figure out what this is
-      // specialOptions.StatusEffect = ['', MODES.CUSTOM];
-      // specialOptions.StatusEffectLabel = ['', MODES.CUSTOM];
-
-      EffectOptions.modifySpecialValues(type, specialOptions, characterOptions);
-      Object.keys(specialOptions).forEach((key) => delete baseValues[key]);
-
       // Base Options are all those fields defined in template.json,
       // game.system.model and are things the user can directly change
       this.options[type].baseOptions = Object.keys(baseValues).map((option) => {
@@ -56,7 +48,7 @@ export default class EffectOptions {
           option,
           baseValues[option][0],
           baseValues[option][1],
-          []
+          baseValues[option][2] ?? []
         );
 
         this.options[type].baseOptionsObj[option] = effectOption;
@@ -65,12 +57,21 @@ export default class EffectOptions {
 
       // Add Derived options
       EffectOptions.modifyDerivedValues(type, this.options[type].derivedOptions, characterOptions);
-      Object.entries(specialOptions).forEach((option) => {
+
+      // Add Special Options
+      const specialOptions = {};
+      // TODO: Figure out what this is
+      // specialOptions.StatusEffect = ['', MODES.CUSTOM];
+      // specialOptions.StatusEffectLabel = ['', MODES.CUSTOM];
+      EffectOptions.modifySpecialValues(type, specialOptions, characterOptions);
+      Object.keys(specialOptions).forEach((key) => delete baseValues[key]);
+
+      Object.keys(specialOptions).forEach((option) => {
         const effectOption = new EffectOptions(
-          option[0],
-          option[1][0],
-          option[1][1],
-          option[1]?.[2] ?? []
+          option,
+          specialOptions[option][0],
+          specialOptions[option][1],
+          specialOptions[option][2] ?? []
         );
         this.options[type].derivedOptions.push(effectOption);
       });
@@ -115,6 +116,22 @@ export default class EffectOptions {
     const defaultModes = Object.keys(MODES)
       .filter((k) => k !== 'CUSTOM')
       .sort((a, b) => a.localeCompare(b));
+    const OVERRIDE_ONLY = Object.keys(MODES).filter((k) => k === 'OVERRIDE');
+
+    // Setting up options for boolean values
+    baseValues['system.attributes.movement.traits.hover'] = [false, OVERRIDE_ONLY, [[true, 'Can Hover'], [false, 'Cannot Hover']]];
+    baseValues['system.attributes.inspiration'] = [false, OVERRIDE_ONLY, [[true, 'Has Inspiration'], [false, "Doesn't Have Inspiration"]]];
+    baseValues['system.details.isSwarm'] = [false, OVERRIDE_ONLY, [[true, 'Is Swarm'], [false, 'Not a Swarm']]];
+
+    Object
+      .keys(A5E.abilities)
+      .forEach((a) => (baseValues[`system.abilities.${a}.save.proficient`]
+        .push([[true, 'Is Proficient'], [false, 'Not Proficient']])));
+
+    Object
+      .keys(A5E.skills)
+      .forEach((s) => (baseValues[`system.skills.${s}.proficient`]
+        .push([[true, 'Is Proficient'], [false, 'Not Proficient']])));
 
     // Proficiency is prepared in base data so we add it here.
     baseValues['system.attributes.prof'] = [0, Object.values(defaultModes)];
@@ -141,6 +158,13 @@ export default class EffectOptions {
     delete baseValues['system.details.weight'];
     delete baseValues['system.details.notes'];
     delete baseValues['system.details.xp'];
+
+    // Delete Configuration options
+    delete baseValues['system.attributes.exertion.recoverOnRest'];
+    delete baseValues['system.resources.primary.hideMax'];
+    delete baseValues['system.resources.secondary.hideMax'];
+    delete baseValues['system.resources.tertiary.hideMax'];
+    delete baseValues['system.resources.quaternary.hideMax'];
 
     // Delete schema information
     delete baseValues['system.schema.lastMigration'];
