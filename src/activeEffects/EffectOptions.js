@@ -14,6 +14,9 @@ export default class EffectOptions {
   static createOptions() {
     this.options = {};
     const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const defaultModes = Object.keys(MODES)
+      .filter((k) => k !== 'CUSTOM')
+      .sort((a, b) => a.localeCompare(b));
 
     Object.keys(game.system.model.Actor).forEach((type) => {
       this.options[type] = {
@@ -33,7 +36,7 @@ export default class EffectOptions {
       const baseValues = foundry.utils.flattenObject(characterOptions);
 
       Object.keys(baseValues).forEach((prop) => {
-        baseValues[prop] = [baseValues[prop], Object.values(MODES)];
+        baseValues[prop] = [baseValues[prop], Object.values(defaultModes)];
       });
 
       EffectOptions.modifyBaseValues(type, baseValues, characterOptions);
@@ -106,12 +109,15 @@ export default class EffectOptions {
     });
   }
 
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const defaultModes = Object.keys(MODES)
+      .filter((k) => k !== 'CUSTOM')
+      .sort((a, b) => a.localeCompare(b));
 
     // Proficiency is prepared in base data so we add it here.
-    baseValues['system.attributes.prof'] = [0, Object.values(MODES)];
+    baseValues['system.attributes.prof'] = [0, Object.values(defaultModes)];
 
     // TODO: Possibly need to add something for bonus to damage
 
@@ -141,18 +147,18 @@ export default class EffectOptions {
     delete baseValues['system.schema.version'];
   }
 
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
     derivedValues.push(new EffectOptions('system.attributes.hp.max', 0));
   }
 
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifySpecialValues(actorType, specialValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
-    const ROLL_MODES = CONFIG.A5E.ROLL_MODES;
-    const ADD_AND_OVERRIDE = [MODES.ADD, MODES.OVERRIDE];
-    const OVERRIDE_ONLY = [MODES.OVERRIDE];
-    const CUSTOM_ONLY = [MODES.CUSTOM];
+    const { ROLL_MODES } = CONFIG.A5E;
+    // const ADD_AND_OVERRIDE = [MODES.ADD, MODES.OVERRIDE];
+    const OVERRIDE_ONLY = Object.keys(MODES).filter((k) => k === 'OVERRIDE');
+    const CUSTOM_ONLY = Object.keys(MODES).filter((k) => k === 'CUSTOM');
 
     // Add advantage values
     specialValues['flags.a5e.effects.rollMode.attack.all'] = [0, OVERRIDE_ONLY, ROLL_MODES];
@@ -186,8 +192,6 @@ export default class EffectOptions {
     specialValues['flags.a5e.effects.damageResistances.all'] = [[], CUSTOM_ONLY, null];
     specialValues['flags.a5e.effects.damageVulnerabilities.all'] = [[], CUSTOM_ONLY, null];
     specialValues['flags.a5e.effects.conditionImmunities.all'] = [[], CUSTOM_ONLY, null];
-
-
 
     // TODO: Maybe add something to automatically fail?
   }

@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
+
     import FormSection from "../FormSection.svelte";
 
     const effect = getContext("effect");
@@ -10,7 +12,7 @@
     function addChange() {
         const change = {
             key: "",
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            mode: null,
             value: 0,
             priority: null,
         };
@@ -24,64 +26,22 @@
         changes = changes.filter((_, idx) => idx !== id);
     }
 
-    function getOptionGroups(optionsList) {
-        const options = Object.values(optionsList);
-
-        // Invert the effectKeyGroups array so that each effect key points to a group. The config
-        // object cannot be used directly, as it may contain invalid keys.
-        const groupMap = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
-            (acc, [group, { items }]) => {
-                items.forEach((item) => {
-                    acc[item] = group;
-                });
-
-                return acc;
-            },
-            {}
-        );
-
-        // Use the currently valid keys to construct groups from the groupMap. If a key does not
-        // have a group defined, put it in the "other" category.
-        const groups = Object.entries(
-            options.reduce((acc, curr) => {
-                const group = groupMap[curr.fieldOption] ?? "other";
-
-                acc[group] ??= [];
-                acc[group].push(curr);
-
-                return acc;
-            }, {})
-        );
-
-        // Sort the groups alphabetically
-        groups.sort((a, b) => a[0].localeCompare(b[0]));
-
-        // Shunt the "other" category to the end.
-        groups.push(
-            groups.splice(
-                groups.findIndex((item) => item[0] === "other"),
-                1
-            )[0]
-        );
-
-        return groups;
-    }
-
     function updateChange() {
+        const updated = changes.map((c) => {
+            if (c.mode || !optionsList?.[c.key]) return c;
+
+            c.mode = MODES[optionsList[c.key]?.modes?.[0]] ?? null;
+            return c;
+        });
+
         $effect.update({
-            changes,
+            changes: updated,
         });
     }
 
-    const MODES = Object.fromEntries(
-        Object.entries(CONST.ACTIVE_EFFECT_MODES).map(([k, v]) => [
-            v,
-            k.toLowerCase().capitalize(),
-        ])
-    );
-
+    const MODES = CONST.ACTIVE_EFFECT_MODES;
     const optionsList = sheet.optionsList;
-    const optionGroups = getOptionGroups(sheet.optionsList);
+    const optionGroups = getEffectOptionGroups(sheet.optionsList);
 
     const groupLabels = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
         (acc, [group, { label }]) => {
@@ -95,17 +55,24 @@
     $: changes = $effect.changes;
     $: changes, updateChange();
 
+    // Dynamic Data for each change
     console.log($effect);
 </script>
 
-<section class="changes__container">
+<section class="changes-list">
     <button on:click={addChange}>+ Add Change</button>
 
     {#each changes as { key, value }, idx (idx)}
         <FormSection>
-            <div class="change__container">
+            <button
+                class="a5e-button a5e-button--delete fas fa-trash"
+                on:click={() => deleteChange(idx)}
+            />
+
+            <div class="change-container">
                 <div class="row">
-                    <div class="change__section u-flex-grow">
+                    <!-- Key Section -->
+                    <div class="change-section u-flex-grow">
                         <h3 class="u-text-sm u-text-bold">Key</h3>
                         <select name="" id="" bind:value={changes[idx].key}>
                             {#each optionGroups as [groupLabel, items]}
@@ -123,7 +90,8 @@
                         </select>
                     </div>
 
-                    <div class="change__section">
+                    <!-- Priority -->
+                    <div class="change-section">
                         <h3 class="u-text-sm u-text-bold">Priority</h3>
                         <input
                             class="small-input"
@@ -133,18 +101,27 @@
                         />
                     </div>
 
-                    <div class="change__section">
-                        <h3 class="u-text-sm u-text-bold">Mode</h3>
-                        <select name="" id="" bind:value={changes[idx].mode}>
-                            {#each optionsList[key]?.modes ?? [] as mode}
-                                <option value={mode}>{MODES[mode]}</option>
-                            {/each}
-                        </select>
-                    </div>
+                    <!-- Mode - Show if available -->
+                    {#if optionsList[key]?.modes?.length > 1}
+                        <div class="change-section">
+                            <h3 class="u-text-sm u-text-bold">Mode</h3>
+                            <select
+                                name=""
+                                id=""
+                                bind:value={changes[idx].mode}
+                            >
+                                {#each optionsList[key]?.modes ?? [] as label}
+                                    <option value={MODES[label]}>
+                                        {label.toLowerCase().capitalize()}
+                                    </option>
+                                {/each}
+                            </select>
+                        </div>
+                    {/if}
                 </div>
 
                 <div class="row">
-                    <div class="change__section u-w-full">
+                    <div class="change-section u-w-full">
                         <h3 class="u-text-sm u-text-bold">
                             Value (Components Go Here)
                         </h3>
@@ -164,19 +141,17 @@
 </section>
 
 <style lang="scss">
-    .change {
-        &__container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            width: 100%;
-        }
+    .change-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
 
-        &__section {
-            display: flex;
-            flex-direction: column;
-            gap: 0.275rem;
-        }
+    .change-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.275rem;
     }
 
     .row {
@@ -185,12 +160,10 @@
         width: 100%;
     }
 
-    .changes {
-        &__container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+    .changes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
     .small-input {
