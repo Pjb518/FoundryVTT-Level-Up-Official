@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
+
     export let effect;
 
     function onEffectActivate() {}
@@ -19,7 +21,7 @@
 
         if (!game.settings.get("a5e", "hideDeleteConfirmation")) {
             const itemDocument = { name: effect.label, type: "Active Effect" };
-            const dialog = new DeletionConfirmationDialog(item);
+            const dialog = new DeletionConfirmationDialog(itemDocument);
             await dialog.render(true);
             dialogData = await dialog.promise;
 
