@@ -67,15 +67,15 @@
 <article>
     <section class="changes-list">
         {#each changes as { key, value }, idx (idx)}
-            <div class="button-wrapper">
-                <button
-                    class="a5e-button a5e-button--delete fas fa-trash"
-                    style="font-size: 1rem;"
-                    on:click={() => deleteChange(idx)}
-                />
-            </div>
-
             <div class="change-container">
+                <div class="button-wrapper">
+                    <button
+                        class="a5e-button a5e-button--delete fas fa-trash"
+                        style="font-size: 1rem;"
+                        on:click={() => deleteChange(idx)}
+                    />
+                </div>
+
                 <div class="row" style="padding-right: 2rem;">
                     <!-- Key Section -->
                     <div class="change-section u-flex-grow">
@@ -258,6 +258,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        position: relative;
         width: 100%;
         padding: 0.75rem;
         font-size: 0.833rem;
