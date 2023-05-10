@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { DynMapReducer } from '@typhonjs-fvtt/runtime/svelte/store';
 
 export default class ActiveEffectMapReducer extends DynMapReducer {
@@ -5,13 +6,11 @@ export default class ActiveEffectMapReducer extends DynMapReducer {
     this.filters.add((effect) => !effect?.flags?.core?.statusId);
 
     this._types = {
-      temporary: this.derived.create('temporary'),
-      passive: this.derived.create('passive'),
+      ongoing: this.derived.create('passive'),
       inactive: this.derived.create('inactive')
     };
 
-    this._types.temporary.filters.add(effect => effect.isTemporary);
-    this._types.passive.filters.add(effect => !effect.isTemporary && !effect.isSuppressed);
-    this._types.inactive.filters.add(effect => effect.isSuppressed);
+    this._types.ongoing.filters.add((effect) => !effect.isSuppressed);
+    this._types.inactive.filters.add((effect) => effect.isSuppressed);
   }
 }

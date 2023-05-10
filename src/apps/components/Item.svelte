@@ -170,10 +170,6 @@
         pointer-events: none;
     }
 
-    .disable-pointer-events {
-        pointer-events: none;
-    }
-
     .item-wrapper {
         position: relative;
         display: grid;

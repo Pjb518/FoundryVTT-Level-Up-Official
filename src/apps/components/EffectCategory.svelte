@@ -3,11 +3,30 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import Effect from "./Effect.svelte";
 
-    export let icon = null;
     export let label;
     export let effects;
 
+    function getEffectTemplateConfiguration(sheetIsLocked) {
+        let areas = "icon name indicators";
+        let columns = "min-content 1fr min-content";
+
+        if (!sheetIsLocked) {
+            areas += " menu";
+            columns += " 2rem";
+        }
+
+        return { areas: `"${areas}"`, columns };
+    }
+
     const actor = getContext("actor");
+
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: effectTemplateConfiguration =
+        getEffectTemplateConfiguration(sheetIsLocked);
+
+    console.log(getEffectTemplateConfiguration(sheetIsLocked));
 </script>
 
 <section class="category-container">
@@ -19,7 +38,11 @@
 
     <ul class="effects-container">
         {#each [...effects] as effect (effect.id)}
-            <Effect {effect} />
+            <Effect
+                {effect}
+                --effectTemplateAreas={effectTemplateConfiguration.areas}
+                --effectTemplateColumns={effectTemplateConfiguration.columns}
+            />
         {/each}
     </ul>
 </section>

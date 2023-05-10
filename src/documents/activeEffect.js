@@ -36,7 +36,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // TODO: Refactor this when item effects are added
     if (this.disabled || this.parent.documentName !== 'Actor') return true;
 
-
     const { parentItem } = this;
 
     if (!parentItem) return false;
@@ -101,27 +100,40 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @inheritdoc
    */
   _applyCustom(document, change, current, delta, changes) {
-    if (!change.key.startsWith('flags.a5e.effects'))
-      return super._applyCustom(document, change, current, delta, changes);
+    if (!change.key.startsWith('flags.a5e.effects')) { return super._applyCustom(document, change, current, delta, changes); }
 
-    let newKey = "";
-    let update = "";
+    let newKey = '';
+    let update = '';
 
     // TODO: Move to own utility function
     switch (change.key) {
       case 'flags.a5e.effects.damageResistances.all':
       case 'flags.a5e.effects.damageVulnerabilities.all':
       case 'flags.a5e.effects.damageImmunities.all':
-        newKey = `system.traits.${change.key.split(".").at(-2)}`
+        newKey = `system.traits.${change.key.split('.').at(-2)}`;
         update = Object.keys(CONFIG.A5E.damageTypes);
         break;
       case 'flags.a5e.effects.conditionImmunities.all':
-        newKey = `system.traits.${change.key.split(".").at(-2)}`
+        newKey = `system.traits.${change.key.split('.').at(-2)}`;
         update = Object.keys(CONFIG.A5E.conditions);
+        break;
+      default:
         break;
     }
 
     changes[newKey] = update;
+  }
+
+  async duplicateEffect() {
+    const owningDocument = this.parent;
+    const newEffect = foundry.utils.duplicate(this);
+    newEffect.label = `${localize(newEffect.label)} (Copy)`;
+
+    if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
+  }
+
+  async toggleActiveState() {
+    await this.update({ disabled: !this.disabled });
   }
 
   /**
