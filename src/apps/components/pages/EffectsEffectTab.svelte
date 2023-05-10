@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
+    import { TJSIconButton } from "@typhonjs-fvtt/svelte-standard/component";
 
     import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
 
@@ -18,13 +19,14 @@
             priority: null,
         };
 
-        $effect.update({
-            changes: [...$effect.changes, change],
-        });
+        changes = [...changes, change];
+
+        $effect.update({ changes });
     }
 
     function deleteChange(id) {
         changes = changes.filter((_, idx) => idx !== id);
+        $effect.update({ changes });
     }
 
     function updateChange(idx, key, value) {
@@ -62,18 +64,19 @@
     console.log($effect);
 </script>
 
-<section class="changes-list">
-    <button on:click={addChange}>+ Add Change</button>
-
-    {#each changes as { key, value }, idx (idx)}
-        <FormSection>
-            <button
-                class="a5e-button a5e-button--delete fas fa-trash"
-                on:click={() => deleteChange(idx)}
-            />
+<article>
+    <section class="changes-list">
+        {#each changes as { key, value }, idx (idx)}
+            <div class="button-wrapper">
+                <button
+                    class="a5e-button a5e-button--delete fas fa-trash"
+                    style="font-size: 1rem;"
+                    on:click={() => deleteChange(idx)}
+                />
+            </div>
 
             <div class="change-container">
-                <div class="row">
+                <div class="row" style="padding-right: 2rem;">
                     <!-- Key Section -->
                     <div class="change-section u-flex-grow">
                         <h3 class="u-text-sm u-text-bold">
@@ -106,13 +109,18 @@
                         <h3 class="u-text-sm u-text-bold">
                             {localize("A5E.effects.priority")}
                         </h3>
+
                         <input
                             class="small-input"
                             type="number"
                             name=""
-                            value={changes[idx].priority}
+                            value={changes[idx].priority ?? 20}
                             on:change={({ target }) =>
-                                updateChange(idx, "priority", target.value)}
+                                updateChange(
+                                    idx,
+                                    "priority",
+                                    Number(target.value)
+                                )}
                         />
                     </div>
 
@@ -192,16 +200,69 @@
                     {/if}
                 {/if}
             </div>
-        </FormSection>
-    {/each}
-</section>
+        {/each}
+    </section>
+
+    <div class="sticky-add-button">
+        <TJSIconButton
+            title="Add Change"
+            icon="fas fa-plus"
+            onPress={() => addChange()}
+            --tjs-icon-button-background-hover="none"
+            --tjs-icon-button-background-focus="none"
+            --tjs-icon-button-background-focus-visible="none"
+            --tjs-icon-button-background-selected="none"
+            --tjs-icon-button-text-shadow-hover="none"
+            --tjs-icon-button-text-shadow-focus="none"
+            --tjs-icon-button-transition="all 0.15s ease-in-out"
+            --tjs-icon-button-diameter="1rem"
+            --tjs-icon-button-border-radius="0"
+        />
+    </div>
+</article>
 
 <style lang="scss">
+    article {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+        overflow: hidden;
+    }
+
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        color: #999;
+        font-size: 1rem;
+    }
+
+    .changes-list {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 0.75rem;
+
+        position: relative;
+
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+    }
+
     .change-container {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         width: 100%;
+        padding: 0.75rem;
+        font-size: 0.833rem;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
     }
 
     .change-section {
@@ -216,13 +277,14 @@
         width: 100%;
     }
 
-    .changes-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
     .small-input {
         width: 5rem;
+    }
+
+    .sticky-add-button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: #999;
     }
 </style>
