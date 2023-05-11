@@ -155,6 +155,7 @@
                             {localize("A5E.effects.options")}
                         </h3>
                         <RadioGroup
+                            allowDeselect={false}
                             options={optionsList[key].options ?? [[null, null]]}
                             selected={changes[idx].value}
                             on:updateSelection={({ detail }) =>
@@ -169,6 +170,7 @@
                                 {localize("A5E.effects.options")}
                             </h3>
                             <RadioGroup
+                                allowDeselect={false}
                                 options={optionsList[key].options ?? [
                                     [null, null],
                                 ]}

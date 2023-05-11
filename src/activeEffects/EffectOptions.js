@@ -123,6 +123,8 @@ export default class EffectOptions {
     baseValues['system.attributes.inspiration'] = [false, OVERRIDE_ONLY, [[true, 'Has Inspiration'], [false, "Doesn't Have Inspiration"]]];
     baseValues['system.details.isSwarm'] = [false, OVERRIDE_ONLY, [[true, 'Is Swarm'], [false, 'Not a Swarm']]];
     baseValues['system.attributes.exertion.recoverOnRest'] = [false, OVERRIDE_ONLY, [[true, 'Can Recover'], [false, "Can't Recover"]]];
+    baseValues['system.details.elite'] = [false, OVERRIDE_ONLY, [[true, 'Elite Monster'], [false, 'Normal Monster']]];
+    baseValues['system.attributes.senses.blindsight.otherwiseBlind'] = [false, OVERRIDE_ONLY, [[true, 'Blind Beyond Vision'], [false, 'Normal Vision']]];
 
     Object
       .keys(A5E.abilities)
@@ -159,6 +161,10 @@ export default class EffectOptions {
     delete baseValues['system.details.weight'];
     delete baseValues['system.details.notes'];
     delete baseValues['system.details.xp'];
+    delete baseValues['system.details.privateNotes'];
+    delete baseValues['system.source.link'];
+    delete baseValues['system.source.name'];
+    delete baseValues['system.source.publisher'];
 
     // Delete Configuration options
     delete baseValues['system.resources.primary.hideMax'];

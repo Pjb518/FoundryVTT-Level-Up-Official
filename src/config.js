@@ -1674,20 +1674,25 @@ A5E.effectsKeyLocalizations = {
   'system.attributes.ac': 'A5E.effects.keys.armorClass',
   'system.attributes.attunement.current': 'A5E.effects.keys.attunementCurrent',
   'system.attributes.attunement.max': 'A5E.effects.keys.attunementMax',
+  'system.attributes.casterLevel': 'A5E.effects.keys.casterLevel',
   'system.attributes.death.failure': 'A5E.effects.keys.deathSaveFailures',
   'system.attributes.death.success': 'A5E.effects.keys.deathSaveSuccesses',
   'system.attributes.exertion.current': 'A5E.effects.keys.exertionCurrent',
   'system.attributes.exertion.max': 'A5E.effects.keys.exertionMax',
   'system.attributes.exertion.recoverOnRest': 'A5E.effects.keys.recoverExertionOnShortRest',
   'system.attributes.fatigue': 'A5E.effects.keys.fatigue',
-  'system.attributes.hitDice.d10.current': 'A5E.effects.keys.hitDice.d10Current',
-  'system.attributes.hitDice.d10.total': 'A5E.effects.keys.hitDice.d10Max',
+  'system.attributes.hitDice.d20.current': 'A5E.effects.keys.hitDice.d20Current',
+  'system.attributes.hitDice.d20.total': 'A5E.effects.keys.hitDice.d20Max',
   'system.attributes.hitDice.d12.current': 'A5E.effects.keys.hitDice.d12Current',
   'system.attributes.hitDice.d12.total': 'A5E.effects.keys.hitDice.d12Max',
+  'system.attributes.hitDice.d10.current': 'A5E.effects.keys.hitDice.d10Current',
+  'system.attributes.hitDice.d10.total': 'A5E.effects.keys.hitDice.d10Max',
   'system.attributes.hitDice.d6.current': 'A5E.effects.keys.hitDice.d6Current',
   'system.attributes.hitDice.d6.total': 'A5E.effects.keys.hitDice.d6Max',
   'system.attributes.hitDice.d8.current': 'A5E.effects.keys.hitDice.d8Current',
   'system.attributes.hitDice.d8.total': 'A5E.effects.keys.hitDice.d8Max',
+  'system.attributes.hitDice.d4.current': 'A5E.effects.keys.hitDice.d4Current',
+  'system.attributes.hitDice.d4.total': 'A5E.effects.keys.hitDice.d4Max',
   'system.attributes.hp.baseMax': 'A5E.effects.keys.hitPoints.baseMax',
   'system.attributes.hp.bonus': 'A5E.effects.keys.hitPoints.bonus',
   'system.attributes.hp.value': 'A5E.effects.keys.hitPoints.current',
@@ -1710,6 +1715,7 @@ A5E.effectsKeyLocalizations = {
   'system.attributes.prof': 'A5E.effects.keys.proficiencyBonus',
   'system.attributes.senses.blindsight.distance': 'A5E.effects.keys.vision.blindsightDistance',
   'system.attributes.senses.blindsight.unit': 'A5E.effects.keys.vision.blindsightUnit',
+  'system.attributes.senses.blindsight.otherwiseBlind': 'A5E.effects.keys.vision.blindsightOtherwiseBlind',
   'system.attributes.senses.darkvision.distance': 'A5E.effects.keys.vision.darkvisionDistance',
   'system.attributes.senses.darkvision.unit': 'A5E.effects.keys.vision.darkvisionUnit',
   'system.attributes.senses.tremorsense.distance': 'A5E.effects.keys.vision.tremorsenseDistance',
@@ -1733,6 +1739,8 @@ A5E.effectsKeyLocalizations = {
   'system.currency.pp': 'A5E.effects.keys.currency.pp',
   'system.currency.sp': 'A5E.effects.keys.currency.sp',
   'system.details.creatureTypes': 'A5E.effects.keys.details.creatureTypes',
+  'system.details.cr': 'A5E.effects.keys.details.cr',
+  'system.details.elite': 'A5E.effects.keys.details.elite',
   'system.details.isSwarm': 'A5E.effects.keys.details.isSwarm',
   'system.proficiencies.armor': 'A5E.effects.keys.proficiencies.armor',
   'system.proficiencies.languages': 'A5E.effects.keys.proficiencies.languages',
@@ -2016,6 +2024,13 @@ A5E.effectKeyGroups = {
       'system.bonuses.spellDC'
     ]
   },
+  conditions: {
+    label: 'A5E.effects.groups.conditions',
+    items: [
+      'system.attributes.fatigue',
+      'system.attributes.strife'
+    ]
+  },
   currency: {
     label: 'A5E.effects.groups.currency',
     items: [
@@ -2053,14 +2068,18 @@ A5E.effectKeyGroups = {
   hitDice: {
     label: 'A5E.effects.groups.hitDice',
     items: [
-      'system.attributes.hitDice.d10.current',
-      'system.attributes.hitDice.d10.total',
+      'system.attributes.hitDice.d20.current',
+      'system.attributes.hitDice.d20.total',
       'system.attributes.hitDice.d12.current',
       'system.attributes.hitDice.d12.total',
+      'system.attributes.hitDice.d10.current',
+      'system.attributes.hitDice.d10.total',
       'system.attributes.hitDice.d6.current',
       'system.attributes.hitDice.d6.total',
       'system.attributes.hitDice.d8.current',
-      'system.attributes.hitDice.d8.total'
+      'system.attributes.hitDice.d8.total',
+      'system.attributes.hitDice.d4.current',
+      'system.attributes.hitDice.d4.total'
     ]
   },
   hitPoints: {
@@ -2188,6 +2207,7 @@ A5E.effectKeyGroups = {
     items: [
       'system.attributes.senses.blindsight.distance',
       'system.attributes.senses.blindsight.unit',
+      'system.attributes.senses.blindsight.otherwiseBlind',
       'system.attributes.senses.darkvision.distance',
       'system.attributes.senses.darkvision.unit',
       'system.attributes.senses.tremorsense.distance',
