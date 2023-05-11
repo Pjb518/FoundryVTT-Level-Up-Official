@@ -133,8 +133,14 @@ export default class EffectOptions {
 
     Object
       .keys(A5E.skills)
-      .forEach((s) => (baseValues[`system.skills.${s}.proficient`]
-        .push([[true, 'Is Proficient'], [false, 'Not Proficient']])));
+      .forEach((s) => {
+        // Change modes for default ability
+        baseValues[`system.skills.${s}.ability`][1] = OVERRIDE_ONLY;
+
+        // Add options for proficiency
+        baseValues[`system.skills.${s}.proficient`]
+          .push([[true, 'Is Proficient'], [false, 'Not Proficient']]);
+      });
 
     // Proficiency is prepared in base data so we add it here.
     baseValues['system.attributes.prof'] = [0, Object.values(defaultModes)];
