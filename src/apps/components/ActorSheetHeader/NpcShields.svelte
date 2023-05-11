@@ -19,8 +19,7 @@
         updateDocumentDataFromField($actor, target.name, newValue);
     }
 
-    function displayCr() {
-        const cr = $actor.system.details.cr;
+    function displayCr(cr) {
         if (cr === 0.5) return "1/2";
         else if (cr === 0.25) return "1/4";
         else if (cr === 0.125) return "1/8";
@@ -28,7 +27,7 @@
         return cr;
     }
 
-    $: cr = displayCr();
+    $: cr = displayCr($actor.system.details.cr);
     $: xp = prepareXP($actor);
     $: isElite = $actor.system.details.elite;
     $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
