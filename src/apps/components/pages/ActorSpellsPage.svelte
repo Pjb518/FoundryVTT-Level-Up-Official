@@ -115,8 +115,8 @@
                     class:disable-pointer-events={!$actor.isOwner ||
                         sheetIsLocked}
                     type="number"
-                    name="system.casterLevel"
-                    value={$actor.system.casterLevel}
+                    name="system.attributes.casterLevel"
+                    value={$actor.system.attributes.casterLevel}
                     placeholder="0"
                     min="0"
                     on:change={({ target }) =>
