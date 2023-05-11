@@ -87,7 +87,7 @@ export default class ResourceConsumptionManager {
     const item = this.#actor.items.get(itemId);
     if (!item) return;
 
-    const newQuantity = Math.max(item.system.quantity ?? 0 - quantity, 0);
+    const newQuantity = Math.max((item.system.quantity ?? 0) - quantity, 0);
 
     await this.#actor.updateEmbeddedDocuments(
       'Item',
