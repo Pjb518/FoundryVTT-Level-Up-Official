@@ -562,6 +562,41 @@ A5E.objectTypesPlural = {
   weapon: 'A5E.ObjectTypeWeaponPlural'
 };
 
+A5E.publishers = {
+  acesAdventuringGuides: {
+    name: "Ace's Adventuring Guides",
+    logo: ''
+  },
+  anthonyAlipio: {
+    name: 'Anthony Alipio',
+    logo: ''
+  },
+  dmSarah: {
+    name: 'DM Sarah',
+    logo: ''
+  },
+  joshGentry: {
+    name: 'Josh Gentry',
+    logo: ''
+  },
+  purpleMartinGames: {
+    name: 'Purple Marting Games',
+    logo: ''
+  },
+  ravine: {
+    name: 'Ravine',
+    logo: ''
+  },
+  steampunkette: {
+    name: 'Steampunkette',
+    logo: ''
+  },
+  wolfworksPress: {
+    name: 'Wolfworks Press',
+    logo: ''
+  }
+};
+
 /**
  * The set of core range types in the system.
  * @enum {string}
