@@ -134,7 +134,7 @@ export default class EffectOptions {
     Object
       .keys(A5E.skills)
       .forEach((s) => {
-        // Change modes for default ability
+        // Change modes for default ability, and expertise
         baseValues[`system.skills.${s}.ability`][1] = OVERRIDE_ONLY;
 
         // Add options for proficiency
@@ -144,6 +144,9 @@ export default class EffectOptions {
 
     // Proficiency is prepared in base data so we add it here.
     baseValues['system.attributes.prof'] = [0, Object.values(defaultModes)];
+
+    // Add options for size
+    baseValues['system.traits.size'] = ['', OVERRIDE_ONLY, Object.entries(A5E.actorSizes)];
 
     // TODO: Possibly need to add something for bonus to damage
 
