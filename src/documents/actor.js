@@ -392,7 +392,7 @@ export default class ActorA5e extends Actor {
       skill.deterministicBonus = deterministicBonus ?? skill.mod;
 
       try {
-        skill.passive = this.#calculatePassiveScore(skill);
+        skill.passive = this._calculatePassiveScore(skill);
       } catch {
         // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
@@ -431,7 +431,7 @@ export default class ActorA5e extends Actor {
     };
 
     data.spell = {
-      mod: this.#calculateSpellcastingMod()
+      mod: this._calculateSpellcastingMod()
     };
 
     data.spellcasting = {
@@ -446,7 +446,7 @@ export default class ActorA5e extends Actor {
     return data;
   }
 
-  #calculatePassiveScore(skill) {
+  _calculatePassiveScore(skill) {
     const rollData = this.getRollData();
 
     return getDeterministicBonus([
@@ -460,7 +460,7 @@ export default class ActorA5e extends Actor {
     ].filter(Boolean).join(' + '), rollData);
   }
 
-  #calculateSpellcastingMod() {
+  _calculateSpellcastingMod() {
     const { abilities, attributes } = this.system;
     const spellcastingAbility = attributes.spellcasting || 'int';
 
