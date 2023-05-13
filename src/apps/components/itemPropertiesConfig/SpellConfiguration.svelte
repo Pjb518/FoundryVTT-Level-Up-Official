@@ -221,26 +221,13 @@
                     </dt>
                     <dd class="summary-list__value">
                         {#if $item.system.schools.secondary.length}
-                            <ul
-                                class="
-                                    list
-                                    u-comma-list
-                                    u-flex
-                                    u-flex-shrink-0
-                                    u-gap-ch
-                                    u-list-style-none
-                                    u-m-0
-                                    u-p-0
-                                    u-w-fit
-                                "
-                            >
-                                {#each localeSort($item.system.schools.secondary) as school}
-                                    <li class="list-item" key={school}>
-                                        {A5E.spellSchools.secondary[school] ??
-                                            school}
-                                    </li>
-                                {/each}
-                            </ul>
+                            {localeSort(
+                                $item.system.schools.secondary.map(
+                                    (school) =>
+                                        A5E.spellSchools.secondary[school] ??
+                                        school
+                                )
+                            ).join(", ")}
                         {:else}
                             {localize("A5E.None")}
                         {/if}
@@ -255,27 +242,15 @@
                     </dt>
                     <dd class="summary-list__value">
                         {#if Object.values($item.system.components).some(Boolean)}
-                            <ul
-                                class="
-                                    list
-                                    u-comma-list
-                                    u-flex
-                                    u-flex-shrink-0
-                                    u-gap-ch
-                                    u-list-style-none
-                                    u-m-0
-                                    u-p-0
-                                    u-w-fit
-                                "
-                            >
-                                {#each Object.entries($item.system.components).filter(([_, state]) => state) as [component, _]}
-                                    <li class="list-item">
-                                        {A5E.spellComponentAbbreviations[
+                            {Object.entries($item.system.components)
+                                .filter(([_, state]) => state)
+                                .map(
+                                    ([component]) =>
+                                        A5E.spellComponentAbbreviations[
                                             component
-                                        ] ?? component}
-                                    </li>
-                                {/each}
-                            </ul>
+                                        ] ?? component
+                                )
+                                .join(", ")}
                         {:else}
                             {localize("A5E.None")}
                         {/if}
