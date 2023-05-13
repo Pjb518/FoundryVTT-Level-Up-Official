@@ -125,6 +125,8 @@
         cursor: pointer;
         width: 8rem;
         height: 8rem;
+        object-fit: cover;
+        object-position: top;
         z-index: 1;
     }
 
