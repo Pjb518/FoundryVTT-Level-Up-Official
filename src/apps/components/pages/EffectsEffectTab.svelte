@@ -5,7 +5,6 @@
 
     import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
 
-    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     const effect = getContext("effect");
@@ -31,7 +30,6 @@
 
     function updateChange(idx, key, value) {
         changes[idx] ??= {};
-
         changes[idx][key] = value;
 
         // Change mode and reset value if key has changed
@@ -59,9 +57,6 @@
 
     /** @type {Array<Object>}*/
     let changes = $effect.changes;
-
-    // Dynamic Data for each change
-    console.log($effect);
 </script>
 
 <article>
@@ -85,7 +80,7 @@
                         <select
                             name=""
                             id=""
-                            value={changes[idx].key}
+                            value={$effect.changes[idx]?.key}
                             on:change={({ target }) =>
                                 updateChange(idx, "key", target.value)}
                         >
@@ -114,7 +109,7 @@
                             class="small-input"
                             type="number"
                             name=""
-                            value={changes[idx].priority ?? 20}
+                            value={$effect.changes[idx]?.priority ?? 0}
                             on:change={({ target }) =>
                                 updateChange(
                                     idx,
@@ -133,7 +128,7 @@
 
                             <select
                                 id=""
-                                value={changes[idx].mode}
+                                value={$effect.changes[idx]?.mode}
                                 on:change={({ target }) =>
                                     updateChange(idx, "mode", target.value)}
                             >
