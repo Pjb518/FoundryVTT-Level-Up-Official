@@ -161,6 +161,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     try {
       if (isActor) {
+        const targetField = game.a5e.activeEffects
+          .EffectOptions.options[document.type].allOptionsObj[change.key];
+        if (typeof targetField.sampleValue !== 'number') return delta;
         return getDeterministicBonus(
           change.value ?? 0,
           document.getRollData()
