@@ -195,97 +195,138 @@
             </FormSection>
         </div>
     {:else}
-        <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.SpellLevel")}:</dt>
-                <dd class="u-m-0 u-p-0">
-                    {A5E.spellLevels[$item.system.level]}
-                </dd>
-            </div>
-
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">
-                    {localize("A5E.SpellSchoolPrimary")}:
-                </dt>
-                <dd class="u-m-0 u-p-0">
-                    {A5E.spellSchools.primary[$item.system.schools.primary]}
-                </dd>
-            </div>
-
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">
-                    {localize("A5E.SpellSchoolSecondaryPlural")}:
-                </dt>
-                <dd class="u-m-0 u-p-0">
-                    {#if $item.system.schools.secondary.length}
-                        <ul
-                            class="
-                            u-comma-list
-                            u-flex
-                            u-flex-shrink-0
-                            u-gap-ch
-                            u-list-style-none
-                            u-m-0
-                            u-p-0
-                            u-w-fit
-                        "
-                        >
-                            {#each localeSort($item.system.schools.secondary) as school}
-                                <li key={school}>
-                                    {A5E.spellSchools.secondary[school] ??
-                                        school}
-                                </li>
-                            {/each}
-                        </ul>
-                    {:else}
-                        {localize("A5E.None")}
-                    {/if}
-                </dd>
-            </div>
-
-            <hr class="a5e-rule u-my-sm" />
-
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.SpellComponents")}:</dt>
-                <dd class="u-flex u-gap-ch u-m-0 u-p-0">
-                    {#if Object.values($item.system.components).some(Boolean)}
-                        <ul
-                            class="
-                                u-comma-list
-                                u-flex
-                                u-flex-shrink-0
-                                u-gap-ch
-                                u-list-style-none
-                                u-m-0
-                                u-p-0
-                                u-w-fit
-                            "
-                        >
-                            {#each Object.entries($item.system.components).filter(([_, state]) => state) as [component, _]}
-                                <li>
-                                    {A5E.spellComponentAbbreviations[
-                                        component
-                                    ] ?? component}
-                                </li>
-                            {/each}
-                        </ul>
-                    {:else}
-                        {localize("A5E.None")}
-                    {/if}
-                </dd>
-            </div>
-
-            {#if $item.system.components.material && $item.system.materials}
-                <div class="u-flex u-gap-md">
-                    <dt class="u-flex-shrink-0 u-text-bold">
-                        {localize("A5E.SpellMaterials")}:
+        <FormSection>
+            <dl class="summary-list">
+                <div class="summary-list__item">
+                    <dt class="summary-list__label">
+                        {localize("A5E.SpellLevel")}:
                     </dt>
-
-                    <dd class="u-m-0 u-p-0">
-                        {$item.system.materials}
+                    <dd class="summary-list__value">
+                        {A5E.spellLevels[$item.system.level]}
                     </dd>
                 </div>
-            {/if}
-        </dl>
+
+                <div class="summary-list__item">
+                    <dt class="summary-list__label">
+                        {localize("A5E.SpellSchoolPrimary")}:
+                    </dt>
+                    <dd class="summary-list__value">
+                        {A5E.spellSchools.primary[$item.system.schools.primary]}
+                    </dd>
+                </div>
+
+                <div class="summary-list__item">
+                    <dt class="summary-list__label">
+                        {localize("A5E.SpellSchoolSecondaryPlural")}:
+                    </dt>
+                    <dd class="summary-list__value">
+                        {#if $item.system.schools.secondary.length}
+                            <ul
+                                class="
+                                    list
+                                    u-comma-list
+                                    u-flex
+                                    u-flex-shrink-0
+                                    u-gap-ch
+                                    u-list-style-none
+                                    u-m-0
+                                    u-p-0
+                                    u-w-fit
+                                "
+                            >
+                                {#each localeSort($item.system.schools.secondary) as school}
+                                    <li class="list-item" key={school}>
+                                        {A5E.spellSchools.secondary[school] ??
+                                            school}
+                                    </li>
+                                {/each}
+                            </ul>
+                        {:else}
+                            {localize("A5E.None")}
+                        {/if}
+                    </dd>
+                </div>
+
+                <hr class="a5e-rule u-my-sm" />
+
+                <div class="summary-list__item">
+                    <dt class="summary-list__label">
+                        {localize("A5E.SpellComponents")}:
+                    </dt>
+                    <dd class="summary-list__value">
+                        {#if Object.values($item.system.components).some(Boolean)}
+                            <ul
+                                class="
+                                    list
+                                    u-comma-list
+                                    u-flex
+                                    u-flex-shrink-0
+                                    u-gap-ch
+                                    u-list-style-none
+                                    u-m-0
+                                    u-p-0
+                                    u-w-fit
+                                "
+                            >
+                                {#each Object.entries($item.system.components).filter(([_, state]) => state) as [component, _]}
+                                    <li class="list-item">
+                                        {A5E.spellComponentAbbreviations[
+                                            component
+                                        ] ?? component}
+                                    </li>
+                                {/each}
+                            </ul>
+                        {:else}
+                            {localize("A5E.None")}
+                        {/if}
+                    </dd>
+                </div>
+
+                {#if $item.system.components.material && $item.system.materials}
+                    <div class="summary-list__item">
+                        <dt class="summary-list__label">
+                            {localize("A5E.SpellMaterials")}:
+                        </dt>
+
+                        <dd class="summary-list__value">
+                            {$item.system.materials}
+                        </dd>
+                    </div>
+                {/if}
+            </dl>
+        </FormSection>
     {/if}
 </section>
+
+<style lang="scss">
+    .summary-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+        margin: 0;
+        font-size: 0.833rem;
+
+        &__item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        &__label {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        &__value {
+            margin: 0;
+        }
+    }
+
+    .list {
+        flex-wrap: wrap;
+        row-gap: 0.125rem;
+    }
+
+    .list-item {
+        white-space: nowrap;
+    }
+</style>
