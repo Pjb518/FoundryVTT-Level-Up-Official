@@ -55,7 +55,14 @@
                 draggable="true"
                 on:dragstart={(event) => _onDragStart(event, id)}
             >
+                <img
+                    class="action__image"
+                    src={action?.img ?? $item.img ?? "icons/svg/item-bag.svg"}
+                    alt=""
+                />
+
                 {action?.name}
+
                 <div class="action-buttons">
                     <button
                         class="action-button fas fa-cog"
@@ -87,11 +94,19 @@
     .action {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
+        gap: 0.5rem;
+        padding: 0.125rem;
+        padding-right: 0.5rem;
+        background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
         border-radius: 3px;
-        font-size: 1rem;
+        font-size: 0.833rem;
+
+        &__image {
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
 
         &-button {
             padding: 0.25rem;
@@ -113,6 +128,7 @@
             align-items: center;
             gap: 0.5rem;
             color: #999;
+            margin-left: auto;
         }
 
         &-list {
