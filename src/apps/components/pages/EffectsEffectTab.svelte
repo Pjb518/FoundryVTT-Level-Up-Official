@@ -130,8 +130,8 @@
                             <h3 class="u-text-sm u-text-bold">
                                 {localize("A5E.effects.mode")}
                             </h3>
+
                             <select
-                                name=""
                                 id=""
                                 value={changes[idx].mode}
                                 on:change={({ target }) =>

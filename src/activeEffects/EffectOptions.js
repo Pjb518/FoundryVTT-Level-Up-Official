@@ -14,8 +14,11 @@ export default class EffectOptions {
   static createOptions() {
     this.options = {};
     const MODES = CONST.ACTIVE_EFFECT_MODES;
-    const defaultModes = Object.keys(MODES)
+    const DEFAULT_MODES = Object.keys(MODES)
       .filter((k) => k !== 'CUSTOM')
+      .sort((a, b) => a.localeCompare(b));
+    const DEFAULT_STRING_MODES = Object.keys(MODES)
+      .filter((k) => !['CUSTOM', 'UPGRADE', 'DOWNGRADE'].includes(k))
       .sort((a, b) => a.localeCompare(b));
 
     Object.keys(game.system.model.Actor).forEach((type) => {
@@ -36,7 +39,10 @@ export default class EffectOptions {
       const baseValues = foundry.utils.flattenObject(characterOptions);
 
       Object.keys(baseValues).forEach((prop) => {
-        baseValues[prop] = [baseValues[prop], Object.values(defaultModes)];
+        baseValues[prop] = [
+          baseValues[prop],
+          typeof baseValues[prop] === 'string' ? DEFAULT_STRING_MODES : DEFAULT_MODES
+        ];
       });
 
       EffectOptions.modifyBaseValues(type, baseValues, characterOptions);
@@ -113,7 +119,7 @@ export default class EffectOptions {
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifyBaseValues(actorType, baseValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
-    const defaultModes = Object.keys(MODES)
+    const DEFAULT_MODES = Object.keys(MODES)
       .filter((k) => k !== 'CUSTOM')
       .sort((a, b) => a.localeCompare(b));
     const OVERRIDE_ONLY = Object.keys(MODES).filter((k) => k === 'OVERRIDE');
@@ -143,7 +149,7 @@ export default class EffectOptions {
       });
 
     // Proficiency is prepared in base data so we add it here.
-    baseValues['system.attributes.prof'] = [0, Object.values(defaultModes)];
+    baseValues['system.attributes.prof'] = [0, DEFAULT_MODES];
 
     // Add options for size
     baseValues['system.traits.size'] = ['', OVERRIDE_ONLY, Object.entries(A5E.actorSizes)];
@@ -191,7 +197,12 @@ export default class EffectOptions {
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
-    derivedValues.push(new EffectOptions('system.attributes.hp.max', 0));
+    const MODES = CONST.ACTIVE_EFFECT_MODES;
+    const DEFAULT_MODES = Object.keys(MODES)
+      .filter((k) => k !== 'CUSTOM')
+      .sort((a, b) => a.localeCompare(b));
+
+    derivedValues.push(new EffectOptions('system.attributes.hp.max', 0, DEFAULT_MODES));
   }
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
