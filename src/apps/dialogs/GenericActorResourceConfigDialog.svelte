@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -19,10 +19,13 @@
         <input
             class="a5e-input"
             type="text"
-            name="system.resources.{source}.label"
             value={resource.label}
             on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.resources.${source}.label`,
+                    target.value
+                )}
         />
     </FormSection>
 
@@ -31,13 +34,12 @@
             <input
                 class="a5e-input"
                 type="text"
-                name="system.resources.{source}.max"
                 value={resource.max}
                 on:change={({ target }) => {
                     handleDeterministicInput(target.value);
                     updateDocumentDataFromField(
                         $actor,
-                        target.name,
+                        `system.resources.${source}.max`,
                         target.value
                     );
                 }}
@@ -46,28 +48,17 @@
     {/if}
 
     <FormSection>
-        <div class="u-flex u-gap-md u-align-center">
-            <input
-                class="a5e-input"
-                type="checkbox"
-                id="{appId}-resources-{source}-hideMax"
-                name="system.resources.{source}.hideMax"
-                checked={resource.hideMax ?? false}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.checked
-                    )}
-            />
-
-            <label
-                class="u-pointer u-text-sm"
-                for="{appId}-resources-{source}-hideMax"
-            >
-                {localize("A5E.GenericResourceHideMax")}
-            </label>
-        </div>
+        <Checkbox
+            label="A5E.GenericResourceHideMax"
+            checked={resource.hideMax ?? false}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.resources.${source}.hideMax`,
+                    detail
+                );
+            }}
+        />
     </FormSection>
 
     <FormSection heading="A5E.RecoverResourceAt">
@@ -84,54 +75,48 @@
     </FormSection>
 
     {#if resource.per === "recharge"}
-        <FormSection heading="A5E.ItemRechargeConfiguration">
-            <div class="u-flex u-gap-md u-w-full">
-                <div class="recharge-formula">
-                    <label
-                        class="recharge-formula__label"
-                        for="{$actor.id}-resource-${source}-recharge-formula"
-                    >
-                        {localize("A5E.ItemRechargeFormula")}
-                    </label>
+        <FormSection>
+            <FormSection
+                heading="A5E.ItemRechargeFormula"
+                --background="transparent"
+                --direction="column"
+                --grow="1"
+                --padding="0"
+            >
+                <input
+                    class="a5e-input"
+                    type="text"
+                    value={resource.recharge.formula}
+                    placeholder="1d6"
+                    on:change={({ target }) => {
+                        handleDeterministicInput(target.value);
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.resources.${source}.recharge.formula`,
+                            target.value
+                        );
+                    }}
+                />
+            </FormSection>
 
-                    <input
-                        id="{$actor.id}-resource-${source}-recharge-formula"
-                        type="text"
-                        value={resource.recharge.formula}
-                        placeholder="1d6"
-                        on:change={({ target }) => {
-                            handleDeterministicInput(target.value);
-                            updateDocumentDataFromField(
-                                $actor,
-                                `system.resources.${source}.recharge.formula`,
-                                target.value
-                            );
-                        }}
-                    />
-                </div>
-
-                <div class="recharge-threshold">
-                    <label
-                        class="recharge-threshold__label"
-                        for="{$actor.id}-resource-${source}-recharge-threshold"
-                    >
-                        {localize("A5E.ItemRechargeThreshold")}
-                    </label>
-
-                    <input
-                        id="{$actor.id}-resource-${source}-recharge-threshold"
-                        class="u-text-center"
-                        type="number"
-                        value={resource.recharge.threshold}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                `system.resources.${source}.recharge.threshold`,
-                                Number(target.value)
-                            )}
-                    />
-                </div>
-            </div>
+            <FormSection
+                heading="A5E.ItemRechargeThreshold"
+                --background="transparent"
+                --direction="column"
+                --padding="0"
+            >
+                <input
+                    class="a5e-input u-text-center"
+                    type="number"
+                    value={resource.recharge.threshold}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.resources.${source}.recharge.threshold`,
+                            Number(target.value)
+                        )}
+                />
+            </FormSection>
         </FormSection>
     {/if}
 </article>
@@ -145,28 +130,5 @@
         gap: 0.5rem;
         overflow: auto;
         background: rgba(246, 242, 235, 0.5);
-    }
-
-    .recharge-formula,
-    .recharge-threshold {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        white-space: nowrap;
-        font-size: 0.833rem;
-
-        &__label {
-            display: block;
-            padding-right: 0.75rem;
-        }
-    }
-
-    .recharge-threshold {
-        width: fit-content;
-        flex-shrink: 0;
-    }
-
-    .recharge-formula {
-        width: 100%;
     }
 </style>

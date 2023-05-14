@@ -3,13 +3,13 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
-    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { actorDocument, appId, skillKey } =
@@ -17,7 +17,6 @@
 
     const actor = new TJSDocument(actorDocument);
     const abilityOptions = prepareAbilityOptions();
-    const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
     const checkBonusHeading = localize("A5E.SkillCheckBonus", {
         skill: localize(CONFIG.A5E.skills[skillKey]),
@@ -36,25 +35,17 @@
 
 <article>
     <FormSection>
-        <div class="u-align-center u-flex u-gap-md">
-            <input
-                class="u-pointer"
-                type="checkbox"
-                id="{appId}-{skillKey}-proficient"
-                name="system.skills.{skillKey}.proficient"
-                checked={skill.proficient}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.checked
-                    )}
-            />
-
-            <label for="{appId}-{skillKey}-proficient" class="u-pointer">
-                {localize("A5E.ProficiencyProficient")}
-            </label>
-        </div>
+        <Checkbox
+            label="A5E.ProficiencyProficient"
+            checked={skill.proficient}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.proficient`,
+                    detail
+                );
+            }}
+        />
     </FormSection>
 
     <FormSection heading="A5E.AbilityScore">
@@ -101,99 +92,83 @@
     <FormSection
         heading={checkBonusHeading}
         hint="This field accepts any values in roll formulae."
+        --direction="column"
     >
-        <div class="u-w-full">
-            <input
-                class="a5e-input"
-                type="text"
-                name="system.skills.{skillKey}.bonuses.check"
-                value={skill.bonuses.check}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.value
-                    )}
-            />
-        </div>
+        <input
+            class="a5e-input"
+            type="text"
+            name="system.skills.{skillKey}.bonuses.check"
+            value={skill.bonuses.check}
+            on:change={({ target }) =>
+                updateDocumentDataFromField($actor, target.name, target.value)}
+        />
     </FormSection>
 
-    <FormSection heading={passiveBonusHeading}>
-        <div class="u-w-full">
-            <input
-                class="a5e-input"
-                type="number"
-                data-dtype="Number"
-                name="system.skills.{skillKey}.bonuses.passive"
-                value={skill.bonuses.passive}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-        </div>
+    <FormSection heading={passiveBonusHeading} --direction="column">
+        <input
+            class="a5e-input"
+            type="number"
+            data-dtype="Number"
+            value={skill.bonuses.passive}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.skills.${skillKey}.bonuses.passive`,
+                    Number(target.value)
+                )}
+        />
     </FormSection>
 
     <FormSection
         heading="A5E.SkillCheckBonusGlobal"
         hint="This bonus is added to all skill modifiers. This field accepts any values valid in roll formulae."
+        --direction="column"
     >
-        <div class="u-w-full">
-            <input
-                class="a5e-input"
-                type="text"
-                name="system.bonuses.abilities.skill"
-                value={$actor.system.bonuses.abilities.skill}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.value
-                    )}
-            />
-        </div>
+        <input
+            class="a5e-input"
+            type="text"
+            value={$actor.system.bonuses.abilities.skill}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "system.bonuses.abilities.skill",
+                    target.value
+                )}
+        />
     </FormSection>
 
     <FormSection
         heading="A5E.AbilityCheckBonusGlobal"
         hint="This bonus is added to all ability check modifiers, including skill modifiers. This field accepts any values valid in roll formulae."
+        --direction="column"
     >
-        <div class="u-w-full">
+        <input
+            class="a5e-input"
+            type="text"
+            value={$actor.system.bonuses.abilities.check}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "system.bonuses.abilities.check",
+                    target.value
+                )}
+        />
+    </FormSection>
+
+    <FormSection heading="A5E.MinimumD20Roll" --direction="column">
+        <div class="u-w-20">
             <input
                 class="a5e-input"
-                type="text"
-                name="system.bonuses.abilities.check"
-                value={$actor.system.bonuses.abilities.check}
+                type="number"
+                value={skill.minRoll}
+                min="0"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
                         $actor,
-                        target.name,
-                        target.value
+                        `system.skills.${skillKey}.minRoll`,
+                        Number(target.value)
                     )}
             />
-        </div>
-    </FormSection>
-
-    <FormSection heading="A5E.MinimumD20Roll">
-        <div class="u-w-full">
-            <div class="u-w-20">
-                <input
-                    class="a5e-input"
-                    type="number"
-                    data-dtype="Number"
-                    name="system.skills.{skillKey}.minRoll"
-                    value={skill.minRoll}
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value)
-                        )}
-                />
-            </div>
         </div>
     </FormSection>
 </article>
