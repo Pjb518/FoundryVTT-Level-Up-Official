@@ -5,6 +5,7 @@
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -132,27 +133,14 @@
     </FormSection>
 </FormSection>
 
-<div class="a5e-field-group a5e-field-group--checkbox">
-    <input
-        id="{actionId}-{rollId}-proficient"
-        class="checkbox"
-        type="checkbox"
-        checked={roll.proficient ?? true}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.proficient`,
-                target.checked
-            )}
-    />
-
-    <label for="{actionId}-{rollId}-proficient">
-        {localize("A5E.AddProficiency")}
-    </label>
-</div>
-
-<style lang="scss">
-    .checkbox {
-        margin: 0;
-    }
-</style>
+<Checkbox
+    label="A5E.AddProficiency"
+    checked={roll.proficient ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.proficient`,
+            detail
+        );
+    }}
+/>

@@ -1,16 +1,16 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
-
     export let rollId;
+
     const item = getContext("item");
     const actionId = getContext("actionId");
 
@@ -79,27 +79,14 @@
     />
 </FormSection>
 
-<div class="a5e-field-group a5e-field-group--checkbox">
-    <input
-        id="{actionId}-{rollId}-default"
-        class="checkbox"
-        type="checkbox"
-        checked={roll.default ?? true}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.default`,
-                target.checked
-            )}
-    />
-
-    <label for="{actionId}-{rollId}-default">
-        {localize("A5E.SavingThrowDefaultSelection")}
-    </label>
-</div>
-
-<style lang="scss">
-    .checkbox {
-        margin: 0;
-    }
-</style>
+<Checkbox
+    label="A5E.SavingThrowDefaultSelection"
+    checked={roll.default ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.default`,
+            detail
+        );
+    }}
+/>

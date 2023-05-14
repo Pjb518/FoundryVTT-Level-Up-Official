@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import ScalingConfigDialog from "../../dialogs/initializers/DamageScalingConfigDialog";
 
@@ -166,24 +167,17 @@
     </FormSection>
 </FormSection>
 
-<div class="a5e-field-group a5e-field-group--checkbox">
-    <input
-        id="{actionId}-{rollId}-can-crit"
-        class="checkbox"
-        type="checkbox"
-        checked={roll.canCrit ?? true}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.canCrit`,
-                target.checked
-            )}
-    />
-
-    <label for="{actionId}-{rollId}-can-crit">
-        {localize("A5E.DamageDoubleOnCrit")}
-    </label>
-</div>
+<Checkbox
+    label="A5E.DamageDoubleOnCrit"
+    checked={roll.canCrit ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.canCrit`,
+            detail
+        );
+    }}
+/>
 
 {#if roll.canCrit ?? true}
     <FormSection
@@ -208,30 +202,19 @@
     </FormSection>
 {/if}
 
-<div class="a5e-field-group a5e-field-group--checkbox">
-    <input
-        id="{actionId}-{rollId}-default"
-        class="checkbox"
-        type="checkbox"
-        checked={roll.default ?? true}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.default`,
-                target.checked
-            )}
-    />
-
-    <label for="{actionId}-{rollId}-default">
-        {localize("A5E.DamageDefaultSelection")}
-    </label>
-</div>
+<Checkbox
+    label="A5E.DamageDefaultSelection"
+    checked={roll.default ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.rolls.${rollId}.default`,
+            detail
+        );
+    }}
+/>
 
 <style lang="scss">
-    .checkbox {
-        margin: 0;
-    }
-
     .damage-type-select {
         height: 1.625rem;
     }
