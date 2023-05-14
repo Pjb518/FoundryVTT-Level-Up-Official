@@ -47,7 +47,6 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding-inline: 0.5rem;
         overflow-y: auto;
     }
 
@@ -56,11 +55,4 @@
         flex-direction: column;
         gap: 0.275rem;
     }
-
-    // .section-title {
-    //     font-size: 0.833rem;
-    //     font-family: "Signika", sans-serif;
-    //     font-weight: bold;
-    //     margin-bottom: 0.125rem;
-    // }
 </style>

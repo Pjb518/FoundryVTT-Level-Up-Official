@@ -5,8 +5,10 @@
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import RadioGroup from "../RadioGroup.svelte";
+    import Checkbox from "../Checkbox.svelte";
     import CustomTagGroup from "../CustomTagGroup.svelte";
+    import FormSection from "../FormSection.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
     import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
     const item = getContext("item");
@@ -39,33 +41,22 @@
 </script>
 
 <article>
-    <section class="section-wrapper">
-        <div class="u-flex u-align-center u-gap=md">
-            <input
-                class="u-pointer"
-                type="checkbox"
-                name="system.includesASI"
-                id={`${$item.id}-includesASI`}
-                checked={$item.system.includesASI}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.checked
-                    )}
-            />
-
-            <label class="u-pointer u-text-sm" for={`${$item.id}-includesASI`}>
-                {localize("A5E.ASIIncludes")}
-            </label>
-        </div>
-    </section>
+    <FormSection>
+        <Checkbox
+            label="A5E.ASIIncludes"
+            checked={$item.system.includesASI}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $item,
+                    "system.includesASI",
+                    detail
+                );
+            }}
+        />
+    </FormSection>
 
     {#if $item.system.includesASI}
-        <section class="section-wrapper">
-            <h3 class="section-title">
-                {localize("A5E.ASIDefault")}
-            </h3>
+        <FormSection heading="A5E.ASIDefault" --direction="column">
             <RadioGroup
                 optionStyles="min-width:2rem; text-align: center;"
                 options={abilityOptions}
@@ -77,14 +68,10 @@
                         detail
                     )}
             />
-        </section>
+        </FormSection>
     {/if}
 
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.Languages")}
-        </h3>
-
+    <FormSection heading="A5E.Languages" --direction="column">
         <CustomTagGroup
             options={defaultLanguages}
             selected={languages.fixed}
@@ -96,68 +83,48 @@
                     detail
                 )}
         />
-    </section>
+    </FormSection>
 
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.BackgroundMaxLanguages")}
-        </h3>
+    <FormSection heading="A5E.BackgroundMaxLanguages" --direction="column">
+        <input
+            class="a5e-input a5e-input--small"
+            type="number"
+            name="system.proficiencies.languages.count"
+            value={$item.system.proficiencies.languages.count}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    target.name,
+                    Number(target.value)
+                )}
+        />
+    </FormSection>
 
-        <div class="a5e-input-container a5e-input-container--numeric">
-            <input
-                class="a5e-input a5e-input--small"
-                type="number"
-                name="system.proficiencies.languages.count"
-                value={$item.system.proficiencies.languages.count}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-        </div>
-    </section>
-
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.SkillPlural")}
-        </h3>
-
+    <FormSection heading="A5E.SkillPlural" --direction="column">
         <MultiStateCheckBoxGroup
             options={skillOptions}
             selected={[skills.fixed, skills.options]}
             hint="Hint: Skills marked as green are fixed, and skills marked as orange are options. Right-click a filter to quickly remove it from the selection."
             on:updateSelection={({ detail }) => updateMulti(detail, "skills")}
         />
-    </section>
+    </FormSection>
 
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.BackgroundMaxSkills")}
-        </h3>
+    <FormSection heading="A5E.BackgroundMaxSkills" --direction="column">
+        <input
+            class="a5e-input a5e-input--small"
+            type="number"
+            name="system.proficiencies.skills.count"
+            value={$item.system.proficiencies.skills.count}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    target.name,
+                    Number(target.value)
+                )}
+        />
+    </FormSection>
 
-        <div class="a5e-input-container a5e-input-container--numeric">
-            <input
-                class="a5e-input a5e-input--small"
-                type="number"
-                name="system.proficiencies.skills.count"
-                value={$item.system.proficiencies.skills.count}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-        </div>
-    </section>
-
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.ToolPlural")}
-        </h3>
-
+    <FormSection heading="A5E.ToolPlural" --direction="column">
         <input
             class="a5e-input"
             type="text"
@@ -166,47 +133,29 @@
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
         />
-    </section>
+    </FormSection>
 
-    <section class="section-wrapper">
-        <h3 class="section-title">
-            {localize("A5E.BackgroundMaxTools")}
-        </h3>
-
-        <div class="a5e-input-container a5e-input-container--numeric">
-            <input
-                class="a5e-input a5e-input--small"
-                type="number"
-                name="system.proficiencies.tools.count"
-                value={$item.system.proficiencies.tools.count}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        Number(target.value)
-                    )}
-            />
-        </div>
-    </section>
+    <FormSection heading="A5E.BackgroundMaxTools" --direction="column">
+        <input
+            class="a5e-input a5e-input--small"
+            type="number"
+            name="system.proficiencies.tools.count"
+            value={$item.system.proficiencies.tools.count}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    target.name,
+                    Number(target.value)
+                )}
+        />
+    </FormSection>
 </article>
 
 <style lang="scss">
     article {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        padding-inline: 0.5rem;
+        gap: 0.5rem;
         overflow-y: auto;
-    }
-    .section-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.275rem;
-    }
-    .section-title {
-        font-size: 0.833rem;
-        font-family: "Signika", sans-serif;
-        font-weight: bold;
-        margin-bottom: 0.125rem;
     }
 </style>
