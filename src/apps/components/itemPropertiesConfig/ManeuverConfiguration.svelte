@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -75,53 +76,37 @@
                 </FormSection>
 
                 <FormSection>
-                    <div class="u-align-center u-flex u-gap-md">
+                    <Checkbox
+                        label="A5E.ManeuverIsStance"
+                        checked={$item.system.isStance}
+                        on:updateSelection={({ detail }) => {
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.isStance",
+                                detail
+                            );
+                        }}
+                    />
+                </FormSection>
+
+                <FormSection
+                    heading="A5E.ItemExertionCost"
+                    --direction="column"
+                >
+                    <div class="u-w-20">
                         <input
-                            class="u-pointer"
-                            type="checkbox"
-                            name="system.isStance"
-                            id="{appId}-isStance"
-                            checked={$item.system.isStance}
+                            type="number"
+                            data-dtype="Number"
+                            name="system.exertionCost"
+                            value={$item.system.exertionCost}
+                            id="{appId}-exertion-cost"
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
                                     $item,
                                     target.name,
-                                    target.checked
+                                    Number(target.value)
                                 )}
                         />
-
-                        <label class="u-pointer" for="{appId}-isStance">
-                            {localize("A5E.ManeuverIsStance")}
-                        </label>
-                    </div>
-                </FormSection>
-
-                <FormSection>
-                    <div
-                        class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                    >
-                        <label
-                            class="u-text-bold u-w-full"
-                            for="{appId}-exertion-cost"
-                        >
-                            {localize("A5E.ItemExertionCost")}
-                        </label>
-
-                        <div class="u-w-20">
-                            <input
-                                type="number"
-                                data-dtype="Number"
-                                name="system.exertionCost"
-                                value={$item.system.exertionCost}
-                                id="{appId}-exertion-cost"
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        Number(target.value)
-                                    )}
-                            />
-                        </div>
                     </div>
                 </FormSection>
             {/if}

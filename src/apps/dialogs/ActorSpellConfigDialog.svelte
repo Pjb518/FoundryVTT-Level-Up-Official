@@ -5,6 +5,7 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
@@ -48,74 +49,47 @@
         </div>
     </FormSection>
 
-    <FormSection>
-        <div class="u-align-center u-flex u-gap-xxl">
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="u-pointer"
-                    type="checkbox"
-                    name="flags.a5e.showSpellSlots"
-                    id="{appId}-show-spell-slots"
-                    checked={flags.showSpellSlots ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
+    <FormSection --gap="0.5rem 1.25rem">
+        <Checkbox
+            label="A5E.SpellShowSpellSlots"
+            checked={flags.showSpellSlots ?? true}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.showSpellSlots",
+                    detail
+                );
+            }}
+        />
 
-                <label class="u-pointer" for="{appId}-show-spell-slots">
-                    {localize("A5E.SpellShowSpellSlots")}
-                </label>
-            </div>
-
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="u-pointer"
-                    type="checkbox"
-                    name="flags.a5e.showSpellPoints"
-                    id="{appId}-show-spell-points"
-                    checked={flags.showSpellPoints ?? false}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label class="u-pointer" for="{appId}-show-spell-points">
-                    {localize("A5E.SpellShowSpellPoints")}
-                </label>
-            </div>
-        </div>
+        <Checkbox
+            label="A5E.SpellShowSpellPoints"
+            checked={flags.showSpellPoints ?? false}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    "flags.a5e.showSpellPoints",
+                    detail
+                );
+            }}
+        />
     </FormSection>
 
-    <FormSection>
-        <div class="u-align-center u-flex u-gap-md">
-            <input
-                class="u-pointer"
-                type="checkbox"
-                name="flags.a5e.restoreSpellPointsOnShortRest"
-                id="{appId}-restore-spell-points-on-short-rest"
+    {#if flags.showSpellPoints ?? false}
+        <FormSection>
+            <Checkbox
+                label="A5E.settings.restoreSpellPointsOnShortRest"
                 checked={flags.restoreSpellPointsOnShortRest ?? true}
-                on:change={({ target }) =>
+                on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
-                        target.name,
-                        target.checked
-                    )}
+                        "flags.a5e.restoreSpellPointsOnShortRest",
+                        detail
+                    );
+                }}
             />
-
-            <label
-                class="u-pointer"
-                for="{appId}-restore-spell-points-on-short-rest"
-            >
-                {localize("A5E.settings.restoreSpellPointsOnShortRest")}
-            </label>
-        </div>
-    </FormSection>
+        </FormSection>
+    {/if}
 </article>
 
 <style lang="scss">

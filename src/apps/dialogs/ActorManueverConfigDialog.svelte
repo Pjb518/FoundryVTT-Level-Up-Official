@@ -1,8 +1,8 @@
 <script>
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -13,44 +13,30 @@
 </script>
 
 <article>
-    <FormSection heading="A5E.ManeuverDCBonus">
-        <div class="u-w-full">
-            <input
-                class="a5e-input"
-                type="text"
-                name="system.bonuses.maneuverDC"
-                value={$actor.system.bonuses.maneuverDC}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.value
-                    )}
-            />
-        </div>
+    <FormSection heading="A5E.ManeuverDCBonus" --direction="column">
+        <input
+            class="a5e-input"
+            type="text"
+            name="system.bonuses.maneuverDC"
+            value={$actor.system.bonuses.maneuverDC}
+            on:change={({ target }) =>
+                updateDocumentDataFromField($actor, target.name, target.value)}
+        />
     </FormSection>
 
     {#if $actor.type === "character"}
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="a5e-input"
-                    type="checkbox"
-                    name="system.attributes.exertion.recoverOnRest"
-                    id="{appId}-exertion-recover"
-                    checked={$actor.system.attributes.exertion.recoverOnRest}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label class="u-pointer" for="{appId}-exertion-recovery">
-                    {localize("A5E.ExertionRecoveryConfigPrompt")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.ExertionRecoveryConfigPrompt"
+                checked={$actor.system.attributes.exertion.recoverOnRest}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "system.attributes.exertion.recoverOnRest",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
     {/if}
 </article>
