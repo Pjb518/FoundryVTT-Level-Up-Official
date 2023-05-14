@@ -12,6 +12,7 @@
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
@@ -146,18 +147,13 @@
 
     {#if validateTemplateData($item, actionId)}
         <FormSection>
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class="u-pointer"
-                    type="checkbox"
-                    id="{dialog.id}-place-template"
-                    bind:checked={placeTemplate}
-                />
-
-                <label class="u-pointer" for="{dialog.id}-place-template">
-                    {localize("A5E.ItemPlaceTemplate")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.ItemPlaceTemplate"
+                checked={placeTemplate}
+                on:updateSelection={({ detail }) => {
+                    placeTemplate = detail;
+                }}
+            />
         </FormSection>
     {/if}
 

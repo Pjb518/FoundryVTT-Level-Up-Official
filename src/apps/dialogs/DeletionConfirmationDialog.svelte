@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     export let { dialog, itemDocument } = getContext("#external").application;
@@ -23,27 +24,16 @@
 </script>
 
 <form>
-    <FormSection>
-        <div class="u-align-center u-flex u-gap-md">
-            <input
-                class="u-pointer"
-                type="checkbox"
-                id="{appId}-toggle-confirmation-dialog-setting"
-                bind:checked={hideDeleteConfirmation}
-            />
-
-            <label
-                class="u-pointer"
-                for="{appId}-toggle-confirmation-dialog-setting"
-            >
-                Don't show this dialog again
-            </label>
-        </div>
-
-        <small>
-            You can reenable this dialog at any time by turning off the 'Hide
-            Deletion Confirmation Dialog' system setting.</small
-        >
+    <FormSection
+        hint="You can reenable this dialog at any time by turning off the 'Hide Deletion Confirmation Dialog' system setting."
+    >
+        <Checkbox
+            label="Don't show this dialog again"
+            checked={hideDeleteConfirmation}
+            on:updateSelection={({ detail }) => {
+                hideDeleteConfirmation = detail;
+            }}
+        />
     </FormSection>
 
     <div class="button-container">
