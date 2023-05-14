@@ -3,6 +3,7 @@
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -71,27 +72,17 @@
             </div>
 
             {#if sense === "blindsight"}
-                <div class="u-flex u-align-center u-gap-md u-w-full">
-                    <input
-                        id="{appId}-hover"
-                        class="u-pointer checkbox"
-                        type="checkbox"
-                        name="system.attributes.senses.blindsight.otherwiseBlind"
-                        checked={$actor.system.attributes.senses.blindsight
-                            ?.otherwiseBlind}
-                        on:change={({ target }) => {
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            );
-                        }}
-                    />
-
-                    <label for="{appId}-hover" class="u-pointer">
-                        Blind Beyond this Range
-                    </label>
-                </div>
+                <Checkbox
+                    label="Blind Beyond this Range"
+                    checked={$actor.system.attributes.senses.blindsight
+                        ?.otherwiseBlind}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            "system.attributes.senses.blindsight.otherwiseBlind",
+                            detail
+                        )}
+                />
             {/if}
         </FormSection>
     {/each}
@@ -106,9 +97,5 @@
         gap: 0.5rem;
         overflow: auto;
         background: rgba(246, 242, 235, 0.5);
-    }
-
-    .checkbox {
-        margin-left: 0;
     }
 </style>

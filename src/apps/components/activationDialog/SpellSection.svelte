@@ -2,6 +2,7 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -130,51 +131,35 @@
 {/if}
 
 {#if mode === "pointsOnly"}
-    <FormSection>
-        <section>
-            <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.SpellPoints")}
-            </h3>
-
-            <div class="u-flex u-gap-md u-align-center">
-                <div class="u-flex u-w-10">
-                    <input
-                        class="number-input"
-                        type="number"
-                        bind:value={spellData.points}
-                    />
-                </div>
-
-                /
-
-                <div class="u-flex u-w-10">
-                    <input
-                        class="number-input"
-                        type="number"
-                        value={spellResources.points.max}
-                        disabled
-                    />
-                </div>
-            </div>
-
-            <div class="u-flex u-gap-sm u-align-center">
+    <FormSection heading="A5E.SpellPoints" --direction="column">
+        <div class="u-flex u-gap-md u-align-center">
+            <div class="u-flex u-w-10">
                 <input
-                    class="checkbox"
-                    id="{actionId}-consume-spell-points"
-                    type="checkbox"
-                    checked={spellData.consume === "spellPoint" ? true : false}
-                    on:change={({ target }) => {
-                        spellData.consume = target.checked
-                            ? "spellPoints"
-                            : "noConsume";
-                    }}
+                    class="number-input"
+                    type="number"
+                    bind:value={spellData.points}
                 />
-
-                <label class="u-text-sm" for="{actionId}-consume-spell-points">
-                    {localize("A5E.ConsumeSpellPoints")}
-                </label>
             </div>
-        </section>
+
+            /
+
+            <div class="u-flex u-w-10">
+                <input
+                    class="number-input"
+                    type="number"
+                    value={spellResources.points.max}
+                    disabled
+                />
+            </div>
+        </div>
+
+        <Checkbox
+            label="A5E.ConsumeSpellPoints"
+            checked={spellData.consume === "spellPoint" ? true : false}
+            on:updateSelection={({ detail }) => {
+                spellData.consume = detail ? "spellPoints" : "noConsume";
+            }}
+        />
     </FormSection>
 {/if}
 
@@ -184,12 +169,6 @@
         flex-direction: column;
         gap: 0.5rem;
         width: 100%;
-    }
-
-    .checkbox {
-        margin: 0;
-        width: 1rem;
-        height: 1rem;
     }
 
     .number-input {

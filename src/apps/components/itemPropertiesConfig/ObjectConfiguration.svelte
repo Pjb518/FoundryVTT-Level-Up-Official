@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -70,161 +71,101 @@
                 />
             </FormSection>
 
-            <FormSection>
-                <div class="properties-container">
-                    <div class="u-align-center u-flex u-gap-md">
-                        <input
-                            class="u-pointer"
-                            type="checkbox"
-                            name="system.requiresAttunement"
-                            id="{appId}-attunement-required"
-                            checked={$item.system.requiresAttunement}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.checked
-                                )}
-                        />
+            <FormSection --gap="0.5rem 1.25rem">
+                <Checkbox
+                    label="A5E.AttunementRequiredPrompt"
+                    checked={$item.system.requiresAttunement}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.requiresAttunement",
+                            detail
+                        )}
+                />
 
-                        <label
-                            class="u-pointer"
-                            for="{appId}-attunement-required"
-                        >
-                            {localize("A5E.AttunementRequiredPrompt")}
-                        </label>
-                    </div>
+                {#if $item.actor && $item.system.requiresAttunement}
+                    <Checkbox
+                        label="A5E.AttunementPrompt"
+                        checked={$item.system.attuned}
+                        on:updateSelection={({ detail }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.attuned",
+                                detail
+                            )}
+                    />
+                {/if}
+                {#if isGM}
+                    <Checkbox
+                        label="A5E.PlotItem"
+                        checked={$item.system.plotItem}
+                        on:updateSelection={({ detail }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.plotItem",
+                                detail
+                            )}
+                    />
 
-                    {#if $item.actor && $item.system.requiresAttunement}
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.attuned"
-                                id="{appId}-attuned"
-                                checked={$item.system.attuned}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-attuned">
-                                {localize("A5E.AttunementPrompt")}
-                            </label>
-                        </div>
-                    {/if}
-                    {#if isGM}
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.plotItem"
-                                id="{appId}-plot-item"
-                                checked={$item.system.plotItem}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-plot-item">
-                                {localize("A5E.PlotItem")}
-                            </label>
-                        </div>
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.unidentified"
-                                id="{appId}-unidentified"
-                                checked={$item.system.unidentified}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-unidentified">
-                                {localize("A5E.ItemUnidentified")}
-                            </label>
-                        </div>
-                    {/if}
-                </div>
+                    <Checkbox
+                        label="A5E.ItemUnidentified"
+                        checked={$item.system.unidentified}
+                        on:updateSelection={({ detail }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.unidentified",
+                                detail
+                            )}
+                    />
+                {/if}
             </FormSection>
 
-            <FormSection heading="A5E.ItemWeight">
-                <div
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                >
-                    <div class="align-center u-flex u-gap-xxl">
-                        <div class="u-align-center u-flex u-gap-md u-w-30">
-                            <input
-                                type="number"
-                                data-dtype="Number"
-                                name="system.weight"
-                                id="{appId}-weight"
-                                value={$item.system.weight}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        Number(target.value)
-                                    )}
-                            />
+            <FormSection
+                heading="A5E.ItemWeight"
+                --label-width="100%"
+                --gap="0.375rem 1.25rem"
+            >
+                <div class="u-align-center u-flex u-gap-md u-w-30">
+                    <input
+                        type="number"
+                        data-dtype="Number"
+                        name="system.weight"
+                        id="{appId}-weight"
+                        value={$item.system.weight}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                Number(target.value)
+                            )}
+                    />
 
-                            <label class="u-pointer" for="{appId}-weight">
-                                {localize("A5E.DetailsWeightLbs")}
-                            </label>
-                        </div>
-
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.bulky"
-                                id="{appId}-bulky"
-                                checked={$item.system.bulky}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-bulky">
-                                {localize("A5E.ItemBulky")}
-                            </label>
-                        </div>
-
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.equipped"
-                                id="{appId}-equipped"
-                                checked={$item.system.equipped}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-equipped">
-                                {localize("A5E.ItemEquipped")}
-                            </label>
-                        </div>
-                    </div>
+                    <label class="u-pointer" for="{appId}-weight">
+                        {localize("A5E.DetailsWeightLbs")}
+                    </label>
                 </div>
+
+                <Checkbox
+                    label="A5E.ItemBulky"
+                    checked={$item.system.bulky}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.bulky",
+                            detail
+                        )}
+                />
+
+                <Checkbox
+                    label="A5E.ItemEquipped"
+                    checked={$item.system.equipped}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.equipped",
+                            detail
+                        )}
+                />
             </FormSection>
 
             <FormSection heading="A5E.ItemQuantity">
@@ -295,30 +236,17 @@
                 </div>
             </FormSection>
 
-            <FormSection heading="A5E.ItemCondition">
-                <div
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                >
-                    <div class="u-align-center u-flex u-gap-md u-w-30">
-                        <input
-                            class="u-pointer"
-                            type="checkbox"
-                            name="system.broken"
-                            id="{appId}-broken"
-                            checked={$item.system.broken}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.checked
-                                )}
-                        />
-
-                        <label class="u-pointer" for="{appId}-broken">
-                            {localize("A5E.ItemBroken")}
-                        </label>
-                    </div>
-                </div>
+            <FormSection heading="A5E.ItemCondition" --direction="column">
+                <Checkbox
+                    label="A5E.ItemBroken"
+                    checked={$item.system.broken}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.broken",
+                            detail
+                        )}
+                />
             </FormSection>
         </div>
     {:else}
@@ -399,13 +327,3 @@
         </dl>
     {/if}
 </section>
-
-<style>
-    .properties-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 2.225rem;
-        width: 100%;
-        font-size: 0.833rem;
-    }
-</style>

@@ -2,6 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../Checkbox.svelte";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     export let consumer;
@@ -85,29 +87,15 @@
     </div>
 
     {#if A5E.resourceConsumerConfig?.[selectedResource]?.type === "boolean"}
-        <div class="a5e-field-group a5e-field-group--checkbox">
-            <input
-                id="{actionId}-{consumerId}-restore"
-                class="checkbox"
-                type="checkbox"
-                checked={consumer.restore ?? false}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.consumers.${consumerId}.restore`,
-                        target.checked
-                    )}
-            />
-
-            <label for="{actionId}-{consumerId}-restore">
-                {localize("A5E.ConsumerRestoreResourceOnUse")}
-            </label>
-        </div>
+        <Checkbox
+            label="A5E.ConsumerRestoreResourceOnUse"
+            checked={consumer.restore ?? false}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.consumers.${consumerId}.restore`,
+                    detail
+                )}
+        />
     {/if}
 </section>
-
-<style>
-    .checkbox {
-        margin: 0;
-    }
-</style>
