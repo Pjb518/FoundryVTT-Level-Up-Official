@@ -6,6 +6,7 @@
     import isStandardRange from "../../../utils/isStandardRange";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -84,6 +85,7 @@
 
     let customValue = isStandardRange(range) ? "" : range;
     let includeUnit = rangeObject.unit ? true : false;
+
     $: selected = isStandardRange(range) ? range : "other";
 </script>
 
@@ -97,12 +99,14 @@
 
         {#if selected === "other"}
             <div class="u-flex u-gap-md u-align-center">
+                <!-- TODO: Fix this mess of a checkbox -->
                 <input
                     id="{actionId}-{id}-include-unit"
                     type="checkbox"
                     bind:checked={includeUnit}
                     on:change={deleteRangeUnit}
                 />
+
                 <label for="{actionId}-{id}-include-unit">
                     {localize("A5E.IncludeUnit")}
                 </label>

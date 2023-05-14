@@ -6,8 +6,9 @@
     import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FormSection from "../FormSection.svelte";
+    import Checkbox from "../Checkbox.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Tag from "../Tag.svelte";
 
@@ -126,72 +127,44 @@
                 </FormSection>
             {/if}
 
-            <FormSection>
-                <div
-                    class="u-align-center u-flex u-flex-wrap u-gap-md u-text-sm u-w-full"
-                >
-                    <div class="u-align-center u-flex u-gap-md">
-                        <input
-                            class="u-pointer"
-                            type="checkbox"
-                            name="system.concentration"
-                            id="{appId}-concentration"
-                            checked={$item.system.concentration}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.checked
-                                )}
-                        />
+            <FormSection --gap="0.5rem 1.25rem">
+                <Checkbox
+                    label="A5E.SpellConcentration"
+                    checked={$item.system.concentration}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.concentration",
+                            detail
+                        );
+                    }}
+                />
 
-                        <label class="u-pointer" for="{appId}-concentration">
-                            {localize("A5E.SpellConcentration")}
-                        </label>
-                    </div>
+                <Checkbox
+                    label="A5E.ItemPrepared"
+                    checked={$item.system.prepared}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.prepared",
+                            detail
+                        );
+                    }}
+                />
 
-                    <div class="u-align-center u-flex u-gap-md">
-                        <input
-                            class="u-pointer"
-                            type="checkbox"
-                            name="system.prepared"
-                            id="{appId}-prepared"
-                            checked={$item.system.prepared}
-                            on:change={({ target }) =>
-                                updateDocumentDataFromField(
-                                    $item,
-                                    target.name,
-                                    target.checked
-                                )}
-                        />
-
-                        <label class="u-pointer" for="{appId}-prepared">
-                            {localize("A5E.ItemPrepared")}
-                        </label>
-                    </div>
-
-                    {#if $item.system.level > 0}
-                        <div class="u-align-center u-flex u-gap-md">
-                            <input
-                                class="u-pointer"
-                                type="checkbox"
-                                name="system.ritual"
-                                id="{appId}-ritual"
-                                checked={$item.system.ritual}
-                                on:change={({ target }) =>
-                                    updateDocumentDataFromField(
-                                        $item,
-                                        target.name,
-                                        target.checked
-                                    )}
-                            />
-
-                            <label class="u-pointer" for="{appId}-ritual">
-                                {localize("A5E.SpellRitual")}
-                            </label>
-                        </div>
-                    {/if}
-                </div>
+                {#if $item.system.level > 0}
+                    <Checkbox
+                        label="A5E.SpellRitual"
+                        checked={$item.system.ritual}
+                        on:updateSelection={({ detail }) => {
+                            updateDocumentDataFromField(
+                                $item,
+                                "system.ritual",
+                                detail
+                            );
+                        }}
+                    />
+                {/if}
             </FormSection>
         </div>
     {:else}
@@ -294,14 +267,5 @@
         &__value {
             margin: 0;
         }
-    }
-
-    .list {
-        flex-wrap: wrap;
-        row-gap: 0.125rem;
-    }
-
-    .list-item {
-        white-space: nowrap;
     }
 </style>

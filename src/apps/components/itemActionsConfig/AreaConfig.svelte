@@ -6,10 +6,10 @@
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
-
     import AreaShape from "./AreaShape.svelte";
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
+    import GenericScalingConfigDialog from "../../dialogs/initializers/GenericScalingConfigDialog";
     import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
 
     export let action;
@@ -238,25 +238,17 @@
     <!-- Place Template -->
     {#if action.area?.shape}
         <FormSection>
-            <div class="u-flex u-gap-lg u-w-full u-mt-xs">
-                <div class="u-flex u-gap-md u-align-center">
-                    <input
-                        id="{actionId}-place-template"
-                        type="checkbox"
-                        checked={action.area?.placeTemplate ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                `system.actions.${actionId}.area.placeTemplate`,
-                                target.checked
-                            )}
-                    />
-
-                    <label class="u-pointer" for="{actionId}-place-template">
-                        {localize("A5E.ItemPlaceTemplate")}
-                    </label>
-                </div>
-            </div>
+            <Checkbox
+                label="A5E.ItemPlaceTemplate"
+                checked={action.area?.placeTemplate ?? false}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.area.placeTemplate`,
+                        detail
+                    );
+                }}
+            />
         </FormSection>
     {/if}
 </section>
