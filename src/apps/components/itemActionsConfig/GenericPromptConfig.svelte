@@ -2,6 +2,9 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../Checkbox.svelte";
+    import FormSection from "../FormSection.svelte";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const item = getContext("item");
@@ -11,65 +14,53 @@
     export let promptId;
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{promptId}-label">
-            {localize("A5E.Label")}
-        </label>
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --grow="1"
+    --padding="0"
+    --margin="0 4.5rem 0 0"
+>
+    <input
+        type="text"
+        value={prompt.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.prompts.${promptId}.label`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{promptId}-label"
-            type="text"
-            value={prompt.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.label`,
-                    target.value
-                )}
-        />
-    </div>
+<FormSection
+    heading="A5E.RollFormula"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <input
+        id="{actionId}-{promptId}-roll-formula"
+        type="text"
+        value={prompt.formula ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.prompts.${promptId}.formula`,
+                target.value
+            )}
+    />
+</FormSection>
 
-    <div class="a5e-field-group a5e-field-group--formula">
-        <label for="{actionId}-{promptId}-roll-formula">
-            {localize("A5E.RollFormula")}
-        </label>
-
-        <input
-            id="{actionId}-{promptId}-roll-formula"
-            type="text"
-            value={prompt.formula ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.formula`,
-                    target.value
-                )}
-        />
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--checkbox">
-        <input
-            id="{actionId}-{promptId}-default"
-            class="checkbox"
-            type="checkbox"
-            checked={prompt.default ?? true}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.default`,
-                    target.checked
-                )}
-        />
-
-        <label for="{actionId}-{promptId}-default">
-            {localize("A5E.PromptDefaultSelection")}
-        </label>
-    </div>
-</section>
-
-<style lang="scss">
-    .checkbox {
-        margin: 0;
-    }
-</style>
+<Checkbox
+    label="A5E.PromptDefaultSelection"
+    checked={prompt.default ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.default`,
+            detail
+        );
+    }}
+/>

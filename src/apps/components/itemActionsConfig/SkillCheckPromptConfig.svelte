@@ -6,6 +6,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";
+    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let prompt;
@@ -29,13 +30,15 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<div class="a5e-field-group a5e-field-group--label">
-    <label for="{actionId}-{promptId}-label">
-        {localize("A5E.Label")}
-    </label>
-
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --grow="1"
+    --padding="0"
+    --margin="0 4.5rem 0 0"
+>
     <input
-        id="{actionId}-{promptId}-label"
         type="text"
         value={prompt.label ?? ""}
         on:change={({ target }) =>
@@ -45,13 +48,14 @@
                 target.value
             )}
     />
-</div>
+</FormSection>
 
-<div class="option-wrapper">
-    <h3 class="a5e-field-group__heading">
-        {localize("A5E.Skill")}
-    </h3>
-
+<FormSection
+    heading="A5E.Skill"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
     <select
         class="u-w-fit"
         on:change={({ target }) =>
@@ -67,13 +71,14 @@
             </option>
         {/each}
     </select>
-</div>
+</FormSection>
 
-<div class="a5e-field-group">
-    <h3 class="a5e-field-group__heading">
-        {localize("A5E.ItemAbilityCheckType")}
-    </h3>
-
+<FormSection
+    heading="A5E.ItemAbilityCheckType"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
     <RadioGroup
         optionStyles="min-width: 2rem; text-align: center;"
         options={prepareAbilityOptions(false, true)}
@@ -81,7 +86,7 @@
         allowDeselect={false}
         on:updateSelection={({ detail }) => (selectedAbility = detail)}
     />
-</div>
+</FormSection>
 
 <Checkbox
     label="A5E.PromptDefaultSelection"
@@ -94,13 +99,3 @@
         );
     }}
 />
-
-<style lang="scss">
-    .option-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        font-size: 0.694rem;
-        font-family: "Signika", sans-serif;
-    }
-</style>

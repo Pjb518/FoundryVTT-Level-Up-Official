@@ -1,10 +1,11 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
+    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let prompt;
@@ -25,62 +26,49 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{promptId}-label">
-            {localize("A5E.Label")}
-        </label>
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --grow="1"
+    --padding="0"
+    --margin="0 4.5rem 0 0"
+>
+    <input
+        type="text"
+        value={prompt.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.prompts.${promptId}.label`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{promptId}-label"
-            name="{actionId}-{promptId}-label"
-            type="text"
-            value={prompt.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.label`,
-                    target.value
-                )}
-        />
-    </div>
+<FormSection
+    heading="A5E.ItemAbilityCheckType"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <RadioGroup
+        optionStyles="min-width: 2rem; text-align: center;"
+        options={prepareAbilityOptions()}
+        selected={selectedAbility}
+        allowDeselect={false}
+        on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    />
+</FormSection>
 
-    <div class="a5e-field-group">
-        <h3 class="a5e-field-group__heading">
-            {localize("A5E.ItemAbilityCheckType")}
-        </h3>
-
-        <RadioGroup
-            optionStyles="min-width: 2rem; text-align: center;"
-            options={prepareAbilityOptions()}
-            selected={selectedAbility}
-            allowDeselect={false}
-            on:updateSelection={({ detail }) => (selectedAbility = detail)}
-        />
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--checkbox">
-        <input
-            id="{actionId}-{promptId}-default"
-            class="checkbox"
-            type="checkbox"
-            checked={prompt.default ?? true}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.default`,
-                    target.checked
-                )}
-        />
-
-        <label for="{actionId}-{promptId}-default">
-            {localize("A5E.PromptDefaultSelection")}
-        </label>
-    </div>
-</section>
-
-<style lang="scss">
-    .checkbox {
-        margin: 0;
-    }
-</style>
+<Checkbox
+    label="A5E.PromptDefaultSelection"
+    checked={prompt.default ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.default`,
+            detail
+        );
+    }}
+/>

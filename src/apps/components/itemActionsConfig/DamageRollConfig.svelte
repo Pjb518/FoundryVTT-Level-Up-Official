@@ -109,7 +109,7 @@
         heading="A5E.DamageFormula"
         --background="transparent"
         --grow="1"
-        --label-width="100%"
+        --direction="column"
         --padding="0"
     >
         <div class="u-flex u-gap-sm u-w-full">

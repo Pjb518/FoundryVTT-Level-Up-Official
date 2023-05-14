@@ -48,7 +48,7 @@
 <FormSection
     heading="A5E.ItemSavingThrowType"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <RadioGroup
@@ -63,7 +63,7 @@
 <FormSection
     heading="A5E.SaveBonus"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <input

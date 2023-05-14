@@ -51,7 +51,7 @@
 <FormSection
     heading="A5E.Skill"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <select
@@ -74,7 +74,7 @@
 <FormSection
     heading="A5E.DefaultAbilityScore"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <RadioGroup
@@ -89,7 +89,7 @@
 <FormSection
     heading="A5E.CheckBonus"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <input

@@ -7,6 +7,8 @@
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
+    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let prompt;
@@ -64,84 +66,74 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{promptId}-label">
-            {localize("A5E.Label")}
-        </label>
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --grow="1"
+    --padding="0"
+    --margin="0 4.5rem 0 0"
+>
+    <input
+        type="text"
+        value={prompt.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.prompts.${promptId}.label`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{promptId}-label"
-            type="text"
-            value={prompt.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.label`,
-                    target.value
-                )}
-        />
-    </div>
+<FormSection
+    heading="A5E.ItemSavingThrowType"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <RadioGroup
+        optionStyles="min-width: 2rem; text-align: center;"
+        options={prepareAbilityOptions()}
+        selected={selectedAbility}
+        allowDeselect={false}
+        on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    />
+</FormSection>
 
-    <div class="a5e-field-group">
-        <h3 class="a5e-field-group__heading">
-            {localize("A5E.ItemSavingThrowType")}
-        </h3>
+<FormSection --background="transparent" --padding="0">
+    <FormSection
+        heading="A5E.ItemSavingThrowDC"
+        --background="transparent"
+        --direction="column"
+        --label-width="9rem"
+        --padding="0"
+    >
+        <select on:change={selectSaveDCCalculationType}>
+            {#each Object.entries(saveDCOptions) as [type, label]}
+                <option value={type} selected={type === prompt?.saveDC?.type}>
+                    {localize(label)}
+                </option>
+            {/each}
+        </select>
+    </FormSection>
 
-        <RadioGroup
-            optionStyles="min-width: 2rem; text-align: center;"
-            options={prepareAbilityOptions()}
-            selected={selectedAbility}
-            allowDeselect={false}
-            on:updateSelection={({ detail }) => (selectedAbility = detail)}
-        />
-    </div>
+    <FormSection
+        heading={prompt?.saveDC?.type === "custom"
+            ? "A5E.ItemSavingThrowDCCustom"
+            : "A5E.ItemSavingThrowDCBonus"}
+        --background="transparent"
+        --direction="column"
+        --grow="1"
+        --padding="0"
+    >
+        <div class="u-flex u-gap-sm">
+            <input type="text" autocomplete="off" bind:value={saveDCBonus} />
 
-    <div class="a5e-field-group a5e-field-group--formula u-flex-row u-gap-md">
-        <div class="u-flex u-flex-col u-gap-sm u-w-30">
-            <h3 class="a5e-field-group__heading">
-                {localize("A5E.ItemSavingThrowDC")}
-            </h3>
-
-            <select on:change={selectSaveDCCalculationType}>
-                {#each Object.entries(saveDCOptions) as [type, label]}
-                    <option
-                        value={type}
-                        selected={type === prompt?.saveDC?.type}
-                    >
-                        {localize(label)}
-                    </option>
-                {/each}
-            </select>
-        </div>
-
-        <div
-            class="u-flex u-flex-col u-flex-grow u-flex-shrink-0 u-justify-space-between"
-        >
-            <label
-                class="a5e-field-group__heading"
-                for="{actionId}.prompts.{promptId}.saveDC.bonus"
-            >
-                {#if prompt?.saveDC?.type === "custom"}
-                    {localize("A5E.ItemSavingThrowDCCustom")}
-                {:else}
-                    {localize("A5E.ItemSavingThrowDCBonus")}
-                {/if}
-            </label>
-
-            <input
-                id="{actionId}.prompts.{promptId}.saveDC.bonus"
-                type="text"
-                autocomplete="off"
-                bind:value={saveDCBonus}
-            />
-        </div>
-
-        {#if saveDC || !saveDCIsValid}
-            <div class="save-dc-preview-wrapper">
+            {#if saveDC || !saveDCIsValid}
                 <span
                     class="save-dc-preview"
-                    class:invalid={!saveDCIsValid}
+                    class:save-dc-preview--invalid={!saveDCIsValid}
                     type="number"
                 >
                     {#if saveDCIsValid}
@@ -150,73 +142,56 @@
                         <i class="fa-solid fa-circle-exclamation" />
                     {/if}
                 </span>
-            </div>
-        {/if}
-    </div>
+            {/if}
+        </div>
+    </FormSection>
+</FormSection>
 
-    <div class="a5e-field-group">
-        <label for="{actionId}-{promptId}-save-effect">
-            {localize("A5E.ItemEffectOnSave")}
-        </label>
+<FormSection
+    heading="A5E.ItemEffectOnSave"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <input
+        type="text"
+        value={prompt.onSave ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.prompts.${promptId}.onSave`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{promptId}-save-effect"
-            type="text"
-            value={prompt.onSave ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.onSave`,
-                    target.value
-                )}
-        />
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--checkbox">
-        <input
-            id="{actionId}-{promptId}-default"
-            class="checkbox"
-            type="checkbox"
-            checked={prompt.default ?? true}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.prompts.${promptId}.default`,
-                    target.checked
-                )}
-        />
-
-        <label for="{actionId}-{promptId}-default">
-            {localize("A5E.PromptDefaultSelection")}
-        </label>
-    </div>
-</section>
+<Checkbox
+    label="A5E.PromptDefaultSelection"
+    checked={prompt.default ?? true}
+    on:updateSelection={({ detail }) => {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.default`,
+            detail
+        );
+    }}
+/>
 
 <style lang="scss">
-    .checkbox {
-        margin: 0;
-    }
-
-    .save-dc-preview-wrapper {
-        display: flex;
-        align-items: flex-end;
-        width: 3rem;
-    }
-
     .save-dc-preview {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 1.625rem;
-        width: 100%;
+        width: 3rem;
         border-radius: 3px;
         background: rgba(0, 0, 0, 0.05);
-    }
 
-    .invalid {
-        background: rgba(139, 37, 37, 0.25);
-        border: 1px solid rgba(139, 37, 37, 0.25);
-        color: rgba(139, 37, 37, 0.85);
-        font-size: 1rem;
+        &--invalid {
+            background: rgba(139, 37, 37, 0.25);
+            border: 1px solid rgba(139, 37, 37, 0.25);
+            color: rgba(139, 37, 37, 0.85);
+            font-size: 1rem;
+        }
     }
 </style>

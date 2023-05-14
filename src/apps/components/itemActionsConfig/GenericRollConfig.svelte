@@ -21,7 +21,6 @@
     --margin="0 4.5rem 0 0"
 >
     <input
-        id="{actionId}-{rollId}-label"
         type="text"
         value={roll.label ?? ""}
         on:change={({ target }) =>
@@ -36,11 +35,10 @@
 <FormSection
     heading="A5E.RollFormula"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <input
-        id="{actionId}-{rollId}-roll-formula"
         type="text"
         value={roll.formula ?? ""}
         on:change={({ target }) =>

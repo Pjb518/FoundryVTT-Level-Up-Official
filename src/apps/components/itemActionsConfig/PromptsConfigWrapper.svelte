@@ -42,7 +42,9 @@
             />
         </div>
 
-        <slot />
+        <section class="prompt-config-wrapper">
+            <slot />
+        </section>
     </FormSection>
 </li>
 
@@ -88,5 +90,12 @@
     .prompt {
         display: flex;
         flex-direction: column;
+    }
+
+    .prompt-config-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
     }
 </style>

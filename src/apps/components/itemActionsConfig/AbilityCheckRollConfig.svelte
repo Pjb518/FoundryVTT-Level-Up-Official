@@ -29,7 +29,7 @@
 <FormSection
     heading="A5E.Label"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
     --margin="0 4.5rem 0 0"
 >
@@ -48,7 +48,7 @@
 <FormSection
     heading="A5E.ItemAbilityCheckType"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <RadioGroup
@@ -63,7 +63,7 @@
 <FormSection
     heading="A5E.CheckBonus"
     --background="transparent"
-    --label-width="100%"
+    --direction="column"
     --padding="0"
 >
     <input
