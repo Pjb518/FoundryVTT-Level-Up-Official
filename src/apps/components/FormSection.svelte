@@ -3,6 +3,7 @@
 
     export let heading = null;
     export let hint = null;
+    export let showWarning = false;
     export let warning = null;
 </script>
 
@@ -17,7 +18,7 @@
         <small class="hint">{localize(hint)}</small>
     {/if}
 
-    {#if warning}
+    {#if showWarning}
         <small class="warning">
             <i class="fa-solid fa-circle-exclamation" />
             {localize(warning)}

@@ -30,11 +30,9 @@
 <form>
     <FormSection
         heading="A5E.BackgroundDropLanguagesSelect"
-        warning={selectedLanguages.length < languages.count
-            ? `${
-                  languages.count - selectedLanguages.length
-              } language selections remaining`
-            : null}
+        warning="{languages.count -
+            selectedLanguages.length} language selections remaining"
+        showWarning={selectedLanguages.length < languages.count}
     >
         <CustomTagGroup
             options={Object.entries(A5E.languages)}

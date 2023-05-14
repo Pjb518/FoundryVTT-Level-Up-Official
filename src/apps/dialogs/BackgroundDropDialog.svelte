@@ -81,11 +81,9 @@
         <FormSection
             heading="A5E.BackgroundDropAbilitySelect"
             hint="A5E.BackgroundDropAbilitySelectHint"
-            warning={selectedAbilityScores.length < 2
-                ? `${
-                      2 - selectedAbilityScores.length
-                  } Ability Score selections remaining`
-                : null}
+            warning="{2 -
+                selectedAbilityScores.length} Ability Score selections remaining"
+            showWarning={selectedAbilityScores.length < 2}
         >
             <CheckboxGroup
                 options={Object.entries(A5E.abilities)}
@@ -100,11 +98,9 @@
     {#if languages.count}
         <FormSection
             heading="A5E.BackgroundDropLanguagesSelect"
-            warning={selectedLanguages.length < languages.count
-                ? `${
-                      languages.count - selectedLanguages.length
-                  } language selections remaining`
-                : null}
+            warning="{languages.count -
+                selectedLanguages.length} language selections remaining"
+            showWarning={selectedLanguages.length < languages.count}
         >
             <CustomTagGroup
                 options={Object.entries(A5E.languages)}
@@ -120,11 +116,9 @@
     {#if skills.count}
         <FormSection
             heading="A5E.BackgroundDropSkillsSelect"
-            warning={selectedSkills.length < skills.count
-                ? `${
-                      skills.count - selectedSkills.length
-                  } Skill selections remaining`
-                : null}
+            warning="{skills.count -
+                selectedSkills.length} Skill selections remaining"
+            showWarning={selectedSkills.length < skills.count}
         >
             <CheckboxGroup
                 options={Object.entries(A5E.skills)}
@@ -161,11 +155,9 @@
         <FormSection
             heading="A5E.BackgroundDropToolsSelect"
             hint={tools.options}
-            warning={selectedTools.length < tools.count
-                ? `${
-                      tools.count - selectedTools.length
-                  } Tool selections remaining`
-                : null}
+            warning="{tools.count -
+                selectedTools.length} Tool selections remaining"
+            showWarning={selectedTools.length < tools.count}
         >
             <button
                 class="tools-config a5e-button a5e-button--add"
@@ -192,7 +184,7 @@
         <FormSection heading="A5E.BackgroundDropEquipmentSelect">
             <CheckboxGroup
                 options={Object.entries($item.system.equipment).map(
-                    ([key, e]) => [key, fromUuidSync(e.uuid).name]
+                    ([key, e]) => [key, fromUuidSync(e.uuid)?.name]
                 )}
                 selected={selectedEquipment}
                 on:updateSelection={({ detail }) => {
