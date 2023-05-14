@@ -32,7 +32,9 @@
     <article class="config-wrapper">
         <div class="button-wrapper">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
+            {#if roll.type !== "attack"}
+                <i class="button fa-solid fa-clone" on:click={duplicateRoll} />
+            {/if}
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <i
