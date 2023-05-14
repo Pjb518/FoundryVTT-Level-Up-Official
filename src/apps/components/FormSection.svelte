@@ -24,8 +24,9 @@
         flex-wrap: wrap;
         align-items: var(--item-alignment, initial);
         gap: var(--gap, 0.375rem);
-        padding: 0.5rem;
-        background: rgba(0, 0, 0, 0.05);
+        margin: var(--margin, 0);
+        padding: var(--padding, 0.5rem);
+        background: var(--background, rgba(0, 0, 0, 0.05));
         border-radius: 3px;
     }
 
