@@ -21,7 +21,9 @@
     .form-section {
         position: relative;
         display: flex;
+        flex-direction: var(--direction, row);
         flex-wrap: wrap;
+        flex-grow: var(--grow, 0);
         align-items: var(--item-alignment, initial);
         gap: var(--gap, 0.375rem);
         margin: var(--margin, 0);
@@ -33,7 +35,7 @@
     .form-heading {
         font-size: 0.833rem;
         font-weight: bold;
-        flex-shrink: 0;
+        flex-shrink: 1;
         width: var(--label-width, auto);
     }
 

@@ -5,6 +5,7 @@
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
@@ -33,132 +34,125 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{rollId}-label">
-            {localize("A5E.Label")}
-        </label>
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+    --margin="0 2.5rem 0 0"
+>
+    <input
+        type="text"
+        value={roll.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.label`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{rollId}-label"
-            name="{actionId}-{rollId}-label"
-            type="text"
-            value={roll.label ?? ""}
+<FormSection
+    heading="A5E.AbilityScore"
+    hint="The ability score modifier to add to the attack roll."
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+>
+    <RadioGroup
+        optionStyles="min-width: 2rem; text-align: center;"
+        options={abilityOptions}
+        selected={selectedAbility}
+        on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    />
+</FormSection>
+
+<FormSection --background="transparent" --padding="0">
+    <FormSection
+        heading="A5E.AttackType"
+        --background="transparent"
+        --direction="column"
+        --grow="1"
+        --padding="0"
+    >
+        <select
+            class="u-w-full"
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${rollId}.label`,
+                    `system.actions.${actionId}.rolls.${rollId}.attackType`,
+                    target.value
+                )}
+        >
+            {#each Object.entries(A5E.attackTypes) as [key, name] (key)}
+                <option value={key} selected={roll.attackType === key}>
+                    {localize(name)}
+                </option>
+            {/each}
+        </select>
+    </FormSection>
+
+    <FormSection
+        heading="A5E.AttackBonus"
+        --background="transparent"
+        --direction="column"
+        --grow="1"
+        --padding="0"
+    >
+        <input
+            type="text"
+            value={roll.bonus ?? 0}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.bonus`,
                     target.value
                 )}
         />
-    </div>
+    </FormSection>
 
-    <div class="a5e-field-group">
-        <h3 class="a5e-field-group__heading">
-            {localize("A5E.AbilityScore")}
-        </h3>
-
-        <p class="a5e-field-group__hint">
-            The ability score modifier to add to the attack roll.
-        </p>
-        <RadioGroup
-            optionStyles="min-width: 2rem; text-align: center;"
-            options={abilityOptions}
-            selected={selectedAbility}
-            on:updateSelection={({ detail }) => (selectedAbility = detail)}
-        />
-    </div>
-
-    <div class="row">
-        <div class="a5e-field-group">
-            <label for="{actionId}-{rollId}-attack-type">
-                {localize("A5E.AttackType")}
-            </label>
-
-            <select
-                id="{actionId}-{rollId}-attack-type"
-                class="u-w-fit"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.attackType`,
-                        target.value
-                    )}
-            >
-                {#each Object.entries(A5E.attackTypes) as [key, name] (key)}
-                    <option value={key} selected={roll.attackType === key}>
-                        {localize(name)}
-                    </option>
-                {/each}
-            </select>
-        </div>
-
-        <div class="a5e-field-group a5e-field-group--formula">
-            <label for="{actionId}-{rollId}-attack-bonus">
-                {localize("A5E.AttackBonus")}
-            </label>
-
-            <input
-                id="{actionId}-{rollId}-attack-bonus"
-                type="text"
-                value={roll.bonus ?? 0}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                        target.value
-                    )}
-            />
-        </div>
-
-        <div class="a5e-field-group">
-            <label for="{actionId}-{rollId}-crit-threshold">
-                {localize("A5E.CriticalHitThreshold")}
-            </label>
-
-            <input
-                id="{actionId}-{rollId}-crit-threshold"
-                name="{actionId}-{rollId}-crit-threshold"
-                type="number"
-                value={roll.critThreshold ?? 20}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.critThreshold`,
-                        Number(target.value)
-                    )}
-            />
-        </div>
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--checkbox">
+    <FormSection
+        heading="A5E.CriticalHitThreshold"
+        --background="transparent"
+        --direction="column"
+        --padding="0"
+        --grow="1"
+    >
         <input
-            id="{actionId}-{rollId}-proficient"
-            class="checkbox"
-            type="checkbox"
-            checked={roll.proficient ?? true}
+            type="number"
+            value={roll.critThreshold ?? 20}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${rollId}.proficient`,
-                    target.checked
+                    `system.actions.${actionId}.rolls.${rollId}.critThreshold`,
+                    Number(target.value)
                 )}
         />
+    </FormSection>
+</FormSection>
 
-        <label for="{actionId}-{rollId}-proficient">
-            {localize("A5E.AddProficiency")}
-        </label>
-    </div>
-</section>
+<div class="a5e-field-group a5e-field-group--checkbox">
+    <input
+        id="{actionId}-{rollId}-proficient"
+        class="checkbox"
+        type="checkbox"
+        checked={roll.proficient ?? true}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.proficient`,
+                target.checked
+            )}
+    />
+
+    <label for="{actionId}-{rollId}-proficient">
+        {localize("A5E.AddProficiency")}
+    </label>
+</div>
 
 <style lang="scss">
     .checkbox {
         margin: 0;
-    }
-
-    .row {
-        display: flex;
-        gap: 0.5rem;
-        width: 100%;
     }
 </style>

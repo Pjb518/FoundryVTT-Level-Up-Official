@@ -1,6 +1,8 @@
 <script>
     import { getContext } from "svelte";
 
+    import FormSection from "../FormSection.svelte";
+
     const item = getContext("item");
     const actionId = getContext("actionId");
 
@@ -29,7 +31,7 @@
 </script>
 
 <li class="roll" data-roll-id={rollId}>
-    <article class="config-wrapper">
+    <FormSection>
         <div class="button-wrapper">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             {#if roll.type !== "attack"}
@@ -43,8 +45,10 @@
             />
         </div>
 
-        <slot />
-    </article>
+        <section class="roll-config-wrapper">
+            <slot />
+        </section>
+    </FormSection>
 </li>
 
 <style lang="scss">
@@ -57,18 +61,6 @@
         right: 0.75rem;
         color: #999;
         font-size: 1rem;
-    }
-
-    .config-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.625rem;
-        position: relative;
-        padding: 0.75rem;
-        font-size: 0.833rem;
-        // background: rgba(246, 242, 235, 0.4);
-        background-color: rgba(0, 0, 0, 0.05);
-        border-radius: 4px;
     }
 
     .button {
@@ -101,5 +93,12 @@
     .roll {
         display: flex;
         flex-direction: column;
+    }
+
+    .roll-config-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
     }
 </style>

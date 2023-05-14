@@ -5,6 +5,7 @@
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let roll;
@@ -27,103 +28,102 @@
     $: selectedAbility, updateAbility();
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{rollId}-label">
-            {localize("A5E.Label")}
-        </label>
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+    --margin="0 4.5rem 0 0"
+>
+    <input
+        type="text"
+        value={roll.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.label`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{rollId}-label"
-            type="text"
-            value={roll.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}.label`,
-                    target.value
-                )}
-        />
-    </div>
+<FormSection
+    heading="A5E.Skill"
+    --background="transparent"
+    --label-width="100%"
+    --padding="0"
+>
+    <select
+        class="u-w-fit"
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.skill`,
+                target.value
+            )}
+    >
+        {#each Object.entries(skills) as [skill, label]}
+            <option value={skill} selected={roll?.skill === skill}>
+                {localize(label)}
+            </option>
+        {/each}
+    </select>
+</FormSection>
 
-    <div class="option-wrapper">
-        <h3>{localize("A5E.Skill")}</h3>
+<FormSection
+    heading="A5E.DefaultAbilityScore"
+    --background="transparent"
+    --label-width="100%"
+    --padding="0"
+>
+    <RadioGroup
+        optionStyles="min-width: 2rem; text-align: center;"
+        options={prepareAbilityOptions(false, true)}
+        selected={selectedAbility}
+        allowDeselect={false}
+        on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    />
+</FormSection>
 
-        <select
-            class="u-w-fit"
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}.skill`,
-                    target.value
-                )}
-        >
-            {#each Object.entries(skills) as [skill, label]}
-                <option value={skill} selected={roll?.skill === skill}>
-                    {localize(label)}
-                </option>
-            {/each}
-        </select>
-    </div>
+<FormSection
+    heading="A5E.CheckBonus"
+    --background="transparent"
+    --label-width="100%"
+    --padding="0"
+>
+    <input
+        type="text"
+        value={roll.bonus ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.bonus`,
+                target.value
+            )}
+    />
+</FormSection>
 
-    <div class="option-wrapper">
-        <h3>{localize("A5E.DefaultAbilityScore")}</h3>
+<div class="a5e-field-group a5e-field-group--checkbox">
+    <input
+        id="{actionId}-{rollId}-default"
+        class="checkbox"
+        type="checkbox"
+        checked={roll.default ?? true}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.default`,
+                target.checked
+            )}
+    />
 
-        <RadioGroup
-            optionStyles="min-width: 2rem; text-align: center;"
-            options={prepareAbilityOptions(false, true)}
-            selected={selectedAbility}
-            allowDeselect={false}
-            on:updateSelection={({ detail }) => (selectedAbility = detail)}
-        />
-    </div>
-
-    <div class="a5e-field-group">
-        <label for="{actionId}-{rollId}-bonus">
-            {localize("A5E.CheckBonus")}
-        </label>
-
-        <input
-            id="{actionId}-{rollId}-bonus"
-            type="text"
-            value={roll.bonus ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}.bonus`,
-                    target.value
-                )}
-        />
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--checkbox">
-        <input
-            id="{actionId}-{rollId}-default"
-            class="checkbox"
-            type="checkbox"
-            checked={roll.default ?? true}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}.default`,
-                    target.checked
-                )}
-        />
-
-        <label for="{actionId}-{rollId}-default">
-            {localize("A5E.SkillCheckDefaultSelection")}
-        </label>
-    </div>
-</section>
+    <label for="{actionId}-{rollId}-default">
+        {localize("A5E.SkillCheckDefaultSelection")}
+    </label>
+</div>
 
 <style lang="scss">
-    .option {
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            font-size: 0.694rem;
-            font-family: "Signika", sans-serif;
-        }
+    .checkbox {
+        margin: 0;
     }
 </style>

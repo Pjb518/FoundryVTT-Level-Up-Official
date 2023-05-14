@@ -2,10 +2,71 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import FormSection from "../FormSection.svelte";
     import ScalingConfigDialog from "../../dialogs/initializers/HealingScalingConfigDialog";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function getScalingSummary(roll) {
+        const mode = roll.scaling?.mode;
+        const formula = roll.scaling?.formula ?? 0;
+        const healingType = healingTypes[roll.healingType ?? "healing"];
+
+        // TODO: Provide some means of getting a base spell level for non-spell items.
+        const level = getOrdinalNumber($item.system.level ?? 1);
+        const step = roll.scaling?.step;
+
+        if (mode === "cantrip") {
+            return localize("A5E.scaling.summaries.cantrip.healing", {
+                formula,
+                healingType,
+            });
+        }
+
+        if (mode === "spellLevel") {
+            if (!step || step === 1) {
+                return localize("A5E.scaling.summaries.spellLevel.healing", {
+                    formula,
+                    level,
+                    healingType,
+                });
+            } else {
+                return localize(
+                    "A5E.scaling.summaries.steppedSpellLevel.healing",
+                    { formula, step, level, healingType }
+                );
+            }
+        }
+
+        if (mode === "spellPoints") {
+            if (!roll.scaling?.step || roll.scaling?.step === 1) {
+                return localize("A5E.scaling.summaries.spellPoint.healing", {
+                    formula,
+                });
+            } else {
+                return localize(
+                    "A5E.scaling.summaries.steppedSpellPoint.healing",
+                    { formula, step }
+                );
+            }
+        }
+
+        if (["actionUses", "itemUses"].includes(mode)) {
+            if (!roll.scaling?.step || roll.scaling?.step === 1) {
+                return localize("A5E.scaling.summaries.uses.healing", {
+                    formula,
+                });
+            } else {
+                return localize("A5E.scaling.summaries.steppedUses.healing", {
+                    formula,
+                    step,
+                });
+            }
+        }
+
+        return null;
+    }
 
     function onClickScalingButton() {
         const dialog = new ScalingConfigDialog($item, actionId, rollId);
@@ -20,35 +81,39 @@
 
     export let roll;
     export let rollId;
+
+    $: scalingSummary = getScalingSummary(roll);
 </script>
 
-<section class="action-config__wrapper">
-    <div class="a5e-field-group a5e-field-group--label">
-        <label for="{actionId}-{rollId}-label">
-            {localize("A5E.Label")}
-        </label>
+<FormSection
+    heading="A5E.Label"
+    --background="transparent"
+    --direction="column"
+    --padding="0"
+    --margin="0 4.5rem 0 0"
+>
+    <input
+        type="text"
+        value={roll.label ?? ""}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.label`,
+                target.value
+            )}
+    />
+</FormSection>
 
-        <input
-            id="{actionId}-{rollId}-label"
-            type="text"
-            value={roll.label ?? ""}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    `system.actions.${actionId}.rolls.${rollId}.label`,
-                    target.value
-                )}
-        />
-    </div>
-
-    <div class="row u-flex-wrap">
-        <div class="a5e-field-group a5e-field-group--formula">
-            <label for="{actionId}-{rollId}-healing-formula">
-                {localize("A5E.HealingFormula")}
-            </label>
-
+<FormSection --background="transparent" --padding="0" hint={scalingSummary}>
+    <FormSection
+        heading="A5E.HealingFormula"
+        --background="transparent"
+        --grow="1"
+        --label-width="100%"
+        --padding="0"
+    >
+        <div class="u-flex u-gap-sm u-w-full">
             <input
-                id="{actionId}-{rollId}-healing-formula"
                 type="text"
                 value={roll.formula ?? ""}
                 on:change={({ target }) =>
@@ -58,9 +123,7 @@
                         target.value
                     )}
             />
-        </div>
 
-        <div class="a5e-field-group scaling-button-wrapper">
             <button
                 class="scaling-button"
                 on:click|preventDefault={onClickScalingButton}
@@ -72,129 +135,55 @@
                 />
             </button>
         </div>
+    </FormSection>
 
-        <div class="a5e-field-group">
-            <label for="{actionId}-{rollId}-healing-type">
-                {localize("A5E.HealingType")}
-            </label>
-
-            <select
-                id="{actionId}-{rollId}-healing-type"
-                class="u-w-fit"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        `system.actions.${actionId}.rolls.${rollId}.healingType`,
-                        target.value
-                    )}
-            >
-                {#each Object.entries(healingTypes) as [key, name] (key)}
-                    <option value={key} selected={roll.healingType === key}>
-                        {localize(name)}
-                    </option>
-                {/each}
-            </select>
-        </div>
-
-        {#if roll.scaling?.mode === "cantrip"}
-            <small>
-                {localize("A5E.scaling.summaries.cantrip.healing", {
-                    formula: roll.scaling.formula ?? 0,
-                    healingType: localize(
-                        A5E.healingTypes[roll.healingType ?? "healing"]
-                    ),
-                })}
-            </small>
-        {:else if roll.scaling?.mode === "spellLevel"}
-            <small>
-                {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.scaling.summaries.spellLevel.healing", {
-                        formula: roll.scaling.formula ?? 0,
-                        level: getOrdinalNumber($item.system.level),
-                        healingType: localize(
-                            A5E.healingTypes[roll.healingType ?? "healing"]
-                        ),
-                    })}
-                {:else}
-                    {localize(
-                        "A5E.scaling.summaries.steppedSpellLevel.healing",
-                        {
-                            formula: roll.scaling.formula ?? 0,
-                            step: roll.scaling.step,
-                            level: getOrdinalNumber($item.system.level),
-                            healingType: localize(
-                                A5E.healingTypes[roll.healingType ?? "healing"]
-                            ),
-                        }
-                    )}
-                {/if}
-            </small>
-        {:else if roll.scaling?.mode === "spellPoints"}
-            <small>
-                {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.scaling.summaries.spellPoint.healing", {
-                        formula: roll.scaling.formula ?? 0,
-                    })}
-                {:else}
-                    {localize(
-                        "A5E.scaling.summaries.steppedSpellPoint.healing",
-                        {
-                            formula: roll.scaling.formula ?? 0,
-                            step: roll.scaling.step,
-                        }
-                    )}
-                {/if}
-            </small>
-        {:else if ["actionUses", "itemUses"].includes(roll.scaling?.mode)}
-            <small>
-                {#if !roll.scaling?.step || roll.scaling?.step === 1}
-                    {localize("A5E.scaling.summaries.uses.healing", {
-                        formula: roll.scaling.formula ?? 0,
-                    })}
-                {:else}
-                    {localize("A5E.scaling.summaries.steppedUses.healing", {
-                        formula: roll.scaling.formula ?? 0,
-                        step: roll.scaling.step,
-                    })}
-                {/if}
-            </small>
-        {/if}
-    </div>
-
-    <div class="a5e-field-group a5e-field-group--checkbox">
-        <input
-            id="{actionId}-{rollId}-default"
-            class="checkbox"
-            type="checkbox"
-            checked={roll.default ?? true}
+    <FormSection
+        heading="A5E.HealingType"
+        --background="transparent"
+        --direction="column"
+        --padding="0"
+    >
+        <select
+            id="{actionId}-{rollId}-healing-type"
+            class="u-w-fit"
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,
-                    `system.actions.${actionId}.rolls.${rollId}.default`,
-                    target.checked
+                    `system.actions.${actionId}.rolls.${rollId}.healingType`,
+                    target.value
                 )}
-        />
+        >
+            {#each Object.entries(healingTypes) as [key, name] (key)}
+                <option value={key} selected={roll.healingType === key}>
+                    {localize(name)}
+                </option>
+            {/each}
+        </select>
+    </FormSection>
+</FormSection>
 
-        <label for="{actionId}-{rollId}-default">
-            {localize("A5E.HealingDefaultSelection")}
-        </label>
-    </div>
-</section>
+<div class="a5e-field-group a5e-field-group--checkbox">
+    <input
+        id="{actionId}-{rollId}-default"
+        class="checkbox"
+        type="checkbox"
+        checked={roll.default ?? true}
+        on:change={({ target }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.rolls.${rollId}.default`,
+                target.checked
+            )}
+    />
+
+    <label for="{actionId}-{rollId}-default">
+        {localize("A5E.HealingDefaultSelection")}
+    </label>
+</div>
 
 <style lang="scss">
-    small {
-        display: block;
-        width: 100%;
-    }
-
     .checkbox {
         margin: 0;
-    }
-
-    .row {
-        display: flex;
-        gap: 0.5rem;
-        width: 100%;
     }
 
     .scaling-button {
@@ -222,9 +211,5 @@
         &:hover {
             color: #555;
         }
-    }
-
-    .scaling-button-wrapper {
-        justify-content: flex-end;
     }
 </style>
