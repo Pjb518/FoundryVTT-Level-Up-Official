@@ -48,28 +48,26 @@
                 />
             </div>
 
-            <div>
-                <select
-                    name="system.attributes.senses.{sense}.unit"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value
-                        )}
-                >
-                    {#each Object.entries(A5E.visionUnits) as [key, name]}
-                        <option
-                            {key}
-                            value={key}
-                            selected={$actor.system.attributes.senses[sense]
-                                .unit === key}
-                        >
-                            {localize(name)}
-                        </option>
-                    {/each}
-                </select>
-            </div>
+            <select
+                name="system.attributes.senses.{sense}.unit"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value
+                    )}
+            >
+                {#each Object.entries(A5E.visionUnits) as [key, name]}
+                    <option
+                        {key}
+                        value={key}
+                        selected={$actor.system.attributes.senses[sense]
+                            .unit === key}
+                    >
+                        {localize(name)}
+                    </option>
+                {/each}
+            </select>
 
             {#if sense === "blindsight"}
                 <Checkbox
