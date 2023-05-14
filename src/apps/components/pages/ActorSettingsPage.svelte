@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -182,83 +183,50 @@
         </header>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.trackInventoryWeight"
-                    id="{$actor.id}-track-inventory-weight"
-                    checked={$actor.flags?.a5e?.trackInventoryWeight ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-track-inventory-weight"
-                >
-                    {localize("A5E.settings.trackInventoryWeight")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.settings.trackInventoryWeight"
+                checked={$actor.flags?.a5e?.trackInventoryWeight ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.trackInventoryWeight",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
             <FormSection>
-                <div class="checkbox-row">
-                    <input
-                        class="checkbox"
-                        type="checkbox"
-                        name="flags.a5e.doubleCarryCapacity"
-                        id="{$actor.id}-double-carry-capacity"
-                        checked={flags.a5e?.doubleCarryCapacity ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label
-                        class="u-pointer"
-                        for="{$actor.id}-double-carry-capacity"
-                    >
-                        {localize("A5E.settings.doubleCarryingCapacity")}
-                    </label>
-                </div>
+                <Checkbox
+                    label="A5E.settings.doubleCarryingCapacity"
+                    checked={flags.a5e?.doubleCarryCapacity ?? false}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "flags.a5e.doubleCarryCapacity",
+                            detail
+                        );
+                    }}
+                />
             </FormSection>
 
             <FormSection
                 hint="A5E.settings.hints.trackCurrencyWeight"
                 --gap="0.25rem"
             >
-                <div class="checkbox-row">
-                    <input
-                        class="checkbox"
-                        type="checkbox"
-                        name="flags.a5e.trackCurrencyWeight"
-                        id="{$actor.id}-track-currency-weight"
-                        checked={flags.a5e?.trackCurrencyWeight ??
-                            globalCurrencyWeightTrackingSelection}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label
-                        class="u-pointer"
-                        for="{$actor.id}-track-currency-weight"
-                    >
-                        {localize("A5E.settings.trackCurrencyWeight")}
-                    </label>
-                </div>
+                <Checkbox
+                    label="A5E.settings.trackCurrencyWeight"
+                    checked={flags.a5e?.trackCurrencyWeight ??
+                        globalCurrencyWeightTrackingSelection}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "flags.a5e.trackCurrencyWeight",
+                            detail
+                        );
+                    }}
+                />
             </FormSection>
         {/if}
     </section>
@@ -270,53 +238,34 @@
 
         {#if $actor.type === "character"}
             <FormSection hint="A5E.settings.hints.halflingLuck" --gap="0.25rem">
-                <div class="checkbox-row">
-                    <input
-                        class="checkbox"
-                        type="checkbox"
-                        name="flags.a5e.halflingLuck"
-                        id="{$actor.id}-halfling-luck"
-                        checked={flags.a5e?.halflingLuck ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label class="u-pointer" for="{$actor.id}-halfling-luck">
-                        {localize("A5E.settings.halflingLuck")}
-                    </label>
-                </div>
+                <Checkbox
+                    label="A5E.settings.halflingLuck"
+                    checked={flags.a5e?.halflingLuck ?? false}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "flags.a5e.halflingLuck",
+                            detail
+                        );
+                    }}
+                />
             </FormSection>
 
             <FormSection
                 hint="A5E.settings.hints.jackOfAllTrades"
                 --gap="0.25rem"
             >
-                <div class="checkbox-row">
-                    <input
-                        class="checkbox"
-                        type="checkbox"
-                        name="flags.a5e.jackOfAllTrades"
-                        id="{$actor.id}-jack-of-all-trades"
-                        checked={flags.a5e?.jackOfAllTrades ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label
-                        class="u-pointer"
-                        for="{$actor.id}-jack-of-all-trades"
-                    >
-                        {localize("A5E.settings.jackOfAllTrades")}
-                    </label>
-                </div>
+                <Checkbox
+                    label="A5E.settings.jackOfAllTrades"
+                    checked={flags.a5e?.jackOfAllTrades ?? false}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "flags.a5e.jackOfAllTrades",
+                            detail
+                        );
+                    }}
+                />
             </FormSection>
         {/if}
     </section>
@@ -327,172 +276,104 @@
         </header>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.hideGenericResources"
-                    id="{$actor.id}-hide-generic-resources"
-                    checked={flags.a5e?.hideGenericResources ??
-                        $actor.type === "npc"}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-hide-generic-resources"
-                >
-                    {localize("A5E.HideGenericResources")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.HideGenericResources"
+                checked={flags.a5e?.hideGenericResources ??
+                    $actor.type === "npc"}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.hideGenericResources",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.includeAbilityModifiersForSkills"
-                    id="{$actor.id}-include-ability-mods-for-skills"
-                    checked={flags.a5e?.includeAbilityModifiersForSkills ??
-                        $actor.type === "npc"}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-include-ability-mods-for-skills"
-                >
-                    {localize("A5E.settings.includeAbilityModifiersForSkills")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.settings.includeAbilityModifiersForSkills"
+                checked={flags.a5e?.includeAbilityModifiersForSkills ??
+                    $actor.type === "npc"}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.includeAbilityModifiersForSkills",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.showFavoritesSection"
-                    id="{$actor.id}-show-favorites-section"
-                    checked={flags.a5e?.showFavoritesSection ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-show-favorites-section"
-                >
-                    {localize("A5E.settings.showFavoritesSection")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.settings.showFavoritesSection"
+                checked={flags.a5e?.showFavoritesSection ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.showFavoritesSection",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.showManeuverTab"
-                    id="{$actor.id}-show-maneuver-tab"
-                    checked={flags.a5e?.showManeuverTab ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label class="u-pointer" for="{$actor.id}-show-maneuver-tab">
-                    {localize("A5E.settings.showManeuverTab")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.settings.showManeuverTab"
+                checked={flags.a5e?.showManeuverTab ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.showManeuverTab",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.showPassiveScores"
-                    id="{$actor.id}-include-show-passive-scores"
-                    checked={flags.a5e?.showPassiveScores ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label
-                    class="u-pointer"
-                    for="{$actor.id}-include-show-passive-scores"
-                >
-                    {localize("A5E.settings.showPassiveScores")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.settings.showPassiveScores"
+                checked={flags.a5e?.showPassiveScores ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.showPassiveScores",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         <FormSection>
-            <div class="checkbox-row">
-                <input
-                    class="checkbox"
-                    type="checkbox"
-                    name="flags.a5e.showSpellTab"
-                    id="{$actor.id}-show-spell-tab"
-                    checked={flags.a5e?.showSpellTab ?? true}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.checked
-                        )}
-                />
-
-                <label class="u-pointer" for="{$actor.id}-show-spell-tab">
-                    {localize("A5E.settings.showSpellTab")}
-                </label>
-            </div>
+            <Checkbox
+                label="A5E.settings.showSpellTab"
+                checked={flags.a5e?.showSpellTab ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.showSpellTab",
+                        detail
+                    );
+                }}
+            />
         </FormSection>
 
         {#if $actor.type === "character"}
             <FormSection>
-                <div class="checkbox-row">
-                    <input
-                        class="checkbox"
-                        type="checkbox"
-                        name="flags.a5e.showXP"
-                        id="{actor.id}-show-xp"
-                        checked={flags.a5e?.showXP ?? true}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label class="u-pointer" for="{actor.id}-show-xp">
-                        {localize("A5E.settings.showXP")}
-                    </label>
-                </div>
+                <Checkbox
+                    label="A5E.settings.showXP"
+                    checked={flags.a5e?.showXP ?? true}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "flags.a5e.showXP",
+                            detail
+                        );
+                    }}
+                />
             </FormSection>
         {/if}
     </section>
@@ -504,28 +385,17 @@
             </header>
 
             <FormSection --gap="0.25rem">
-                <div class="checkbox-row">
-                    <input
-                        class="checkbox"
-                        type="checkbox"
-                        name="flags.a5e.disableRandomizedHP"
-                        id="{$actor.id}-disable-randomized-hp"
-                        checked={flags.a5e?.disableRandomizedHP ?? false}
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                target.checked
-                            )}
-                    />
-
-                    <label
-                        class="u-pointer"
-                        for="{$actor.id}-disable-randomized-hp"
-                    >
-                        Disable Randomized HP Rolls
-                    </label>
-                </div>
+                <Checkbox
+                    label="Disable Randomized HP Rolls"
+                    checked={flags.a5e?.disableRandomizedHP ?? false}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "flags.a5e.disableRandomizedHP",
+                            detail
+                        );
+                    }}
+                />
             </FormSection>
         </section>
     {/if}
@@ -534,18 +404,6 @@
 <style lang="scss">
     .a5e-input[type="text"] {
         height: 1.75rem;
-    }
-
-    .checkbox {
-        margin: 0;
-        cursor: pointer;
-    }
-
-    .checkbox-row {
-        display: flex;
-        align-items: center;
-        font-size: 0.833rem;
-        gap: 0.75rem;
     }
 
     .divider {
