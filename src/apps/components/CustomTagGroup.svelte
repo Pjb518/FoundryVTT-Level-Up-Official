@@ -5,11 +5,12 @@
     import arraysAreEqual from "../../utils/arraysAreEqual";
 
     import CheckboxGroup from "./CheckboxGroup.svelte";
+    import FormSection from "./FormSection.svelte";
 
     export let options = [];
     export let selected = [];
     export let disabled = false;
-    export let red = false;
+    export let red = [];
     export let showCustomInput = true;
     export let heading = "";
 
@@ -69,7 +70,11 @@
 />
 
 {#if showCustomInput}
-    <div class="u-mt-sm u-w-full">
+    <FormSection
+        hint="A5E.HintSeparateBySemiColon"
+        --background="transparent"
+        --padding="0"
+    >
         <input
             class="a5e-input"
             type="text"
@@ -77,9 +82,5 @@
             on:change={({ target }) =>
                 (selectedCustomOptions = splitCustomSelections(target.value))}
         />
-    </div>
-
-    <span class="a5e-form__hint">
-        {localize("A5E.HintSeparateBySemiColon")}</span
-    >
+    </FormSection>
 {/if}
