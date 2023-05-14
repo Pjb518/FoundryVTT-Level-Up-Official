@@ -38,9 +38,9 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <Tag
             active={selected === value || selected?.toString() === value}
+            {label}
             {optionStyles}
             {value}
-            {label}
             disabled={disabled.includes(value)}
             on:tagToggle={({ detail }) => updateSelection(detail)}
         />

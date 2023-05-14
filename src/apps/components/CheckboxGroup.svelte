@@ -2,6 +2,8 @@
     import { createEventDispatcher } from "svelte";
     import Tag from "./Tag.svelte";
 
+    export let listClasses = "";
+    export let optionStyles = "";
     export let options = [];
     export let selected = [];
     export let disabledOptions = [];
@@ -30,12 +32,14 @@
         u-p-0
         u-text-xs
         u-w-full
+        {listClasses}
     "
 >
     {#each options as [value, label]}
         <Tag
             active={selected.includes(value)}
             {label}
+            {optionStyles}
             {value}
             red={red && red?.includes(value)}
             disabled={disabledOptions.includes(value) ||
