@@ -5,12 +5,11 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
-
-    import ToolProfConfigDialog from "./ToolProfConfigDialog.svelte";
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import CustomTagGroup from "../components/CustomTagGroup.svelte";
-    import Tag from "../components/Tag.svelte";
+    import FormSection from "../components/FormSection.svelte";
+    import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
+    import ToolProfConfigDialog from "./ToolProfConfigDialog.svelte";
 
     export let { application } = getContext("#external");
     export let { actorDocument, itemDocument } =
@@ -19,20 +18,13 @@
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
 
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
     const equipmentLength = Object.entries($item.system.equipment).length;
 
-    const toolKeys = Object.values(CONFIG.A5E.tools).reduce(
+    const toolKeys = Object.values(A5E.tools).reduce(
         (acc, curr) => ({ ...acc, ...curr }),
         {}
     );
-
-    const updateEquipment = (value) => {
-        selectedEquipment = updateArray(selectedEquipment, value);
-    };
-    const updateSkills = (value) => {
-        selectedSkills = updateArray(selectedSkills, value);
-    };
 
     async function updateTools() {
         const title = localize("A5E.ToolProficienciesConfigurationPrompt", {
@@ -57,15 +49,6 @@
         selectedTools = dialogData.tools;
     }
 
-    function updateArray(arr, value) {
-        const newSelection = new Set(arr);
-
-        if (newSelection.has(value)) newSelection.delete(value);
-        else newSelection.add(value);
-
-        return [...newSelection];
-    }
-
     function submitForm() {
         application.submit({
             selectedAbilityScores,
@@ -82,10 +65,12 @@
 
     let selectedEquipment = [];
     let selectedLanguages = [...languages.fixed];
+    let selectedTools = [];
+
     let selectedSkills = [
         ...skills.fixed.filter((s) => !$actor.system.skills[s].proficient),
     ];
-    let selectedTools = [];
+
     let selectedAbilityScores = [
         $item.system.includesASI ? $item.system.defaultASI : null,
     ].filter(Boolean);
@@ -93,11 +78,15 @@
 
 <form>
     {#if $item.system.includesASI}
-        <section class="section-wrapper">
-            <h3>
-                {localize("A5E.BackgroundDropAbilitySelect")}
-            </h3>
-
+        <FormSection
+            heading="A5E.BackgroundDropAbilitySelect"
+            hint="A5E.BackgroundDropAbilitySelectHint"
+            warning={selectedAbilityScores.length < 2
+                ? `${
+                      2 - selectedAbilityScores.length
+                  } Ability Score selections remaining`
+                : null}
+        >
             <CheckboxGroup
                 options={Object.entries(A5E.abilities)}
                 selected={selectedAbilityScores}
@@ -105,26 +94,18 @@
                 on:updateSelection={({ detail }) =>
                     (selectedAbilityScores = detail)}
             />
-
-            <p class="hint">
-                {localize("A5E.BackgroundDropAbilitySelectHint")}
-            </p>
-
-            {#if selectedAbilityScores.length < 2}
-                <p class="hint" style="color: #8b6225;">
-                    <i class="fa-solid fa-circle-exclamation" />
-                    {2 - selectedAbilityScores.length} Ability Score selections remaining
-                </p>
-            {/if}
-        </section>
+        </FormSection>
     {/if}
 
     {#if languages.count}
-        <section class="section-wrapper">
-            <h3>
-                {localize("A5E.BackgroundDropLanguagesSelect")}
-            </h3>
-
+        <FormSection
+            heading="A5E.BackgroundDropLanguagesSelect"
+            warning={selectedLanguages.length < languages.count
+                ? `${
+                      languages.count - selectedLanguages.length
+                  } language selections remaining`
+                : null}
+        >
             <CustomTagGroup
                 options={Object.entries(A5E.languages)}
                 selected={languages.fixed}
@@ -133,111 +114,92 @@
                 on:updateSelection={({ detail }) =>
                     (selectedLanguages = detail)}
             />
-
-            {#if selectedLanguages.length < languages.count}
-                <p class="hint" style="color: #8b6225;">
-                    <i class="fa-solid fa-circle-exclamation" />
-                    {languages.count - selectedLanguages.length} language selections
-                    remaining
-                </p>
-            {/if}
-        </section>
+        </FormSection>
     {/if}
 
     {#if skills.count}
-        <section class="section-wrapper">
-            <h3>
-                {localize("A5E.BackgroundDropSkillsSelect")}
-            </h3>
+        <FormSection
+            heading="A5E.BackgroundDropSkillsSelect"
+            warning={selectedSkills.length < skills.count
+                ? `${
+                      skills.count - selectedSkills.length
+                  } Skill selections remaining`
+                : null}
+        >
+            <CheckboxGroup
+                options={Object.entries(A5E.skills)}
+                disabledOptions={Object.keys($actor.system.skills).reduce(
+                    (invalidSkills, skillKey) => {
+                        if (
+                            selectedSkills.length >= skills.count &&
+                            !selectedSkills.includes(skillKey)
+                        ) {
+                            invalidSkills.push(skillKey);
+                        }
 
-            <ul>
-                {#each Object.entries(A5E.skills) as [skill, label]}
-                    <Tag
-                        active={selectedSkills.includes(skill)}
-                        {label}
-                        value={skill}
-                        disabled={selectedSkills.length >= skills.count &&
-                            !selectedSkills.includes(skill)}
-                        orange={skills.options.includes(skill)}
-                        on:tagToggle={({ detail }) => updateSkills(detail)}
-                        red={$actor.system.skills[skill].proficient}
-                    />
-                {/each}
-            </ul>
-
-            {#if selectedSkills.length < skills.count}
-                <p class="hint" style="color: #8b6225;">
-                    <i class="fa-solid fa-circle-exclamation" />
-                    {skills.count - selectedSkills.length} Skill selections remaining
-                </p>
-            {/if}
-        </section>
+                        return invalidSkills;
+                    },
+                    []
+                )}
+                selected={selectedSkills}
+                orange={skills.options}
+                red={Object.entries($actor.system.skills).reduce(
+                    (proficientSkills, [skillKey, skill]) => {
+                        if (skill.proficient) proficientSkills.push(skillKey);
+                        return proficientSkills;
+                    },
+                    []
+                )}
+                on:updateSelection={({ detail }) => {
+                    selectedSkills = detail;
+                }}
+            />
+        </FormSection>
     {/if}
 
     {#if tools.options}
-        <section class="ability-score=wrapper">
-            <div class="u-flex u-align-center u-gap-md">
-                <h3>
-                    {localize("A5E.BackgroundDropToolsSelect")}
-                </h3>
-
-                <button
-                    class="tools-config a5e-button a5e-button--add "
-                    on:click|preventDefault={updateTools}
-                >
-                    {localize("A5E.ButtonAdd", {
-                        type: localize("A5E.ToolPlural"),
-                    })}
-                </button>
-            </div>
-
-            <p class="hint u-pb-xs">
-                {tools.options}
-            </p>
+        <FormSection
+            heading="A5E.BackgroundDropToolsSelect"
+            hint={tools.options}
+            warning={selectedTools.length < tools.count
+                ? `${
+                      tools.count - selectedTools.length
+                  } Tool selections remaining`
+                : null}
+        >
+            <button
+                class="tools-config a5e-button a5e-button--add"
+                on:click|preventDefault={updateTools}
+            >
+                {localize("A5E.ButtonAdd", {
+                    type: localize("A5E.ToolPlural"),
+                })}
+            </button>
 
             {#if selectedTools.length}
-                <ul>
-                    {#each selectedTools as tool}
-                        <Tag
-                            active={true}
-                            value={tool}
-                            label={toolKeys[tool] ?? tool}
-                            optionStyles="cursor: auto;"
-                        />
-                    {/each}
-                </ul>
+                <CheckboxGroup
+                    options={Object.entries(toolKeys).filter(([toolKey]) =>
+                        selectedTools.includes(toolKey)
+                    )}
+                    optionStyles="cursor: auto;"
+                    selected={selectedTools}
+                />
             {/if}
-
-            {#if selectedTools.length < tools.count}
-                <p class="hint" style="color: #8b6225;">
-                    <i class="fa-solid fa-circle-exclamation" />
-                    {tools.count - selectedTools.length} Tool selections remaining
-                </p>
-            {/if}
-        </section>
+        </FormSection>
     {/if}
 
     {#if equipmentLength}
-        <section class="section-wrapper">
-            <h3>
-                {localize("A5E.BackgroundDropEquipmentSelect")}
-            </h3>
-
-            <ul>
-                <!-- svelte-ignore missing-declaration (fromUuid) -->
-                {#each Object.values($item.system.equipment).map( (e) => fromUuid(e.uuid) ) as promise}
-                    {#await promise then equipment}
-                        <Tag
-                            active={selectedEquipment.includes(equipment.uuid)}
-                            label={equipment.name}
-                            value={equipment.uuid}
-                            on:tagToggle={({ detail }) =>
-                                updateEquipment(detail)}
-                        />
-                    {/await}
-                {/each}
-            </ul>
-        </section>
+        <FormSection heading="A5E.BackgroundDropEquipmentSelect">
+            <CheckboxGroup
+                options={Object.entries($item.system.equipment).map(
+                    ([key, e]) => [key, fromUuidSync(e.uuid).name]
+                )}
+                selected={selectedEquipment}
+                on:updateSelection={({ detail }) => {
+                    selectedEquipment = detail;
+                }}
+            />
+        </FormSection>
     {/if}
 
     <div class="button-container">
@@ -253,32 +215,8 @@
         flex-direction: column;
         height: 100%;
         padding: 0.75rem;
-        gap: 1rem;
-        overflow: auto;
-
-        h3 {
-            font-size: 0.833rem;
-            font-weight: bold;
-            font-family: "Signika", sans-serif;
-        }
-    }
-
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.375rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        font-size: 0.694rem;
-        width: 100%;
-    }
-
-    .section-wrapper {
-        position: relative;
-        display: flex;
-        flex-direction: column;
         gap: 0.5rem;
+        overflow: auto;
     }
 
     .button-container {
@@ -289,10 +227,6 @@
         font-size: 0.694rem;
         margin-left: auto;
         margin-right: 0.75rem;
-    }
-
-    .hint {
-        font-family: "Signika", sans-serif;
-        font-size: 0.694rem;
+        line-height: 1;
     }
 </style>

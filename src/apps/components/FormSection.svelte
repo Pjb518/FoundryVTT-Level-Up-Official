@@ -3,6 +3,7 @@
 
     export let heading = null;
     export let hint = null;
+    export let warning = null;
 </script>
 
 <section class="form-section">
@@ -13,7 +14,14 @@
     <slot />
 
     {#if hint}
-        <small>{localize(hint)}</small>
+        <small class="hint">{localize(hint)}</small>
+    {/if}
+
+    {#if warning}
+        <small class="warning">
+            <i class="fa-solid fa-circle-exclamation" />
+            {localize(warning)}
+        </small>
     {/if}
 </section>
 
@@ -39,9 +47,16 @@
         width: var(--label-width, auto);
     }
 
-    small {
+    .hint,
+    .warning {
         display: block;
         width: 100%;
         padding-right: 0.25rem;
+        font-family: "Signika", sans-serif;
+        font-size: 0.694rem;
+    }
+
+    .warning {
+        color: #8b6225;
     }
 </style>

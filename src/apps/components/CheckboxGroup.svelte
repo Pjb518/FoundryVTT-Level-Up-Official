@@ -8,7 +8,8 @@
     export let selected = [];
     export let disabledOptions = [];
     export let disabled = false;
-    export let red = false;
+    export let red = [];
+    export let orange = [];
 
     function updateSelection(value) {
         const newSelections = new Set(selected);
@@ -41,7 +42,8 @@
             {label}
             {optionStyles}
             {value}
-            red={red && red?.includes(value)}
+            red={red?.includes(value)}
+            orange={orange?.includes(value)}
             disabled={disabledOptions.includes(value) ||
                 (disabled && !selected.includes(value))}
             on:tagToggle={({ detail }) => updateSelection(detail)}
