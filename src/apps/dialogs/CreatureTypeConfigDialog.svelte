@@ -15,17 +15,19 @@
 </script>
 
 <article>
-    <CustomTagGroup
-        heading="A5E.CreatureTypePlural"
-        options={systemTypes}
-        selected={$actor.system.details.creatureTypes}
-        on:updateSelection={(event) =>
-            updateDocumentDataFromField(
-                $actor,
-                "system.details.creatureTypes",
-                event.detail
-            )}
-    />
+    <FormSection>
+        <CustomTagGroup
+            heading="A5E.CreatureTypePlural"
+            options={systemTypes}
+            selected={$actor.system.details.creatureTypes}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $actor,
+                    "system.details.creatureTypes",
+                    event.detail
+                )}
+        />
+    </FormSection>
 
     <FormSection>
         <Checkbox
