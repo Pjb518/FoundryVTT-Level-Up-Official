@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { DynMapReducer } from '@typhonjs-fvtt/runtime/svelte/store';
 
 export default class FavoriteMapReducer extends DynMapReducer {

@@ -1,7 +1,7 @@
-import { SvelteApplication, TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
+import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-import { gameSettings } from './SettingsStore.js';
+import { gameSettings } from './SettingsStore';
 
 import SystemSettingsComponent from '../apps/settings/SystemSettings.svelte';
 

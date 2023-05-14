@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import preprocess from 'svelte-preprocess';
 import path from 'path';

@@ -142,7 +142,7 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   // eslint-disable-next-line no-unused-vars, no-empty-function
-  async #onDropActor(actor) { }
+  // async #onDropActor(actor) { }
 
   async #onDropItem(item) {
     if (item.type === 'background') this.#onDropBackground(item);

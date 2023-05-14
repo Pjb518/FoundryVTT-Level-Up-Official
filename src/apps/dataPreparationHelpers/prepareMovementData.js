@@ -1,14 +1,15 @@
 export default function getMovementData(actor) {
-  // eslint-disable-next-line no-unused-vars
   const hover = actor.system.attributes.movement?.traits?.hover;
 
-  const distances = Object.entries(actor.system.attributes.movement).filter(([mode, movementData]) => {
-    if (mode === 'fly' && hover) { return true; }
-    if (mode === 'traits') { return false; }
-    if (movementData.distance === 0) { return false; }
-    return movementData;
-  });
-  
+  const distances = Object.entries(actor.system.attributes.movement).filter(
+    ([mode, movementData]) => {
+      if (mode === 'fly' && hover) { return true; }
+      if (mode === 'traits') { return false; }
+      if (movementData.distance === 0) { return false; }
+      return movementData;
+    }
+  );
+
   const hoverText = game.i18n.localize('A5E.MovementHover');
 
   return distances.map(([mode, movementData]) => {

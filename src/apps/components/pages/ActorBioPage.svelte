@@ -116,7 +116,7 @@
                 u-border-b
                 u-border-gray
                 u-flex
-                u-gap-lg
+                u-gap-md
                 u-mb-md
                 u-pb-md
             "
