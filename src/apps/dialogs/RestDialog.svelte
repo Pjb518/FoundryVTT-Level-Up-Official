@@ -3,6 +3,8 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import Checkbox from "../components/Checkbox.svelte";
+    import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     export let { application } = getContext("#external");
@@ -28,19 +30,6 @@
             console.log(e);
             return;
         }
-        // Update hit dice quantities for display purposes only
-        updateHitDice(dieSize);
-    }
-
-    function updateHitDice(dieSize) {
-        if (dieSize === "d6")
-            hitDice["d6"].current = Math.max(hitDice["d6"].current - 1, 0);
-        if (dieSize === "d8")
-            hitDice["d8"].current = Math.max(hitDice["d8"].current - 1, 0);
-        if (dieSize === "d10")
-            hitDice["d10"].current = Math.max(hitDice["d10"].current - 1, 0);
-        if (dieSize === "d12")
-            hitDice["d12"].current = Math.max(hitDice["d12"].current - 1, 0);
     }
 
     function onSubmit() {
@@ -52,85 +41,54 @@
         });
     }
 
-    let hitDice = $actor.system.attributes.hitDice;
+    $: hitDice = $actor.system.attributes.hitDice;
 </script>
 
-<form class="a5e-form u-py-lg u-px-xl a5e-form--reactive-dialog u-bg-none">
-    <section class="a5e-form__section">
-        <h3 class="u-text-bold u-text-sm u-pb-xs">
-            {localize("A5E.RestType")}
-        </h3>
-
+<form class="form">
+    <FormSection heading="A5E.RestType" --direction="column">
         <RadioGroup
             options={Object.entries(restTypeOptions)}
             selected={restType}
             on:updateSelection={({ detail }) => (restType = detail)}
         />
-    </section>
+    </FormSection>
 
     {#if restType === "long"}
-        <div class="a5e-form__section a5e-form__section--inline">
-            <div class="a5e-input-container u-flex u-align-center">
-                <input
-                    class="a5e-input"
-                    for="{appId}-haven"
-                    type="checkbox"
-                    bind:checked={haven}
-                />
-                <label
-                    for="{appId}-haven"
-                    class="u-text-sm u-flex-shrink-0 u-mb-0"
-                >
-                    {localize("A5E.HavenPrompt")}
-                </label>
-            </div>
-        </div>
+        <FormSection>
+            <Checkbox
+                label="A5E.HavenPrompt"
+                checked={haven}
+                on:updateSelection={({ detail }) => {
+                    haven = detail;
+                }}
+            />
+        </FormSection>
 
-        <div class="a5e-form__section a5e-form__section--inline">
-            <div class="a5e-input-container u-flex u-align-center">
-                <input
-                    class="a5e-input"
-                    id="{appId}-recover-strife-and-fatigue"
-                    type="checkbox"
-                    bind:checked={recoverStrifeAndFatigue}
-                />
-
-                <label
-                    class="u-text-sm u-flex-shrink-0 u-mb-0"
-                    for="{appId}-recover-strife-and-fatigue"
-                >
-                    {localize("A5E.SupplyFatigueStrifePrompt")}
-                </label>
-            </div>
-        </div>
+        <FormSection>
+            <Checkbox
+                label="A5E.SupplyFatigueStrifePrompt"
+                checked={recoverStrifeAndFatigue}
+                on:updateSelection={({ detail }) => {
+                    recoverStrifeAndFatigue = detail;
+                }}
+            />
+        </FormSection>
 
         {#if $actor.type === "character"}
-            <div class="a5e-form__section a5e-form__section--inline">
-                <div class="a5e-input-container u-flex u-align-center">
-                    <input
-                        class="a5e-input"
-                        id="{appId}-consume-supply"
-                        type="checkbox"
-                        bind:checked={consumeSupply}
-                    />
-
-                    <label
-                        class="u-text-sm u-flex-shrink-0 u-mb-0"
-                        for="{appId}-consume-supply"
-                    >
-                        {localize("A5E.SupplyConsume")}
-                    </label>
-                </div>
-            </div>
+            <FormSection>
+                <Checkbox
+                    label="A5E.SupplyConsume"
+                    checked={consumeSupply}
+                    on:updateSelection={({ detail }) => {
+                        consumeSupply = detail;
+                    }}
+                />
+            </FormSection>
         {/if}
     {/if}
 
     {#if restType === "short"}
-        <div class="a5e-form__section ">
-            <h3 class="u-text-bold u-text-sm u-pb-xs">
-                {localize("A5E.HitDiceLabel")}
-            </h3>
-
+        <FormSection heading="A5E.HitDiceLabel" --direction="column">
             <div class="u-flex u-gap-md u-text-md">
                 {#each ["d6", "d8", "d10", "d12"] as die}
                     <div class="a5e-hit-die-wrapper">
@@ -149,7 +107,7 @@
                     </div>
                 {/each}
             </div>
-        </div>
+        </FormSection>
     {/if}
 
     <button class="a5e-button" on:click|preventDefault={onSubmit}>
@@ -159,4 +117,10 @@
 </form>
 
 <style lang="scss">
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
 </style>

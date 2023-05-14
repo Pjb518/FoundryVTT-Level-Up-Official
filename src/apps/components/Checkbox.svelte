@@ -18,7 +18,7 @@
         on:change={({ target }) => dispatch("updateSelection", target.checked)}
     />
 
-    <label for={id}>
+    <label class="label" for={id}>
         {localize(label)}
     </label>
 </div>
@@ -26,6 +26,11 @@
 <style lang="scss">
     .checkbox {
         margin: 0;
+    }
+
+    .checkbox,
+    .label {
+        cursor: pointer;
     }
 
     .checkbox-wrapper {
