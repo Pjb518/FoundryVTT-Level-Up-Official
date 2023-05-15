@@ -78,7 +78,7 @@
         <FormSection>
             <FormSection
                 heading="A5E.ItemRechargeFormula"
-                --background="transparent"
+                --background="none"
                 --direction="column"
                 --grow="1"
                 --padding="0"
@@ -101,7 +101,7 @@
 
             <FormSection
                 heading="A5E.ItemRechargeThreshold"
-                --background="transparent"
+                --background="none"
                 --direction="column"
                 --padding="0"
             >

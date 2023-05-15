@@ -242,11 +242,6 @@
 </section>
 
 <style lang="scss">
-    .range-increment {
-        border-radius: 4px;
-        font-size: 1rem;
-    }
-
     .section-list {
         display: flex;
         flex-direction: column;

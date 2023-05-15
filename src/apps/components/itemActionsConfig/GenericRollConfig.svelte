@@ -15,7 +15,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
     --margin="0 4.5rem 0 0"
@@ -34,7 +34,7 @@
 
 <FormSection
     heading="A5E.RollFormula"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >

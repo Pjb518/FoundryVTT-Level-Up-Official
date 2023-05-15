@@ -37,7 +37,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
     --margin="0 2.5rem 0 0"
@@ -57,7 +57,7 @@
 <FormSection
     heading="A5E.AbilityScore"
     hint="The ability score modifier to add to the attack roll."
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >
@@ -69,10 +69,10 @@
     />
 </FormSection>
 
-<FormSection --background="transparent" --padding="0">
+<FormSection --background="none" --padding="0">
     <FormSection
         heading="A5E.AttackType"
-        --background="transparent"
+        --background="none"
         --direction="column"
         --grow="1"
         --padding="0"
@@ -96,7 +96,7 @@
 
     <FormSection
         heading="A5E.AttackBonus"
-        --background="transparent"
+        --background="none"
         --direction="column"
         --grow="1"
         --padding="0"
@@ -115,7 +115,7 @@
 
     <FormSection
         heading="A5E.CriticalHitThreshold"
-        --background="transparent"
+        --background="none"
         --direction="column"
         --padding="0"
         --grow="1"

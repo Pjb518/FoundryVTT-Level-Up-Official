@@ -31,7 +31,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
     --margin="0 4.5rem 0 0"
@@ -50,7 +50,7 @@
 
 <FormSection
     heading="A5E.Skill"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >
@@ -73,7 +73,7 @@
 
 <FormSection
     heading="A5E.DefaultAbilityScore"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >
@@ -88,7 +88,7 @@
 
 <FormSection
     heading="A5E.CheckBonus"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >

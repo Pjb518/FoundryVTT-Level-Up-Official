@@ -88,7 +88,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
     --margin="0 4.5rem 0 0"
@@ -105,10 +105,10 @@
     />
 </FormSection>
 
-<FormSection --background="transparent" --padding="0" hint={scalingSummary}>
+<FormSection --background="none" --padding="0" hint={scalingSummary}>
     <FormSection
         heading="A5E.HealingFormula"
-        --background="transparent"
+        --background="none"
         --grow="1"
         --direction="column"
         --padding="0"
@@ -140,7 +140,7 @@
 
     <FormSection
         heading="A5E.HealingType"
-        --background="transparent"
+        --background="none"
         --direction="column"
         --padding="0"
     >

@@ -68,7 +68,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --grow="1"
     --padding="0"
@@ -88,7 +88,7 @@
 
 <FormSection
     heading="A5E.ItemSavingThrowType"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >
@@ -101,10 +101,10 @@
     />
 </FormSection>
 
-<FormSection --background="transparent" --padding="0">
+<FormSection --background="none" --padding="0">
     <FormSection
         heading="A5E.ItemSavingThrowDC"
-        --background="transparent"
+        --background="none"
         --direction="column"
         --label-width="9rem"
         --padding="0"
@@ -122,7 +122,7 @@
         heading={prompt?.saveDC?.type === "custom"
             ? "A5E.ItemSavingThrowDCCustom"
             : "A5E.ItemSavingThrowDCBonus"}
-        --background="transparent"
+        --background="none"
         --direction="column"
         --grow="1"
         --padding="0"
@@ -149,7 +149,7 @@
 
 <FormSection
     heading="A5E.ItemEffectOnSave"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >

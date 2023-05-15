@@ -28,7 +28,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --grow="1"
     --padding="0"
@@ -48,7 +48,7 @@
 
 <FormSection
     heading="A5E.ItemAbilityCheckType"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
 >

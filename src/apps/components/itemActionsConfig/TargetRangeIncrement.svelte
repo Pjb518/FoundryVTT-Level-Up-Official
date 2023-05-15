@@ -89,78 +89,88 @@
     $: selected = isStandardRange(range) ? range : "other";
 </script>
 
-<FormSection {heading}>
-    <div class="action-config__wrapper">
+<FormSection --direction="column" --gap="0.75rem">
+    <FormSection
+        {heading}
+        --background="none"
+        --direction="column"
+        --padding="0"
+        --gap="0.375rem"
+    >
         <RadioGroup
             {options}
             {selected}
             on:updateSelection={({ detail }) => updateRangeValue(detail)}
         />
+    </FormSection>
 
-        {#if selected === "other"}
-            <div class="u-flex u-gap-md u-align-center">
-                <!-- TODO: Fix this mess of a checkbox -->
-                <input
-                    id="{actionId}-{id}-include-unit"
-                    type="checkbox"
-                    bind:checked={includeUnit}
-                    on:change={deleteRangeUnit}
-                />
-
-                <label for="{actionId}-{id}-include-unit">
-                    {localize("A5E.IncludeUnit")}
-                </label>
-            </div>
-
-            <div class="u-align-center u-flex u-gap-md">
-                <input
-                    class:small-input={includeUnit}
-                    type="text"
-                    bind:value={customValue}
-                    on:change={() => updateRangeValue(customValue)}
-                />
-
-                {#if includeUnit}
-                    <select
-                        class="u-w-30"
-                        name="system.actions.${actionId}.ranges.{id}.unit"
-                        on:change={selectRangeUnit}
-                    >
-                        <option value={null}>{localize("A5E.None")}</option>
-                        {#each Object.entries(A5E.distanceUnits) as [unit, label]}
-                            <option
-                                value={unit}
-                                selected={rangeObject.unit === unit}
-                            >
-                                {localize(label)}
-                            </option>
-                        {/each}
-                    </select>
-                {/if}
-            </div>
-        {/if}
-
-        <!-- TODO: Unable to add tooltip for some reason -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <i
-            class="delete-button fas fa-trash"
-            role="button"
-            on:click={deleteRangeIncrement}
+    {#if selected === "other"}
+        <Checkbox
+            label="A5E.IncludeUnit"
+            checked={includeUnit}
+            on:updateSelection={(event) => {
+                includeUnit = event.detail;
+                deleteRangeUnit(event);
+            }}
         />
-    </div>
+
+        <FormSection
+            --background="none"
+            --direction="row"
+            --gap="0.5rem"
+            --padding="0"
+            --item-alignment="center"
+        >
+            <input
+                class:small-input={includeUnit}
+                type="text"
+                bind:value={customValue}
+                on:change={() => updateRangeValue(customValue)}
+            />
+
+            {#if includeUnit}
+                <select
+                    class="u-w-30"
+                    name="system.actions.${actionId}.ranges.{id}.unit"
+                    on:change={selectRangeUnit}
+                >
+                    <option value={null}>{localize("A5E.None")}</option>
+                    {#each Object.entries(A5E.distanceUnits) as [unit, label]}
+                        <option
+                            value={unit}
+                            selected={rangeObject.unit === unit}
+                        >
+                            {localize(label)}
+                        </option>
+                    {/each}
+                </select>
+            {/if}
+        </FormSection>
+    {/if}
+
+    <!-- TODO: Unable to add tooltip for some reason -->
+    <button
+        class="delete-button fas fa-trash"
+        on:click={deleteRangeIncrement}
+    />
 </FormSection>
 
 <style lang="scss">
     .delete-button {
         position: absolute;
-        top: 0.275rem;
-        right: 0.275rem;
-        color: #999;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: fit-content;
         padding: 0.25rem;
+        font-size: 1rem;
+        color: #999;
+        background: none;
         cursor: pointer;
+
         transition: all 0.15s ease-in-out;
 
         &:hover {
+            box-shadow: none;
             transform: scale(1.2);
             color: #8b2525;
         }

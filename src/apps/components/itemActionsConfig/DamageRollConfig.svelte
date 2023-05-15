@@ -87,7 +87,7 @@
 
 <FormSection
     heading="A5E.Label"
-    --background="transparent"
+    --background="none"
     --direction="column"
     --padding="0"
     --margin="0 4.5rem 0 0"
@@ -104,10 +104,10 @@
     />
 </FormSection>
 
-<FormSection --background="transparent" --padding="0" hint={scalingSummary}>
+<FormSection --background="none" --padding="0" hint={scalingSummary}>
     <FormSection
         heading="A5E.DamageFormula"
-        --background="transparent"
+        --background="none"
         --grow="1"
         --direction="column"
         --padding="0"
@@ -140,7 +140,7 @@
 
     <FormSection
         heading="A5E.DamageType"
-        --background="transparent"
+        --background="none"
         --direction="column"
         --padding="0"
     >
@@ -184,7 +184,7 @@
         heading="A5E.DamageBonusOnCrit"
         hint="When you score a critical hit, this damage is added after doubling
     the attack's damage."
-        --background="transparent"
+        --background="none"
         --direction="column"
         --padding="0"
     >

@@ -72,7 +72,7 @@
 {#if showCustomInput}
     <FormSection
         hint="A5E.HintSeparateBySemiColon"
-        --background="transparent"
+        --background="none"
         --padding="0"
     >
         <input
