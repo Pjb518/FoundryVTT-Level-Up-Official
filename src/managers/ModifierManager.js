@@ -14,6 +14,8 @@ export default class ModifierManager {
         return this.#getAbilityCheckModifiers().filter(Boolean);
       case 'attack':
         return this.#getAttackRollModifiers().filter(Boolean);
+      case 'initiative':
+        return this.#getInitiativeRollModifiers().filter(Boolean);
       case 'savingThrow':
         return this.#getSavingThrowModifiers().filter(Boolean);
       case 'skillCheck':
@@ -41,6 +43,13 @@ export default class ModifierManager {
       this.#getGlobalAttackBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
+    ];
+  }
+
+  #getInitiativeRollModifiers() {
+    return [
+      this.#getInitiativeBonus(),
+      ...this.#getSkillCheckModifiers()
     ];
   }
 
@@ -174,9 +183,19 @@ export default class ModifierManager {
   }
 
   #getGlobalSkillCheckBonus() {
+    // This is to prevent initiative bonuses including skill bonuses when no skill is selected.
+    if (!this.rollData.skill) return null;
+
     return {
       label: localize('A5E.SkillCheckBonusGlobal'),
       value: this.actor.system.bonuses.abilities.skill.trim()
+    };
+  }
+
+  #getInitiativeBonus() {
+    return {
+      label: localize('A5E.InitiativeBonus'),
+      value: this.actor.system.attributes.initiative.bonus
     };
   }
 

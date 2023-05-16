@@ -926,7 +926,6 @@ export default class ActorA5e extends Actor {
       expertiseDie: skill.expertiseDice,
       proficient: skill.proficient,
       type: 'skillCheck',
-      saveType: options.saveType,
       skill: skillKey,
       situationalMods: options.situationalMods
     });
