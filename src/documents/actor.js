@@ -2,6 +2,7 @@
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActiveEffectA5e from './activeEffect';
+import ModifierManager from '../managers/ModifierManager';
 import RestManager from '../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -686,34 +687,23 @@ export default class ActorA5e extends Actor {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
+    const rollMode = overrideRollMode(
+      this,
+      defaultRollMode,
+      { ability: abilityKey, type: 'check' }
+    );
+
+    const modifierManager = new ModifierManager(this, {
+      ability: abilityKey,
+      expertiseDie: ability.check.expertiseDice,
+      type: 'abilityCheck',
+      situationalMods: options.situationalMods
+    });
+
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, type: 'check' }),
-      modifiers: [
-        {
-          label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
-          value: ability.check.mod
-        },
-        {
-          label: localize('A5E.AbilityCheckBonus', {
-            ability: localize(
-              CONFIG.A5E.abilities[abilityKey]
-            )
-          }),
-          value: ability.check.bonus
-        },
-        {
-          label: localize('A5E.AbilityCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.check.trim()
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(options?.expertiseDice ?? ability.expertiseDice)
-        },
-        {
-          value: options?.situationalMods
-        }
-      ]
+      rollMode,
+      modifiers: modifierManager.getModifiers()
     });
 
     return { rollFormula };
@@ -836,41 +826,25 @@ export default class ActorA5e extends Actor {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
+    const rollMode = overrideRollMode(
+      this,
+      defaultRollMode,
+      { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }
+    );
+
+    const modifierManager = new ModifierManager(this, {
+      ability: abilityKey,
+      expertiseDie: ability.save.expertiseDice,
+      proficient: ability.save.proficient,
+      type: 'savingThrow',
+      saveType: options.saveType,
+      situationalMods: options.situationalMods
+    });
+
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }),
-      modifiers: [
-        {
-          label: localize('A5E.AbilityCheckMod', {
-            ability: localize(CONFIG.A5E.abilities[abilityKey])
-          }),
-          value: ability?.save.mod
-        },
-        {
-          label: localize('A5E.SavingThrowBonus', {
-            ability: localize(CONFIG.A5E.abilities[abilityKey])
-          }),
-          value: ability?.save.bonus
-        },
-        {
-          label: localize('A5E.ConcentrationBonus'),
-          value:
-            options.saveType === 'concentration'
-              ? ability?.save.concentrationBonus
-              : null
-        },
-        {
-          label: localize('A5E.SavingThrowBonusGlobal'),
-          value: this.system.bonuses.abilities.save.trim()
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(options?.expertiseDice ?? ability?.expertiseDice)
-        },
-        {
-          value: options?.situationalMods
-        }
-      ]
+      rollMode,
+      modifiers: modifierManager.getModifiers()
     });
 
     return { rollFormula };
@@ -942,9 +916,15 @@ export default class ActorA5e extends Actor {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
+    const rollMode = overrideRollMode(
+      this,
+      defaultRollMode,
+      { ability: abilityKey, skill: skillKey, type: 'skill' }
+    );
+
     const { rollFormula } = constructD20RollFormula({
       actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, skill: skillKey, type: 'skill' }),
+      rollMode,
       minRoll: options?.minRoll ?? skill.minRoll,
       modifiers: [
         {

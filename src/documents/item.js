@@ -259,11 +259,11 @@ export default class ItemA5e extends Item {
       situationalMods: options.situationalMods
     });
 
-    const formula = constructD20RollFormula({
+    const { rollFormula } = constructD20RollFormula({
       actor,
       rollMode,
       modifiers: modifierManager.getModifiers()
-    }).rollFormula;
+    });
 
     return {
       bonus: attackRoll.bonus ?? '',
@@ -272,7 +272,7 @@ export default class ItemA5e extends Item {
       attackType: attackRoll.attackType ?? 'meleeWeaponAttack',
       ability: attackAbility,
       rollMode,
-      formula
+      formula: rollFormula
     };
   }
 

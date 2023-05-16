@@ -10,11 +10,25 @@ export default class ModifierManager {
 
   getModifiers() {
     switch (this.rollData.type) {
+      case 'abilityCheck':
+        return this.#getAbilityCheckModifiers().filter(Boolean);
       case 'attack':
         return this.#getAttackRollModifiers().filter(Boolean);
+      case 'savingThrow':
+        return this.#getSavingThrowModifiers().filter(Boolean);
       default:
         return [];
     }
+  }
+
+  #getAbilityCheckModifiers() {
+    return [
+      this.#getAbilityModifier(),
+      this.#getAbilityCheckBonus(),
+      this.#getGlobalAbilityCheckBonus(),
+      this.#getExpertiseDice(),
+      this.#getSituationalMods()
+    ];
   }
 
   #getAttackRollModifiers() {
@@ -28,16 +42,53 @@ export default class ModifierManager {
     ];
   }
 
+  #getSavingThrowModifiers() {
+    return [
+      this.#getProficiencyBonus(),
+      this.#getAbilitySaveModifier(),
+      this.#getConcentrationBonus(),
+      this.#getGlobalSavingThrowBonus(),
+      this.#getExpertiseDice(),
+      this.#getSituationalMods()
+    ];
+  }
+
+  #getAbilityCheckBonus() {
+    const { ability } = this.rollData;
+
+    if (!ability) return null;
+
+    return {
+      label: localize('A5E.AbilityCheckBonus', {
+        ability: localize(CONFIG.A5E.abilities[ability])
+      }),
+      value: this.actor.system.abilities[ability]?.check.bonus
+    };
+  }
+
   #getAbilityModifier() {
     const { ability } = this.rollData;
 
-    if (!this.rollData.ability) return null;
+    if (!ability) return null;
 
     return {
       label: localize('A5E.AbilityCheckMod', {
         ability: localize(CONFIG.A5E.abilities[ability] ?? ability)
       }),
-      value: this.actor.system.abilities[ability].mod
+      value: this.actor.system.abilities[ability]?.mod
+    };
+  }
+
+  #getAbilitySaveModifier() {
+    const { ability } = this.rollData;
+
+    if (!ability) return null;
+
+    return {
+      label: localize('A5E.AbilityCheckMod', {
+        ability: localize(CONFIG.A5E.abilities[ability] ?? ability)
+      }),
+      value: this.actor.system.abilities[ability]?.save.mod
     };
   }
 
@@ -48,10 +99,26 @@ export default class ModifierManager {
     };
   }
 
+  #getConcentrationBonus() {
+    if (this.rollData.saveType !== 'concentration') return null;
+
+    return {
+      label: localize('A5E.ConcentrationBonus'),
+      value: this.actor.system.abilities.con.save.concentrationBonus
+    };
+  }
+
   #getExpertiseDice() {
     return {
       label: localize('A5E.ExpertiseDie'),
       value: getExpertiseDieSize(this.rollData?.expertiseDie ?? 0)
+    };
+  }
+
+  #getGlobalAbilityCheckBonus() {
+    return {
+      label: localize('A5E.AbilityCheckBonusGlobal'),
+      value: this.actor.system.bonuses.abilities.check.trim()
     };
   }
 
@@ -82,6 +149,13 @@ export default class ModifierManager {
       default:
         return null;
     }
+  }
+
+  #getGlobalSavingThrowBonus() {
+    return {
+      label: localize('A5E.AbilityCheckBonusGlobal'),
+      value: this.actor.system.bonuses.abilities.save.trim()
+    };
   }
 
   #getProficiencyBonus() {
