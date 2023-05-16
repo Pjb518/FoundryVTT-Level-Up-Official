@@ -16,6 +16,8 @@ export default class ModifierManager {
         return this.#getAttackRollModifiers().filter(Boolean);
       case 'savingThrow':
         return this.#getSavingThrowModifiers().filter(Boolean);
+      case 'skillCheck':
+        return this.#getSkillCheckModifiers().filter(Boolean);
       default:
         return [];
     }
@@ -27,7 +29,7 @@ export default class ModifierManager {
       this.#getAbilityCheckBonus(),
       this.#getGlobalAbilityCheckBonus(),
       this.#getExpertiseDice(),
-      this.#getSituationalMods()
+      this.#getSituationalModifiers()
     ];
   }
 
@@ -38,7 +40,7 @@ export default class ModifierManager {
       this.#getAttackBonus(),
       this.#getGlobalAttackBonus(),
       this.#getExpertiseDice(),
-      this.#getSituationalMods()
+      this.#getSituationalModifiers()
     ];
   }
 
@@ -49,7 +51,20 @@ export default class ModifierManager {
       this.#getConcentrationBonus(),
       this.#getGlobalSavingThrowBonus(),
       this.#getExpertiseDice(),
-      this.#getSituationalMods()
+      this.#getSituationalModifiers()
+    ];
+  }
+
+  #getSkillCheckModifiers() {
+    return [
+      this.#getSkillCheckModifier(),
+      this.#getAbilityModifier(),
+      this.#getSkillCheckBonus(),
+      this.#getAbilityCheckBonus(),
+      this.#getGlobalSkillCheckBonus(),
+      this.#getGlobalAbilityCheckBonus(),
+      this.#getExpertiseDice(),
+      this.#getSituationalModifiers()
     ];
   }
 
@@ -158,6 +173,13 @@ export default class ModifierManager {
     };
   }
 
+  #getGlobalSkillCheckBonus() {
+    return {
+      label: localize('A5E.SkillCheckBonusGlobal'),
+      value: this.actor.system.bonuses.abilities.skill.trim()
+    };
+  }
+
   #getProficiencyBonus() {
     if (!this.rollData.proficient) return null;
 
@@ -167,7 +189,29 @@ export default class ModifierManager {
     };
   }
 
-  #getSituationalMods() {
+  #getSkillCheckModifier() {
+    const { skill } = this.rollData;
+
+    if (!skill) return null;
+
+    return {
+      label: localize('A5E.SkillCheckMod', { skill: CONFIG.A5E.skills[skill] }),
+      value: this.actor.system.skills[skill].mod
+    };
+  }
+
+  #getSkillCheckBonus() {
+    const { skill } = this.rollData;
+
+    if (!skill) return null;
+
+    return {
+      label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
+      value: this.actor.system.skills[skill].bonuses.check
+    };
+  }
+
+  #getSituationalModifiers() {
     return { value: this.rollData.situationalMods };
   }
 }

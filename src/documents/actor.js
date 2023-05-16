@@ -913,7 +913,6 @@ export default class ActorA5e extends Actor {
   getDefaultSkillCheckData(skillKey, options = {}) {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
-    const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     const rollMode = overrideRollMode(
@@ -922,47 +921,20 @@ export default class ActorA5e extends Actor {
       { ability: abilityKey, skill: skillKey, type: 'skill' }
     );
 
+    const modifierManager = new ModifierManager(this, {
+      ability: abilityKey,
+      expertiseDie: skill.expertiseDice,
+      proficient: skill.proficient,
+      type: 'skillCheck',
+      saveType: options.saveType,
+      skill: skillKey,
+      situationalMods: options.situationalMods
+    });
+
     const { rollFormula } = constructD20RollFormula({
       actor: this,
       rollMode,
-      minRoll: options?.minRoll ?? skill.minRoll,
-      modifiers: [
-        {
-          label: localize('A5E.SkillCheckMod', { skill: localize(CONFIG.A5E.skills[skillKey]) }),
-          value: skill.mod
-        },
-        {
-          label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
-          value: ability?.check.mod
-        },
-        {
-          label: localize('A5E.SkillCheckBonus', {
-            skill: localize(CONFIG.A5E.skills[skillKey])
-          }),
-          value: skill.bonuses.check
-        },
-        {
-          label: localize('A5E.AbilityCheckBonus', {
-            ability: localize(CONFIG.A5E.abilities[abilityKey])
-          }),
-          value: ability?.check.bonus
-        },
-        {
-          label: localize('A5E.SkillCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.skill.trim()
-        },
-        {
-          label: localize('A5E.AbilityCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.check.trim()
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(options?.expertiseDice ?? skill.expertiseDice)
-        },
-        {
-          value: options?.situationalMods
-        }
-      ]
+      modifiers: modifierManager.getModifiers()
     });
 
     return { rollFormula, abilityKey };
