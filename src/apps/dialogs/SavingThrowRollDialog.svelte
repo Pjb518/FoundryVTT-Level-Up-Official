@@ -8,12 +8,36 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
+    import ModifierManager from "../../managers/ModifierManager";
+
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
+
+    function getRollFormula(
+        actor,
+        abilityKey,
+        expertiseDie,
+        rollMode,
+        saveType,
+        situationalMods
+    ) {
+        const modifierManager = new ModifierManager(actor, {
+            ability: abilityKey,
+            expertiseDie,
+            type: "savingThrow",
+            saveType,
+            situationalMods,
+        });
+
+        return constructD20RollFormula({
+            actor,
+            rollMode,
+            modifiers: modifierManager.getModifiers(),
+        }).rollFormula;
+    }
 
     function getSubmitButtonText(saveType, abilityKey) {
         if (saveType === "death") return "Roll Death Saving Throw";
@@ -71,43 +95,14 @@
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
+    $: rollFormula = getRollFormula(
+        $actor,
+        abilityKey,
+        expertiseDie,
         rollMode,
-        modifiers: [
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localizeSave,
-                }),
-                value: $actor.system.abilities[abilityKey]?.save.mod,
-            },
-            {
-                label: localize("A5E.SavingThrowBonus", {
-                    ability: localizeSave,
-                }),
-                value: $actor.system.abilities[abilityKey]?.save.bonus,
-            },
-            {
-                label: localize("A5E.ConcentrationBonus"),
-                value:
-                    saveType === "concentration"
-                        ? $actor.system.abilities[abilityKey]?.save
-                              .concentrationBonus
-                        : null,
-            },
-            {
-                label: localize("A5E.SavingThrowBonusGlobal"),
-                value: $actor.system.bonuses.abilities.save,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        saveType,
+        situationalMods
+    );
 </script>
 
 <form>
