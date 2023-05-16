@@ -22,6 +22,10 @@ export default class EffectOptions {
       .sort((a, b) => a.localeCompare(b));
 
     Object.keys(game.system.model.Actor).forEach((type) => {
+      // TODO: Temp fix for extra base model making it in. It would be better
+      // to just delete this key.
+      if (type === 'base') return;
+
       this.options[type] = {
         allOptions: [],
         allOptionsObj: {},
