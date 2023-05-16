@@ -136,6 +136,8 @@ Hooks.once('init', () => {
   CombatTracker.prototype._onCombatantControl = _onCombatantControl;
   CombatTracker.prototype._onCombatControl = _onCombatControl;
 
+  game.a5e.activeEffects.EffectOptions.createOptions();
+
   return preloadHandlebarsTemplates();
 });
 
@@ -143,8 +145,6 @@ Hooks.once('init', () => {
 Hooks.once('setup', () => {
   registerSystemSettings();
   setupConditions();
-
-  game.a5e.activeEffects.EffectOptions.createOptions();
 });
 
 // Prelocalize any static strings once localization files become available.
