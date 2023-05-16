@@ -148,6 +148,24 @@ export default class EffectOptions {
           .push([[true, 'Is Proficient'], [false, 'Not Proficient']]);
       });
 
+    Object.keys(A5E.movement)
+      .forEach((m) => {
+        // Add options for movement
+        baseValues[`system.attributes.movement.${m}.unit`] = [
+          '', OVERRIDE_ONLY,
+          Object.entries(A5E.distanceUnits)
+        ];
+      });
+
+    Object.keys(A5E.senses)
+      .forEach((s) => {
+        // Add options for senses
+        baseValues[`system.attributes.senses.${s}.unit`] = [
+          '', OVERRIDE_ONLY,
+          (Object.entries(A5E.visionUnits))
+        ];
+      });
+
     // Proficiency is prepared in base data so we add it here.
     baseValues['system.attributes.prof'] = [0, DEFAULT_MODES];
 
