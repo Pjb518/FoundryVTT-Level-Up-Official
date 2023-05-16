@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getAttackAbility from '../utils/getAttackAbility';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getExpertiseDieSize from '../utils/getExpertiseDieSize';
 import overrideRollMode from '../utils/overrideRollMode';
 import overrideExpertiseDie from '../utils/overrideExpertiseDie';
 import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
@@ -14,6 +12,7 @@ import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivatio
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
 
 import ActionsManager from '../managers/ActionsManager';
+import ModifierManager from '../managers/ModifierManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
@@ -237,7 +236,6 @@ export default class ItemA5e extends Item {
 
   #getDefaultAttackRollData(attack, options) {
     const { actor } = this;
-    const { abilities } = CONFIG.A5E;
     const attackRoll = attack[0][1];
     const attackAbility = getAttackAbility(actor, this, attackRoll);
     const expertiseDie = overrideExpertiseDie(actor, 0);
@@ -251,60 +249,20 @@ export default class ItemA5e extends Item {
       }
     );
 
+    const modifierManager = new ModifierManager(actor, {
+      ability: attackAbility,
+      attackBonus: attackRoll?.bonus,
+      attackType: attackRoll?.type,
+      expertiseDie,
+      proficient: attackRoll?.proficient ?? true,
+      type: 'attack',
+      situationalMods: options.situationalMods
+    });
+
     const formula = constructD20RollFormula({
       actor,
       rollMode,
-      modifiers: [
-        {
-          label: localize('A5E.ProficiencyBonusAbbr'),
-          value:
-            (attackRoll?.proficient ?? true)
-            && actor.system.attributes.prof
-        },
-        {
-          label: localize('A5E.AbilityCheckMod', {
-            ability: localize(
-              abilities[attackAbility] ?? attackAbility
-            )
-          }),
-          value: actor.system.abilities[attackAbility ?? '']?.mod
-        },
-        {
-          label: localize('A5E.AttackBonus'),
-          value: attackRoll?.bonus ?? 0
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(expertiseDie)
-        },
-        {
-          label: localize('A5E.BonusMeleeWeaponAttack'),
-          value:
-            attackRoll?.attackType === 'meleeWeaponAttack'
-            && actor.system.bonuses.meleeWeaponAttack
-        },
-        {
-          label: localize('A5E.BonusRangedWeaponAttack'),
-          value:
-            attackRoll?.attackType === 'rangedWeaponAttack'
-            && actor.system.bonuses.rangedWeaponAttack
-        },
-        {
-          label: localize('A5E.BonusMeleeSpellAttack'),
-          value:
-            attackRoll?.attackType === 'meleeSpellAttack'
-            && actor.system.bonuses.meleeSpellAttack
-        },
-        {
-          label: localize('A5E.BonusRangedSpellAttack'),
-          value:
-            attackRoll?.attackType === 'rangedSpellAttack'
-            && actor.system.bonuses.rangedSpellAttack
-        },
-        {
-          value: options.situationalMods
-        }
-      ]
+      modifiers: modifierManager.getModifiers()
     }).rollFormula;
 
     return {
