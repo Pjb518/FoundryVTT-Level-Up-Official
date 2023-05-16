@@ -8,9 +8,31 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
+    import ModifierManager from "../../managers/ModifierManager";
+
     import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
     import overrideRollMode from "../../utils/overrideRollMode";
+
+    function getRollFormula(
+        actor,
+        abilityKey,
+        expertiseDie,
+        rollMode,
+        situationalMods
+    ) {
+        const modifierManager = new ModifierManager(actor, {
+            ability: abilityKey,
+            expertiseDie,
+            type: "abilityCheck",
+            situationalMods,
+        });
+
+        return constructD20RollFormula({
+            actor,
+            rollMode,
+            modifiers: modifierManager.getModifiers(),
+        }).rollFormula;
+    }
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -39,43 +61,23 @@
         $actor.system.abilities[abilityKey]?.check.expertiseDice;
 
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
         type: "check",
     });
+
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");
 
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
+    $: rollFormula = getRollFormula(
+        $actor,
+        abilityKey,
+        expertiseDie,
         rollMode,
-        modifiers: [
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localizedAbility,
-                }),
-                value: $actor.system.abilities[abilityKey].check.mod,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonus", {
-                    ability: localizedAbility,
-                }),
-                value: $actor.system.abilities[abilityKey].check.bonus,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonusGlobal"),
-                value: $actor.system.bonuses.abilities.check,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        situationalMods
+    );
 </script>
 
 <form>
