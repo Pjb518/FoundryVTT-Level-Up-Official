@@ -612,7 +612,7 @@ export default class ActorA5e extends Actor {
     const { current, max } = this.system.attributes.exertion;
 
     const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       ([_, { current: c, total: t }]) => c > 0 && t > 0
     );
 
