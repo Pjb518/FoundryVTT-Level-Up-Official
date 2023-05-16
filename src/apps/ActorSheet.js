@@ -14,7 +14,6 @@ export default class ActorSheet extends SvelteApplication {
    * @inheritDoc
    */
   constructor(actor, options = {}) {
-    console.log(actor);
     options.svelte ??= {};
 
     if (actor.permission === CONST.DOCUMENT_PERMISSION_LEVELS.LIMITED) {
