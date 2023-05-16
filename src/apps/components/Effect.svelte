@@ -38,6 +38,18 @@
         effect.delete();
     }
 
+    function onDragStart(event) {
+        const dragData = effect.toDragData();
+        if (!dragData) return;
+
+        dragData.parentId = effect?.parent?.id;
+
+        return event.dataTransfer.setData(
+            "text/plain",
+            JSON.stringify(dragData)
+        );
+    }
+
     const actor = getContext("actor");
 
     let rightClickConfigure =
@@ -50,6 +62,8 @@
 
 <li
     class="effect-wrapper"
+    draggable="true"
+    on:dragstart={onDragStart}
     on:auxclick|preventDefault={() => {
         if (rightClickConfigure) onConfigure();
     }}

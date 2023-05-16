@@ -139,10 +139,15 @@ export default class ActorSheet extends SvelteApplication {
   async _onDropDocument(document) {
     if (document.documentName === 'Actor') this.#onDropActor(document);
     else if (document.documentName === 'Item') this.#onDropItem(document);
+    else if (document.documentName === 'ActiveEffect') this.#onDropActiveEffect(document);
   }
 
   // eslint-disable-next-line no-unused-vars, no-empty-function
   async #onDropActor(actor) { }
+
+  async #onDropActiveEffect(effect) {
+    this.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
+  }
 
   async #onDropItem(item) {
     if (item.type === 'background') this.#onDropBackground(item);

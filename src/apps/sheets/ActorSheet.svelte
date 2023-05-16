@@ -40,6 +40,7 @@
 
         const dragData = JSON.parse(transferData);
         if (dragData?.actorId === $actor.id) return;
+        if (dragData?.parentId === $actor.id) return;
 
         const { uuid } = dragData;
         const document = await fromUuid(uuid);
