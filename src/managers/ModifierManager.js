@@ -86,7 +86,7 @@ export default class ModifierManager {
       label: localize('A5E.AbilityCheckBonus', {
         ability: localize(CONFIG.A5E.abilities[ability])
       }),
-      value: this.actor.system.abilities[ability]?.check.bonus
+      value: this.actor.system.abilities[ability]?.check.bonus ?? null
     };
   }
 
@@ -99,7 +99,7 @@ export default class ModifierManager {
       label: localize('A5E.AbilityCheckMod', {
         ability: localize(CONFIG.A5E.abilities[ability] ?? ability)
       }),
-      value: this.actor.system.abilities[ability]?.mod
+      value: this.actor.system.abilities[ability]?.mod ?? null
     };
   }
 
@@ -112,7 +112,7 @@ export default class ModifierManager {
       label: localize('A5E.AbilityCheckMod', {
         ability: localize(CONFIG.A5E.abilities[ability] ?? ability)
       }),
-      value: this.actor.system.abilities[ability]?.save.mod
+      value: this.actor.system.abilities[ability]?.save.mod ?? null
     };
   }
 
@@ -215,7 +215,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.SkillCheckMod', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.system.skills[skill].mod
+      value: this.actor.system.skills[skill]?.mod ?? null
     };
   }
 
@@ -226,7 +226,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.system.skills[skill].bonuses.check
+      value: this.actor.system.skills[skill]?.bonuses.check ?? null
     };
   }
 

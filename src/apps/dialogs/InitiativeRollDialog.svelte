@@ -3,15 +3,39 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
+    import constructD20RollFormula from "../../dice/constructD20RollFormula";
+
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import ModifierManager from "../../managers/ModifierManager";
 
     export let { combatant, dialog, options } =
         getContext("#external").application;
+
+    function getRollFormula(
+        actor,
+        abilityKey,
+        skillKey,
+        expertiseDie,
+        rollMode,
+        situationalMods
+    ) {
+        const modifierManager = new ModifierManager(actor, {
+            ability: abilityKey,
+            expertiseDie,
+            type: "initiative",
+            situationalMods,
+            skill: skillKey,
+        });
+
+        return constructD20RollFormula({
+            actor,
+            rollMode,
+            modifiers: modifierManager.getModifiers(),
+        }).rollFormula;
+    }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
@@ -39,55 +63,14 @@
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
+    $: rollFormula = getRollFormula(
+        $actor,
+        abilityKey,
+        skillKey,
+        expertiseDie,
         rollMode,
-        modifiers: [
-            {
-                label: localize("A5E.InitiativeBonus"),
-                value: $actor.system.attributes.initiative.bonus,
-            },
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localize(CONFIG.A5E.abilities[abilityKey]),
-                }),
-                value: $actor.system.abilities[abilityKey]?.check.mod,
-            },
-            {
-                label: localize("A5E.SkillCheckMod", {
-                    skill: localize(CONFIG.A5E.skills[skillKey]),
-                }),
-                value: $actor.system.skills[skillKey]?.mod,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonus", {
-                    ability: localize(CONFIG.A5E.abilities[abilityKey]),
-                }),
-                value: $actor.system.abilities[abilityKey]?.check.bonus,
-            },
-            {
-                label: localize("A5E.SkillCheckBonus", {
-                    skill: localize(CONFIG.A5E.skills[skillKey]),
-                }),
-                value: $actor.system.skills[skillKey]?.bonuses.check,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonusGlobal"),
-                value: $actor.system.bonuses.abilities.check,
-            },
-            {
-                label: localize("A5E.SkillCheckBonusGlobal"),
-                value: skillKey ? $actor.system.bonuses.abilities.skill : null,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        situationalMods
+    );
 </script>
 
 <form>
