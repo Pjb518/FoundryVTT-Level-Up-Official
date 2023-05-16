@@ -142,8 +142,10 @@ export default class ActorSheet extends SvelteApplication {
     else if (document.documentName === 'ActiveEffect') this.#onDropActiveEffect(document);
   }
 
-  // eslint-disable-next-line no-unused-vars, no-empty-function
-  async #onDropActor(actor) { }
+  // eslint-disable-next-line no-unused-vars, no-empty-function, @typescript-eslint/no-unused-vars
+  async #onDropActor(actor) {
+    //
+  }
 
   async #onDropActiveEffect(effect) {
     this.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
