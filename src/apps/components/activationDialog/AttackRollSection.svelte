@@ -4,12 +4,13 @@
 
     import constructD20RollFormula from "../../../dice/constructD20RollFormula";
     import getAttackAbility from "../../../utils/getAttackAbility";
-    import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
     import overrideRollMode from "../../../utils/overrideRollMode";
     import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+
+    import ModifierManager from "../../../managers/ModifierManager";
 
     export let attackRollData;
     export let options;
@@ -19,6 +20,31 @@
     const dialog = getContext("dialog");
     const item = getContext("item");
 
+    function getRollFormula(
+        actor,
+        attackAbility,
+        attackRoll,
+        expertiseDie,
+        rollMode,
+        situationalMods
+    ) {
+        const modifierManager = new ModifierManager(actor, {
+            ability: attackAbility,
+            attackBonus: attackRoll?.bonus,
+            attackType: attackRoll?.type,
+            expertiseDie,
+            proficient: attackRoll?.proficient ?? true,
+            type: "attack",
+            situationalMods,
+        });
+
+        return constructD20RollFormula({
+            actor,
+            rollMode,
+            modifiers: modifierManager.getModifiers(),
+        }).rollFormula;
+    }
+
     function updateData() {
         attackRollData = {
             ...attackRoll,
@@ -27,7 +53,6 @@
         };
     }
 
-    const { abilities } = CONFIG.A5E;
     const attackAbility = getAttackAbility($actor, $item, attackRoll);
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
@@ -38,6 +63,7 @@
     );
 
     let expertiseDie = overrideExpertiseDie($actor, 0);
+    let situationalMods = "";
 
     let rollMode = overrideRollMode(
         $actor,
@@ -48,63 +74,15 @@
         }
     );
 
-    let situationalMods = "";
-
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
+    $: rollFormula = getRollFormula(
+        $actor,
+        attackAbility,
+        attackRoll,
+        expertiseDie,
         rollMode,
-        modifiers: [
-            {
-                label: localize("A5E.ProficiencyBonusAbbr"),
-                value:
-                    (attackRoll?.proficient ?? true) &&
-                    $actor.system.attributes.prof,
-            },
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localize(
-                        abilities[attackAbility] ?? attackAbility
-                    ),
-                }),
-                value: $actor.system.abilities[attackAbility ?? ""]?.mod,
-            },
-            {
-                label: localize("A5E.AttackBonus"),
-                value: attackRoll?.bonus ?? 0,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                label: localize("A5E.BonusMeleeWeaponAttack"),
-                value:
-                    attackRoll?.attackType === "meleeWeaponAttack" &&
-                    $actor.system.bonuses.meleeWeaponAttack,
-            },
-            {
-                label: localize("A5E.BonusRangedWeaponAttack"),
-                value:
-                    attackRoll?.attackType === "rangedWeaponAttack" &&
-                    $actor.system.bonuses.rangedWeaponAttack,
-            },
-            {
-                label: localize("A5E.BonusMeleeSpellAttack"),
-                value:
-                    attackRoll?.attackType === "meleeSpellAttack" &&
-                    $actor.system.bonuses.meleeSpellAttack,
-            },
-            {
-                label: localize("A5E.BonusRangedSpellAttack"),
-                value:
-                    attackRoll?.attackType === "rangedSpellAttack" &&
-                    $actor.system.bonuses.rangedSpellAttack,
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        situationalMods
+    );
+
     $: rollFormula, updateData();
 
     updateData();
