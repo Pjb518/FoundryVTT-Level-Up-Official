@@ -22,14 +22,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
   source = undefined;
 
   /**
-   * Returns the label of the effect. This getter is to keep in line with other documents.
-   * @returns {String}
-   */
-  get name() {
-    return this.label;
-  }
-
-  /**
    * @returns {Boolean}
    */
   get isSuppressed() {
@@ -141,7 +133,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   async duplicateEffect() {
     const owningDocument = this.parent;
     const newEffect = foundry.utils.duplicate(this);
-    newEffect.label = `${localize(newEffect.label)} (Copy)`;
+    newEffect.name = `${localize(newEffect.name)} (Copy)`;
 
     if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
   }
@@ -155,7 +147,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   transferEffect(token) {
     const data = [{
-      label: this.label,
+      name: this.name,
       origin: this.parent.uuid,
       changes: this.changes
     }];
@@ -240,7 +232,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   static createDefaultEffect(parentDocument) {
     const data = {
-      label: localize('A5E.effects.new'),
+      name: localize('A5E.effects.new'),
       icon: this.FALLBACK_ICON,
       flags: { a5e: { sort: 0 } }
     };

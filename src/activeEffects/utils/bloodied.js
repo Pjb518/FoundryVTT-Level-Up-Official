@@ -21,7 +21,7 @@ export default async function automateBloodied(actor, changes) {
   if (!condition) return;
 
   const isBloodied = (value <= (max / 2));
-  const hasCondition = actor.effects.find((c) => c.flags?.core?.statusId === 'bloodied');
+  const hasCondition = actor.effects.find((c) => c.statuses.has('bloodied'));
 
   // TODO: Call hook to recharge uses on bloodied
   // Handle Application of Condition
