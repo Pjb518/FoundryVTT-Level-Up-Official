@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line import/no-unresolved
-import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getAttackAbility from '../utils/getAttackAbility';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
+import getRollFormula from '../utils/getRollFormula';
 import overrideRollMode from '../utils/overrideRollMode';
 import overrideExpertiseDie from '../utils/overrideExpertiseDie';
 import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
@@ -12,7 +12,6 @@ import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivatio
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
 
 import ActionsManager from '../managers/ActionsManager';
-import ModifierManager from '../managers/ModifierManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
@@ -249,20 +248,15 @@ export default class ItemA5e extends Item {
       }
     );
 
-    const modifierManager = new ModifierManager(actor, {
+    const formula = getRollFormula(actor, {
       ability: attackAbility,
       attackBonus: attackRoll?.bonus,
       attackType: attackRoll?.type,
       expertiseDie,
       proficient: attackRoll?.proficient ?? true,
-      type: 'attack',
-      situationalMods: options.situationalMods
-    });
-
-    const { rollFormula } = constructD20RollFormula({
-      actor,
       rollMode,
-      modifiers: modifierManager.getModifiers()
+      situationalMods: options.situationalMods,
+      type: 'attack'
     });
 
     return {
@@ -272,7 +266,7 @@ export default class ItemA5e extends Item {
       attackType: attackRoll.attackType ?? 'meleeWeaponAttack',
       ability: attackAbility,
       rollMode,
-      formula: rollFormula
+      formula
     };
   }
 

@@ -2,7 +2,6 @@
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import ActiveEffectA5e from './activeEffect';
-import ModifierManager from '../managers/ModifierManager';
 import RestManager from '../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -30,9 +29,8 @@ import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRol
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getExpertiseDieSize from '../utils/getExpertiseDieSize';
+import getRollFormula from '../utils/getRollFormula';
 import overrideRollMode from '../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
@@ -693,17 +691,12 @@ export default class ActorA5e extends Actor {
       { ability: abilityKey, type: 'check' }
     );
 
-    const modifierManager = new ModifierManager(this, {
+    const rollFormula = getRollFormula(this, {
       ability: abilityKey,
       expertiseDie: ability.check.expertiseDice,
-      type: 'abilityCheck',
-      situationalMods: options.situationalMods
-    });
-
-    const { rollFormula } = constructD20RollFormula({
-      actor: this,
       rollMode,
-      modifiers: modifierManager.getModifiers()
+      situationalMods: options.situationalMods,
+      type: 'abilityCheck'
     });
 
     return { rollFormula };
@@ -832,19 +825,14 @@ export default class ActorA5e extends Actor {
       { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }
     );
 
-    const modifierManager = new ModifierManager(this, {
+    const rollFormula = getRollFormula(this, {
       ability: abilityKey,
       expertiseDie: ability.save.expertiseDice,
       proficient: ability.save.proficient,
-      type: 'savingThrow',
-      saveType: options.saveType,
-      situationalMods: options.situationalMods
-    });
-
-    const { rollFormula } = constructD20RollFormula({
-      actor: this,
       rollMode,
-      modifiers: modifierManager.getModifiers()
+      saveType: options.saveType,
+      situationalMods: options.situationalMods,
+      type: 'savingThrow'
     });
 
     return { rollFormula };
@@ -921,20 +909,15 @@ export default class ActorA5e extends Actor {
       { ability: abilityKey, skill: skillKey, type: 'skill' }
     );
 
-    const modifierManager = new ModifierManager(this, {
+    const rollFormula = getRollFormula(this, {
       ability: abilityKey,
       expertiseDie: skill.expertiseDice,
+      minRoll: options.minRoll ?? skill.minRoll,
       proficient: skill.proficient,
       type: 'skillCheck',
+      rollMode,
       skill: skillKey,
       situationalMods: options.situationalMods
-    });
-
-    const { rollFormula } = constructD20RollFormula({
-      actor: this,
-      rollMode,
-      minRoll: options.minRoll ?? skill.minRoll,
-      modifiers: modifierManager.getModifiers()
     });
 
     return { rollFormula, abilityKey };
