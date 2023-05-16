@@ -933,6 +933,7 @@ export default class ActorA5e extends Actor {
     const { rollFormula } = constructD20RollFormula({
       actor: this,
       rollMode,
+      minRoll: options.minRoll ?? skill.minRoll,
       modifiers: modifierManager.getModifiers()
     });
 

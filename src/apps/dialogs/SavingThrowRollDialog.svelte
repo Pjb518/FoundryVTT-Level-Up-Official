@@ -90,7 +90,7 @@
         ability: abilityKey,
         type: "save",
         concentration: saveType === "concentration",
-        deathSave: !!!abilityKey,
+        deathSave: !abilityKey,
     });
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
