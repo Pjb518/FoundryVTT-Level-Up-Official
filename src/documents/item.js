@@ -1,5 +1,14 @@
 /* eslint-disable no-unused-vars */
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import constructD20RollFormula from '../dice/constructD20RollFormula';
+import getAttackAbility from '../utils/getAttackAbility';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
+import getExpertiseDieSize from '../utils/getExpertiseDieSize';
+import overrideRollMode from '../utils/overrideRollMode';
+import overrideExpertiseDie from '../utils/overrideExpertiseDie';
+import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
@@ -79,31 +88,25 @@ export default class ItemA5e extends Item {
   }
 
   async #activateAction(actionId, options) {
-    const dialog = new ActionActivationDialog({
-      actionId,
-      options,
-      actorDocument: this.actor,
-      itemDocument: this
-    });
-
+    let activationData;
     const action = this.actions[actionId];
-    let promise = {};
 
-    // Skip dialog if nothing configured.
-    if (await this.showActionActivationDialog(actionId, action)) {
-      dialog.render(true);
-      promise = await dialog.promise;
-      if (!promise) return null;
+    if (options.skipRollDialog) {
+      activationData = this.#getDefaultActionActivationData(actionId, options);
+    } else {
+      activationData = await this.#showActionActivationPrompt(actionId, options);
     }
 
-    promise.rolls ??= [];
-    promise.rolls.push(promise?.attack ?? {});
+    if (!activationData) return null;
+
+    activationData.rolls ??= [];
+    activationData.rolls.push(activationData?.attack ?? {});
 
     const rollPreparationManager = new RollPreparationManager(
       this.actor,
       this,
-      promise.consumers ?? {},
-      promise.rolls ?? {}
+      activationData.consumers ?? {},
+      activationData.rolls ?? {}
     );
 
     const rolls = await rollPreparationManager.prepareRolls();
@@ -112,11 +115,11 @@ export default class ItemA5e extends Item {
       this.actor,
       this,
       action,
-      promise.consumers
+      activationData.consumers
     );
 
     const validTemplate = templateManager.validateBaseTemplateData();
-    if (promise.placeTemplate && validTemplate) {
+    if (activationData.placeTemplate && validTemplate) {
       await templateManager.placeActionTemplates();
     }
 
@@ -124,7 +127,7 @@ export default class ItemA5e extends Item {
       this.actor,
       this,
       actionId,
-      promise.consumers ?? {}
+      activationData.consumers ?? {}
     );
 
     await resourceConsumptionManager.consumeResources();
@@ -153,18 +156,18 @@ export default class ItemA5e extends Item {
               async: false
             })
             : null,
-          prompts: promise.prompts,
+          prompts: activationData.prompts,
           rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
       },
       content: '<article></article>'
     };
 
-    ChatMessage.applyRollMode(chatData, promise.visibilityMode ?? game.settings.get('core', 'rollMode'));
+    ChatMessage.applyRollMode(chatData, activationData.visibilityMode ?? game.settings.get('core', 'rollMode'));
     const chatCard = await ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, {
-      actionId, action, dialog: promise, options, rolls, validTemplate
+      actionId, action, dialog: activationData, options, rolls, validTemplate
     });
 
     return chatCard;
@@ -200,6 +203,119 @@ export default class ItemA5e extends Item {
 
     Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
+  }
+
+  async #showActionActivationPrompt(actionId, options) {
+    const dialog = new ActionActivationDialog({
+      actionId,
+      options,
+      actorDocument: this.actor,
+      itemDocument: this
+    });
+
+    dialog.render(true);
+    return dialog.promise;
+  }
+
+  #getDefaultActionActivationData(actionId, options) {
+    const action = this.actions[actionId];
+
+    if (!action) return null;
+
+    const rolls = prepareRolls(action.rolls);
+    // const consumers = prepareConsumers(action.consumers);
+
+    const attack = this.#getDefaultAttackRollData(rolls.attack, options);
+    // const consumerData = this.#getDefaultConsumerData(consumers);
+
+    return {
+      attack,
+      prompts: [],
+      rolls: []
+    };
+  }
+
+  #getDefaultAttackRollData(attack, options) {
+    const { actor } = this;
+    const { abilities } = CONFIG.A5E;
+    const attackRoll = attack[0][1];
+    const attackAbility = getAttackAbility(actor, this, attackRoll);
+    const expertiseDie = overrideExpertiseDie(actor, 0);
+
+    const rollMode = overrideRollMode(
+      actor,
+      options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      {
+        attackType: attackRoll.attackType,
+        type: 'attack'
+      }
+    );
+
+    const formula = constructD20RollFormula({
+      actor,
+      rollMode,
+      modifiers: [
+        {
+          label: localize('A5E.ProficiencyBonusAbbr'),
+          value:
+            (attackRoll?.proficient ?? true)
+            && actor.system.attributes.prof
+        },
+        {
+          label: localize('A5E.AbilityCheckMod', {
+            ability: localize(
+              abilities[attackAbility] ?? attackAbility
+            )
+          }),
+          value: actor.system.abilities[attackAbility ?? '']?.mod
+        },
+        {
+          label: localize('A5E.AttackBonus'),
+          value: attackRoll?.bonus ?? 0
+        },
+        {
+          label: localize('A5E.ExpertiseDie'),
+          value: getExpertiseDieSize(expertiseDie)
+        },
+        {
+          label: localize('A5E.BonusMeleeWeaponAttack'),
+          value:
+            attackRoll?.attackType === 'meleeWeaponAttack'
+            && actor.system.bonuses.meleeWeaponAttack
+        },
+        {
+          label: localize('A5E.BonusRangedWeaponAttack'),
+          value:
+            attackRoll?.attackType === 'rangedWeaponAttack'
+            && actor.system.bonuses.rangedWeaponAttack
+        },
+        {
+          label: localize('A5E.BonusMeleeSpellAttack'),
+          value:
+            attackRoll?.attackType === 'meleeSpellAttack'
+            && actor.system.bonuses.meleeSpellAttack
+        },
+        {
+          label: localize('A5E.BonusRangedSpellAttack'),
+          value:
+            attackRoll?.attackType === 'rangedSpellAttack'
+            && actor.system.bonuses.rangedSpellAttack
+        },
+        {
+          value: options.situationalMods
+        }
+      ]
+    }).rollFormula;
+
+    return {
+      bonus: attackRoll.bonus ?? '',
+      critThreshold: attackRoll.critThreshold ?? 20,
+      type: 'attack',
+      attackType: attackRoll.attackType ?? 'meleeWeaponAttack',
+      ability: attackAbility,
+      rollMode,
+      formula
+    };
   }
 
   async configureItem() {

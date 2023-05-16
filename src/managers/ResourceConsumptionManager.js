@@ -27,6 +27,7 @@ export default class ResourceConsumptionManager {
 
   async consumeResources() {
     const consumers = Object.values(this.action?.consumers ?? {});
+
     const {
       actionUses, hitDice, itemUses, spell
     } = this.#consumptionData;
@@ -49,7 +50,7 @@ export default class ResourceConsumptionManager {
     await this.#actor.update(this.#updates.actor);
   }
 
-  #consumeActionUses({ quantity }) {
+  #consumeActionUses({ quantity } = {}) {
     const actionUses = this.action?.uses;
 
     if (!quantity || !actionUses || !this.#actor) return;
@@ -60,7 +61,7 @@ export default class ResourceConsumptionManager {
     this.#updates.item[`system.actions.${this.#actionId}.uses.value`] = newValue;
   }
 
-  #consumeHitDice({ selected }) {
+  #consumeHitDice({ selected } = {}) {
     const { hitDice } = this.#actor.system.attributes;
 
     if (!selected || !this.#actor) return;
@@ -73,7 +74,7 @@ export default class ResourceConsumptionManager {
     this.#updates.actor['system.attributes.hitDice'] = hitDice;
   }
 
-  #consumeItemUses({ quantity }) {
+  #consumeItemUses({ quantity } = {}) {
     const { value } = this.#item.system.uses;
 
     if ((value !== 0 && !value) || !quantity) return;
@@ -81,7 +82,7 @@ export default class ResourceConsumptionManager {
     this.#updates.item['system.uses.value'] = Math.max(value - quantity, 0);
   }
 
-  async #consumeQuantity({ itemId, quantity }) {
+  async #consumeQuantity({ itemId, quantity } = {}) {
     if (!this.#actor || itemId === '') return;
 
     const item = this.#actor.items.get(itemId);
@@ -95,7 +96,7 @@ export default class ResourceConsumptionManager {
     );
   }
 
-  #consumeResource({ quantity, resource, restore }) {
+  #consumeResource({ quantity, resource, restore } = {}) {
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 
     if (!this.#actor || !resource || !config) return;

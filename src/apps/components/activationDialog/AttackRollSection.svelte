@@ -38,6 +38,7 @@
     );
 
     let expertiseDie = overrideExpertiseDie($actor, 0);
+
     let rollMode = overrideRollMode(
         $actor,
         options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
@@ -46,6 +47,7 @@
             type: "attack",
         }
     );
+
     let situationalMods = "";
 
     $: rollFormula = constructD20RollFormula({
