@@ -68,10 +68,17 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (current instanceof Set) {
       if (Array.isArray(delta)) delta.forEach((item) => current.add(item));
       else current.add(delta);
-      return;
+      return super._applyAdd(document, change, current, delta, changes);
     }
 
     delta = this.#convertToDeterministicBonus(document, change, delta);
+
+    // TODO: Update to proper fix later
+    if (typeof current === 'string' && current.length !== 0) {
+      if (!change.value.startsWith('+')) {
+        delta = ` + ${delta}`;
+      }
+    }
 
     super._applyAdd(document, change, current, delta, changes);
   }
@@ -79,6 +86,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
   /** @inheritdoc */
   _applyMultiply(document, change, current, delta, changes) {
     delta = this.#convertToDeterministicBonus(document, change, delta);
+
+    // TODO: Update to proper fix later
+    if (typeof current === 'string' && current.length !== 0) {
+      if (!change.value.startsWith('+')) {
+        delta = ` + ${delta}`;
+      }
+    }
 
     super._applyMultiply(document, change, current, delta, changes);
   }
@@ -89,7 +103,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       current.clear();
       if (Array.isArray(delta)) delta.forEach((item) => current.add(item));
       else current.add(delta);
-      return;
+      return super._applyAdd(document, change, current, delta, changes);
     }
 
     delta = this.#convertToDeterministicBonus(document, change, delta);
