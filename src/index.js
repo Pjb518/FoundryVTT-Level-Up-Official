@@ -136,7 +136,11 @@ Hooks.once('init', () => {
   CombatTracker.prototype._onCombatantControl = _onCombatantControl;
   CombatTracker.prototype._onCombatControl = _onCombatControl;
 
-  game.a5e.activeEffects.EffectOptions.createOptions();
+  // Prelocalize any static strings once localization files become available.
+  Hooks.once('i18nInit', () => {
+    performPreLocalization(CONFIG.A5E);
+    game.a5e.activeEffects.EffectOptions.createOptions();
+  });
 
   return preloadHandlebarsTemplates();
 });
@@ -146,9 +150,6 @@ Hooks.once('setup', () => {
   registerSystemSettings();
   setupConditions();
 });
-
-// Prelocalize any static strings once localization files become available.
-Hooks.once('i18nInit', () => performPreLocalization(CONFIG.A5E));
 
 // Once the entire VTT framework is initialized, check to see if we should perform a data migration
 Hooks.once('ready', ready);
