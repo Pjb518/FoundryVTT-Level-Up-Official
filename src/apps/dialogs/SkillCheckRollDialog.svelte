@@ -8,38 +8,11 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
+    import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
-
-    import ModifierManager from "../../managers/ModifierManager";
 
     export let { actorDocument, dialog, skillKey, options } =
         getContext("#external").application;
-
-    function getRollFormula(
-        actor,
-        abilityKey,
-        expertiseDie,
-        minRoll,
-        rollMode,
-        situationalMods,
-        skillKey
-    ) {
-        const modifierManager = new ModifierManager(actor, {
-            ability: abilityKey,
-            expertiseDie,
-            type: "abilityCheck",
-            situationalMods,
-            skill: skillKey,
-        });
-
-        return constructD20RollFormula({
-            actor,
-            rollMode,
-            minRoll,
-            modifiers: modifierManager.getModifiers(),
-        }).rollFormula;
-    }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
@@ -69,25 +42,26 @@
         options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
 
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
+    let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let situationalMods = options.situationalMods ?? "";
+    let visibilityMode = game.settings.get("core", "rollMode");
+
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
         skill: skillKey,
         type: "skill",
     });
-    let rollFormula;
-    let situationalMods = options.situationalMods ?? "";
-    let visibilityMode = game.settings.get("core", "rollMode");
 
-    $: rollFormula = getRollFormula(
-        $actor,
-        abilityKey,
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
         expertiseDie,
         minRoll,
         rollMode,
         situationalMods,
-        skillKey
-    );
+        skill: skillKey,
+        type: "skillCheck",
+    });
 </script>
 
 <form>

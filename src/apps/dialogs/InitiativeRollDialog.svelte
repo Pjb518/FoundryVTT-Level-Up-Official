@@ -3,39 +3,14 @@
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
     import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store";
 
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
+    import getRollFormula from "../../utils/getRollFormula";
 
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FormSection from "../components/FormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import ModifierManager from "../../managers/ModifierManager";
-
     export let { combatant, dialog, options } =
         getContext("#external").application;
-
-    function getRollFormula(
-        actor,
-        abilityKey,
-        skillKey,
-        expertiseDie,
-        rollMode,
-        situationalMods
-    ) {
-        const modifierManager = new ModifierManager(actor, {
-            ability: abilityKey,
-            expertiseDie,
-            type: "initiative",
-            situationalMods,
-            skill: skillKey,
-        });
-
-        return constructD20RollFormula({
-            actor,
-            rollMode,
-            modifiers: modifierManager.getModifiers(),
-        }).rollFormula;
-    }
 
     const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
         ([key, value]) => [
@@ -63,14 +38,14 @@
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
-    $: rollFormula = getRollFormula(
-        $actor,
-        abilityKey,
-        skillKey,
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
         expertiseDie,
         rollMode,
-        situationalMods
-    );
+        situationalMods,
+        skill: skillKey,
+        type: "initiative",
+    });
 </script>
 
 <form>

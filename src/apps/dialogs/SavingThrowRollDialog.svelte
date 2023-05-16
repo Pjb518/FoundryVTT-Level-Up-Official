@@ -8,36 +8,11 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import ModifierManager from "../../managers/ModifierManager";
-
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
+    import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
         getContext("#external").application;
-
-    function getRollFormula(
-        actor,
-        abilityKey,
-        expertiseDie,
-        rollMode,
-        saveType,
-        situationalMods
-    ) {
-        const modifierManager = new ModifierManager(actor, {
-            ability: abilityKey,
-            expertiseDie,
-            type: "savingThrow",
-            saveType,
-            situationalMods,
-        });
-
-        return constructD20RollFormula({
-            actor,
-            rollMode,
-            modifiers: modifierManager.getModifiers(),
-        }).rollFormula;
-    }
 
     function getSubmitButtonText(saveType, abilityKey) {
         if (saveType === "death") return "Roll Death Saving Throw";
@@ -95,14 +70,14 @@
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
-    $: rollFormula = getRollFormula(
-        $actor,
-        abilityKey,
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
         expertiseDie,
         rollMode,
         saveType,
-        situationalMods
-    );
+        situationalMods,
+        type: "savingThrow",
+    });
 </script>
 
 <form>
