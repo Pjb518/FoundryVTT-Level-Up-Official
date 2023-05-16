@@ -160,11 +160,7 @@ Hooks.on('canvasInit', () => {
 });
 
 Hooks.on('init', () => {
-  class FastTooltipManager extends TooltipManager {
-    static TOOLTIP_ACTIVATION_MS = 100;
-  }
-
-  game.tooltip = new FastTooltipManager();
+  TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
 });
 
 Hooks.on('createActor', createActor);
