@@ -2,15 +2,13 @@
     import { getContext } from "svelte";
     import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
-    import constructD20RollFormula from "../../../dice/constructD20RollFormula";
     import getAttackAbility from "../../../utils/getAttackAbility";
+    import getRollFormula from "../../../utils/getRollFormula";
     import overrideRollMode from "../../../utils/overrideRollMode";
     import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-
-    import ModifierManager from "../../../managers/ModifierManager";
 
     export let attackRollData;
     export let options;
@@ -19,31 +17,6 @@
     const actor = getContext("actor");
     const dialog = getContext("dialog");
     const item = getContext("item");
-
-    function getRollFormula(
-        actor,
-        attackAbility,
-        attackRoll,
-        expertiseDie,
-        rollMode,
-        situationalMods
-    ) {
-        const modifierManager = new ModifierManager(actor, {
-            ability: attackAbility,
-            attackBonus: attackRoll?.bonus,
-            attackType: attackRoll?.type,
-            expertiseDie,
-            proficient: attackRoll?.proficient ?? true,
-            type: "attack",
-            situationalMods,
-        });
-
-        return constructD20RollFormula({
-            actor,
-            rollMode,
-            modifiers: modifierManager.getModifiers(),
-        }).rollFormula;
-    }
 
     function updateData() {
         attackRollData = {
@@ -74,14 +47,16 @@
         }
     );
 
-    $: rollFormula = getRollFormula(
-        $actor,
-        attackAbility,
-        attackRoll,
+    $: rollFormula = getRollFormula($actor, {
+        ability: attackAbility,
+        attackBonus: attackRoll?.bonus,
+        attackType: attackRoll?.type,
         expertiseDie,
+        proficient: attackRoll?.proficient ?? true,
+        situationalMods,
         rollMode,
-        situationalMods
-    );
+        type: "attack",
+    });
 
     $: rollFormula, updateData();
 
