@@ -1,103 +1,107 @@
 {
-	"name": "Piercing Fangs",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.hituzwdyd1uxy86n"
-		}
-	},
-	"system": {
-		"actions": {
-			"0lbLKvSZG6yZ0ANJ": {
-				"name": "Piercing Fangs",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"06zDhvWUcOMEhcx2": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"46OjaJwEDlopVUOn": {
-						"canCrit": true,
-						"damageType": "poison",
-						"formula": "2d4",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"lRpejHvCLT49DaDV": {
-						"ability": "con",
-						"onSave": "Negates effects.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"Wkep2NDnlMtKn8Nc": {
-						"quantity": 2,
-						"resource": "exertion",
-						"type": "resource"
-					}
-				}
-			}
-		},
-		"description": "<p>Make a melee attack against a creature that is grappling you and expend a dose of basic poison. On a hit, the target takes normal weapon damage plus 2d4 poison damage and also takes 1d4 ongoing poison damage for the next minute or until an antitoxin is administered to it. The creature must also make a Constitution save or immediately release the grapple.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"degree": 2,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "vipersFangs",
-		"ability": "",
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "hituzwdyd1uxy86n"
+  "name": "Piercing Fangs",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.hituzwdyd1uxy86n"
+    }
+  },
+  "system": {
+    "actions": {
+      "0lbLKvSZG6yZ0ANJ": {
+        "name": "Piercing Fangs",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "06zDhvWUcOMEhcx2": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "46OjaJwEDlopVUOn": {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "2d4",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "lRpejHvCLT49DaDV": {
+            "ability": "con",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "Wkep2NDnlMtKn8Nc": {
+            "quantity": 2,
+            "resource": "exertion",
+            "type": "resource"
+          }
+        }
+      }
+    },
+    "description": "<p>Make a melee attack against a creature that is grappling you and expend a dose of basic poison. On a hit, the target takes normal weapon damage plus 2d4 poison damage and also takes 1d4 ongoing poison damage for the next minute or until an antitoxin is administered to it. The creature must also make a Constitution save or immediately release the grapple.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Thematic Toolkit: Venomous Shadow",
+      "link": "https://bit.ly/3xPedWx",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "degree": 2,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs",
+    "ability": "",
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Negates effects.",
+      "targetAbility": "con"
+    }
+  },
+  "_id": "hituzwdyd1uxy86n"
 }

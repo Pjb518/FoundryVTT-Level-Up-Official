@@ -1,94 +1,98 @@
 {
-	"name": "Warrior’s Bane",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.izvssqo3bkudxlrv"
-		}
-	},
-	"system": {
-		"actions": {
-			"4PbfSU4HGH54ughM": {
-				"name": "Warrior’s Bane",
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "Attacked by a creature within reach."
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"jf7zmoLeeFf2IPcq": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"prompts": {
-					"Hx2YxXohRQrAinYy": {
-						"ability": "con",
-						"onSave": "Negates effects.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"gV28aElIg6SEyCrG": {
-						"quantity": 2,
-						"resource": "exertion",
-						"type": "resource"
-					}
-				}
-			}
-		},
-		"description": "<p>In response to an attack from a creature within reach, make a melee weapon attack against the attacking creature and expend a dose of basic poison. On a hit, the creature must make a Constitution save or for the next minute, whenever it would make a melee attack, take the Dash action, or make a Strength or Dexterity check, it takes 2d6 acid damage. This effect can be ended early by administering an antitoxin.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"degree": 3,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "vipersFangs",
-		"ability": "",
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "izvssqo3bkudxlrv"
+  "name": "Warrior’s Bane",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.izvssqo3bkudxlrv"
+    }
+  },
+  "system": {
+    "actions": {
+      "4PbfSU4HGH54ughM": {
+        "name": "Warrior’s Bane",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "Attacked by a creature within reach."
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "jf7zmoLeeFf2IPcq": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "prompts": {
+          "Hx2YxXohRQrAinYy": {
+            "ability": "con",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "gV28aElIg6SEyCrG": {
+            "quantity": 2,
+            "resource": "exertion",
+            "type": "resource"
+          }
+        }
+      }
+    },
+    "description": "<p>In response to an attack from a creature within reach, make a melee weapon attack against the attacking creature and expend a dose of basic poison. On a hit, the creature must make a Constitution save or for the next minute, whenever it would make a melee attack, take the Dash action, or make a Strength or Dexterity check, it takes 2d6 acid damage. This effect can be ended early by administering an antitoxin.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Thematic Toolkit: Venomous Shadow",
+      "link": "https://bit.ly/3xPedWx",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "degree": 3,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs",
+    "ability": "",
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Negates effects.",
+      "targetAbility": "con"
+    }
+  },
+  "_id": "izvssqo3bkudxlrv"
 }

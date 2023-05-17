@@ -1,103 +1,107 @@
 {
-	"name": "Hampering Riposte",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.orf17xlh97ivx3qi"
-		}
-	},
-	"system": {
-		"actions": {
-			"TB33LpnUDp4tHdkZ": {
-				"name": "Hampering Riposte",
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "When attacked."
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"VPf1AueGi84SKUY0": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"uTuGA7dDnIuLUAN1": {
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "1",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"gSCS7ikSKx26DOfL": {
-						"ability": "con",
-						"onSave": "Creature is poisoned and rattled until the end of your next turn.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"TBSxyqlljM3YDuic": {
-						"quantity": 1,
-						"resource": "exertion",
-						"type": "resource"
-					}
-				}
-			}
-		},
-		"description": " In response to an attack, you lash out with a blade poisoned with a toxin that makes your enemy sluggish. Make a melee weapon attack with advantage and expend a dose of basic poison. On a hit, the target takes 1 point of slashing damage and must make a Constitution save against your maneuver DC. A creature that fails is slowed for one minute. A creature that succeeds is poisoned and rattled until the end of your next turn instead. A slowed creature may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"degree": 2,
-		"exertionCost": 1,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "vipersFangs",
-		"ability": null,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Creature is poisoned and rattled until the end of your next turn.",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "orf17xlh97ivx3qi"
+  "name": "Hampering Riposte",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.orf17xlh97ivx3qi"
+    }
+  },
+  "system": {
+    "actions": {
+      "TB33LpnUDp4tHdkZ": {
+        "name": "Hampering Riposte",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "When attacked."
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "VPf1AueGi84SKUY0": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "uTuGA7dDnIuLUAN1": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "gSCS7ikSKx26DOfL": {
+            "ability": "con",
+            "onSave": "Creature is poisoned and rattled until the end of your next turn.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "TBSxyqlljM3YDuic": {
+            "quantity": 1,
+            "resource": "exertion",
+            "type": "resource"
+          }
+        }
+      }
+    },
+    "description": " In response to an attack, you lash out with a blade poisoned with a toxin that makes your enemy sluggish. Make a melee weapon attack with advantage and expend a dose of basic poison. On a hit, the target takes 1 point of slashing damage and must make a Constitution save against your maneuver DC. A creature that fails is slowed for one minute. A creature that succeeds is poisoned and rattled until the end of your next turn instead. A slowed creature may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Thematic Toolkit: Venomous Shadow",
+      "link": "https://bit.ly/3xPedWx",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "degree": 2,
+    "exertionCost": 1,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs",
+    "ability": null,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Creature is poisoned and rattled until the end of your next turn.",
+      "targetAbility": "con"
+    }
+  },
+  "_id": "orf17xlh97ivx3qi"
 }

@@ -1,103 +1,107 @@
 {
-	"name": "Blinding Dust",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.dxir38g6xycrj3co"
-		}
-	},
-	"system": {
-		"actions": {
-			"1mTPDlcikomLTH7H": {
-				"name": "Blinding Dust",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"V6h62whB1H7jAvX1": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"nLlfJSM0AmOcN3V5": {
-						"canCrit": false,
-						"damageType": "poison",
-						"formula": "1d4",
-						"name": "Fails save and becomes blinded",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"sMXn5BtECscnCB82": {
-						"ability": "dex",
-						"onSave": "Negates effects.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"5CKCCcVT89dPmIel": {
-						"quantity": 2,
-						"resource": "exertion",
-						"type": "resource"
-					}
-				}
-			}
-		},
-		"description": " You expend a dose of basic poison to blow blinding dust into an opponent’s eyes. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 1d4 poison damage and be blinded until the end of your next turn.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"degree": 1,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "vipersFangs",
-		"ability": "",
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "dex"
-		}
-	},
-	"_id": "dxir38g6xycrj3co"
+  "name": "Blinding Dust",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.dxir38g6xycrj3co"
+    }
+  },
+  "system": {
+    "actions": {
+      "1mTPDlcikomLTH7H": {
+        "name": "Blinding Dust",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "V6h62whB1H7jAvX1": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "nLlfJSM0AmOcN3V5": {
+            "canCrit": false,
+            "damageType": "poison",
+            "formula": "1d4",
+            "name": "Fails save and becomes blinded",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "sMXn5BtECscnCB82": {
+            "ability": "dex",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "5CKCCcVT89dPmIel": {
+            "quantity": 2,
+            "resource": "exertion",
+            "type": "resource"
+          }
+        }
+      }
+    },
+    "description": " You expend a dose of basic poison to blow blinding dust into an opponent’s eyes. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 1d4 poison damage and be blinded until the end of your next turn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Thematic Toolkit: Venomous Shadow",
+      "link": "https://bit.ly/3xPedWx",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "degree": 1,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs",
+    "ability": "",
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Negates effects.",
+      "targetAbility": "dex"
+    }
+  },
+  "_id": "dxir38g6xycrj3co"
 }

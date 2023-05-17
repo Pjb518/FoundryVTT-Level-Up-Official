@@ -1,103 +1,107 @@
 {
-	"name": "Paralyzing Strike",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.w5wz14keatvv0eqs"
-		}
-	},
-	"system": {
-		"actions": {
-			"zVmzUtpA4O1EoulK": {
-				"name": "Paralyzing Strike",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"eE61fxOV3CBS6WGe": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"ScYB9xs5vagZJunz": {
-						"canCrit": true,
-						"damageType": "poison",
-						"formula": "2d6",
-						"name": "On Hit",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"6j1D8QJwt0v4Mgaz": {
-						"ability": "con",
-						"onSave": "Target is slowed instead.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"LUa4N2DQQeykJn03": {
-						"quantity": 2,
-						"resource": "exertion",
-						"type": "resource"
-					}
-				}
-			}
-		},
-		"description": " Expend a dose of curare as part of a melee weapon attack. On a hit, the target takes an additional 2d6 poison damage and must make a Constitution saving throw. On a failed save, the target is paralyzed for one minute. On a successful save it is slowed instead. In either case, the target may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"degree": 5,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "vipersFangs",
-		"ability": null,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Target is slowed instead.",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "w5wz14keatvv0eqs"
+  "name": "Paralyzing Strike",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.w5wz14keatvv0eqs"
+    }
+  },
+  "system": {
+    "actions": {
+      "zVmzUtpA4O1EoulK": {
+        "name": "Paralyzing Strike",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "eE61fxOV3CBS6WGe": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "ScYB9xs5vagZJunz": {
+            "canCrit": true,
+            "damageType": "poison",
+            "formula": "2d6",
+            "name": "On Hit",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "6j1D8QJwt0v4Mgaz": {
+            "ability": "con",
+            "onSave": "Target is slowed instead.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "LUa4N2DQQeykJn03": {
+            "quantity": 2,
+            "resource": "exertion",
+            "type": "resource"
+          }
+        }
+      }
+    },
+    "description": " Expend a dose of curare as part of a melee weapon attack. On a hit, the target takes an additional 2d6 poison damage and must make a Constitution saving throw. On a failed save, the target is paralyzed for one minute. On a successful save it is slowed instead. In either case, the target may repeat the save at the end of each of its turns, ending the effect on a success.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Thematic Toolkit: Venomous Shadow",
+      "link": "https://bit.ly/3xPedWx",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "degree": 5,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs",
+    "ability": null,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Target is slowed instead.",
+      "targetAbility": "con"
+    }
+  },
+  "_id": "w5wz14keatvv0eqs"
 }

@@ -1,103 +1,107 @@
 {
-	"name": "Mind Cracker",
-	"type": "maneuver",
-	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-maneuvers.4k2itkjp2ylmg4px"
-		}
-	},
-	"system": {
-		"actions": {
-			"9mJ1x8RnUBr67i51": {
-				"name": "Mind Cracker",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"tDKzGnBbhAwC7l2d": {
-						"range": "fiveFeet"
-					}
-				},
-				"area": {
-					"shape": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"kcpk36NLrZZk5eVf": {
-						"canCrit": false,
-						"damageType": "poison",
-						"formula": "2d8",
-						"name": "",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"A9zneiCwdQwpqwuq": {
-						"ability": "con",
-						"onSave": "Negates effects.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"JGjT3qCnIwUV0xyG": {
-						"quantity": 2,
-						"resource": "exertion",
-						"type": "resource"
-					}
-				}
-			}
-		},
-		"description": "<p>You expend a dose of basic poison to blow toxic dust into an opponent’s face. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 2d8 poison damage and suffer disadvantage on all Intelligence, Wisdom, and Charisma saving throws and checks for the next minute.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": null,
-			"max": "",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"degree": 5,
-		"exertionCost": 2,
-		"isStance": false,
-		"prerequisite": "",
-		"tradition": "vipersFangs",
-		"ability": null,
-		"proficient": true,
-		"save": {
-			"dc": "@maneuverDC",
-			"onSave": "Negates effects.",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "4k2itkjp2ylmg4px"
+  "name": "Mind Cracker",
+  "type": "maneuver",
+  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.a5e.a5e-maneuvers.4k2itkjp2ylmg4px"
+    }
+  },
+  "system": {
+    "actions": {
+      "9mJ1x8RnUBr67i51": {
+        "name": "Mind Cracker",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "tDKzGnBbhAwC7l2d": {
+            "range": "fiveFeet"
+          }
+        },
+        "area": {
+          "shape": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "rolls": {
+          "kcpk36NLrZZk5eVf": {
+            "canCrit": false,
+            "damageType": "poison",
+            "formula": "2d8",
+            "name": "",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "A9zneiCwdQwpqwuq": {
+            "ability": "con",
+            "onSave": "Negates effects.",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "@maneuverDC"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "JGjT3qCnIwUV0xyG": {
+            "quantity": 2,
+            "resource": "exertion",
+            "type": "resource"
+          }
+        }
+      }
+    },
+    "description": "<p>You expend a dose of basic poison to blow toxic dust into an opponent’s face. Choose a creature within 5 feet of you. It must make a Dexterity save against your maneuver DC or take 2d8 poison damage and suffer disadvantage on all Intelligence, Wisdom, and Charisma saving throws and checks for the next minute.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": {
+      "name": "Thematic Toolkit: Venomous Shadow",
+      "link": "https://bit.ly/3xPedWx",
+      "publisher": "purpleMartinGames"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "degree": 5,
+    "exertionCost": 2,
+    "isStance": false,
+    "prerequisite": "",
+    "tradition": "vipersFangs",
+    "ability": null,
+    "proficient": true,
+    "save": {
+      "dc": "@maneuverDC",
+      "onSave": "Negates effects.",
+      "targetAbility": "con"
+    }
+  },
+  "_id": "4k2itkjp2ylmg4px"
 }

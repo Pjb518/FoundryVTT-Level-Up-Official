@@ -581,7 +581,7 @@ A5E.publishers = {
   },
   purpleMartinGames: {
     name: 'Purple Marting Games',
-    logo: ''
+    logo: 'systems/a5e/assets/publisherLogos/purple-martin-games-logo.webp'
   },
   ravine: {
     name: 'Ravine',
