@@ -4,6 +4,7 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -54,6 +55,20 @@
                             "system.featureType",
                             event.detail
                         )}
+                />
+            </FormSection>
+
+            <FormSection --gap="0.5rem 1.25rem">
+                <Checkbox
+                    label="A5E.SpellConcentration"
+                    checked={$item.system.concentration}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.concentration",
+                            detail
+                        );
+                    }}
                 />
             </FormSection>
         </div>
