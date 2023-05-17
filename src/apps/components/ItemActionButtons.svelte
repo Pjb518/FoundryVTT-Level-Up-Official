@@ -100,7 +100,7 @@
         background: none;
         border: 0;
         transition: all 0.15s ease-in-out;
-        color: #999;
+        color: var(--icon-color, #999);
 
         &:hover {
             color: #555;
@@ -139,8 +139,8 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background: #ebe9e0;
+            border: 1px solid var(--track-border-color, #ccc);
+            background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
             font-size: 1rem;
@@ -156,10 +156,10 @@
             gap: 0.25rem;
             height: 1.5rem;
             padding: 0 1rem 0 0.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid var(--track-border-color, #ccc);
             border-left: 0;
             margin: 0;
-            background: #ebe9e0;
+            background: var(--track-background, #ebe9e0);
             border-radius: 0.75rem 0 0 0.75rem;
             list-style: none;
             opacity: 0;

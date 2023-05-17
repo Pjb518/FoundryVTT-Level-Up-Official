@@ -93,6 +93,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <li
     class="item-wrapper"
+    class:item-wrapper--highlight={item.system.prepared}
     draggable="true"
     on:dragstart={onDragStart}
     on:click={() => {
@@ -183,8 +184,18 @@
         padding-right: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 3px;
-        background: rgba(0, 0, 0, 0.05);
+        background: var(--item-background, rgba(0, 0, 0, 0.05));
         cursor: pointer;
+
+        &--highlight {
+            --icon-color: hsla(145, 100%, 15%, 0.302);
+            --indicator-background: hsla(145, 100%, 32%, 0.302);
+            --indicator-text-color: black;
+            --input-border-color: hsla(145, 100%, 15%, 0.302);
+            --item-background: hsla(145, 100%, 42%, 0.302);
+            --track-background: hsl(120, 43%, 87%);
+            --track-border-color: hsla(145, 100%, 25%, 0.302);
+        }
     }
 
     .item-image {
