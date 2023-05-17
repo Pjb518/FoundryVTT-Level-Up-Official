@@ -86,14 +86,15 @@ export default class ItemA5e extends Item {
   }
 
   async #activateAction(actionId, options) {
-    let activationData;
+    // let activationData;
     const action = this.actions[actionId];
+    const activationData = await this.#showActionActivationPrompt(actionId, options);
 
-    if (options.skipRollDialog) {
-      activationData = this.#getDefaultActionActivationData(actionId, options);
-    } else {
-      activationData = await this.#showActionActivationPrompt(actionId, options);
-    }
+    // if (options.skipRollDialog) {
+    //   activationData = this.#getDefaultActionActivationData(actionId, options);
+    // } else {
+    //   activationData = await this.#showActionActivationPrompt(actionId, options);
+    // }
 
     if (!activationData) return null;
 
