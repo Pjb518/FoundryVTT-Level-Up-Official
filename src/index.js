@@ -2,10 +2,7 @@ import './scss/main.scss';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
 
-import TokenHUDA5e from './documents/tokenHUD';
-
-import measureDistances from './pixi/measureDistances';
-
+import canvasInit from './hooks/canvasInit';
 import createActor from './hooks/createActor';
 import createToken from './hooks/createToken';
 import init from './hooks/init';
@@ -13,18 +10,9 @@ import ready from './hooks/ready';
 import setup from './hooks/setup';
 
 Hooks.once('init', init);
-
-// Once game object is ready initialize anything that requires the game object
 Hooks.once('setup', setup);
-
-// Once the entire VTT framework is initialized, check to see if we should perform a data migration
 Hooks.once('ready', ready);
-
-Hooks.on('canvasInit', () => {
-  canvas.grid.diagonalRule = game.settings.get('a5e', 'diagonalRule');
-  SquareGrid.prototype.measureDistances = measureDistances;
-  game.canvas.hud.token = new TokenHUDA5e();
-});
+Hooks.on('canvasInit', canvasInit);
 
 Hooks.on('createActor', createActor);
 Hooks.on('createToken', createToken);
