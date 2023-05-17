@@ -204,6 +204,20 @@
             </div>
         {/if}
 
+        {#if item.type === "feature"}
+            <div class="component-wrapper">
+                {#if item.system.concentration}
+                    <span
+                        class="component"
+                        data-tooltip="A5E.SpellConcentration"
+                        data-tooltip-direction="UP"
+                    >
+                        {localize("A5E.SpellConcentrationAbbr")}
+                    </span>
+                {/if}
+            </div>
+        {/if}
+
         <div class="button-wrapper">
             {#if flags.a5e?.showFavoritesSection ?? true}
                 <button
