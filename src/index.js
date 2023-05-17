@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import './scss/main.scss';
 
 import A5eChatCard from './apps/chat/ChatCard.svelte';
@@ -7,24 +5,17 @@ import A5eChatCard from './apps/chat/ChatCard.svelte';
 import TokenHUDA5e from './documents/tokenHUD';
 
 import measureDistances from './pixi/measureDistances';
-import registerSystemSettings from './settings';
 
 import createActor from './hooks/createActor';
 import createToken from './hooks/createToken';
 import init from './hooks/init';
 import ready from './hooks/ready';
-
-import setupConditions from './activeEffects/conditions';
+import setup from './hooks/setup';
 
 Hooks.once('init', init);
 
 // Once game object is ready initialize anything that requires the game object
-Hooks.once('setup', () => {
-  registerSystemSettings();
-  setupConditions();
-
-  game.a5e.activeEffects.EffectOptions.createOptions();
-});
+Hooks.once('setup', setup);
 
 // Once the entire VTT framework is initialized, check to see if we should perform a data migration
 Hooks.once('ready', ready);
