@@ -1,0 +1,112 @@
+{
+	"name": "Binding Smite (Arcane Sentinel)",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e-thematic-toolkit-arcane-avenger.arcane-avenger-toolkit-class-features.p3J8hIGUiugv4E3F"
+		}
+	},
+	"system": {
+		"actions": {
+			"Svf2nG5EFmXdudLk": {
+				"name": "Activate",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"MPivdgwOO54gz3UH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>The creature makes a Strength saving throw. If it fails, it is Restrained until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Thematic Toolkit: Arcane Avenger",
+			"link": "https://bit.ly/3MyQJNO",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"featureType": "class",
+		"prerequisite": "",
+		"ability": "",
+		"actionOptions": [
+			"savingThrow"
+		],
+		"activation": {
+			"cost": null,
+			"type": "special",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [],
+		"duration": {
+			"unit": "round",
+			"value": 1
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [],
+		"save": {
+			"dc": "@spellDC",
+			"onSave": "Negates effects.",
+			"targetAbility": "str"
+		},
+		"target": {
+			"quantity": "",
+			"type": ""
+		}
+	},
+	"_id": "p3J8hIGUiugv4E3F"
+}
