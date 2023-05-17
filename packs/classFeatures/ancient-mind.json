@@ -1,0 +1,125 @@
+{
+	"name": "Ancient Mind",
+	"type": "feature",
+	"img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.world.thematic-toolkits.AWMuYL20mfRai0kf"
+		}
+	},
+	"system": {
+		"actions": {
+			"7ovPPwZB20N4rzs3": {
+				"name": "Counter Intrusion",
+				"activation": {
+					"type": "none",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"QQvzNGc3ftmHSwU3": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d6",
+						"canCrit": false,
+						"damageType": "psychic"
+					},
+					"wqdMxfXeaMi0GIfx": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6"
+					}
+				},
+				"prompts": {
+					"kF2QI7i0KNa6cQQ1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Wisdom halves"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>At 6th level, constant exposure to forbidden lore and strange supernatural effects has both warped and hardened your mind.</p>\n<p>You have advantage on saving throws to resist spells and effects that would impose the Charmed, Confused, Frightened, or Rattled conditions on you. In addition, a creature attempting to contact you via telepathy, read your mind, or control your actions with a spell or effect (such as dominate person) must make a Wisdom save against your spell save DC or suffer 4d4 psychic damage and a condition determined by the table below. The condition persists for one minute, but the creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. A creature that succeeds on its save takes half damage and does not suffer a condition.</p>\n<table style=\"width: 100%; height: 83.9845px;\" border=\"1\"><colgroup><col style=\"width: 30.3191%;\"><col style=\"width: 69.6809%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">d6</td>\n<td style=\"text-align: center; height: 16.7969px;\">Condition</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">1-2</td>\n<td style=\"text-align: center; height: 16.7969px;\">Rattled</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">3</td>\n<td style=\"text-align: center; height: 16.7969px;\">Confused</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">4</td>\n<td style=\"text-align: center; height: 16.7969px;\">Charmed</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"text-align: center; height: 16.7969px;\">5-6</td>\n<td style=\"text-align: center; height: 16.7969px;\">Frightened</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Thematic Toolkit: Cultist",
+			"link": "https://bit.ly/3MzrfQD",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"featureType": "class",
+		"prerequisite": "",
+		"ability": "",
+		"actionOptions": [],
+		"activation": {
+			"cost": "",
+			"type": "",
+			"reactionTrigger": ""
+		},
+		"attack": {
+			"bonus": "",
+			"critThreshold": 20,
+			"type": ""
+		},
+		"area": {
+			"shape": "",
+			"size": ""
+		},
+		"check": {
+			"ability": "str"
+		},
+		"damage": [],
+		"duration": {
+			"unit": "",
+			"value": ""
+		},
+		"healing": [],
+		"proficient": true,
+		"range": [],
+		"save": {
+			"dc": "",
+			"onSave": "",
+			"targetAbility": ""
+		},
+		"target": {
+			"quantity": "",
+			"type": ""
+		}
+	},
+	"_id": "AWMuYL20mfRai0kf"
+}
