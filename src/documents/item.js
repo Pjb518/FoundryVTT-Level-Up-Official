@@ -113,7 +113,7 @@ export default class ItemA5e extends Item {
       this.actor,
       this,
       action,
-      activationData.consumers
+      activationData.consumers ?? {}
     );
 
     const validTemplate = templateManager.validateBaseTemplateData();
