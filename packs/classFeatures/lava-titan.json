@@ -1,0 +1,181 @@
+{
+	"name": "Lava Titan",
+	"type": "feature",
+	"img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
+	"system": {
+		"actions": {
+			"cLE0jSrXsWQfmLn7": {
+				"name": "Activate",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"HqPrjrfUpn8emove": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			},
+			"TygEvFl3lbc9RbmM": {
+				"name": "Bonus Weapon Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"76MfpF4OlP1aR42a": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"jBfJpQtcmyOeA9xe": {
+				"name": "Retaliatory Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"ddf362TpGxeqrZcU": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"canCrit": false,
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"XxbSWXa7onDPa2AY": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Dexterity negates"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"vjLc5pd2KeLDTUSn": {
+				"name": "Lava Splash",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"w7bcIcgy2bU4LWlk": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"EwuETg9ivIIRKRrP": {
+						"type": "damage",
+						"default": true,
+						"damageType": "fire",
+						"formula": "4d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"yLmNno6WO4DxJYaL": {
+						"range": "short"
+					},
+					"c3fQJLKdF9gsu5xd": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>Also at 20th level, as an action, you gain the ability to transform yourself into a terrifying being of animate lava. The form lasts for 1 minute. While in this lava form you gain the following benefits:</p><ul><li><p>If you would take fire damage from a source you did not create, you instead regain that many hit points. You may only regain up to 10 hit points this way per turn, with any excess being lost.</p></li><li><p>You grow to large size. Your melee attacks reach an additional 5 feet further than normal, and your unarmed strikes and melee weapon attacks deal an additional 3d6 points of fire damage. A creature hitting you with a melee weapon attack must make a Dexterity saving throw against your maneuver DC or be splashed with lava for 2d6 fire damage.&nbsp;</p></li><li><p>You gain resistance to nonmagical bludgeoning, piercing, and slashing damage.</p></li><li><p>You gain advantage on Intimidate checks.</p></li><li><p>You gain a lava splash attack that acts as a ranged weapon attack dealing 4d6 fire damage with a range of 30/60 feet.</p></li><li><p>Creatures immune to fire are treated as resistant to fire for the purpose of your attacks.</p></li></ul><p style=\"text-align: start\">Once you have used this ability, you can’t do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Fiery Justice",
+			"link": "https://bit.ly/3BwKG71",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "jky8ge3ncugy259y"
+}
