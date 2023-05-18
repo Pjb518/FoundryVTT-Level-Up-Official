@@ -1,0 +1,195 @@
+{
+	"name": "Burning Animosity",
+	"type": "spell",
+	"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+	"system": {
+		"actions": {
+			"KmZVOWkm9HEtq8eB": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"5FpglEgDfiiOS75j": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"iOyjXaidbNLl4cHB": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "fire",
+						"canCrit": false
+					},
+					"osc0ZMp6SJE1MZo6": {
+						"type": "damage",
+						"default": false,
+						"formula": "2d6",
+						"damageType": "radiant",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"z4pugYYrR4fudiWa": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Does not receive brand"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				},
+				"ranges": {
+					"MVJ9KdzRKni9wbqJ": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"wrDa0IoIXvd8Rizd": {
+				"name": "Bonus Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"Mwc08pKcStkBJuaq": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "fire"
+					},
+					"xCsvirye4cQaYPuQ": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d4",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"ZAjG9fXDCPHXLZ7A": {
+				"name": "Bonus Damage (Scaled)",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"Mwc08pKcStkBJuaq": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					},
+					"uizNLxFc2aHLn0uI": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "radiant",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p><strong>Target:</strong> 1 creature that is affected by your Studied Adversary feature</p>\n<p>You zero in on one particularly despised enemy. When you cast this spell, the target takes 2d6 points of fire or radiant damage (your choice) and must make a Wisdom save against your spell save DC. A target that fails its save is marked with a visible, glowing brand or sigil of your choice on a prominent part of its body (usually the forehead). The mark sheds bright light in a 5-foot radius and dim light in a 15-foot radius. While the mark persists, your weapon attacks deal an additional 1d4 fire or radiant damage (same as the initial damage) to the target, and it cannot benefit from invisibility or Stealth.&nbsp;</p>\n<p><strong>Cast at Higher Levels.</strong> For each slot level above 1st, you may either select an additional target or you may increase the bonus damage against the target by 1d4. This is an either-or proposition and may not be mixed and matched.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Arcane Sniper",
+			"link": "https://bit.ly/3bHQT5T",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": false,
+		"prerequisite": "Studied Adversary class feature",
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"nature",
+				"healing",
+				"movement",
+				"multiclass"
+			]
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "48952mgs5zkfzmr4"
+}
