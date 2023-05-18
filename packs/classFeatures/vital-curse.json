@@ -1,0 +1,133 @@
+{
+	"name": "Vital Curse",
+	"type": "feature",
+	"img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
+	"system": {
+		"actions": {
+			"EZgwEvLKjYs7SRVZ": {
+				"name": "Apply Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"kEpuqlATCaWvw4mM": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"Mj1atXaVRK8exeJj": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"47KWmuQFCOUi6B1s": {
+				"name": "Bonus Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"8OQESbTikKoKGnLR": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"2SOU56auVPAmlLm1": {
+				"name": "Expend Mortality Die",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"UW9fGbzB0MhXvnH1": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p><ul><li><p>When you deal damage against the cursed creature, it takes an additional 1d4 necrotic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p></li><li><p>You gain a pool of mortality dice, which begins empty. Each die represents a sliver of control over life and death. Whenever the cursed creature gains hit points, temporary hit points, rage hit points, or when a condition on it ends, add one mortality die to this pool. When a creature you can see regains hit points, you can roll a mortality die and add 1d4 to the hit points the creature regains. The pool disappears when you finish a short or long rest.</p></li></ul><p>Once you have used this feature, you can’t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Mortalist",
+			"link": "https://bit.ly/3c9JIUg",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": 1,
+			"max": 1,
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "y8e8wf7avj9an9xd"
+}
