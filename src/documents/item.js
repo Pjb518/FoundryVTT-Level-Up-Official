@@ -155,6 +155,11 @@ export default class ItemA5e extends Item {
               async: false
             })
             : null,
+          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+            ? TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+              async: false
+            })
+            : null,
           prompts: activationData.prompts,
           rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
@@ -187,6 +192,11 @@ export default class ItemA5e extends Item {
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
             ? TextEditor.enrichHTML(this.system.description, {
+              async: false
+            })
+            : null,
+          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+            ? TextEditor.enrichHTML(this.system.unidentifiedDescription, {
               async: false
             })
             : null,
