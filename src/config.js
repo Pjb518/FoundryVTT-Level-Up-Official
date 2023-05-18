@@ -587,7 +587,7 @@ A5E.publishers = {
     name: 'Ravine',
     logo: ''
   },
-  rollThemBone: {
+  rollThemBones: {
     name: 'Roll them Bones Gaming',
     logo: 'systems/a5e/assets/publisherLogos/roll-them-bones-gaming-logo.webp'
   },
