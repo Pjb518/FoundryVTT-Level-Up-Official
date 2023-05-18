@@ -1,107 +1,100 @@
 {
-  "name": "Sapping Toxin",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-maneuvers.sax7n3npc4ggyqtz"
-    }
-  },
-  "system": {
-    "actions": {
-      "eQevqNa4cTHrqjNa": {
-        "name": "Sapping Toxin",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "special",
-          "value": ""
-        },
-        "ranges": {
-          "6XF4DxlSW8eNaGXk": {
-            "range": "fiveFeet"
-          }
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "4wqxDf4yrhsoGhP4": {
-            "canCrit": false,
-            "damageType": "poison",
-            "formula": "1d4",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "v0kTBPL9AlNi1MRf": {
-            "ability": "con",
-            "onSave": "Negates effects.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@maneuverDC"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "rfGFqljmx6UHPDWY": {
-            "quantity": 1,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        }
-      }
-    },
-    "description": "<p>You expend a dose of basic poison to splash a creature with a toxin that saps its energy. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or take 1d4 poison damage and gain a level of fatigue. If this would result in the creature having levels of fatigue that exceed your proficiency bonus the creature is rattled until the end of your next turn instead.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": {
-      "name": "Thematic Toolkit: Venomous Shadow",
-      "link": "https://bit.ly/3xPedWx",
-      "publisher": "purpleMartinGames"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.003,
-      "lastMigration": {
-        "version": {
-          "schema": null,
-          "foundry": "10.291",
-          "system": "0.10.7"
-        }
-      }
-    },
-    "degree": 1,
-    "exertionCost": 1,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "vipersFangs",
-    "ability": null,
-    "proficient": true,
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Negates effects.",
-      "targetAbility": "con"
-    }
-  },
-  "_id": "sax7n3npc4ggyqtz"
+	"name": "Sapping Toxin",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-maneuvers.sax7n3npc4ggyqtz"
+		}
+	},
+	"system": {
+		"actions": {
+			"eQevqNa4cTHrqjNa": {
+				"name": "Sapping Toxin",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"6XF4DxlSW8eNaGXk": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"4wqxDf4yrhsoGhP4": {
+						"canCrit": false,
+						"damageType": "poison",
+						"formula": "1d4",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"v0kTBPL9AlNi1MRf": {
+						"ability": "con",
+						"onSave": "Negates effects.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"rfGFqljmx6UHPDWY": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": "<p>You expend a dose of basic poison to splash a creature with a toxin that saps its energy. Choose a creature within 5 feet of you. It must make a Constitution save against your maneuver DC or take 1d4 poison damage and gain a level of fatigue. If this would result in the creature having levels of fatigue that exceed your proficiency bonus the creature is rattled until the end of your next turn instead.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Thematic Toolkit: Venomous Shadow",
+			"link": "https://bit.ly/3xPedWx",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
+		},
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "vipersFangs"
+	},
+	"_id": "sax7n3npc4ggyqtz"
 }

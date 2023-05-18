@@ -1,102 +1,95 @@
 {
-  "name": "Disturbing Venom",
-  "type": "maneuver",
-  "img": "icons/skills/melee/blade-tip-smoke-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {
-      "sourceId": "Compendium.a5e.a5e-maneuvers.xiibne5089bo6fvx"
-    }
-  },
-  "system": {
-    "actions": {
-      "tA321k4THs8OIELo": {
-        "name": "Disturbing Venom",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "CEn9pjmbcnNUh2Pg": {
-            "canCrit": false,
-            "damageType": "psychic",
-            "formula": "2d6",
-            "name": "",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "UZnFvk6Dn3lurTit": {
-            "ability": "wis",
-            "onSave": "Half damage and does not suffer a level of strife.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "@maneuverDC"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "gyroCJBQdhr5OebS": {
-            "quantity": 1,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        }
-      }
-    },
-    "description": " Expend a dose of basic poison as part of a melee weapon attack. On a hit, the target must make a Wisdom saving throw, and on a failed save takes an additional 2d6 points of psychic damage and suffers a level of strife. A creature that succeeds on its save takes half damage and does not suffer a level of strife. If this would result in the creature having levels of strife that exceed your proficiency bonus the creature is frightened for one minute instead. A frightened creature may repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": {
-      "name": "Thematic Toolkit: Venomous Shadow",
-      "link": "https://bit.ly/3xPedWx",
-      "publisher": "purpleMartinGames"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "schema": {
-      "version": 0.003,
-      "lastMigration": {
-        "version": {
-          "schema": null,
-          "foundry": "10.291",
-          "system": "0.10.7"
-        }
-      }
-    },
-    "degree": 4,
-    "exertionCost": 1,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "vipersFangs",
-    "ability": null,
-    "proficient": true,
-    "save": {
-      "dc": "@maneuverDC",
-      "onSave": "Half damage and does not suffer a level of strife.",
-      "targetAbility": "wis"
-    }
-  },
-  "_id": "xiibne5089bo6fvx"
+	"name": "Disturbing Venom",
+	"type": "maneuver",
+	"img": "icons/skills/melee/blade-tip-smoke-green.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e.a5e-maneuvers.xiibne5089bo6fvx"
+		}
+	},
+	"system": {
+		"actions": {
+			"tA321k4THs8OIELo": {
+				"name": "Disturbing Venom",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"CEn9pjmbcnNUh2Pg": {
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"UZnFvk6Dn3lurTit": {
+						"ability": "wis",
+						"onSave": "Half damage and does not suffer a level of strife.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"gyroCJBQdhr5OebS": {
+						"quantity": 1,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			}
+		},
+		"description": " Expend a dose of basic poison as part of a melee weapon attack. On a hit, the target must make a Wisdom saving throw, and on a failed save takes an additional 2d6 points of psychic damage and suffers a level of strife. A creature that succeeds on its save takes half damage and does not suffer a level of strife. If this would result in the creature having levels of strife that exceed your proficiency bonus the creature is frightened for one minute instead. A frightened creature may repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Thematic Toolkit: Venomous Shadow",
+			"link": "https://bit.ly/3xPedWx",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"schema": {
+			"version": 0.003,
+			"lastMigration": {
+				"version": {
+					"schema": null,
+					"foundry": "10.291",
+					"system": "0.10.7"
+				}
+			}
+		},
+		"degree": 4,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "vipersFangs"
+	},
+	"_id": "xiibne5089bo6fvx"
 }
