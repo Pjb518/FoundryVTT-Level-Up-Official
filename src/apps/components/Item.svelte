@@ -140,8 +140,10 @@
                 {item}
             />
 
-            {@html (actionId ? action.description : item.system.description) ??
-                localize("A5E.NoDescription")}
+            {@html TextEditor.enrichHTML(
+                actionId ? action.description : item.system.description,
+                { async: false }
+            ) ?? localize("A5E.NoDescription")}
         {/if}
     </div>
 {/if}
