@@ -44,7 +44,7 @@
     // $: name = getItemName($item);
 
     const item = getContext("item");
-    const prerequisiteTypes = ["maneuver", "feature"];
+    const prerequisiteTypes = ["maneuver", "feature", "spell"];
     const headerButtonTypes = ["object"];
     const appId = getContext("appId");
     const publisher = $item.system.source?.publisher;
