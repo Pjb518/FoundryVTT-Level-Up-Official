@@ -5,6 +5,7 @@
     import FormSection from "../FormSection.svelte";
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import showActivationDialogSection from "../../../utils/showActivationDialogSection";
 
     export let consumers;
     export let actionUsesData;
@@ -27,6 +28,7 @@
     const actor = getContext("actor");
     const actionId = getContext("actionId");
     const item = getContext("item");
+    const action = $item.actions[actionId];
 
     // =======================================================
     // Consumer data
@@ -49,7 +51,7 @@
 </script>
 
 <div class="side-by-side">
-    {#if actionConsumer && actionUses?.max}
+    {#if showActivationDialogSection(action, ["actionUses"], ["actionUses"]) && actionUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
@@ -76,7 +78,7 @@
         </FormSection>
     {/if}
 
-    {#if itemConsumer && itemUses?.max}
+    {#if showActivationDialogSection(action, ["itemUses"], ["itemUses"]) && itemUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">

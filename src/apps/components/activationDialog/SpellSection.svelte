@@ -11,6 +11,7 @@
 
     const actionId = getContext("actionId");
     const actor = getContext("actor");
+    const item = getContext("item");
     const { A5E } = CONFIG;
     const spellLevels = Object.entries(A5E.spellLevels).slice(1);
 
@@ -31,22 +32,30 @@
         spellData.consume = option;
 
         // Update disabled list
-        if (option === "spellSlot") disableSpellSlot();
-        else if (option === "spellPoint") disableSpellPoint();
+        if (option === "spellSlot") disableSpellSlotOptions();
+        else if (option === "spellPoint") disableSpellPointOptions();
+        else if (option === "noConsume") disableBaseSlotOptions();
         else disabled = [];
 
         spellData.level = consumer.spellLevel;
     }
 
-    function disableSpellSlot() {
+    function disableBaseSlotOptions() {
+        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        disabled = spellLevels.slice(0, baseLevel - 1).map((i) => i[0]);
+    }
+
+    function disableSpellSlotOptions() {
         const temp = new Set(spellLevels.map((i) => i[0]));
+        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
         disabled = [
             ...temp.difference(new Set(availableSpellSlots)),
-            ...spellLevels.slice(0, consumer.spellLevel - 1).map((i) => i[0]),
+            ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
         ];
     }
 
-    function disableSpellPoint() {
+    function disableSpellPointOptions() {
+        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
         const cap = Object.entries(A5E.spellLevelCost).reduce(
             (acc, [level, cost]) => {
                 if (Number(cost) <= availablePoints) acc = Number(level);
@@ -56,7 +65,7 @@
         );
 
         disabled = [
-            ...spellLevels.slice(0, consumer.spellLevel - 1).map((i) => i[0]),
+            ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
             ...spellLevels.map((i) => i[0]).slice(cap),
         ];
     }
@@ -76,23 +85,29 @@
 
     // =======================================================
     // Consumer data
-    const consumer = Object.values(consumers.spell ?? {})[0][1];
-    let mode = consumer.mode;
+    const consumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
+    let mode = consumer.mode ?? "variable";
 
-    spellData.level = consumer.spellLevel;
-    spellData.points = consumer.points;
+    spellData.level = consumer.spellLevel ?? $item.system?.level ?? 1;
+    spellData.points =
+        consumer.points ?? A5E.spellLevelCost[$item.system?.level ?? 1] ?? 1;
     spellData.basePoints = consumer.points ?? 1;
     spellData.baseLevel = consumer.spellLevel ?? 1;
 
-    spellData.consume =
-        mode === "pointsOnly"
-            ? "spellPoint"
-            : availableSpellSlots.length > 0
-            ? "spellSlot"
-            : "spellPoint";
+    if (foundry.utils.isEmpty(consumer)) {
+        spellData.consume = "noConsume";
+    } else {
+        spellData.consume =
+            mode === "pointsOnly"
+                ? "spellPoint"
+                : availableSpellSlots.length > 0
+                ? "spellSlot"
+                : "spellPoint";
+    }
 
-    if (spellData.consume === "spellSlot") disableSpellSlot();
-    else disableSpellPoint();
+    if (spellData.consume === "spellSlot") disableSpellSlotOptions();
+    else if (spellData.consume === "noConsume") disableBaseSlotOptions();
+    else disableSpellPointOptions();
 </script>
 
 {#if ["variable", "spellsOnly"].includes(mode)}
