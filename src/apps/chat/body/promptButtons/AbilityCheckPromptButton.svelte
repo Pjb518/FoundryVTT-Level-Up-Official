@@ -10,6 +10,11 @@
     function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
+        if (!tokenActors.length) {
+            ui.notifications.warn("No tokens selected");
+            return;
+        }
+
         tokenActors.forEach((a) => {
             a.rollAbilityCheck(prompt.ability);
         });
