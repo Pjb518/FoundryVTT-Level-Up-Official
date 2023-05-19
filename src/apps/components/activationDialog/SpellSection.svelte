@@ -5,6 +5,7 @@
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import { empty } from "svelte/internal";
 
     export let consumers;
     export let spellData;
@@ -131,16 +132,20 @@
                     updateLevelAndPoints(Number(detail))}
             />
 
-            <!-- Select Consume Option -->
-            <h3 class="u-text-bold u-text-sm">
-                {localize("A5E.ConsumeOptions")}
-            </h3>
+            <!-- svelte-ignore missing-declaration -->
+            {#if !foundry.utils.isEmpty(consumer)}
+                <!-- Select Consume Option -->
+                <h3 class="u-text-bold u-text-sm">
+                    {localize("A5E.ConsumeOptions")}
+                </h3>
 
-            <RadioGroup
-                options={Object.entries(consumeOptions)}
-                selected={spellData.consume}
-                on:updateSelection={({ detail }) => updateConsumeOption(detail)}
-            />
+                <RadioGroup
+                    options={Object.entries(consumeOptions)}
+                    selected={spellData.consume}
+                    on:updateSelection={({ detail }) =>
+                        updateConsumeOption(detail)}
+                />
+            {/if}
         </section>
     </FormSection>
 {/if}
@@ -168,13 +173,16 @@
             </div>
         </div>
 
-        <Checkbox
-            label="A5E.ConsumeSpellPoints"
-            checked={spellData.consume === "spellPoint" ? true : false}
-            on:updateSelection={({ detail }) => {
-                spellData.consume = detail ? "spellPoints" : "noConsume";
-            }}
-        />
+        <!-- svelte-ignore missing-declaration -->
+        {#if !foundry.utils.isEmpty(consumer)}
+            <Checkbox
+                label="A5E.ConsumeSpellPoints"
+                checked={spellData.consume === "spellPoint" ? true : false}
+                on:updateSelection={({ detail }) => {
+                    spellData.consume = detail ? "spellPoints" : "noConsume";
+                }}
+            />
+        {/if}
     </FormSection>
 {/if}
 
