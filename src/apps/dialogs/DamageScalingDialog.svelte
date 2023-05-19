@@ -11,7 +11,6 @@
     }
 
     export let actionId;
-    export let dialog;
     export let item;
     export let rollId;
 
