@@ -21,6 +21,7 @@ interface DamageRoll extends BaseRoll {
   critBonus?: string;
   damageType?: DamageTypes;
   formula: string;
+  scaling?: ScalingProperties;
 }
 
 interface GenericRoll extends BaseRoll {
@@ -30,6 +31,7 @@ interface GenericRoll extends BaseRoll {
 interface HealingRoll extends BaseRoll {
   formula: string;
   healingType?: HealingTypes;
+  scaling?: ScalingProperties;
 }
 
 interface SavingThrowRoll extends BaseRoll {

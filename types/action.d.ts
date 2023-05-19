@@ -60,7 +60,7 @@ interface Action {
   area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
   duration: DurationProperties
 
-  consumers: {};
+  consumers: Any;
 
   prompts: {};
 
