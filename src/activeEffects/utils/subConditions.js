@@ -21,6 +21,8 @@ export async function addSubConditions(conditionData) {
   // Set other conditions
   for (const c of conditionData.flags.a5e.conditions) {
     const effect = CONFIG.statusEffects.find((e) => e.id === c);
+
+    // TODO: Allow multiple sources of the same effect
     foundry.utils.setProperty(effect, 'flags.a5e.source', conditionData.statuses.first());
     await token.toggleActiveEffect(effect, { active: true });
   }
@@ -39,7 +41,6 @@ export async function removeSubConditions(conditionData) {
 
   // Guards
   if (!token) return;
-  // if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
   if (conditions.intersection(conditionData.statuses).size === 0) return;
   if (!conditionData.flags?.a5e?.conditions) return;
 
@@ -54,16 +55,17 @@ export async function removeSubConditions(conditionData) {
 //                    Delete Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function preventIfSourceActivated(conditionData) {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
+  const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
   const sourceId = conditionData.flags?.a5e?.source;
   const token = getTokenFromActor(conditionData.parent);
 
   // Guards
-  if (!token) return;
-  if (!sourceId) return;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+  if (!token) return true;
+  if (!sourceId) return true;
+  if (conditions.intersection(conditionData.statuses).size === 0) return true;
   const hasEffect = token.hasStatusEffect(sourceId);
+  if (!hasEffect) return true;
 
-  // eslint-disable-next-line consistent-return
-  return !hasEffect;
+  ui.notifications.error(`This condition cannot be removed as long as ${sourceId} is active.`);
+  return false;
 }
