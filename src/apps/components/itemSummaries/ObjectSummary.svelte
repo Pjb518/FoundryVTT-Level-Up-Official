@@ -10,8 +10,17 @@
     export let actionId = "";
     export let item;
 
+    const { weaponProperties } = CONFIG.A5E;
     let listHeight;
 </script>
+
+{#if !actionId && item.system.objectType === "weapon" && item.system.weaponProperties.length}
+    <p class="object-properties">
+        {item.system.weaponProperties
+            .map((property) => localize(weaponProperties[property] ?? property))
+            .join(", ")}
+    </p>
+{/if}
 
 <dl
     bind:clientHeight={listHeight}
@@ -36,6 +45,11 @@
     dd {
         margin: 0;
         padding: 0;
+    }
+
+    .object-properties {
+        font-style: italic;
+        margin-bottom: 0.5rem;
     }
 
     .summary-list {
