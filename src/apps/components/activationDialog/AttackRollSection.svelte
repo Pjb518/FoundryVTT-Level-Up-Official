@@ -47,10 +47,12 @@
         }
     );
 
+    console.log(attackRoll);
+
     $: rollFormula = getRollFormula($actor, {
         ability: attackAbility,
         attackBonus: attackRoll?.bonus,
-        attackType: attackRoll?.type,
+        attackType: attackRoll?.attackType,
         expertiseDie,
         proficient: attackRoll?.proficient ?? true,
         situationalMods,

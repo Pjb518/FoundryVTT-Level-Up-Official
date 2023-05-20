@@ -49,8 +49,6 @@
     const hasRolls = rolls.length;
     const hasPrompts = Object.values(prompts).flat().length;
     const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
-
-    console.log(unidentifiedDescription);
 </script>
 
 <article>
