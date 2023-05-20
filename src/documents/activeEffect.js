@@ -204,11 +204,15 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
+      // Add status effects to actor list
+      effect.statuses.forEach((statusId) => document.statuses.add(statusId));
+
       return effect.changes.filter(predicate).map((change) => {
         change.priority = change.priority ?? change.mode * 10;
         return { effect, change };
       });
     });
+
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
 
     // Apply changes to calling document

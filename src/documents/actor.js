@@ -219,7 +219,7 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-     * Empty return because we apply affects with custom handlers
+     * Initialize new statuses configuration to actor.
      * @override
      */
   applyActiveEffects() { }
@@ -229,11 +229,32 @@ export default class ActorA5e extends Actor {
    */
   applyActiveEffectsToBaseData() {
     this.overrides = {};
+
+    this.statuses ??= new Set();
+
+    // Identify which special statuses had been active
+    const specialStatuses = new Map();
+    Object.values(CONFIG.specialStatusEffects).forEach((statusId) => {
+      specialStatuses.set(statusId, this.statuses.has(statusId));
+    });
+
+    this.statuses.clear();
+
     ActiveEffectA5e.applyEffects(
       this,
       this.actorEffects,
       (change) => !this.derivedProperties.has(change.key)
     );
+
+    // Apply special statuses that changed to active tokens
+    let tokens;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [statusId, wasActive] of specialStatuses) {
+      const isActive = this.statuses.has(statusId);
+      if (isActive === wasActive) return;
+      tokens ??= this.getActiveTokens();
+      tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
+    }
   }
 
   /**
