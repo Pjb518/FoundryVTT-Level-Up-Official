@@ -43,6 +43,15 @@ export default function registerSystemSettings() {
     }
   });
 
+  game.settings.register('a5e', '5eStyleDeathSaves', {
+    name: 'A5E.settings.5eStyleDeathSaves',
+    hint: 'A5E.settings.hints.5eStyleDeathSaves',
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register('a5e', 'itemRightClickConfigure', {
     name: 'A5E.settings.itemRightClickConfigure',
     hint: 'A5E.settings.itemRightClickConfigure',

@@ -959,15 +959,23 @@ export default class ActorA5e extends Actor {
   }
 
   async updateDeathSavingThrowFigures(roll) {
-    const { success, failure } = this.system.attributes.death;
+    const { death, fatigue, strife } = this.system.attributes;
+    const { success, failure } = death;
     const d20Result = roll.dice[0].total;
 
     const updates = {
       'system.attributes.death': { success, failure }
     };
 
-    if (d20Result === 1) updates['system.attributes.death'].failure += 2;
-    else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
+    if (d20Result === 1) {
+      if (game.settings.get('a5e', '5eStyleDeathSaves')) {
+        updates['system.attributes.death'].failure += 2;
+      } else {
+        updates['system.attributes.death'].failure += 1;
+        updates['system.attributes.fatigue'] = fatigue + 1;
+        updates['system.attributes.strife'] = strife + 1;
+      }
+    } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
     else if (d20Result < 10) updates['system.attributes.death'].failure += 1;
     else updates['system.attributes.death'].success += 1;
 
