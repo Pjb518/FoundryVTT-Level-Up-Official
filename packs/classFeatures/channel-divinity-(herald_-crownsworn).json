@@ -1,0 +1,127 @@
+{
+	"name": "Channel Divinity (Herald: Crownsworn)",
+	"type": "feature",
+	"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+	"system": {
+		"actions": {
+			"1xVT0N2PdABfVLt2": {
+				"name": "Invoke the Crown",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"cVNq1ZPU5yewYVW7": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": "Channel Divinity"
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you invoke the authority of those you serve. For the next hour, you gain advantage and an expertise die on all charisma Checks made with those who recognize that authority.</p>",
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			},
+			"CjwhchoQtj9rAXvc": {
+				"name": "Kneel",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"S0tfGZyq8vuzpyDG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": "Channel Divinity"
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"STnfKuUzR5Lh6XMP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Negates"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you command others to kneel in respect. All creatures within 30 feet except constructs that can hear and understand you must make a Wisdom saving throw. On a failure they must spend their next turn going prone and taking no other action.</p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"9q01ndq3zCI8YhiL": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<p>&nbsp;</p>\n<h2>Invoke the Crown</h2>\n<p>As an action, you invoke the authority of those you serve. For the next hour, you gain advantage and an expertise die on all charisma Checks made with those who recognize that authority.</p>\n<p>&nbsp;</p>\n<h2>Kneel</h2>\n<p>As an action, you command others to kneel in respect. All creatures within 30 feet except constructs that can hear and understand you must make a Wisdom saving throw. On a failure they must spend their next turn going prone and taking no other action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.world.heralds.zdizhRVgbGZearNi"
+		}
+	},
+	"_id": "zdizhRVgbGZearNi"
+}
