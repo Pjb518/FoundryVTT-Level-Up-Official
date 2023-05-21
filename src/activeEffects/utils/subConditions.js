@@ -58,11 +58,13 @@ export function preventIfSourceActivated(conditionData) {
   const token = getTokenFromActor(conditionData.parent);
 
   // Guards
-  if (!token) return;
-  if (!sourceId) return;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
-  const hasEffect = token.hasStatusEffect(sourceId);
+  if (!token) return true;
+  if (!sourceId) return true;
+  if (!conditions.includes(conditionData.flags?.core?.statusId)) return true;
 
-  // eslint-disable-next-line consistent-return
-  return !hasEffect;
+  const hasEffect = token.hasStatusEffect(sourceId);
+  if (!hasEffect) return true;
+
+  ui.notifications.error(`This condition cannot be removed as long as ${sourceId} is active.`);
+  return false;
 }
