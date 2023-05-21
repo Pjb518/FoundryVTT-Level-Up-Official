@@ -6,6 +6,7 @@ import getRollFormula from '../utils/getRollFormula';
 import overrideRollMode from '../utils/overrideRollMode';
 import overrideExpertiseDie from '../utils/overrideExpertiseDie';
 import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import prepareHitDice from '../apps/dataPreparationHelpers/prepareHitDice';
 import prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
@@ -284,9 +285,66 @@ export default class ItemA5e extends Item {
   #getDefaultConsumerData(consumers) {
     // Prepare the default action uses data.
     const actionUsesData = {};
+    const actionConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'actionUses');
+    actionUsesData.quantity = actionConsumer?.quantity ?? 1;
+    actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
+
+    // Prepare the default hit-dice data.
     const hitDiceData = {};
-    const itemsData = {};
+    const hitDiceConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'hitDice');
+    const availableHitDice = prepareHitDice(this.parent).reduce(
+      (acc, { die, total }) => {
+        if (total > 0) acc.push(die);
+        return acc;
+      },
+      []
+    );
+    hitDiceData.selected = Object.fromEntries(
+      availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])
+    );
+    hitDiceData.default = hitDiceConsumer.default;
+
+    // Prepare the default item uses data.
+    const itemUsesData = {};
+    const itemConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'itemUses');
+    itemUsesData.quantity = itemConsumer?.quantity ?? 1;
+    itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
+
+    // Prepare the default action uses data.
     const spellData = {};
+    const spellConsumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
+    const mode = spellConsumer.mode ?? 'variable';
+    const availableSpellSlots = Object.entries(this.parent?.system?.spellResources?.slots ?? {})
+      .reduce(
+        (acc, [level, slot]) => {
+          if (slot.max > 0 && slot.current > 0) acc.push(level);
+          return acc;
+        },
+        []
+      );
+
+    const spellLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
+    const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
+    spellData.level = spellLevel;
+    spellData.points = spellPoints;
+    spellData.basePoints = spellLevel;
+    spellData.baseLevel = spellPoints;
+    if (foundry.utils.isEmpty(spellConsumer)) {
+      spellData.consume = 'noConsume';
+    } else {
+      // eslint-disable-next-line no-nested-ternary
+      spellData.consume = mode === 'pointsOnly'
+        ? 'spellPoint'
+        : availableSpellSlots.length > 0
+          ? 'spellSlot'
+          : 'spellPoint';
+    }
+  }
+
+  #getConsumerFromPreparedConsumers(consumers, type) {
+    if (foundry.utils.isEmpty(consumers?.[type])) return null;
+    const [_, consumer] = Object.values(consumers[type]);
+    return consumer;
   }
 
   async configureItem() {
