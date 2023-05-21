@@ -281,6 +281,14 @@ export default class ItemA5e extends Item {
     };
   }
 
+  #getDefaultConsumerData(consumers) {
+    // Prepare the default action uses data.
+    const actionUsesData = {};
+    const hitDiceData = {};
+    const itemsData = {};
+    const spellData = {};
+  }
+
   async configureItem() {
     await this.sheet.render(true);
   }

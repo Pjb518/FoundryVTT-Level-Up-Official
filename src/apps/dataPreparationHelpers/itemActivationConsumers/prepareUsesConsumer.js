@@ -3,5 +3,5 @@ export default function prepareUsesConsumer(consumers) {
 
   const [key, consumer] = consumers[0];
 
-  return [[key, consumer]];
+  return [key, consumer];
 }

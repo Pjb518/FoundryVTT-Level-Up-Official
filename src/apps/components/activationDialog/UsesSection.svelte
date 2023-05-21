@@ -13,16 +13,14 @@
 
     function getActionConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.actionUses)) return null;
-        const [actionUses] = Object.values(consumers.actionUses);
-        if (foundry.utils.isEmpty(actionUses)) return null;
-        return actionUses[1];
+        const [_, consumer] = Object.values(consumers.actionUses);
+        return consumer;
     }
 
     function getItemConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.itemUses)) return null;
-        const [itemUses] = Object.values(consumers.itemUses);
-        if (foundry.utils.isEmpty(itemUses)) return null;
-        return itemUses[1];
+        const [_, consumer] = Object.values(consumers.itemUses);
+        return consumer;
     }
 
     const actor = getContext("actor");
