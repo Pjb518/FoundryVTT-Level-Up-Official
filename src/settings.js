@@ -46,7 +46,7 @@ export default function registerSystemSettings() {
   game.settings.register('a5e', '5eStyleDeathSaves', {
     name: 'A5E.settings.5eStyleDeathSaves',
     hint: 'A5E.settings.hints.5eStyleDeathSaves',
-    scope: 'client',
+    scope: 'world',
     config: true,
     type: Boolean,
     default: false
