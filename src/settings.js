@@ -3,67 +3,6 @@ import SettingsShim from './settings/SettingsShim';
 
 import { gameSettings } from './settings/SettingsStore';
 
-class ConditionAutomationSettings extends FormApplication {
-  static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
-      title: 'Condition Automation Settings',
-      id: 'condition-automation-settings',
-      template: 'systems/a5e/templates/conditionAutomationMenu.hbs',
-      width: '600',
-      height: 'auto',
-      closeOnSubmit: true,
-      resizable: true
-
-    });
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  getData(options = {}) {
-    this.conditions = [
-      'blinded',
-      'bloodied',
-      'encumbered',
-      // 'fatigue',
-      // 'frightened',
-      'grappled',
-      'invisible',
-      'paralyzed',
-      'petrified',
-      'poisoned',
-      'prone',
-      'rattled',
-      'restrained',
-      'slowed',
-      // 'strife',
-      'stunned',
-      'unconscious'
-    ];
-
-    const enabledConditions = game.settings.get('a5e', 'automatedConditions');
-
-    const data = {};
-    this.conditions.forEach((c) => {
-      data[c] = {
-        label: game.i18n.localize(`A5E.Condition${c.capitalize()}`),
-        checked: enabledConditions.includes(c)
-      };
-    });
-
-    return data;
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-  }
-
-  async _updateObject(_, formData) {
-    const updatedConditions = formData.conditions.filter((c) => c);
-    await game.settings.set('a5e', 'automatedConditions', updatedConditions);
-
-    this.render();
-  }
-}
-
 export default function registerSystemSettings() {
   gameSettings.init();
 
