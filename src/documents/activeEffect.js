@@ -36,22 +36,16 @@ export default class ActiveEffectA5e extends ActiveEffect {
   get isSuppressed() {
     // TODO: Refactor this when item effects are added
     if (this.disabled || this.parent.documentName !== 'Actor') return true;
-
     const { parentItem } = this;
-
     if (!parentItem) return false;
-
     return parentItem?.system?.equipped;
   }
 
   get parentItem() {
     if (this.parent instanceof Actor) return null;
-
     const idRegex = /Item\.([a-zA-Z0-9]+)/;
-
     const itemId = this.origin?.match(idRegex)?.[1];
     if (!itemId) return null;
-
     return this.parent.items.get(itemId);
   }
 
@@ -246,7 +240,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
   static createDefaultEffect(parentDocument) {
     const data = {
       name: localize('A5E.effects.new'),
-      icon: this.FALLBACK_ICON
+      icon: this.FALLBACK_ICON,
+      flags: {
+        a5e: {
+          sort: 0,
+          phase: 'applyAEs'
+        }
+      }
     };
     return super.create(data, { parent: parentDocument });
   }
