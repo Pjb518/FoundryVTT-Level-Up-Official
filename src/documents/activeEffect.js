@@ -16,28 +16,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   static PHASES = ['applyAEs', 'beforeDerived', 'afterDerived'];
 
-  static defineSchema() {
-    return {
-      ...super.defineSchema(),
-      description: new fields.StringField({
-        required: false,
-        nullable: true,
-        initial: ''
-      }),
-      sort: new fields.NumberField({
-        required: true,
-        nullable: false,
-        initial: 0
-      }),
-      phase: new fields.StringField({
-        required: false,
-        nullable: false,
-        choices: foundry.utils.deepClone(this.PHASES),
-        initial: 'applyAEs'
-      })
-    };
-  }
-
   source = undefined;
 
   /**
