@@ -16,7 +16,19 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   static PHASES = ['applyAEs', 'beforeDerived', 'afterDerived'];
 
-  source = undefined;
+  /**
+   * Set a custom img path for ActiveEffect
+   * @param {*} options
+   */
+  _initialize(options) {
+    super._initialize(options);
+
+    Object.defineProperty(this, 'img', {
+      get: () => this.icon || ActiveEffectA5e.FALLBACK_ICON,
+      configurable: true,
+      enumerable: false
+    });
+  }
 
   /**
    * @returns {Boolean}
