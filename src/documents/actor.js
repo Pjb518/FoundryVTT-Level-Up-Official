@@ -78,9 +78,7 @@ export default class ActorA5e extends Actor {
    * @returns {Set<String>}
    */
   get derivedProperties() {
-    return new Set(Object.keys(
-      game.a5e.activeEffects.EffectOptions.options[this.type].derivedOptionsObj
-    ));
+    return game.a5e.activeEffects.EffectOptions.options[this.type].derivedOptions;
   }
 
   /**
