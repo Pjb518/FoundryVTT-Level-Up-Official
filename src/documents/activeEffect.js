@@ -6,18 +6,37 @@ import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
-/** TODO:
- * - Allow editing of owned items.
- * - Enable active effects on item equip/unequip.
- * - Allow references to core actor data.
- * - Allow arithmetic in data definitions.
- * - Priority of effects.
- * - Allow macros to be executed.
- *
+const { fields } = foundry.data;
+
+/**
  * Add system-specific logic to the base ActiveEffect Class
-*/
+ */
 export default class ActiveEffectA5e extends ActiveEffect {
   static FALLBACK_ICON = 'icons/svg/aura.svg';
+
+  static PHASES = ['applyAEs', 'beforeDerived', 'afterDerived'];
+
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      description: new fields.StringField({
+        required: false,
+        nullable: true,
+        initial: ''
+      }),
+      sort: new fields.NumberField({
+        required: true,
+        nullable: false,
+        initial: 0
+      }),
+      phase: new fields.StringField({
+        required: false,
+        nullable: false,
+        choices: foundry.utils.deepClone(this.PHASES),
+        initial: 'applyAEs'
+      })
+    };
+  }
 
   source = undefined;
 
@@ -237,8 +256,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   static createDefaultEffect(parentDocument) {
     const data = {
       name: localize('A5E.effects.new'),
-      icon: this.FALLBACK_ICON,
-      flags: { a5e: { sort: 0 } }
+      icon: this.FALLBACK_ICON
     };
     return super.create(data, { parent: parentDocument });
   }
