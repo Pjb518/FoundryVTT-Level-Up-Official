@@ -1,0 +1,76 @@
+{
+	"name": "A Blessing or a Curse (Blessing)",
+	"type": "feature",
+	"img": "icons/magic/unholy/projectiles-binary-pink.webp",
+	"system": {
+		"actions": {
+			"MSqBt73TpH49Fki1": {
+				"name": "Witch’s Blessing",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": " a creature you can see fails an ability check, attack roll, or saving throw"
+				},
+				"consumers": {},
+				"rolls": {
+					"3zW7e93QfJ7rHvYR": {
+						"type": "generic",
+						"default": true,
+						"label": "1d4 + your spellcasting ability modifier",
+						"formula": "1d4"
+					},
+					"Y28dD4Mm2QA2OfoW": {
+						"type": "generic",
+						"default": false,
+						"label": "Mystery: Bountiful Blessing: 1d8 + your spellcasting ability modifier",
+						"formula": "1d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">When a creature you can see fails an ability check, attack roll, or saving throw, you may use your reaction to apply a bonus equal to 1d4 + your spellcasting ability modifier, potentially changing the result of the roll.</p>",
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">At 5th level, you gain the ability to manipulate the strands of fortune and fate. You may do so a number of times equal to your proficiency bonus, regaining expended uses on a long rest. Choose one of the following:</p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\"><strong>Witch&rsquo;s Blessing</strong></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\">When a creature you can see fails an ability check, attack roll, or saving throw, you may use your reaction to apply a bonus equal to 1d4 + your spellcasting ability modifier, potentially changing the result of the roll.</p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt;\"><strong><s>Witch&rsquo;s Curse</s></strong></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Mysterious and Marvelous Miscellanea",
+			"link": "https://bit.ly/42ysoNZ",
+			"publisher": "rollThemBones"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": "Level 5 Witch Class"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "lyhnfuzxfpj0sxid"
+}
