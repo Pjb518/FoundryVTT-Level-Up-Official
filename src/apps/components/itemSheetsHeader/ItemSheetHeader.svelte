@@ -142,30 +142,32 @@
         </div>
     {/if}
 
-    {#if publisherLogo}
-        <a
-            href={productLink}
-            class="publisher-logo"
-            data-tooltip={publisherTooltip}
-            data-tooltip-direction="UP"
-        >
-            <img
-                class="publisher-logo__image"
-                src={publisherLogo}
-                alt={publisherTooltip}
-            />
-        </a>
-    {/if}
+    <div class="u-flex u-flex-shrink-0 u-align-center u-gap-xl">
+        {#if $item.type === "destiny"}
+            <button
+                class="fulfil-button"
+                disabled={disableFulfil}
+                on:click={() => fulfilDestiny()}
+            >
+                {localize("A5E.FulfilDestiny")}
+            </button>
+        {/if}
 
-    {#if $item.type === "destiny"}
-        <button
-            class="fulfil-button"
-            disabled={disableFulfil}
-            on:click={() => fulfilDestiny()}
-        >
-            {localize("A5E.FulfilDestiny")}
-        </button>
-    {/if}
+        {#if publisherLogo}
+            <a
+                href={productLink}
+                class="publisher-logo"
+                data-tooltip={publisherTooltip}
+                data-tooltip-direction="UP"
+            >
+                <img
+                    class="publisher-logo__image"
+                    src={publisherLogo}
+                    alt={publisherTooltip}
+                />
+            </a>
+        {/if}
+    </div>
 </header>
 
 <style lang="scss">
