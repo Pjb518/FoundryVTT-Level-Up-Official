@@ -504,6 +504,28 @@
         height: 1.75rem;
     }
 
+    .action-button {
+        padding: 0.25rem;
+        background: none;
+        border: 0;
+        transition: all 0.15s ease-in-out;
+        color: #999;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .delete-button:hover {
+        color: #8b2525;
+    }
+
     .damage-bonus-list {
         display: flex;
         flex-direction: column;
