@@ -1,14 +1,9 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable consistent-return */
-
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
 import getCorrectedTypeValueFromKey from './getCorrectedTypeValueFromKey';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import castType from '../../utils/castType';
-
-const { fields } = foundry.data;
 
 /**
  * Add system-specific logic to the base ActiveEffect Class
@@ -57,10 +52,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
   /**
    * @inheritdoc
    */
-  apply(actor, change) {
+  apply(actor, _change) {
     if (this.isSuppressed) return null;
+    const change = foundry.utils.deepClone(_change);
 
-    // Validate Data
+    // TODO:  Resolve/Validate Data
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
@@ -71,8 +67,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
     );
 
     const newValue = this.#getNewValue(current, change, delta);
+    const changes = { [change.key]: newValue };
 
-    return super.apply(actor, change);
+    // Apply all changes to the Actor data
+    foundry.utils.mergeObject(actor, changes);
+    return changes;
+    // return super.apply(actor, change);
   }
 
   /**
@@ -81,45 +81,75 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} change
    */
   #getNewValue(current, change, delta) {
+    const MODES = CONST.ACTIVE_EFFECT_MODES;
     const { mode } = change;
 
-    if (mode === 'ADD') return this.#addOrSubtractValues(current, delta);
+    if (mode === MODES.ADD) return this.#addOrSubtractValues(current, delta);
 
-    if (mode === 'MULTIPLY') { }
+    if (mode === MODES.MULTIPLY) {
+      if (!(typeof delta === 'number' && (typeof current === 'number' || current === undefined))) return current;
+      return Math.trunc((current ?? 0) * delta);
+    }
 
-    if (['SUBTRACT', 'REMOVE'].includes(mode)) { }
+    if ([MODES.SUBTRACT, MODES.REMOVE].includes(mode)) {
+      const addedChange = (typeof current === 'number' || current === undefined) && typeof delta === 'number'
+        ? -1 * delta
+        : delta;
 
-    if (mode === 'DOWNGRADE') { }
+      return this.#addOrSubtractValues(current, addedChange);
+    }
 
-    if (mode === 'UPGRADE') { }
+    if (mode === MODES.DOWNGRADE) {
+      if (!(typeof change === 'number' && (typeof delta === 'number' || delta === undefined))) return current;
+      return Math.min(current ?? 0, delta);
+    }
 
-    if (mode === 'OVERRIDE') { }
+    if (mode === MODES.UPGRADE) {
+      if (!(typeof change === 'number' && (typeof delta === 'number' || delta === undefined))) return current;
+      return Math.max(current ?? 0, delta);
+    }
 
-    if (mode === 'CUSTOM') { }
+    if (mode === MODES.OVERRIDE) {
+      // TODO: Add support for objects
+      return delta;
+    }
 
-    return null;
+    if (mode === MODES.CUSTOM) {
+      return this.#applyCustom(change);
+    }
+
+    return current;
   }
 
-  #addOrSubtractValues(current, change) {
-    const isNumericAddition = typeof change === 'number'
+  #addOrSubtractValues(current, delta, isSubtract = false) {
+    const isNumericAddition = typeof delta === 'number'
       && (typeof current === 'number' || [undefined, null].includes(current));
-    const isArrayAdd = Array.isArray(current) && current.every((e) => typeof e === typeof change);
-    const isSetAdd = current instanceof Set;
+    const isArrayAdd = Array.isArray(current) && delta instanceof Array;
+    const isSetAdd = current instanceof Set && delta instanceof Set;
 
-    if (isNumericAddition) return (current ?? 0) + change;
-    if (isArrayAdd || isSetAdd) return change;
+    if (isNumericAddition) {
+      if (isSubtract) return (current ?? 0) - delta;
+      return (current ?? 0) + delta;
+    }
 
-    return null;
+    if (isArrayAdd) {
+      if (isSubtract) return current.filter((e) => e !== delta.includes(e));
+      return [...current, ...delta];
+    }
+
+    if (isSetAdd) {
+      if (isSubtract) return current.difference(delta);
+      return current.union(delta);
+    }
+
+    return current;
   }
 
-  /**
-   * @inheritdoc
-   */
-  _applyCustom(document, change, current, delta, changes) {
-    if (!change.key.startsWith('flags.a5e.effects')) { return super._applyCustom(document, change, current, delta, changes); }
+  #applyCustom(change) {
+    if (!change.key.startsWith('flags.a5e.effects')) return null;
 
     let newKey = '';
-    let update = '';
+    let delta = '';
 
     // TODO: Move to own utility function
     switch (change.key) {
@@ -127,17 +157,18 @@ export default class ActiveEffectA5e extends ActiveEffect {
       case 'flags.a5e.effects.damageVulnerabilities.all':
       case 'flags.a5e.effects.damageImmunities.all':
         newKey = `system.traits.${change.key.split('.').at(-2)}`;
-        update = Object.keys(CONFIG.A5E.damageTypes);
+        delta = Object.keys(CONFIG.A5E.damageTypes);
         break;
       case 'flags.a5e.effects.conditionImmunities.all':
         newKey = `system.traits.${change.key.split('.').at(-2)}`;
-        update = Object.keys(CONFIG.A5E.conditions);
+        delta = Object.keys(CONFIG.A5E.conditions);
         break;
       default:
         break;
     }
 
-    changes[newKey] = update;
+    change.key = newKey;
+    return delta;
   }
 
   async duplicateEffect() {
@@ -198,6 +229,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       // Invalid roll formula is handled in UI.
       return change.value;
     }
+
+    return change.value;
   }
 
   /**
