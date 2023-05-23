@@ -4,7 +4,9 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-import getDeterministicBonus from '../dice/getDeterministicBonus';
+import getCorrectedTypeValueFromKey from './getCorrectedTypeValueFromKey';
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
+import castType from '../../utils/castType';
 
 const { fields } = foundry.data;
 
@@ -12,22 +14,22 @@ const { fields } = foundry.data;
  * Add system-specific logic to the base ActiveEffect Class
  */
 export default class ActiveEffectA5e extends ActiveEffect {
+  // -------------------------------------------------------
+  //  Static Properties
+  // -------------------------------------------------------
   static FALLBACK_ICON = 'icons/svg/aura.svg';
 
   static PHASES = ['applyAEs', 'beforeDerived', 'afterDerived'];
 
+  // -------------------------------------------------------
+  //  Getters
+  // -------------------------------------------------------
   /**
-   * Set a custom img path for ActiveEffect
-   * @param {*} options
+   * Convenience access to the ActiveEffect's icon field
+   * @returns {String}
    */
-  _initialize(options) {
-    super._initialize(options);
-
-    Object.defineProperty(this, 'img', {
-      get: () => this.icon || ActiveEffectA5e.FALLBACK_ICON,
-      configurable: true,
-      enumerable: false
-    });
+  get img() {
+    return this.icon || ActiveEffectA5e.FALLBACK_ICON;
   }
 
   /**
@@ -49,13 +51,60 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return this.parent.items.get(itemId);
   }
 
+  // -------------------------------------------------------
+  //  Class Methods
+  // -------------------------------------------------------
   /**
    * @inheritdoc
    */
-  apply(document, change) {
+  apply(actor, change) {
     if (this.isSuppressed) return null;
 
-    return super.apply(document, change);
+    // Validate Data
+
+    // Determine types
+    const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
+    const targetType = foundry.utils.getType(current);
+    const delta = castType(change.value, targetType);
+
+    const newValue = this.#getNewValue(current, delta, change.mode);
+
+    return super.apply(actor, change);
+  }
+
+  /**
+   * Returns the new value that should be applied to the actor.
+   * @param {*} current
+   * @param {*} change
+   */
+  #getNewValue(current, delta, mode) {
+    if (mode === 'add') return this.#addOrSubtractValues(current, delta);
+
+    if (mode === 'multiply') { }
+
+    if (['subtract', 'remove'].includes(mode)) { }
+
+    if (mode === 'downgrade') { }
+
+    if (mode === 'upgrade') { }
+
+    if (mode === 'override') { }
+
+    if (mode === 'custom') { }
+
+    return null;
+  }
+
+  #addOrSubtractValues(current, change) {
+    const isNumericAddition = typeof change === 'number'
+      && (typeof current === 'number' || [undefined, null].includes(current));
+    const isArrayAdd = Array.isArray(current) && current.every((e) => typeof e === typeof change);
+    const isSetAdd = current instanceof Set;
+
+    if (isNumericAddition) return (current ?? 0) + change;
+    if (isArrayAdd || isSetAdd) return change;
+
+    return null;
   }
 
   /** @inheritdoc */
@@ -160,7 +209,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   /**
    *
-   * @param {import("./actor").default| import("./item").default} document
+   * @param {import("../actor").default| import("../item").default} document
    * @param {*} change
    * @param {*} delta
    */
@@ -195,7 +244,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   /**
    *
-   * @param {import("./actor").default| import("./item").default} document
+   * @param {import("../actor").default| import("../item").default} document
    * @param {Array<ActiveEffectA5e>} effects
    * @param {() => boolean} predicate
    */
@@ -234,7 +283,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   /**
    * Creates a new default active effect on an actor or an item
-   * @param {import("./actor").default| import("./item").default} parentDocument
+   * @param {import("../actor").default| import("../item").default} parentDocument
    * @returns
    */
   static createDefaultEffect(parentDocument) {

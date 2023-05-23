@@ -1,15 +1,15 @@
 // @ts-nocheck
-import castType from './castType';
+import castType from '../../utils/castType';
 
 export default function getCorrectedTypeValueFromKey(actor, key: string): any {
   const model = game.model.Actor[actor.type] ?? {};
   const actorValue = foundry.utils.getProperty(actor, key) ?? null;
   if (actorValue === null || actorValue === undefined) return null;
 
-  const sampleValue = game.a5e.activeEffects.EffectOptions.options[document.type]
+  const sampleValue = game.a5e.activeEffects.EffectOptions.options[actor.type]
     ?.allOptionsObj?.[key]?.sampleValue ?? foundry.utils.getProperty(model, key) ?? null;
 
-  if (!sampleValue) return actorValue;
+  if (!sampleValue && sampleValue !== 0) return actorValue;
 
   const currentType = foundry.utils.getType(actorValue);
   const targetType = foundry.utils.getType(sampleValue);

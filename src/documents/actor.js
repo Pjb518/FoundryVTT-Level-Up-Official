@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-import ActiveEffectA5e from './activeEffect';
+import ActiveEffectA5e from './activeEffect/activeEffect';
 import RestManager from '../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
