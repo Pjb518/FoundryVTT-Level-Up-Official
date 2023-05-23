@@ -1,0 +1,78 @@
+{
+	"name": "Invocation: Death's Judgement",
+	"type": "feature",
+	"img": "icons/magic/death/skull-flames-white-blue.webp",
+	"system": {
+		"actions": {
+			"IUPyjVqJ3oSnazPh": {
+				"name": "Expend Veil Dice",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"jf73ey4Mkin13HvX": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "necrotic",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "1d4"
+						}
+					},
+					"ejVVd4EvoPZcBSPd": {
+						"type": "healing",
+						"default": false,
+						"formula": "1d4",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p class=\"a-b-r-La\">You gain a pool of Veil dice equal to your proficiency bonus which are 1d4s. As a bonus action, you may expend one or more of these dice to roll them and target a creature within 30 feet. That creature either takes necrotic damage equal to the number rolled, or is healed for that amount. When healing a creature currently at 0 hit points, roll twice and take the higher result.</p>\n<p class=\"a-b-r-La\">You regain all expended Veil dice when you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Mysterious and Marvelous Miscellanea",
+			"link": "https://bit.ly/42ysoNZ",
+			"publisher": "rollThemBones"
+		},
+		"uses": {
+			"value": 2,
+			"max": "@prof",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": "3rd level, Deathwalker archetype"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "wp6f1y11gvfyx8h8"
+}
