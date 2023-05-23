@@ -349,6 +349,16 @@ A5E.damageTypes = {
   thunder: 'A5E.damageTypes.thunder'
 };
 
+A5E.damageBonusContexts = {
+  all: 'all damage rolls',
+  meleeWeaponAttacks: 'melee weapon attacks',
+  meleeSpellAttacks: 'melee spell attacks',
+  rangedWeaponAttacks: 'ranged weapon attacks',
+  rangedSpellAttacks: 'ranged spell attacks',
+  spellAttacks: 'spell attacks',
+  weaponAttacks: 'weapon attacks'
+};
+
 A5E.featureTypes = {
   background: 'A5E.FeatureBackground',
   boon: 'A5E.FeatureBoon',

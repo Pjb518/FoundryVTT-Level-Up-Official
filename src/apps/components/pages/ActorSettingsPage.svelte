@@ -1,10 +1,51 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function addDamageBonus() {
+        const damageBonuses = { ...$actor.system.bonuses.damage };
+
+        const newDamageBonus = {
+            context: "all",
+            damageType: null,
+            formula: "",
+            label: "New Damage Bonus",
+        };
+
+        $actor.update({
+            "system.bonuses.damage": {
+                ...damageBonuses,
+                [foundry.utils.randomID()]: newDamageBonus,
+            },
+        });
+    }
+
+    function configureDamageBonus(id) {
+        console.log(`Confiuring ${id}`);
+    }
+
+    function deleteDamageBonus(id) {
+        $actor.update({
+            "system.bonuses.damage": {
+                [`-=${id}`]: null,
+            },
+        });
+    }
+
+    function getDamageBonusSummary(damageBonus) {
+        return localize("A5E.DamageBonusSummary", {
+            formula: damageBonus.formula,
+            damageType: damageBonus.damageType,
+            context:
+                CONFIG.A5E.damageBonusContexts[damageBonus.context] ??
+                damageBonus.context,
+        });
+    }
 
     const actor = getContext("actor");
 
@@ -178,13 +219,71 @@
 
     <section class="setting-group">
         <header class="setting-header">
+            <h3 class="setting-heading">Damage Bonuses</h3>
+
+            <button class="setting-header-button" on:click={addDamageBonus}>
+                + Add Damage Bonus
+            </button>
+        </header>
+
+        <ul class="damage-bonus-list">
+            {#each Object.entries($actor.system.bonuses.damage) as [id, damageBonus] (id)}
+                <li class="damage-bonus">
+                    <header class="damage-bonus__header">
+                        <h3 class="damage-bonus__heading">
+                            {damageBonus.label}
+                        </h3>
+
+                        <ul class="damage-bonus-buttons">
+                            <li>
+                                <button
+                                    class="action-button fas fa-cog"
+                                    data-tooltip="A5E.ButtonToolTipConfigure"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        configureDamageBonus(id)}
+                                />
+                            </li>
+
+                            <!-- <li>
+                                <button
+                                    class="action-button fa-solid fa-clone"
+                                    data-tooltip="A5E.ButtonToolTipDuplicate"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        duplicateDamageBonus(id)}
+                                />
+                            </li> -->
+
+                            <li>
+                                <button
+                                    class="action-button delete-button fas fa-trash"
+                                    data-tooltip="A5E.ButtonToolTipDelete"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        deleteDamageBonus(id)}
+                                />
+                            </li>
+                        </ul>
+                    </header>
+
+                    {#if damageBonus.formula}
+                        <p>{getDamageBonusSummary(damageBonus)}</p>
+                    {/if}
+                </li>
+            {/each}
+        </ul>
+    </section>
+
+    <section class="setting-group">
+        <header class="setting-header">
             <h3 class="setting-heading">Inventory Settings</h3>
         </header>
 
         <FormSection>
             <Checkbox
                 label="A5E.settings.trackInventoryWeight"
-                checked={$actor.flags?.a5e?.trackInventoryWeight ?? true}
+                checked={flags?.a5e?.trackInventoryWeight ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -195,7 +294,7 @@
             />
         </FormSection>
 
-        {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
+        {#if flags?.a5e?.trackInventoryWeight ?? true}
             <FormSection>
                 <Checkbox
                     label="A5E.settings.doubleCarryingCapacity"
@@ -405,6 +504,40 @@
         height: 1.75rem;
     }
 
+    .damage-bonus-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .damage-bonus {
+        padding: 0.5rem;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__heading {
+            font-size: 0.833rem;
+        }
+    }
+
+    .damage-bonus-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
     .divider {
         border: 0;
         border-bottom: 0.5px solid #ccc;
@@ -432,11 +565,33 @@
     }
 
     .setting-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 0 0.5rem 0.25rem 0.125rem;
         border-bottom: 1px solid #ccc;
     }
 
+    .setting-header-button {
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        line-height: 1;
+        font-size: 0.833rem;
+        color: #7e7960;
+
+        transition: all 0.15s ease-in-out;
+
+        &:focus,
+        &:hover {
+            box-shadow: none;
+            color: rgb(25, 24, 19);
+        }
+    }
+
     .setting-heading {
         font-size: 0.833rem;
+        white-space: nowrap;
     }
 </style>
