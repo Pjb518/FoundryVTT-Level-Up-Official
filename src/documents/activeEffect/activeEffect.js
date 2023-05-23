@@ -65,9 +65,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // Determine types
     const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
     const targetType = foundry.utils.getType(current);
-    const delta = castType(change.value, targetType);
+    const delta = castType(
+      this.#convertToDeterministicBonus(actor, change),
+      targetType
+    );
 
-    const newValue = this.#getNewValue(current, delta, change.mode);
+    const newValue = this.#getNewValue(current, change, delta);
 
     return super.apply(actor, change);
   }
@@ -77,20 +80,22 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} current
    * @param {*} change
    */
-  #getNewValue(current, delta, mode) {
-    if (mode === 'add') return this.#addOrSubtractValues(current, delta);
+  #getNewValue(current, change, delta) {
+    const { mode } = change;
 
-    if (mode === 'multiply') { }
+    if (mode === 'ADD') return this.#addOrSubtractValues(current, delta);
 
-    if (['subtract', 'remove'].includes(mode)) { }
+    if (mode === 'MULTIPLY') { }
 
-    if (mode === 'downgrade') { }
+    if (['SUBTRACT', 'REMOVE'].includes(mode)) { }
 
-    if (mode === 'upgrade') { }
+    if (mode === 'DOWNGRADE') { }
 
-    if (mode === 'override') { }
+    if (mode === 'UPGRADE') { }
 
-    if (mode === 'custom') { }
+    if (mode === 'OVERRIDE') { }
+
+    if (mode === 'CUSTOM') { }
 
     return null;
   }
@@ -105,53 +110,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (isArrayAdd || isSetAdd) return change;
 
     return null;
-  }
-
-  /** @inheritdoc */
-  _applyAdd(document, change, current, delta, changes) {
-    if (current instanceof Set) {
-      if (Array.isArray(delta)) delta.forEach((item) => current.add(item));
-      else current.add(delta);
-      return super._applyAdd(document, change, current, delta, changes);
-    }
-
-    delta = this.#convertToDeterministicBonus(document, change, delta);
-
-    // TODO: Update to proper fix later
-    if (typeof current === 'string' && current.length !== 0) {
-      if (!change.value.startsWith('+')) {
-        delta = ` + ${delta}`;
-      }
-    }
-
-    super._applyAdd(document, change, current, delta, changes);
-  }
-
-  /** @inheritdoc */
-  _applyMultiply(document, change, current, delta, changes) {
-    delta = this.#convertToDeterministicBonus(document, change, delta);
-
-    // TODO: Update to proper fix later
-    if (typeof current === 'string' && current.length !== 0) {
-      if (!change.value.startsWith('+')) {
-        delta = ` + ${delta}`;
-      }
-    }
-
-    super._applyMultiply(document, change, current, delta, changes);
-  }
-
-  /** @inheritdoc */
-  _applyOverride(document, change, current, delta, changes) {
-    if (current instanceof Set) {
-      current.clear();
-      if (Array.isArray(delta)) delta.forEach((item) => current.add(item));
-      else current.add(delta);
-      return super._applyAdd(document, change, current, delta, changes);
-    }
-
-    delta = this.#convertToDeterministicBonus(document, change, delta);
-    return super._applyOverride(document, change, current, delta, changes);
   }
 
   /**
@@ -213,7 +171,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} change
    * @param {*} delta
    */
-  #convertToDeterministicBonus(document, change, delta) {
+  #convertToDeterministicBonus(document, change) {
     const isActor = document.documentName === 'Actor';
     const isItem = document.documentName === 'Item';
 
@@ -221,7 +179,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       if (isActor) {
         const targetField = game.a5e.activeEffects
           .EffectOptions.options[document.type].allOptionsObj[change.key];
-        if (typeof targetField.sampleValue !== 'number') return delta;
+        if (typeof targetField.sampleValue !== 'number') return change.value;
 
         return getDeterministicBonus(
           change.value ?? 0,
@@ -238,7 +196,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     } catch (e) {
       // TODO: Handle invalid roll formula ui side to make sure it's always correct.
       // Invalid roll formula is handled in UI.
-      return delta;
+      return change.value;
     }
   }
 
