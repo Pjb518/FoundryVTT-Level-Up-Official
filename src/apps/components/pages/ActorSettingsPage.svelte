@@ -5,6 +5,8 @@
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
+    import DamageBonusConfigDialog from "../../dialogs/initializers/DamageBonusConfigDialog";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     function addDamageBonus() {
@@ -26,7 +28,8 @@
     }
 
     function configureDamageBonus(id) {
-        console.log(`Confiuring ${id}`);
+        const dialog = new DamageBonusConfigDialog($actor, id);
+        dialog.render(true);
     }
 
     function deleteDamageBonus(id) {
@@ -37,13 +40,32 @@
         });
     }
 
+    function duplicateDamageBonus(id) {
+        const damageBonuses = { ...$actor.system.bonuses.damage };
+
+        const newDamageBonus = foundry.utils.duplicate(
+            $actor.system.bonuses.damage[id]
+        );
+
+        newDamageBonus.label = `${newDamageBonus.label} (Copy)`;
+
+        $actor.update({
+            "system.bonuses.damage": {
+                ...damageBonuses,
+                [foundry.utils.randomID()]: newDamageBonus,
+            },
+        });
+    }
+
     function getDamageBonusSummary(damageBonus) {
-        return localize("A5E.DamageBonusSummary", {
+        const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
+        const damageType = damageTypes[damageBonus.damageType];
+
+        return localize(damageBonusSummariesByContext[damageBonus.context], {
             formula: damageBonus.formula,
-            damageType: damageBonus.damageType,
-            context:
-                CONFIG.A5E.damageBonusContexts[damageBonus.context] ??
-                damageBonus.context,
+            damageType: damageType
+                ? `${damageType.toLowerCase()} damage`
+                : "damage",
         });
     }
 
@@ -231,7 +253,7 @@
                 <li class="damage-bonus">
                     <header class="damage-bonus__header">
                         <h3 class="damage-bonus__heading">
-                            {damageBonus.label}
+                            {damageBonus.label || "New Damage Bonus"}
                         </h3>
 
                         <ul class="damage-bonus-buttons">
@@ -245,7 +267,7 @@
                                 />
                             </li>
 
-                            <!-- <li>
+                            <li>
                                 <button
                                     class="action-button fa-solid fa-clone"
                                     data-tooltip="A5E.ButtonToolTipDuplicate"
@@ -253,7 +275,7 @@
                                     on:click|stopPropagation={() =>
                                         duplicateDamageBonus(id)}
                                 />
-                            </li> -->
+                            </li>
 
                             <li>
                                 <button
@@ -268,7 +290,9 @@
                     </header>
 
                     {#if damageBonus.formula}
-                        <p>{getDamageBonusSummary(damageBonus)}</p>
+                        <p class="damage-bonus__summary">
+                            {getDamageBonusSummary(damageBonus)}
+                        </p>
                     {/if}
                 </li>
             {/each}
@@ -536,6 +560,9 @@
     }
 
     .damage-bonus {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
         padding: 0.5rem;
         background: rgba(0, 0, 0, 0.05);
         border-radius: 3px;
@@ -548,6 +575,10 @@
 
         &__heading {
             font-size: 0.833rem;
+        }
+
+        &__summary {
+            font-size: 0.694rem;
         }
     }
 

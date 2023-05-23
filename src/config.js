@@ -350,13 +350,23 @@ A5E.damageTypes = {
 };
 
 A5E.damageBonusContexts = {
-  all: 'all damage rolls',
-  meleeWeaponAttacks: 'melee weapon attacks',
-  meleeSpellAttacks: 'melee spell attacks',
-  rangedWeaponAttacks: 'ranged weapon attacks',
-  rangedSpellAttacks: 'ranged spell attacks',
-  spellAttacks: 'spell attacks',
-  weaponAttacks: 'weapon attacks'
+  all: 'A5E.damageBonuses.contexts.all',
+  meleeWeaponAttacks: 'A5E.damageBonuses.contexts.meleeWeaponAttacks',
+  meleeSpellAttacks: 'A5E.damageBonuses.contexts.meleeSpellAttacks',
+  rangedWeaponAttacks: 'A5E.damageBonuses.contexts.rangedWeaponAttacks',
+  rangedSpellAttacks: 'A5E.damageBonuses.contexts.rangedSpellAttacks',
+  spellAttacks: 'A5E.damageBonuses.contexts.spellAttacks',
+  weaponAttacks: 'A5E.damageBonuses.contexts.weaponAttacks'
+};
+
+A5E.damageBonusSummariesByContext = {
+  all: 'A5E.damageBonuses.summaries.contexts.all',
+  meleeWeaponAttacks: 'A5E.damageBonuses.summaries.contexts.meleeWeaponAttacks',
+  meleeSpellAttacks: 'A5E.damageBonuses.summaries.contexts.meleeSpellAttacks',
+  rangedWeaponAttacks: 'A5E.damageBonuses.summaries.contexts.rangedWeaponAttacks',
+  rangedSpellAttacks: 'A5E.damageBonuses.summaries.contexts.rangedSpellAttacks',
+  spellAttacks: 'A5E.damageBonuses.summaries.contexts.spellAttacks',
+  weaponAttacks: 'A5E.damageBonuses.summaries.contexts.weaponAttacks'
 };
 
 A5E.featureTypes = {
