@@ -3,12 +3,13 @@ import A5E from '../config';
 export default class EffectOptions {
   static options = {};
 
-  constructor(fieldOption, sampleValue, modes = [], options = []) {
+  constructor(fieldOption, sampleValue, data = { modes: [], options: [], phase: 'applyAEs' }) {
     this.fieldOption = fieldOption;
     this.label = CONFIG.A5E.effectsKeyLocalizations?.[fieldOption] ?? fieldOption;
     this.sampleValue = sampleValue;
-    this.modes = modes;
-    this.options = options;
+    this.modes = data.modes ?? [];
+    this.options = data.options ?? [];
+    this.phase = data.phase ?? 'applyAEs';
   }
 
   static createOptions() {
@@ -54,17 +55,24 @@ export default class EffectOptions {
         this.options[type].baseOptionsObj[option] = new EffectOptions(
           option,
           baseValues[option][0],
-          baseValues[option][1],
-          baseValues[option][2] ?? []
+          { modes: baseValues[option][1] ?? DEFAULT_MODES, options: baseValues[option][2] ?? [] }
         );
       });
 
       // Add Derived options
-      EffectOptions.modifyDerivedValues(
-        type,
-        this.options[type].derivedOptionsObj,
-        characterOptions
-      );
+      const derivedValues = {};
+      EffectOptions.modifyDerivedValues(type, derivedValues, characterOptions);
+      Object.keys(derivedValues).forEach((option) => {
+        this.options[type].derivedOptionsObj[option] = new EffectOptions(
+          option,
+          derivedValues[option][0],
+          {
+            modes: derivedValues[option][1] ?? DEFAULT_MODES,
+            options: derivedValues[option][2] ?? [],
+            phase: 'afterDerived'
+          }
+        );
+      });
 
       // Add Special Options
       const specialOptions = {};
@@ -75,8 +83,11 @@ export default class EffectOptions {
         this.options[type].derivedOptionsObj[option] = new EffectOptions(
           option,
           specialOptions[option][0],
-          specialOptions[option][1],
-          specialOptions[option][2] ?? []
+          {
+            modes: specialOptions[option][1] ?? DEFAULT_MODES,
+            options: specialOptions[option][2] ?? [],
+            phase: 'afterDerived'
+          }
         );
       });
 
@@ -155,7 +166,7 @@ export default class EffectOptions {
     // TODO: Possibly need to add something for bonus to damage
 
     // FIXME: Temporarily remove ac till we implement phased active effects application.
-    delete baseValues['system.attributes.ac'];
+    // delete baseValues['system.attributes.ac'];
 
     // Delete derived values
     Object.keys(A5E.abilities).forEach((a) => {
@@ -207,8 +218,8 @@ export default class EffectOptions {
       .sort((a, b) => a.localeCompare(b));
 
     // FIXME: Add ac as a derived effect for now
-    derivedValues['system.attributes.ac'] = new EffectOptions('system.attributes.ac', 0, DEFAULT_MODES);
-    derivedValues['system.attributes.hp.max'] = new EffectOptions('system.attributes.hp.max', 0, DEFAULT_MODES);
+    // derivedValues['system.attributes.ac'] = [0, DEFAULT_MODES];
+    derivedValues['system.attributes.hp.max'] = [0, DEFAULT_MODES];
   }
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars

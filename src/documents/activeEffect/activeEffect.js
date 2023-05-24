@@ -56,7 +56,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (this.isSuppressed) return null;
     const change = foundry.utils.deepClone(_change);
 
-    // TODO:  Resolve/Validate Data
+    // Resolve/Validate Data
+    const resValue = Roll.replaceFormulaData(change.value, actor.getRollData(), { missing: null });
+    if (resValue.includes('null')) {
+      // Re-evaluate in next phase
+      return null;
+    }
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
@@ -142,7 +147,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       return current.union(delta);
     }
 
-    return current;
+    if (isSubtract) return `${current} - ${delta}`;
+    return `${current} + ${delta}`;
   }
 
   #applyCustom(change) {
@@ -247,13 +253,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Extract and organize changes and apply a priority if it doesn't exist.
     // BasePriority is determined by CONST.ACTIVE_EFFECTS_MODE * 10
-    const applyObjects = effects.filter(predicate).flatMap((effect) => {
+    const applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
       // Add status effects to actor list
       effect.statuses.forEach((statusId) => document.statuses.add(statusId));
 
-      return effect.changes.map((change) => {
+      return effect.changes.filter(predicate).map((change) => {
         change.priority = change.priority ?? change.mode * 10;
         return { effect, change };
       });
