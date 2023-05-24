@@ -5,57 +5,7 @@
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
-    import DamageBonusConfigDialog from "../../dialogs/initializers/DamageBonusConfigDialog";
-
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-
-    function addDamageBonus() {
-        const damageBonuses = { ...$actor.system.bonuses.damage };
-
-        const newDamageBonus = {
-            context: "all",
-            damageType: null,
-            formula: "",
-            label: "New Damage Bonus",
-        };
-
-        $actor.update({
-            "system.bonuses.damage": {
-                ...damageBonuses,
-                [foundry.utils.randomID()]: newDamageBonus,
-            },
-        });
-    }
-
-    function configureDamageBonus(id) {
-        const dialog = new DamageBonusConfigDialog($actor, id);
-        dialog.render(true);
-    }
-
-    function deleteDamageBonus(id) {
-        $actor.update({
-            "system.bonuses.damage": {
-                [`-=${id}`]: null,
-            },
-        });
-    }
-
-    function duplicateDamageBonus(id) {
-        const damageBonuses = { ...$actor.system.bonuses.damage };
-
-        const newDamageBonus = foundry.utils.duplicate(
-            $actor.system.bonuses.damage[id]
-        );
-
-        newDamageBonus.label = `${newDamageBonus.label} (Copy)`;
-
-        $actor.update({
-            "system.bonuses.damage": {
-                ...damageBonuses,
-                [foundry.utils.randomID()]: newDamageBonus,
-            },
-        });
-    }
 
     function getDamageBonusSummary(damageBonus) {
         const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
@@ -243,7 +193,10 @@
         <header class="setting-header">
             <h3 class="setting-heading">Damage Bonuses</h3>
 
-            <button class="setting-header-button" on:click={addDamageBonus}>
+            <button
+                class="setting-header-button"
+                on:click={() => $actor.addDamageBonus()}
+            >
                 + Add Damage Bonus
             </button>
         </header>
@@ -263,7 +216,7 @@
                                     data-tooltip="A5E.ButtonToolTipConfigure"
                                     data-tooltip-direction="UP"
                                     on:click|stopPropagation={() =>
-                                        configureDamageBonus(id)}
+                                        $actor.configureDamageBonus(id)}
                                 />
                             </li>
 
@@ -273,7 +226,7 @@
                                     data-tooltip="A5E.ButtonToolTipDuplicate"
                                     data-tooltip-direction="UP"
                                     on:click|stopPropagation={() =>
-                                        duplicateDamageBonus(id)}
+                                        $actor.duplicateDamageBonus(id)}
                                 />
                             </li>
 
@@ -283,7 +236,7 @@
                                     data-tooltip="A5E.ButtonToolTipDelete"
                                     data-tooltip-direction="UP"
                                     on:click|stopPropagation={() =>
-                                        deleteDamageBonus(id)}
+                                        $actor.deleteDamageBonus(id)}
                                 />
                             </li>
                         </ul>

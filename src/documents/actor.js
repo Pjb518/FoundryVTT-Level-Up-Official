@@ -24,8 +24,9 @@ import SkillConfigDialog from '../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../apps/dialogs/ToolProfConfigDialog.svelte';
 import WeaponProfConfigDialog from '../apps/dialogs/WeaponProfConfigDialog.svelte';
 
-import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
+import DamageBonusConfigDialog from '../apps/dialogs/initializers/DamageBonusConfigDialog';
+import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
@@ -466,6 +467,24 @@ export default class ActorA5e extends Actor {
     return abilities[spellcastingAbility].check.mod;
   }
 
+  addDamageBonus() {
+    const damageBonuses = { ...this.system.bonuses.damage };
+
+    const newDamageBonus = {
+      context: 'all',
+      damageType: null,
+      formula: '',
+      label: 'New Damage Bonus'
+    };
+
+    this.update({
+      'system.bonuses.damage': {
+        ...damageBonuses,
+        [foundry.utils.randomID()]: newDamageBonus
+      }
+    });
+  }
+
   #configure(key, title, data, options) {
     if (!this.isOwner) return;
 
@@ -509,6 +528,11 @@ export default class ActorA5e extends Actor {
   configureCreatureTypes(data = {}, options = {}) {
     const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
     this.#configure('types', title, data, options);
+  }
+
+  configureDamageBonus(id) {
+    const dialog = new DamageBonusConfigDialog(this, id);
+    dialog.render(true);
   }
 
   configureDamageImmunities(data = {}, options = {}) {
@@ -584,6 +608,31 @@ export default class ActorA5e extends Actor {
   configureWeaponProficiencies(data = {}, options = {}) {
     const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
     this.#configure('weapons', title, data, options);
+  }
+
+  deleteDamageBonus(id) {
+    this.update({
+      'system.bonuses.damage': {
+        [`-=${id}`]: null
+      }
+    });
+  }
+
+  duplicateDamageBonus(id) {
+    const damageBonuses = { ...this.system.bonuses.damage };
+
+    const newDamageBonus = foundry.utils.duplicate(
+      this.system.bonuses.damage[id]
+    );
+
+    newDamageBonus.label = `${newDamageBonus.label} (Copy)`;
+
+    this.update({
+      'system.bonuses.damage': {
+        ...damageBonuses,
+        [foundry.utils.randomID()]: newDamageBonus
+      }
+    });
   }
 
   get isBloodied() {
