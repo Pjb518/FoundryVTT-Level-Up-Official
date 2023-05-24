@@ -75,13 +75,6 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * @returns {Set<String>}
-   */
-  get derivedProperties() {
-    return game.a5e.activeEffects.EffectOptions.options[this.type].derivedOptions;
-  }
-
-  /**
    * @returns {String} hitPointFormula
    */
   get hitPointFormula() {
@@ -104,6 +97,7 @@ export default class ActorA5e extends Actor {
   }
 
   /**
+   * Sets the order of when to prepare data.
    * @override
    */
   prepareData() {
@@ -115,6 +109,7 @@ export default class ActorA5e extends Actor {
   }
 
   /**
+   * Prepare base data for the actor.
    * @override
    */
   prepareBaseData() {
@@ -127,27 +122,71 @@ export default class ActorA5e extends Actor {
     return this.prepareNPCData();
   }
 
+  /**
+   * Prepare the base data for an actor of type character.
+   */
   prepareCharacterData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
   }
 
+  /**
+   * Prepare the base data for an actor of type npc.
+   */
   prepareNPCData() {
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
   }
 
   /**
-   * Initialize new statuses configuration to actor.
+   * Apply activeEffects to the actor with the phase 'applyAEs'.
    * @override
    */
-  applyActiveEffects() { }
+  applyActiveEffects() {
+    this.overrides = {};
 
-  beforeDerivedData() {
+    // Create base to store statuses on actor.
+    this.statuses ??= new Set();
 
+    // Identify which special statuses had been active
+    const specialStatuses = new Map();
+    Object.values(CONFIG.specialStatusEffects).forEach((statusId) => {
+      specialStatuses.set(statusId, this.statuses.has(statusId));
+    });
+
+    this.statuses.clear();
+
+    // Create list of active effects to apply on the first pass
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      (effect) => (effect.getFlag('a5e', 'phase') ?? 'applyAEs') === 'applyAEs'
+    );
+
+    // Apply special statuses that changed to active tokens
+    let tokens;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [statusId, wasActive] of specialStatuses) {
+      const isActive = this.statuses.has(statusId);
+      if (isActive === wasActive) return;
+      tokens ??= this.getActiveTokens();
+      tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
+    }
   }
 
   /**
+   * Apply activeEffects to the actor with the phase 'beforeDerived'.
+   */
+  beforeDerivedData() {
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      (effect) => (effect.getFlag('a5e', 'phase') ?? 'applyAEs') === 'beforeDerived'
+    );
+  }
+
+  /**
+   * Prepares derived data for the actor.
    * @override
    */
   prepareDerivedData() {
@@ -226,49 +265,14 @@ export default class ActorA5e extends Actor {
     this.prepareSkills();
   }
 
-  afterDerivedData() { }
-
   /**
-   * Apply active effects to base data once base data is ready.
+   * Prepare active effects for the actor with the phase 'afterDerived'.
    */
-  applyActiveEffectsToBaseData() {
-    this.overrides = {};
-
-    this.statuses ??= new Set();
-
-    // Identify which special statuses had been active
-    const specialStatuses = new Map();
-    Object.values(CONFIG.specialStatusEffects).forEach((statusId) => {
-      specialStatuses.set(statusId, this.statuses.has(statusId));
-    });
-
-    this.statuses.clear();
-
+  afterDerivedData() {
     ActiveEffectA5e.applyEffects(
       this,
       this.actorEffects,
-      (change) => !this.derivedProperties.has(change.key)
-    );
-
-    // Apply special statuses that changed to active tokens
-    let tokens;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [statusId, wasActive] of specialStatuses) {
-      const isActive = this.statuses.has(statusId);
-      if (isActive === wasActive) return;
-      tokens ??= this.getActiveTokens();
-      tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
-    }
-  }
-
-  /**
-   * Apply active effects to derived data once derived properties are read.
-   */
-  applyActiveEffectsToDerivedData() {
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actorEffects,
-      (change) => this.derivedProperties.has(change.key)
+      (effect) => (effect.getFlag('a5e', 'phase') ?? 'applyAEs') === 'afterDerived'
     );
   }
 
