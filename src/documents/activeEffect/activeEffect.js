@@ -171,31 +171,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return delta;
   }
 
-  async duplicateEffect() {
-    const owningDocument = this.parent;
-    const newEffect = foundry.utils.duplicate(this);
-    newEffect.name = `${localize(newEffect.name)} (Copy)`;
-
-    if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
-  }
-
-  async toggleActiveState() {
-    await this.update({ disabled: !this.disabled });
-  }
-
-  /**
-   * Transfer the affect to another token.
-   */
-  transferEffect(token) {
-    const data = [{
-      name: this.name,
-      origin: this.parent.uuid,
-      changes: this.changes
-    }];
-
-    token.actor.createEmbeddedDocuments('ActiveEffect', data);
-  }
-
   /**
    *
    * @param {import("../actor").default| import("../item").default} document
@@ -233,6 +208,34 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  async duplicateEffect() {
+    const owningDocument = this.parent;
+    const newEffect = foundry.utils.duplicate(this);
+    newEffect.name = `${localize(newEffect.name)} (Copy)`;
+
+    if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
+  }
+
+  async toggleActiveState() {
+    await this.update({ disabled: !this.disabled });
+  }
+
+  /**
+  * Transfer the affect to another token.
+  */
+  transferEffect(token) {
+    const data = [{
+      name: this.name,
+      origin: this.parent.uuid,
+      changes: this.changes
+    }];
+
+    token.actor.createEmbeddedDocuments('ActiveEffect', data);
+  }
+
+  // -------------------------------------------------------
+  //  Static Methods
+  // -------------------------------------------------------
   /**
    *
    * @param {import("../actor").default| import("../item").default} document

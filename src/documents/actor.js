@@ -109,9 +109,9 @@ export default class ActorA5e extends Actor {
   prepareData() {
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
-    this.applyActiveEffectsToBaseData();
+    this.beforeDerivedData();
     this.prepareDerivedData();
-    this.applyActiveEffectsToDerivedData();
+    this.afterDerivedData();
   }
 
   /**
@@ -125,6 +125,26 @@ export default class ActorA5e extends Actor {
     }
 
     return this.prepareNPCData();
+  }
+
+  prepareCharacterData() {
+    // Calculate the proficiency bonus for the character with a minimum value of 2.
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
+  }
+
+  prepareNPCData() {
+    // Calculate the proficiency bonus for the character with a minimum value of 2.
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
+  }
+
+  /**
+   * Initialize new statuses configuration to actor.
+   * @override
+   */
+  applyActiveEffects() { }
+
+  beforeDerivedData() {
+
   }
 
   /**
@@ -206,21 +226,7 @@ export default class ActorA5e extends Actor {
     this.prepareSkills();
   }
 
-  prepareCharacterData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
-  }
-
-  prepareNPCData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
-  }
-
-  /**
-     * Initialize new statuses configuration to actor.
-     * @override
-     */
-  applyActiveEffects() { }
+  afterDerivedData() { }
 
   /**
    * Apply active effects to base data once base data is ready.
