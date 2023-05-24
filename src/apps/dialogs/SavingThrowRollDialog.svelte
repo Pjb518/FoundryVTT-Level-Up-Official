@@ -8,8 +8,7 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
@@ -66,48 +65,19 @@
         ability: abilityKey,
         type: "save",
         concentration: saveType === "concentration",
-        deathSave: !!!abilityKey,
+        deathSave: !abilityKey,
     });
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
+        expertiseDie,
         rollMode,
-        modifiers: [
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localizeSave,
-                }),
-                value: $actor.system.abilities[abilityKey]?.save.mod,
-            },
-            {
-                label: localize("A5E.SavingThrowBonus", {
-                    ability: localizeSave,
-                }),
-                value: $actor.system.abilities[abilityKey]?.save.bonus,
-            },
-            {
-                label: localize("A5E.ConcentrationBonus"),
-                value:
-                    saveType === "concentration"
-                        ? $actor.system.abilities[abilityKey]?.save
-                              .concentrationBonus
-                        : null,
-            },
-            {
-                label: localize("A5E.SavingThrowBonusGlobal"),
-                value: $actor.system.bonuses.abilities.save,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        saveType,
+        situationalMods,
+        type: "savingThrow",
+    });
 </script>
 
 <form>

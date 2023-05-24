@@ -8,8 +8,7 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, dialog, skillKey, options } =
@@ -43,60 +42,26 @@
         options.expertiseDice ?? $actor.system.skills[skillKey].expertiseDice;
 
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
+    let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let situationalMods = options.situationalMods ?? "";
+    let visibilityMode = game.settings.get("core", "rollMode");
+
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
         skill: skillKey,
         type: "skill",
     });
-    let rollFormula;
-    let situationalMods = options.situationalMods ?? "";
-    let visibilityMode = game.settings.get("core", "rollMode");
 
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
-        rollMode,
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
+        expertiseDie,
         minRoll,
-        modifiers: [
-            {
-                label: localize("A5E.SkillCheckMod", { skill: localizedSkill }),
-                value: $actor.system.skills[skillKey].mod,
-            },
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localize(CONFIG.A5E.abilities[abilityKey]),
-                }),
-                value: $actor.system.abilities[abilityKey]?.check.mod,
-            },
-            {
-                label: localize("A5E.SkillCheckBonus", {
-                    skill: localizedSkill,
-                }),
-                value: $actor.system.skills[skillKey].bonuses.check,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonus", {
-                    ability: localize(CONFIG.A5E.abilities[abilityKey]),
-                }),
-                value: $actor.system.abilities[abilityKey]?.check.bonus,
-            },
-            {
-                label: localize("A5E.SkillCheckBonusGlobal"),
-                value: $actor.system.bonuses.abilities.skill,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonusGlobal"),
-                value: $actor.system.bonuses.abilities.check,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        rollMode,
+        situationalMods,
+        skill: skillKey,
+        type: "skillCheck",
+    });
 </script>
 
 <form>

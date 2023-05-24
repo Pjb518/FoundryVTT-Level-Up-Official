@@ -5,10 +5,19 @@
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    const item = getContext("item");
-    const prerequisiteTypes = ["maneuver", "feature"];
-    const headerButtonTypes = ["object"];
-    const appId = getContext("appId");
+    function getPublisherTooltip(item) {
+        const publisher = item.system.source?.publisher;
+        const productName = item.system.source?.name;
+        const publisherName = CONFIG.A5E.publishers[publisher]?.name;
+
+        if (!publisher || !productName || !publisherName) return null;
+
+        if (productName) {
+            return `${publisherName} - ${productName}`;
+        }
+
+        return `${publisherName}`;
+    }
 
     async function fulfilDestiny() {
         const fulfillmentFeature = await fromUuid(
@@ -33,6 +42,15 @@
     // }
 
     // $: name = getItemName($item);
+
+    const item = getContext("item");
+    const prerequisiteTypes = ["maneuver", "feature", "spell"];
+    const headerButtonTypes = ["object"];
+    const appId = getContext("appId");
+    const publisher = $item.system.source?.publisher;
+    const publisherLogo = CONFIG.A5E.publishers[publisher]?.logo;
+    const publisherTooltip = getPublisherTooltip($item);
+    const productLink = $item.system.source?.link ?? null;
 
     let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
 </script>
@@ -125,15 +143,32 @@
         </div>
     {/if}
 
-    {#if $item.type === "destiny"}
-        <button
-            class="fulfil-button"
-            disabled={disableFulfil}
-            on:click={() => fulfilDestiny()}
-        >
-            {localize("A5E.FulfilDestiny")}
-        </button>
-    {/if}
+    <div class="u-flex u-flex-shrink-0 u-align-center u-gap-xl">
+        {#if $item.type === "destiny"}
+            <button
+                class="fulfil-button"
+                disabled={disableFulfil}
+                on:click={() => fulfilDestiny()}
+            >
+                {localize("A5E.FulfilDestiny")}
+            </button>
+        {/if}
+
+        {#if publisherLogo}
+            <a
+                href={productLink}
+                class="publisher-logo"
+                data-tooltip={publisherTooltip}
+                data-tooltip-direction="UP"
+            >
+                <img
+                    class="publisher-logo__image"
+                    src={publisherLogo}
+                    alt={publisherTooltip}
+                />
+            </a>
+        {/if}
+    </div>
 </header>
 
 <style lang="scss">
@@ -238,6 +273,22 @@
         font-family: "Modesto Condensed", serif;
         font-size: 1rem;
         align-items: center;
+    }
+
+    .publisher-logo {
+        height: 3.2rem;
+        width: auto;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        :hover {
+            transform: scale(1.2);
+        }
+
+        &__image {
+            height: 100%;
+            transition: all 0.15s ease-in-out;
+        }
     }
 
     .name-wrapper {

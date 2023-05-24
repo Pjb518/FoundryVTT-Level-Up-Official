@@ -361,7 +361,7 @@
         padding: 0;
         margin: 0;
         background: none;
-        color: #999;
+        color: var(--icon-color, #999);
         border: 0;
 
         transition: all 0.15s ease-in-out;
@@ -420,7 +420,7 @@
         width: 1rem;
         border-radius: 3px;
         font-size: 0.579rem;
-        background: #c6c5bc;
+        background: var(--indicator-background, #c6c5bc);
     }
 
     .indicator-wrapper {
@@ -430,6 +430,7 @@
         gap: 0.75rem;
         margin-inline: 0.25rem;
         grid-area: indicators;
+        color: var(--indicator-text-color, inherit);
     }
 
     .name {
@@ -450,12 +451,12 @@
 
     .number-input {
         background: transparent;
-        border: 1px solid #bbb;
+        border: 1px solid var(--input-border-color, #bbb);
         height: 1.125rem;
         width: 7ch;
 
         &:hover {
-            border: 1px solid #bbb;
+            border: 1px solid var(--input-border-color, #bbb);
         }
     }
 

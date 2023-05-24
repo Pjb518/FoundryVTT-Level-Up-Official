@@ -13,7 +13,7 @@ export default class SpellMapReducer extends DynMapReducer {
     });
 
     Object.entries(this._levels).forEach(([key, reducer]) => {
-      reducer.filters.add((item) => item.system.level === Number(key));
+      reducer.filters.add((item) => parseInt(item.system.level, 10) === parseInt(key, 10));
     });
   }
 }

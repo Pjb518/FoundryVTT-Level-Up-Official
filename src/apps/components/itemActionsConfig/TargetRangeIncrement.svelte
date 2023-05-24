@@ -148,7 +148,6 @@
         </FormSection>
     {/if}
 
-    <!-- TODO: Unable to add tooltip for some reason -->
     <button
         class="delete-button fas fa-trash"
         data-tooltip="Delete Range Increment"

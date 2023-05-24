@@ -1,0 +1,185 @@
+{
+	"name": "Body Blow",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-pain-body-orange.webp",
+	"system": {
+		"actions": {
+			"qjBg1zaT80Mr15LS": {
+				"name": "Attack with Grappled Target",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"JK3u9KDZtiBCi5W2": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str"
+					},
+					"k1ktgmHsKajT29mJ": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 2
+				},
+				"ranges": {
+					"cLQAxyQ2psdmnQxd": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"PXCrbDf2yNElLDmH": {
+				"name": "Throw Grappled Target at Another Creature",
+				"activation": {},
+				"consumers": {
+					"TBCDovBfiJ4fwKjE": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"UVhVqpwATSB7HnQL": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "str"
+					},
+					"6C2h3wroM8EuhWIT": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 2
+				},
+				"ranges": {
+					"uhS7MgLtQggkx2Aa": {
+						"range": 10,
+						"unit": "feet"
+					},
+					"tPvbDrXRvP0AUdQW": {
+						"range": 20,
+						"unit": "feet"
+					}
+				}
+			},
+			"C7HWcybpntbv1f6V": {
+				"name": "Throw Grappled Target",
+				"activation": {},
+				"consumers": {
+					"QeFHjEmPnRxGTm0W": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"eIaUrfOH8yr4T3tf": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "str"
+					},
+					"tHLYzgujx9YtWJLs": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"ZpnOlROjxwD764kB": {
+						"range": 20,
+						"unit": "feet"
+					}
+				}
+			}
+		},
+		"description": "<p class=\"a-b-r-La\">At 17th level when you have a creature of your size or smaller grappled, you can use them to attack another creature within your reach with an improvised melee weapon attack, dealing basic melee damage to both them and the target on hit. You can instead spend an exertion point to throw them as a ranged improvised weapon, range 10/20 feet, in which case both creatures take basic melee damage if you hit, only the thrown creature takes basic melee damage if you miss, and the grapple then ends. You can use this to throw a grappled creature up to 20 feet even if you don't have a target to attack, dealing basic melee damage to the thrown creature as if you had missed.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Mysterious and Marvelous Miscellanea",
+			"link": "https://bit.ly/42ysoNZ",
+			"publisher": "rollThemBones"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "w3hakmlsnoouzdqj"
+}

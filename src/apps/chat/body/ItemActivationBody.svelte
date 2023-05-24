@@ -31,7 +31,8 @@
         generic: GenericRollPromptButton,
     };
 
-    const { actionDescription, itemDescription } = $message.flags?.a5e;
+    const { actionDescription, itemDescription, unidentifiedDescription } =
+        $message.flags?.a5e;
 
     const prompts =
         $message.flags?.a5e?.prompts?.reduce((acc, prompt) => {
@@ -47,6 +48,7 @@
 
     const hasRolls = rolls.length;
     const hasPrompts = Object.values(prompts).flat().length;
+    const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
 </script>
 
 <article>
@@ -56,11 +58,15 @@
             in:slide={{ duration: 150 }}
             out:slide={{ duration: 150 }}
         >
-            {#if itemDescription}
+            {#if itemDescription || unidentifiedDescription}
                 <hr class="a5e-rule a5e-rule--card" />
 
                 <div>
-                    {@html itemDescription}
+                    {#if !game.user.isGM && item?.type === "object" && item?.system?.unidentified}
+                        {@html unidentifiedDescription}
+                    {:else}
+                        {@html itemDescription}
+                    {/if}
                 </div>
             {/if}
 

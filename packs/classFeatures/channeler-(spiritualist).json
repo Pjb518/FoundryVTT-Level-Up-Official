@@ -1,0 +1,83 @@
+{
+	"name": "Channeler (Spiritualist)",
+	"type": "feature",
+	"img": "icons/magic/unholy/projectile-fireball-agile-purple.webp",
+	"system": {
+		"actions": {
+			"g9n28lr0db4Ho1jy": {
+				"name": "Invite Spirit",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"XbrBgok9WIKfQXjZ": {
+				"name": "Expel Spirit",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"xgRndYq7AhpX2l73": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d20 + @prof + @spell.mod",
+						"label": "Check to expel creature"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>Also at 6th level, you gain the ability to function as a conduit for the spirits of the restless departed to speak through. As an action, you may invite a haunting spirit or spectral undead to use your body to communicate through. The creature enters your body and gains control of it, but you remain aware and can attempt to expel a visitor that is abusing its privileges. Make a check at a bonus equal to your proficiency bonus + your spellcasting ability modifier against a DC equal to the creature&rsquo;s CR + 10. If you fail, the creature retains control of your body and can act normally. You may repeat this check next round, but if you fail, you can&rsquo;t try again for 1 minute, then 10 minutes, then an hour, and finally a day. Once the interval reaches a day, you can only make checks every day to remove the unwanted presence. If you succeed, the creature is forcibly expelled from your body and is stunned for a round.</p>\n<p>If a creature forcibly possesses you, you may use this feature to try to expel the unwanted visitor. Against an uninvited guest, you have advantage on the checks and can make a new attempt every round.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spiritualist",
+			"link": "https://bit.ly/3pOOywJ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "mnj8cdlmzznhrsv1"
+}

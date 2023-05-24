@@ -349,6 +349,26 @@ A5E.damageTypes = {
   thunder: 'A5E.damageTypes.thunder'
 };
 
+A5E.damageBonusContexts = {
+  all: 'A5E.damageBonuses.contexts.all',
+  meleeWeaponAttacks: 'A5E.damageBonuses.contexts.meleeWeaponAttacks',
+  meleeSpellAttacks: 'A5E.damageBonuses.contexts.meleeSpellAttacks',
+  rangedWeaponAttacks: 'A5E.damageBonuses.contexts.rangedWeaponAttacks',
+  rangedSpellAttacks: 'A5E.damageBonuses.contexts.rangedSpellAttacks',
+  spellAttacks: 'A5E.damageBonuses.contexts.spellAttacks',
+  weaponAttacks: 'A5E.damageBonuses.contexts.weaponAttacks'
+};
+
+A5E.damageBonusSummariesByContext = {
+  all: 'A5E.damageBonuses.summaries.contexts.all',
+  meleeWeaponAttacks: 'A5E.damageBonuses.summaries.contexts.meleeWeaponAttacks',
+  meleeSpellAttacks: 'A5E.damageBonuses.summaries.contexts.meleeSpellAttacks',
+  rangedWeaponAttacks: 'A5E.damageBonuses.summaries.contexts.rangedWeaponAttacks',
+  rangedSpellAttacks: 'A5E.damageBonuses.summaries.contexts.rangedSpellAttacks',
+  spellAttacks: 'A5E.damageBonuses.summaries.contexts.spellAttacks',
+  weaponAttacks: 'A5E.damageBonuses.summaries.contexts.weaponAttacks'
+};
+
 A5E.featureTypes = {
   background: 'A5E.FeatureBackground',
   boon: 'A5E.FeatureBoon',
@@ -580,12 +600,16 @@ A5E.publishers = {
     logo: ''
   },
   purpleMartinGames: {
-    name: 'Purple Marting Games',
-    logo: ''
+    name: 'Purple Martin Games',
+    logo: 'systems/a5e/assets/publisherLogos/purple-martin-games-logo.webp'
   },
   ravine: {
     name: 'Ravine',
-    logo: ''
+    logo: 'icons/svg/book.svg'
+  },
+  rollThemBones: {
+    name: 'Roll them Bones Gaming',
+    logo: 'systems/a5e/assets/publisherLogos/roll-them-bones-gaming-logo.webp'
   },
   steampunkette: {
     name: 'Steampunkette',

@@ -1,0 +1,123 @@
+{
+	"name": "Walking Volcano",
+	"type": "feature",
+	"img": "icons/environment/wilderness/cave-entrance-vulcano.webp",
+	"system": {
+		"actions": {
+			"rNo8bjM9L5oKkRY4": {
+				"name": "Create Smoke",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"dwJtpkqG8cYUB952": {
+						"range": 10,
+						"unit": "feet"
+					}
+				}
+			},
+			"N7pbLr3REIuO1Dql": {
+				"name": "Throw Volcanic Bomb",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"rLkZwvpDzbtQAPun": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"ha1H8zsEDj7XWZC0": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "bludgeoning"
+					},
+					"K4U13WPj8SJT4kIv": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"8188WBmqvRZtbNJb": {
+						"range": "short"
+					},
+					"OCBabIQDhAciUmL5": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At level 14, your volcanic transformation reaches its apex. While you are raging, you can spend an action to fill an area extending 10 feet from you with a cloud of dense smoke. You treat an area affected by your own smoke as lightly obscured rather than heavily obscured. Any given area of smoke persists for an 10 minutes or until dispersed by a strong breeze</p>\n<p>You can also generate and throw a volcanic bomb at a target within as an action. A volcanic bomb counts as a ranged weapon attack with a range of 30/60 feet. On a hit, the target takes 2d6 fire and 2d6 bludgeoning damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Fiery Justice",
+			"link": "https://bit.ly/3BwKG71",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"placeTemplate": false
+		}
+	},
+	"_id": "9vtpmr6tfj9sbnwo"
+}

@@ -42,7 +42,9 @@
             name: "unidentifiedDescription",
             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
-            display: $item.system.unidentified || game.user.isGM,
+            display:
+                $item.type === "object" &&
+                ($item.system.unidentified || game.user.isGM),
         },
         {
             name: "gmNotes",

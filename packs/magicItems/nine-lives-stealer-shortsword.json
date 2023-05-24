@@ -1,125 +1,118 @@
 {
-	"name": "Nine Lives Stealer Shortsword",
-	"type": "object",
-	"img": "icons/weapons/swords/sword-runed-glowing.webp",
-	"effects": [],
-	"flags": {
-		"core": {
-			"sheetClass": "a5e.ItemSheet5e",
-			"sourceId": "Compendium.a5e.a5e-magic-items.wb84pjuzlq00toge"
-		}
-	},
-	"system": {
-		"actions": {
-			"0oEymp3qj4YFY9IQ": {
-				"name": "Nine Lives Stealer Shortsword",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"XfU6VnSe7a4hubpT": {
-						"bonus": "2",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"jyZlWTIZ1NoEe4bo": {
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "1d6 + @finesse.mod +2",
-						"name": "Shortsword",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"L0qcNEoFiL3cMd4W": {
-						"ability": "con",
-						"onSave": "No effect",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "15"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {
-					"W9umKHpSTxDnyQt9": {
-						"type": "itemUses"
-					}
-				}
-			}
-		},
-		"description": "<p style=\"text-align: right\"><em>Defensive (Medium), Finesse, Parrying</em></p><p><strong>Crafting Components:</strong> Nine vampire fangs</p><hr class=\"a5e-rule u-my-md\"><p>You gain a +2 bonus to attack and damage rolls made with this magic sword.</p><p>The sword has [[/r 1d8+1 #charges]] charges. When you use the sword to score a critical hit against a creature that is not a construct or undead, if it has less than 100 hit points it makes a DC 15 Constitution saving throw or it instantly dies as the sword rips the life force out of it. Each time a creature is killed in this manner the sword expends a charge. When all its charges are gone, the sword loses this property. </p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": 2,
-			"max": 2,
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": 0.003,
-			"lastMigration": {
-				"version": {
-					"schema": null,
-					"foundry": "10.291",
-					"system": "0.10.7"
-				}
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"broken": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"equipped": false,
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "10000",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"shieldCategory": "",
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"defensive",
-			"parrying",
-			"finesse"
-		],
-		"weight": 2,
-		"ability": "default",
-		"save": {
-			"dc": "15",
-			"onSave": "No effect",
-			"targetAbility": "con"
-		}
-	},
-	"_id": "wb84pjuzlq00toge"
+  "name": "Nine Lives Stealer Shortsword",
+  "type": "object",
+  "img": "icons/weapons/swords/sword-runed-glowing.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sheetClass": "a5e.ItemSheet5e",
+      "sourceId": "Compendium.a5e.a5e-magic-items.wb84pjuzlq00toge"
+    }
+  },
+  "system": {
+    "actions": {
+      "0oEymp3qj4YFY9IQ": {
+        "name": "Nine Lives Stealer Shortsword",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "XfU6VnSe7a4hubpT": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "jyZlWTIZ1NoEe4bo": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d6 + @finesse.mod +2",
+            "name": "Shortsword",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "L0qcNEoFiL3cMd4W": {
+            "ability": "con",
+            "onSave": "No effect",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "15"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {
+          "W9umKHpSTxDnyQt9": {
+            "type": "itemUses"
+          }
+        }
+      }
+    },
+    "description": "<p>You gain a +2 bonus to attack and damage rolls made with this magic sword.</p><p>The sword has [[/r 1d8+1 #charges]] charges. When you use the sword to score a critical hit against a creature that is not a construct or undead, if it has less than 100 hit points it makes a DC 15 Constitution saving throw or it instantly dies as the sword rips the life force out of it. Each time a creature is killed in this manner the sword expends a charge. When all its charges are gone, the sword loses this property. </p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 2,
+      "max": 2,
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "schema": {
+      "version": 0.003,
+      "lastMigration": {
+        "version": {
+          "schema": null,
+          "foundry": "10.291",
+          "system": "0.10.7"
+        }
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "broken": false,
+    "bulky": false,
+    "craftingComponents": "Nine vampire fangs",
+    "equipped": false,
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "10000",
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "shieldCategory": "",
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "defensive",
+      "parrying",
+      "finesse"
+    ],
+    "weight": 2
+  },
+  "_id": "wb84pjuzlq00toge"
 }

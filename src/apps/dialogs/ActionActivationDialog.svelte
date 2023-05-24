@@ -6,6 +6,7 @@
     import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
 
     import computeSaveDC from "../../utils/computeSaveDC";
+    import showActivationDialogSection from "../../utils/showActivationDialogSection";
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
@@ -167,11 +168,11 @@
         <PromptsSection {prompts} bind:selectedPrompts />
     {/if}
 
-    {#if Object.values(consumers?.spell ?? {}).flat().length}
+    {#if showActivationDialogSection(action, ["spell"], ["spellLevel", "spellPoints"])}
         <SpellSection {consumers} bind:spellData />
     {/if}
 
-    {#if Object.values(consumers?.actionUses ?? {}).flat().length || Object.values(consumers?.itemUses ?? {}).flat().length}
+    {#if showActivationDialogSection(action, ["actionUses", "itemUses"], ["actionUses", "itemUses"])}
         <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
     {/if}
 

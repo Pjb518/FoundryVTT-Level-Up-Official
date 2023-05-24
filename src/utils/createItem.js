@@ -1,25 +1,21 @@
-const itemMappings = {
-  feature: createFeature,
-  maneuver: createManuever,
-  object: createObject,
-  spell: createSpell
-};
+// eslint-disable-next-line import/no-unresolved
+import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-function getSpellName(subType) {
-  if (parseInt(subType, 10) === 0) return 'Cantrip';
+function getItemName(itemType, subType) {
+  if (itemType === 'feature') {
+    return localize(CONFIG.A5E.featureTypes[subType]);
+  }
 
-  return 'Spell';
-}
+  if (itemType === 'object') {
+    return localize(CONFIG.A5E.objectTypes[subType]);
+  }
 
-export default async function createItem(actor, itemType, subType) {
-  const updateData = {
-    name: `New ${itemType === 'spell' ? getSpellName(subType) : subType.capitalize()}`,
-    type: itemType,
-    system: itemMappings[itemType](subType)
-  };
+  if (itemType === 'spell') {
+    const spellLevel = parseInt(subType, 10);
+    return localize(spellLevel === 0 ? CONFIG.A5E.spellLevels[0] : 'A5E.Spell');
+  }
 
-  const documents = await actor.createEmbeddedDocuments('Item', [updateData]);
-  documents.forEach((d) => d?.sheet?.render(true));
+  return localize(CONFIG.A5E.itemTypes[itemType]);
 }
 
 function createFeature(type) {
@@ -81,4 +77,22 @@ function createSpell(type) {
 
   system.actions = actions;
   return system;
+}
+
+const itemMappings = {
+  feature: createFeature,
+  maneuver: createManuever,
+  object: createObject,
+  spell: createSpell
+};
+
+export default async function createItem(actor, itemType, subType) {
+  const updateData = {
+    name: localize('A5E.NewItem', { type: localize(getItemName(itemType, subType)) }),
+    type: itemType,
+    system: itemMappings[itemType](subType)
+  };
+
+  const documents = await actor.createEmbeddedDocuments('Item', [updateData]);
+  documents.forEach((d) => d?.sheet?.render(true));
 }

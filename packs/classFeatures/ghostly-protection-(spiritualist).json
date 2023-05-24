@@ -1,0 +1,72 @@
+{
+	"name": "Ghostly Protection (Spiritualist)",
+	"type": "feature",
+	"img": "icons/magic/unholy/orb-stone-pink.webp",
+	"system": {
+		"actions": {
+			"GVBYC0uOL3SMIo03": {
+				"name": "Summon Spectral Forms",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"gAEmS4U5BrBv9xQy": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"L83m7E0bP2h4HhH9": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "@prof + @spell.mod + @level"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 10th level, you can call upon the spirits of the departed to protect you in combat. As an action, you call forth a swirling mass of spectral forms around yourself. You gain temporary hit points equal to your proficiency bonus + your spellcasting modifier + warlock level. While you have any of these temporary hit points remaining, you are lightly obscured. Once you have used this feature, you can’t do so again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Spiritualist",
+			"link": "https://bit.ly/3pOOywJ",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "0nidiym24wtl7xes"
+}

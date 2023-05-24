@@ -9,6 +9,11 @@
     async function rollPrompt() {
         const tokenActors = prepareSelectedTokenActors();
 
+        if (!tokenActors.length) {
+            ui.notifications.warn("No tokens selected");
+            return;
+        }
+
         for (const token of tokenActors) {
             const { rollFormula } = constructRollFormula({
                 actor: token,

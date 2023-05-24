@@ -8,8 +8,7 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    import constructD20RollFormula from "../../dice/constructD20RollFormula";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import getRollFormula from "../../utils/getRollFormula";
     import overrideRollMode from "../../utils/overrideRollMode";
 
     export let { actorDocument, abilityKey, dialog, options } =
@@ -39,43 +38,23 @@
         $actor.system.abilities[abilityKey]?.check.expertiseDice;
 
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+
     let rollMode = overrideRollMode($actor, selectedRollMode, {
         ability: abilityKey,
         type: "check",
     });
+
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let visibilityMode = game.settings.get("core", "rollMode");
 
-    $: rollFormula = constructD20RollFormula({
-        actor: $actor,
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
+        expertiseDie,
         rollMode,
-        modifiers: [
-            {
-                label: localize("A5E.AbilityCheckMod", {
-                    ability: localizedAbility,
-                }),
-                value: $actor.system.abilities[abilityKey].check.mod,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonus", {
-                    ability: localizedAbility,
-                }),
-                value: $actor.system.abilities[abilityKey].check.bonus,
-            },
-            {
-                label: localize("A5E.AbilityCheckBonusGlobal"),
-                value: $actor.system.bonuses.abilities.check,
-            },
-            {
-                label: localize("A5E.ExpertiseDie"),
-                value: getExpertiseDieSize(expertiseDie),
-            },
-            {
-                value: situationalMods,
-            },
-        ],
-    }).rollFormula;
+        situationalMods,
+        type: "abilityCheck",
+    });
 </script>
 
 <form>

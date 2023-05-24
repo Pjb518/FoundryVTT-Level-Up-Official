@@ -1,5 +1,13 @@
 /* eslint-disable no-unused-vars */
+// eslint-disable-next-line import/no-unresolved
+import getAttackAbility from '../utils/getAttackAbility';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
+import getRollFormula from '../utils/getRollFormula';
+import overrideRollMode from '../utils/overrideRollMode';
+import overrideExpertiseDie from '../utils/overrideExpertiseDie';
+import prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import prepareHitDice from '../apps/dataPreparationHelpers/prepareHitDice';
+import prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import ActionActivationDialog from '../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../apps/dialogs/initializers/ActionSelectionDialog';
@@ -79,31 +87,26 @@ export default class ItemA5e extends Item {
   }
 
   async #activateAction(actionId, options) {
-    const dialog = new ActionActivationDialog({
-      actionId,
-      options,
-      actorDocument: this.actor,
-      itemDocument: this
-    });
-
     const action = this.actions[actionId];
-    let promise = {};
+    // let activationData;
+    const activationData = await this.#showActionActivationPrompt(actionId, options);
 
-    // Skip dialog if nothing configured.
-    if (await this.showActionActivationDialog(actionId, action)) {
-      dialog.render(true);
-      promise = await dialog.promise;
-      if (!promise) return null;
-    }
+    // if (options.skipRollDialog) {
+    //   activationData = this.#getDefaultActionActivationData(actionId, options);
+    // } else {
+    //   activationData = await this.#showActionActivationPrompt(actionId, options);
+    // }
 
-    promise.rolls ??= [];
-    promise.rolls.push(promise?.attack ?? {});
+    if (!activationData) return null;
+
+    activationData.rolls ??= [];
+    activationData.rolls.push(activationData?.attack ?? {});
 
     const rollPreparationManager = new RollPreparationManager(
       this.actor,
       this,
-      promise.consumers ?? {},
-      promise.rolls ?? {}
+      activationData.consumers ?? {},
+      activationData.rolls ?? {}
     );
 
     const rolls = await rollPreparationManager.prepareRolls();
@@ -112,11 +115,11 @@ export default class ItemA5e extends Item {
       this.actor,
       this,
       action,
-      promise.consumers
+      activationData.consumers ?? {}
     );
 
     const validTemplate = templateManager.validateBaseTemplateData();
-    if (promise.placeTemplate && validTemplate) {
+    if (activationData.placeTemplate && validTemplate) {
       await templateManager.placeActionTemplates();
     }
 
@@ -124,7 +127,7 @@ export default class ItemA5e extends Item {
       this.actor,
       this,
       actionId,
-      promise.consumers ?? {}
+      activationData.consumers ?? {}
     );
 
     await resourceConsumptionManager.consumeResources();
@@ -153,18 +156,23 @@ export default class ItemA5e extends Item {
               async: false
             })
             : null,
-          prompts: promise.prompts,
+          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+            ? TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+              async: false
+            })
+            : null,
+          prompts: activationData.prompts,
           rollData: rolls.map(({ roll, ...rollData }) => rollData)
         }
       },
       content: '<article></article>'
     };
 
-    ChatMessage.applyRollMode(chatData, promise.visibilityMode ?? game.settings.get('core', 'rollMode'));
+    ChatMessage.applyRollMode(chatData, activationData.visibilityMode ?? game.settings.get('core', 'rollMode'));
     const chatCard = await ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, {
-      actionId, action, dialog: promise, options, rolls, validTemplate
+      actionId, action, dialog: activationData, options, rolls, validTemplate
     });
 
     return chatCard;
@@ -188,6 +196,11 @@ export default class ItemA5e extends Item {
               async: false
             })
             : null,
+          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+            ? TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+              async: false
+            })
+            : null,
           img: this.img,
           name: this.name
         }
@@ -200,6 +213,151 @@ export default class ItemA5e extends Item {
 
     Hooks.callAll('a5e.itemActivate', this, { action });
     return chatCard;
+  }
+
+  async #showActionActivationPrompt(actionId, options) {
+    const dialog = new ActionActivationDialog({
+      actionId,
+      options,
+      actorDocument: this.actor,
+      itemDocument: this
+    });
+
+    dialog.render(true);
+    return dialog.promise;
+  }
+
+  #getDefaultActionActivationData(actionId, options) {
+    const action = this.actions[actionId];
+
+    if (!action) return null;
+
+    const rolls = prepareRolls(action.rolls);
+
+    const attack = this.#getDefaultAttackRollData(rolls.attack, options);
+    const consumers = this.#getDefaultConsumerData(prepareConsumers(action.consumers));
+
+    return {
+      attack,
+      consumers,
+      prompts: [],
+      rolls: []
+    };
+  }
+
+  #getDefaultAttackRollData(attack, options) {
+    if (!attack) return {};
+
+    const { actor } = this;
+    const attackRoll = attack[0][1];
+    const attackAbility = getAttackAbility(actor, this, attackRoll);
+    const expertiseDie = overrideExpertiseDie(actor, 0);
+
+    const rollMode = overrideRollMode(
+      actor,
+      options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+      {
+        attackType: attackRoll.attackType,
+        type: 'attack'
+      }
+    );
+
+    const formula = getRollFormula(actor, {
+      ability: attackAbility,
+      attackBonus: attackRoll?.bonus,
+      attackType: attackRoll?.type,
+      expertiseDie,
+      proficient: attackRoll?.proficient ?? true,
+      rollMode,
+      situationalMods: options.situationalMods,
+      type: 'attack'
+    });
+
+    return {
+      bonus: attackRoll.bonus ?? '',
+      critThreshold: attackRoll.critThreshold ?? 20,
+      type: 'attack',
+      attackType: attackRoll.attackType ?? 'meleeWeaponAttack',
+      ability: attackAbility,
+      rollMode,
+      formula
+    };
+  }
+
+  #getDefaultConsumerData(consumers) {
+    // Prepare the default action uses data.
+    const actionUsesData = {};
+    const actionConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'actionUses');
+    if (!foundry.utils.isEmpty(actionConsumer)) {
+      actionUsesData.quantity = actionConsumer?.quantity ?? 1;
+      actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
+    }
+
+    // Prepare the default hit-dice data.
+    const hitDiceData = {};
+    const hitDiceConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'hitDice');
+    if (!foundry.utils.isEmpty(hitDiceConsumer)) {
+      const availableHitDice = prepareHitDice(this.parent).reduce(
+        (acc, { die, total }) => {
+          if (total > 0) acc.push(die);
+          return acc;
+        },
+        []
+      );
+      hitDiceData.selected = Object.fromEntries(
+        availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])
+      );
+      hitDiceData.default = hitDiceConsumer.default;
+    }
+
+    // Prepare the default item uses data.
+    const itemUsesData = {};
+    const itemConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'itemUses');
+    if (!foundry.utils.isEmpty(itemConsumer)) {
+      itemUsesData.quantity = itemConsumer?.quantity ?? 1;
+      itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
+    }
+
+    // Prepare the default action uses data.
+    const spellData = {};
+    const spellConsumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
+    if (!foundry.utils.isEmpty(spellConsumer)) {
+      const mode = spellConsumer.mode ?? 'variable';
+      const availableSpellSlots = Object.entries(this.parent?.system?.spellResources?.slots ?? {})
+        .reduce(
+          (acc, [level, slot]) => {
+            if (slot.max > 0 && slot.current > 0) acc.push(level);
+            return acc;
+          },
+          []
+        );
+
+      const spellLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
+      const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
+      spellData.level = spellLevel;
+      spellData.points = spellPoints;
+      spellData.basePoints = spellLevel;
+      spellData.baseLevel = spellPoints;
+      // eslint-disable-next-line no-nested-ternary
+      spellData.consume = mode === 'pointsOnly'
+        ? 'spellPoint'
+        : availableSpellSlots.length > 0
+          ? 'spellSlot'
+          : 'spellPoint';
+    }
+
+    return {
+      actionUses: actionUsesData,
+      hitDice: hitDiceData,
+      itemUses: itemUsesData,
+      spell: spellData
+    };
+  }
+
+  #getConsumerFromPreparedConsumers(consumers, type) {
+    if (foundry.utils.isEmpty(consumers?.[type])) return null;
+    const [_, consumer] = Object.values(consumers[type]);
+    return consumer;
   }
 
   async configureItem() {

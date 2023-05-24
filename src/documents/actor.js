@@ -24,14 +24,14 @@ import SkillConfigDialog from '../apps/dialogs/SkillConfigDialog.svelte';
 import ToolProfConfigDialog from '../apps/dialogs/ToolProfConfigDialog.svelte';
 import WeaponProfConfigDialog from '../apps/dialogs/WeaponProfConfigDialog.svelte';
 
-import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
+import DamageBonusConfigDialog from '../apps/dialogs/initializers/DamageBonusConfigDialog';
+import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import constructD20RollFormula from '../dice/constructD20RollFormula';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getExpertiseDieSize from '../utils/getExpertiseDieSize';
+import getRollFormula from '../utils/getRollFormula';
 import overrideRollMode from '../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
@@ -510,6 +510,24 @@ export default class ActorA5e extends Actor {
     return abilities[spellcastingAbility].check.mod;
   }
 
+  addDamageBonus() {
+    const damageBonuses = { ...this.system.bonuses.damage };
+
+    const newDamageBonus = {
+      context: 'all',
+      damageType: null,
+      formula: '',
+      label: 'New Damage Bonus'
+    };
+
+    this.update({
+      'system.bonuses.damage': {
+        ...damageBonuses,
+        [foundry.utils.randomID()]: newDamageBonus
+      }
+    });
+  }
+
   #configure(key, title, data, options) {
     if (!this.isOwner) return;
 
@@ -553,6 +571,11 @@ export default class ActorA5e extends Actor {
   configureCreatureTypes(data = {}, options = {}) {
     const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
     this.#configure('types', title, data, options);
+  }
+
+  configureDamageBonus(id) {
+    const dialog = new DamageBonusConfigDialog(this, id);
+    dialog.render(true);
   }
 
   configureDamageImmunities(data = {}, options = {}) {
@@ -628,6 +651,31 @@ export default class ActorA5e extends Actor {
   configureWeaponProficiencies(data = {}, options = {}) {
     const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
     this.#configure('weapons', title, data, options);
+  }
+
+  deleteDamageBonus(id) {
+    this.update({
+      'system.bonuses.damage': {
+        [`-=${id}`]: null
+      }
+    });
+  }
+
+  duplicateDamageBonus(id) {
+    const damageBonuses = { ...this.system.bonuses.damage };
+
+    const newDamageBonus = foundry.utils.duplicate(
+      this.system.bonuses.damage[id]
+    );
+
+    newDamageBonus.label = `${newDamageBonus.label} (Copy)`;
+
+    this.update({
+      'system.bonuses.damage': {
+        ...damageBonuses,
+        [foundry.utils.randomID()]: newDamageBonus
+      }
+    });
   }
 
   get isBloodied() {
@@ -729,34 +777,18 @@ export default class ActorA5e extends Actor {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-    const { rollFormula } = constructD20RollFormula({
-      actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, type: 'check' }),
-      modifiers: [
-        {
-          label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
-          value: ability.check.mod
-        },
-        {
-          label: localize('A5E.AbilityCheckBonus', {
-            ability: localize(
-              CONFIG.A5E.abilities[abilityKey]
-            )
-          }),
-          value: ability.check.bonus
-        },
-        {
-          label: localize('A5E.AbilityCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.check.trim()
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(options?.expertiseDice ?? ability.expertiseDice)
-        },
-        {
-          value: options?.situationalMods
-        }
-      ]
+    const rollMode = overrideRollMode(
+      this,
+      defaultRollMode,
+      { ability: abilityKey, type: 'check' }
+    );
+
+    const rollFormula = getRollFormula(this, {
+      ability: abilityKey,
+      expertiseDie: ability.check.expertiseDice,
+      rollMode,
+      situationalMods: options.situationalMods,
+      type: 'abilityCheck'
     });
 
     return { rollFormula };
@@ -879,41 +911,20 @@ export default class ActorA5e extends Actor {
     const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-    const { rollFormula } = constructD20RollFormula({
-      actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }),
-      modifiers: [
-        {
-          label: localize('A5E.AbilityCheckMod', {
-            ability: localize(CONFIG.A5E.abilities[abilityKey])
-          }),
-          value: ability?.save.mod
-        },
-        {
-          label: localize('A5E.SavingThrowBonus', {
-            ability: localize(CONFIG.A5E.abilities[abilityKey])
-          }),
-          value: ability?.save.bonus
-        },
-        {
-          label: localize('A5E.ConcentrationBonus'),
-          value:
-            options.saveType === 'concentration'
-              ? ability?.save.concentrationBonus
-              : null
-        },
-        {
-          label: localize('A5E.SavingThrowBonusGlobal'),
-          value: this.system.bonuses.abilities.save.trim()
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(options?.expertiseDice ?? ability?.expertiseDice)
-        },
-        {
-          value: options?.situationalMods
-        }
-      ]
+    const rollMode = overrideRollMode(
+      this,
+      defaultRollMode,
+      { ability: abilityKey, deathSave: abilityKey === null, type: 'save' }
+    );
+
+    const rollFormula = getRollFormula(this, {
+      ability: abilityKey,
+      expertiseDie: ability.save.expertiseDice,
+      proficient: ability.save.proficient,
+      rollMode,
+      saveType: options.saveType,
+      situationalMods: options.situationalMods,
+      type: 'savingThrow'
     });
 
     return { rollFormula };
@@ -982,50 +993,23 @@ export default class ActorA5e extends Actor {
   getDefaultSkillCheckData(skillKey, options = {}) {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
-    const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-    const { rollFormula } = constructD20RollFormula({
-      actor: this,
-      rollMode: overrideRollMode(this, defaultRollMode, { ability: abilityKey, skill: skillKey, type: 'skill' }),
-      minRoll: options?.minRoll ?? skill.minRoll,
-      modifiers: [
-        {
-          label: localize('A5E.SkillCheckMod', { skill: localize(CONFIG.A5E.skills[skillKey]) }),
-          value: skill.mod
-        },
-        {
-          label: localize('A5E.AbilityCheckMod', { ability: localize(CONFIG.A5E.abilities[abilityKey]) }),
-          value: ability?.check.mod
-        },
-        {
-          label: localize('A5E.SkillCheckBonus', {
-            skill: localize(CONFIG.A5E.skills[skillKey])
-          }),
-          value: skill.bonuses.check
-        },
-        {
-          label: localize('A5E.AbilityCheckBonus', {
-            ability: localize(CONFIG.A5E.abilities[abilityKey])
-          }),
-          value: ability?.check.bonus
-        },
-        {
-          label: localize('A5E.SkillCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.skill.trim()
-        },
-        {
-          label: localize('A5E.AbilityCheckBonusGlobal'),
-          value: this.system.bonuses.abilities.check.trim()
-        },
-        {
-          label: localize('A5E.ExpertiseDie'),
-          value: getExpertiseDieSize(options?.expertiseDice ?? skill.expertiseDice)
-        },
-        {
-          value: options?.situationalMods
-        }
-      ]
+    const rollMode = overrideRollMode(
+      this,
+      defaultRollMode,
+      { ability: abilityKey, skill: skillKey, type: 'skill' }
+    );
+
+    const rollFormula = getRollFormula(this, {
+      ability: abilityKey,
+      expertiseDie: skill.expertiseDice,
+      minRoll: options.minRoll ?? skill.minRoll,
+      proficient: skill.proficient,
+      type: 'skillCheck',
+      rollMode,
+      skill: skillKey,
+      situationalMods: options.situationalMods
     });
 
     return { rollFormula, abilityKey };
@@ -1067,15 +1051,23 @@ export default class ActorA5e extends Actor {
   }
 
   async updateDeathSavingThrowFigures(roll) {
-    const { success, failure } = this.system.attributes.death;
+    const { death, fatigue, strife } = this.system.attributes;
+    const { success, failure } = death;
     const d20Result = roll.dice[0].total;
 
     const updates = {
       'system.attributes.death': { success, failure }
     };
 
-    if (d20Result === 1) updates['system.attributes.death'].failure += 2;
-    else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
+    if (d20Result === 1) {
+      if (game.settings.get('a5e', '5eStyleDeathSaves')) {
+        updates['system.attributes.death'].failure += 2;
+      } else {
+        updates['system.attributes.death'].failure += 1;
+        updates['system.attributes.fatigue'] = fatigue + 1;
+        updates['system.attributes.strife'] = strife + 1;
+      }
+    } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
     else if (d20Result < 10) updates['system.attributes.death'].failure += 1;
     else updates['system.attributes.death'].success += 1;
 

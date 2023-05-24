@@ -1,0 +1,90 @@
+{
+	"name": "Channel Divinity: Creeping Death (Necropomp)",
+	"type": "feature",
+	"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+	"system": {
+		"actions": {
+			"KZaTvsOTztftn3Z3": {
+				"name": "Channel Divinity: Creeping Death",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"MEC7WVoAddR9J1mp": {
+						"type": "damage",
+						"default": true,
+						"label": "Necrotic Damage",
+						"formula": "2d4",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"jnewE5p4ApMGcOz8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Negates damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"lgawIaBM0M4RCygY": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 2nd level you may use your Channel Divinity to mark a creature you can see within 30 feet for death. This mark lasts for 1 minute. The marked creature cannot regain hit points and dies if reduced to 0 hit points. At the start of each of their turns they must make a Constitution saving throw or take 2d4 necrotic damage. This damage increases to 2d6 at level 8 and 2d8 at level 17. If a creature dies while so marked, you may choose to have the mark jump to a new creature if your choice you can see within 30 feet of the creature that died. If you do so, increase the remaining duration by a number of rounds equal to your Wisdom modifier to a maximum of 1 minute. A greater restoration, heal, mass heal, or similar magic ends the effect on a creature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Heroes Old and New",
+			"link": "https://bit.ly/3o0lQbQ",
+			"publisher": "rollThemBones"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Item.DR5a5ITxtIbOLrxx"
+		}
+	},
+	"_id": "q1gcnapev99jtwy1"
+}

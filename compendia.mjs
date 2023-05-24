@@ -42,6 +42,21 @@ function cleanDocument(document, { clearSourceId = false } = {}) {
   delete document.flags?.importSource;
   delete document._stats;
 
+  // Delete old data
+  delete document.system.ability;
+  delete document.system.actionOptions;
+  delete document.system.activation;
+  delete document.system.attack;
+  delete document.system.area;
+  delete document.system.check;
+  delete document.system.damage;
+  delete document.system.duration;
+  delete document.system.healing;
+  delete document.system.proficient;
+  delete document.system.range;
+  delete document.system.save;
+  delete document.system.target;
+
   if (!document.flags) document.flags = {};
   Object.entries(document.flags).forEach(([flag, flagData]) => {
     if (!['core', 'a5e'].includes(flag)) {

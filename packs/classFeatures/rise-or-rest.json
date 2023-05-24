@@ -1,0 +1,142 @@
+{
+	"name": "Rise or Rest",
+	"type": "feature",
+	"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+	"system": {
+		"actions": {
+			"gMsIPc3HEUcjYlXo": {
+				"name": "Animate Dead",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"NoUxXU9gmSsvKUhW": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					},
+					"pSDpCOXMFLAPIRmU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"oFHtUnUP1j8z3lfU": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "object"
+				},
+				"img": "icons/magic/death/undead-skeleton-energy-green.webp"
+			},
+			"HZfbHGHhtQRQfu4B": {
+				"name": "Gentle Repose",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"etcneyZxQ0S4iP2o": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					},
+					"vf3sK8VTefS0sUzk": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "day",
+					"value": "10"
+				},
+				"ranges": {
+					"h6t1cKpgpaWoRBBX": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"img": "icons/magic/life/heart-shadow-red.webp"
+			}
+		},
+		"description": "<p>At 8th level, when you kill a living creature, you may cast either the @UUID[Compendium.a5e.a5e-spells.xs292gklnxyaeuyx]{Animate Dead} or @UUID[Compendium.a5e.a5e-spells.724qyfqw7qcpe1ol]{Gentle Repose} spells on them as a bonus action. You may cast these spells in this way a combined number of times equal to your Wisdom modifier and regain all uses when you finish a long rest. You must still expend a spell slot as normal.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Heroes Old and New",
+			"link": "https://bit.ly/3o0lQbQ",
+			"publisher": "rollThemBones"
+		},
+		"uses": {
+			"value": null,
+			"max": "@wis.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Item.Cibl8JXrESyBVoWD"
+		}
+	},
+	"_id": "k4ozqimnkufjhapa"
+}

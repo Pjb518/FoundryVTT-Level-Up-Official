@@ -1,0 +1,395 @@
+{
+	"name": "Arcane Ammunition",
+	"type": "feature",
+	"img": "icons/skills/ranged/arrow-flying-white-blue.webp",
+	"system": {
+		"actions": {
+			"MtsHSdF28XvqARnD": {
+				"name": "Accelerated Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"yLI00NAgR6b8ztP5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"b60weJj6SiJC7xy4": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"img": "icons/skills/ranged/arrow-flying-broadhead-metal.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>The ammunition is infused with magical speed. When you fire this ammunition, treat the short and long ranges as though their values were doubled for the purposes of calculating its range, you gain an expertise die on the attack, and the shot deals an additional d4 of damage.&nbsp;</p>"
+			},
+			"EZrszZT7nrair5RJ": {
+				"name": "Entangling Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"IcFBwXKsTK3efCiE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"FdNFXKGHBQC2RGol": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"img": "icons/magic/nature/root-vine-entangled-hand.webp",
+				"description": "<p>When this ammunition impacts its target, the target takes weapon damage as normal and must make a Strength save against your spell save DC. A creature that fails is grappled for one minute. The escape DC is equal to your spell save DC. A creature that succeeds is not grappled.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"QoIvnOs0Rz5X3si8": {
+				"name": "Gelid Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"64KIV0crrdLQs3k2": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"6VhQDLc9zzFFyOPj": {
+						"type": "damage",
+						"default": true,
+						"formula": "floor(@prof / 2)d8",
+						"damageType": "cold"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>The ammunition is sheathed in an aura of icy magical cold. Upon impact, it deals a number of d8s of cold damage equal to half your proficiency modifier to the target. It also freezes liquid solid in a radius equal to 5 feet x your Proficiency bonus (including any potions the target is carrying, rendering them unusable until thawed). The supernatural cold infuses the solidified liquid for one minute, then it begins thawing normally.</p>",
+				"img": "icons/magic/water/projectile-arrow-water-ice-blue.webp",
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"wCmmwxE9OunmL5Ot": {
+				"name": "Incinerating Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"rgwAAhHMzilZHPEZ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"9intpm7FhMcEK4Jp": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"bfSRC0F7fqqhUWNg": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>The ammunition ignites any unattended flammable objects within 5 feet of its path to its target and deals an additional 1d6 points of fire damage. The target must make a Dexterity save against your spell save DC or catch fire, taking 1d6 ongoing fire damage every round for a minute or until an action is spent to extinguish the flames.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/fire/projectile-arrow-fire-orange.webp",
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"B4NhN7fkbtQyTnfA": {
+				"name": "Seeking Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"mhr3Z61E3B5YC0aY": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>Choose a target whose location you are aware of. When fired, the shot seeks that target out, curving around obstacles to strike the target. This shot ignores half and three-quarters cover and treats full cover as half cover as long as the target isn&rsquo;t entirely enclosed.</p>"
+			},
+			"SQpk6sUkHgKzU0Wz": {
+				"name": "Shard Blast",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"xabobwnkMoA0ZXYY": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"7KXReU6Vgg0A4KfV": {
+						"type": "damage",
+						"default": true,
+						"formula": "floor(@prof / 2)d6",
+						"damageType": "piercing",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"RJ5P5iRlRbytoBmM": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage and not rattled"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When you fire the ammunition, instead of making a weapon attack as normal, instead the ammunition explodes into a cone of lethal shards. Creatures in a 15-foot cone must make a Dexterity save against your spell save DC. Creatures that fail take piercing damage equal to the base damage of the weapon + a number of d6s of damage equal to half your proficiency bonus and are rattled. Creatures that save successfully take half damage and are not rattled.</p>",
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 15,
+					"placeTemplate": true
+				},
+				"img": "icons/skills/ranged/tracers-triple-orange.webp"
+			},
+			"CUzpcEhphJWpASkf": {
+				"name": "Stunning Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"YYvvrBO4Suk6zczo": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"LfaYWrS5YYOh1SYv": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {
+					"ITdGJ18LBaQ0jNmm": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Target is deafened but not stunned"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>The ammunition reverberates with sonic energy. Upon impact, a creature struck by the ammunition takes normal damage + 1d8 thunder damage and must make a Constitution saving throw against your spell save DC. A creature that fails is stunned until the end of its next turn. A creature that succeeds is deafened until the end of its next turn, but is not stunned. The impact of this ammunition (hit or miss) can be heard up to 300 feet away.</p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"5LVnrGc2dpxbtYXI": {
+				"name": "Terrifying Shot",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"UUgURYMCFUmZDy3Q": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"UrqESxoOEOAtPX2W": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Wisdom negates"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When fired, this ammunition emits an unearthly, baleful shriek audible up to 300 feet away which chills the blood of those close to you. Creatures other than you within 30 feet of you when you fire the ammunition who are not deafened must make a Wisdom saving throw against your spell save DC or be frightened of you for one minute. An affected creature may repeat the save at the end of each of its turn, ending the effect on a success. Once a creature has succeeded on a save against your Terrifying Shot, it is immune to its effects for 24 hours.</p>",
+				"ranges": {
+					"o2FCPs0P15VOPS2k": {
+						"range": "short"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"img": "icons/magic/sonic/explosion-shock-sound-wave.webp"
+			}
+		},
+		"description": "<p>At 7th level, you learn to infuse your shots with magic for a variety of useful effects. Choose three of the following special shots to learn. As a bonus action, you may place any of the following effects on a single piece of ammunition such as an arrow, bullet, crossbow bolt, throwing knife, sling bullet, or blowgun dart. Any given piece of ammunition can only have one such effect on it at a time, and the effect persists until you fire the ammunition, use this ability again, or finish a short or long rest. Once you have used this ability a number of times equal to your Intelligence modifier (minimum once) you can’t do so again until you finish a short or long rest.</p><ul><li><p>Seeking Shot: Choose a target whose location you are aware of. When fired, the shot seeks that target out, curving around obstacles to strike the target. This shot ignores half and three-quarters cover and treats full cover as half cover as long as the target isn’t entirely enclosed.</p></li><li><p>Gelid Shot: The ammunition is sheathed in an aura of icy magical cold. Upon impact, it deals a number of d8s of cold damage equal to half your proficiency modifier to the target. It also freezes liquid solid in a radius equal to 5 feet x your Proficiency bonus (including any potions the target is carrying, rendering them unusable until thawed). The supernatural cold infuses the solidified liquid for one minute, then it begins thawing normally.</p></li><li><p>Shard Blast: When you fire the ammunition, instead of making a weapon attack as normal, instead the ammunition explodes into a cone of lethal shards. Creatures in a 15-foot cone must make a Dexterity save against your spell save DC. Creatures that fail take piercing damage equal to the base damage of the weapon + a number of d6s of damage equal to half your proficiency bonus and are rattled. Creatures that save successfully take half damage and are not rattled.</p></li><li><p>Stunning Shot: The ammunition reverberates with sonic energy. Upon impact, a creature struck by the ammunition takes normal damage + 1d8 thunder damage and must make a Constitution saving throw against your spell save DC. A creature that fails is stunned until the end of its next turn. A creature that succeeds is deafened until the end of its next turn, but is not stunned. The impact of this ammunition (hit or miss) can be heard up to 300 feet away.</p></li><li><p>Entangling Shot: When this ammunition impacts its target, the target takes weapon damage as normal and must make a Strength save against your spell save DC. A creature that fails is grappled for one minute. The escape DC is equal to your spell save DC. A creature that succeeds is not grappled.</p></li><li><p>Terrifying Shot: When fired, this ammunition emits an unearthly, baleful shriek audible up to 300 feet away which chills the blood of those close to you. Creatures other than you within 30 feet of you when you fire the ammunition who are not deafened must make a Wisdom saving throw against your spell save DC or be frightened of you for one minute. An affected creature may repeat the save at the end of each of its turn, ending the effect on a success. Once a creature has succeeded on a save against your Terrifying Shot, it is immune to its effects for 24 hours.</p></li><li><p>Incinerating Shot: The ammunition ignites any unattended flammable objects within 5 feet of its path to its target and deals an additional 1d6 points of fire damage. The target must make a Dexterity save against your spell save DC or catch fire, taking 1d6 ongoing fire damage every round for a minute or until an action is spent to extinguish the flames.</p></li><li><p>Accelerated Shot: The ammunition is infused with magical speed. When you fire this ammunition, treat the short and long ranges as though their values were doubled for the purposes of calculating its range, you gain an expertise die on the attack, and the shot deals an additional d4 of damage.&nbsp;</p></li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Arcane Sniper",
+			"link": "https://bit.ly/3bHQT5T",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": 1,
+			"max": "@int.mod",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"concentration": false,
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "owzvzhvedpql55rw"
+}

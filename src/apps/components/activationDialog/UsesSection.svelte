@@ -5,6 +5,7 @@
     import FormSection from "../FormSection.svelte";
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import showActivationDialogSection from "../../../utils/showActivationDialogSection";
 
     export let consumers;
     export let actionUsesData;
@@ -12,21 +13,20 @@
 
     function getActionConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.actionUses)) return null;
-        const [actionUses] = Object.values(consumers.actionUses);
-        if (foundry.utils.isEmpty(actionUses)) return null;
-        return actionUses[1];
+        const [_, consumer] = Object.values(consumers.actionUses);
+        return consumer;
     }
 
     function getItemConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.itemUses)) return null;
-        const [itemUses] = Object.values(consumers.itemUses);
-        if (foundry.utils.isEmpty(itemUses)) return null;
-        return itemUses[1];
+        const [_, consumer] = Object.values(consumers.itemUses);
+        return consumer;
     }
 
     const actor = getContext("actor");
     const actionId = getContext("actionId");
     const item = getContext("item");
+    const action = $item.actions[actionId];
 
     // =======================================================
     // Consumer data
@@ -49,7 +49,7 @@
 </script>
 
 <div class="side-by-side">
-    {#if actionConsumer && actionUses?.max}
+    {#if showActivationDialogSection(action, ["actionUses"], ["actionUses"]) && actionUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">
@@ -76,7 +76,7 @@
         </FormSection>
     {/if}
 
-    {#if itemConsumer && itemUses?.max}
+    {#if showActivationDialogSection(action, ["itemUses"], ["itemUses"]) && itemUses?.max}
         <FormSection>
             <section>
                 <h3 class="u-text-bold u-text-sm">

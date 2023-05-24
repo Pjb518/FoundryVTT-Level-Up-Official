@@ -13,9 +13,8 @@
 
     function getConsumer(consumers) {
         if (foundry.utils.isEmpty(consumers.hitDice)) return null;
-        const [hitDice] = Object.values(consumers.hitDice);
-        if (foundry.utils.isEmpty(hitDice)) return null;
-        return hitDice[1];
+        const [_, consumer] = Object.values(consumers.hitDice);
+        return consumer;
     }
 
     function updateSelected(dieSize, remove = false) {

@@ -1,0 +1,95 @@
+{
+	"name": "Anatomical Expertise",
+	"type": "feature",
+	"img": "icons/skills/wounds/bone-broken-knee-beam.webp",
+	"effects": [],
+	"flags": {
+		"core": {
+			"sourceId": "Compendium.a5e-thematic-toolkit-arcane-avenger.arcane-avenger-toolkit-class-features.cuo4c3ruUspvCfqs"
+		}
+	},
+	"system": {
+		"actions": {
+			"1XVYrU5VzchudLJN": {
+				"name": "Analyze Creature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"DE9wDJqdt17ShWit": {
+				"name": "Bonus Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"Qu2X9yqbGcW7gNTW": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "(@prof - 1)d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "round",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Beginning at 7th level your knowledge of anatomy and physiology shows you where to strike. As a bonus action, you may make a skill check to recall knowledge of a creature’s physiology and focus on that creature (use the same skill that you would use for lore on the creature; Narrator’s call if not specified).</p><p>The DC is equal to the creature’s CR + 5 (creatures with a CR of less than 1 count as having a CR of 0 for the purposes of this ability).</p><p>If you succeed, once per round, when you hit that creature with an attack, you deal an additional 2d6 points of damage. This damage increases to 3d6 at level 9, 4d6 at level 13, and 5d6 at level 17.</p><p>Your focus lasts for an hour or until either you or the focused creature falls unconscious or dies, or until you dismiss your focus (no action required). You may switch your focus to another creature as a bonus action (making a new check to do so), and may only focus on one creature at a time.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": {
+			"name": "Thematic Toolkit: Arcane Avenger",
+			"link": "https://bit.ly/3MyQJNO",
+			"publisher": "purpleMartinGames"
+		},
+		"uses": {
+			"value": null,
+			"max": "",
+			"per": null,
+			"recharge": {
+				"formula": "1d6",
+				"threshold": "6"
+			}
+		},
+		"schema": {
+			"version": null,
+			"lastMigration": null
+		},
+		"featureType": "class",
+		"prerequisite": ""
+	},
+	"_id": "x8dfj29ryibwhcz6"
+}

@@ -1,10 +1,23 @@
 <script>
     import { getContext } from "svelte";
+    import { localize } from "@typhonjs-fvtt/runtime/svelte/helper";
 
     import Checkbox from "../Checkbox.svelte";
     import FormSection from "../FormSection.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function getDamageBonusSummary(damageBonus) {
+        const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
+        const damageType = damageTypes[damageBonus.damageType];
+
+        return localize(damageBonusSummariesByContext[damageBonus.context], {
+            formula: damageBonus.formula,
+            damageType: damageType
+                ? `${damageType.toLowerCase()} damage`
+                : "damage",
+        });
+    }
 
     const actor = getContext("actor");
 
@@ -178,13 +191,76 @@
 
     <section class="setting-group">
         <header class="setting-header">
+            <h3 class="setting-heading">Damage Bonuses</h3>
+
+            <button
+                class="setting-header-button"
+                on:click={() => $actor.addDamageBonus()}
+            >
+                + Add Damage Bonus
+            </button>
+        </header>
+
+        <ul class="damage-bonus-list">
+            {#each Object.entries($actor.system.bonuses.damage) as [id, damageBonus] (id)}
+                <li class="damage-bonus">
+                    <header class="damage-bonus__header">
+                        <h3 class="damage-bonus__heading">
+                            {damageBonus.label || "New Damage Bonus"}
+                        </h3>
+
+                        <ul class="damage-bonus-buttons">
+                            <li>
+                                <button
+                                    class="action-button fas fa-cog"
+                                    data-tooltip="A5E.ButtonToolTipConfigure"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.configureDamageBonus(id)}
+                                />
+                            </li>
+
+                            <li>
+                                <button
+                                    class="action-button fa-solid fa-clone"
+                                    data-tooltip="A5E.ButtonToolTipDuplicate"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.duplicateDamageBonus(id)}
+                                />
+                            </li>
+
+                            <li>
+                                <button
+                                    class="action-button delete-button fas fa-trash"
+                                    data-tooltip="A5E.ButtonToolTipDelete"
+                                    data-tooltip-direction="UP"
+                                    on:click|stopPropagation={() =>
+                                        $actor.deleteDamageBonus(id)}
+                                />
+                            </li>
+                        </ul>
+                    </header>
+
+                    {#if damageBonus.formula}
+                        <p class="damage-bonus__summary">
+                            {getDamageBonusSummary(damageBonus)}
+                        </p>
+                    {/if}
+                </li>
+            {/each}
+        </ul>
+    </section>
+
+    <section class="setting-group">
+        <header class="setting-header">
             <h3 class="setting-heading">Inventory Settings</h3>
         </header>
 
         <FormSection>
             <Checkbox
                 label="A5E.settings.trackInventoryWeight"
-                checked={$actor.flags?.a5e?.trackInventoryWeight ?? true}
+                checked={flags?.a5e?.trackInventoryWeight ?? true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $actor,
@@ -195,7 +271,7 @@
             />
         </FormSection>
 
-        {#if $actor.flags?.a5e?.trackInventoryWeight ?? true}
+        {#if flags?.a5e?.trackInventoryWeight ?? true}
             <FormSection>
                 <Checkbox
                     label="A5E.settings.doubleCarryingCapacity"
@@ -406,6 +482,69 @@
         height: 1.75rem;
     }
 
+    .action-button {
+        padding: 0.25rem;
+        background: none;
+        border: 0;
+        transition: all 0.15s ease-in-out;
+        color: #999;
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .delete-button:hover {
+        color: #8b2525;
+    }
+
+    .damage-bonus-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .damage-bonus {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__heading {
+            font-size: 0.833rem;
+        }
+
+        &__summary {
+            font-size: 0.694rem;
+        }
+    }
+
+    .damage-bonus-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
     .divider {
         border: 0;
         border-bottom: 0.5px solid #ccc;
@@ -433,11 +572,33 @@
     }
 
     .setting-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 0 0.5rem 0.25rem 0.125rem;
         border-bottom: 1px solid #ccc;
     }
 
+    .setting-header-button {
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        line-height: 1;
+        font-size: 0.833rem;
+        color: #7e7960;
+
+        transition: all 0.15s ease-in-out;
+
+        &:focus,
+        &:hover {
+            box-shadow: none;
+            color: rgb(25, 24, 19);
+        }
+    }
+
     .setting-heading {
         font-size: 0.833rem;
+        white-space: nowrap;
     }
 </style>
