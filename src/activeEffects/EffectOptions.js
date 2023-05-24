@@ -217,6 +217,9 @@ export default class EffectOptions {
     delete baseValues['system.resources.tertiary.hideMax'];
     delete baseValues['system.resources.quaternary.hideMax'];
 
+    // Temporarily delete the damage bonus field
+    delete baseValues['system.bonuses.damage'];
+
     // Delete schema information
     delete baseValues['system.schema.lastMigration'];
     delete baseValues['system.schema.version'];
