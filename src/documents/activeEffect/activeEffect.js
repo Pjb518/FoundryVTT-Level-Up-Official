@@ -102,12 +102,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
     }
 
     if (mode === MODES.DOWNGRADE) {
-      if (!(typeof change === 'number' && (typeof delta === 'number' || delta === undefined))) return current;
+      if (!(typeof delta === 'number' && (typeof current === 'number' || current === undefined))) return current;
       return Math.min(current ?? 0, delta);
     }
 
     if (mode === MODES.UPGRADE) {
-      if (!(typeof change === 'number' && (typeof delta === 'number' || delta === undefined))) return current;
+      if (!(typeof delta === 'number' && (typeof current === 'number' || current === undefined))) return current;
       return Math.max(current ?? 0, delta);
     }
 
@@ -245,7 +245,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {Array<ActiveEffectA5e>} effects
    * @param {() => boolean} predicate
    */
-  static applyEffects(actor, effects, currentPhase, nextPhase, predicate = () => true,) {
+  static applyEffects(actor, effects, currentPhase, nextPhase, predicate = () => true) {
     const overrides = {};
 
     // Extract and organize changes and apply a priority if it doesn't exist.
@@ -265,13 +265,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const phases = ['beforeDerived', 'afterDerived'].filter((phase) => currentPhase !== phase);
     const otherEffects = Object.entries(actor.effectPhases ?? {})
       .filter(([phase]) => phases.includes(phase))
-      .flatMap(([, effects]) => effects)
+      .flatMap(([, changes]) => changes)
       ?? [];
 
     applyObjects = applyObjects
       .filter((applyObject) => !otherEffects
-        .some((e) => e.effect._id === applyObject.effect._id && e.change.key === applyObject.change.key)
-      );
+        .some((e) => e.effect._id === applyObject.effect._id
+          && e.change.key === applyObject.change.key));
 
     if (currentPhase !== 'applyAEs') applyObjects.push(...actor.effectPhases[currentPhase]);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
@@ -290,15 +290,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
         let idx = actor.effectPhases[nextPhase]
           ?.findIndex((e) => e.effect._id === applyObject.effect._id
-            && e.change.key === applyObject.change.key
-          ) ?? -1;
+            && e.change.key === applyObject.change.key) ?? -1;
         if (idx === -1) actor.effectPhases[nextPhase].push(applyObject);
 
         if (currentPhase !== 'applyAEs') return;
         idx = actor.effectPhases[currentPhase]
           ?.findIndex((e) => e.effect._id === applyObject.effect._id
-            && e.change.key === applyObject.change.key
-          ) ?? -1;
+            && e.change.key === applyObject.change.key) ?? -1;
         if (idx !== -1) actor.effectPhases[currentPhase].splice(idx, 1);
       }
 
@@ -322,7 +320,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const data = {
       name: localize('A5E.effects.new'),
       icon: this.FALLBACK_ICON,
-      flags: { a5e: { sort: 0, } }
+      flags: { a5e: { sort: 0 } }
     };
     return super.create(data, { parent: parentDocument });
   }

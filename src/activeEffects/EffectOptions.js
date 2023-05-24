@@ -68,7 +68,7 @@ export default class EffectOptions {
           derivedValues[option][0],
           {
             modes: derivedValues[option][1] ?? DEFAULT_MODES,
-            options: derivedValues[option][2] ?? [],
+            options: derivedValues[option]?.[2] ?? [],
             phase: 'afterDerived'
           }
         );
@@ -96,6 +96,12 @@ export default class EffectOptions {
         ...this.options[type].derivedOptionsObj
       };
 
+      // Sort object
+      this.options[type].allOptionsObj = Object.fromEntries(
+        Object.entries(this.options[type].allOptionsObj)
+          .sort(([, a], [, b]) => a.label.localeCompare(b.label))
+      );
+
       // TODO: Generate phase sets here.
       // Create a set for derived options
       this.options[type].derivedOptions = new Set(
@@ -122,8 +128,9 @@ export default class EffectOptions {
 
     Object
       .keys(A5E.abilities)
-      .forEach((a) => (baseValues[`system.abilities.${a}.save.proficient`]
-        .push([[true, 'Is Proficient'], [false, 'Not Proficient']])));
+      .forEach((a) => {
+        baseValues[`system.abilities.${a}.save.proficient`] = [false, OVERRIDE_ONLY, [[true, 'Is Proficient'], [false, 'Not Proficient']]];
+      });
 
     Object
       .keys(A5E.skills)
@@ -132,8 +139,7 @@ export default class EffectOptions {
         baseValues[`system.skills.${s}.ability`] = ['', OVERRIDE_ONLY, Object.entries(A5E.abilities)];
 
         // Add options for proficiency
-        baseValues[`system.skills.${s}.proficient`]
-          .push([[true, 'Is Proficient'], [false, 'Not Proficient']]);
+        baseValues[`system.skills.${s}.proficient`] = [false, OVERRIDE_ONLY, [[true, 'Is Proficient'], [false, 'Not Proficient']]];
       });
 
     Object.keys(A5E.movement)
