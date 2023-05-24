@@ -165,9 +165,6 @@ export default class EffectOptions {
 
     // TODO: Possibly need to add something for bonus to damage
 
-    // FIXME: Temporarily remove ac till we implement phased active effects application.
-    // delete baseValues['system.attributes.ac'];
-
     // Delete derived values
     Object.keys(A5E.abilities).forEach((a) => {
       delete baseValues[`system.abilities.${a}.check.mod`];
@@ -217,8 +214,6 @@ export default class EffectOptions {
       .filter((k) => k !== 'CUSTOM')
       .sort((a, b) => a.localeCompare(b));
 
-    // FIXME: Add ac as a derived effect for now
-    // derivedValues['system.attributes.ac'] = [0, DEFAULT_MODES];
     derivedValues['system.attributes.hp.max'] = [0, DEFAULT_MODES];
   }
 
