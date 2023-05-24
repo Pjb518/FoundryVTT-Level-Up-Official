@@ -47,8 +47,6 @@
         }
     );
 
-    console.log(attackRoll);
-
     $: rollFormula = getRollFormula($actor, {
         ability: attackAbility,
         attackBonus: attackRoll?.bonus,

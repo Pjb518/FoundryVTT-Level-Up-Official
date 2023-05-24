@@ -22,28 +22,36 @@ export default class RollPreparationManager {
   }
 
   async prepareRolls() {
-    const { attack, other } = this.#rolls.reduce((acc, roll) => {
+    const { attack, damage, other } = this.#rolls.reduce((acc, roll) => {
       if (roll && roll?.type === 'attack') acc.attack = roll;
+      else if (roll && roll?.type === 'damage') acc.damage.push(roll);
       else acc.other.push(roll);
 
       return acc;
-    }, { attack: null, other: [] });
+    }, { attack: null, damage: [], other: [] });
 
     const attackRoll = await this.#prepareAttackRoll(attack ?? {});
 
-    const otherRolls = await Promise.all(
-      other.map(async (roll) => this.#prepareItemRoll(roll, attackRoll?.isCrit))
+    const damageRolls = await Promise.all(
+      damage.map(async (roll, i) => this.#prepareDamageRoll(roll, attackRoll, i))
     );
 
-    return [attackRoll, ...otherRolls].filter(Boolean);
+    if (damageRolls.length) {
+      const bonusDamageRolls = await this.#prepareBonusDamageRolls(attackRoll);
+      damageRolls.push(...bonusDamageRolls);
+    }
+
+    const otherRolls = await Promise.all(
+      other.map(async (roll) => this.#prepareItemRoll(roll))
+    );
+
+    return [attackRoll, ...damageRolls, ...otherRolls].filter(Boolean);
   }
 
-  #prepareItemRoll(roll, isCrit) {
+  #prepareItemRoll(roll) {
     switch (roll?.type) {
       case 'abilityCheck':
         return this.#prepareAbilityCheckRoll(roll);
-      case 'damage':
-        return this.#prepareDamageRoll(roll, isCrit);
       case 'generic':
         return this.#prepareGenericRoll(roll);
       case 'healing':
@@ -90,6 +98,7 @@ export default class RollPreparationManager {
     const isCrit = roll.dice[0].total >= critThreshold;
 
     return {
+      attackType: _roll.attackType,
       critThreshold,
       isCrit,
       label,
@@ -98,12 +107,64 @@ export default class RollPreparationManager {
     };
   }
 
-  async #prepareDamageRoll(_roll, isCrit) {
+  async #prepareBonusDamageRolls(attackRoll) {
+    const { attackType } = attackRoll ?? {};
+    const bonusDamage = this.#actor.system.bonuses.damage;
+
+    const genericBonusDamage = Object.values(bonusDamage).filter(
+      ({ damageType, context, formula }) => {
+        if (!damageType || damageType === 'null') return false;
+        if (!formula) return false;
+
+        if (context === 'all') return true;
+
+        if (attackType === 'meleeWeaponAttack') {
+          return ['meleeWeaponAttacks', 'weaponAttacks'].includes(context);
+        }
+
+        if (attackType === 'rangedWeaponAttack') {
+          return ['rangedWeaponAttacks', 'weaponAttacks'].includes(context);
+        }
+
+        if (attackType === 'meleeSpellAttack') {
+          return ['meleeSpellAttacks', 'spellAttacks'].includes(context);
+        }
+
+        if (attackType === 'rangedSpellAttack') {
+          return ['rangedSpellAttacks', 'spellAttacks'].includes(context);
+        }
+
+        return false;
+      }
+    );
+
+    return Promise.all(
+      genericBonusDamage.map(({ label, formula, damageType }) => this.#prepareDamageRoll({
+        label,
+        formula,
+        canCrit: true,
+        critBonus: 0,
+        damageType
+      }, attackRoll))
+    );
+  }
+
+  async #prepareDamageRoll(_roll, attackRoll, index) {
+    let formula;
+
+    const { isCrit } = attackRoll ?? {};
     const { canCrit, critBonus, damageType } = _roll;
+
+    if (index === 0) {
+      const genericBonusDamage = this.#prepareGenericBonusDamage(attackRoll?.attackType);
+      formula = [this.#applyDamageOrHealingScaling(_roll), ...genericBonusDamage].join(' + ');
+    } else {
+      formula = this.#applyDamageOrHealingScaling(_roll);
+    }
 
     const { rollFormula } = constructRollFormula({
       actor: this.#actor,
-      formula: this.#applyDamageOrHealingScaling(_roll)
+      formula
     });
 
     if (!rollFormula) return null;
@@ -126,6 +187,43 @@ export default class RollPreparationManager {
       roll,
       type: 'damage'
     };
+  }
+
+  /**
+   * Prepares the damage bonuses without any damage type. These are folded into the first
+   * damage roll for the action.
+   */
+  #prepareGenericBonusDamage(attackType) {
+    const bonusDamage = this.#actor.system.bonuses.damage;
+
+    const genericBonusDamage = Object.values(bonusDamage).filter(
+      ({ damageType, context, formula }) => {
+        if (damageType && damageType !== 'null') return false;
+        if (!formula) return false;
+
+        if (context === 'all') return true;
+
+        if (attackType === 'meleeWeaponAttack') {
+          return ['meleeWeaponAttacks', 'weaponAttacks'].includes(context);
+        }
+
+        if (attackType === 'rangedWeaponAttack') {
+          return ['rangedWeaponAttacks', 'weaponAttacks'].includes(context);
+        }
+
+        if (attackType === 'meleeSpellAttack') {
+          return ['meleeSpellAttacks', 'spellAttacks'].includes(context);
+        }
+
+        if (attackType === 'rangedSpellAttack') {
+          return ['rangedSpellAttacks', 'spellAttacks'].includes(context);
+        }
+
+        return false;
+      }
+    );
+
+    return genericBonusDamage.map(({ formula }) => formula);
   }
 
   async #prepareGenericRoll(_roll) {
