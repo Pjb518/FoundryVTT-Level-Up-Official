@@ -30,7 +30,6 @@ export default class EffectOptions {
       this.options[type] = {
         allOptionsObj: {},
         baseOptionsObj: {},
-        derivedOptions: new Set(),
         derivedOptionsObj: {}
       };
 
@@ -100,12 +99,6 @@ export default class EffectOptions {
       this.options[type].allOptionsObj = Object.fromEntries(
         Object.entries(this.options[type].allOptionsObj)
           .sort(([, a], [, b]) => a.label.localeCompare(b.label))
-      );
-
-      // TODO: Generate phase sets here.
-      // Create a set for derived options
-      this.options[type].derivedOptions = new Set(
-        Object.keys(this.options[type].derivedOptionsObj)
       );
     });
   }
