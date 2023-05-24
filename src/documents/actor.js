@@ -156,10 +156,17 @@ export default class ActorA5e extends Actor {
 
     this.statuses.clear();
 
-    // Create list of active effects to apply on the first pass
+    // Create base to store effect phases to retry effects on the next pass
+    this.effectPhases ??= {
+      beforeDerived: [],
+      afterDerived: []
+    };
+
     ActiveEffectA5e.applyEffects(
       this,
       this.actorEffects,
+      'applyAEs',
+      'beforeDerived',
       (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
         .allOptionsObj[change.key]?.phase === 'applyAEs'
     );
@@ -182,6 +189,8 @@ export default class ActorA5e extends Actor {
     ActiveEffectA5e.applyEffects(
       this,
       this.actorEffects,
+      'beforeDerived',
+      'afterDerived',
       (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
         .allOptionsObj[change.key]?.phase === 'beforeDerived'
     );
@@ -274,6 +283,8 @@ export default class ActorA5e extends Actor {
     ActiveEffectA5e.applyEffects(
       this,
       this.actorEffects,
+      'afterDerived',
+      null,
       (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
         .allOptionsObj[change.key]?.phase === 'afterDerived'
     );

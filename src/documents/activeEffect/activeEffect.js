@@ -58,10 +58,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Resolve/Validate Data
     const resValue = Roll.replaceFormulaData(change.value, actor.getRollData(), { missing: null });
-    if (resValue.includes('null')) {
-      // Re-evaluate in next phase
-      return null;
-    }
+    if (resValue.includes('null')) return null;
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
@@ -244,20 +241,20 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   /**
    *
-   * @param {import("../actor").default| import("../item").default} document
+   * @param {import("../actor").default| import("../item").default} actor
    * @param {Array<ActiveEffectA5e>} effects
    * @param {() => boolean} predicate
    */
-  static applyEffects(document, effects, predicate = () => true) {
+  static applyEffects(actor, effects, currentPhase, nextPhase, predicate = () => true,) {
     const overrides = {};
 
     // Extract and organize changes and apply a priority if it doesn't exist.
     // BasePriority is determined by CONST.ACTIVE_EFFECTS_MODE * 10
-    const applyObjects = effects.flatMap((effect) => {
+    let applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
       // Add status effects to actor list
-      effect.statuses.forEach((statusId) => document.statuses.add(statusId));
+      effect.statuses.forEach((statusId) => actor.statuses.add(statusId));
 
       return effect.changes.filter(predicate).map((change) => {
         change.priority = change.priority ?? change.mode * 10;
@@ -265,18 +262,53 @@ export default class ActiveEffectA5e extends ActiveEffect {
       });
     });
 
+    const phases = ['beforeDerived', 'afterDerived'].filter((phase) => currentPhase !== phase);
+    const otherEffects = Object.entries(actor.effectPhases ?? {})
+      .filter(([phase]) => phases.includes(phase))
+      .flatMap(([, effects]) => effects)
+      ?? [];
+
+    applyObjects = applyObjects
+      .filter((applyObject) => !otherEffects
+        .some((e) => e.effect._id === applyObject.effect._id && e.change.key === applyObject.change.key)
+      );
+
+    if (currentPhase !== 'applyAEs') applyObjects.push(...actor.effectPhases[currentPhase]);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
 
     // Apply changes to calling document
     applyObjects.forEach((applyObject) => {
       if (!applyObject.change?.key) return;
-      const appliedChange = applyObject.effect.apply(document, applyObject.change);
+      const appliedChange = applyObject.effect.apply(actor, applyObject.change, nextPhase);
+
+      // If appliedChange is null, retry in next phase
+      if (appliedChange === null) {
+        if (!nextPhase) {
+          ui.notifications.error(localize('A5E.notifications.effects.invalidChange'));
+          return;
+        }
+
+        let idx = actor.effectPhases[nextPhase]
+          ?.findIndex((e) => e.effect._id === applyObject.effect._id
+            && e.change.key === applyObject.change.key
+          ) ?? -1;
+        if (idx === -1) actor.effectPhases[nextPhase].push(applyObject);
+
+        if (currentPhase !== 'applyAEs') return;
+        idx = actor.effectPhases[currentPhase]
+          ?.findIndex((e) => e.effect._id === applyObject.effect._id
+            && e.change.key === applyObject.change.key
+          ) ?? -1;
+        if (idx !== -1) actor.effectPhases[currentPhase].splice(idx, 1);
+      }
+
+      // Assign change to overrides object
       Object.assign(overrides, appliedChange);
     });
 
     // Update document overrides
-    document.overrides = foundry.utils.expandObject({
-      ...foundry.utils.flattenObject(document.overrides),
+    actor.overrides = foundry.utils.expandObject({
+      ...foundry.utils.flattenObject(actor.overrides),
       ...overrides
     });
   }
@@ -290,12 +322,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const data = {
       name: localize('A5E.effects.new'),
       icon: this.FALLBACK_ICON,
-      flags: {
-        a5e: {
-          sort: 0,
-          phase: 'applyAEs'
-        }
-      }
+      flags: { a5e: { sort: 0, } }
     };
     return super.create(data, { parent: parentDocument });
   }

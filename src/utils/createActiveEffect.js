@@ -9,7 +9,6 @@ export default async function createEffect(actor, effectType) {
   };
 
   foundry.utils.setProperty(updateData, 'flags.a5e.sort', 0);
-  foundry.utils.setProperty(updateData, 'flags.a5e.phase', 'applyAEs');
   if (effectType === 'inactive') updateData.disabled = true;
   // if (effectType === 'temporary') updateData['duration.turns'] = 1;
 
