@@ -106,8 +106,6 @@
     const rolls = prepareRolls(action.rolls);
     const damageBonuses = prepareDamageBonuses($actor, rolls?.attack ?? []);
 
-    console.log(damageBonuses);
-
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
 
     let attackRollData = {};
@@ -118,7 +116,6 @@
     let placeTemplate = action?.area?.placeTemplate ?? false;
     let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
 
-    console.log(selectedDamageBonuses);
     let selectedPrompts = getDefaultSelections(prompts);
     let selectedRolls = getDefaultSelections(rolls);
     let visibilityMode = game.settings.get("core", "rollMode");
