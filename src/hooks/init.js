@@ -20,6 +20,7 @@ import preloadHandlebarsTemplates from '../templates';
 import performPreLocalization from '../utils/localization/performLocalization';
 import rollCombatantInitiative from '../combat/rollCombatantInitiative';
 import rollInitiative from '../combat/rollInitiative';
+import trackableAttributes from '../documents/actor/trackableAttributes';
 
 // Macros
 import activateActionMacro from '../macros/activateActionMacro';
@@ -77,6 +78,7 @@ export default function init() {
   CONFIG.A5E = A5E;
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
   CONFIG.Actor.documentClass = ActorA5e;
+  CONFIG.Actor.trackableAttributes = trackableAttributes;
   CONFIG.Item.documentClass = ItemA5e;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
