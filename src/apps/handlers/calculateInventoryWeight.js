@@ -4,7 +4,7 @@ export default function calculateInventoryWeight(actor) {
 
   const totalItemWeight = equippedItems.reduce((acc, curr) => {
     const { quantity } = curr.system;
-    const itemWeight = parseFloat(curr.system.weight, 10) ?? 0;
+    const itemWeight = parseFloat(curr.system.weight || 0, 10) ?? 0;
 
     return acc + (quantity ? itemWeight * quantity : itemWeight);
   }, 0);
