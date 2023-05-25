@@ -140,6 +140,7 @@
                 {item}
             />
 
+            <!-- svelte-ignore missing-declaration -->
             {@html TextEditor.enrichHTML(
                 actionId ? action.description : item.system.description,
                 { async: false }

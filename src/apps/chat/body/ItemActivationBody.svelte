@@ -62,6 +62,7 @@
                 <hr class="a5e-rule a5e-rule--card" />
 
                 <div>
+                    <!-- svelte-ignore missing-declaration -->
                     {#if !game.user.isGM && item?.type === "object" && item?.system?.unidentified}
                         {@html unidentifiedDescription}
                     {:else}
