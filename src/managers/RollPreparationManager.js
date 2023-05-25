@@ -10,13 +10,16 @@ export default class RollPreparationManager {
 
   #consumers;
 
+  #damageBonuses;
+
   #item;
 
   #rolls;
 
-  constructor(actor, item, consumers, rolls) {
+  constructor(actor, item, consumers, damageBonuses, rolls) {
     this.#actor = actor;
     this.#consumers = consumers;
+    this.#damageBonuses = damageBonuses;
     this.#item = item;
     this.#rolls = rolls;
   }
@@ -107,45 +110,19 @@ export default class RollPreparationManager {
     };
   }
 
-  async #prepareBonusDamageRolls(attackRoll) {
-    const { attackType } = attackRoll ?? {};
-    const bonusDamage = this.#actor.system.bonuses.damage;
-
-    const genericBonusDamage = Object.values(bonusDamage).filter(
-      ({ damageType, context, formula }) => {
-        if (!damageType || damageType === 'null') return false;
-        if (!formula) return false;
-
-        if (context === 'all') return true;
-
-        if (attackType === 'meleeWeaponAttack') {
-          return ['meleeWeaponAttacks', 'weaponAttacks'].includes(context);
-        }
-
-        if (attackType === 'rangedWeaponAttack') {
-          return ['rangedWeaponAttacks', 'weaponAttacks'].includes(context);
-        }
-
-        if (attackType === 'meleeSpellAttack') {
-          return ['meleeSpellAttacks', 'spellAttacks'].includes(context);
-        }
-
-        if (attackType === 'rangedSpellAttack') {
-          return ['rangedSpellAttacks', 'spellAttacks'].includes(context);
-        }
-
-        return false;
-      }
+  async #prepareBonusDamageRolls() {
+    const bonusDamage = Object.values(this.#damageBonuses).filter(
+      ({ damageType }) => damageType && damageType !== 'null'
     );
 
     return Promise.all(
-      genericBonusDamage.map(({ label, formula, damageType }) => this.#prepareDamageRoll({
+      bonusDamage.map(({ label, formula, damageType }) => this.#prepareDamageRoll({
         label,
         formula,
         canCrit: true,
         critBonus: 0,
         damageType
-      }, attackRoll))
+      }))
     );
   }
 
@@ -156,7 +133,7 @@ export default class RollPreparationManager {
     const { canCrit, critBonus, damageType } = _roll;
 
     if (index === 0) {
-      const genericBonusDamage = this.#prepareGenericBonusDamage(attackRoll?.attackType);
+      const genericBonusDamage = this.#prepareGenericBonusDamage();
       formula = [this.#applyDamageOrHealingScaling(_roll), ...genericBonusDamage].join(' + ');
     } else {
       formula = this.#applyDamageOrHealingScaling(_roll);
@@ -193,34 +170,9 @@ export default class RollPreparationManager {
    * Prepares the damage bonuses without any damage type. These are folded into the first
    * damage roll for the action.
    */
-  #prepareGenericBonusDamage(attackType) {
-    const bonusDamage = this.#actor.system.bonuses.damage;
-
-    const genericBonusDamage = Object.values(bonusDamage).filter(
-      ({ damageType, context, formula }) => {
-        if (damageType && damageType !== 'null') return false;
-        if (!formula) return false;
-
-        if (context === 'all') return true;
-
-        if (attackType === 'meleeWeaponAttack') {
-          return ['meleeWeaponAttacks', 'weaponAttacks'].includes(context);
-        }
-
-        if (attackType === 'rangedWeaponAttack') {
-          return ['rangedWeaponAttacks', 'weaponAttacks'].includes(context);
-        }
-
-        if (attackType === 'meleeSpellAttack') {
-          return ['meleeSpellAttacks', 'spellAttacks'].includes(context);
-        }
-
-        if (attackType === 'rangedSpellAttack') {
-          return ['rangedSpellAttacks', 'spellAttacks'].includes(context);
-        }
-
-        return false;
-      }
+  #prepareGenericBonusDamage() {
+    const genericBonusDamage = Object.values(this.#damageBonuses).filter(
+      ({ damageType }) => !damageType || damageType === 'null'
     );
 
     return genericBonusDamage.map(({ formula }) => formula);

@@ -57,7 +57,15 @@
                 itemUses: itemUsesData,
                 spell: spellData,
             },
-            damageBonuses: [],
+            damageBonuses: Object.entries(
+                $actor.system.bonuses.damage ?? {}
+            ).reduce((acc, [key, damageBonus]) => {
+                if (selectedDamageBonuses.includes(key)) {
+                    acc.push(damageBonus);
+                }
+
+                return acc;
+            }, []),
             prompts: Object.entries(action.prompts ?? {}).reduce(
                 (acc, [key, prompt]) => {
                     if (selectedPrompts.includes(key)) {
@@ -96,7 +104,7 @@
     const consumers = prepareConsumers(action.consumers);
     const prompts = preparePrompts(action.prompts);
     const rolls = prepareRolls(action.rolls);
-    const damageBonuses = prepareDamageBonuses($actor, rolls?.attack);
+    const damageBonuses = prepareDamageBonuses($actor, rolls?.attack ?? []);
 
     console.log(damageBonuses);
 

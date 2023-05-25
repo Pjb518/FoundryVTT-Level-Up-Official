@@ -1,7 +1,7 @@
 export default function prepareDamageBonuses(actor, attackRoll) {
-  if (!attackRoll || !Array.isArray(attackRoll)) return [];
+  if (!Array.isArray(attackRoll[0])) return [];
 
-  const { attackType } = attackRoll[1] ?? {};
+  const { attackType } = attackRoll[0][1] ?? {};
   const bonusDamage = actor.system.bonuses.damage;
   const counts = {};
 
