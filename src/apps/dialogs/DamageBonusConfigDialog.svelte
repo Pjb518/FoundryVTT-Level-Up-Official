@@ -4,6 +4,7 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../components/Checkbox.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
 
@@ -102,6 +103,20 @@
                     `system.bonuses.damage.${damageBonusId}.context`,
                     detail
                 )}
+        />
+    </FormSection>
+
+    <FormSection>
+        <Checkbox
+            label="Select Damage Bonus Automatically in Roll Prompt"
+            checked={damageBonus.default ?? true}
+            on:updateSelection={({ detail }) => {
+                updateDocumentDataFromField(
+                    $actor,
+                    `system.bonuses.damage.${damageBonusId}.default`,
+                    detail
+                );
+            }}
         />
     </FormSection>
 </form>
