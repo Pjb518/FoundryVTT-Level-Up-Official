@@ -20,7 +20,7 @@
         let dialogData;
 
         if (!game.settings.get("a5e", "hideDeleteConfirmation")) {
-            const itemDocument = { name: effect.label, type: "Active Effect" };
+            const itemDocument = { name: effect.name, type: "Active Effect" };
             const dialog = new DeletionConfirmationDialog(itemDocument);
             await dialog.render(true);
             dialogData = await dialog.promise;
@@ -80,13 +80,13 @@
         <img
             class="effect-image"
             src={effect?.icon ?? actor.img ?? "icons/svg/aura.svg"}
-            alt={effect?.label ?? localize("A5E.effects.new")}
+            alt={effect?.name ?? localize("A5E.effects.new")}
         />
     </button>
 
     <div class="name-wrapper">
         <div class="name">
-            {effect.label}
+            {effect.name}
         </div>
     </div>
 

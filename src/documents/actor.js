@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-import ActiveEffectA5e from './activeEffect';
+import ActiveEffectA5e from './activeEffect/activeEffect';
 import RestManager from '../managers/RestManager';
 
 import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -75,15 +75,6 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * @returns {Set<String>}
-   */
-  get derivedProperties() {
-    return new Set(Object.keys(
-      game.a5e.activeEffects.EffectOptions.options[this.type].derivedOptionsObj
-    ));
-  }
-
-  /**
    * @returns {String} hitPointFormula
    */
   get hitPointFormula() {
@@ -106,17 +97,19 @@ export default class ActorA5e extends Actor {
   }
 
   /**
+   * Sets the order of when to prepare data.
    * @override
    */
   prepareData() {
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
-    this.applyActiveEffectsToBaseData();
+    this.beforeDerivedData();
     this.prepareDerivedData();
-    this.applyActiveEffectsToDerivedData();
+    this.afterDerivedData();
   }
 
   /**
+   * Prepare base data for the actor.
    * @override
    */
   prepareBaseData() {
@@ -130,6 +123,81 @@ export default class ActorA5e extends Actor {
   }
 
   /**
+   * Prepare the base data for an actor of type character.
+   */
+  prepareCharacterData() {
+    // Calculate the proficiency bonus for the character with a minimum value of 2.
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
+  }
+
+  /**
+   * Prepare the base data for an actor of type npc.
+   */
+  prepareNPCData() {
+    // Calculate the proficiency bonus for the character with a minimum value of 2.
+    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
+  }
+
+  /**
+   * Apply activeEffects to the actor with the phase 'applyAEs'.
+   * @override
+   */
+  applyActiveEffects() {
+    this.overrides = {};
+
+    // Create base to store statuses on actor.
+    this.statuses ??= new Set();
+
+    // Identify which special statuses had been active
+    const specialStatuses = new Map();
+    Object.values(CONFIG.specialStatusEffects).forEach((statusId) => {
+      specialStatuses.set(statusId, this.statuses.has(statusId));
+    });
+
+    this.statuses.clear();
+
+    // Create base to store effect phases to retry effects on the next pass
+    this.effectPhases ??= {
+      beforeDerived: [],
+      afterDerived: []
+    };
+
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      'applyAEs',
+      'beforeDerived',
+      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
+        .allOptionsObj[change.key]?.phase === 'applyAEs'
+    );
+
+    // Apply special statuses that changed to active tokens
+    let tokens;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [statusId, wasActive] of specialStatuses) {
+      const isActive = this.statuses.has(statusId);
+      if (isActive === wasActive) return;
+      tokens ??= this.getActiveTokens();
+      tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
+    }
+  }
+
+  /**
+   * Apply activeEffects to the actor with the phase 'beforeDerived'.
+   */
+  beforeDerivedData() {
+    ActiveEffectA5e.applyEffects(
+      this,
+      this.actorEffects,
+      'beforeDerived',
+      'afterDerived',
+      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
+        .allOptionsObj[change.key]?.phase === 'beforeDerived'
+    );
+  }
+
+  /**
+   * Prepares derived data for the actor.
    * @override
    */
   prepareDerivedData() {
@@ -208,42 +276,17 @@ export default class ActorA5e extends Actor {
     this.prepareSkills();
   }
 
-  prepareCharacterData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
-  }
-
-  prepareNPCData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
-  }
-
   /**
-     * Empty return because we apply affects with custom handlers
-     * @override
-     */
-  applyActiveEffects() { }
-
-  /**
-   * Apply active effects to base data once base data is ready.
+   * Prepare active effects for the actor with the phase 'afterDerived'.
    */
-  applyActiveEffectsToBaseData() {
-    this.overrides = {};
+  afterDerivedData() {
     ActiveEffectA5e.applyEffects(
       this,
       this.actorEffects,
-      (change) => !this.derivedProperties.has(change.key)
-    );
-  }
-
-  /**
-   * Apply active effects to derived data once derived properties are read.
-   */
-  applyActiveEffectsToDerivedData() {
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actorEffects,
-      (change) => this.derivedProperties.has(change.key)
+      'afterDerived',
+      null,
+      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
+        .allOptionsObj[change.key]?.phase === 'afterDerived'
     );
   }
 
@@ -661,7 +704,7 @@ export default class ActorA5e extends Actor {
     const { current, max } = this.system.attributes.exertion;
 
     const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       ([_, { current: c, total: t }]) => c > 0 && t > 0
     );
 

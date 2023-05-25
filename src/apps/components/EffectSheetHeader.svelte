@@ -13,7 +13,7 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <img
         class="effect-image"
-        src={$effect.icon}
+        src={$effect.img ?? $effect.icon}
         alt={$effect.name}
         on:click={() => editDocumentImage($effect, { type: "effect" })}
     />
@@ -22,8 +22,8 @@
         <input
             type="text"
             class="effect-name"
-            name="label"
-            value={$effect.label}
+            name="name"
+            value={$effect.name}
             placeholder="A5E.Name"
             on:change={({ target }) =>
                 updateDocumentDataFromField($effect, target.name, target.value)}

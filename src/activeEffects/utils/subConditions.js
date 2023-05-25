@@ -10,18 +10,20 @@ import getTokenFromActor from '../../utils/getTokenFromActor';
  * @param {Object} conditionData
  */
 export async function addSubConditions(conditionData) {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
-  const token = await getTokenFromActor(conditionData.parent);
+  const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
+  const token = getTokenFromActor(conditionData.parent);
 
   // Guards
   if (!token) return;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+  if (conditions.intersection(conditionData.statuses).size === 0) return;
   if (!conditionData.flags?.a5e?.conditions) return;
 
   // Set other conditions
   for (const c of conditionData.flags.a5e.conditions) {
     const effect = CONFIG.statusEffects.find((e) => e.id === c);
-    effect['flags.a5e.source'] = conditionData.flags?.core?.statusId;
+
+    // TODO: Allow multiple sources of the same effect
+    foundry.utils.setProperty(effect, 'flags.a5e.source', conditionData.statuses.first());
     await token.toggleActiveEffect(effect, { active: true });
   }
 }
@@ -34,12 +36,12 @@ export async function addSubConditions(conditionData) {
  * @param {Object} conditionData
  */
 export async function removeSubConditions(conditionData) {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
-  const token = await getTokenFromActor(conditionData.parent);
+  const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
+  const token = getTokenFromActor(conditionData.parent);
 
   // Guards
   if (!token) return;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return;
+  if (conditions.intersection(conditionData.statuses).size === 0) return;
   if (!conditionData.flags?.a5e?.conditions) return;
 
   // Set other conditions
@@ -53,15 +55,14 @@ export async function removeSubConditions(conditionData) {
 //                    Delete Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function preventIfSourceActivated(conditionData) {
-  const conditions = Object.keys(CONFIG.A5E.conditions);
+  const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
   const sourceId = conditionData.flags?.a5e?.source;
   const token = getTokenFromActor(conditionData.parent);
 
   // Guards
   if (!token) return true;
   if (!sourceId) return true;
-  if (!conditions.includes(conditionData.flags?.core?.statusId)) return true;
-
+  if (conditions.intersection(conditionData.statuses).size === 0) return true;
   const hasEffect = token.hasStatusEffect(sourceId);
   if (!hasEffect) return true;
 

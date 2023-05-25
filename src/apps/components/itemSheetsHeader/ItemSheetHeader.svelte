@@ -102,6 +102,7 @@
 
     {#if headerButtonTypes.includes($item.type)}
         <div class="button-container">
+            <!-- svelte-ignore missing-declaration -->
             <button
                 class="header-button fa-solid fa-circle-question"
                 class:active={$item.system.unidentified}

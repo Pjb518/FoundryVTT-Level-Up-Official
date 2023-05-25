@@ -18,6 +18,7 @@
             {/if}
         {/each}
 
+        <!-- svelte-ignore missing-declaration -->
         {#if showLock && !$actor?.pack && $actor.permission !== CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER}
             <LockButton />
         {/if}

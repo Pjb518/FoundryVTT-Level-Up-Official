@@ -37,7 +37,7 @@ export default class ActorSheet extends SvelteApplication {
         token: null,
         svelte: {
           props: {
-            actor: null
+            document: null
           }
         }
       }

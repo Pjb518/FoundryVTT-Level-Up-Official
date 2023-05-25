@@ -11,6 +11,7 @@ import { addSubConditions, removeSubConditions, preventIfSourceActivated } from 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export default function setupConditions() {
   // Replace default conditions with system specific conditions.
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   CONFIG.statusEffects = getConditions();
 
   // Setup Hook to apply sub-conditions

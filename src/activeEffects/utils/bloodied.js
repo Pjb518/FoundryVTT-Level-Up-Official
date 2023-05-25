@@ -2,7 +2,6 @@
 //                     Conditions Object
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // eslint-disable-next-line no-unused-vars
-import ActorA5e from '../../documents/actor';
 
 /**
  * Apply the bloodied condition to token on half hp
@@ -21,7 +20,7 @@ export default async function automateBloodied(actor, changes) {
   if (!condition) return;
 
   const isBloodied = (value <= (max / 2));
-  const hasCondition = actor.effects.find((c) => c.flags?.core?.statusId === 'bloodied');
+  const hasCondition = actor.statuses.has('bloodied');
 
   // TODO: Call hook to recharge uses on bloodied
   // Handle Application of Condition

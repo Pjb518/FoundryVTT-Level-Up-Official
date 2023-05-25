@@ -3,7 +3,7 @@ import ActiveEffectConfigA5e from '../apps/ActiveEffectConfig';
 import ItemSheetA5e from '../apps/ItemSheet';
 
 import A5E from '../config';
-import ActiveEffectA5e from '../documents/activeEffect';
+import ActiveEffectA5e from '../documents/activeEffect/activeEffect';
 import ActorA5e from '../documents/actor';
 import D20Roll from '../dice/d20Roll';
 import ItemA5e from '../documents/item';

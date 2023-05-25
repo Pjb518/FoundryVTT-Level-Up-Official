@@ -1662,7 +1662,7 @@ A5E.effectsKeyLocalizations = {
   'system.abilities.cha.check.expertiseDice': 'A5E.effects.keys.abilities.charismaCheckExpertiseDice',
   'system.abilities.cha.save.bonus': 'A5E.effects.keys.abilities.charismaSaveBonus',
   'system.abilities.cha.save.expertiseDice': 'A5E.effects.keys.abilities.charismaSaveExpertiseDice',
-  'system.abilities.cha.save.proficient': 'A5E.effects.keys.abilities.charismaSaveExpertiseDice',
+  'system.abilities.cha.save.proficient': 'A5E.effects.keys.abilities.charismaSaveProficiency',
   'system.abilities.cha.value': 'A5E.effects.keys.abilities.charismaValue',
   'system.abilities.con.check.bonus': 'A5E.effects.keys.abilities.constitutionCheckBonus',
   'system.abilities.con.check.expertiseDice': 'A5E.effects.keys.abilities.constitutionCheckExpertiseDice',

@@ -453,6 +453,7 @@
         {/if}
     </section>
 
+    <!-- svelte-ignore missing-declaration -->
     {#if $actor.type === "npc" && game.settings.get("a5e", "randomizeNPCHitPoints")}
         <section class="setting-group">
             <header class="setting-header">

@@ -4,7 +4,6 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    export let consumer;
     export let consumerId;
 
     function deleteConsumer(event) {

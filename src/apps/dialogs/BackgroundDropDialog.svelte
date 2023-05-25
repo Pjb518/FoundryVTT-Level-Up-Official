@@ -182,6 +182,7 @@
 
     {#if equipmentLength}
         <FormSection heading="A5E.BackgroundDropEquipmentSelect">
+            <!-- svelte-ignore missing-declaration -->
             <CheckboxGroup
                 options={Object.entries($item.system.equipment).map(
                     ([key, e]) => [key, fromUuidSync(e.uuid)?.name]

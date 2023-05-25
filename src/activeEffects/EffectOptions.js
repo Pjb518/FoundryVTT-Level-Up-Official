@@ -3,12 +3,13 @@ import A5E from '../config';
 export default class EffectOptions {
   static options = {};
 
-  constructor(fieldOption, sampleValue, modes = [], options = []) {
+  constructor(fieldOption, sampleValue, data = { modes: [], options: [], phase: 'applyAEs' }) {
     this.fieldOption = fieldOption;
     this.label = CONFIG.A5E.effectsKeyLocalizations?.[fieldOption] ?? fieldOption;
     this.sampleValue = sampleValue;
-    this.modes = modes;
-    this.options = options;
+    this.modes = data.modes ?? [];
+    this.options = data.options ?? [];
+    this.phase = data.phase ?? 'applyAEs';
   }
 
   static createOptions() {
@@ -22,17 +23,17 @@ export default class EffectOptions {
       .sort((a, b) => a.localeCompare(b));
 
     Object.keys(game.system.model.Actor).forEach((type) => {
+      // TODO: Temp fix for extra base model making it in. It would be better
+      // to just delete this key.
+      if (type === 'base') return;
+
       this.options[type] = {
-        allOptions: [],
         allOptionsObj: {},
-        baseOptions: [],
         baseOptionsObj: {},
-        derivedOptions: [],
         derivedOptionsObj: {}
       };
 
       const characterOptions = {
-        flags: {},
         system: foundry.utils.duplicate(game.system.model.Actor[type])
       };
 
@@ -49,70 +50,56 @@ export default class EffectOptions {
 
       // Base Options are all those fields defined in template.json,
       // game.system.model and are things the user can directly change
-      this.options[type].baseOptions = Object.keys(baseValues).map((option) => {
-        const effectOption = new EffectOptions(
+      Object.keys(baseValues).forEach((option) => {
+        this.options[type].baseOptionsObj[option] = new EffectOptions(
           option,
           baseValues[option][0],
-          baseValues[option][1],
-          baseValues[option][2] ?? []
+          { modes: baseValues[option][1] ?? DEFAULT_MODES, options: baseValues[option][2] ?? [] }
         );
-
-        this.options[type].baseOptionsObj[option] = effectOption;
-        return effectOption;
       });
 
       // Add Derived options
-      EffectOptions.modifyDerivedValues(type, this.options[type].derivedOptions, characterOptions);
+      const derivedValues = {};
+      EffectOptions.modifyDerivedValues(type, derivedValues, characterOptions);
+      Object.keys(derivedValues).forEach((option) => {
+        this.options[type].derivedOptionsObj[option] = new EffectOptions(
+          option,
+          derivedValues[option][0],
+          {
+            modes: derivedValues[option][1] ?? DEFAULT_MODES,
+            options: derivedValues[option]?.[2] ?? [],
+            phase: 'afterDerived'
+          }
+        );
+      });
 
       // Add Special Options
       const specialOptions = {};
-      // TODO: Figure out what this is
-      // specialOptions.StatusEffect = ['', MODES.CUSTOM];
-      // specialOptions.StatusEffectLabel = ['', MODES.CUSTOM];
       EffectOptions.modifySpecialValues(type, specialOptions, characterOptions);
       Object.keys(specialOptions).forEach((key) => delete baseValues[key]);
 
       Object.keys(specialOptions).forEach((option) => {
-        const effectOption = new EffectOptions(
+        this.options[type].derivedOptionsObj[option] = new EffectOptions(
           option,
           specialOptions[option][0],
-          specialOptions[option][1],
-          specialOptions[option][2] ?? []
+          {
+            modes: specialOptions[option][1] ?? DEFAULT_MODES,
+            options: specialOptions[option][2] ?? [],
+            phase: 'afterDerived'
+          }
         );
-        this.options[type].derivedOptions.push(effectOption);
       });
 
-      this.options[type].allOptions = this.options[type].baseOptions
-        .concat(this.options[type].derivedOptions);
+      this.options[type].allOptionsObj = {
+        ...this.options[type].baseOptionsObj,
+        ...this.options[type].derivedOptionsObj
+      };
 
-      // Sort all the keys
-      this.options[type].allOptions
-        .sort((a, b) => (
-          a.label.toLocaleLowerCase() < b.label.toLocaleLowerCase()
-            ? -1
-            : 1
-        ));
-
-      this.options[type].baseOptions
-        .sort((a, b) => (
-          a.label.toLocaleLowerCase() < b.label.toLocaleLowerCase()
-            ? -1
-            : 1
-        ));
-
-      this.options[type].derivedOptions
-        .sort((a, b) => (
-          a.label.toLocaleLowerCase() < b.label.toLocaleLowerCase()
-            ? -1
-            : 1
-        ));
-
-      this.options[type].allOptions
-        .forEach((ms) => { this.options[type].allOptionsObj[ms.fieldOption] = ms; });
-      this.options[type].baseOptions
-        .forEach((ms) => { this.options[type].baseOptionsObj[ms.fieldOption] = ms; });
-      this.options[type].derivedOptions
-        .forEach((ms) => { this.options[type].derivedOptionsObj[ms.fieldOption] = ms; });
+      // Sort object
+      this.options[type].allOptionsObj = Object.fromEntries(
+        Object.entries(this.options[type].allOptionsObj)
+          .sort(([, a], [, b]) => a.label.localeCompare(b.label))
+      );
     });
   }
 
@@ -134,8 +121,9 @@ export default class EffectOptions {
 
     Object
       .keys(A5E.abilities)
-      .forEach((a) => (baseValues[`system.abilities.${a}.save.proficient`]
-        .push([[true, 'Is Proficient'], [false, 'Not Proficient']])));
+      .forEach((a) => {
+        baseValues[`system.abilities.${a}.save.proficient`] = [false, OVERRIDE_ONLY, [[true, 'Is Proficient'], [false, 'Not Proficient']]];
+      });
 
     Object
       .keys(A5E.skills)
@@ -144,8 +132,7 @@ export default class EffectOptions {
         baseValues[`system.skills.${s}.ability`] = ['', OVERRIDE_ONLY, Object.entries(A5E.abilities)];
 
         // Add options for proficiency
-        baseValues[`system.skills.${s}.proficient`]
-          .push([[true, 'Is Proficient'], [false, 'Not Proficient']]);
+        baseValues[`system.skills.${s}.proficient`] = [false, OVERRIDE_ONLY, [[true, 'Is Proficient'], [false, 'Not Proficient']]];
       });
 
     Object.keys(A5E.movement)
@@ -176,9 +163,6 @@ export default class EffectOptions {
     baseValues['system.attributes.spellcasting'] = ['', OVERRIDE_ONLY, Object.entries(A5E.abilities)];
 
     // TODO: Possibly need to add something for bonus to damage
-
-    // FIXME: Temporarily remove ac till we implement phased active effects application.
-    delete baseValues['system.attributes.ac'];
 
     // Delete derived values
     Object.keys(A5E.abilities).forEach((a) => {
@@ -226,15 +210,13 @@ export default class EffectOptions {
   }
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-  static modifyDerivedValues(actorType, derivedValues = [], characterOptions = {}) {
+  static modifyDerivedValues(actorType, derivedValues = {}, characterOptions = {}) {
     const MODES = CONST.ACTIVE_EFFECT_MODES;
     const DEFAULT_MODES = Object.keys(MODES)
       .filter((k) => k !== 'CUSTOM')
       .sort((a, b) => a.localeCompare(b));
 
-    // FIXME: Add ac as a derived effect for now
-    derivedValues.push(new EffectOptions('system.attributes.ac', 0, DEFAULT_MODES));
-    derivedValues.push(new EffectOptions('system.attributes.hp.max', 0, DEFAULT_MODES));
+    derivedValues['system.attributes.hp.max'] = [0, DEFAULT_MODES];
   }
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars

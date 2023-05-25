@@ -174,6 +174,8 @@
                                     updateChange(idx, "value", detail)}
                             />
                         </div>
+                    {:else if optionsList[key]?.modes?.[0] === "CUSTOM"}
+                        <!-- Hide value field if mode is CUSTOM -->
                     {:else}
                         <div class="row">
                             <div class="change-section u-w-full">
