@@ -10,10 +10,12 @@
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
+    import prepareDamageBonuses from "../dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
     import Checkbox from "../components/Checkbox.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FormSection from "../components/FormSection.svelte";
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
@@ -55,6 +57,7 @@
                 itemUses: itemUsesData,
                 spell: spellData,
             },
+            damageBonuses: [],
             prompts: Object.entries(action.prompts ?? {}).reduce(
                 (acc, [key, prompt]) => {
                     if (selectedPrompts.includes(key)) {
@@ -90,9 +93,12 @@
     const item = new TJSDocument(itemDocument);
     const action = $item.actions[actionId];
 
+    const consumers = prepareConsumers(action.consumers);
     const prompts = preparePrompts(action.prompts);
     const rolls = prepareRolls(action.rolls);
-    const consumers = prepareConsumers(action.consumers);
+    const damageBonuses = prepareDamageBonuses($actor, rolls?.attack);
+
+    console.log(damageBonuses);
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
 
@@ -102,6 +108,9 @@
     let itemUsesData = {};
     let spellData = {};
     let placeTemplate = action?.area?.placeTemplate ?? false;
+    let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
+
+    console.log(selectedDamageBonuses);
     let selectedPrompts = getDefaultSelections(prompts);
     let selectedRolls = getDefaultSelections(rolls);
     let visibilityMode = game.settings.get("core", "rollMode");
@@ -161,6 +170,21 @@
     <!-- If there are no rolls, hide this section -->
     {#if Object.values(rolls).flat().length}
         <RollsSection {rolls} bind:selectedRolls />
+    {/if}
+
+    <!-- If there are no rolls, hide this section -->
+    {#if Object.values(damageBonuses).flat().length}
+        <FormSection heading="Damage Bonuses">
+            <CheckboxGroup
+                options={damageBonuses.map(([key, damageBonus]) => [
+                    key,
+                    damageBonus.label || damageBonus.defaultLabel,
+                ])}
+                selected={selectedDamageBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedDamageBonuses = detail)}
+            />
+        </FormSection>
     {/if}
 
     <!-- If there are no prompts, hide this section -->

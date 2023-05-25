@@ -473,8 +473,9 @@ export default class ActorA5e extends Actor {
     const newDamageBonus = {
       context: 'all',
       damageType: null,
+      default: true,
       formula: '',
-      label: 'New Damage Bonus'
+      label: ''
     };
 
     this.update({
@@ -625,7 +626,7 @@ export default class ActorA5e extends Actor {
       this.system.bonuses.damage[id]
     );
 
-    newDamageBonus.label = `${newDamageBonus.label} (Copy)`;
+    newDamageBonus.label = `${newDamageBonus.label || 'New Damage Bonus'} (Copy)`;
 
     this.update({
       'system.bonuses.damage': {
