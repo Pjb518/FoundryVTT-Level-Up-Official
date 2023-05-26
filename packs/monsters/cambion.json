@@ -7,7 +7,7 @@
 			"_id": "9L4kMF26g3fQYsXj",
 			"name": "Armored",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/equipment/chest/breastplate-banded-steel-studded.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -37,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -78,6 +79,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -89,7 +91,7 @@
 			"_id": "85N4Z0FEBYd1ILWt",
 			"name": "Black Iron Blade",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/swords/sword-guard-flanged.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -195,7 +197,7 @@
 			"_id": "OV24B7A2bSzBZ5fv",
 			"name": "Fire Blast",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/fire/projectile-fireball-sparks-orange.webp",
 			"effects": [],
 			"folder": "yKYZJ2BF51Rij43x",
 			"sort": 150000,
@@ -223,8 +225,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creatureObject"
 						},
 						"rolls": {
 							"DXbehBsWoZls5Psw": {
@@ -242,10 +244,15 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"LbFMJWnWSLotmpcO": {
+								"range": "medium"
+							}
+						}
 					}
 				},
-				"description": "<p>Range 60 ft, one target.</p>",
+				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -268,6 +275,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -277,9 +285,9 @@
 		},
 		{
 			"_id": "wUcQsdDHmx1H3TnA",
-			"name": "Fiery Escape (1/ day)",
+			"name": "Fiery Escape",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
 			"effects": [],
 			"folder": "yKYZJ2BF51Rij43x",
 			"sort": 100000,
@@ -291,7 +299,7 @@
 			"system": {
 				"actions": {
 					"ycvmYLUqjuJslAcR": {
-						"name": "Fiery Escape (1/ day)",
+						"name": "Fiery Escape",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -349,6 +357,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -360,7 +369,7 @@
 			"_id": "HCgpSvAO6bzHo6p6",
 			"name": "Fell Charm",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
 			"effects": [],
 			"folder": "yKYZJ2BF51Rij43x",
 			"sort": 200000,
@@ -428,6 +437,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -439,7 +449,7 @@
 			"_id": "AxsOYcCyOQWfb8g9",
 			"name": "Command",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"effects": [],
 			"folder": "yKYZJ2BF51Rij43x",
 			"sort": 200000,
@@ -496,6 +506,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -507,7 +518,7 @@
 			"_id": "kIppDAvW0Ruf3nVu",
 			"name": "Shapeshift",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
 			"effects": [],
 			"folder": "yKYZJ2BF51Rij43x",
 			"sort": 200000,
@@ -564,6 +575,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -1127,10 +1139,9 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.v0h15xokvw4k94yb"
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1579,7 +1590,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1606,6 +1618,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1646,29 +1659,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1745,7 +1779,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "v0h15xokvw4k94yb"
 }

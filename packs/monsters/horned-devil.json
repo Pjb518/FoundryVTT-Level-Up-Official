@@ -4,95 +4,13 @@
 	"img": "systems/a5e/assets/horned-devil.webp",
 	"items": [
 		{
-			"_id": "9LI98Sie12IrLoWI",
-			"name": "Devil's Sight",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zSQQH9xjuyFFeTD1",
-			"name": "Lawful Evil",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "TzXTbR13mntmQwwg",
 			"name": "Magic Resistance",
 			"type": "feature",
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 4,
 			"flags": {},
 			"system": {
 				"actions": {},
@@ -119,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -133,7 +52,7 @@
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 5,
 			"flags": {},
 			"system": {
 				"actions": {
@@ -183,6 +102,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -197,7 +117,7 @@
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 7,
 			"flags": {},
 			"system": {
 				"actions": {
@@ -274,86 +194,7 @@
 						}
 					}
 				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "ejBRFIZfLR19JXUr",
-			"name": "Hurl Flame",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"8A3R2PADMs99luTr": {
-						"name": "Hurl Flame",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"qPquapGHXcxXPPiR": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeSpellAttack",
-								"ability": "dex"
-							},
-							"hBCDe6UunXBPd8N7": {
-								"canCrit": true,
-								"damageType": "fire",
-								"formula": "3d6",
-								"name": "Hurl Flame",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>If the target is a creature, it catches on fire, taking 5 (1d10) ongoing fire damage. If the target is an unattended flammable object, it catches on fire. A creature can use an action to extinguish this fire.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -363,9 +204,9 @@
 		},
 		{
 			"_id": "kBvCKaYzzHKz820X",
-			"name": "Fork (10 ft)",
+			"name": "Fork",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/polearms/trident-ornate-red.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -373,7 +214,7 @@
 			"system": {
 				"actions": {
 					"Bfm9LBAefQNo3aLp": {
-						"name": "Fork (10 ft)",
+						"name": "Fork",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -415,7 +256,13 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"H1wfiLzFTUoeNIc5": {
+								"range": 10,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "",
@@ -471,17 +318,17 @@
 		},
 		{
 			"_id": "bilLB9MJmJq6m4fk",
-			"name": "Inferno (1/day, while Bloodied)",
+			"name": "Inferno (While Bloodied)",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/fire/projectile-wave-yellow.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"actions": {
 					"qlpWlwwAaa9iKsyO": {
-						"name": "Inferno (1/day, while Bloodied)",
+						"name": "Inferno",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -524,10 +371,16 @@
 							"RMJZzIqxSg4C41j0": {
 								"type": "itemUses"
 							}
+						},
+						"ranges": {
+							"BbdzmLmiIyEoivgD": {
+								"range": 10,
+								"unit": "feet"
+							}
 						}
 					}
 				},
-				"description": "<p>he devil waves its fork, igniting a trail of roaring flame. Any creature within 10 feet of the devil makes a DC 15 Dexterity saving throw, taking 49 (14d6) fire damage on a failure or half damage on a success.<em>&nbsp;</em></p>",
+				"description": "<p>The devil waves its fork, igniting a trail of roaring flame. Any creature within 10 feet of the devil makes a DC 15 Dexterity saving throw, taking 49 (14d6) fire damage on a failure or half damage on a success.<em>&nbsp;</em></p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -550,6 +403,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -559,17 +413,17 @@
 		},
 		{
 			"_id": "18VxzEDkcPZfZS3D",
-			"name": "Pin (1/day, Reaction)",
+			"name": "Pin",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/wounds/injury-pain-body-orange.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 6,
 			"flags": {},
 			"system": {
 				"actions": {
 					"cNBI7ay0wWawnJQa": {
-						"name": "Pin (1/day, Reaction)",
+						"name": "Pin",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -645,6 +499,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -1203,19 +1058,184 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "7ZjbIg7k0BcdZbnO"
+		},
+		{
+			"_id": "OlWzXdWfpYn7bc5f",
+			"name": "Devil's Sight",
+			"type": "feature",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "HpvJ3dtpPGpxPAju",
+			"name": "Lawful Evil",
+			"type": "feature",
+			"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 3,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "m8AqRdTph6vslEDE",
+			"name": "Hurl Flame",
+			"type": "feature",
+			"img": "icons/magic/fire/projectile-fireball-smoke-orange.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 1,
+			"flags": {},
+			"system": {
+				"actions": {
+					"eIGQlAgRBnyVOAeu": {
+						"name": "Hurl Flame",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"y60UR7NDtVMpXk8G": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeSpellAttack",
+								"ability": "dex"
+							},
+							"FBrTqO98hdwToENc": {
+								"canCrit": true,
+								"damageType": "fire",
+								"formula": "3d6",
+								"name": "Hurl Flame",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>If the target is a creature, it catches on fire, taking 5 (1d10) ongoing fire damage. If the target is an unattended flammable object, it catches on fire. A creature can use an action to extinguish this fire.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"featureActivationCostFilters": {
 				"inclusive": [],
 				"exclusive": []
-			}
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.1i0pwnhuq21ygsi4"
+			},
+			"currentTab": "core",
+			"sortMode": 1,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1664,7 +1684,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 120,
@@ -1691,6 +1712,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1730,29 +1752,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "lg",
@@ -1832,7 +1875,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "1i0pwnhuq21ygsi4"
 }
