@@ -49,9 +49,10 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
       this.statusEffectList[effect.id] = effect.label;
     });
 
-    // TODO: Add a union type for items
-    const usableOptions = game.a5e.activeEffects.EffectOptions
-      .options[this.activeEffect.parent.type];
+    const usableOptions = activeEffect.parent?.documentName === 'Actor'
+      ? game.a5e.activeEffects.EffectOptions
+        .options[this.activeEffect.parent.type]
+      : game.a5e.activeEffects.EffectOptions.options.all;
 
     this.optionsList = usableOptions.allOptionsObj;
   }

@@ -101,6 +101,15 @@ export default class EffectOptions {
           .sort(([, a], [, b]) => a.label.localeCompare(b.label))
       );
     });
+
+    const allOptionsObj = {};
+    Object.keys(game.system.model.Actor).forEach((type) => {
+      if (type === 'base') return;
+      Object.entries(this.options[type].allOptionsObj)
+        .forEach(([key, value]) => { allOptionsObj[key] = value; });
+    });
+
+    this.options.all = { allOptionsObj };
   }
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
