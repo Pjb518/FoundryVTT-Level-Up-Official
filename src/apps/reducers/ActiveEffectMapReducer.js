@@ -1,7 +1,8 @@
+/* eslint-disable max-classes-per-file */
 // eslint-disable-next-line import/no-unresolved
 import { DynMapReducer } from '@typhonjs-fvtt/runtime/svelte/store';
 
-export default class ActiveEffectMapReducer extends DynMapReducer {
+export class ActorActiveEffectMapReducer extends DynMapReducer {
   initialize() {
     this.filters.add((effect) => effect?.statuses?.size === 0);
     this.sort.set((a, b) => (a?.flags?.a5e?.sort ?? 0) - (b?.flags?.a5e?.sort ?? 0));
@@ -13,5 +14,17 @@ export default class ActiveEffectMapReducer extends DynMapReducer {
 
     this._types.ongoing.filters.add((effect) => !effect.isSuppressed);
     this._types.inactive.filters.add((effect) => effect.isSuppressed);
+  }
+}
+
+export class ItemActiveEffectMapReducer extends DynMapReducer {
+  initialize() {
+    this.filters.add((effect) => effect?.statuses?.size === 0);
+    this.sort.set((a, b) => (a?.flags?.a5e?.sort ?? 0) - (b?.flags?.a5e?.sort ?? 0));
+
+    this._types = {
+      onUse: this.derived.create('onUse'),
+      passive: this.derived.create('passive')
+    };
   }
 }
