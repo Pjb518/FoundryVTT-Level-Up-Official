@@ -7,7 +7,7 @@
 			"_id": "65cnZyq4GqCfYmdf",
 			"name": "Barbed Hide",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/abilities/stinger-spine-horn-blood.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -37,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -48,7 +49,7 @@
 			"_id": "9LI98Sie12IrLoWI",
 			"name": "Devil's Sight",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -78,6 +79,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -89,7 +91,7 @@
 			"_id": "zSQQH9xjuyFFeTD1",
 			"name": "Lawful Evil",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -119,6 +121,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -160,6 +163,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -224,6 +228,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -315,6 +320,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -395,6 +401,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -406,7 +413,7 @@
 			"_id": "ejBRFIZfLR19JXUr",
 			"name": "Hurl Flame",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/fire/projectile-fireball-smoke-orange.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -475,6 +482,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -1038,10 +1046,8 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.7hewgw6mhpm4qcde"
+			"sheetIsLocked": false,
+			"currentTab": "core"
 		}
 	},
 	"system": {
@@ -1490,7 +1496,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 120,
@@ -1517,6 +1524,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1556,29 +1564,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1658,7 +1687,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "7hewgw6mhpm4qcde"
 }
