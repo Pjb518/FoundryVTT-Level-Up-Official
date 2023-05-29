@@ -103,7 +103,6 @@ export default class ActorA5e extends Actor {
   prepareData() {
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
-    this.beforeDerivedData();
     this.prepareDerivedData();
     this.afterDerivedData();
   }
@@ -166,7 +165,7 @@ export default class ActorA5e extends Actor {
       this,
       this.actorEffects,
       'applyAEs',
-      'beforeDerived',
+      'afterDerived',
       (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
         .allOptionsObj[change.key]?.phase === 'applyAEs'
     );
@@ -180,20 +179,6 @@ export default class ActorA5e extends Actor {
       tokens ??= this.getActiveTokens();
       tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
     }
-  }
-
-  /**
-   * Apply activeEffects to the actor with the phase 'beforeDerived'.
-   */
-  beforeDerivedData() {
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actorEffects,
-      'beforeDerived',
-      'afterDerived',
-      (change) => game.a5e.activeEffects.EffectOptions.options[this.type]
-        .allOptionsObj[change.key]?.phase === 'beforeDerived'
-    );
   }
 
   /**
