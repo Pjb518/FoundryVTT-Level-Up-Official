@@ -16,6 +16,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   static PHASES = ['applyAEs', 'afterDerived'];
 
+  static ITEM_TYPES = ['passive', 'onUse', 'permanent'];
+
   // -------------------------------------------------------
   //  Getters
   // -------------------------------------------------------
@@ -218,6 +220,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  _onDelete(options, userId) {
+    super._onDelete(options, userId);
+
+    if (this.parent?.documentName !== 'Actor') return;
+    this.parent.effectPhases = null;
+    this.parent.reset();
+  }
+
   async duplicateEffect() {
     const owningDocument = this.parent;
     const newEffect = foundry.utils.duplicate(this);
@@ -289,7 +299,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       const appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
 
       // If appliedChange is null, retry in next phase
-      if (appliedChange === null) {
+      if (appliedChange === null && !applyObject.effect.isSuppressed) {
         if (!nextPhase) {
           ui.notifications.error(localize('A5E.notifications.effects.invalidChange'));
           return;
