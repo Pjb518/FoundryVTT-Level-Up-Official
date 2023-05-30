@@ -448,6 +448,16 @@ export default class ItemA5e extends Item {
     if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
   }
 
+  async _onCreate(data, options, user) {
+    super._onCreate(data, options, user);
+
+    // Update effect origins
+    const effects = this.effects.contents;
+    const updateArr = effects.map((effect) => ({ _id: effect._id, origin: this.uuid }));
+
+    this.updateEmbeddedDocuments('ActiveEffect', updateArr);
+  }
+
   static async _onCreateDocuments(items, context) {
     if (!(context.parent instanceof Actor)) return undefined;
     const toCreate = [];

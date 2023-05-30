@@ -36,7 +36,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     if (this.disabled || this.parent.documentName !== 'Actor') return true;
 
     const { parentItem } = this;
-    if (!parentItem) return false;
+    if (!parentItem || parentItem?.type !== 'object') return false;
 
     return !parentItem?.system?.equipped;
   }
@@ -221,6 +221,21 @@ export default class ActiveEffectA5e extends ActiveEffect {
     }
 
     return change.value;
+  }
+
+  _onUpdate(data, options, userId) {
+    super._onUpdate(data, options, userId);
+    if (!(this.parent?.parent instanceof Actor)) return;
+    const actor = this.parent.parent;
+
+    actor.effectPhases = null;
+    actor.reset();
+
+    // Update parent effect
+    if (this.flags?.a5e?.transferType !== 'passive') return;
+    const parentEffect = actor.effects.contents.find((e) => e.origin === this.origin);
+    if (!parentEffect) return;
+    parentEffect.update(data);
   }
 
   _onDelete(options, userId) {
