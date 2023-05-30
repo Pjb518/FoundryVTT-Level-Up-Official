@@ -33,17 +33,20 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @returns {Boolean}
    */
   get isSuppressed() {
-    // TODO: Refactor this when item effects are added
     if (this.disabled || this.parent.documentName !== 'Actor') return true;
+
     const { parentItem } = this;
     if (!parentItem) return false;
-    return parentItem?.system?.equipped;
+
+    return !parentItem?.system?.equipped;
   }
 
   get parentItem() {
-    if (this.parent instanceof Actor) return null;
+    if (!(this.parent instanceof Actor)) return null;
+
     const idRegex = /Item\.([a-zA-Z0-9]+)/;
     const itemId = this.origin?.match(idRegex)?.[1];
+
     if (!itemId) return null;
     return this.parent.items.get(itemId);
   }
