@@ -356,7 +356,7 @@ export default class ItemA5e extends Item {
 
   #getConsumerFromPreparedConsumers(consumers, type) {
     if (foundry.utils.isEmpty(consumers?.[type])) return null;
-    const [_, consumer] = Object.values(consumers[type]);
+    const [, consumer] = Object.values(consumers[type]);
     return consumer;
   }
 
@@ -446,5 +446,24 @@ export default class ItemA5e extends Item {
     roll.toMessage();
 
     if (roll.total >= threshold) await this.update({ [updatePath]: Math.min(max, current + 1) });
+  }
+
+  static async _onCreateDocuments(items, context) {
+    if (!(context.parent instanceof Actor)) return undefined;
+    const toCreate = [];
+    items.forEach((item) => {
+      item.effects.forEach((effect) => {
+        const isPassive = effect.flags?.a5e?.transferType === 'passive';
+        if (!isPassive) return;
+
+        const effectData = effect.toJSON();
+        effectData.origin = item.uuid;
+        toCreate.push(effectData);
+      });
+    });
+
+    if (!toCreate.length) return [];
+    const cls = getDocumentClass('ActiveEffect');
+    return cls.createDocuments(toCreate, context);
   }
 }
