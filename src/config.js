@@ -131,6 +131,7 @@ A5E.actionOptions = {
 };
 
 A5E.activeEffectTypes = {
+  onUse: 'A5E.effects.type.onUse',
   ongoing: 'A5E.effects.type.ongoing',
   inactive: 'A5E.effects.type.inactive',
   passive: 'A5E.effects.type.passive',

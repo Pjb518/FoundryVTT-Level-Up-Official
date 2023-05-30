@@ -16,6 +16,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   static PHASES = ['applyAEs', 'afterDerived'];
 
+  static ITEM_TYPES = ['passive', 'onUse', 'permanent'];
+
   // -------------------------------------------------------
   //  Getters
   // -------------------------------------------------------
@@ -31,17 +33,20 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @returns {Boolean}
    */
   get isSuppressed() {
-    // TODO: Refactor this when item effects are added
     if (this.disabled || this.parent.documentName !== 'Actor') return true;
+
     const { parentItem } = this;
-    if (!parentItem) return false;
-    return parentItem?.system?.equipped;
+    if (!parentItem || parentItem?.type !== 'object') return false;
+
+    return !parentItem?.system?.equipped;
   }
 
   get parentItem() {
-    if (this.parent instanceof Actor) return null;
+    if (!(this.parent instanceof Actor)) return null;
+
     const idRegex = /Item\.([a-zA-Z0-9]+)/;
     const itemId = this.origin?.match(idRegex)?.[1];
+
     if (!itemId) return null;
     return this.parent.items.get(itemId);
   }
@@ -218,6 +223,29 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  _onUpdate(data, options, userId) {
+    super._onUpdate(data, options, userId);
+    if (!(this.parent?.parent instanceof Actor)) return;
+    const actor = this.parent.parent;
+
+    actor.effectPhases = null;
+    actor.reset();
+
+    // Update parent effect
+    if (this.flags?.a5e?.transferType !== 'passive') return;
+    const parentEffect = actor.effects.contents.find((e) => e.origin === this.origin);
+    if (!parentEffect) return;
+    parentEffect.update(data);
+  }
+
+  _onDelete(options, userId) {
+    super._onDelete(options, userId);
+
+    if (this.parent?.documentName !== 'Actor') return;
+    this.parent.effectPhases = null;
+    this.parent.reset();
+  }
+
   async duplicateEffect() {
     const owningDocument = this.parent;
     const newEffect = foundry.utils.duplicate(this);
@@ -289,7 +317,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       const appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
 
       // If appliedChange is null, retry in next phase
-      if (appliedChange === null) {
+      if (appliedChange === null && !applyObject.effect.isSuppressed) {
         if (!nextPhase) {
           ui.notifications.error(localize('A5E.notifications.effects.invalidChange'));
           return;
