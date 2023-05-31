@@ -202,7 +202,7 @@
         </header>
 
         <ul class="damage-bonus-list">
-            {#each Object.entries($actor.system.bonuses.damage) as [id, damageBonus] (id)}
+            {#each Object.entries($actor.system.bonuses.damage ?? {}) as [id, damageBonus] (id)}
                 <li class="damage-bonus">
                     <header class="damage-bonus__header">
                         <h3 class="damage-bonus__heading">
