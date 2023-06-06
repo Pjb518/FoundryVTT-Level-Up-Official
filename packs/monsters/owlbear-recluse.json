@@ -37,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -78,6 +79,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -147,6 +149,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "other",
 				"prerequisite": ""
 			},
@@ -201,7 +204,7 @@
 							"ggPVMfRU8Sy7G1DC": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d8 + @default.mod",
+								"formula": "2d8 + @mod",
 								"name": "Claw Attack (Advantage)",
 								"type": "damage"
 							}
@@ -232,6 +235,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -286,7 +290,7 @@
 							"IUW3flW5aDZKctyE": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d10 + @default.mod",
+								"formula": "1d10 + @mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -317,6 +321,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -371,7 +376,7 @@
 							"59Q5IFJdVaHBy802": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d8 + @default.mod",
+								"formula": "2d8 + @mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -402,6 +407,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -456,7 +462,7 @@
 							"CHPyZNnZcnvStHn7": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d8 + @default.mod",
+								"formula": "2d8 + @mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -487,6 +493,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -556,6 +563,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "other",
 				"prerequisite": ""
 			},
@@ -1117,11 +1125,7 @@
 		}
 	],
 	"effects": [],
-	"flags": {
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.o9f6xvihvtbqkprm"
-		}
-	},
+	"flags": {},
 	"system": {
 		"abilities": {
 			"str": {
@@ -1568,7 +1572,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": 0,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1595,6 +1600,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1631,29 +1637,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "lg",
@@ -1725,7 +1752,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "o9f6xvihvtbqkprm"
 }
