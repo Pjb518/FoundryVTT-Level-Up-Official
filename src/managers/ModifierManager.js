@@ -177,7 +177,7 @@ export default class ModifierManager {
 
   #getGlobalSavingThrowBonus() {
     return {
-      label: localize('A5E.AbilityCheckBonusGlobal'),
+      label: localize('A5E.SavingThrowBonusGlobal'),
       value: this.actor.system.bonuses.abilities.save.trim()
     };
   }
