@@ -1,8 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
 
-// eslint-disable-next-line import/no-unresolved
-import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
+import ItemDocument from './ItemDocument';
 
 import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
 import CultureSheetComponent from './sheets/CultureSheet.svelte';
@@ -43,7 +42,7 @@ export default class ItemSheet extends SvelteApplication {
 
     this.item = item;
 
-    this.options.svelte.props.document = new TJSDocument(
+    this.options.svelte.props.document = new ItemDocument(
       this.item,
       { delete: this.close.bind(this) }
     );

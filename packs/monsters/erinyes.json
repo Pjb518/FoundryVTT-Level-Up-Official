@@ -4,47 +4,6 @@
 	"img": "systems/a5e/assets/erinyes.webp",
 	"items": [
 		{
-			"_id": "zSQQH9xjuyFFeTD1",
-			"name": "Lawful Evil",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 128125,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "TzXTbR13mntmQwwg",
 			"name": "Magic Resistance",
 			"type": "feature",
@@ -78,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -142,6 +102,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -150,116 +111,10 @@
 			}
 		},
 		{
-			"_id": "33W6itvhDc6jRA52",
-			"name": "Longsword",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"kPXQrkH3nQnejj7r": {
-						"name": "Longsword",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"sRwbc404ZzzkSjg6": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "",
-								"ability": "str"
-							},
-							"dK7kYD834kb8ZK1I": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "1d8+@str.mod",
-								"name": "Longsword",
-								"type": "damage"
-							},
-							"uiWxMAeXuWbqF1Sb": {
-								"canCrit": true,
-								"damageType": "poison",
-								"formula": "4d6",
-								"name": "Poison",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "ys2ROIO1jFLoopyk",
-			"name": "Longbow (150/600 ft)",
+			"name": "Longbow",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/bows/bow-recurve-black.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -267,7 +122,7 @@
 			"system": {
 				"actions": {
 					"qSLxg8P1cEKJbgYX": {
-						"name": "Longbow (150/600 ft)",
+						"name": "Attack",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -283,8 +138,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creatureObject"
 						},
 						"rolls": {
 							"tp2KSBN5aVewVWv3": {
@@ -324,7 +179,17 @@
 							"it8wXkhu5mGP9whD": {
 								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "TSacN5swCw5KgXSf"
+							}
+						},
+						"ranges": {
+							"6MLRApkFYrgI5SDt": {
+								"range": 150,
+								"unit": "feet"
+							},
+							"kQSA71PiUvpUqC2h": {
+								"range": 600
 							}
 						}
 					}
@@ -380,9 +245,9 @@
 		},
 		{
 			"_id": "cpOlCzpnXCIvCn9R",
-			"name": "Lasso (15 ft)",
+			"name": "Lasso",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/sundries/survival/rope-noose-brown.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -390,7 +255,7 @@
 			"system": {
 				"actions": {
 					"6PWTIDfrqYkfKY6y": {
-						"name": "Lasso (15 ft)",
+						"name": "Attack",
 						"activation": {
 							"cost": "",
 							"type": "",
@@ -418,7 +283,13 @@
 								"ability": "dex"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"cjtl8hvPOCvc7emA": {
+								"range": 15,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "<p>On a hit, the target is entangled by the lasso. While entangled, it can’t move more than 15 feet away from the erinyes. The entanglement ends if the erinyes releases the lasso or becomes incapacitated, or if the lasso is destroyed. The lasso is an object with AC 12 and 20 HP and is immune to piercing, poison, psychic, and thunder damage. The entanglement also ends if the target or a creature within 5 feet of it uses an action to succeed on a DC 16 Athletics or Acrobatics check to remove the lasso. The erinyes can’t make a lasso attack while a creature is entangled.</p>",
@@ -472,9 +343,9 @@
 		},
 		{
 			"_id": "pu5Nk1ADnmVja3nk",
-			"name": "Parry (Reaction)",
+			"name": "Parry",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/swords-parry-block-blue.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -482,7 +353,7 @@
 			"system": {
 				"actions": {
 					"6uMjsxybxwuMRUuO": {
-						"name": "Parry (Reaction)",
+						"name": "Parry",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -527,6 +398,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -1085,15 +957,225 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "XTXj4xSd6VfWPbXb"
+		},
+		{
+			"name": "Arrows",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.4li8cxq2p7xsh1jx"
+				}
+			},
+			"system": {
+				"actions": {},
+				"description": "<p>A bundle of 20 arrows.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"quantity": 20,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 1
+			},
+			"_id": "TSacN5swCw5KgXSf",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "n1ZJkkS9JSJMvsBI",
+			"name": "Lawful Evil",
+			"type": "feature",
+			"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Longsword",
+			"type": "object",
+			"img": "icons/weapons/swords/greatsword-flamberge.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.pxazla3i4qaj6c29"
+				}
+			},
+			"system": {
+				"actions": {
+					"rPaMSExLpHCaYkH9": {
+						"name": "Longsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"UEwQqL1vKVE291PA": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"x4uy5CMwLzIKdqmH": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d8 + @str.mod",
+								"name": "Longsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": false,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20 gp",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive"
+				],
+				"weight": 3
+			},
+			"_id": "T1ibJS8CGx1yRge2",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.j9yykj9jfjbk3qvz"
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1542,7 +1624,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": null,
@@ -1569,6 +1652,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1608,29 +1692,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1710,7 +1815,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "j9yykj9jfjbk3qvz"
 }

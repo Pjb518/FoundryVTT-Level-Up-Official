@@ -10,6 +10,9 @@ import getTokenFromActor from '../../utils/getTokenFromActor';
  * @param {Object} conditionData
  */
 export async function addSubConditions(conditionData) {
+  // Exit if not actor
+  if (conditionData.parent.documentName !== 'Actor') return;
+
   const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
   const token = getTokenFromActor(conditionData.parent);
 
@@ -36,6 +39,9 @@ export async function addSubConditions(conditionData) {
  * @param {Object} conditionData
  */
 export async function removeSubConditions(conditionData) {
+  // Exit if not actor
+  if (conditionData.parent.documentName !== 'Actor') return;
+
   const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
   const token = getTokenFromActor(conditionData.parent);
 
@@ -55,6 +61,9 @@ export async function removeSubConditions(conditionData) {
 //                    Delete Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function preventIfSourceActivated(conditionData) {
+  // Exit if not actor
+  if (conditionData.parent.documentName !== 'Actor') return true;
+
   const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
   const sourceId = conditionData.flags?.a5e?.source;
   const token = getTokenFromActor(conditionData.parent);

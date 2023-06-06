@@ -14,7 +14,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   static FALLBACK_ICON = 'icons/svg/aura.svg';
 
-  static PHASES = ['applyAEs', 'beforeDerived', 'afterDerived'];
+  static PHASES = ['applyAEs', 'afterDerived'];
+
+  static ITEM_TYPES = ['passive', 'onUse', 'permanent'];
 
   // -------------------------------------------------------
   //  Getters
@@ -31,17 +33,20 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @returns {Boolean}
    */
   get isSuppressed() {
-    // TODO: Refactor this when item effects are added
     if (this.disabled || this.parent.documentName !== 'Actor') return true;
+
     const { parentItem } = this;
-    if (!parentItem) return false;
-    return parentItem?.system?.equipped;
+    if (!parentItem || parentItem?.type !== 'object') return false;
+
+    return !parentItem?.system?.equipped;
   }
 
   get parentItem() {
-    if (this.parent instanceof Actor) return null;
+    if (!(this.parent instanceof Actor)) return null;
+
     const idRegex = /Item\.([a-zA-Z0-9]+)/;
     const itemId = this.origin?.match(idRegex)?.[1];
+
     if (!itemId) return null;
     return this.parent.items.get(itemId);
   }
@@ -52,13 +57,19 @@ export default class ActiveEffectA5e extends ActiveEffect {
   /**
    * @inheritdoc
    */
-  apply(actor, _change) {
+  apply(actor, _change, phase = 'applyAEs') {
     if (this.isSuppressed) return null;
     const change = foundry.utils.deepClone(_change);
 
     // Resolve/Validate Data
-    const resValue = Roll.replaceFormulaData(change.value, actor.getRollData(), { missing: null });
-    if (resValue.includes('null')) return null;
+    if (phase !== 'afterDerived') {
+      const resValue = Roll.replaceFormulaData(
+        change.value,
+        actor.getRollData(),
+        { missing: null }
+      );
+      if (resValue.includes('null')) return null;
+    }
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
@@ -144,6 +155,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       return current.union(delta);
     }
 
+    if (!current.length) return delta;
     if (isSubtract) return `${current} - ${delta}`;
     return `${current} + ${delta}`;
   }
@@ -211,6 +223,29 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  _onUpdate(data, options, userId) {
+    super._onUpdate(data, options, userId);
+    if (!(this.parent?.parent instanceof Actor)) return;
+    const actor = this.parent.parent;
+
+    actor.effectPhases = null;
+    actor.reset();
+
+    // Update parent effect
+    if (this.flags?.a5e?.transferType !== 'passive') return;
+    const parentEffect = actor.effects.contents.find((e) => e.origin === this.origin);
+    if (!parentEffect) return;
+    parentEffect.update(data);
+  }
+
+  _onDelete(options, userId) {
+    super._onDelete(options, userId);
+
+    if (this.parent?.documentName !== 'Actor') return;
+    this.parent.effectPhases = null;
+    this.parent.reset();
+  }
+
   async duplicateEffect() {
     const owningDocument = this.parent;
     const newEffect = foundry.utils.duplicate(this);
@@ -250,7 +285,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Extract and organize changes and apply a priority if it doesn't exist.
     // BasePriority is determined by CONST.ACTIVE_EFFECTS_MODE * 10
-    let applyObjects = effects.flatMap((effect) => {
+    const applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
       // Add status effects to actor list
@@ -262,16 +297,16 @@ export default class ActiveEffectA5e extends ActiveEffect {
       });
     });
 
-    const phases = ['beforeDerived', 'afterDerived'].filter((phase) => currentPhase !== phase);
-    const otherEffects = Object.entries(actor.effectPhases ?? {})
-      .filter(([phase]) => phases.includes(phase))
-      .flatMap(([, changes]) => changes)
-      ?? [];
+    // const phases = ['beforeDerived', 'afterDerived'].filter((phase) => currentPhase !== phase);
+    // const otherEffects = Object.entries(actor.effectPhases ?? {})
+    //   .filter(([phase]) => phases.includes(phase))
+    //   .flatMap(([, changes]) => changes)
+    //   ?? [];
 
-    applyObjects = applyObjects
-      .filter((applyObject) => !otherEffects
-        .some((e) => e.effect._id === applyObject.effect._id
-          && e.change.key === applyObject.change.key));
+    //   applyObjects = applyObjects
+    //   .filter((applyObject) => !otherEffects
+    //     .some((e) => e.effect._id === applyObject.effect._id
+    //       && e.change.key === applyObject.change.key));
 
     if (currentPhase !== 'applyAEs') applyObjects.push(...actor.effectPhases[currentPhase]);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
@@ -279,10 +314,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // Apply changes to calling document
     applyObjects.forEach((applyObject) => {
       if (!applyObject.change?.key) return;
-      const appliedChange = applyObject.effect.apply(actor, applyObject.change, nextPhase);
+      const appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
 
       // If appliedChange is null, retry in next phase
-      if (appliedChange === null) {
+      if (appliedChange === null && !applyObject.effect.isSuppressed) {
         if (!nextPhase) {
           ui.notifications.error(localize('A5E.notifications.effects.invalidChange'));
           return;
@@ -294,6 +329,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         if (idx === -1) actor.effectPhases[nextPhase].push(applyObject);
 
         if (currentPhase !== 'applyAEs') return;
+
         idx = actor.effectPhases[currentPhase]
           ?.findIndex((e) => e.effect._id === applyObject.effect._id
             && e.change.key === applyObject.change.key) ?? -1;

@@ -11,9 +11,9 @@
         const { supply } = actor.system;
 
         if (supply) {
-            bulkyLimit = Math.max(1 + actor.system.abilities.str.mod, 0);
+            bulkyLimit = Math.max(1 + actor.system.abilities.str.mod, 1);
         } else {
-            bulkyLimit = Math.max(2 + actor.system.abilities.str.mod, 0);
+            bulkyLimit = Math.max(2 + actor.system.abilities.str.mod, 2);
         }
 
         return `Bulky Limit: ${bulkyLimit}`;

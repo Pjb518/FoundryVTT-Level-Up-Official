@@ -50,14 +50,16 @@
         );
     }
 
-    const actor = getContext("actor");
+    const document = getContext("actor") ?? getContext("item");
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
-    $: sheetIsLocked = !$actor.isOwner
+    $: sheetIsLocked = !$document.isOwner
         ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+        : $document.documentName === "Item"
+        ? false
+        : $document.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li
@@ -70,7 +72,7 @@
 >
     <button
         class="effect-activate-button"
-        class:disable-pointer-events={!$actor.isOwner}
+        class:disable-pointer-events={!$document.isOwner}
         disabled={true}
         on:click|stopPropagation={({ target }) => {
             target.blur();
@@ -79,7 +81,7 @@
     >
         <img
             class="effect-image"
-            src={effect?.icon ?? actor.img ?? "icons/svg/aura.svg"}
+            src={effect?.icon ?? document.img ?? "icons/svg/aura.svg"}
             alt={effect?.name ?? localize("A5E.effects.new")}
         />
     </button>
@@ -117,7 +119,7 @@
 
     <!-- Summary -->
 
-    {#if !$actor.pack && $actor.isOwner}
+    {#if !$document.pack && $document.isOwner}
         {#if !sheetIsLocked}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div class="track" on:click|stopPropagation>

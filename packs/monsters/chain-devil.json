@@ -4,95 +4,13 @@
 	"img": "systems/a5e/assets/chain-devil.webp",
 	"items": [
 		{
-			"_id": "9LI98Sie12IrLoWI",
-			"name": "Devil's Sight",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zSQQH9xjuyFFeTD1",
-			"name": "Lawful Evil",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 128125,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "TzXTbR13mntmQwwg",
 			"name": "Magic Resistance",
 			"type": "feature",
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 125000,
+			"sort": 5,
 			"flags": {},
 			"system": {
 				"actions": {},
@@ -119,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -133,7 +52,7 @@
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 600000,
+			"sort": 6,
 			"flags": {},
 			"system": {
 				"actions": {
@@ -183,6 +102,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -192,9 +112,9 @@
 		},
 		{
 			"_id": "qGLqD8EFcubv9FPC",
-			"name": "Chain (15 ft)",
+			"name": "Chain",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/tools/fasteners/chain-hook-grey.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -202,7 +122,7 @@
 			"system": {
 				"actions": {
 					"OWciohQFD9KyPKFz": {
-						"name": "Chain (15 ft)",
+						"name": "Chain",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -248,7 +168,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"bASyMtGVGUKdgNKf": {
+								"range": 15,
+								"unit": "feet"
+							}
+						}
 					}
 				},
 				"description": "<p>If the target is a creature, it is grappled (escape DC 16) and restrained. Until the grapple ends, this chain can only attack the grappled target.</p>",
@@ -304,10 +230,10 @@
 			"_id": "tbp8j7xZOaOAGy1o",
 			"name": "Rattling Chains",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/tools/fasteners/chain-steel-grey.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 500000,
+			"sort": 7,
 			"flags": {},
 			"system": {
 				"actions": {},
@@ -334,6 +260,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -345,10 +272,10 @@
 			"_id": "9s8opLHAh3VO6fws",
 			"name": "Relentless Tracker",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/nature/wolf-paw-glow-small-orange.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 8,
 			"flags": {},
 			"system": {
 				"actions": {},
@@ -375,6 +302,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -384,17 +312,17 @@
 		},
 		{
 			"_id": "9ouBOAhJKEJV9SMz",
-			"name": "Unnerving Mask (Reaction)",
+			"name": "Unnerving Mask",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/control/fear-fright-shadow-monster-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 9,
 			"flags": {},
 			"system": {
 				"actions": {
 					"FopXApH6cWSYVWcn": {
-						"name": "Unnerving Mask (Reaction)",
+						"name": "Unnerving Mask",
 						"activation": {
 							"cost": 1,
 							"type": "reaction",
@@ -424,7 +352,8 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"img": "icons/magic/control/fear-fright-shadow-monster-red.webp"
 					}
 				},
 				"description": "<p>When damaged by a creature within 30 feet that can see the devil, the devil momentarily assumes the magical illusory form of one of the attacker’s enemies or loved ones, alive or dead. The illusory figure may speak words that only the attacker can hear. The attacker makes a DC 15 Wisdom saving throw. On a failure, it takes 9 (2d8) psychic damage and is frightened until the end of its next turn.The attacker is then immune to this effect for the next 24 hours.</p>",
@@ -450,6 +379,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -461,7 +391,7 @@
 			"_id": "ZvbGfUPDDvjcf9mM",
 			"name": "Animate Chain",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/tools/fasteners/chain-steel-grey.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -514,6 +444,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -1072,15 +1003,99 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "2jU4pWYtNmrLDxcb"
+		},
+		{
+			"_id": "CxO2KKVwxO0uumJ7",
+			"name": "Devil's Sight",
+			"type": "feature",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 1,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "1kC9Kg1JgHFTYLJO",
+			"name": "Lawful Evil",
+			"type": "feature",
+			"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 3,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.keodl8jwyirjqiqn"
+			"sheetIsLocked": false,
+			"currentTab": "inventory",
+			"sortMode": 1,
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1529,7 +1544,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 120,
@@ -1556,6 +1572,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1595,29 +1612,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1697,7 +1735,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "keodl8jwyirjqiqn"
 }

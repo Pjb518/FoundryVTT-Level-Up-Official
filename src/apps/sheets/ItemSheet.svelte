@@ -11,6 +11,7 @@
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import ItemGmNotesTab from "../components/pages/ItemGmNotesTab.svelte";
     import ItemUnidentifiedDescriptionTab from "../components/pages/ItemUnidentifiedDescriptionTab.svelte";
+    import ItemEffectsTab from "../components/pages/ItemEffectsTab.svelte";
 
     export let { appId, document, sheet } = getContext("#external").application;
     export let elementRoot;
@@ -62,6 +63,12 @@
             name: "actions",
             label: "A5E.ItemSheetLabelActionsTab",
             component: ItemActionsTab,
+            display: !$item.system.unidentified || game.user.isGM,
+        },
+        {
+            name: "effects",
+            label: "A5E.TabEffects",
+            component: ItemEffectsTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
     ];

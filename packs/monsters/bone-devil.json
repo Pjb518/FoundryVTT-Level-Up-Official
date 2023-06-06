@@ -4,88 +4,6 @@
 	"img": "systems/a5e/assets/bone-devil.webp",
 	"items": [
 		{
-			"_id": "9LI98Sie12IrLoWI",
-			"name": "Devil's Sight",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "zSQQH9xjuyFFeTD1",
-			"name": "Lawful Evil",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "TzXTbR13mntmQwwg",
 			"name": "Magic Resistance",
 			"type": "feature",
@@ -119,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -183,6 +102,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -192,9 +112,9 @@
 		},
 		{
 			"_id": "CI6uw65a50GPyPn2",
-			"name": "Barbed Spear (10 ft / range 20/60 ft)",
+			"name": "Barbed Spear",
 			"type": "object",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/weapons/polearms/glaive-simple-hooked.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -202,7 +122,7 @@
 			"system": {
 				"actions": {
 					"vciAk8QglYgac6xa": {
-						"name": "Barbed Spear (10 ft / range 20/60 ft)",
+						"name": "Attack",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -215,7 +135,8 @@
 						"area": {
 							"shape": "",
 							"size": "",
-							"placeTemplate": false
+							"placeTemplate": false,
+							"quantity": 1
 						},
 						"target": {
 							"quantity": "",
@@ -248,7 +169,72 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"udZln1ye8kfXCfmt": {
+								"range": 10,
+								"unit": "feet"
+							}
+						}
+					},
+					"pLiKxybKoEYT2Rc4": {
+						"name": "Throw Spear",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"6zeS85b33a26AqC6": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "str"
+							},
+							"7Pwva0yVGc7XgjfK": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "2d10+@str.mod",
+								"name": "Barbed Spear",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"XDVSI8sUL9y6x1z0": {
+								"ability": "dex",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "16"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"udZln1ye8kfXCfmt": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"fYIR306AVSIK2Ml8": {
+								"range": "medium"
+							}
+						}
 					}
 				},
 				"description": "<p>If the attack is a melee attack against a creature, the target is grappled (escape DC 16). Until this grapple ends, the devil can’t use its barbed spear on another target.</p>",
@@ -375,6 +361,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -384,9 +371,9 @@
 		},
 		{
 			"_id": "lQiz6wUx1PVTTlyA",
-			"name": "Sting (Bonus Action)",
+			"name": "Sting",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/abilities/stinger-poison-green.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -394,7 +381,7 @@
 			"system": {
 				"actions": {
 					"3oWUn9mXs1y5Dexy": {
-						"name": "Sting (Bonus Action)",
+						"name": "Sting",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -480,6 +467,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -1038,15 +1026,98 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "oExu4QbUpmwstNYH"
+		},
+		{
+			"_id": "tEl6XSk5DB6CcR3Z",
+			"name": "Devil's Sight",
+			"type": "feature",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil’s darkvision penetrates magical darkness.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "X3bmNNvbqhfzHV0B",
+			"name": "Lawful Evil",
+			"type": "feature",
+			"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>The devil radiates a Lawful and Evil aura.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.b71hab9ogadmy6bk"
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"showSpellTab": false
 		}
 	},
 	"system": {
@@ -1495,7 +1566,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 120,
@@ -1522,6 +1594,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1561,29 +1634,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "lg",
@@ -1663,7 +1757,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "b71hab9ogadmy6bk"
 }

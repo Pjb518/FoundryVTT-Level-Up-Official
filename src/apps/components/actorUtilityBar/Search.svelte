@@ -9,8 +9,8 @@
 
     export let reducerType;
 
-    const actor = getContext("actor");
-    const reducer = actor[reducerType];
+    const document = getContext("actor") ?? getContext("item");
+    const reducer = document[reducerType];
 
     const input = addSearchFilter(reducer);
     onDestroy(() => removeSearchFilter(reducer));

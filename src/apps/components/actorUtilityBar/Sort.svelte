@@ -10,8 +10,8 @@
     export let reducerType;
     export let documentName = "Item";
 
-    const actor = getContext("actor");
-    const reducer = actor[reducerType];
+    const document = getContext("actor") ?? getContext("item");
+    const reducer = document[reducerType];
 
     const sortIcons = {
         0: "fa-sort",
@@ -27,16 +27,16 @@
     };
 
     function onSortReducer() {
-        sortMappings[sortMode]($actor, $reducer, documentName);
+        sortMappings[sortMode]($document, $reducer, documentName);
 
         // TODO: Change when custom sort is implemented
         let newMode = (sortMode + 1) % 3;
         newMode = newMode === 0 ? 1 : newMode;
 
-        $actor.setFlag("a5e", "sortMode", newMode);
+        $document.setFlag("a5e", "sortMode", newMode);
     }
 
-    $: sortMode = $actor.getFlag("a5e", "sortMode") || 0;
+    $: sortMode = $document.getFlag("a5e", "sortMode") || 0;
 </script>
 
 <TJSIconButton
