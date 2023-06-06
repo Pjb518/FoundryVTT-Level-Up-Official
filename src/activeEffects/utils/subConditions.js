@@ -9,8 +9,9 @@ import getTokenFromActor from '../../utils/getTokenFromActor';
  * Add linked conditions to the token.
  * @param {Object} conditionData
  */
-export async function addSubConditions(conditionData) {
-  // Exit if not actor
+export async function addSubConditions(conditionData, options, userId) {
+  // Validations
+  if (game.user.id !== userId) return;
   if (conditionData.parent.documentName !== 'Actor') return;
 
   const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
@@ -38,8 +39,9 @@ export async function addSubConditions(conditionData) {
  * Remove linked conditions to the token.
  * @param {Object} conditionData
  */
-export async function removeSubConditions(conditionData) {
-  // Exit if not actor
+export async function removeSubConditions(conditionData, options, userId) {
+  // Validations
+  if (game.user.id !== userId) return;
   if (conditionData.parent.documentName !== 'Actor') return;
 
   const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
@@ -60,8 +62,9 @@ export async function removeSubConditions(conditionData) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                    Delete Active Effect
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export function preventIfSourceActivated(conditionData) {
-  // Exit if not actor
+export function preventIfSourceActivated(conditionData, options, userId) {
+  // Validations
+  if (game.user.id !== userId) return true;
   if (conditionData.parent.documentName !== 'Actor') return true;
 
   const conditions = new Set(Object.keys(CONFIG.A5E.conditions));
