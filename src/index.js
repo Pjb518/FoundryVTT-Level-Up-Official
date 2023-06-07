@@ -9,6 +9,7 @@ import preCreateChatMessage from './hooks/preCreateChatMessage';
 import ready from './hooks/ready';
 import renderChatMessage from './hooks/renderChatMessage';
 import setup from './hooks/setup';
+import updateActor from './hooks/updateActor';
 
 Hooks.once('init', init);
 Hooks.once('setup', setup);
@@ -18,6 +19,8 @@ Hooks.on('canvasInit', canvasInit);
 
 Hooks.on('createActor', createActor);
 Hooks.on('createToken', createToken);
+
+Hooks.on('updateActor', updateActor);
 
 Hooks.on('renderChatMessage', renderChatMessage);
 Hooks.on('preCreateChatMessage', preCreateChatMessage);
