@@ -226,6 +226,8 @@ export default class EffectOptions {
       .sort((a, b) => a.localeCompare(b));
 
     derivedValues['system.attributes.hp.max'] = [0, DEFAULT_MODES];
+    derivedValues['system.attributes.maneuverDC'] = [0, DEFAULT_MODES];
+    derivedValues['system.attributes.spellDC'] = [0, DEFAULT_MODES];
   }
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
