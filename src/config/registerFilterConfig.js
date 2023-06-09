@@ -3,7 +3,6 @@
 /**
  * Data for filters on the spells page. Schools of magic are added in on the page.
  */
-
 export default function registerFilterConfig(A5E) {
   const abilityActionFilters = {};
   Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {

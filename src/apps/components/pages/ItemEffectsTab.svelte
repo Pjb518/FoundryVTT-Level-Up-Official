@@ -9,7 +9,7 @@
 
     const item = getContext("item");
     const { activeEffects } = item;
-    const subTypes = CONFIG.A5E.activeEffectTypes;
+    const subTypes = CONFIG.A5E.itemActiveEffectTypesPlural;
     const reducerType = "activeEffects";
 </script>
 
