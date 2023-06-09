@@ -80,7 +80,7 @@ export default class ActionsManager extends DataProxy {
    * @param {String} name
    */
   getName(name) {
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const actionId = this.entries().find(([_, action]) => action.name === name)?.[0];
     return this.#item.system.actions?.[actionId] ?? null;
   }

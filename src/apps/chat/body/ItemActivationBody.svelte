@@ -4,6 +4,7 @@
     import zip from "../../../utils/zip";
 
     import AbilityCheckPromptButton from "./promptButtons/AbilityCheckPromptButton.svelte";
+    import ActiveEffectPromptButton from "./promptButtons/ActiveEffectPromptButton.svelte";
     import D20Roll from "../dice/D20Roll.svelte";
     import GenericRollPromptButton from "./promptButtons/GenericRollPromptButton.svelte";
     import Roll from "../dice/Roll.svelte";
@@ -25,8 +26,9 @@
     };
 
     const promptComponentMap = {
-        savingThrow: SavingThrowPromptButton,
         abilityCheck: AbilityCheckPromptButton,
+        effect: ActiveEffectPromptButton,
+        savingThrow: SavingThrowPromptButton,
         skillCheck: SkillCheckPromptButton,
         generic: GenericRollPromptButton,
     };
