@@ -6,7 +6,7 @@
 
     import EffectsDescriptionTab from "../components/pages/EffectsDescriptionTab.svelte";
     import EffectsEffectTab from "../components/pages/EffectsEffectTab.svelte";
-    // import EffectsPropertiesTab from "../components/pages/EffectsPropertiesTab.svelte";
+    import EffectsPropertiesTab from "../components/pages/EffectsPropertiesTab.svelte";
     import EffectSheetHeader from "../components/EffectSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
@@ -25,11 +25,11 @@
             label: "A5E.ItemSheetLabelDescriptionTab",
             component: EffectsDescriptionTab,
         },
-        // {
-        //     name: "properties",
-        //     label: "A5E.ItemSheetLabelPropertiesTab",
-        //     component: EffectsPropertiesTab,
-        // },
+        {
+            name: "properties",
+            label: "A5E.ItemSheetLabelPropertiesTab",
+            component: EffectsPropertiesTab,
+        },
         {
             name: "effects",
             label: "A5E.TabEffects",

@@ -138,6 +138,12 @@ A5E.activeEffectTypes = {
   temporary: 'A5E.effects.type.temporary'
 };
 
+A5E.itemActiveEffectTypes = {
+  onUse: 'A5E.effects.type.onUse',
+  passive: 'A5E.effects.type.passive',
+  permanent: 'A5E.effects.type.permanent'
+};
+
 /**
  * The set of possible creature sizes in the system.
  * @enum {string}
