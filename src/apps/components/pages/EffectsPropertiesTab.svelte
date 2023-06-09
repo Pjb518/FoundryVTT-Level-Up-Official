@@ -13,7 +13,7 @@
             options={Object.entries(A5E.itemActiveEffectTypes)}
             selected={$effect.flags?.a5e?.transferType ?? "passive"}
             on:updateSelection={({ detail }) =>
-                $effect.setFlag("a5e", "transferType", detail)}
+                $effect.update({ "flags.a5e.transferType": detail })}
         />
     </FormSection>
 </article>

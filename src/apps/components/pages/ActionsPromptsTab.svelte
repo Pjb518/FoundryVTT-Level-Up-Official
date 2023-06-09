@@ -5,6 +5,7 @@
     import ActionsManager from "../../../managers/ActionsManager";
 
     import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
+    import ActiveEffectPromptConfig from "../itemActionsConfig/ActiveEffectPromptConfig.svelte";
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import GenericPromptConfig from "../itemActionsConfig/GenericPromptConfig.svelte";
     import PromptsConfigWrapper from "../itemActionsConfig/PromptsConfigWrapper.svelte";
@@ -34,6 +35,11 @@
             heading: "A5E.OtherPlural",
             singleLabel: "A5E.Other",
             component: GenericPromptConfig,
+        },
+        effect: {
+            heading: "A5E.EffectPlural",
+            singleLabel: "A5E.Effect",
+            component: ActiveEffectPromptConfig,
         },
     };
 

@@ -24,10 +24,12 @@ export class ItemActiveEffectMapReducer extends DynMapReducer {
 
     this._types = {
       onUse: this.derived.create('onUse'),
-      passive: this.derived.create('passive')
+      passive: this.derived.create('passive'),
+      permanent: this.derived.create('permanent')
     };
 
     this._types.onUse.filters.add((effect) => effect.getFlag('a5e', 'transferType') === 'onUse');
     this._types.passive.filters.add((effect) => effect.getFlag('a5e', 'transferType') === 'passive');
+    this._types.permanent.filters.add((effect) => effect.getFlag('a5e', 'transferType') === 'permanent');
   }
 }
