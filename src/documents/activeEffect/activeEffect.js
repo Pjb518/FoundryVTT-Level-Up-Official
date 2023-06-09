@@ -297,17 +297,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
       });
     });
 
-    // const phases = ['beforeDerived', 'afterDerived'].filter((phase) => currentPhase !== phase);
-    // const otherEffects = Object.entries(actor.effectPhases ?? {})
-    //   .filter(([phase]) => phases.includes(phase))
-    //   .flatMap(([, changes]) => changes)
-    //   ?? [];
-
-    //   applyObjects = applyObjects
-    //   .filter((applyObject) => !otherEffects
-    //     .some((e) => e.effect._id === applyObject.effect._id
-    //       && e.change.key === applyObject.change.key));
-
     if (currentPhase !== 'applyAEs') applyObjects.push(...actor.effectPhases[currentPhase]);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
 
