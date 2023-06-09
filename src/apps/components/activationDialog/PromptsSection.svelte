@@ -22,6 +22,7 @@
 
     const promptHeadingMap = {
         abilityCheck: "Ability Check Prompts",
+        effect: "Effect Prompts",
         savingThrow: "Saving Throw Prompts",
         skillCheck: "Skill Check Prompts",
         generic: "Generic Roll Prompts",

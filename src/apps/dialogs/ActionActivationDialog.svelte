@@ -102,7 +102,7 @@
     const action = $item.actions[actionId];
 
     const consumers = prepareConsumers(action.consumers);
-    const prompts = preparePrompts(action.prompts);
+    const prompts = preparePrompts(action.prompts, $item);
     const rolls = prepareRolls(action.rolls);
     const damageBonuses = prepareDamageBonuses($actor, rolls?.attack ?? []);
 
