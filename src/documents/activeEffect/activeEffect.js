@@ -33,7 +33,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @returns {Boolean}
    */
   get isSuppressed() {
-    if (this.disabled || this.parent.documentName !== 'Actor') return true;
+    if (this.disabled || !(['Actor', 'ActorDelta', 'Token'].includes(this.parent.documentName))) return true;
 
     const { parentItem } = this;
     if (!parentItem || parentItem?.type !== 'object') return false;
