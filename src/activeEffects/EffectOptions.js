@@ -271,5 +271,30 @@ export default class EffectOptions {
     // TODO: Maybe add something to automatically fail?
 
     // Token Effects
+    specialValues['@token.sight.angle'] = [360, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.sight.attenuation'] = [0.1, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.sight.brightness'] = [1, EffectOptions.DEFAULT_MODES, null];
+    // specialValues['@token.sight.color'] = [1, EffectOptions.DEFAULT_STRING_MODES, null];
+    specialValues['@token.sight.contrast'] = [0, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.sight.range'] = [0, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.sight.saturation'] = [0, EffectOptions.DEFAULT_MODES, null];
+
+    specialValues['@token.light.alpha'] = [0.5, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.angle'] = [360, EffectOptions.DEFAULT_MODES, null];
+    // specialValues['@token.light.animation.intensity'] = [5, EffectOptions.DEFAULT_MODES, null];
+    // specialValues['@token.light.animation.reverse'] = [false, EffectOptions.DEFAULT_MODES, null];
+    // specialValues['@token.light.animation.speed'] = [5, EffectOptions.DEFAULT_MODES, null];
+    // specialValues['@token.light.animation.type'] = [null, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.attenuation'] = [0.5, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.bright'] = [0, EffectOptions.DEFAULT_MODES, null];
+    // specialValues['@token.light.color'] = [null, EffectOptions.DEFAULT_STRING_MODES, null];
+    specialValues['@token.light.coloration'] = [1, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.contrast'] = [0, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.darkness.min'] = [0, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.darkness.max'] = [1, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.dim'] = [0, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.luminosity'] = [0.5, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.saturation'] = [0, EffectOptions.DEFAULT_MODES, null];
+    specialValues['@token.light.shadows'] = [0, EffectOptions.DEFAULT_MODES, null];
   }
 }
