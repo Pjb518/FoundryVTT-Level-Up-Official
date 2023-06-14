@@ -281,7 +281,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {() => boolean} predicate
    */
   static applyEffects(actor, effects, currentPhase, nextPhase, predicate = () => true) {
-    const overrides = {};
+    const actorOverrides = {};
+    const tokenOverrides = {};
+
+    // Get token data
+    const linked = foundry.utils.getProperty(actor, 'prototypeToken.actorLink') ?? true;
+    const token = linked ? actor.getActiveTokens()?.[0] : actor.token;
 
     // Extract and organize changes and apply a priority if it doesn't exist.
     // BasePriority is determined by CONST.ACTIVE_EFFECTS_MODE * 10
@@ -303,7 +308,15 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // Apply changes to calling document
     applyObjects.forEach((applyObject) => {
       if (!applyObject.change?.key) return;
-      const appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
+
+      // Determine if effect is applied on the actor or the token document.
+      let appliedChange;
+      if (applyObject.change.key.startsWith('@token') && token) {
+        appliedChange = applyObject.effect.apply(token, applyObject.change, currentPhase);
+
+        Object.assign(tokenOverrides, appliedChange);
+      } else {
+        appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
 
       // If appliedChange is null, retry in next phase
       if (appliedChange === null && !applyObject.effect.isSuppressed) {
@@ -326,13 +339,18 @@ export default class ActiveEffectA5e extends ActiveEffect {
       }
 
       // Assign change to overrides object
-      Object.assign(overrides, appliedChange);
+        Object.assign(actorOverrides, appliedChange);
+      }
     });
 
     // Update document overrides
     actor.overrides = foundry.utils.expandObject({
       ...foundry.utils.flattenObject(actor.overrides),
-      ...overrides
+
+    if (!token) return;
+    token.overrides = foundry.utils.expandObject({
+      ...foundry.utils.flattenObject(token.overrides ?? {}),
+      ...tokenOverrides
     });
   }
 
