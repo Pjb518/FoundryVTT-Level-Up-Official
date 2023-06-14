@@ -57,25 +57,30 @@ export default class ActiveEffectA5e extends ActiveEffect {
   /**
    * @inheritdoc
    */
-  apply(actor, _change, phase = 'applyAEs') {
+  apply(document, _change, phase = 'applyAEs') {
     if (this.isSuppressed) return null;
+    const originalDocument = document.documentName === 'Token' && game.ready
+      ? document.toObject()
+      : document;
+
     const change = foundry.utils.deepClone(_change);
+    change.key = change.key.replace('@token.', '');
 
     // Resolve/Validate Data
     if (phase !== 'afterDerived') {
       const resValue = Roll.replaceFormulaData(
         change.value,
-        actor.getRollData(),
+        document.getRollData(),
         { missing: null }
       );
       if (resValue.includes('null')) return null;
     }
 
     // Determine types
-    const current = getCorrectedTypeValueFromKey(actor, change.key) ?? null;
+    const current = getCorrectedTypeValueFromKey(originalDocument, change.key) ?? null;
     const targetType = foundry.utils.getType(current);
     const delta = castType(
-      this.#convertToDeterministicBonus(actor, change),
+      this.#convertToDeterministicBonus(originalDocument, change),
       targetType
     );
 
@@ -83,9 +88,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const changes = { [change.key]: newValue };
 
     // Apply all changes to the Actor data
-    foundry.utils.mergeObject(actor, changes);
+    foundry.utils.mergeObject(document, changes);
     return changes;
-    // return super.apply(actor, change);
   }
 
   /**
@@ -318,27 +322,27 @@ export default class ActiveEffectA5e extends ActiveEffect {
       } else {
         appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
 
-      // If appliedChange is null, retry in next phase
-      if (appliedChange === null && !applyObject.effect.isSuppressed) {
-        if (!nextPhase) {
-          ui.notifications.error(localize('A5E.notifications.effects.invalidChange'));
-          return;
+        // If appliedChange is null, retry in next phase
+        if (appliedChange === null && !applyObject.effect.isSuppressed) {
+          if (!nextPhase) {
+            ui.notifications.error(localize('A5E.notifications.effects.invalidChange'));
+            return;
+          }
+
+          let idx = actor.effectPhases[nextPhase]
+            ?.findIndex((e) => e.effect._id === applyObject.effect._id
+              && e.change.key === applyObject.change.key) ?? -1;
+          if (idx === -1) actor.effectPhases[nextPhase].push(applyObject);
+
+          if (currentPhase !== 'applyAEs') return;
+
+          idx = actor.effectPhases[currentPhase]
+            ?.findIndex((e) => e.effect._id === applyObject.effect._id
+              && e.change.key === applyObject.change.key) ?? -1;
+          if (idx !== -1) actor.effectPhases[currentPhase].splice(idx, 1);
         }
 
-        let idx = actor.effectPhases[nextPhase]
-          ?.findIndex((e) => e.effect._id === applyObject.effect._id
-            && e.change.key === applyObject.change.key) ?? -1;
-        if (idx === -1) actor.effectPhases[nextPhase].push(applyObject);
-
-        if (currentPhase !== 'applyAEs') return;
-
-        idx = actor.effectPhases[currentPhase]
-          ?.findIndex((e) => e.effect._id === applyObject.effect._id
-            && e.change.key === applyObject.change.key) ?? -1;
-        if (idx !== -1) actor.effectPhases[currentPhase].splice(idx, 1);
-      }
-
-      // Assign change to overrides object
+        // Assign change to overrides object
         Object.assign(actorOverrides, appliedChange);
       }
     });
@@ -346,6 +350,11 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // Update document overrides
     actor.overrides = foundry.utils.expandObject({
       ...foundry.utils.flattenObject(actor.overrides),
+      ...actorOverrides
+    });
+
+    console.log(actor.documentName);
+    console.log(tokenOverrides);
 
     if (!token) return;
     token.overrides = foundry.utils.expandObject({
