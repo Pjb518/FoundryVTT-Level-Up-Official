@@ -10,7 +10,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": "xwueFImsOVfwH3NS",
-			"sort": 100000,
+			"sort": 1,
 			"flags": {
 				"core": {
 					"sourceId": "Item.JJTNs2abQROW1TiV"
@@ -96,6 +96,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -110,7 +111,7 @@
 			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
 			"folder": "xwueFImsOVfwH3NS",
-			"sort": -100000,
+			"sort": 0,
 			"flags": {
 				"core": {
 					"sourceId": "Item.6y5L0wnBLYVcFKCn"
@@ -185,6 +186,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -196,10 +198,10 @@
 			"_id": "DaehUdcBVm9WbdV1",
 			"name": "Turning Defiance",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/light/beam-impact-deflect-teal.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 162500,
+			"sort": 3,
 			"flags": {},
 			"system": {
 				"actions": {
@@ -232,7 +234,7 @@
 					}
 				},
 				"description": "<p>The ghast and any ghouls within 30 feet make saving throws against being turned with advantage</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -254,6 +256,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -265,10 +268,10 @@
 			"_id": "g82qZsmNYcNiwBp2",
 			"name": "Stench",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/skeleton-fish-teal.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 156250,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"actions": {
@@ -334,6 +337,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -892,16 +896,57 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "dMwzZFd6nxPDtbaV"
+		},
+		{
+			"_id": "gk90aFdLCzCFu1XQ",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 4,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>Ghouls and ghasts don't require air, sustenance, or sleep.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
 			"availableSpellLevels": [],
-			"sheetIsLocked": false
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.hf8g5so53j70nd60"
+			"sheetIsLocked": true,
+			"currentTab": "features",
+			"sortMode": 1
 		}
 	},
 	"system": {
@@ -1350,7 +1395,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": 0,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1377,6 +1423,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1415,29 +1462,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1518,7 +1586,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "hf8g5so53j70nd60"
 }

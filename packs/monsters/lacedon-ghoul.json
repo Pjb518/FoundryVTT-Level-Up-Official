@@ -4,240 +4,6 @@
 	"img": "systems/a5e/assets/ghoul.webp",
 	"items": [
 		{
-			"_id": "gMTOvcSpvLmkSbEf",
-			"name": "Radiant Sensitivity",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": "xwueFImsOVfwH3NS",
-			"sort": 1200000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.2ibo6fejAILkOsKz"
-				}
-			},
-			"system": {
-				"actions": {},
-				"description": "<p>When the creature takes radiant damage, it has disadvantage on attack rolls and on Perception checks that rely on sight until the end of its next turn.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "e0xDAAxe4FkTDuDD",
-			"name": "Paralyzing Claw",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": "xwueFImsOVfwH3NS",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.JJTNs2abQROW1TiV"
-				}
-			},
-			"system": {
-				"actions": {
-					"373zRobuGM3V0gXh": {
-						"name": "Paralyzing Claw",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"IWy03PXJwjxpwJFX": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"zWM4iduvj79oAlKy": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"8iZRWTJRc9sBUNIL": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "1d6 + @str.mod",
-								"name": "Claw Damage",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"o14UXQkSvw8M6rCI": {
-								"ability": "con",
-								"onSave": "Target is immune to any Paralyzing Claw for 24 hours. Elf automatically saves.",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "10"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>If the target is a living creature other than an elf, it makes a DC 10 Constitution saving throw. On a failure, the target is paralyzed for 1 minute. The target repeats the saving throw at the end of its turns, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to any Paralyzing Claw for 24 hours.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "9QiZB1jssffQ69TX",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": "xwueFImsOVfwH3NS",
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.6y5L0wnBLYVcFKCn"
-				}
-			},
-			"system": {
-				"actions": {
-					"ViEeHEWxbjfM6KZU": {
-						"name": "Bite",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"Q0yVMVN32NwgSKPL": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "other"
-						},
-						"rolls": {
-							"NPoToeWN3rBwMIit": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"1NkZEDJa3BiLK7dn": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 + @str.mod",
-								"name": "Bite Damage",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Shove",
 			"type": "maneuver",
 			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
@@ -788,16 +554,293 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "uZpCEWjF9lDUlKrB"
+		},
+		{
+			"_id": "KEJfiryqKZmrjW3X",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": "xwueFImsOVfwH3NS",
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.6y5L0wnBLYVcFKCn"
+				}
+			},
+			"system": {
+				"actions": {
+					"cdj9UsX9uHs5Egvz": {
+						"name": "Bite",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"7MVGJmixWHJXf903": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "other"
+						},
+						"rolls": {
+							"s16rQsFDAowtaAJp": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "dex"
+							},
+							"QW5SCdVDifmgivUq": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @dex.mod",
+								"name": "Bite Damage",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "GwRk1hPlC3rgY54W",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>Ghouls and ghasts don't require air, sustenance, or sleep.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "AJmq9gbf6U5YgJ0T",
+			"name": "Paralyzing Claw",
+			"type": "feature",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
+			"effects": [],
+			"folder": "xwueFImsOVfwH3NS",
+			"sort": 1,
+			"flags": {
+				"core": {
+					"sourceId": "Item.JJTNs2abQROW1TiV"
+				}
+			},
+			"system": {
+				"actions": {
+					"aut5K9SvQOGtO8QY": {
+						"name": "Paralyzing Claw",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"IriYaJZozrayY6Km": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"8zCHqAvOh0rzGyXj": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "dex"
+							},
+							"GhPo6gshftQ2IheS": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d6 + @dex.mod",
+								"name": "Claw Damage",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"Kfr5ENKmbFTTkzHd": {
+								"ability": "con",
+								"onSave": "Target is immune to any Paralyzing Claw for 24 hours. Elf automatically saves.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "10"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>If the target is a living creature other than an elf, it makes a DC 10 Constitution saving throw. On a failure, the target is paralyzed for 1 minute. The target repeats the saving throw at the end of its turns, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to any Paralyzing Claw for 24 hours.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "C3If42T83L3Atfm5",
+			"name": "Radiant Sensitivity",
+			"type": "feature",
+			"img": "icons/magic/light/beam-rays-red-large.webp",
+			"effects": [],
+			"folder": "xwueFImsOVfwH3NS",
+			"sort": 2,
+			"flags": {
+				"core": {
+					"sourceId": "Item.2ibo6fejAILkOsKz"
+				}
+			},
+			"system": {
+				"actions": {},
+				"description": "<p>When the creature takes radiant damage, it has disadvantage on attack rolls and on Perception checks that rely on sight until the end of its next turn.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
 			"availableSpellLevels": [],
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.7knnkm1ntmvz5qco"
+			"sheetIsLocked": true,
+			"currentTab": "features"
 		}
 	},
 	"system": {
@@ -1246,7 +1289,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": 0,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1273,6 +1317,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1311,29 +1356,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1414,7 +1480,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "7knnkm1ntmvz5qco"
 }

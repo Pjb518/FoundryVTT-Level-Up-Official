@@ -7,10 +7,10 @@
 			"_id": "gMTOvcSpvLmkSbEf",
 			"name": "Radiant Sensitivity",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/light/beam-rays-red-large.webp",
 			"effects": [],
 			"folder": "xwueFImsOVfwH3NS",
-			"sort": 1200000,
+			"sort": 2,
 			"flags": {
 				"core": {
 					"sourceId": "Item.2ibo6fejAILkOsKz"
@@ -19,7 +19,7 @@
 			"system": {
 				"actions": {},
 				"description": "<p>When the creature takes radiant damage, it has disadvantage on attack rolls and on Perception checks that rely on sight until the end of its next turn.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -41,6 +41,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -55,7 +56,7 @@
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": "xwueFImsOVfwH3NS",
-			"sort": 0,
+			"sort": 1,
 			"flags": {
 				"core": {
 					"sourceId": "Item.JJTNs2abQROW1TiV"
@@ -94,12 +95,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "dex"
 							},
 							"GhPo6gshftQ2IheS": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "1d6 + @str.mod",
+								"formula": "1d6 + @dex.mod",
 								"name": "Claw Damage",
 								"type": "damage"
 							}
@@ -141,6 +142,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -194,12 +196,12 @@
 								"critThreshold": "20",
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "dex"
 							},
 							"QW5SCdVDifmgivUq": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "1d8 + @str.mod",
+								"formula": "1d8 + @dex.mod",
 								"name": "Bite Damage",
 								"type": "damage"
 							}
@@ -230,6 +232,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -788,16 +791,57 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "DggdVDhKuPPCMyXH"
+		},
+		{
+			"_id": "d8dP3V692v2ueTjk",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>Ghouls and ghasts don't require air, sustenance, or sleep.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
 			"availableSpellLevels": [],
-			"sheetIsLocked": false
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.dgfs5xu1ezk0b1cz"
+			"sheetIsLocked": true,
+			"currentTab": "features",
+			"sortMode": 1
 		}
 	},
 	"system": {
@@ -1246,7 +1290,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": 0,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1273,6 +1318,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1311,29 +1357,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1414,7 +1481,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "dgfs5xu1ezk0b1cz"
 }
