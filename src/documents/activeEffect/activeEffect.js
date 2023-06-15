@@ -226,7 +226,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
-
     this.#updateCanvas(data);
 
     if (!(this.parent?.parent instanceof Actor)) return;
@@ -247,8 +246,17 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {Object} data
    */
   #updateCanvas(data) {
+    if (this.parent?.documentName !== 'Actor') return;
     const keys = data.changes?.map((c) => c.key) ?? [];
     if (!(keys.some((k) => k.startsWith('@token')))) return;
+
+    // Reset tokens
+    if (foundry.utils.getProperty(this.parent, 'prototypeToken.actorLink') ?? true) {
+      const tokens = this.parent.getActiveTokens().map((t) => t.document);
+      tokens.forEach((t) => t.reset());
+    } else {
+      this.parent.token.reset();
+    }
 
     const updatePerception = keys.some((k) => k.startsWith('@token.sight'));
     const updateLighting = keys.some((k) => k.startsWith('@token.light'));
@@ -298,25 +306,19 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   /**
    *
-   * @param {import("../actor").default| import("../item").default} actor
+   * @param {} document
    * @param {Array<ActiveEffectA5e>} effects
    * @param {() => boolean} predicate
    */
-  static applyEffects(actor, effects, currentPhase, nextPhase, predicate = () => true) {
-    const actorOverrides = {};
-    const tokenOverrides = {};
+  static applyEffects(document, effects, currentPhase, nextPhase, predicate = () => true) {
+    const overrides = {};
 
     // Get token data
-    const linked = foundry.utils.getProperty(actor, 'prototypeToken.actorLink') ?? true;
-    const token = linked ? actor.getActiveTokens()?.[0] : actor.token;
-
-    // Extract and organize changes and apply a priority if it doesn't exist.
-    // BasePriority is determined by CONST.ACTIVE_EFFECTS_MODE * 10
     const applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
       // Add status effects to actor list
-      effect.statuses.forEach((statusId) => actor.statuses.add(statusId));
+      effect.statuses.forEach((statusId) => document.statuses.add(statusId));
 
       return effect.changes.filter(predicate).map((change) => {
         change.priority = change.priority ?? change.mode * 10;
@@ -324,7 +326,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
       });
     });
 
-    if (currentPhase !== 'applyAEs') applyObjects.push(...actor.effectPhases[currentPhase]);
+    if (currentPhase !== 'applyAEs') applyObjects.push(...document.effectPhases?.[currentPhase] ?? []);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));
 
     // Apply changes to calling document
@@ -333,12 +335,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
       // Determine if effect is applied on the actor or the token document.
       let appliedChange;
-      if (applyObject.change.key.startsWith('@token') && token) {
-        appliedChange = applyObject.effect.apply(token, applyObject.change, currentPhase);
+      if (document.documentName === 'Token' && currentPhase === 'afterDerived') {
+        appliedChange = applyObject.effect.apply(document, applyObject.change, currentPhase);
 
-        Object.assign(tokenOverrides, appliedChange);
+        Object.assign(overrides, appliedChange);
       } else {
-        appliedChange = applyObject.effect.apply(actor, applyObject.change, currentPhase);
+        appliedChange = applyObject.effect.apply(document, applyObject.change, currentPhase);
 
         // If appliedChange is null, retry in next phase
         if (appliedChange === null && !applyObject.effect.isSuppressed) {
@@ -347,34 +349,28 @@ export default class ActiveEffectA5e extends ActiveEffect {
             return;
           }
 
-          let idx = actor.effectPhases[nextPhase]
+          let idx = document.effectPhases[nextPhase]
             ?.findIndex((e) => e.effect._id === applyObject.effect._id
               && e.change.key === applyObject.change.key) ?? -1;
-          if (idx === -1) actor.effectPhases[nextPhase].push(applyObject);
+          if (idx === -1) document.effectPhases[nextPhase].push(applyObject);
 
           if (currentPhase !== 'applyAEs') return;
 
-          idx = actor.effectPhases[currentPhase]
+          idx = document.effectPhases[currentPhase]
             ?.findIndex((e) => e.effect._id === applyObject.effect._id
               && e.change.key === applyObject.change.key) ?? -1;
-          if (idx !== -1) actor.effectPhases[currentPhase].splice(idx, 1);
+          if (idx !== -1) document.effectPhases[currentPhase].splice(idx, 1);
         }
 
         // Assign change to overrides object
-        Object.assign(actorOverrides, appliedChange);
+        Object.assign(overrides, appliedChange);
       }
     });
 
     // Update document overrides
-    actor.overrides = foundry.utils.expandObject({
-      ...foundry.utils.flattenObject(actor.overrides),
-      ...actorOverrides
-    });
-
-    if (!token) return;
-    token.overrides = foundry.utils.expandObject({
-      ...foundry.utils.flattenObject(token.overrides ?? {}),
-      ...tokenOverrides
+    document.overrides = foundry.utils.expandObject({
+      ...foundry.utils.flattenObject(document.overrides),
+      ...overrides
     });
   }
 

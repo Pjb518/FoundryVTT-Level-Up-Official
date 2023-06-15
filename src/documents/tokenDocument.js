@@ -1,3 +1,5 @@
+import ActiveEffectA5e from './activeEffect/activeEffect';
+
 /**
  * Extend the base TokenDocument class to implement system-specific HP bar logic.
  * @extends {TokenDocument}
@@ -10,9 +12,27 @@ export default class TokenDocumentA5e extends TokenDocument {
    */
   prepareDerivedData() {
     super.prepareDerivedData();
+    this.applyActiveEffects();
+  }
 
-    const tokenOverrides = this.overrides ?? {};
-    foundry.utils.mergeObject(this, tokenOverrides);
+  applyActiveEffects() {
+    this.overrides = {};
+
+    const effects = this.actor.effects.contents.reduce((acc, e) => {
+      const modifiedEffect = foundry.utils.deepClone(e);
+      modifiedEffect.changes = modifiedEffect.changes.filter((c) => c.key.startsWith('@token'));
+      if (modifiedEffect.changes.length > 0) acc.push(modifiedEffect);
+
+      return acc;
+    }, []);
+
+    ActiveEffectA5e.applyEffects(
+      this,
+      effects,
+      'afterDerived',
+      null,
+      () => true
+    );
   }
 
   /**
