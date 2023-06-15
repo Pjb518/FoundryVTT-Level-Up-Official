@@ -274,7 +274,7 @@ export default class EffectOptions {
     specialValues['@token.sight.angle'] = [360, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.sight.attenuation'] = [0.1, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.sight.brightness'] = [1, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.color'] = [1, EffectOptions.OVERRIDE_ONLY, null];
+    specialValues['@token.sight.color'] = [null, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.sight.contrast'] = [0, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.sight.range'] = [0, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.sight.saturation'] = [0, EffectOptions.OVERRIDE_ONLY, null];

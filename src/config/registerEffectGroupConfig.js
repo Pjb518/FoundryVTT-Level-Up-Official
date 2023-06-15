@@ -464,6 +464,40 @@ export default function registerEffectGroupConfig(A5E) {
         'system.spellResources.slots.9.max'
       ]
     },
+    tokenLight: {
+      label: 'A5E.effects.groups.tokenLight',
+      items: [
+        '@token.light.alpha',
+        '@token.light.angle',
+        '@token.light.animation.intensity',
+        '@token.light.animation.reverse',
+        '@token.light.animation.speed',
+        '@token.light.animation.type',
+        '@token.light.attenuation',
+        '@token.light.bright',
+        '@token.light.color',
+        '@token.light.coloration',
+        '@token.light.contrast',
+        '@token.light.darkness.min',
+        '@token.light.darkness.max',
+        '@token.light.dim',
+        '@token.light.luminosity',
+        '@token.light.saturation',
+        '@token.light.shadows'
+      ]
+    },
+    tokenSight: {
+      label: 'A5E.effects.groups.tokenSight',
+      items: [
+        '@token.sight.angle',
+        '@token.sight.attenuation',
+        '@token.sight.brightness',
+        '@token.sight.color',
+        '@token.sight.contrast',
+        '@token.sight.range',
+        '@token.sight.saturation'
+      ]
+    },
     other: {
       label: 'A5E.effects.groups.other',
       items: []
