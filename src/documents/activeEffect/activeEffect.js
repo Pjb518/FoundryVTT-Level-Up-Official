@@ -226,7 +226,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
-    console.log(data);
     this.#updateCanvas(data);
 
     if (!(this.parent?.parent instanceof Actor)) return;
@@ -261,13 +260,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
       this.parent.token.reset();
     }
 
-    const updatePerception = changeKeys.some((k) => k.startsWith('@token.sight')) || hasDisabled;
     const updateLighting = changeKeys.some((k) => k.startsWith('@token.light')) || hasDisabled;
 
-    if (updatePerception || updateLighting) {
-      canvas.perception.update({
-        initializeVision: updatePerception, initializeLighting: updateLighting
-      }, true);
+    if (updateLighting) {
+      canvas.perception.update({ initializeLighting: updateLighting }, true);
     }
   }
 

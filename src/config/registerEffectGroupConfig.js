@@ -486,18 +486,6 @@ export default function registerEffectGroupConfig(A5E) {
         '@token.light.shadows'
       ]
     },
-    tokenSight: {
-      label: 'A5E.effects.groups.tokenSight',
-      items: [
-        '@token.sight.angle',
-        '@token.sight.attenuation',
-        '@token.sight.brightness',
-        '@token.sight.color',
-        '@token.sight.contrast',
-        '@token.sight.range',
-        '@token.sight.saturation'
-      ]
-    },
     other: {
       label: 'A5E.effects.groups.other',
       items: []

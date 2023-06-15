@@ -271,14 +271,6 @@ export default class EffectOptions {
     // TODO: Maybe add something to automatically fail?
 
     // Token Effects
-    specialValues['@token.sight.angle'] = [360, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.attenuation'] = [0.1, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.brightness'] = [1, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.color'] = [null, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.contrast'] = [0, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.range'] = [0, EffectOptions.OVERRIDE_ONLY, null];
-    specialValues['@token.sight.saturation'] = [0, EffectOptions.OVERRIDE_ONLY, null];
-
     specialValues['@token.light.alpha'] = [0.5, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.light.angle'] = [360, EffectOptions.OVERRIDE_ONLY, null];
     specialValues['@token.light.animation.intensity'] = [5, EffectOptions.OVERRIDE_ONLY, null];
