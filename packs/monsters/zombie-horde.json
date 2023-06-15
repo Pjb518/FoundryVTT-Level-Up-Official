@@ -4,118 +4,13 @@
 	"img": "systems/a5e/assets/zombie.webp",
 	"items": [
 		{
-			"_id": "atMg40IDSHC3H8xU",
-			"name": "Undead Fortitude (1/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"7qg9DEwseVHET2GG": {
-						"name": "Undead Fortitude (1/Day)",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1KOhuCWhN8KIdgTS",
-			"name": "Undead Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "7hY9t8zY6JiIJSWt",
 			"name": "Grab",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/unholy/hand-grasping-green.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"actions": {
@@ -127,7 +22,7 @@
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "",
+							"unit": "instantaneous",
 							"value": ""
 						},
 						"area": {
@@ -136,8 +31,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"sH1nfn48NODtuLLw": {
@@ -150,26 +45,21 @@
 							"XbEnyruhyzlQebOT": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
-								"formula": "5d6+5",
+								"formula": "5d6 + 5",
 								"name": "Grab",
 								"type": "damage"
 							}
 						},
-						"prompts": {
-							"dfUkG0TCZrVC7ThZ": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "11"
-								},
-								"type": "savingThrow"
+						"prompts": {},
+						"consumers": {},
+						"ranges": {
+							"GQOfrKD4kjyXg9lY": {
+								"range": "fiveFeet"
 							}
-						},
-						"consumers": {}
+						}
 					}
 				},
-				"description": "",
+				"description": "<p>If the target is a Medium or smaller creature, it is&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;(escape DC 11). Until the grapple ends, the zombie can&rsquo;t grab another target.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -192,6 +82,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -206,7 +97,7 @@
 			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 1,
 			"flags": {
 				"core": {
 					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
@@ -222,7 +113,7 @@
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "",
+							"unit": "instantaneous",
 							"value": ""
 						},
 						"area": {
@@ -231,8 +122,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"S9bvLkPZNPw08cKD": {
@@ -245,12 +136,17 @@
 							"E5drxV1OSoA2gpRc": {
 								"canCrit": true,
 								"damageType": "piercing",
-								"formula": "5d10+5",
+								"formula": "5d10 + 5",
 								"name": "Bite",
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"kbieCg4NKq8S0xJf": {
+								"range": "fiveFeet"
+							}
+						}
 					}
 				},
 				"description": "<p>Against one grappled target. The zombie regains the same number of hit points.</p>",
@@ -276,6 +172,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -287,7 +184,7 @@
 			"_id": "1rAMP3n5B2fqhQ04",
 			"name": "Area Vulnerability",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/fire/projectile-wave-yellow.webp",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
@@ -295,7 +192,7 @@
 			"system": {
 				"actions": {},
 				"description": "<p>The horde takes double damage from any effect that targets an area.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -317,6 +214,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -328,15 +226,15 @@
 			"_id": "OQNi2pcVto2f2wzi",
 			"name": "Horde",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/unholy/demons-horned-glowing-pink.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 3,
 			"flags": {},
 			"system": {
 				"actions": {},
 				"description": "<p>The horde is composed of 5 or more zombies. If it is subjected to a spell, attack, or other effect that affects only one target, it takes any damage but ignores other effects. It can share its space with Medium or smaller creatures or objects. The horde can move through any opening large enough for one Medium creature without squeezing.&nbsp;&nbsp;&nbsp;</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -358,6 +256,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -369,15 +268,40 @@
 			"_id": "x1IpRD4pxzU5RZaO",
 			"name": "Horde Dispersal",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 4,
 			"flags": {},
 			"system": {
-				"actions": {},
+				"actions": {
+					"vVYTnmr8xLQNIw9Y": {
+						"name": "Disperse Horde",
+						"activation": {
+							"type": "special"
+						},
+						"consumers": {},
+						"rolls": {
+							"QzYxeL16ow9BiKNe": {
+								"type": "generic",
+								"default": true,
+								"formula": "1d4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the horde is reduced to 0 hit points, it turns into 2 (1d4) zombies with 7 hit points each.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -399,6 +323,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -957,15 +882,128 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "XqXPvdBbrTGvirDL"
+		},
+		{
+			"_id": "InAXjip9dlTsdOyg",
+			"name": "Undead Fortitude",
+			"type": "feature",
+			"img": "icons/magic/death/undead-zombie-grave-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 5,
+			"flags": {},
+			"system": {
+				"actions": {
+					"vvAr93yIX6XTcYS8": {
+						"name": "Undead Fortitude",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"Pg0VQeTCySwxhR9r": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"img": "icons/magic/death/undead-zombie-grave-green.webp"
+					}
+				},
+				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "ybF9TpoiQRhFOO5s",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 6,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.q9xjdyu2lrfvtqhr"
+			"sheetIsLocked": true,
+			"currentTab": "features",
+			"sortMode": 1
 		}
 	},
 	"system": {
@@ -1414,7 +1452,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1441,6 +1480,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1479,29 +1519,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1578,7 +1639,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "q9xjdyu2lrfvtqhr"
 }

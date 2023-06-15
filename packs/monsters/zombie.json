@@ -5,17 +5,17 @@
 	"items": [
 		{
 			"_id": "atMg40IDSHC3H8xU",
-			"name": "Undead Fortitude (1/Day)",
+			"name": "Undead Fortitude",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/undead-zombie-grave-green.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"actions": {
 					"vvAr93yIX6XTcYS8": {
-						"name": "Undead Fortitude (1/Day)",
+						"name": "Undead Fortitude",
 						"activation": {
 							"cost": 1,
 							"type": "special",
@@ -34,17 +34,24 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {
+							"Pg0VQeTCySwxhR9r": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"img": "icons/magic/death/undead-zombie-grave-green.webp"
 					}
 				},
 				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
+					"value": 1,
+					"max": "1",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": ""
@@ -60,6 +67,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -71,105 +79,14 @@
 			"_id": "1KOhuCWhN8KIdgTS",
 			"name": "Undead Nature",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 3,
 			"flags": {},
 			"system": {
 				"actions": {},
 				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7hY9t8zY6JiIJSWt",
-			"name": "Grab",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"VafPgzVXUe0nTiEF": {
-						"name": "Grab",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"SCFvtIn2Ezn1jUer": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"bK7HJRr7VytBm0Jg": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d6+@str.mod",
-								"name": "Grab",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"DXIwZVrxUyQMz0BJ": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "11"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -192,6 +109,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -222,7 +140,7 @@
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "",
+							"unit": "instantaneous",
 							"value": ""
 						},
 						"area": {
@@ -231,8 +149,8 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creature"
 						},
 						"rolls": {
 							"LICAYgnDfNcMwMbZ": {
@@ -250,7 +168,12 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"ranges": {
+							"GwbCryezAG2KoqQs": {
+								"range": "fiveFeet"
+							}
+						}
 					}
 				},
 				"description": "<p>Against one grappled target. The zombie regains the same number of hit points.</p>",
@@ -276,6 +199,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "naturalWeapon",
 				"prerequisite": ""
 			},
@@ -834,15 +758,101 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "Pau5v7CRYQo1dpmT"
+		},
+		{
+			"_id": "un1biaAZHMxqfmD2",
+			"name": "Grab",
+			"type": "feature",
+			"img": "icons/magic/unholy/hand-grasping-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 1,
+			"flags": {},
+			"system": {
+				"actions": {
+					"Oh5wR2tTRfy2aL5g": {
+						"name": "Grab",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"sH1nfn48NODtuLLw": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"XbEnyruhyzlQebOT": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "5d6+5",
+								"name": "Grab",
+								"type": "damage"
+							}
+						},
+						"prompts": {},
+						"consumers": {},
+						"ranges": {
+							"2l7qvsvKVu7XdVwH": {
+								"range": "fiveFeet"
+							}
+						}
+					}
+				},
+				"description": "<p>If the target is a Medium or smaller creature, it is&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;(escape DC 11). Until the grapple ends, the zombie can&rsquo;t grab another target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.tjjjf7o76iozv0tp"
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"sortMode": 1
 		}
 	},
 	"system": {
@@ -1291,7 +1301,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1318,6 +1329,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1356,29 +1368,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1455,7 +1488,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "tjjjf7o76iozv0tp"
 }

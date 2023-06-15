@@ -4,392 +4,13 @@
 	"img": "systems/a5e/assets/zombie.webp",
 	"items": [
 		{
-			"_id": "atMg40IDSHC3H8xU",
-			"name": "Undead Fortitude (1/Day)",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"eTfwt9u01LWVjhb0": {
-						"name": "Undead Fortitude (1/Day)",
-						"activation": {
-							"cost": 1,
-							"type": "special",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1KOhuCWhN8KIdgTS",
-			"name": "Undead Nature",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {},
-				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7hY9t8zY6JiIJSWt",
-			"name": "Grab",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"isiagKl0mbC37Mdz": {
-						"name": "Grab",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"RHbeWgu8q3sfdWoY": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"iYfT83Fa3yRXEtQV": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d6+@str.mod",
-								"name": "Grab",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"OIWrOFRXuTmzfUbm": {
-								"ability": "dex",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "11"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "1CpKLuZ9u0zgaV22",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"actions": {
-					"5uNMfogUHAwMZCvO": {
-						"name": "Bite",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"qmcxpt4MJdD1yaBP": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"FPLpHbVCsSZYUTd4": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d10+@str.mod",
-								"name": "Bite",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>Against one grappled target. The zombie regains the same number of hit points.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"featureType": "naturalWeapon",
-				"prerequisite": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "TNpZjyIfwTfaij69",
-			"name": "Greatsword",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"actions": {
-					"7IBzurEQeA1BZIX7": {
-						"name": "Greatsword",
-						"activation": {
-							"cost": "",
-							"type": "",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"a2HDkyyzTDxqpPCx": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"CMKNwmAtMBqLW8uq": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "2d6+@str.mod",
-								"name": "Greatsword",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": null,
-					"max": "",
-					"per": null,
-					"recharge": {
-						"formula": "",
-						"threshold": ""
-					}
-				},
-				"schema": {
-					"version": 0.003,
-					"lastMigration": {
-						"version": {
-							"schema": null,
-							"foundry": "10.291",
-							"system": "0.10.7"
-						}
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"broken": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"equipped": false,
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": 0,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "uRV0uQFYzvn94ulb",
 			"name": "Multiattack",
 			"type": "feature",
 			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2,
 			"flags": {},
 			"system": {
 				"actions": {},
@@ -416,6 +37,7 @@
 						}
 					}
 				},
+				"concentration": false,
 				"featureType": "",
 				"prerequisite": ""
 			},
@@ -974,15 +596,412 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "zhpWZz4WgqwbDCn1"
+		},
+		{
+			"_id": "6I9Y6hylqt4YJjGE",
+			"name": "Grab",
+			"type": "feature",
+			"img": "icons/magic/unholy/hand-grasping-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 1,
+			"flags": {},
+			"system": {
+				"actions": {
+					"Oh5wR2tTRfy2aL5g": {
+						"name": "Grab",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"sH1nfn48NODtuLLw": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"XbEnyruhyzlQebOT": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "5d6+5",
+								"name": "Grab",
+								"type": "damage"
+							}
+						},
+						"prompts": {},
+						"consumers": {},
+						"ranges": {
+							"2l7qvsvKVu7XdVwH": {
+								"range": "fiveFeet"
+							}
+						}
+					}
+				},
+				"description": "<p>If the target is a Medium or smaller creature, it is&nbsp;<span class=\"freelinking-link\">grappled</span>&nbsp;(escape DC 11). Until the grapple ends, the zombie can&rsquo;t grab another target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "gjC0l1G8h5Ea1U9v",
+			"name": "Bite",
+			"type": "feature",
+			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"actions": {
+					"RFPKQPMwM1e8eqLb": {
+						"name": "Bite",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"LICAYgnDfNcMwMbZ": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"MGt0ypsAROig7QLU": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d10+@str.mod",
+								"name": "Bite",
+								"type": "damage"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"GwbCryezAG2KoqQs": {
+								"range": "fiveFeet"
+							}
+						}
+					}
+				},
+				"description": "<p>Against one grappled target. The zombie regains the same number of hit points.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "A2BcxclkKo7jsW0W",
+			"name": "Undead Fortitude",
+			"type": "feature",
+			"img": "icons/magic/death/undead-zombie-grave-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 3,
+			"flags": {},
+			"system": {
+				"actions": {
+					"vvAr93yIX6XTcYS8": {
+						"name": "Undead Fortitude",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"Pg0VQeTCySwxhR9r": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"img": "icons/magic/death/undead-zombie-grave-green.webp"
+					}
+				},
+				"description": "<p>If the zombie is reduced to 0 hit points by damage that isn’t radiant or from a critical hit, it’s instead reduced to 1 hit point, falls prone, and is stunned until the end of its next turn, appearing to be dead.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "kukbNlA4mEVxH9N6",
+			"name": "Undead Nature",
+			"type": "feature",
+			"img": "icons/magic/death/blood-corruption-vomit-red.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 4,
+			"flags": {},
+			"system": {
+				"actions": {},
+				"description": "<p>A zombie doesn’t require air, sustenance, or sleep.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "",
+						"threshold": ""
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"prerequisite": ""
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Greatsword",
+			"type": "object",
+			"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.gq6lfesjrd75se7u"
+				}
+			},
+			"system": {
+				"actions": {
+					"gN1VnpQWmko9P0l8": {
+						"name": "Greatsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"dSqwxwRNQwjvOq43": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"vlUtyqLFnTkfBE3F": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "2d6 + @str.mod",
+								"name": "Greatsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p><em>Heavy, Parrying, Two-Handed</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": null,
+					"max": "",
+					"per": null,
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"schema": {
+					"version": 0.003,
+					"lastMigration": {
+						"version": {
+							"schema": null,
+							"foundry": "10.291",
+							"system": "0.10.7"
+						}
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"broken": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"equipped": true,
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "50 gp",
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"parrying",
+					"heavy",
+					"twoHanded"
+				],
+				"weight": 7
+			},
+			"_id": "hC3Ab7EwQgobekcH",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true
-		},
-		"core": {
-			"sourceId": "Compendium.a5e.a5e-monsters.uvkun2eiejd0y8ts"
+			"sheetIsLocked": true,
+			"currentTab": "core",
+			"sortMode": 1
 		}
 	},
 	"system": {
@@ -1431,7 +1450,8 @@
 			"senses": {
 				"blindsight": {
 					"distance": null,
-					"unit": "feet"
+					"unit": "feet",
+					"otherwiseBlind": false
 				},
 				"darkvision": {
 					"distance": 60,
@@ -1458,6 +1478,7 @@
 				"save": "",
 				"skill": ""
 			},
+			"damage": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
@@ -1496,29 +1517,50 @@
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"secondary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"tertiary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			},
 			"quaternary": {
 				"label": "",
 				"value": 0,
 				"max": 0,
 				"per": "",
-				"hideMax": false
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
 			}
+		},
+		"source": {
+			"name": "",
+			"link": "",
+			"publisher": ""
 		},
 		"traits": {
 			"size": "med",
@@ -1595,7 +1637,10 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": []
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
 	},
+	"folder": null,
 	"_id": "uvkun2eiejd0y8ts"
 }
