@@ -79,6 +79,20 @@
         );
     }
 
+    async function getDescription() {
+        const data =
+            (await TextEditor.enrichHTML(
+                actionId ? action.description : item.system.description,
+                { async: true }
+            )) ?? localize("A5E.NoDescription");
+
+        return data;
+    }
+
+    let description = getDescription(item)
+        .then((data) => (description = data))
+        .catch((err) => (description = err));
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
@@ -141,10 +155,7 @@
             />
 
             <!-- svelte-ignore missing-declaration -->
-            {@html TextEditor.enrichHTML(
-                actionId ? action.description : item.system.description,
-                { async: false }
-            ) ?? localize("A5E.NoDescription")}
+            {@html description}
         {/if}
     </div>
 {/if}
