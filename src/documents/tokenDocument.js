@@ -8,19 +8,10 @@ export default class TokenDocumentA5e extends TokenDocument {
   /**
    * @override
    */
-  _initialize(options) {
-    // this.overrides = {};
-    super._initialize(options);
-    console.log('Initialzie');
-  }
-
-  /**
-   * @override
-   */
   prepareDerivedData() {
     super.prepareDerivedData();
+
     const tokenOverrides = this.overrides ?? {};
-    console.log(tokenOverrides);
     foundry.utils.mergeObject(this, tokenOverrides);
   }
 
@@ -32,6 +23,10 @@ export default class TokenDocumentA5e extends TokenDocument {
     // Update synthetic Actor data
     if (!this.isLinked && this.delta) {
       this.delta.updateSyntheticActor();
+      // eslint-disable-next-line no-restricted-syntax
+      for (const collection of Object.values(this.delta.collections)) {
+        collection.initialize({ full: true });
+      }
     }
 
     this._onRelatedUpdate(update, options);

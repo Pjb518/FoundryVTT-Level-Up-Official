@@ -59,9 +59,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   apply(document, _change, phase = 'applyAEs') {
     if (this.isSuppressed) return null;
-    const originalDocument = document.documentName === 'Token' && game.ready
-      ? document.toObject()
-      : document;
 
     const change = foundry.utils.deepClone(_change);
     change.key = change.key.replace('@token.', '');
@@ -77,10 +74,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
     }
 
     // Determine types
-    const current = getCorrectedTypeValueFromKey(originalDocument, change.key) ?? null;
+    const current = getCorrectedTypeValueFromKey(document, change.key) ?? null;
     const targetType = foundry.utils.getType(current);
     const delta = castType(
-      this.#convertToDeterministicBonus(originalDocument, change),
+      this.#convertToDeterministicBonus(document, change),
       targetType
     );
 
@@ -229,6 +226,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
+
+    this.#updateCanvas(data);
+
     if (!(this.parent?.parent instanceof Actor)) return;
     const actor = this.parent.parent;
 
@@ -240,6 +240,24 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const parentEffect = actor.effects.contents.find((e) => e.origin === this.origin);
     if (!parentEffect) return;
     parentEffect.update(data);
+  }
+
+  /**
+   * Updates the canvas perception and lights if token effect has changed.
+   * @param {Object} data
+   */
+  #updateCanvas(data) {
+    const keys = data.changes?.map((c) => c.key) ?? [];
+    if (!(keys.some((k) => k.startsWith('@token')))) return;
+
+    const updatePerception = keys.some((k) => k.startsWith('@token.sight'));
+    const updateLighting = keys.some((k) => k.startsWith('@token.light'));
+
+    if (updatePerception || updateLighting) {
+      canvas.perception.update({
+        initializeVision: updatePerception, initializeLighting: updateLighting
+      }, true);
+    }
   }
 
   _onDelete(options, userId) {
@@ -352,9 +370,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
       ...foundry.utils.flattenObject(actor.overrides),
       ...actorOverrides
     });
-
-    console.log(actor.documentName);
-    console.log(tokenOverrides);
 
     if (!token) return;
     token.overrides = foundry.utils.expandObject({
