@@ -18,20 +18,20 @@ export default class TokenDocumentA5e extends TokenDocument {
   applyActiveEffects() {
     this.overrides = {};
 
-    const effects = this.actor.effects.contents.reduce((acc, e) => {
-      const modifiedEffect = foundry.utils.deepClone(e);
-      modifiedEffect.changes = modifiedEffect.changes.filter((c) => c.key.startsWith('@token'));
-      if (modifiedEffect.changes.length > 0) acc.push(modifiedEffect);
+    // const effects = this.actor.effects.contents.reduce((acc, e) => {
+    //   const modifiedEffect = foundry.utils.deepClone(e);
+    //   modifiedEffect.changes = modifiedEffect.changes.filter((c) => c.key.startsWith('@token'));
+    //   if (modifiedEffect.changes.length > 0) acc.push(modifiedEffect);
 
-      return acc;
-    }, []);
+    //   return acc;
+    // }, []);
 
     ActiveEffectA5e.applyEffects(
       this,
-      effects,
+      this.actor.effects.contents,
       'afterDerived',
       null,
-      () => true
+      (change) => change.key.startsWith('@token')
     );
   }
 

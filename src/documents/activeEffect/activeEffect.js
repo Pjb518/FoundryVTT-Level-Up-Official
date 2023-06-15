@@ -226,6 +226,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
+    console.log(data);
     this.#updateCanvas(data);
 
     if (!(this.parent?.parent instanceof Actor)) return;
@@ -247,8 +248,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
    */
   #updateCanvas(data) {
     if (this.parent?.documentName !== 'Actor') return;
-    const keys = data.changes?.map((c) => c.key) ?? [];
-    if (!(keys.some((k) => k.startsWith('@token')))) return;
+
+    const hasDisabled = Object.keys(data).includes('disabled');
+    const changeKeys = data.changes?.map((c) => c.key) ?? [];
+    if (!(changeKeys.some((k) => k.startsWith('@token'))) && !hasDisabled) return;
 
     // Reset tokens
     if (foundry.utils.getProperty(this.parent, 'prototypeToken.actorLink') ?? true) {
@@ -258,8 +261,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
       this.parent.token.reset();
     }
 
-    const updatePerception = keys.some((k) => k.startsWith('@token.sight'));
-    const updateLighting = keys.some((k) => k.startsWith('@token.light'));
+    const updatePerception = changeKeys.some((k) => k.startsWith('@token.sight')) || hasDisabled;
+    const updateLighting = changeKeys.some((k) => k.startsWith('@token.light')) || hasDisabled;
 
     if (updatePerception || updateLighting) {
       canvas.perception.update({
