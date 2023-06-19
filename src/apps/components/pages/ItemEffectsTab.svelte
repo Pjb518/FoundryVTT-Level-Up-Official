@@ -18,7 +18,11 @@
         <UtilityBar>
             <Search {reducerType} />
             <Sort {reducerType} documentName="ActiveEffect" />
-            <CreateMenu {reducerType} documentName="ActiveEffect" />
+            <CreateMenu
+                {reducerType}
+                documentName="ActiveEffect"
+                entityTypeOverride="passive"
+            />
         </UtilityBar>
     {/if}
 
