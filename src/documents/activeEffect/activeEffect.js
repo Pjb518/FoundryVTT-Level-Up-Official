@@ -288,16 +288,17 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   /**
-  * Transfer the affect to another token.
+  * Transfer effect to another document
   */
-  transferEffect(token) {
-    const data = [{
-      name: this.name,
-      origin: this.parent.uuid,
-      changes: this.changes
-    }];
+  transferEffect(document) {
+    if (!(['Actor', 'ActorDelta', 'Token'].includes(document.documentName))) {
+      ui.notifications.error(`Document of type ${document.documentName} is not supported by this operation.`);
+    }
 
-    token.actor.createEmbeddedDocuments('ActiveEffect', data);
+    const effectData = foundry.utils.deepClone(this);
+    effectData.origin = this.parent.uuid;
+
+    document.createEmbeddedDocuments('ActiveEffect', [effectData]);
   }
 
   // -------------------------------------------------------
@@ -386,4 +387,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
     };
     return super.create(data, { parent: parentDocument });
   }
+
+  /**
+   * Compare 2 Effects to see if they're the same
+   */
 }

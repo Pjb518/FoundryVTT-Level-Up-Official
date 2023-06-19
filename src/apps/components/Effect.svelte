@@ -120,14 +120,18 @@
                 />
             {/if}
 
-            <button
-                class="effect-button fas"
-                class:fa-toggle-off={effect.isDisabled || effect.isSuppressed}
-                class:fa-toggle-on={!effect.isDisabled && !effect.isSuppressed}
-                data-tooltip="A5E.effects.toggleActiveState"
-                data-tooltip-direction="UP"
-                on:click={() => effect.toggleActiveState()}
-            />
+            {#if $doc.documentName === "Actor"}
+                <button
+                    class="effect-button fas"
+                    class:fa-toggle-off={effect.isDisabled ||
+                        effect.isSuppressed}
+                    class:fa-toggle-on={!effect.isDisabled &&
+                        !effect.isSuppressed}
+                    data-tooltip="A5E.effects.toggleActiveState"
+                    data-tooltip-direction="UP"
+                    on:click={() => effect.toggleActiveState()}
+                />
+            {/if}
         </div>
     </div>
 
