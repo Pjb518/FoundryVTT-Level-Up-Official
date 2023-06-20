@@ -10,7 +10,7 @@
         let areas = "icon name indicators";
         let columns = "min-content 1fr min-content";
 
-        if ($document.documentName === "Item" || !sheetIsLocked) {
+        if ($doc.documentName === "Item" || !sheetIsLocked) {
             areas += " menu";
             columns += " 2rem";
         }
@@ -18,13 +18,13 @@
         return { areas: `"${areas}"`, columns };
     }
 
-    const document = getContext("actor") ?? getContext("item");
+    const doc = getContext("actor") ?? getContext("item");
 
-    $: sheetIsLocked = !$document.isOwner
+    $: sheetIsLocked = !$doc.isOwner
         ? true
-        : $document.documentName === "Item"
+        : $doc.documentName === "Item"
         ? false
-        : $document.flags?.a5e?.sheetIsLocked ?? true;
+        : $doc.flags?.a5e?.sheetIsLocked ?? true;
     $: effectTemplateConfiguration =
         getEffectTemplateConfiguration(sheetIsLocked);
 </script>

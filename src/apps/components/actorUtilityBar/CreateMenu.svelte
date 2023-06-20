@@ -15,9 +15,12 @@
     export let menuList = [];
     export let offset = null;
     export let reducerType = null;
+    export let entityTypeOverride = null;
 
     // Default createDocument
     function createDocument(entityType) {
+        if (!entityType) entityType = entityTypeOverride;
+
         if (!["Item", "ActiveEffect"].includes(documentName))
             return dispatch("press", entityType);
 

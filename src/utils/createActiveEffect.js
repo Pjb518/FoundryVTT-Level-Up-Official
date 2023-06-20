@@ -12,7 +12,11 @@ export default async function createEffect(document, effectType) {
 
   if (document.documentName === 'Item') {
     updateData.transfer = false;
-    foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'passive');
+    if (effectType === 'onUse') {
+      foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'onUse');
+    } else {
+      foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'passive');
+    }
   }
 
   if (effectType === 'inactive') updateData.disabled = true;

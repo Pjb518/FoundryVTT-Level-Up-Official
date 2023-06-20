@@ -50,16 +50,21 @@
         );
     }
 
-    const document = getContext("actor") ?? getContext("item");
+    const doc = getContext("actor") ?? getContext("item");
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
-    $: sheetIsLocked = !$document.isOwner
+    $: allowTransfer =
+        effect.getFlag("a5e", "transferType") === "passive" &&
+        $doc.documentName === "Item" &&
+        ["Actor", "ActorDelta"].includes($doc.parent?.documentName);
+
+    $: sheetIsLocked = !$doc.isOwner
         ? true
-        : $document.documentName === "Item"
+        : $doc.documentName === "Item"
         ? false
-        : $document.flags?.a5e?.sheetIsLocked ?? true;
+        : $doc.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li
@@ -72,7 +77,7 @@
 >
     <button
         class="effect-activate-button"
-        class:disable-pointer-events={!$document.isOwner}
+        class:disable-pointer-events={!$doc.isOwner}
         disabled={true}
         on:click|stopPropagation={({ target }) => {
             target.blur();
@@ -81,7 +86,7 @@
     >
         <img
             class="effect-image"
-            src={effect?.icon ?? document.img ?? "icons/svg/aura.svg"}
+            src={effect?.icon ?? doc.img ?? "icons/svg/aura.svg"}
             alt={effect?.name ?? localize("A5E.effects.new")}
         />
     </button>
@@ -106,20 +111,33 @@
         {/if}
 
         <div class="button-wrapper">
-            <button
-                class="effect-button fas"
-                class:fa-toggle-off={effect.isDisabled || effect.isSuppressed}
-                class:fa-toggle-on={!effect.isDisabled && !effect.isSuppressed}
-                data-tooltip="A5E.effects.toggleActiveState"
-                data-tooltip-direction="UP"
-                on:click={() => effect.toggleActiveState()}
-            />
+            {#if allowTransfer}
+                <button
+                    class="effect-button fas fa-check"
+                    data-tooltip="A5E.effects.applyToActor"
+                    data-tooltip-direction="UP"
+                    on:click={() => effect.transferEffect($doc.parent)}
+                />
+            {/if}
+
+            {#if $doc.documentName === "Actor"}
+                <button
+                    class="effect-button fas"
+                    class:fa-toggle-off={effect.isDisabled ||
+                        effect.isSuppressed}
+                    class:fa-toggle-on={!effect.isDisabled &&
+                        !effect.isSuppressed}
+                    data-tooltip="A5E.effects.toggleActiveState"
+                    data-tooltip-direction="UP"
+                    on:click={() => effect.toggleActiveState()}
+                />
+            {/if}
         </div>
     </div>
 
     <!-- Summary -->
 
-    {#if !$document.pack && $document.isOwner}
+    {#if !$doc.pack && $doc.isOwner}
         {#if !sheetIsLocked}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div class="track" on:click|stopPropagation>
