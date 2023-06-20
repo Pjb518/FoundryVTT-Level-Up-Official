@@ -16,7 +16,9 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
       options,
       {
         baseApplication: 'ActiveEffectConfig',
-        id: activeEffect.parent ? `${activeEffect.parent.id}-${activeEffect.id}` : activeEffect.id,
+        id: activeEffect.parent
+          ? `effect-${activeEffect.parent.id}-${activeEffect.id}`
+          : `effect-${activeEffect.id}`,
         title: `Configure Active Effect: ${activeEffect.name}`,
         svelte: {
           class: ActiveEffectConfigSheet,
