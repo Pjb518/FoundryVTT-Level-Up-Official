@@ -113,7 +113,7 @@
         <div class="button-wrapper">
             {#if allowTransfer}
                 <button
-                    class="effect-button fas fa-check"
+                    class="effect-button fa-regular fa-circle-down"
                     data-tooltip="A5E.effects.applyToActor"
                     data-tooltip-direction="UP"
                     on:click={() => effect.transferEffect($doc.parent)}
@@ -122,7 +122,7 @@
 
             {#if $doc.documentName === "Actor"}
                 <button
-                    class="effect-button fas"
+                    class="effect-button effect-button--active-toggle fas"
                     class:fa-toggle-off={effect.isDisabled ||
                         effect.isSuppressed}
                     class:fa-toggle-on={!effect.isDisabled &&
@@ -287,8 +287,12 @@
         background: none;
         color: #999;
         border: 0;
-        font-size: 1.44rem;
+        font-size: 1.2rem;
         transition: all 0.15s ease-in-out;
+
+        &--active-toggle {
+            font-size: 1.44rem;
+        }
 
         &:hover {
             color: #425f65;
