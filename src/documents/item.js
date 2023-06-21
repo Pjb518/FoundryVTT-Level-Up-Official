@@ -148,13 +148,13 @@ export default class ItemA5e extends Item {
           name: this.name,
           actionName: action.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
-            ? TextEditor.enrichHTML(action.description, {
-              async: false
+            ? await TextEditor.enrichHTML(action.description, {
+              async: true
             })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? TextEditor.enrichHTML(this.system.description, {
-              async: false
+            ? await TextEditor.enrichHTML(this.system.description, {
+              async: true
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
@@ -188,13 +188,13 @@ export default class ItemA5e extends Item {
           actorId: this.actor.uuid,
           cardType: 'item',
           actionDescription: action?.descriptionOutputs?.includes('action')
-            ? TextEditor.enrichHTML(action.description, {
-              async: false
+            ? await TextEditor.enrichHTML(action.description, {
+              async: true
             })
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? TextEditor.enrichHTML(this.system.description, {
-              async: false
+            ? await TextEditor.enrichHTML(this.system.description, {
+              async: true
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
