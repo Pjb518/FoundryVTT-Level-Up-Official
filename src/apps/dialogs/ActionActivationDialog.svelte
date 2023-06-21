@@ -113,7 +113,10 @@
     let hitDiceData = {};
     let itemUsesData = {};
     let spellData = {};
-    let placeTemplate = action?.area?.placeTemplate ?? false;
+    let placeTemplate =
+        action?.area?.placeTemplate ??
+        game.settings.get("a5e", "placeItemTemplateDefault") ??
+        false;
     let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
 
     let selectedPrompts = getDefaultSelections(prompts);
