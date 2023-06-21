@@ -3,8 +3,9 @@ export default function prepareActiveEffectPrompts(prompts, item) {
 
   if (!prompts.length) return [];
 
-  return prompts.map(([key, prompt]) => {
-    prompt.effectUuid = item.effects.get(prompt.effectId).uuid;
+  return prompts.reduce((acc, [key, prompt]) => {
+    prompt.effectUuid = item.effects.get(prompt.effectId)?.uuid;
+    if (!prompt.effectUuid) return acc;
 
     if (!prompt.label) {
       const label = game.i18n.format('A5E.Effect');
@@ -12,6 +13,7 @@ export default function prepareActiveEffectPrompts(prompts, item) {
       prompt.defaultLabel = `${label} #${counts}`;
     }
 
-    return [key, prompt];
-  });
+    acc.push([key, prompt]);
+    return acc;
+  }, []);
 }
