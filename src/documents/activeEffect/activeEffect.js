@@ -298,7 +298,39 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const effectData = foundry.utils.deepClone(this);
     effectData.origin = this.parent.uuid;
 
+    // Check if effect already exists
+    const effects = document.documentName === 'Token'
+      ? document.actor.effects.contents
+      : document.effects.contents;
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const effect of effects) {
+      if (this.equals(effect)) {
+        ui.notifications.error(localize('A5E.notifications.effects.duplicate'));
+        return;
+      }
+    }
+
     document.createEmbeddedDocuments('ActiveEffect', [effectData]);
+  }
+
+  equals(other) {
+    const e1 = foundry.utils.deepClone(this.toObject());
+    const e2 = foundry.utils.deepClone(other.toObject());
+
+    delete e1._id;
+    delete e2._id;
+
+    delete e1.disabled;
+    delete e2.disabled;
+
+    delete e1.duration;
+    delete e2.duration;
+
+    e1.changes.forEach((c) => delete c.priority);
+    e2.changes.forEach((c) => delete c.priority);
+
+    return foundry.utils.objectsEqual(e1, e2);
   }
 
   // -------------------------------------------------------
@@ -389,8 +421,4 @@ export default class ActiveEffectA5e extends ActiveEffect {
     };
     return super.create(data, { parent: parentDocument });
   }
-
-  /**
-   * Compare 2 Effects to see if they're the same
-   */
 }
