@@ -16,8 +16,8 @@
             return;
         }
 
-        tokenActors.forEach((token) => {
-            token.createEmbeddedDocuments("ActiveEffect", [effect]);
+        tokenActors.forEach((actor) => {
+            effect.transferEffect(actor);
         });
     }
 

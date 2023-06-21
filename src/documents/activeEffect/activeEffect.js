@@ -306,7 +306,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // eslint-disable-next-line no-restricted-syntax
     for (const effect of effects) {
       if (this.equals(effect)) {
-        ui.notifications.error(localize('A5E.notifications.effects.duplicate'));
+        ui.notifications.error(localize('A5E.effects.duplicate'));
         return;
       }
     }
