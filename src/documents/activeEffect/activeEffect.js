@@ -318,7 +318,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
       if (effect.disabled || effect.isSuppressed) return [];
 
       // Add status effects to actor list
-      effect.statuses.forEach((statusId) => document.statuses.add(statusId));
+      if (document.documentName !== 'Token') {
+        effect.statuses.forEach((statusId) => document.statuses.add(statusId));
+      }
 
       return effect.changes.filter(predicate).map((change) => {
         change.priority = change.priority ?? change.mode * 10;
