@@ -21,7 +21,7 @@
             <CreateMenu
                 {reducerType}
                 documentName="ActiveEffect"
-                entityTypeOverride="passive"
+                entityTypeOverride="onUse"
             />
         </UtilityBar>
     {/if}
