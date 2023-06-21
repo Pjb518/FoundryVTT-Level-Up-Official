@@ -224,6 +224,21 @@ export default class ActiveEffectA5e extends ActiveEffect {
     return change.value;
   }
 
+  _preUpdate(data, options, userId) {
+    // Update parent effect
+    if (!(this.parent?.parent instanceof Actor)) return super._preUpdate(data, options, userId);
+    const actor = this.parent.parent;
+
+    if (this.flags?.a5e?.transferType !== 'passive') return super._preUpdate(data, options, userId);
+    const parentEffect = actor.effects.contents.find((e) => this.equals(e));
+    if (!parentEffect) return super._preUpdate(data, options, userId);
+    const parentUpdateData = foundry.utils.deepClone(data);
+    delete parentUpdateData._id;
+    parentEffect.update(parentUpdateData);
+
+    return super._preUpdate(data, options, userId);
+  }
+
   _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
     this.#updateCanvas(data);
@@ -233,12 +248,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     actor.effectPhases = null;
     actor.reset();
-
-    // Update parent effect
-    if (this.flags?.a5e?.transferType !== 'passive') return;
-    const parentEffect = actor.effects.contents.find((e) => e.origin === this.origin);
-    if (!parentEffect) return;
-    parentEffect.update(data);
   }
 
   /**
