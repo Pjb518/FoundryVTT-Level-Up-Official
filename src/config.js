@@ -1112,6 +1112,7 @@ A5E.tokenHPColors = {
 A5E.tools = {
   artisansTools: {
     alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
+    bookbindersKit: 'A5E.ToolBookbindersKit',
     brewersSupplies: 'A5E.ToolBrewersSupplies',
     calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
     carpentersTools: 'A5E.ToolCarpentersTools',
@@ -1170,6 +1171,7 @@ A5E.tools = {
 A5E.toolsPlural = {
   artisansTools: {
     alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
+    bookbindersKit: 'A5E.ToolBookbindersKitPlural',
     brewersSupplies: 'A5E.ToolBrewersSupplies',
     calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
     carpentersTools: 'A5E.ToolCarpentersTools',
