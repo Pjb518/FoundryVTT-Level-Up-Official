@@ -210,8 +210,8 @@ A5E.armor = {
 A5E.armorProperties = {
   camouflaged: 'A5E.ArmorPropertyCamouflaged',
   spiked: 'A5E.ArmorPropertySpiked',
-  stealthy: 'A5E.ObjectPropertyStealthy',
-  storage: 'A5E.ObjectPropertyStorage'
+  stealthy: 'A5E.objectProperties.stealthy',
+  storage: 'A5E.objectProperties.storage'
 };
 
 /**
@@ -1400,14 +1400,14 @@ A5E.weaponProperties = {
   parryingImmunity: 'A5E.weaponProperties.parryingImmunity',
   quickdraw: 'A5E.weaponProperties.quickdraw',
   range: 'A5E.weaponProperties.range',
-  rebounding: 'A5E.ObjectPropertyRebounding',
+  rebounding: 'A5E.objectProperties.rebounding',
   reach: 'A5E.weaponProperties.reach',
   rifled: 'A5E.weaponProperties.rifled',
   scatter: 'A5E.weaponProperties.scatter',
   shock: 'A5E.weaponProperties.shock',
   simple: 'A5E.weaponProperties.simple',
-  stealthy: 'A5E.ObjectPropertyStealthy',
-  storage: 'A5E.ObjectPropertyStorage',
+  stealthy: 'A5E.objectProperties.stealthy',
+  storage: 'A5E.objectProperties.storage',
   thrown: 'A5E.weaponProperties.thrown',
   triggerCharge: 'A5E.weaponProperties.triggerCharge',
   trip: 'A5E.weaponProperties.trip',
