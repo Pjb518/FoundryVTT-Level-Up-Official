@@ -11,6 +11,7 @@
 
     import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
     import prepareDamageBonuses from "../dataPreparationHelpers/itemActivationRolls/prepareDamageBonuses";
+    import prepareHealingBonuses from "../dataPreparationHelpers/itemActivationRolls/prepareHealingBonuses";
     import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
     import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
@@ -66,6 +67,15 @@
 
                 return acc;
             }, []),
+            healingBonuses: Object.entries(
+                $actor.system.bonuses.healing ?? {}
+            ).reduce((acc, [key, healingBonus]) => {
+                if (selectedHealingBonuses.includes(key)) {
+                    acc.push(healingBonus);
+                }
+
+                return acc;
+            }, []),
             prompts: Object.entries(action.prompts ?? {}).reduce(
                 (acc, [key, prompt]) => {
                     if (selectedPrompts.includes(key)) {
@@ -104,7 +114,8 @@
     const consumers = prepareConsumers(action.consumers);
     const prompts = preparePrompts(action.prompts, $item);
     const rolls = prepareRolls(action.rolls);
-    const damageBonuses = prepareDamageBonuses($actor, rolls?.attack ?? []);
+    const damageBonuses = prepareDamageBonuses($actor, rolls);
+    const healingBonuses = prepareHealingBonuses($actor, rolls);
 
     const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
 
@@ -118,6 +129,7 @@
         game.settings.get("a5e", "placeItemTemplateDefault") ??
         false;
     let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
+    let selectedHealingBonuses = getDefaultSelections({ healingBonuses });
 
     let selectedPrompts = getDefaultSelections(prompts);
     let selectedRolls = getDefaultSelections(rolls);
@@ -191,6 +203,21 @@
                 selected={selectedDamageBonuses}
                 on:updateSelection={({ detail }) =>
                     (selectedDamageBonuses = detail)}
+            />
+        </FormSection>
+    {/if}
+
+    <!-- If there are no rolls, hide this section -->
+    {#if Object.values(healingBonuses).flat().length}
+        <FormSection heading="Healing Bonuses">
+            <CheckboxGroup
+                options={healingBonuses.map(([key, healingBonus]) => [
+                    key,
+                    healingBonus.label || healingBonus.defaultLabel,
+                ])}
+                selected={selectedHealingBonuses}
+                on:updateSelection={({ detail }) =>
+                    (selectedHealingBonuses = detail)}
             />
         </FormSection>
     {/if}

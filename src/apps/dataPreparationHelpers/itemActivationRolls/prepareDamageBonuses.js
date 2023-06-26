@@ -1,4 +1,6 @@
-export default function prepareDamageBonuses(actor, attackRoll) {
+export default function prepareDamageBonuses(actor, rolls) {
+  const attackRoll = rolls.attack ?? [];
+
   if (!Array.isArray(attackRoll[0])) return [];
 
   const { attackType } = attackRoll[0][1] ?? {};

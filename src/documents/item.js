@@ -107,6 +107,7 @@ export default class ItemA5e extends Item {
       this,
       activationData.consumers ?? {},
       activationData.damageBonuses ?? {},
+      activationData.healingBonuses ?? {},
       activationData.rolls ?? {}
     );
 
