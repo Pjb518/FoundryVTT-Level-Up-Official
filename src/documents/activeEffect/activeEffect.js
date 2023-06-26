@@ -189,7 +189,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   /**
    *
-   * @param {import("../actor").default| import("../item").default} document
+   * @param {import("../actor/actor").default| import("../item").default} document
    * @param {*} change
    * @param {*} delta
    */
@@ -419,7 +419,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   /**
    * Creates a new default active effect on an actor or an item
-   * @param {import("../actor").default| import("../item").default} parentDocument
+   * @param {import("../actor/actor").default| import("../item").default} parentDocument
    * @returns
    */
   static createDefaultEffect(parentDocument) {
