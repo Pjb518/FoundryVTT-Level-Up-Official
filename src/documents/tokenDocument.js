@@ -28,7 +28,7 @@ export default class TokenDocumentA5e extends TokenDocument {
 
     ActiveEffectA5e.applyEffects(
       this,
-      this.actor.effects.contents,
+      this.actor.effects?.contents ?? [],
       'afterDerived',
       null,
       (change) => change.key.startsWith('@token')
