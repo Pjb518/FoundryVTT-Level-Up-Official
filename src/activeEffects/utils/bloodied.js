@@ -28,14 +28,30 @@ export default async function automateBloodied(actor, changes) {
     if (isBloodied && !hasCondition) {
       const createData = foundry.utils.deepClone(condition);
       createData.label = game.i18n.localize(condition.label);
-      createData['flags.core.statusId'] = condition.id;
+      createData.statuses = [condition.id];
+
+      delete createData.id;
       const cls = getDocumentClass('ActiveEffect');
+
+      cls.migrateDataSafe(createData);
+      cls.cleanData(createData);
+      createData.name = game.i18n.localize(createData.name);
+
       await cls.create(createData, { parent: actor });
+
+      Hooks.callAll('a5e.bloodied', actor, true);
     } else if (!isBloodied && hasCondition) {
-      await hasCondition.delete();
+      const existing = actor.effects.reduce((arr, e) => {
+        if ((e.statuses.size === 1) && e.statuses.has('bloodied')) arr.push(e.id);
+        return arr;
+      }, []);
+
+      if (existing.length) await actor.deleteEmbeddedDocuments('ActiveEffect', existing);
     }
   } else if (actor.type === 'npc' && actor.token !== null) {
-    if (isBloodied && !hasCondition) actor.token.toggleActiveEffect(condition);
-    else if (!isBloodied && hasCondition) actor.token.toggleActiveEffect(condition);
+    if (isBloodied && !hasCondition) {
+      actor.token.toggleActiveEffect(condition);
+      Hooks.callAll('a5e.bloodied', actor, true);
+    } else if (!isBloodied && hasCondition) actor.token.toggleActiveEffect(condition);
   }
 }
