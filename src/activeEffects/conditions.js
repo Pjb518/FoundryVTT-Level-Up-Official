@@ -24,7 +24,8 @@ export default function setupConditions() {
   Hooks.on('deleteActiveEffect', removeSubConditions);
 
   // Apply Bloodied Condition.
-  Hooks.on('updateActor', automateBloodied);
+  const automatedConditions = new Set(game.settings.get('a5e', 'automatedConditions') ?? []);
+  if (automatedConditions.has('bloodied')) Hooks.on('updateActor', automateBloodied);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
