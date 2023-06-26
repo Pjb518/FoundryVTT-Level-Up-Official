@@ -1,39 +1,39 @@
 // eslint-disable-next-line import/no-unresolved
 import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
 
-import ActiveEffectA5e from './activeEffect/activeEffect';
-import RestManager from '../managers/RestManager';
+import ActiveEffectA5e from '../activeEffect/activeEffect';
+import RestManager from '../../managers/RestManager';
 
-import AbilityCheckConfigDialog from '../apps/dialogs/ActorAbilityConfigDialog.svelte';
-import ActorHpConfigDialog from '../apps/dialogs/ActorHpConfigDialog.svelte';
-import ActorInitConfigDialog from '../apps/dialogs/ActorInitConfigDialog.svelte';
-import ActorManueverConfigDialog from '../apps/dialogs/ActorManueverConfigDialog.svelte';
-import ActorSpellConfigDialog from '../apps/dialogs/ActorSpellConfigDialog.svelte';
-import ArmorProfConfigDialog from '../apps/dialogs/ArmorProfConfigDialog.svelte';
-import ConditionImmunitiesConfigDialog from '../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
-import CreatureSizeConfigDialog from '../apps/dialogs/CreatureSizeConfigDialog.svelte';
-import CreatureTypeConfigDialog from '../apps/dialogs/CreatureTypeConfigDialog.svelte';
-import DamageImmunitiesConfigDialog from '../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
-import DamageResistancesConfigDialog from '../apps/dialogs/DamageResistancesConfigDialog.svelte';
-import DamageVulnerabilitiesConfigDialog from '../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
-import LanguagesConfigDialog from '../apps/dialogs/LanguagesConfigDialog.svelte';
-import MovementConfigDialog from '../apps/dialogs/MovementConfigDialog.svelte';
-import RestDialog from '../apps/dialogs/RestDialog.svelte';
-import SensesConfigDialog from '../apps/dialogs/SensesConfigDialog.svelte';
-import SkillConfigDialog from '../apps/dialogs/SkillConfigDialog.svelte';
-import ToolProfConfigDialog from '../apps/dialogs/ToolProfConfigDialog.svelte';
-import WeaponProfConfigDialog from '../apps/dialogs/WeaponProfConfigDialog.svelte';
+import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
+import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
+import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svelte';
+import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
+import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.svelte';
+import ArmorProfConfigDialog from '../../apps/dialogs/ArmorProfConfigDialog.svelte';
+import ConditionImmunitiesConfigDialog from '../../apps/dialogs/ConditionImmunitiesConfigDialog.svelte';
+import CreatureSizeConfigDialog from '../../apps/dialogs/CreatureSizeConfigDialog.svelte';
+import CreatureTypeConfigDialog from '../../apps/dialogs/CreatureTypeConfigDialog.svelte';
+import DamageImmunitiesConfigDialog from '../../apps/dialogs/DamageImmunitiesConfigDialog.svelte';
+import DamageResistancesConfigDialog from '../../apps/dialogs/DamageResistancesConfigDialog.svelte';
+import DamageVulnerabilitiesConfigDialog from '../../apps/dialogs/DamageVulnerabilitiesConfigDialog.svelte';
+import LanguagesConfigDialog from '../../apps/dialogs/LanguagesConfigDialog.svelte';
+import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
+import RestDialog from '../../apps/dialogs/RestDialog.svelte';
+import SensesConfigDialog from '../../apps/dialogs/SensesConfigDialog.svelte';
+import SkillConfigDialog from '../../apps/dialogs/SkillConfigDialog.svelte';
+import ToolProfConfigDialog from '../../apps/dialogs/ToolProfConfigDialog.svelte';
+import WeaponProfConfigDialog from '../../apps/dialogs/WeaponProfConfigDialog.svelte';
 
-import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
-import DamageBonusConfigDialog from '../apps/dialogs/initializers/DamageBonusConfigDialog';
-import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
-import HealingBonusConfigDialog from '../apps/dialogs/initializers/HealingBonusConfigDialog';
-import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
-import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
+import AbilityCheckRollDialog from '../../apps/dialogs/initializers/AbilityCheckRollDialog';
+import DamageBonusConfigDialog from '../../apps/dialogs/initializers/DamageBonusConfigDialog';
+import GenericConfigDialog from '../../apps/dialogs/initializers/GenericConfigDialog';
+import HealingBonusConfigDialog from '../../apps/dialogs/initializers/HealingBonusConfigDialog';
+import SavingThrowRollDialog from '../../apps/dialogs/initializers/SavingThrowRollDialog';
+import SkillCheckRollDialog from '../../apps/dialogs/initializers/SkillCheckRollDialog';
 
-import getDeterministicBonus from '../dice/getDeterministicBonus';
-import getRollFormula from '../utils/getRollFormula';
-import overrideRollMode from '../utils/overrideRollMode';
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
+import getRollFormula from '../../utils/getRollFormula';
+import overrideRollMode from '../../utils/overrideRollMode';
 
 export default class ActorA5e extends Actor {
   #configDialogMap;
