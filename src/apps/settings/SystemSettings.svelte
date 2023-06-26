@@ -7,6 +7,7 @@
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
+    import SettingsChatCardTab from "./SettingsChatCardTab.svelte";
 
     export let elementRoot;
     export let { appId, settings, dialog } =
@@ -28,6 +29,11 @@
     }
 
     const tabs = [
+        {
+            name: "chat",
+            label: "A5E.settings.navigation.chat",
+            component: SettingsChatCardTab,
+        },
         {
             name: "effects",
             label: "A5E.settings.navigation.activeEffects",
