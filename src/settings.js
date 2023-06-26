@@ -90,35 +90,35 @@ export default function registerSystemSettings() {
     onChange: reload
   });
 
-  game.settings.register('a5e', 'hideChatDescriptionsByDefault', {
-    name: 'A5E.settings.hideChatDescriptionsByDefault',
-    hint: 'A5E.settings.hints.hideChatDescriptionsByDefault',
-    scope: 'client',
-    config: true,
-    default: false,
-    type: Boolean,
-    onChange: reload
-  });
+  // game.settings.register('a5e', 'hideChatDescriptionsByDefault', {
+  //   name: 'A5E.settings.hideChatDescriptionsByDefault',
+  //   hint: 'A5E.settings.hints.hideChatDescriptionsByDefault',
+  //   scope: 'client',
+  //   config: true,
+  //   default: false,
+  //   type: Boolean,
+  //   onChange: reload
+  // });
 
-  game.settings.register('a5e', 'protectRolls', {
-    name: 'A5E.settings.protectRolls',
-    hint: 'A5E.settings.hints.protectRolls',
-    scope: 'world',
-    config: true,
-    default: false,
-    type: Boolean,
-    onChange: reload
-  });
+  // game.settings.register('a5e', 'protectRolls', {
+  //   name: 'A5E.settings.protectRolls',
+  //   hint: 'A5E.settings.hints.protectRolls',
+  //   scope: 'world',
+  //   config: true,
+  //   default: false,
+  //   type: Boolean,
+  //   onChange: reload
+  // });
 
-  game.settings.register('a5e', 'terseRollFormulae', {
-    name: 'A5E.settings.terseRollFormulae',
-    hint: 'A5E.settings.hints.terseRollFormulae',
-    scope: 'client',
-    config: true,
-    default: false,
-    type: Boolean,
-    onChange: reload
-  });
+  // game.settings.register('a5e', 'terseRollFormulae', {
+  //   name: 'A5E.settings.terseRollFormulae',
+  //   hint: 'A5E.settings.hints.terseRollFormulae',
+  //   scope: 'client',
+  //   config: true,
+  //   default: false,
+  //   type: Boolean,
+  //   onChange: reload
+  // });
 
   // Currency Weight
   game.settings.register('a5e', 'currencyWeight', {
@@ -165,24 +165,6 @@ export default function registerSystemSettings() {
     type: Boolean,
     default: false
   });
-
-  // Enable settings for condition automation
-  // game.settings.register('a5e', 'automatedConditions', {
-  //   name: 'A5E.settings.automateConditions',
-  //   scope: 'world',
-  //   config: false,
-  //   type: Array,
-  //   default: ['bloodied'],
-  //   onChange: reload
-  // });
-
-  // game.settings.registerMenu('a5e', 'ConditionAutomationMenu', {
-  //   name: 'Condition Automation Menu',
-  //   label: 'Configure Condition Automation',
-  //   icon: 'fas fa bars',
-  //   type: ConditionAutomationSettings,
-  //   restricted: true
-  // });
 
   game.settings.registerMenu('a5e', 'SystemSettings', {
     name: 'System Settings',
