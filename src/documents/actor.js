@@ -27,6 +27,7 @@ import WeaponProfConfigDialog from '../apps/dialogs/WeaponProfConfigDialog.svelt
 import AbilityCheckRollDialog from '../apps/dialogs/initializers/AbilityCheckRollDialog';
 import DamageBonusConfigDialog from '../apps/dialogs/initializers/DamageBonusConfigDialog';
 import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
+import HealingBonusConfigDialog from '../apps/dialogs/initializers/HealingBonusConfigDialog';
 import SavingThrowRollDialog from '../apps/dialogs/initializers/SavingThrowRollDialog';
 import SkillCheckRollDialog from '../apps/dialogs/initializers/SkillCheckRollDialog';
 
@@ -495,21 +496,24 @@ export default class ActorA5e extends Actor {
     return abilities[spellcastingAbility].check.mod;
   }
 
-  addDamageBonus() {
-    const damageBonuses = { ...this.system.bonuses.damage };
+  addBonus(type = 'damage') {
+    const bonuses = foundry.utils.duplicate(this.system.bonuses[type] ?? {});
 
-    const newDamageBonus = {
+    const newBonus = {
       context: 'all',
-      damageType: null,
       default: true,
       formula: '',
       label: ''
     };
 
+    if (type === 'damage') newBonus.damageType = null;
+    else if (type === 'healing') newBonus.healingType = null;
+    else return;
+
     this.update({
-      'system.bonuses.damage': {
-        ...damageBonuses,
-        [foundry.utils.randomID()]: newDamageBonus
+      [`system.bonuses.${type}`]: {
+        ...bonuses,
+        [foundry.utils.randomID()]: newBonus
       }
     });
   }
@@ -559,8 +563,14 @@ export default class ActorA5e extends Actor {
     this.#configure('types', title, data, options);
   }
 
-  configureDamageBonus(id) {
-    const dialog = new DamageBonusConfigDialog(this, id);
+  configureBonus(id, type = 'damage') {
+    let DialogComponent;
+
+    if (type === 'damage') DialogComponent = DamageBonusConfigDialog;
+    else if (type === 'healing') DialogComponent = HealingBonusConfigDialog;
+    else return;
+
+    const dialog = new DialogComponent(this, id);
     dialog.render(true);
   }
 
@@ -639,27 +649,34 @@ export default class ActorA5e extends Actor {
     this.#configure('weapons', title, data, options);
   }
 
-  deleteDamageBonus(id) {
+  deleteBonus(id, type = 'damage') {
     this.update({
-      'system.bonuses.damage': {
+      [`system.bonuses.${type}`]: {
         [`-=${id}`]: null
       }
     });
   }
 
-  duplicateDamageBonus(id) {
-    const damageBonuses = { ...this.system.bonuses.damage };
+  duplicateBonus(id, type = 'damage') {
+    let defaultLabel;
+    const bonuses = foundry.utils.duplicate(this.system.bonuses[type] ?? {});
 
-    const newDamageBonus = foundry.utils.duplicate(
-      this.system.bonuses.damage[id]
+    if (foundry.utils.isEmpty(bonuses)) return;
+
+    const newBonus = foundry.utils.duplicate(
+      this.system.bonuses[type][id]
     );
 
-    newDamageBonus.label = `${newDamageBonus.label || 'New Damage Bonus'} (Copy)`;
+    if (type === 'damage') defaultLabel = localize('A5E.NewDamageBonus');
+    else if (type === 'healing') defaultLabel = localize('A5E.NewHealingBonus');
+    else defaultLabel = 'New Bonus';
+
+    newBonus.label = `${newBonus.label || defaultLabel} (Copy)`;
 
     this.update({
-      'system.bonuses.damage': {
-        ...damageBonuses,
-        [foundry.utils.randomID()]: newDamageBonus
+      [`system.bonuses.${type}`]: {
+        ...bonuses,
+        [foundry.utils.randomID()]: newBonus
       }
     });
   }

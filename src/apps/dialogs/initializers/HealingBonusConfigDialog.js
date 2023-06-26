@@ -4,18 +4,18 @@ import { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 // eslint-disable-next-line import/no-unresolved
 import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store';
 
-import DamageBonusDialog from '../DamageBonusConfigDialog.svelte';
+import HealingBonusDialog from '../HealingBonusConfigDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class DamageBonusConfigDialog extends TJSDialog {
-  constructor(actor, damageBonusId, options = {}) {
+export default class HealingBonusConfigDialog extends TJSDialog {
+  constructor(actor, healingBonusId, options = {}) {
     super({
-      title: `${actor.name} Damage Bonus Configuration`,
+      title: `${actor.name} Healing Bonus Configuration`,
       content: {
-        class: DamageBonusDialog,
-        props: { actor: new TJSDocument(actor), damageBonusId }
+        class: HealingBonusDialog,
+        props: { actor: new TJSDocument(actor), healingBonusId }
       }
     }, {
       classes: ['a5e-sheet'],
